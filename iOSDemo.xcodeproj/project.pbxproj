@@ -74,6 +74,27 @@
 		AE9F32A61F69176E00339BB8 /* NovelSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32A51F69176E00339BB8 /* NovelSearchViewModel.swift */; };
 		AE9F32AA1F6918EA00339BB8 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32A91F6918EA00339BB8 /* APIManager.swift */; };
 		AE9F32AC1F692A8600339BB8 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32AB1F692A8600339BB8 /* Moya.framework */; };
+		AE9F32AD1F693BA800339BB8 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32351F690F3500339BB8 /* MJRefreshAutoFooter.m */; };
+		AE9F32AE1F693BAE00339BB8 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32371F690F3500339BB8 /* MJRefreshBackFooter.m */; };
+		AE9F32AF1F693BB000339BB8 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32391F690F3500339BB8 /* MJRefreshComponent.m */; };
+		AE9F32B01F693BB300339BB8 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F323B1F690F3500339BB8 /* MJRefreshFooter.m */; };
+		AE9F32B11F693BB500339BB8 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F323D1F690F3500339BB8 /* MJRefreshHeader.m */; };
+		AE9F32B21F693BBC00339BB8 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32581F690F3500339BB8 /* MJRefreshConst.m */; };
+		AE9F32B31F693BBE00339BB8 /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F325A1F690F3500339BB8 /* NSBundle+MJRefresh.m */; };
+		AE9F32B41F693BC000339BB8 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F325C1F690F3500339BB8 /* UIScrollView+MJExtension.m */; };
+		AE9F32B51F693BC300339BB8 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F325E1F690F3500339BB8 /* UIScrollView+MJRefresh.m */; };
+		AE9F32B61F693BC500339BB8 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32601F690F3500339BB8 /* UIView+MJExtension.m */; };
+		AE9F32B71F693BE200339BB8 /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32501F690F3500339BB8 /* MJRefreshGifHeader.m */; };
+		AE9F32B81F693BE400339BB8 /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32521F690F3500339BB8 /* MJRefreshNormalHeader.m */; };
+		AE9F32B91F693BE700339BB8 /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32541F690F3500339BB8 /* MJRefreshStateHeader.m */; };
+		AE9F32BA1F693BEE00339BB8 /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32491F690F3500339BB8 /* MJRefreshBackGifFooter.m */; };
+		AE9F32BB1F693BF000339BB8 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F324B1F690F3500339BB8 /* MJRefreshBackNormalFooter.m */; };
+		AE9F32BC1F693BF200339BB8 /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F324D1F690F3500339BB8 /* MJRefreshBackStateFooter.m */; };
+		AE9F32BD1F693BF600339BB8 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32421F690F3500339BB8 /* MJRefreshAutoGifFooter.m */; };
+		AE9F32BE1F693BF800339BB8 /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32441F690F3500339BB8 /* MJRefreshAutoNormalFooter.m */; };
+		AE9F32BF1F693BFA00339BB8 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32461F690F3500339BB8 /* MJRefreshAutoStateFooter.m */; };
+		AE9F32C11F693F4500339BB8 /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32C01F693F4500339BB8 /* RxMoya.framework */; };
+		AE9F32C31F693F9B00339BB8 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32C21F693F9B00339BB8 /* Result.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +177,8 @@
 		AE9F32A71F6917A300339BB8 /* bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		AE9F32A91F6918EA00339BB8 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		AE9F32AB1F692A8600339BB8 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
+		AE9F32C01F693F4500339BB8 /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
+		AE9F32C21F693F9B00339BB8 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +204,8 @@
 				AE9F32AC1F692A8600339BB8 /* Moya.framework in Frameworks */,
 				AE9F32211F690DCC00339BB8 /* RxSwift.framework in Frameworks */,
 				AE9F321F1F690DC400339BB8 /* TangramKit.framework in Frameworks */,
+				AE9F32C11F693F4500339BB8 /* RxMoya.framework in Frameworks */,
+				AE9F32C31F693F9B00339BB8 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +263,8 @@
 		AE9F321B1F690DBF00339BB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE9F32C21F693F9B00339BB8 /* Result.framework */,
+				AE9F32C01F693F4500339BB8 /* RxMoya.framework */,
 				AE9F32AB1F692A8600339BB8 /* Moya.framework */,
 				AE9F322E1F690DEB00339BB8 /* Alamofire.framework */,
 				AE9F322C1F690DDA00339BB8 /* IQKeyboardManagerSwift.framework */,
@@ -568,6 +595,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RXCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RXBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Moya.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RXMoya.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 			);
 			outputPaths = (
 			);
@@ -623,22 +652,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE9F329D1F6911C200339BB8 /* TimeSpan.swift in Sources */,
+				AE9F32BD1F693BF600339BB8 /* MJRefreshAutoGifFooter.m in Sources */,
 				AE9F329A1F6911BA00339BB8 /* GrandStore.swift in Sources */,
 				AE9F32A01F6911F700339BB8 /* GrandCue.swift in Sources */,
 				AE9F32981F6911B300339BB8 /* GrandModel.swift in Sources */,
+				AE9F32B41F693BC000339BB8 /* UIScrollView+MJExtension.m in Sources */,
+				AE9F32BB1F693BF000339BB8 /* MJRefreshBackNormalFooter.m in Sources */,
 				AE9F32A21F69144900339BB8 /* ResultInfo.swift in Sources */,
+				AE9F32BF1F693BFA00339BB8 /* MJRefreshAutoStateFooter.m in Sources */,
 				AE9F32921F69103C00339BB8 /* NovelInfo.swift in Sources */,
 				AE9F32971F6911B100339BB8 /* GrandModel+Map.swift in Sources */,
+				AE9F32B81F693BE400339BB8 /* MJRefreshNormalHeader.m in Sources */,
+				AE9F32BA1F693BEE00339BB8 /* MJRefreshBackGifFooter.m in Sources */,
+				AE9F32B51F693BC300339BB8 /* UIScrollView+MJRefresh.m in Sources */,
+				AE9F32B21F693BBC00339BB8 /* MJRefreshConst.m in Sources */,
 				AE9F32941F69108600339BB8 /* Config.swift in Sources */,
 				AE9F329C1F6911C000339BB8 /* GrandTime.swift in Sources */,
 				AE9F32961F6911AE00339BB8 /* GrandModel+Convert.swift in Sources */,
 				AE9F320E1F69087E00339BB8 /* ViewController.swift in Sources */,
 				AE9F32A61F69176E00339BB8 /* NovelSearchViewModel.swift in Sources */,
+				AE9F32AF1F693BB000339BB8 /* MJRefreshComponent.m in Sources */,
 				AE9F32AA1F6918EA00339BB8 /* APIManager.swift in Sources */,
 				AE9F320C1F69087E00339BB8 /* AppDelegate.swift in Sources */,
+				AE9F32AE1F693BAE00339BB8 /* MJRefreshBackFooter.m in Sources */,
 				AE9F32951F6911A600339BB8 /* UIView+Base.swift in Sources */,
+				AE9F32BC1F693BF200339BB8 /* MJRefreshBackStateFooter.m in Sources */,
 				AE9F32991F6911B500339BB8 /* GrandType.swift in Sources */,
+				AE9F32BE1F693BF800339BB8 /* MJRefreshAutoNormalFooter.m in Sources */,
+				AE9F32B31F693BBE00339BB8 /* NSBundle+MJRefresh.m in Sources */,
+				AE9F32B61F693BC500339BB8 /* UIView+MJExtension.m in Sources */,
+				AE9F32AD1F693BA800339BB8 /* MJRefreshAutoFooter.m in Sources */,
+				AE9F32B91F693BE700339BB8 /* MJRefreshStateHeader.m in Sources */,
+				AE9F32B71F693BE200339BB8 /* MJRefreshGifHeader.m in Sources */,
 				AE9F329B1F6911BE00339BB8 /* GrandTimer.swift in Sources */,
+				AE9F32B01F693BB300339BB8 /* MJRefreshFooter.m in Sources */,
+				AE9F32B11F693BB500339BB8 /* MJRefreshHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,7 +840,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = (
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(PROJECT_DIR)/Library/MJRefresh",
+				);
 				INFOPLIST_FILE = Novel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -812,7 +863,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = (
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(PROJECT_DIR)/Library/MJRefresh",
+				);
 				INFOPLIST_FILE = Novel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

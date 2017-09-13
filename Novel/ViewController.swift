@@ -12,73 +12,44 @@ class ViewController: UIViewController {
     let txtSearch = UITextField()
     let btnSearch = UIButton()
     let tb = UITableView()
-    var arrNovel = [NovelInfo]()
+
     var index = 0
     var key = ""
     var isLoadAll = false
     var isLoading = false
+    
+    let vm = NovelSearchViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.white
         navigationItem.title = "搜索小说"
         
-        
         txtSearch.setFrame(frame:  CGRect(x: 5, y: NavigationBarHeight + 5, width: ScreenWidth - 60, height: 30)).borderColor(color: UIColor.lightGray).borderWidth(width: 1).addTo(view: view).completed()
         txtSearch.placeholder = "输入书名搜索"
         txtSearch.addOffsetView(value: 10)
-        btnSearch.setFrame(frame:  CGRect(x: ScreenWidth - 55, y: NavigationBarHeight + 5, width: 55, height: 30)).title(title: "搜索").color(color: UIColor.blue).setFont(font: 16).setTarget(self, action: #selector(ViewController.searchNovel(sender:))).addTo(view: view).completed()
-        //        txtSearch.text = "星辰变"
+        btnSearch.setFrame(frame:  CGRect(x: ScreenWidth - 55, y: NavigationBarHeight + 5, width: 55, height: 30)).title(title: "搜索").color(color: UIColor.blue).setFont(font: 16).addTo(view: view).completed()
+        txtSearch.text = "星辰变"
         tb.setFrame(frame: CGRect(x: 0, y: NavigationBarHeight + 40, width: ScreenWidth, height: ScreenHeight - 40 - NavigationBarHeight)).addTo(view: view).completed()
-        tb.register(NovelTbCell.self, forCellReuseIdentifier: "cell")
-        tb.register(LoadMoreCell.self, forCellReuseIdentifier: "moreCell")
-        tb.dataSource = self
-        tb.delegate = self
-        tb.tableFooterView = UIView()
+        vm.tb = tb
+        vm.bind()
+        
+        tb.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            self.vm.requestNewDataCommond.onNext(true)
+        })
+        
+       tb.mj_header.beginRefreshing()
+        
         
         let buttonSaveBoookmark = UIBarButtonItem(title: "查看书签", style: .plain, target: self, action: #selector(ViewController.checkBBookmark))
         navigationItem.rightBarButtonItem = buttonSaveBoookmark
         
     }
 
-    func searchNovel(sender:UIButton)  {
-        txtSearch.resignFirstResponder()
-        guard let key = txtSearch.text else {
-            GrandCue.toast("小说名不能为空")
-            return
-        }
-        if (key as NSString).length <= 0{
-            GrandCue.toast("小说名不能为空")
-            return
-        }
-        index = 0
-        self.key = key
-        isLoadAll = false
-        getNovels()
-    }
+
     
-    func getNovels() {
-        isLoading = true
-        GrandCue.showLoading()
-        NovelInfo.searchNovel(key: key, index: index,cb: { (novels) in
-            GrandCue.dismissLoading()
-            self.isLoading = false
-            if novels.count <= 0{
-                GrandCue.toast("找不到数据")
-                self.isLoadAll = true
-                return
-            }
-            self.isLoadAll = false
-            if self.index == 0{
-                self.arrNovel.removeAll()
-            }
-            for vn in novels{
-                self.arrNovel.append(vn)
-            }
-            self.index += 1
-            self.tb.reloadData()
-        })
-    }
+
 
     
     func checkBBookmark() {
@@ -86,64 +57,11 @@ class ViewController: UIViewController {
 //        navigationController?.pushViewController(vc, animated: true)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
 
 }
 
-extension ViewController:UITableViewDelegate,UITableViewDataSource{
-    @available(iOS 2.0, *)
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if arrNovel.count == 0{
-            return 0
-        }
-        else if !isLoadAll{
-            return arrNovel.count + 1
-        }
-        return arrNovel.count
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == arrNovel.count{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "moreCell", for: indexPath) as! LoadMoreCell
-            cell.selectionStyle  = .none
-            cell.spin.startAnimating()
-            return cell
-        }
-        else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NovelTbCell
-            cell.novelIndo = arrNovel[indexPath.row]
-            return cell
-            
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == arrNovel.count{
-            return 50
-        }
-        return 160
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if !isLoadAll {
-            if indexPath.row >= arrNovel.count && !isLoading{
-                getNovels()
-            }
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = SectionListViewController()
-//        vc.novelInfo = arrNovel[indexPath.row]
-//        navigationController?.pushViewController(vc, animated: true)
-        
-    }
-}
+
 
 class NovelTbCell: UITableViewCell {
     let imgNovel = UIImageView()
