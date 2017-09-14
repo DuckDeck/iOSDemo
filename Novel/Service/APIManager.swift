@@ -39,7 +39,7 @@ extension APIManager:TargetType{
     var task: Moya.Task {
         switch self {
          case .GetSearch(let key, let index):
-            let params = ["q":key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
+            let params = ["q":key,
                           "p":index,
                           "isNeedCheckDomain":1,
                           "jump":"1",

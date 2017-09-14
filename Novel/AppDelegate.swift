@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import IQKeyboardManagerSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let nav = UINavigationController(rootViewController: mainViewController)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
+        
+      IQKeyboardManager.sharedManager().enable = true
+        
         return true
     }
 

@@ -13,6 +13,7 @@ import Moya
 import Kanna
 import RxMoya
 import Result
+import RxBlocking
 enum RefreshStatus {
     case none
     case beginHeaderRefresh
@@ -34,16 +35,21 @@ class NovelSearchViewModel {
        var pushCloure : ClosureType?
        var pageIndex = 0
        var tb : UITableView
-        var key :Driver<String>
+       var key :Driver<String>
+      var keyStr = Variable<String>.init("")
        var searchCommand :Driver<Void>
     
      init(input:(tb:UITableView,searchKey:Driver<String>,searchTap:Driver<Void>)) {
         tb = input.tb
         key = input.searchKey
+        key.drive(keyStr).addDisposableTo(bag)
         searchCommand = input.searchTap
+        bind()
      }
     
       func bind(){
+         weak var wkself = self
+        
           tb.register(NovelTbCell.self, forCellReuseIdentifier: cellID)
           tb.register(LoadMoreCell.self, forCellReuseIdentifier: "moreCell")
           tb.tableFooterView = UIView()
@@ -58,9 +64,10 @@ class NovelSearchViewModel {
         }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
         
         requestNewDataCommond.subscribe { [weak self](event) in
+           Tool.hiddenKeyboard()
             if event.element!{
                 self?.pageIndex = 0
-                self?.provider.request(.GetSearch(self!.key.fla,self!.pageIndex)).filterSuccessfulStatusCodes().mapString().mapNovelInfo().subscribe({ (str) in
+                self?.provider.request(.GetSearch(self!.keyStr.value,self!.pageIndex)).filterSuccessfulStatusCodes().mapString().mapNovelInfo().subscribe({ (str) in
                     switch(str){
                     case let .success(result):
                             self?.modelObserable.value = result.data! as! [NovelInfo]
@@ -74,7 +81,7 @@ class NovelSearchViewModel {
             }
             else{
                 self?.pageIndex += 1
-                self?.provider.request(.GetSearch(self!.key,self!.pageIndex)).filterSuccessfulStatusCodes().mapString().mapNovelInfo().subscribe({ (str) in
+                self?.provider.request(.GetSearch(self!.keyStr.value,self!.pageIndex)).filterSuccessfulStatusCodes().mapString().mapNovelInfo().subscribe({ (str) in
                     switch(str){
                     case let .success(result):
                         let res = result.data! as! [NovelInfo]
@@ -94,21 +101,27 @@ class NovelSearchViewModel {
             }
         }.addDisposableTo(bag)
         
+   
         
+        searchCommand.drive(onNext: {
+            wkself?.tb.mj_header.beginRefreshing() //怎么样在这个地方收起键盘
+            
+        }, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
         
+
         refreshStateObserable.asObservable().subscribe(onNext: { (status) in
             switch(status){
             case .beginHeaderRefresh:
-                self.tb.mj_header.beginRefreshing()
+                wkself?.tb.mj_header.beginRefreshing()
             case .endHeaderRefresh:
-                self.tb.mj_header.endRefreshing()
-                self.tb.mj_footer.resetNoMoreData()
+                wkself?.tb.mj_header.endRefreshing()
+                wkself?.tb.mj_footer.resetNoMoreData()
             case .beginFooterRefresh:
-                self.tb.mj_footer.beginRefreshing()
+                wkself?.tb.mj_footer.beginRefreshing()
             case .endFooterRefresh:
-                self.tb.mj_footer.endRefreshing()
+                wkself?.tb.mj_footer.endRefreshing()
             case .noMoreData:
-                self.tb.mj_footer.endRefreshingWithNoMoreData()
+                wkself?.tb.mj_footer.endRefreshingWithNoMoreData()
             default:
                 break
             }

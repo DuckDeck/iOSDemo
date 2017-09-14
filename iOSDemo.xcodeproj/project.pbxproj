@@ -97,27 +97,11 @@
 		AE9F32C51F6A16E700339BB8 /* ToModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32C41F6A16E700339BB8 /* ToModelExtension.swift */; };
 		AE9F32C91F6A5F1400339BB8 /* NovelTbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32C81F6A5F1400339BB8 /* NovelTbCell.swift */; };
 		AE9F32CA1F6A678600339BB8 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32221F690DCE00339BB8 /* RxCocoa.framework */; };
-		AEB771F31F6A6D68008C4365 /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AEB771F21F6A6D68008C4365 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEB771F51F6A6E0E008C4365 /* RxBlocking.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AEB771F41F6A6E0E008C4365 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEB771F71F6A6E63008C4365 /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AEB771F61F6A6E63008C4365 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEB771F91F6A6EB5008C4365 /* RxMoya.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AEB771F81F6A6EB5008C4365 /* RxMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
+		AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
+		AEB772011F6A81F4008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
+		AEB772021F6A8236008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		AEB771F11F6A6D50008C4365 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				AEB771F91F6A6EB5008C4365 /* RxMoya.framework in CopyFiles */,
-				AEB771F71F6A6E63008C4365 /* RxSwift.framework in CopyFiles */,
-				AEB771F51F6A6E0E008C4365 /* RxBlocking.framework in CopyFiles */,
-				AEB771F31F6A6D68008C4365 /* RxCocoa.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,10 +187,8 @@
 		AE9F32C21F693F9B00339BB8 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		AE9F32C41F6A16E700339BB8 /* ToModelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToModelExtension.swift; sourceTree = "<group>"; };
 		AE9F32C81F6A5F1400339BB8 /* NovelTbCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelTbCell.swift; sourceTree = "<group>"; };
-		AEB771F21F6A6D68008C4365 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		AEB771F41F6A6E0E008C4365 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
-		AEB771F61F6A6E63008C4365 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		AEB771F81F6A6EB5008C4365 /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
+		AEB771FD1F6A8089008C4365 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
+		AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Base.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,10 +225,6 @@
 		AE9F31C91F69070E00339BB8 = {
 			isa = PBXGroup;
 			children = (
-				AEB771F81F6A6EB5008C4365 /* RxMoya.framework */,
-				AEB771F61F6A6E63008C4365 /* RxSwift.framework */,
-				AEB771F41F6A6E0E008C4365 /* RxBlocking.framework */,
-				AEB771F21F6A6D68008C4365 /* RxCocoa.framework */,
 				AE9F32311F690F1B00339BB8 /* Library */,
 				AE9F31D41F69070E00339BB8 /* iOSDemo */,
 				AE9F320A1F69087E00339BB8 /* Novel */,
@@ -316,6 +294,7 @@
 		AE9F32311F690F1B00339BB8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				AEB771FC1F6A807D008C4365 /* Tool */,
 				AE9F328F1F690FE100339BB8 /* Base */,
 				AE9F328C1F690FBA00339BB8 /* Extension */,
 				AE9F328B1F690F9000339BB8 /* Config */,
@@ -472,6 +451,7 @@
 			isa = PBXGroup;
 			children = (
 				AE9F328D1F690FD200339BB8 /* UIView+Base.swift */,
+				AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -517,6 +497,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		AEB771FC1F6A807D008C4365 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				AEB771FD1F6A8089008C4365 /* Tool.swift */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -545,7 +533,6 @@
 				AE9F32061F69087E00339BB8 /* Frameworks */,
 				AE9F32071F69087E00339BB8 /* Resources */,
 				AE9F32301F690E0F00339BB8 /* ShellScript */,
-				AEB771F11F6A6D50008C4365 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -673,7 +660,9 @@
 				AE9F326D1F690F3500339BB8 /* MJRefreshNormalHeader.m in Sources */,
 				AE9F32691F690F3500339BB8 /* MJRefreshBackGifFooter.m in Sources */,
 				AE9F32621F690F3500339BB8 /* MJRefreshBackFooter.m in Sources */,
+				AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */,
 				AE9F32671F690F3500339BB8 /* MJRefreshAutoNormalFooter.m in Sources */,
+				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
 				AE9F32861F690F5200339BB8 /* GrandType.swift in Sources */,
 				AE9F32A31F69144C00339BB8 /* ResultInfo.swift in Sources */,
@@ -720,6 +709,7 @@
 				AE9F32AE1F693BAE00339BB8 /* MJRefreshBackFooter.m in Sources */,
 				AE9F32951F6911A600339BB8 /* UIView+Base.swift in Sources */,
 				AE9F32BC1F693BF200339BB8 /* MJRefreshBackStateFooter.m in Sources */,
+				AEB772021F6A8236008C4365 /* UIWindow+Base.swift in Sources */,
 				AE9F32991F6911B500339BB8 /* GrandType.swift in Sources */,
 				AE9F32BE1F693BF800339BB8 /* MJRefreshAutoNormalFooter.m in Sources */,
 				AE9F32C91F6A5F1400339BB8 /* NovelTbCell.swift in Sources */,
@@ -727,6 +717,7 @@
 				AE9F32B61F693BC500339BB8 /* UIView+MJExtension.m in Sources */,
 				AE9F32AD1F693BA800339BB8 /* MJRefreshAutoFooter.m in Sources */,
 				AE9F32B91F693BE700339BB8 /* MJRefreshStateHeader.m in Sources */,
+				AEB772011F6A81F4008C4365 /* Tool.swift in Sources */,
 				AE9F32B71F693BE200339BB8 /* MJRefreshGifHeader.m in Sources */,
 				AE9F329B1F6911BE00339BB8 /* GrandTimer.swift in Sources */,
 				AE9F32C51F6A16E700339BB8 /* ToModelExtension.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import RxSwift
 class ViewController: UIViewController {
     let txtSearch = UITextField()
     let btnSearch = UIButton()
@@ -18,11 +19,11 @@ class ViewController: UIViewController {
     var isLoadAll = false
     var isLoading = false
     
-    let vm = NovelSearchViewModel()
+    var vm : NovelSearchViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+         weak var wkself = self
         view.backgroundColor = UIColor.white
         navigationItem.title = "搜索小说"
         
@@ -31,22 +32,29 @@ class ViewController: UIViewController {
         txtSearch.addOffsetView(value: 10)
         btnSearch.setFrame(frame:  CGRect(x: ScreenWidth - 55, y: NavigationBarHeight + 5, width: 55, height: 30)).title(title: "搜索").color(color: UIColor.blue).setFont(font: 16).addTo(view: view).completed()
         txtSearch.text = "星辰变"
+        txtSearch.returnKeyType = .search
         tb.setFrame(frame: CGRect(x: 0, y: NavigationBarHeight + 40, width: ScreenWidth, height: ScreenHeight - 40 - NavigationBarHeight)).addTo(view: view).completed()
         tb.estimatedRowHeight = 60
         tb.rowHeight = UITableViewAutomaticDimension
-        vm.tb = tb
-        vm.key = "完美"
-        vm.bind()
+        
+        vm = NovelSearchViewModel(input: (tb,txtSearch.rx.text.orEmpty.asDriver(),btnSearch.rx.tap.asDriver()))
+        
+        txtSearch.rx.controlEvent([.editingDidEndOnExit]).subscribe(onNext: {
+            wkself?.tb.mj_header.beginRefreshing()
+        }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(vm!.bag)
+        
+       
         
         tb.mj_header = MJRefreshNormalHeader(refreshingBlock: {
-            self.vm.requestNewDataCommond.onNext(true)
+            wkself?.vm?.requestNewDataCommond.onNext(true)
         })
         
         tb.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
-            self.vm.requestNewDataCommond.onNext(false)
+            wkself?.vm?.requestNewDataCommond.onNext(false)
         })
         
        tb.mj_header.beginRefreshing()
+        
         
         
         let buttonSaveBoookmark = UIBarButtonItem(title: "查看书签", style: .plain, target: self, action: #selector(ViewController.checkBBookmark))
