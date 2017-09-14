@@ -13,11 +13,6 @@ class ViewController: UIViewController {
     let txtSearch = UITextField()
     let btnSearch = UIButton()
     let tb = UITableView()
-
-    var index = 0
-    var key = ""
-    var isLoadAll = false
-    var isLoading = false
     
     var vm : NovelSearchViewModel?
     
@@ -34,7 +29,7 @@ class ViewController: UIViewController {
         txtSearch.text = "星辰变"
         txtSearch.returnKeyType = .search
         tb.setFrame(frame: CGRect(x: 0, y: NavigationBarHeight + 40, width: ScreenWidth, height: ScreenHeight - 40 - NavigationBarHeight)).addTo(view: view).completed()
-        tb.estimatedRowHeight = 60
+        tb.estimatedRowHeight = 160
         tb.rowHeight = UITableViewAutomaticDimension
         
         vm = NovelSearchViewModel(input: (tb,txtSearch.rx.text.orEmpty.asDriver(),btnSearch.rx.tap.asDriver()))
@@ -42,6 +37,7 @@ class ViewController: UIViewController {
         txtSearch.rx.controlEvent([.editingDidEndOnExit]).subscribe(onNext: {
             wkself?.tb.mj_header.beginRefreshing()
         }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(vm!.bag)
+        
         
        
         
@@ -55,18 +51,12 @@ class ViewController: UIViewController {
         
        tb.mj_header.beginRefreshing()
         
-        
-        
         let buttonSaveBoookmark = UIBarButtonItem(title: "查看书签", style: .plain, target: self, action: #selector(ViewController.checkBBookmark))
         navigationItem.rightBarButtonItem = buttonSaveBoookmark
         
     }
 
 
-    
-
-
-    
     func checkBBookmark() {
 //        let vc = BookmarkViewController()
 //        navigationController?.pushViewController(vc, animated: true)

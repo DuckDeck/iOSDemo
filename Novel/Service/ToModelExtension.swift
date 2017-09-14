@@ -12,10 +12,8 @@ import Moya
 import Kanna
 extension PrimitiveSequence where TraitType == SingleTrait, ElementType == String{
       func mapNovelInfo() -> Single<ResultInfo> {
-        
-        Log(message: self)
          var result = ResultInfo()
-        return flatMap { res -> Single<ResultInfo> in
+         return flatMap { res -> Single<ResultInfo> in
                 guard let doc =  HTML(html: res, encoding: .utf8) else{
                     result.code = 10
                     result.message = "解析HTML错误"
@@ -44,13 +42,7 @@ extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Strin
                     arrVovels.append(novel)
                 }
                 result.data = arrVovels
-            
             return Single.just(result)
         }
-        
-        
-
-
-
    }
 }
