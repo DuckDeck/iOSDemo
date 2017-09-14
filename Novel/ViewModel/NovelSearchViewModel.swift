@@ -10,7 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Moya
+import Kanna
 import RxMoya
+import Result
 enum RefreshStatus {
     case none
     case beginHeaderRefresh
@@ -21,16 +23,25 @@ enum RefreshStatus {
 }
 let cellID = "cell"
 typealias ClosureType = (Int) -> Void
-class NovelSearchViewModel: NSObject {
+class NovelSearchViewModel {
+
+
        var bag : DisposeBag = DisposeBag()
-       let provider = RxMoyaProvider<APIManager>()
+       let provider = RxMoyaProvider<APIManager>(requestClosure:MoyaProvider.myRequestMapping)
        var modelObserable = Variable<[NovelInfo]> ([])
        var refreshStateObserable = Variable<RefreshStatus>(.none)
        let requestNewDataCommond =  PublishSubject<Bool>()
        var pushCloure : ClosureType?
        var pageIndex = 0
-       var tb = UITableView()
-      var key = ""
+       var tb : UITableView
+        var key :Driver<String>
+       var searchCommand :Driver<Void>
+    
+     init(input:(tb:UITableView,searchKey:Driver<String>,searchTap:Driver<Void>)) {
+        tb = input.tb
+        key = input.searchKey
+        searchCommand = input.searchTap
+     }
     
       func bind(){
           tb.register(NovelTbCell.self, forCellReuseIdentifier: cellID)
@@ -40,6 +51,8 @@ class NovelSearchViewModel: NSObject {
                 cell.novelIndo = model
           }.addDisposableTo(bag)
         
+        
+        
         tb.rx.itemSelected.subscribe(onNext: { (index) in
                 Log(message: "\(index)")
         }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
@@ -47,11 +60,41 @@ class NovelSearchViewModel: NSObject {
         requestNewDataCommond.subscribe { [weak self](event) in
             if event.element!{
                 self?.pageIndex = 0
-                self?.provider.request(.GetSearch(self!.key,self!.pageIndex)).filterSuccessfulStatusCodes().mapString().subscribe({ (str) in
-                    Log(message: str)
+                self?.provider.request(.GetSearch(self!.key.fla,self!.pageIndex)).filterSuccessfulStatusCodes().mapString().mapNovelInfo().subscribe({ (str) in
+                    switch(str){
+                    case let .success(result):
+                            self?.modelObserable.value = result.data! as! [NovelInfo]
+                            self?.refreshStateObserable.value = .endHeaderRefresh
+                    case let  .error(err):
+                        Log(message: err)
+                        self?.refreshStateObserable.value = .endHeaderRefresh
+                        GrandCue.toast(err.localizedDescription)
+                    }
+                }).addDisposableTo(self!.bag)
+            }
+            else{
+                self?.pageIndex += 1
+                self?.provider.request(.GetSearch(self!.key,self!.pageIndex)).filterSuccessfulStatusCodes().mapString().mapNovelInfo().subscribe({ (str) in
+                    switch(str){
+                    case let .success(result):
+                        let res = result.data! as! [NovelInfo]
+                        if res.count <= 0 {
+                             self?.refreshStateObserable.value = .noMoreData
+                        }
+                        else{
+                            self?.modelObserable.value += res
+                             self?.refreshStateObserable.value = .endFooterRefresh
+                        }
+                    case let  .error(err):
+                        
+                        self?.refreshStateObserable.value = .endFooterRefresh
+                        GrandCue.toast(err.localizedDescription)
+                    }
                 }).addDisposableTo(self!.bag)
             }
         }.addDisposableTo(bag)
+        
+        
         
         refreshStateObserable.asObservable().subscribe(onNext: { (status) in
             switch(status){

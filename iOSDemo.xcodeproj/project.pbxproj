@@ -18,7 +18,6 @@
 		AE9F321D1F690DBF00339BB8 /* WSProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F321C1F690DBF00339BB8 /* WSProgressHUD.framework */; };
 		AE9F321F1F690DC400339BB8 /* TangramKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F321E1F690DC400339BB8 /* TangramKit.framework */; };
 		AE9F32211F690DCC00339BB8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32201F690DCC00339BB8 /* RxSwift.framework */; };
-		AE9F32231F690DCE00339BB8 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32221F690DCE00339BB8 /* RxCocoa.framework */; };
 		AE9F32251F690DD000339BB8 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32241F690DD000339BB8 /* RxBlocking.framework */; };
 		AE9F32271F690DD300339BB8 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32261F690DD300339BB8 /* Kingfisher.framework */; };
 		AE9F32291F690DD500339BB8 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32281F690DD500339BB8 /* Kanna.framework */; };
@@ -95,7 +94,30 @@
 		AE9F32BF1F693BFA00339BB8 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32461F690F3500339BB8 /* MJRefreshAutoStateFooter.m */; };
 		AE9F32C11F693F4500339BB8 /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32C01F693F4500339BB8 /* RxMoya.framework */; };
 		AE9F32C31F693F9B00339BB8 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32C21F693F9B00339BB8 /* Result.framework */; };
+		AE9F32C51F6A16E700339BB8 /* ToModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32C41F6A16E700339BB8 /* ToModelExtension.swift */; };
+		AE9F32C91F6A5F1400339BB8 /* NovelTbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32C81F6A5F1400339BB8 /* NovelTbCell.swift */; };
+		AE9F32CA1F6A678600339BB8 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32221F690DCE00339BB8 /* RxCocoa.framework */; };
+		AEB771F31F6A6D68008C4365 /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AEB771F21F6A6D68008C4365 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AEB771F51F6A6E0E008C4365 /* RxBlocking.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AEB771F41F6A6E0E008C4365 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AEB771F71F6A6E63008C4365 /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AEB771F61F6A6E63008C4365 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AEB771F91F6A6EB5008C4365 /* RxMoya.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AEB771F81F6A6EB5008C4365 /* RxMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AEB771F11F6A6D50008C4365 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AEB771F91F6A6EB5008C4365 /* RxMoya.framework in CopyFiles */,
+				AEB771F71F6A6E63008C4365 /* RxSwift.framework in CopyFiles */,
+				AEB771F51F6A6E0E008C4365 /* RxBlocking.framework in CopyFiles */,
+				AEB771F31F6A6D68008C4365 /* RxCocoa.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +201,12 @@
 		AE9F32AB1F692A8600339BB8 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
 		AE9F32C01F693F4500339BB8 /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
 		AE9F32C21F693F9B00339BB8 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		AE9F32C41F6A16E700339BB8 /* ToModelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToModelExtension.swift; sourceTree = "<group>"; };
+		AE9F32C81F6A5F1400339BB8 /* NovelTbCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelTbCell.swift; sourceTree = "<group>"; };
+		AEB771F21F6A6D68008C4365 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		AEB771F41F6A6E0E008C4365 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		AEB771F61F6A6E63008C4365 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		AEB771F81F6A6EB5008C4365 /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,11 +223,11 @@
 			files = (
 				AE9F322D1F690DDA00339BB8 /* IQKeyboardManagerSwift.framework in Frameworks */,
 				AE9F322F1F690DEB00339BB8 /* Alamofire.framework in Frameworks */,
+				AE9F32CA1F6A678600339BB8 /* RxCocoa.framework in Frameworks */,
 				AE9F322B1F690DD700339BB8 /* JLRoutes.framework in Frameworks */,
 				AE9F32271F690DD300339BB8 /* Kingfisher.framework in Frameworks */,
 				AE9F321D1F690DBF00339BB8 /* WSProgressHUD.framework in Frameworks */,
 				AE9F32291F690DD500339BB8 /* Kanna.framework in Frameworks */,
-				AE9F32231F690DCE00339BB8 /* RxCocoa.framework in Frameworks */,
 				AE9F32251F690DD000339BB8 /* RxBlocking.framework in Frameworks */,
 				AE9F32AC1F692A8600339BB8 /* Moya.framework in Frameworks */,
 				AE9F32211F690DCC00339BB8 /* RxSwift.framework in Frameworks */,
@@ -215,6 +243,10 @@
 		AE9F31C91F69070E00339BB8 = {
 			isa = PBXGroup;
 			children = (
+				AEB771F81F6A6EB5008C4365 /* RxMoya.framework */,
+				AEB771F61F6A6E63008C4365 /* RxSwift.framework */,
+				AEB771F41F6A6E0E008C4365 /* RxBlocking.framework */,
+				AEB771F21F6A6D68008C4365 /* RxCocoa.framework */,
 				AE9F32311F690F1B00339BB8 /* Library */,
 				AE9F31D41F69070E00339BB8 /* iOSDemo */,
 				AE9F320A1F69087E00339BB8 /* Novel */,
@@ -247,6 +279,7 @@
 		AE9F320A1F69087E00339BB8 /* Novel */ = {
 			isa = PBXGroup;
 			children = (
+				AE9F32C71F6A5EFC00339BB8 /* Cell */,
 				AE9F32A81F6918DD00339BB8 /* Service */,
 				AE9F32A41F69175300339BB8 /* ViewModel */,
 				AE9F32901F69103000339BB8 /* Model */,
@@ -471,8 +504,17 @@
 			isa = PBXGroup;
 			children = (
 				AE9F32A91F6918EA00339BB8 /* APIManager.swift */,
+				AE9F32C41F6A16E700339BB8 /* ToModelExtension.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		AE9F32C71F6A5EFC00339BB8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AE9F32C81F6A5F1400339BB8 /* NovelTbCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -503,6 +545,7 @@
 				AE9F32061F69087E00339BB8 /* Frameworks */,
 				AE9F32071F69087E00339BB8 /* Resources */,
 				AE9F32301F690E0F00339BB8 /* ShellScript */,
+				AEB771F11F6A6D50008C4365 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -530,7 +573,7 @@
 					};
 					AE9F32081F69087E00339BB8 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = APF8Y4T67A;
+						DevelopmentTeam = 76966J85NL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -679,12 +722,14 @@
 				AE9F32BC1F693BF200339BB8 /* MJRefreshBackStateFooter.m in Sources */,
 				AE9F32991F6911B500339BB8 /* GrandType.swift in Sources */,
 				AE9F32BE1F693BF800339BB8 /* MJRefreshAutoNormalFooter.m in Sources */,
+				AE9F32C91F6A5F1400339BB8 /* NovelTbCell.swift in Sources */,
 				AE9F32B31F693BBE00339BB8 /* NSBundle+MJRefresh.m in Sources */,
 				AE9F32B61F693BC500339BB8 /* UIView+MJExtension.m in Sources */,
 				AE9F32AD1F693BA800339BB8 /* MJRefreshAutoFooter.m in Sources */,
 				AE9F32B91F693BE700339BB8 /* MJRefreshStateHeader.m in Sources */,
 				AE9F32B71F693BE200339BB8 /* MJRefreshGifHeader.m in Sources */,
 				AE9F329B1F6911BE00339BB8 /* GrandTimer.swift in Sources */,
+				AE9F32C51F6A16E700339BB8 /* ToModelExtension.swift in Sources */,
 				AE9F32B01F693BB300339BB8 /* MJRefreshFooter.m in Sources */,
 				AE9F32B11F693BB500339BB8 /* MJRefreshHeader.m in Sources */,
 			);
@@ -835,7 +880,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = APF8Y4T67A;
+				DEVELOPMENT_TEAM = 76966J85NL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -858,7 +903,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = APF8Y4T67A;
+				DEVELOPMENT_TEAM = 76966J85NL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

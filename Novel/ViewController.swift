@@ -32,11 +32,18 @@ class ViewController: UIViewController {
         btnSearch.setFrame(frame:  CGRect(x: ScreenWidth - 55, y: NavigationBarHeight + 5, width: 55, height: 30)).title(title: "搜索").color(color: UIColor.blue).setFont(font: 16).addTo(view: view).completed()
         txtSearch.text = "星辰变"
         tb.setFrame(frame: CGRect(x: 0, y: NavigationBarHeight + 40, width: ScreenWidth, height: ScreenHeight - 40 - NavigationBarHeight)).addTo(view: view).completed()
+        tb.estimatedRowHeight = 60
+        tb.rowHeight = UITableViewAutomaticDimension
         vm.tb = tb
+        vm.key = "完美"
         vm.bind()
         
         tb.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.vm.requestNewDataCommond.onNext(true)
+        })
+        
+        tb.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
+            self.vm.requestNewDataCommond.onNext(false)
         })
         
        tb.mj_header.beginRefreshing()
@@ -62,39 +69,6 @@ class ViewController: UIViewController {
 }
 
 
-
-class NovelTbCell: UITableViewCell {
-    let imgNovel = UIImageView()
-    let lblTitle = UILabel()
-    let lblIntro = UILabel()
-    let lblAuthor = UILabel()
-    let lblType = UILabel()
-    let lblUpdateTime = UILabel()
-    var novelIndo:NovelInfo?{
-        didSet{
-            imgNovel.kf.setImage(with: URL(string: novelIndo!.img)!)
-            lblTitle.text = novelIndo?.title
-            lblIntro.text = novelIndo?.Intro
-            lblAuthor.text = novelIndo?.author
-            lblType.text = novelIndo?.novelType
-            lblUpdateTime.text = novelIndo?.updateTimeStr
-        }
-    }
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        imgNovel.frame = CGRect(x: 10, y: 10, width: 100, height: 140)
-        contentView.addSubview(imgNovel)
-        lblTitle.setFont(font: 16).setFrame(frame: CGRect(x: 120, y: 12, width: ScreenWidth - 130, height: 20)).addTo(view: contentView).completed()
-        lblIntro.lineNum(num: 3).setFont(font: 13).setFrame(frame: CGRect(x: lblTitle.frame.origin.x, y: lblTitle.frame.origin.y + 25, width: lblTitle.frame.size.width, height: 45)).addTo(view: contentView).completed()
-        lblAuthor.setFont(font: 13).setFrame(frame: CGRect(x: lblTitle.frame.origin.x, y: lblIntro.frame.origin.y + 48, width: lblTitle.frame.size.width, height: 20)).addTo(view: contentView).completed()
-        lblType.setFont(font: 13).setFrame(frame: CGRect(x: lblTitle.frame.origin.x, y: lblAuthor.frame.origin.y + 22, width: lblTitle.frame.size.width, height: 20)).addTo(view: contentView).completed()
-        lblUpdateTime.setFont(font: 13).setFrame(frame: CGRect(x: lblTitle.frame.origin.x, y: lblType.frame.origin.y + 22, width: lblTitle.frame.size.width, height: 20)).addTo(view: contentView).completed()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
 
 class LoadMoreCell: UITableViewCell {
     var spin = UIActivityIndicatorView()

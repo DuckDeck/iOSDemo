@@ -13,22 +13,18 @@ enum APIManager {
 }
 extension APIManager:TargetType{
     var baseURL: URL{
-        return URL(string: "http://zhannei.baidu.com/cse/search")!
+        return URL(string: "http://zhannei.baidu.com")!
     }
     
     var path: String{
         switch self {
-        case .GetSearch(let key, let index):
-            return "q=\( key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)&p=\(index)&isNeedCheckDomain=1&jump=1"
+        case .GetSearch(_, _):
+            return "/cse/search"
         }
     }
     
     var method: Moya.Method {
         return .get
-    }
-    
-    var parameters: [String: Any]? {
-        return nil
     }
     
     var parameterEncoding: ParameterEncoding {
@@ -41,7 +37,15 @@ extension APIManager:TargetType{
     
     /// The type of HTTP task to be performed.
     var task: Moya.Task {
-        return .requestPlain
+        switch self {
+         case .GetSearch(let key, let index):
+            let params = ["q":key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
+                          "p":index,
+                          "isNeedCheckDomain":1,
+                          "jump":"1",
+                          "s":"2041213923836881982"] as [String : Any]
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        }
     }
     /// Whether or not to perform Alamofire validation. Defaults to `false`.
     var validate: Bool {
@@ -51,4 +55,16 @@ extension APIManager:TargetType{
     var headers: [String : String]?{
         return nil
     }
+    
+ 
 }
+
+extension MoyaProvider{
+    public final class func myRequestMapping(for endpoint: Endpoint<Target>, closure: RequestResultClosure) {
+        if let request = endpoint.urlRequest  {
+            Log(message: "\(request.httpMethod!)------\(request.url!)")
+        }
+       MoyaProvider.defaultRequestMapping(for: endpoint, closure: closure)
+    }
+}
+
