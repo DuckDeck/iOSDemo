@@ -35,6 +35,17 @@ class SectionListViewModel {
         modelObserable.asObservable().bind(to: tb.rx.items(cellIdentifier: cellID, cellType: UITableViewCell.self)){ row , model , cell in
                 cell.textLabel?.text = model.sectionName
             }.addDisposableTo(bag)
+        weak var wkself = self
+        tb.rx.itemSelected.subscribe(onNext: { (index) in
+            guard  let section = wkself?.modelObserable.value[index.row] else{
+                return
+            }
+            let dict = ["novelInfo":wkself!.novelInfo.value,"currentSection":section,"arrSectionUrl":wkself!.modelObserable.value] as [String : Any]
+            Navigator.push(Routers.novelContent, context: dict, from: nil, animated: true)
+            
+        }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
+
+        
     }
     
     func initData(){

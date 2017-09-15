@@ -8,6 +8,7 @@
 
 import UIKit
 import URLNavigator
+import TangramKit
 final class NovelContentViewController: UIViewController {
     init() { super.init(nibName: nil, bundle: nil) }
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented")  }
@@ -15,12 +16,43 @@ final class NovelContentViewController: UIViewController {
     var novelInfo:NovelInfo?
     var currentSection : SectionInfo?
     var arrSectionUrl : [SectionInfo]?
+    var vm:NovelContentViewModel?
+    
+    override func loadView() {
+        super.loadView()
+        self.view = TGFrameLayout(frame: self.view.bounds)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tb.tg_width.equal(.fill)
+        tb.tg_height.equal(.fill)
+        tb.tg_left.equal(0)
+        tb.tg_top.equal(0)
+        tb.delegate = self
+        tb.estimatedRowHeight = 8000
+        tb.rowHeight = UITableViewAutomaticDimension
+        view.addSubview(tb)
 
-        // Do any additional setup after loading the view.
+        
+        let buttonSaveBoookmark = UIBarButtonItem(title: "添加书签", style: .plain, target: self, action: #selector(NovelContentViewController.saveBookmark))
+        navigationItem.rightBarButtonItem = buttonSaveBoookmark
+        
+        vm = NovelContentViewModel(input: (tb,novelInfo!,currentSection!,arrSectionUrl!))
+        weak var weakself = self
+        tb.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
+            if  !weakself!.vm!.isLoading {
+                weakself?.vm?.getNovelContent()
+            }
+        })
+        
+        
     }
 
+    func saveBookmark()  {
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -28,6 +60,18 @@ final class NovelContentViewController: UIViewController {
     
 
 
+}
+
+
+extension NovelContentViewController:UITableViewDelegate{
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if vm!.isLoadAll {
+            return
+        }
+        if indexPath.row >= vm!.arrSection.value.count - 1 && !vm!.isLoading {
+            vm?.getNovelContent()
+        }
+    }
 }
 
 extension NovelContentViewController:URLNavigable{
@@ -39,3 +83,5 @@ extension NovelContentViewController:URLNavigable{
        arrSectionUrl = dict["arrSectionUrl"] as? [SectionInfo]
     }
 }
+
+

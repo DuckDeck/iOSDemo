@@ -11,13 +11,14 @@ import Moya
 enum APIManager {
     case GetSearch(String,Int)
     case GetSection(String)
+    case GetNovel(String)
 }
 extension APIManager:TargetType{
     var baseURL: URL{
         switch self {
         case .GetSearch(_, _):
             return URL(string: "http://zhannei.baidu.com")!
-        case .GetSection(_):
+        case .GetSection(_),.GetNovel(_):
             return URL(string: "http://www.37zw.net")!
         }
     }
@@ -26,7 +27,7 @@ extension APIManager:TargetType{
         switch self {
         case .GetSearch(_, _):
             return "/cse/search"
-        case .GetSection(let path):
+        case .GetSection(let path),.GetNovel(let path):
             return path
         }
         
@@ -55,7 +56,7 @@ extension APIManager:TargetType{
                           "s":"2041213923836881982"] as [String : Any]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
             
-        case .GetSection(_):
+        case .GetSection(_),.GetNovel(_):
             return .requestPlain
         }
     }

@@ -74,4 +74,21 @@ extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Respo
             return Single.just(result)
         }
     }
+    
+    func mapNovelSection() -> Single<ResultInfo> {
+        var result = ResultInfo()
+        return flatMap { res -> Single<ResultInfo> in
+            let code  = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
+            let str = String(data: res.data, encoding: String.Encoding(rawValue: code))
+            guard let doc =  HTML(html: str!, encoding: .utf8) else{
+                result.code = 10
+                result.message = "解析HTML错误"
+                return Single.just(result)
+            }
+            let content = doc.xpath("//div[@id='content']").first!.innerHTML?.replacingOccurrences(of: "&nbsp;", with: "")
+            result.data = content
+            return Single.just(result)
+        }
+
+    }
 }

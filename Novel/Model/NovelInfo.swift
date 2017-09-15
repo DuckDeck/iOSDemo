@@ -17,7 +17,7 @@ class NovelInfo: GrandModel {
     var novelType = ""
     var updateTimeStr = ""
     var sectionIds:[Int]?
-//    var arrBookMark:[SectionInfo]?
+    var arrBookMark:[SectionInfo]?
     
     public static func ==(lhs: NovelInfo, rhs: NovelInfo) -> Bool{
         return lhs.url == rhs.url

@@ -110,6 +110,9 @@
 		AEB772121F6BB1DD008C4365 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */; };
 		AEB772141F6BBC3A008C4365 /* NovelContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772131F6BBC3A008C4365 /* NovelContentViewController.swift */; };
 		AEB772161F6BBDC9008C4365 /* LoadMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772151F6BBDC9008C4365 /* LoadMoreCell.swift */; };
+		AEB772181F6BBEE9008C4365 /* NovelContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772171F6BBEE9008C4365 /* NovelContentViewModel.swift */; };
+		AEF4A4381F6BC7DA00EE4001 /* NovelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4371F6BC7DA00EE4001 /* NovelConfig.swift */; };
+		AEF4A43A1F6BD28500EE4001 /* NovelContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4391F6BD28500EE4001 /* NovelContentCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,6 +210,9 @@
 		AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		AEB772131F6BBC3A008C4365 /* NovelContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelContentViewController.swift; sourceTree = "<group>"; };
 		AEB772151F6BBDC9008C4365 /* LoadMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadMoreCell.swift; sourceTree = "<group>"; };
+		AEB772171F6BBEE9008C4365 /* NovelContentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelContentViewModel.swift; sourceTree = "<group>"; };
+		AEF4A4371F6BC7DA00EE4001 /* NovelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelConfig.swift; sourceTree = "<group>"; };
+		AEF4A4391F6BD28500EE4001 /* NovelContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelContentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +296,7 @@
 				AE9F32A71F6917A300339BB8 /* bridge.h */,
 				AEB772051F6B689F008C4365 /* NavigationMap.swift */,
 				AEB772091F6B6F6C008C4365 /* Routers.swift */,
+				AEF4A4371F6BC7DA00EE4001 /* NovelConfig.swift */,
 			);
 			path = Novel;
 			sourceTree = "<group>";
@@ -502,6 +509,7 @@
 			children = (
 				AE9F32A51F69176E00339BB8 /* NovelSearchViewModel.swift */,
 				AEB7720D1F6B9396008C4365 /* SectionListViewModel.swift */,
+				AEB772171F6BBEE9008C4365 /* NovelContentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -520,6 +528,7 @@
 			children = (
 				AE9F32C81F6A5F1400339BB8 /* NovelTbCell.swift */,
 				AEB772151F6BBDC9008C4365 /* LoadMoreCell.swift */,
+				AEF4A4391F6BD28500EE4001 /* NovelContentCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -722,6 +731,7 @@
 				AE9F32A21F69144900339BB8 /* ResultInfo.swift in Sources */,
 				AE9F32BF1F693BFA00339BB8 /* MJRefreshAutoStateFooter.m in Sources */,
 				AE9F32921F69103C00339BB8 /* NovelInfo.swift in Sources */,
+				AEF4A43A1F6BD28500EE4001 /* NovelContentCell.swift in Sources */,
 				AEB772081F6B68F3008C4365 /* BookmarkViewController.swift in Sources */,
 				AE9F32971F6911B100339BB8 /* GrandModel+Map.swift in Sources */,
 				AE9F32B81F693BE400339BB8 /* MJRefreshNormalHeader.m in Sources */,
@@ -744,6 +754,7 @@
 				AEB7720E1F6B9396008C4365 /* SectionListViewModel.swift in Sources */,
 				AE9F32BC1F693BF200339BB8 /* MJRefreshBackStateFooter.m in Sources */,
 				AEB772021F6A8236008C4365 /* UIWindow+Base.swift in Sources */,
+				AEB772181F6BBEE9008C4365 /* NovelContentViewModel.swift in Sources */,
 				AE9F32991F6911B500339BB8 /* GrandType.swift in Sources */,
 				AE9F32BE1F693BF800339BB8 /* MJRefreshAutoNormalFooter.m in Sources */,
 				AE9F32C91F6A5F1400339BB8 /* NovelTbCell.swift in Sources */,
@@ -756,6 +767,7 @@
 				AEB7720C1F6B71D2008C4365 /* SectionListViewController.swift in Sources */,
 				AE9F32B71F693BE200339BB8 /* MJRefreshGifHeader.m in Sources */,
 				AE9F329B1F6911BE00339BB8 /* GrandTimer.swift in Sources */,
+				AEF4A4381F6BC7DA00EE4001 /* NovelConfig.swift in Sources */,
 				AE9F32C51F6A16E700339BB8 /* ToModelExtension.swift in Sources */,
 				AE9F32B01F693BB300339BB8 /* MJRefreshFooter.m in Sources */,
 				AE9F32B11F693BB500339BB8 /* MJRefreshHeader.m in Sources */,
