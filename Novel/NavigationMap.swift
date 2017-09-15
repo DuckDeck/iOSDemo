@@ -12,6 +12,7 @@ struct  NavigationMap{
     static func initialize(){
         Navigator.map(Routers.bookmark, BookmarkViewController.self)
         Navigator.map(Routers.sectionList, SectionListViewController.self)
+        Navigator.map(Routers.novelContent, NovelContentViewController.self)
         Navigator.map("navigator://alert", self.alert)
 
 //        Navigator.map("", {(url,values)->Bool in

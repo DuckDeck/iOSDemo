@@ -70,7 +70,7 @@ class NovelSearchViewModel {
            Tool.hiddenKeyboard()
             if event.element!{
                 self?.pageIndex = 0
-                self?.provider.request(.GetSearch(self!.keyStr.value,self!.pageIndex)).filterSuccessfulStatusCodes().mapString().mapNovelInfo().subscribe({ (str) in
+                self?.provider.request(.GetSearch(self!.keyStr.value,self!.pageIndex)).filterSuccessfulStatusCodes().mapNovelInfo().subscribe({ (str) in
                     switch(str){
                     case let .success(result):
                             self?.modelObserable.value = result.data! as! [NovelInfo]
@@ -84,7 +84,7 @@ class NovelSearchViewModel {
             }
             else{
                 self?.pageIndex += 1
-                self?.provider.request(.GetSearch(self!.keyStr.value,self!.pageIndex)).filterSuccessfulStatusCodes().mapString().mapNovelInfo().subscribe({ (str) in
+                self?.provider.request(.GetSearch(self!.keyStr.value,self!.pageIndex)).filterSuccessfulStatusCodes().mapNovelInfo().subscribe({ (str) in
                     switch(str){
                     case let .success(result):
                         let res = result.data! as! [NovelInfo]

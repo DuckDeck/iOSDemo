@@ -11,4 +11,5 @@ import URLNavigator
 class Routers {
     static let  bookmark = "navigator://bookmark"
     static let  sectionList = "navigator://sectionList"
+    static let  novelContent = "navigator://novelContent"
 }

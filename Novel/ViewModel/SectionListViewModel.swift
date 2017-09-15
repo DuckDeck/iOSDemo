@@ -26,19 +26,23 @@ class SectionListViewModel {
         self.tb = input.tb
         self.novelInfo = input.novelInfo
         bind()
+        initData()
     }
     
     func bind(){
-        weak var wkself = self
         tb.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         tb.tableFooterView = UIView()
         modelObserable.asObservable().bind(to: tb.rx.items(cellIdentifier: cellID, cellType: UITableViewCell.self)){ row , model , cell in
-                cell.textLabel?.attributedText = model.sectionAttributeContent
+                cell.textLabel?.text = model.sectionName
             }.addDisposableTo(bag)
-
-
+    }
+    
+    func initData(){
+        weak var wkself = self
         let path = novelInfo.value.url.subToEnd(start: 19)
-        provider.request(.GetSection(path)).filterSuccessfulStatusCodes().mapString().mapSectionInfo().subscribe({ (str) in
+        GrandCue.showLoading()
+        provider.request(.GetSection(path)).filterSuccessfulStatusCodes().mapSectionInfo().subscribe({ (str) in
+            GrandCue.dismissLoading()
             switch(str){
             case let .success(result):
                 wkself?.modelObserable.value = result.data! as! [SectionInfo]
@@ -47,8 +51,6 @@ class SectionListViewModel {
                 GrandCue.toast(err.localizedDescription)
             }
         }).addDisposableTo(wkself!.bag)
-    
-    
     }
 
 }

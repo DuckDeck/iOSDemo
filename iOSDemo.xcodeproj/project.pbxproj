@@ -108,6 +108,8 @@
 		AEB7720E1F6B9396008C4365 /* SectionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7720D1F6B9396008C4365 /* SectionListViewModel.swift */; };
 		AEB772101F6BA59E008C4365 /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7720F1F6BA59E008C4365 /* SectionInfo.swift */; };
 		AEB772121F6BB1DD008C4365 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */; };
+		AEB772141F6BBC3A008C4365 /* NovelContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772131F6BBC3A008C4365 /* NovelContentViewController.swift */; };
+		AEB772161F6BBDC9008C4365 /* LoadMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772151F6BBDC9008C4365 /* LoadMoreCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -203,6 +205,8 @@
 		AEB7720D1F6B9396008C4365 /* SectionListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionListViewModel.swift; sourceTree = "<group>"; };
 		AEB7720F1F6BA59E008C4365 /* SectionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionInfo.swift; sourceTree = "<group>"; };
 		AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
+		AEB772131F6BBC3A008C4365 /* NovelContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelContentViewController.swift; sourceTree = "<group>"; };
+		AEB772151F6BBDC9008C4365 /* LoadMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadMoreCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +283,7 @@
 				AE9F320D1F69087E00339BB8 /* ViewController.swift */,
 				AEB772071F6B68F3008C4365 /* BookmarkViewController.swift */,
 				AEB7720B1F6B71D2008C4365 /* SectionListViewController.swift */,
+				AEB772131F6BBC3A008C4365 /* NovelContentViewController.swift */,
 				AE9F32121F69087E00339BB8 /* Assets.xcassets */,
 				AE9F32141F69087E00339BB8 /* LaunchScreen.storyboard */,
 				AE9F32171F69087E00339BB8 /* Info.plist */,
@@ -514,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				AE9F32C81F6A5F1400339BB8 /* NovelTbCell.swift */,
+				AEB772151F6BBDC9008C4365 /* LoadMoreCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -705,6 +711,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE9F329D1F6911C200339BB8 /* TimeSpan.swift in Sources */,
+				AEB772161F6BBDC9008C4365 /* LoadMoreCell.swift in Sources */,
 				AE9F32BD1F693BF600339BB8 /* MJRefreshAutoGifFooter.m in Sources */,
 				AE9F329A1F6911BA00339BB8 /* GrandStore.swift in Sources */,
 				AE9F32A01F6911F700339BB8 /* GrandCue.swift in Sources */,
@@ -722,6 +729,7 @@
 				AEB772101F6BA59E008C4365 /* SectionInfo.swift in Sources */,
 				AE9F32B51F693BC300339BB8 /* UIScrollView+MJRefresh.m in Sources */,
 				AE9F32B21F693BBC00339BB8 /* MJRefreshConst.m in Sources */,
+				AEB772141F6BBC3A008C4365 /* NovelContentViewController.swift in Sources */,
 				AE9F32941F69108600339BB8 /* Config.swift in Sources */,
 				AE9F329C1F6911C000339BB8 /* GrandTime.swift in Sources */,
 				AE9F32961F6911AE00339BB8 /* GrandModel+Convert.swift in Sources */,

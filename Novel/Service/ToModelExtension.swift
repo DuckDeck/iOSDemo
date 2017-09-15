@@ -10,11 +10,11 @@ import Foundation
 import RxSwift
 import Moya
 import Kanna
-extension PrimitiveSequence where TraitType == SingleTrait, ElementType == String{
+extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Response{
       func mapNovelInfo() -> Single<ResultInfo> {
          var result = ResultInfo()
          return flatMap { res -> Single<ResultInfo> in
-                guard let doc =  HTML(html: res, encoding: .utf8) else{
+                guard let doc =  HTML(html: res.data, encoding: .utf8) else{
                     result.code = 10
                     result.message = "解析HTML错误"
                     return Single.just(result)
@@ -49,12 +49,14 @@ extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Strin
     func mapSectionInfo() -> Single<ResultInfo> {
         var result = ResultInfo()
         return flatMap { res -> Single<ResultInfo> in
-            guard let doc =  HTML(html: res, encoding: .utf8) else{
+            let code  = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
+            let str = String(data: res.data, encoding: String.Encoding(rawValue: code))
+            guard let doc =  HTML(html: str!, encoding: .utf8) else{
                 result.code = 10
                 result.message = "解析HTML错误"
                 return Single.just(result)
             }
-            let divs = doc.xpath("//div[@class='result-item result-game-item']")
+            let divs =  doc.xpath("//div[@id='list']").first!.css("dl > dd")
             if divs.count <= 0{
                 result.data = [SectionInfo]()
                 return Single.just(result)
