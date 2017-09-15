@@ -14,6 +14,7 @@ import Kanna
 import RxMoya
 import Result
 import RxBlocking
+import URLNavigator
 enum RefreshStatus {
     case none
     case beginHeaderRefresh
@@ -60,7 +61,11 @@ class NovelSearchViewModel {
         
         
         tb.rx.itemSelected.subscribe(onNext: { (index) in
-                Log(message: "\(index)")
+            guard  let novel = wkself?.modelObserable.value[index.row] else{
+                return
+            }
+            Navigator.push(Routers.sectionList, context: novel, from: nil, animated: true)
+            
         }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
         
         requestNewDataCommond.subscribe { [weak self](event) in
@@ -105,7 +110,6 @@ class NovelSearchViewModel {
         
         searchCommand.drive(onNext: {
             wkself?.tb.mj_header.beginRefreshing() //怎么样在这个地方收起键盘
-            
         }, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
         
 

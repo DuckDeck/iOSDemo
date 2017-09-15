@@ -21,7 +21,6 @@
 		AE9F32251F690DD000339BB8 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32241F690DD000339BB8 /* RxBlocking.framework */; };
 		AE9F32271F690DD300339BB8 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32261F690DD300339BB8 /* Kingfisher.framework */; };
 		AE9F32291F690DD500339BB8 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32281F690DD500339BB8 /* Kanna.framework */; };
-		AE9F322B1F690DD700339BB8 /* JLRoutes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F322A1F690DD700339BB8 /* JLRoutes.framework */; };
 		AE9F322D1F690DDA00339BB8 /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F322C1F690DDA00339BB8 /* IQKeyboardManagerSwift.framework */; };
 		AE9F322F1F690DEB00339BB8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F322E1F690DEB00339BB8 /* Alamofire.framework */; };
 		AE9F32611F690F3500339BB8 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32351F690F3500339BB8 /* MJRefreshAutoFooter.m */; };
@@ -101,6 +100,11 @@
 		AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
 		AEB772011F6A81F4008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
 		AEB772021F6A8236008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
+		AEB772041F6B684F008C4365 /* URLNavigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB772031F6B684F008C4365 /* URLNavigator.framework */; };
+		AEB772061F6B689F008C4365 /* NavigationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772051F6B689F008C4365 /* NavigationMap.swift */; };
+		AEB772081F6B68F3008C4365 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772071F6B68F3008C4365 /* BookmarkViewController.swift */; };
+		AEB7720A1F6B6F6C008C4365 /* Routers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772091F6B6F6C008C4365 /* Routers.swift */; };
+		AEB7720C1F6B71D2008C4365 /* SectionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7720B1F6B71D2008C4365 /* SectionListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,7 +127,6 @@
 		AE9F32241F690DD000339BB8 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		AE9F32261F690DD300339BB8 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		AE9F32281F690DD500339BB8 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = Carthage/Build/iOS/Kanna.framework; sourceTree = "<group>"; };
-		AE9F322A1F690DD700339BB8 /* JLRoutes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JLRoutes.framework; path = Carthage/Build/iOS/JLRoutes.framework; sourceTree = "<group>"; };
 		AE9F322C1F690DDA00339BB8 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManagerSwift.framework; path = Carthage/Build/iOS/IQKeyboardManagerSwift.framework; sourceTree = "<group>"; };
 		AE9F322E1F690DEB00339BB8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		AE9F32341F690F3500339BB8 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
@@ -189,6 +192,11 @@
 		AE9F32C81F6A5F1400339BB8 /* NovelTbCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelTbCell.swift; sourceTree = "<group>"; };
 		AEB771FD1F6A8089008C4365 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Base.swift"; sourceTree = "<group>"; };
+		AEB772031F6B684F008C4365 /* URLNavigator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLNavigator.framework; path = Carthage/Build/iOS/URLNavigator.framework; sourceTree = "<group>"; };
+		AEB772051F6B689F008C4365 /* NavigationMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationMap.swift; sourceTree = "<group>"; };
+		AEB772071F6B68F3008C4365 /* BookmarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		AEB772091F6B6F6C008C4365 /* Routers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routers.swift; sourceTree = "<group>"; };
+		AEB7720B1F6B71D2008C4365 /* SectionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +214,6 @@
 				AE9F322D1F690DDA00339BB8 /* IQKeyboardManagerSwift.framework in Frameworks */,
 				AE9F322F1F690DEB00339BB8 /* Alamofire.framework in Frameworks */,
 				AE9F32CA1F6A678600339BB8 /* RxCocoa.framework in Frameworks */,
-				AE9F322B1F690DD700339BB8 /* JLRoutes.framework in Frameworks */,
 				AE9F32271F690DD300339BB8 /* Kingfisher.framework in Frameworks */,
 				AE9F321D1F690DBF00339BB8 /* WSProgressHUD.framework in Frameworks */,
 				AE9F32291F690DD500339BB8 /* Kanna.framework in Frameworks */,
@@ -216,6 +223,7 @@
 				AE9F321F1F690DC400339BB8 /* TangramKit.framework in Frameworks */,
 				AE9F32C11F693F4500339BB8 /* RxMoya.framework in Frameworks */,
 				AE9F32C31F693F9B00339BB8 /* Result.framework in Frameworks */,
+				AEB772041F6B684F008C4365 /* URLNavigator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,10 +271,14 @@
 				AE9F32901F69103000339BB8 /* Model */,
 				AE9F320B1F69087E00339BB8 /* AppDelegate.swift */,
 				AE9F320D1F69087E00339BB8 /* ViewController.swift */,
+				AEB772071F6B68F3008C4365 /* BookmarkViewController.swift */,
+				AEB7720B1F6B71D2008C4365 /* SectionListViewController.swift */,
 				AE9F32121F69087E00339BB8 /* Assets.xcassets */,
 				AE9F32141F69087E00339BB8 /* LaunchScreen.storyboard */,
 				AE9F32171F69087E00339BB8 /* Info.plist */,
 				AE9F32A71F6917A300339BB8 /* bridge.h */,
+				AEB772051F6B689F008C4365 /* NavigationMap.swift */,
+				AEB772091F6B6F6C008C4365 /* Routers.swift */,
 			);
 			path = Novel;
 			sourceTree = "<group>";
@@ -274,12 +286,12 @@
 		AE9F321B1F690DBF00339BB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEB772031F6B684F008C4365 /* URLNavigator.framework */,
 				AE9F32C21F693F9B00339BB8 /* Result.framework */,
 				AE9F32C01F693F4500339BB8 /* RxMoya.framework */,
 				AE9F32AB1F692A8600339BB8 /* Moya.framework */,
 				AE9F322E1F690DEB00339BB8 /* Alamofire.framework */,
 				AE9F322C1F690DDA00339BB8 /* IQKeyboardManagerSwift.framework */,
-				AE9F322A1F690DD700339BB8 /* JLRoutes.framework */,
 				AE9F32281F690DD500339BB8 /* Kanna.framework */,
 				AE9F32261F690DD300339BB8 /* Kingfisher.framework */,
 				AE9F32241F690DD000339BB8 /* RxBlocking.framework */,
@@ -620,13 +632,13 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/IQKeyboardManagerSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/WSProgressHUD.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/JLRoutes.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RXSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RXCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RXBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Moya.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RXMoya.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/URLNavigator.framework",
 			);
 			outputPaths = (
 			);
@@ -690,9 +702,11 @@
 				AE9F32981F6911B300339BB8 /* GrandModel.swift in Sources */,
 				AE9F32B41F693BC000339BB8 /* UIScrollView+MJExtension.m in Sources */,
 				AE9F32BB1F693BF000339BB8 /* MJRefreshBackNormalFooter.m in Sources */,
+				AEB7720A1F6B6F6C008C4365 /* Routers.swift in Sources */,
 				AE9F32A21F69144900339BB8 /* ResultInfo.swift in Sources */,
 				AE9F32BF1F693BFA00339BB8 /* MJRefreshAutoStateFooter.m in Sources */,
 				AE9F32921F69103C00339BB8 /* NovelInfo.swift in Sources */,
+				AEB772081F6B68F3008C4365 /* BookmarkViewController.swift in Sources */,
 				AE9F32971F6911B100339BB8 /* GrandModel+Map.swift in Sources */,
 				AE9F32B81F693BE400339BB8 /* MJRefreshNormalHeader.m in Sources */,
 				AE9F32BA1F693BEE00339BB8 /* MJRefreshBackGifFooter.m in Sources */,
@@ -716,8 +730,10 @@
 				AE9F32B31F693BBE00339BB8 /* NSBundle+MJRefresh.m in Sources */,
 				AE9F32B61F693BC500339BB8 /* UIView+MJExtension.m in Sources */,
 				AE9F32AD1F693BA800339BB8 /* MJRefreshAutoFooter.m in Sources */,
+				AEB772061F6B689F008C4365 /* NavigationMap.swift in Sources */,
 				AE9F32B91F693BE700339BB8 /* MJRefreshStateHeader.m in Sources */,
 				AEB772011F6A81F4008C4365 /* Tool.swift in Sources */,
+				AEB7720C1F6B71D2008C4365 /* SectionListViewController.swift in Sources */,
 				AE9F32B71F693BE200339BB8 /* MJRefreshGifHeader.m in Sources */,
 				AE9F329B1F6911BE00339BB8 /* GrandTimer.swift in Sources */,
 				AE9F32C51F6A16E700339BB8 /* ToModelExtension.swift in Sources */,

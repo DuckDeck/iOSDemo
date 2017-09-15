@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import RxSwift
+import URLNavigator
 class ViewController: UIViewController {
     let txtSearch = UITextField()
     let btnSearch = UIButton()
@@ -58,8 +59,7 @@ class ViewController: UIViewController {
 
 
     func checkBBookmark() {
-//        let vc = BookmarkViewController()
-//        navigationController?.pushViewController(vc, animated: true)
+        Navigator.push(Routers.bookmark)
     }
     
 
