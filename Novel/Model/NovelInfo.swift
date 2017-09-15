@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-import Kanna
 class NovelInfo: GrandModel {
     var id = 0
     var img = ""

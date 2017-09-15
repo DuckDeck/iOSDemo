@@ -105,6 +105,9 @@
 		AEB772081F6B68F3008C4365 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772071F6B68F3008C4365 /* BookmarkViewController.swift */; };
 		AEB7720A1F6B6F6C008C4365 /* Routers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772091F6B6F6C008C4365 /* Routers.swift */; };
 		AEB7720C1F6B71D2008C4365 /* SectionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7720B1F6B71D2008C4365 /* SectionListViewController.swift */; };
+		AEB7720E1F6B9396008C4365 /* SectionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7720D1F6B9396008C4365 /* SectionListViewModel.swift */; };
+		AEB772101F6BA59E008C4365 /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7720F1F6BA59E008C4365 /* SectionInfo.swift */; };
+		AEB772121F6BB1DD008C4365 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -197,6 +200,9 @@
 		AEB772071F6B68F3008C4365 /* BookmarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		AEB772091F6B6F6C008C4365 /* Routers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routers.swift; sourceTree = "<group>"; };
 		AEB7720B1F6B71D2008C4365 /* SectionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionListViewController.swift; sourceTree = "<group>"; };
+		AEB7720D1F6B9396008C4365 /* SectionListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionListViewModel.swift; sourceTree = "<group>"; };
+		AEB7720F1F6BA59E008C4365 /* SectionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionInfo.swift; sourceTree = "<group>"; };
+		AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -464,6 +470,7 @@
 			children = (
 				AE9F328D1F690FD200339BB8 /* UIView+Base.swift */,
 				AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */,
+				AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -480,6 +487,7 @@
 			isa = PBXGroup;
 			children = (
 				AE9F32911F69103C00339BB8 /* NovelInfo.swift */,
+				AEB7720F1F6BA59E008C4365 /* SectionInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -488,6 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				AE9F32A51F69176E00339BB8 /* NovelSearchViewModel.swift */,
+				AEB7720D1F6B9396008C4365 /* SectionListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -710,6 +719,7 @@
 				AE9F32971F6911B100339BB8 /* GrandModel+Map.swift in Sources */,
 				AE9F32B81F693BE400339BB8 /* MJRefreshNormalHeader.m in Sources */,
 				AE9F32BA1F693BEE00339BB8 /* MJRefreshBackGifFooter.m in Sources */,
+				AEB772101F6BA59E008C4365 /* SectionInfo.swift in Sources */,
 				AE9F32B51F693BC300339BB8 /* UIScrollView+MJRefresh.m in Sources */,
 				AE9F32B21F693BBC00339BB8 /* MJRefreshConst.m in Sources */,
 				AE9F32941F69108600339BB8 /* Config.swift in Sources */,
@@ -721,7 +731,9 @@
 				AE9F32AA1F6918EA00339BB8 /* APIManager.swift in Sources */,
 				AE9F320C1F69087E00339BB8 /* AppDelegate.swift in Sources */,
 				AE9F32AE1F693BAE00339BB8 /* MJRefreshBackFooter.m in Sources */,
+				AEB772121F6BB1DD008C4365 /* Foundation+Extension.swift in Sources */,
 				AE9F32951F6911A600339BB8 /* UIView+Base.swift in Sources */,
+				AEB7720E1F6B9396008C4365 /* SectionListViewModel.swift in Sources */,
 				AE9F32BC1F693BF200339BB8 /* MJRefreshBackStateFooter.m in Sources */,
 				AEB772021F6A8236008C4365 /* UIWindow+Base.swift in Sources */,
 				AE9F32991F6911B500339BB8 /* GrandType.swift in Sources */,

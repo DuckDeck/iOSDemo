@@ -45,4 +45,31 @@ extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Strin
             return Single.just(result)
         }
    }
+    
+    func mapSectionInfo() -> Single<ResultInfo> {
+        var result = ResultInfo()
+        return flatMap { res -> Single<ResultInfo> in
+            guard let doc =  HTML(html: res, encoding: .utf8) else{
+                result.code = 10
+                result.message = "解析HTML错误"
+                return Single.just(result)
+            }
+            let divs = doc.xpath("//div[@class='result-item result-game-item']")
+            if divs.count <= 0{
+                result.data = [SectionInfo]()
+                return Single.just(result)
+            }
+            var arrSections = [SectionInfo]()
+            //issue 不能用乱用xpath，因为xpath无论从哪获取，都是获取全局的，要想获取子类型一定要用css
+            for link in divs{
+                let section = SectionInfo()
+                section.sectionName = link.css("a").first?.text ?? ""
+                section.sectionUrl = link.css("a").first?["href"] ?? ""
+                section.id = section.sectionUrl.hash
+                arrSections.append(section)  
+            }
+            result.data = arrSections
+            return Single.just(result)
+        }
+    }
 }

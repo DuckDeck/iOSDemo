@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Moya
-import Kanna
 import RxMoya
 import Result
 import RxBlocking
@@ -23,17 +22,17 @@ enum RefreshStatus {
     case endFooterRefresh
     case noMoreData
 }
-let cellID = "cell"
+
 typealias ClosureType = (Int) -> Void
 class NovelSearchViewModel {
 
-
+       let cellID = "cell"
        var bag : DisposeBag = DisposeBag()
        let provider = RxMoyaProvider<APIManager>(requestClosure:MoyaProvider.myRequestMapping)
        var modelObserable = Variable<[NovelInfo]> ([])
        var refreshStateObserable = Variable<RefreshStatus>(.none)
        let requestNewDataCommond =  PublishSubject<Bool>()
-       var pushCloure : ClosureType?
+       var pushCloure : ClosureType?  //for what
        var pageIndex = 0
        var tb : UITableView
        var key :Driver<String>
@@ -52,7 +51,6 @@ class NovelSearchViewModel {
          weak var wkself = self
         
           tb.register(NovelTbCell.self, forCellReuseIdentifier: cellID)
-          tb.register(LoadMoreCell.self, forCellReuseIdentifier: "moreCell")
           tb.tableFooterView = UIView()
           modelObserable.asObservable().bind(to: tb.rx.items(cellIdentifier: cellID, cellType: NovelTbCell.self)){ row , model , cell in
                 cell.novelIndo = model

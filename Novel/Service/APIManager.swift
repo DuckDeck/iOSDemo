@@ -10,17 +10,26 @@ import Foundation
 import Moya
 enum APIManager {
     case GetSearch(String,Int)
+    case GetSection(String)
 }
 extension APIManager:TargetType{
     var baseURL: URL{
-        return URL(string: "http://zhannei.baidu.com")!
+        switch self {
+        case .GetSearch(_, _):
+            return URL(string: "http://zhannei.baidu.com")!
+        case .GetSection(_):
+            return URL(string: "http://www.37zw.net")!
+        }
     }
     
     var path: String{
         switch self {
         case .GetSearch(_, _):
             return "/cse/search"
+        case .GetSection(let path):
+            return path
         }
+        
     }
     
     var method: Moya.Method {
@@ -45,6 +54,9 @@ extension APIManager:TargetType{
                           "jump":"1",
                           "s":"2041213923836881982"] as [String : Any]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
+            
+        case .GetSection(_):
+            return .requestPlain
         }
     }
     /// Whether or not to perform Alamofire validation. Defaults to `false`.

@@ -61,25 +61,6 @@ class ViewController: UIViewController {
     func checkBBookmark() {
         Navigator.push(Routers.bookmark)
     }
-    
-
-
-}
-
-
-
-class LoadMoreCell: UITableViewCell {
-    var spin = UIActivityIndicatorView()
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        spin.center = contentView.center
-        contentView.addSubview(spin)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 }
 
 
