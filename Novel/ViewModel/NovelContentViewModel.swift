@@ -132,6 +132,5 @@ class NovelContentViewModel {
         }
         Bookmark.Value = marks
         GrandCue.toast("添加书签成功")
-
     }
 }

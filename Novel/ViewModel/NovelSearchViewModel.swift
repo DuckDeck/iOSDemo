@@ -96,7 +96,6 @@ class NovelSearchViewModel {
                              self?.refreshStateObserable.value = .endFooterRefresh
                         }
                     case let  .error(err):
-                        
                         self?.refreshStateObserable.value = .endFooterRefresh
                         GrandCue.toast(err.localizedDescription)
                     }
@@ -107,7 +106,7 @@ class NovelSearchViewModel {
    
         
         searchCommand.drive(onNext: {
-            wkself?.tb.mj_header.beginRefreshing() //怎么样在这个地方收起键盘
+            wkself?.tb.mj_header.beginRefreshing()
         }, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
         
 

@@ -26,7 +26,6 @@ class BookMarkViewModel {
         
          tb.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         
-        
         let dataSource = RxTableViewSectionedAnimatedDataSource<SectionTableInfo>()
         dataSource.configureCell = {  ds, tv, ip, item in
             let cell = tv.dequeueReusableCell(withIdentifier: self.cellID) ?? UITableViewCell(style: .default, reuseIdentifier: self.cellID)
