@@ -117,6 +117,13 @@
 		AEF4A43F1F6F60E700EE4001 /* BookMarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A43E1F6F60E700EE4001 /* BookMarkViewModel.swift */; };
 		AEF4A4411F6F630B00EE4001 /* SectionTableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4401F6F630B00EE4001 /* SectionTableInfo.swift */; };
 		AEF4A4431F6F74C100EE4001 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF4A4421F6F74C100EE4001 /* Differentiator.framework */; };
+		AEF4A4561F6FA65600EE4001 /* NSObject+PLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4491F6FA65600EE4001 /* NSObject+PLeak.m */; };
+		AEF4A4571F6FA65600EE4001 /* NSObject+PLeakTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A44B1F6FA65600EE4001 /* NSObject+PLeakTrack.m */; };
+		AEF4A4581F6FA65600EE4001 /* PLeakSniffer.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A44D1F6FA65600EE4001 /* PLeakSniffer.m */; };
+		AEF4A4591F6FA65600EE4001 /* PObjectProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A44F1F6FA65600EE4001 /* PObjectProxy.m */; };
+		AEF4A45A1F6FA65600EE4001 /* UINavigationController+PLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4511F6FA65600EE4001 /* UINavigationController+PLeak.m */; };
+		AEF4A45B1F6FA65600EE4001 /* UIView+PLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4531F6FA65600EE4001 /* UIView+PLeak.m */; };
+		AEF4A45C1F6FA65600EE4001 /* UIViewController+PLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4551F6FA65600EE4001 /* UIViewController+PLeak.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -221,6 +228,20 @@
 		AEF4A43E1F6F60E700EE4001 /* BookMarkViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMarkViewModel.swift; sourceTree = "<group>"; };
 		AEF4A4401F6F630B00EE4001 /* SectionTableInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTableInfo.swift; sourceTree = "<group>"; };
 		AEF4A4421F6F74C100EE4001 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
+		AEF4A4481F6FA65600EE4001 /* NSObject+PLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PLeak.h"; sourceTree = "<group>"; };
+		AEF4A4491F6FA65600EE4001 /* NSObject+PLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PLeak.m"; sourceTree = "<group>"; };
+		AEF4A44A1F6FA65600EE4001 /* NSObject+PLeakTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PLeakTrack.h"; sourceTree = "<group>"; };
+		AEF4A44B1F6FA65600EE4001 /* NSObject+PLeakTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PLeakTrack.m"; sourceTree = "<group>"; };
+		AEF4A44C1F6FA65600EE4001 /* PLeakSniffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLeakSniffer.h; sourceTree = "<group>"; };
+		AEF4A44D1F6FA65600EE4001 /* PLeakSniffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLeakSniffer.m; sourceTree = "<group>"; };
+		AEF4A44E1F6FA65600EE4001 /* PObjectProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PObjectProxy.h; sourceTree = "<group>"; };
+		AEF4A44F1F6FA65600EE4001 /* PObjectProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PObjectProxy.m; sourceTree = "<group>"; };
+		AEF4A4501F6FA65600EE4001 /* UINavigationController+PLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+PLeak.h"; sourceTree = "<group>"; };
+		AEF4A4511F6FA65600EE4001 /* UINavigationController+PLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+PLeak.m"; sourceTree = "<group>"; };
+		AEF4A4521F6FA65600EE4001 /* UIView+PLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PLeak.h"; sourceTree = "<group>"; };
+		AEF4A4531F6FA65600EE4001 /* UIView+PLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PLeak.m"; sourceTree = "<group>"; };
+		AEF4A4541F6FA65600EE4001 /* UIViewController+PLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PLeak.h"; sourceTree = "<group>"; };
+		AEF4A4551F6FA65600EE4001 /* UIViewController+PLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PLeak.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -550,9 +571,31 @@
 		AEB771FC1F6A807D008C4365 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				AEF4A4471F6FA65600EE4001 /* PLeakSniffer */,
 				AEB771FD1F6A8089008C4365 /* Tool.swift */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		AEF4A4471F6FA65600EE4001 /* PLeakSniffer */ = {
+			isa = PBXGroup;
+			children = (
+				AEF4A4481F6FA65600EE4001 /* NSObject+PLeak.h */,
+				AEF4A4491F6FA65600EE4001 /* NSObject+PLeak.m */,
+				AEF4A44A1F6FA65600EE4001 /* NSObject+PLeakTrack.h */,
+				AEF4A44B1F6FA65600EE4001 /* NSObject+PLeakTrack.m */,
+				AEF4A44C1F6FA65600EE4001 /* PLeakSniffer.h */,
+				AEF4A44D1F6FA65600EE4001 /* PLeakSniffer.m */,
+				AEF4A44E1F6FA65600EE4001 /* PObjectProxy.h */,
+				AEF4A44F1F6FA65600EE4001 /* PObjectProxy.m */,
+				AEF4A4501F6FA65600EE4001 /* UINavigationController+PLeak.h */,
+				AEF4A4511F6FA65600EE4001 /* UINavigationController+PLeak.m */,
+				AEF4A4521F6FA65600EE4001 /* UIView+PLeak.h */,
+				AEF4A4531F6FA65600EE4001 /* UIView+PLeak.m */,
+				AEF4A4541F6FA65600EE4001 /* UIViewController+PLeak.h */,
+				AEF4A4551F6FA65600EE4001 /* UIViewController+PLeak.m */,
+			);
+			path = PLeakSniffer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -743,15 +786,21 @@
 				AE9F32981F6911B300339BB8 /* GrandModel.swift in Sources */,
 				AE9F32B41F693BC000339BB8 /* UIScrollView+MJExtension.m in Sources */,
 				AE9F32BB1F693BF000339BB8 /* MJRefreshBackNormalFooter.m in Sources */,
+				AEF4A45C1F6FA65600EE4001 /* UIViewController+PLeak.m in Sources */,
 				AEB7720A1F6B6F6C008C4365 /* Routers.swift in Sources */,
 				AE9F32A21F69144900339BB8 /* ResultInfo.swift in Sources */,
+				AEF4A4591F6FA65600EE4001 /* PObjectProxy.m in Sources */,
 				AE9F32BF1F693BFA00339BB8 /* MJRefreshAutoStateFooter.m in Sources */,
 				AE9F32921F69103C00339BB8 /* NovelInfo.swift in Sources */,
 				AEF4A43A1F6BD28500EE4001 /* NovelContentCell.swift in Sources */,
+				AEF4A4571F6FA65600EE4001 /* NSObject+PLeakTrack.m in Sources */,
+				AEF4A4581F6FA65600EE4001 /* PLeakSniffer.m in Sources */,
 				AEB772081F6B68F3008C4365 /* BookmarkViewController.swift in Sources */,
 				AEF4A4411F6F630B00EE4001 /* SectionTableInfo.swift in Sources */,
+				AEF4A45B1F6FA65600EE4001 /* UIView+PLeak.m in Sources */,
 				AE9F32971F6911B100339BB8 /* GrandModel+Map.swift in Sources */,
 				AE9F32B81F693BE400339BB8 /* MJRefreshNormalHeader.m in Sources */,
+				AEF4A4561F6FA65600EE4001 /* NSObject+PLeak.m in Sources */,
 				AE9F32BA1F693BEE00339BB8 /* MJRefreshBackGifFooter.m in Sources */,
 				AEB772101F6BA59E008C4365 /* SectionInfo.swift in Sources */,
 				AE9F32B51F693BC300339BB8 /* UIScrollView+MJRefresh.m in Sources */,
@@ -787,6 +836,7 @@
 				AE9F329B1F6911BE00339BB8 /* GrandTimer.swift in Sources */,
 				AEF4A4381F6BC7DA00EE4001 /* NovelConfig.swift in Sources */,
 				AE9F32C51F6A16E700339BB8 /* ToModelExtension.swift in Sources */,
+				AEF4A45A1F6FA65600EE4001 /* UINavigationController+PLeak.m in Sources */,
 				AE9F32B01F693BB300339BB8 /* MJRefreshFooter.m in Sources */,
 				AE9F32B11F693BB500339BB8 /* MJRefreshHeader.m in Sources */,
 			);
@@ -945,6 +995,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(SDKROOT)/usr/include/libxml2",
 					"$(PROJECT_DIR)/Library/MJRefresh",
+					"$(PROJECT_DIR)/Library/Tool/PLeakSniffer",
 				);
 				INFOPLIST_FILE = Novel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -968,6 +1019,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(SDKROOT)/usr/include/libxml2",
 					"$(PROJECT_DIR)/Library/MJRefresh",
+					"$(PROJECT_DIR)/Library/Tool/PLeakSniffer",
 				);
 				INFOPLIST_FILE = Novel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

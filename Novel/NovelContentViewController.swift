@@ -9,6 +9,7 @@
 import UIKit
 import URLNavigator
 import TangramKit
+import RxSwift
 final class NovelContentViewController: UIViewController {
     init() { super.init(nibName: nil, bundle: nil) }
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented")  }
@@ -17,7 +18,7 @@ final class NovelContentViewController: UIViewController {
     var currentSection : SectionInfo?
     var arrSectionUrl : [SectionInfo]?
     var vm:NovelContentViewModel?
-    
+    fileprivate let bag = DisposeBag()
     override func loadView() {
         super.loadView()
         self.view = TGFrameLayout(frame: self.view.bounds)
@@ -26,12 +27,15 @@ final class NovelContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tb.tg_width.equal(.fill)
         tb.tg_height.equal(.fill)
         tb.tg_left.equal(0)
         tb.tg_top.equal(0)
         tb.delegate = self
         tb.estimatedRowHeight = 8000
+        tb.separatorStyle = .none
+        tb.allowsSelection = false
         tb.rowHeight = UITableViewAutomaticDimension
         view.addSubview(tb)
 
@@ -39,7 +43,8 @@ final class NovelContentViewController: UIViewController {
         let buttonSaveBoookmark = UIBarButtonItem(title: "添加书签", style: .plain, target: self, action: #selector(NovelContentViewController.saveBookmark))
         navigationItem.rightBarButtonItem = buttonSaveBoookmark
         
-        vm = NovelContentViewModel(input: (tb,novelInfo!,currentSection!,arrSectionUrl!))
+        vm = NovelContentViewModel(input: (tb,novelInfo!,currentSection!,arrSectionUrl)) //暂时没想出以构造函数的方式绑定
+        vm?.sectionTitle.asDriver().drive(navigationItem.rx.title).addDisposableTo(bag)
         weak var weakself = self
         tb.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
             if  !weakself!.vm!.isLoading {

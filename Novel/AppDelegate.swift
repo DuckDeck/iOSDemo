@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
         NavigationMap.initialize()
-       IQKeyboardManager.sharedManager().enable = true
-        
+        IQKeyboardManager.sharedManager().enable = true
+        PLeakSniffer.sharedInstance().installLeakSniffer()
         return true
     }
 

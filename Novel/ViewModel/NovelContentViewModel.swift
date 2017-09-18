@@ -24,6 +24,7 @@ class NovelContentViewModel {
     var arrSectionUrl : [SectionInfo]?              //该小说所有的section的Url
     var arrSection = Variable<[SectionInfo]> ([])               //该小说所有的section
     var currentDisplayRow: SectionInfo?         //当前显示的section
+    let sectionTitle: Variable<String>
     var isLoadAll = false
     var isLoading = false
     init(input:(tb:UITableView,novel:NovelInfo,currentSection:SectionInfo,sectionUrl:[SectionInfo]?)) {
@@ -31,6 +32,7 @@ class NovelContentViewModel {
         self.novelInfo = input.novel
         self.currentSection = input.currentSection
         self.arrSectionUrl = input.sectionUrl
+        self.sectionTitle = Variable<String>(self.currentSection.sectionName)
         bind()
         initData()
     }
@@ -40,22 +42,22 @@ class NovelContentViewModel {
         tb.tableFooterView = UIView()
         arrSection.asObservable().bind(to: tb.rx.items(cellIdentifier: cellID, cellType: NovelContentCell.self)){ [weak self] row , model , cell in
             self?.currentDisplayRow = model
+            self?.sectionTitle.value = model.sectionName
             cell.setText(str: model.sectionAttributeContent)
             }.addDisposableTo(bag)
     }
     
     func initData()  {
         //先写arrSectionUrl不为空的
-
+        GrandCue.showLoading()
         if let urls = arrSectionUrl{
             pageIndex = urls.index(where: { (s) -> Bool in
                 return s.sectionUrl == self.currentSection.sectionUrl
             })!
-            GrandCue.showLoading()
             getNovelContent()
         }
         else{
-            
+            getNovelSections()
         }
     }
     
@@ -79,6 +81,21 @@ class NovelContentViewModel {
       
     }
 
+    func getNovelSections()  {
+        let path = novelInfo.url.subToEnd(start: 19)
+        provider.request(.GetSection(path)).filterSuccessfulStatusCodes().mapSectionInfo().subscribe({ [weak self] (str) in
+            switch(str){
+            case let .success(result):
+                self?.arrSectionUrl = result.data! as? [SectionInfo]
+                self?.initData()
+            case let  .error(err):
+                Log(message: err)
+                GrandCue.dismissLoading()
+                GrandCue.toast(err.localizedDescription)
+            }
+        }).addDisposableTo(self.bag)
+
+    }
     
     func saveBookmark()  {
         if currentDisplayRow == nil {

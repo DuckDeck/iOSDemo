@@ -9,5 +9,5 @@
 #ifndef bridge_h
 #define bridge_h
 #import "MJRefresh.h"
-
+#import "PLeakSniffer.h"
 #endif /* bridge_h */
