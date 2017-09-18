@@ -39,7 +39,6 @@ final class BookmarkViewController: UIViewController {
         
         let buttonSaveBoookmark = UIBarButtonItem(title: "清空书签", style: .plain, target: self, action: #selector(BookmarkViewController.clearBookmark))
         navigationItem.rightBarButtonItem = buttonSaveBoookmark
-        
     }
     
     

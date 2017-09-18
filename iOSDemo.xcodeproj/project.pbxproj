@@ -124,6 +124,8 @@
 		AEF4A45A1F6FA65600EE4001 /* UINavigationController+PLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4511F6FA65600EE4001 /* UINavigationController+PLeak.m */; };
 		AEF4A45B1F6FA65600EE4001 /* UIView+PLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4531F6FA65600EE4001 /* UIView+PLeak.m */; };
 		AEF4A45C1F6FA65600EE4001 /* UIViewController+PLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4551F6FA65600EE4001 /* UIViewController+PLeak.m */; };
+		AEF4A4601F6FCAF800EE4001 /* novel1.gif in Resources */ = {isa = PBXBuildFile; fileRef = AEF4A45F1F6FCAF800EE4001 /* novel1.gif */; };
+		AEF4A4621F6FCB5B00EE4001 /* novel2.gif in Resources */ = {isa = PBXBuildFile; fileRef = AEF4A4611F6FCB5B00EE4001 /* novel2.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -242,6 +244,8 @@
 		AEF4A4531F6FA65600EE4001 /* UIView+PLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PLeak.m"; sourceTree = "<group>"; };
 		AEF4A4541F6FA65600EE4001 /* UIViewController+PLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PLeak.h"; sourceTree = "<group>"; };
 		AEF4A4551F6FA65600EE4001 /* UIViewController+PLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PLeak.m"; sourceTree = "<group>"; };
+		AEF4A45F1F6FCAF800EE4001 /* novel1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = novel1.gif; sourceTree = "<group>"; };
+		AEF4A4611F6FCB5B00EE4001 /* novel2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = novel2.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +284,7 @@
 		AE9F31C91F69070E00339BB8 = {
 			isa = PBXGroup;
 			children = (
+				AEF4A45E1F6FCAEF00EE4001 /* Image */,
 				AE9F32311F690F1B00339BB8 /* Library */,
 				AE9F31D41F69070E00339BB8 /* iOSDemo */,
 				AE9F320A1F69087E00339BB8 /* Novel */,
@@ -606,6 +611,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		AEF4A45E1F6FCAEF00EE4001 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				AEF4A45F1F6FCAF800EE4001 /* novel1.gif */,
+				AEF4A4611F6FCB5B00EE4001 /* novel2.gif */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -691,8 +705,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE9F31E01F69070E00339BB8 /* LaunchScreen.storyboard in Resources */,
+				AEF4A4621F6FCB5B00EE4001 /* novel2.gif in Resources */,
 				AE9F31DD1F69070E00339BB8 /* Assets.xcassets in Resources */,
 				AE9F326F1F690F3500339BB8 /* MJRefresh.bundle in Resources */,
+				AEF4A4601F6FCAF800EE4001 /* novel1.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

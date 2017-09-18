@@ -22,6 +22,10 @@ class BookMarkViewModel {
         bind()
     }
     
+    
+    //对于ViewModel也是有一个生命同期的，ViewController 有 LoadView
+    // ViewDidLoad,WillAppare等， 而ViewModel应该有
+    // Create, BindData,  Destroy 等生命周期事件
     func bind()  {
         
          tb.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
