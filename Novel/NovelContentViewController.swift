@@ -47,10 +47,10 @@ final class NovelContentViewController: UIViewController {
             }
         })
         
-        
     }
 
     func saveBookmark()  {
+        vm?.saveBookmark()
     }
     
     override func didReceiveMemoryWarning() {

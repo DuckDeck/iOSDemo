@@ -113,6 +113,10 @@
 		AEB772181F6BBEE9008C4365 /* NovelContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772171F6BBEE9008C4365 /* NovelContentViewModel.swift */; };
 		AEF4A4381F6BC7DA00EE4001 /* NovelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4371F6BC7DA00EE4001 /* NovelConfig.swift */; };
 		AEF4A43A1F6BD28500EE4001 /* NovelContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4391F6BD28500EE4001 /* NovelContentCell.swift */; };
+		AEF4A43D1F6F602500EE4001 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF4A43C1F6F602500EE4001 /* RxDataSources.framework */; };
+		AEF4A43F1F6F60E700EE4001 /* BookMarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A43E1F6F60E700EE4001 /* BookMarkViewModel.swift */; };
+		AEF4A4411F6F630B00EE4001 /* SectionTableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4401F6F630B00EE4001 /* SectionTableInfo.swift */; };
+		AEF4A4431F6F74C100EE4001 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF4A4421F6F74C100EE4001 /* Differentiator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -213,6 +217,10 @@
 		AEB772171F6BBEE9008C4365 /* NovelContentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelContentViewModel.swift; sourceTree = "<group>"; };
 		AEF4A4371F6BC7DA00EE4001 /* NovelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelConfig.swift; sourceTree = "<group>"; };
 		AEF4A4391F6BD28500EE4001 /* NovelContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelContentCell.swift; sourceTree = "<group>"; };
+		AEF4A43C1F6F602500EE4001 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
+		AEF4A43E1F6F60E700EE4001 /* BookMarkViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMarkViewModel.swift; sourceTree = "<group>"; };
+		AEF4A4401F6F630B00EE4001 /* SectionTableInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTableInfo.swift; sourceTree = "<group>"; };
+		AEF4A4421F6F74C100EE4001 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +248,8 @@
 				AE9F32C11F693F4500339BB8 /* RxMoya.framework in Frameworks */,
 				AE9F32C31F693F9B00339BB8 /* Result.framework in Frameworks */,
 				AEB772041F6B684F008C4365 /* URLNavigator.framework in Frameworks */,
+				AEF4A43D1F6F602500EE4001 /* RxDataSources.framework in Frameworks */,
+				AEF4A4431F6F74C100EE4001 /* Differentiator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +314,8 @@
 		AE9F321B1F690DBF00339BB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEF4A4421F6F74C100EE4001 /* Differentiator.framework */,
+				AEF4A43C1F6F602500EE4001 /* RxDataSources.framework */,
 				AEB772031F6B684F008C4365 /* URLNavigator.framework */,
 				AE9F32C21F693F9B00339BB8 /* Result.framework */,
 				AE9F32C01F693F4500339BB8 /* RxMoya.framework */,
@@ -500,6 +512,7 @@
 			children = (
 				AE9F32911F69103C00339BB8 /* NovelInfo.swift */,
 				AEB7720F1F6BA59E008C4365 /* SectionInfo.swift */,
+				AEF4A4401F6F630B00EE4001 /* SectionTableInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -510,6 +523,7 @@
 				AE9F32A51F69176E00339BB8 /* NovelSearchViewModel.swift */,
 				AEB7720D1F6B9396008C4365 /* SectionListViewModel.swift */,
 				AEB772171F6BBEE9008C4365 /* NovelContentViewModel.swift */,
+				AEF4A43E1F6F60E700EE4001 /* BookMarkViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -646,7 +660,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		AE9F32301F690E0F00339BB8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -663,6 +677,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RXMoya.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/URLNavigator.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
 			);
 			outputPaths = (
 			);
@@ -733,6 +749,7 @@
 				AE9F32921F69103C00339BB8 /* NovelInfo.swift in Sources */,
 				AEF4A43A1F6BD28500EE4001 /* NovelContentCell.swift in Sources */,
 				AEB772081F6B68F3008C4365 /* BookmarkViewController.swift in Sources */,
+				AEF4A4411F6F630B00EE4001 /* SectionTableInfo.swift in Sources */,
 				AE9F32971F6911B100339BB8 /* GrandModel+Map.swift in Sources */,
 				AE9F32B81F693BE400339BB8 /* MJRefreshNormalHeader.m in Sources */,
 				AE9F32BA1F693BEE00339BB8 /* MJRefreshBackGifFooter.m in Sources */,
@@ -750,6 +767,7 @@
 				AE9F320C1F69087E00339BB8 /* AppDelegate.swift in Sources */,
 				AE9F32AE1F693BAE00339BB8 /* MJRefreshBackFooter.m in Sources */,
 				AEB772121F6BB1DD008C4365 /* Foundation+Extension.swift in Sources */,
+				AEF4A43F1F6F60E700EE4001 /* BookMarkViewModel.swift in Sources */,
 				AE9F32951F6911A600339BB8 /* UIView+Base.swift in Sources */,
 				AEB7720E1F6B9396008C4365 /* SectionListViewModel.swift in Sources */,
 				AE9F32BC1F693BF200339BB8 /* MJRefreshBackStateFooter.m in Sources */,

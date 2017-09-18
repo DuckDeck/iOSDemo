@@ -38,8 +38,9 @@ class NovelContentViewModel {
     func bind()  {
         tb.register(NovelContentCell.self, forCellReuseIdentifier: cellID)
         tb.tableFooterView = UIView()
-        arrSection.asObservable().bind(to: tb.rx.items(cellIdentifier: cellID, cellType: NovelContentCell.self)){ row , model , cell in
-                cell.setText(str: model.sectionAttributeContent)
+        arrSection.asObservable().bind(to: tb.rx.items(cellIdentifier: cellID, cellType: NovelContentCell.self)){ [weak self] row , model , cell in
+            self?.currentDisplayRow = model
+            cell.setText(str: model.sectionAttributeContent)
             }.addDisposableTo(bag)
     }
     
@@ -50,9 +51,8 @@ class NovelContentViewModel {
             pageIndex = urls.index(where: { (s) -> Bool in
                 return s.sectionUrl == self.currentSection.sectionUrl
             })!
-           
+            GrandCue.showLoading()
             getNovelContent()
-
         }
         else{
             
@@ -60,10 +60,11 @@ class NovelContentViewModel {
     }
     
     func getNovelContent() {
-         let url = novelInfo.url.subToEnd(start: 19) + "/"+currentSection.sectionUrl
+        let url = novelInfo.url.subToEnd(start: 19) + "/"+currentSection.sectionUrl
         isLoading = true
         provider.request(.GetNovel(url)).filterSuccessfulStatusCodes().mapNovelSection().subscribe({ [weak self](str) in
             self?.isLoading = false
+            GrandCue.dismissLoading()
             switch(str){
             case let .success(result):
                 self!.currentSection.sectionContent = result.data as! String
@@ -80,6 +81,9 @@ class NovelContentViewModel {
 
     
     func saveBookmark()  {
+        if currentDisplayRow == nil {
+            return
+        }
         var marks = Bookmark.Value!
         let index = marks.index(where: { (n) -> Bool in
             n.url == novelInfo.url

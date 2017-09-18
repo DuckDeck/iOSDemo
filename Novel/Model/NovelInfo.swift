@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 class NovelInfo: GrandModel {
     var id = 0
     var img = ""
@@ -23,5 +24,4 @@ class NovelInfo: GrandModel {
         return lhs.url == rhs.url
     }
 }
-
 
