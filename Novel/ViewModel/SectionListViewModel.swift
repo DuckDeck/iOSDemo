@@ -42,7 +42,6 @@ class SectionListViewModel {
             }
             let dict = ["novelInfo":wkself!.novelInfo.value,"currentSection":section,"arrSectionUrl":wkself!.modelObserable.value] as [String : Any]
             Navigator.push(Routers.novelContent, context: dict, from: nil, animated: true)
-            
         }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
 
         

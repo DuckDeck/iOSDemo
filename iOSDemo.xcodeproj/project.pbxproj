@@ -135,7 +135,7 @@
 		AE9F31E11F69070E00339BB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE9F32091F69087E00339BB8 /* Novel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Novel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9F320B1F69087E00339BB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AE9F320D1F69087E00339BB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AE9F320D1F69087E00339BB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Novel/View/ViewController.swift; sourceTree = SOURCE_ROOT; };
 		AE9F32121F69087E00339BB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE9F32151F69087E00339BB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE9F32171F69087E00339BB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -312,15 +312,12 @@
 		AE9F320A1F69087E00339BB8 /* Novel */ = {
 			isa = PBXGroup;
 			children = (
+				AEF4A45D1F6FBE1100EE4001 /* View */,
 				AE9F32C71F6A5EFC00339BB8 /* Cell */,
 				AE9F32A81F6918DD00339BB8 /* Service */,
 				AE9F32A41F69175300339BB8 /* ViewModel */,
 				AE9F32901F69103000339BB8 /* Model */,
 				AE9F320B1F69087E00339BB8 /* AppDelegate.swift */,
-				AE9F320D1F69087E00339BB8 /* ViewController.swift */,
-				AEB772071F6B68F3008C4365 /* BookmarkViewController.swift */,
-				AEB7720B1F6B71D2008C4365 /* SectionListViewController.swift */,
-				AEB772131F6BBC3A008C4365 /* NovelContentViewController.swift */,
 				AE9F32121F69087E00339BB8 /* Assets.xcassets */,
 				AE9F32141F69087E00339BB8 /* LaunchScreen.storyboard */,
 				AE9F32171F69087E00339BB8 /* Info.plist */,
@@ -596,6 +593,17 @@
 				AEF4A4551F6FA65600EE4001 /* UIViewController+PLeak.m */,
 			);
 			path = PLeakSniffer;
+			sourceTree = "<group>";
+		};
+		AEF4A45D1F6FBE1100EE4001 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE9F320D1F69087E00339BB8 /* ViewController.swift */,
+				AEB772071F6B68F3008C4365 /* BookmarkViewController.swift */,
+				AEB7720B1F6B71D2008C4365 /* SectionListViewController.swift */,
+				AEB772131F6BBC3A008C4365 /* NovelContentViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
