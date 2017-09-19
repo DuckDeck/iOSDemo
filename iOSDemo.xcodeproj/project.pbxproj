@@ -113,6 +113,14 @@
 		AEA07EFB1F70C44000FC9770 /* WSProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F321C1F690DBF00339BB8 /* WSProgressHUD.framework */; };
 		AEA07EFF1F70C7B900FC9770 /* MemeryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA07EFE1F70C7B900FC9770 /* MemeryViewController.swift */; };
 		AEA07F021F70C7D200FC9770 /* MemeryLeakTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA07F011F70C7D200FC9770 /* MemeryLeakTestViewController.swift */; };
+		AEA07F071F7103BB00FC9770 /* NSObject+PLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4491F6FA65600EE4001 /* NSObject+PLeak.m */; };
+		AEA07F081F7103BE00FC9770 /* NSObject+PLeakTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A44B1F6FA65600EE4001 /* NSObject+PLeakTrack.m */; };
+		AEA07F091F7103C000FC9770 /* PLeakSniffer.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A44D1F6FA65600EE4001 /* PLeakSniffer.m */; };
+		AEA07F0A1F7103C200FC9770 /* PObjectProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A44F1F6FA65600EE4001 /* PObjectProxy.m */; };
+		AEA07F0B1F7103C500FC9770 /* UINavigationController+PLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4511F6FA65600EE4001 /* UINavigationController+PLeak.m */; };
+		AEA07F0C1F7103C700FC9770 /* UIView+PLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4531F6FA65600EE4001 /* UIView+PLeak.m */; };
+		AEA07F0D1F7103C900FC9770 /* UIViewController+PLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4551F6FA65600EE4001 /* UIViewController+PLeak.m */; };
+		AEA07F151F710D7E00FC9770 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA07F141F710D7E00FC9770 /* main.m */; };
 		AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
 		AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
 		AEB772011F6A81F4008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
@@ -144,6 +152,18 @@
 		AEF4A4601F6FCAF800EE4001 /* novel1.gif in Resources */ = {isa = PBXBuildFile; fileRef = AEF4A45F1F6FCAF800EE4001 /* novel1.gif */; };
 		AEF4A4621F6FCB5B00EE4001 /* novel2.gif in Resources */ = {isa = PBXBuildFile; fileRef = AEF4A4611F6FCB5B00EE4001 /* novel2.gif */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AEA07F101F710D7E00FC9770 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,6 +250,9 @@
 		AE9F32C81F6A5F1400339BB8 /* NovelTbCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelTbCell.swift; sourceTree = "<group>"; };
 		AEA07EFE1F70C7B900FC9770 /* MemeryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeryViewController.swift; sourceTree = "<group>"; };
 		AEA07F011F70C7D200FC9770 /* MemeryLeakTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeryLeakTestViewController.swift; sourceTree = "<group>"; };
+		AEA07F031F7102B900FC9770 /* bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
+		AEA07F121F710D7E00FC9770 /* Console */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Console; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEA07F141F710D7E00FC9770 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AEB771FD1F6A8089008C4365 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Base.swift"; sourceTree = "<group>"; };
 		AEB772031F6B684F008C4365 /* URLNavigator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLNavigator.framework; path = Carthage/Build/iOS/URLNavigator.framework; sourceTree = "<group>"; };
@@ -312,6 +335,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AEA07F0F1F710D7E00FC9770 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -322,6 +352,7 @@
 				AE9F32311F690F1B00339BB8 /* Library */,
 				AE9F31D41F69070E00339BB8 /* iOSDemo */,
 				AE9F320A1F69087E00339BB8 /* Novel */,
+				AEA07F131F710D7E00FC9770 /* Console */,
 				AE9F31D31F69070E00339BB8 /* Products */,
 				AE9F321B1F690DBF00339BB8 /* Frameworks */,
 			);
@@ -332,6 +363,7 @@
 			children = (
 				AE9F31D21F69070E00339BB8 /* iOSDemo.app */,
 				AE9F32091F69087E00339BB8 /* Novel.app */,
+				AEA07F121F710D7E00FC9770 /* Console */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -345,6 +377,7 @@
 				AE9F31DC1F69070E00339BB8 /* Assets.xcassets */,
 				AE9F31DE1F69070E00339BB8 /* LaunchScreen.storyboard */,
 				AE9F31E11F69070E00339BB8 /* Info.plist */,
+				AEA07F031F7102B900FC9770 /* bridge.h */,
 			);
 			path = iOSDemo;
 			sourceTree = "<group>";
@@ -622,6 +655,14 @@
 			path = MemeryLeak;
 			sourceTree = "<group>";
 		};
+		AEA07F131F710D7E00FC9770 /* Console */ = {
+			isa = PBXGroup;
+			children = (
+				AEA07F141F710D7E00FC9770 /* main.m */,
+			);
+			path = Console;
+			sourceTree = "<group>";
+		};
 		AEB771FC1F6A807D008C4365 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -711,6 +752,23 @@
 			productReference = AE9F32091F69087E00339BB8 /* Novel.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AEA07F111F710D7E00FC9770 /* Console */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEA07F161F710D7E00FC9770 /* Build configuration list for PBXNativeTarget "Console" */;
+			buildPhases = (
+				AEA07F0E1F710D7E00FC9770 /* Sources */,
+				AEA07F0F1F710D7E00FC9770 /* Frameworks */,
+				AEA07F101F710D7E00FC9770 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Console;
+			productName = Console;
+			productReference = AEA07F121F710D7E00FC9770 /* Console */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -731,6 +789,11 @@
 						DevelopmentTeam = 76966J85NL;
 						ProvisioningStyle = Automatic;
 					};
+					AEA07F111F710D7E00FC9770 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = APF8Y4T67A;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = AE9F31CD1F69070E00339BB8 /* Build configuration list for PBXProject "iOSDemo" */;
@@ -748,6 +811,7 @@
 			targets = (
 				AE9F31D11F69070E00339BB8 /* iOSDemo */,
 				AE9F32081F69087E00339BB8 /* Novel */,
+				AEA07F111F710D7E00FC9770 /* Console */,
 			);
 		};
 /* End PBXProject section */
@@ -846,10 +910,13 @@
 				AE9F32711F690F3500339BB8 /* NSBundle+MJRefresh.m in Sources */,
 				AE9F32821F690F5200339BB8 /* GrandCue.swift in Sources */,
 				AE9F326E1F690F3500339BB8 /* MJRefreshStateHeader.m in Sources */,
+				AEA07F0C1F7103C700FC9770 /* UIView+PLeak.m in Sources */,
 				AE9F32611F690F3500339BB8 /* MJRefreshAutoFooter.m in Sources */,
 				AE9F32871F690F5200339BB8 /* GrandStore.swift in Sources */,
+				AEA07F0A1F7103C200FC9770 /* PObjectProxy.m in Sources */,
 				AE9F326B1F690F3500339BB8 /* MJRefreshBackStateFooter.m in Sources */,
 				AEA07F021F70C7D200FC9770 /* MemeryLeakTestViewController.swift in Sources */,
+				AEA07F081F7103BE00FC9770 /* NSObject+PLeakTrack.m in Sources */,
 				AE9F32701F690F3500339BB8 /* MJRefreshConst.m in Sources */,
 				AE9F32681F690F3500339BB8 /* MJRefreshAutoStateFooter.m in Sources */,
 				AE9F32631F690F3500339BB8 /* MJRefreshComponent.m in Sources */,
@@ -864,9 +931,13 @@
 				AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */,
 				AE9F32671F690F3500339BB8 /* MJRefreshAutoNormalFooter.m in Sources */,
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
+				AEA07F0B1F7103C500FC9770 /* UINavigationController+PLeak.m in Sources */,
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
 				AE9F32861F690F5200339BB8 /* GrandType.swift in Sources */,
+				AEA07F071F7103BB00FC9770 /* NSObject+PLeak.m in Sources */,
+				AEA07F091F7103C000FC9770 /* PLeakSniffer.m in Sources */,
 				AE9F32A31F69144C00339BB8 /* ResultInfo.swift in Sources */,
+				AEA07F0D1F7103C900FC9770 /* UIViewController+PLeak.m in Sources */,
 				AE9F328E1F690FD200339BB8 /* UIView+Base.swift in Sources */,
 				AE9F326C1F690F3500339BB8 /* MJRefreshGifHeader.m in Sources */,
 				AEA07EFF1F70C7B900FC9770 /* MemeryViewController.swift in Sources */,
@@ -946,6 +1017,14 @@
 				AEF4A45A1F6FA65600EE4001 /* UINavigationController+PLeak.m in Sources */,
 				AE9F32B01F693BB300339BB8 /* MJRefreshFooter.m in Sources */,
 				AE9F32B11F693BB500339BB8 /* MJRefreshHeader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEA07F0E1F710D7E00FC9770 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEA07F151F710D7E00FC9770 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1078,6 +1157,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = StanHu.iOSDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/stanhu/Documents/iOSDemo/iOSDemo/bridge.h;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1097,6 +1177,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = StanHu.iOSDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/stanhu/Documents/iOSDemo/iOSDemo/bridge.h;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1150,6 +1231,28 @@
 			};
 			name = Release;
 		};
+		AEA07F171F710D7E00FC9770 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEVELOPMENT_TEAM = APF8Y4T67A;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AEA07F181F710D7E00FC9770 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				DEVELOPMENT_TEAM = APF8Y4T67A;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1179,6 +1282,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		AEA07F161F710D7E00FC9770 /* Build configuration list for PBXNativeTarget "Console" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEA07F171F710D7E00FC9770 /* Debug */,
+				AEA07F181F710D7E00FC9770 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

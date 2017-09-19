@@ -63,7 +63,6 @@ class NovelSearchViewModel {
                 return
             }
             Navigator.push(Routers.sectionList, context: novel, from: nil, animated: true)
-            
         }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
         
         requestNewDataCommond.subscribe { [weak self](event) in

@@ -164,7 +164,7 @@
         
         [names addObject:name];
     }
-    
+    free(properties);
     return names;
 }
 

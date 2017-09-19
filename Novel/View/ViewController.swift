@@ -32,7 +32,6 @@ class ViewController: UIViewController {
         tb.setFrame(frame: CGRect(x: 0, y: NavigationBarHeight + 40, width: ScreenWidth, height: ScreenHeight - 40 - NavigationBarHeight)).addTo(view: view).completed()
         tb.estimatedRowHeight = 160
         tb.rowHeight = UITableViewAutomaticDimension
-        
         vm = NovelSearchViewModel(input: (tb,txtSearch.rx.text.orEmpty.asDriver(),btnSearch.rx.tap.asDriver()))
         
         txtSearch.rx.controlEvent([.editingDidEndOnExit]).subscribe(onNext: {

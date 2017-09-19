@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootNavigationController = UINavigationController(rootViewController: mainViewController)
         window?.rootViewController = rootNavigationController
         window?.makeKeyAndVisible()
+        IQKeyboardManager.sharedManager().enable = true
+        PLeakSniffer.sharedInstance().installLeakSniffer()
         return true
     }
 
