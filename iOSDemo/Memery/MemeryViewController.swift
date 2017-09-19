@@ -1,15 +1,15 @@
 //
-//  ViewController.swift
+//  MemeryViewController.swift
 //  iOSDemo
 //
-//  Created by Stan Hu on 13/9/2017.
+//  Created by Stan Hu on 19/9/2017.
 //  Copyright © 2017 Stan Hu. All rights reserved.
 //
 
 import UIKit
 import TangramKit
-class ViewController: UIViewController {
-    var arrData = ["Memery"]
+class MemeryViewController: UIViewController {
+    var arrData = ["MemeryLeakTest"]
     var tbMenu = UITableView()
     
     override func loadView() {
@@ -28,12 +28,10 @@ class ViewController: UIViewController {
         tbMenu.tg_top.equal(0)
         tbMenu.tableFooterView = UIView()
         view.addSubview(tbMenu)
-
     }
-
 }
 
-extension ViewController:UITableViewDelegate,UITableViewDataSource{
+extension MemeryViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrData.count
     }
@@ -50,15 +48,15 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
-            navigationController?.pushViewController(MemeryViewController(), animated: true)
+            navigationController?.pushViewController(MemeryLeakTestViewController(), animated: true)
         case 1:
-           break
-        case 2:
-            
             break
+        case 2:
+            break
+            
         default:
             break
         }
     }
-
+    
 }

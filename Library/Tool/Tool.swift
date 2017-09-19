@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import IQKeyboardManagerSwift
 class Tool{
     static func hiddenKeyboard(){
        UIApplication.shared.keyWindow?.currentViewController()?.view.endEditing(true)

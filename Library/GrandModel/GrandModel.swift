@@ -101,6 +101,7 @@ class GrandModel:NSObject,NSCoding{
                 selfProperties.append(n as String)
             }
         }
+        free(properties)
         return selfProperties
     }
 }
@@ -122,6 +123,7 @@ extension GrandModel{
                     dict[n] = v as AnyObject?
                 }
             }
+             free(properties)
             return "\(type(of: self)):\(dict)"
         }
     }

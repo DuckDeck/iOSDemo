@@ -62,7 +62,6 @@ extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Respo
                 return Single.just(result)
             }
             var arrSections = [SectionInfo]()
-            //issue 不能用乱用xpath，因为xpath无论从哪获取，都是获取全局的，要想获取子类型一定要用css
             for link in divs{
                 let section = SectionInfo()
                 section.sectionName = link.css("a").first?.text ?? ""

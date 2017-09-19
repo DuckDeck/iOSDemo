@@ -69,7 +69,6 @@ extension APIManager:TargetType{
         return nil
     }
     
- 
 }
 
 extension MoyaProvider{
