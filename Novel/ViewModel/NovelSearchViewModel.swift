@@ -49,14 +49,11 @@ class NovelSearchViewModel {
     
       func bind(){
          weak var wkself = self
-        
           tb.register(NovelTbCell.self, forCellReuseIdentifier: cellID)
           tb.tableFooterView = UIView()
           modelObserable.asObservable().bind(to: tb.rx.items(cellIdentifier: cellID, cellType: NovelTbCell.self)){ row , model , cell in
                 cell.novelIndo = model
           }.addDisposableTo(bag)
-        
-        
         
         tb.rx.itemSelected.subscribe(onNext: { (index) in
             guard  let novel = wkself?.modelObserable.value[index.row] else{
@@ -102,13 +99,11 @@ class NovelSearchViewModel {
             }
         }.addDisposableTo(bag)
         
-   
         
         searchCommand.drive(onNext: {
-            wkself?.tb.mj_header.beginRefreshing()
+          refreshStateObserable.value = .beginHeaderRefresh
         }, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
         
-
         refreshStateObserable.asObservable().subscribe(onNext: { (status) in
             switch(status){
             case .beginHeaderRefresh:
