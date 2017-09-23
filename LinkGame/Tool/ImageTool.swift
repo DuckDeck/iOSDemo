@@ -48,10 +48,11 @@ class ImageTool {
         var imgPaths = getRandomImageIds(source: allImageIds(), size: size/2)
         imgPaths.merge(newArray: imgPaths) //融合,这样 就有两倍了
         var i = imgPaths.count
-        while(--i > 0){
+        while(i > 0){
             let k = i+1
             let j = Int(arc4random()) % k
             imgPaths.exchangeObjectAdIndex(IndexA: i, atIndexB: j)  //随机交换图片
+           i -= 1
         }
         return imgPaths
     }

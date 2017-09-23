@@ -101,7 +101,7 @@ class GameService {
         // NSDictionary的count说明有多少种可以连的方式
         let turns = self.getLinkPoints(p1: p1Point, p2: p2Point, width: Constants.kPieceWidth, height: Constants.kPieceHeight)
         if turns.count >= 0 {
-            return self.getShortcutFromPoints(p1: p1Point, p2: p2Point, turns: turns, shortDistance: Int(self.getDistance(p1Point, p2: p2Point)))
+            return self.getShortcutFromPoints(p1: p1Point, p2: p2Point, turns: turns, shortDistance: Int(self.getDistance(p1: p1Point, p2: p2Point)))
         }
         return nil
     }
@@ -111,10 +111,12 @@ class GameService {
         if p2.x < p1.x{
             return self.isXBlock(p1: p2, p2: p1, pieceWidth: pieceWidth)
         }
-        for var i = CGFloat(p1.x) + pieceWidth; i < CGFloat(p2.x); i = i + pieceWidth   {
+       var i = CGFloat(p1.x) + pieceWidth
+        while i <  CGFloat(p2.x){
             if self.hasPiece(x: Int(i), y: p1.y){
                 return true
             }
+            i = i + pieceWidth
         }
         return false
     }
@@ -123,11 +125,20 @@ class GameService {
         if p2.y < p1.y{
             return self.isYBlock(p1: p2, p2: p1, pieceHeight: pieceHeight)
         }
-        for var i = CGFloat(p1.y) + pieceHeight; i < CGFloat(p2.y); i = i + pieceHeight   {
+        
+        var i = CGFloat(p1.y) + pieceHeight
+        while  i < CGFloat(p2.y) {
             if self.hasPiece(x:p1.x , y: Int(i)){
                 return true
             }
+            i = i + pieceHeight
         }
+        
+//        for var i = CGFloat(p1.y) + pieceHeight; i < CGFloat(p2.y); i = i + pieceHeight   {
+//            if self.hasPiece(x:p1.x , y: Int(i)){
+//                return true
+//            }
+//        }
         return false
     }
     
@@ -138,46 +149,72 @@ class GameService {
     //返回指定Point对象的上边通道
     func getUpChanel(p:LinkPoint,min:Int,height:Int) -> [LinkPoint]{
         var result:[LinkPoint] = [LinkPoint]()
-        for var i = p.y - height; i >= min; i = i - height{
+        var i = p.y - height
+        while  i >= min {
             if self.hasPiece(x: p.x, y: i){
                 return result
             }
             result.append(LinkPoint(x: p.x, y: i))
+          i = i - height
         }
+//        for var i = p.y - height; i >= min; i = i - height{
+//            if self.hasPiece(x: p.x, y: i){
+//                return result
+//            }
+//            result.append(LinkPoint(x: p.x, y: i))
+//        }
         return result
     }
     //返回指定Point对象的下边通道
     func getDownChanel(p:LinkPoint,max:Int,height:Int) -> [LinkPoint]{
         var result:[LinkPoint] = [LinkPoint]()
-        for var i = p.y + height; i <= max; i = i + height{
+        var i = p.y + height
+        while  i <= max {
             if self.hasPiece(x: p.x, y: i){
                 return result
             }
             result.append(LinkPoint(x: p.x, y: i))
+            i = i + height
         }
         return result
     }
     //返回指定Point对象的右边通道
     func getRightChanel(p:LinkPoint,max:Int,width:Int) -> [LinkPoint]{
         var result:[LinkPoint] = [LinkPoint]()
-        for var i = p.x + width; i <= max; i = i + width{
+        var i = p.x + width
+        while  i <= max {
             if self.hasPiece(x: i, y: p.y){
                 return result
             }
             result.append(LinkPoint(x: i, y: p.y))
+            i = i + width
         }
+//        for var i = p.x + width; i <= max; i = i + width{
+//            if self.hasPiece(x: i, y: p.y){
+//                return result
+//            }
+//            result.append(LinkPoint(x: i, y: p.y))
+//        }
         return result
     }
     
     //返回指定Point对象的左边通道
     func getLeftChanel(p:LinkPoint,min:Int,width:Int) -> [LinkPoint]{
         var result:[LinkPoint] = [LinkPoint]()
-        for var i = p.x - width; i >= min; i = i - width{
+        var i = p.x - width
+        while  i >= min {
             if self.hasPiece(x: i, y: p.y){
                 return result
             }
             result.append(LinkPoint(x:i, y:p.y))
+             i = i - width
         }
+//        for var i = p.x - width; i >= min; i = i - width{
+//            if self.hasPiece(x: i, y: p.y){
+//                return result
+//            }
+//            result.append(LinkPoint(x:i, y:p.y))
+//        }
         return result
     }
     

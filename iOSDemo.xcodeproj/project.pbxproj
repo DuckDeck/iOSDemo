@@ -7,6 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE040EE11F76796600C06EC3 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE040EE01F76796600C06EC3 /* GameView.swift */; };
+		AE040F001F76894800C06EC3 /* bubble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE040EE41F7688FA00C06EC3 /* bubble.jpg */; };
+		AE040F011F76894800C06EC3 /* p_1.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EE51F7688FA00C06EC3 /* p_1.png */; };
+		AE040F021F76894800C06EC3 /* p_10.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EE61F7688FA00C06EC3 /* p_10.png */; };
+		AE040F031F76894800C06EC3 /* p_11.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EE71F7688FA00C06EC3 /* p_11.png */; };
+		AE040F041F76894800C06EC3 /* p_12.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EE81F7688FA00C06EC3 /* p_12.png */; };
+		AE040F051F76894800C06EC3 /* p_13.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EE91F7688FA00C06EC3 /* p_13.png */; };
+		AE040F061F76894800C06EC3 /* p_14.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EEA1F7688FA00C06EC3 /* p_14.png */; };
+		AE040F071F76894800C06EC3 /* p_15.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EEB1F7688FA00C06EC3 /* p_15.png */; };
+		AE040F081F76894800C06EC3 /* p_16.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EEC1F7688FA00C06EC3 /* p_16.png */; };
+		AE040F091F76894800C06EC3 /* p_17.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EED1F7688FA00C06EC3 /* p_17.png */; };
+		AE040F0A1F76894800C06EC3 /* p_18.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EEE1F7688FA00C06EC3 /* p_18.png */; };
+		AE040F0B1F76894800C06EC3 /* p_19.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EEF1F7688FA00C06EC3 /* p_19.png */; };
+		AE040F0C1F76894800C06EC3 /* p_2.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EF01F7688FA00C06EC3 /* p_2.png */; };
+		AE040F0D1F76894800C06EC3 /* p_20.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EF11F7688FA00C06EC3 /* p_20.png */; };
+		AE040F0E1F76894800C06EC3 /* p_3.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EF21F7688FA00C06EC3 /* p_3.png */; };
+		AE040F0F1F76894800C06EC3 /* p_4.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EF31F7688FA00C06EC3 /* p_4.png */; };
+		AE040F101F76894800C06EC3 /* p_5.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EF41F7688FA00C06EC3 /* p_5.png */; };
+		AE040F111F76894800C06EC3 /* p_6.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EF51F7688FA00C06EC3 /* p_6.png */; };
+		AE040F121F76894800C06EC3 /* p_7.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EF61F7688FA00C06EC3 /* p_7.png */; };
+		AE040F131F76894800C06EC3 /* p_8.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EF71F7688FA00C06EC3 /* p_8.png */; };
+		AE040F141F76894800C06EC3 /* p_9.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EF81F7688FA00C06EC3 /* p_9.png */; };
+		AE040F151F76894800C06EC3 /* room.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE040EF91F7688FA00C06EC3 /* room.jpg */; };
+		AE040F161F76894800C06EC3 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EFA1F7688FA00C06EC3 /* selected.png */; };
+		AE040F171F76894800C06EC3 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EFB1F7688FA00C06EC3 /* start.png */; };
+		AE040F181F76894800C06EC3 /* start_down.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EFC1F7688FA00C06EC3 /* start_down.png */; };
+		AE040F191F76895500C06EC3 /* dis.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE040EFE1F7688FA00C06EC3 /* dis.wav */; };
+		AE040F1A1F76895500C06EC3 /* gu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AE040EFF1F7688FA00C06EC3 /* gu.mp3 */; };
 		AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D51F69070E00339BB8 /* AppDelegate.swift */; };
 		AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D71F69070E00339BB8 /* ViewController.swift */; };
 		AE9F31DD1F69070E00339BB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9F31DC1F69070E00339BB8 /* Assets.xcassets */; };
@@ -197,6 +225,34 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AE040EE01F76796600C06EC3 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		AE040EE41F7688FA00C06EC3 /* bubble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bubble.jpg; sourceTree = "<group>"; };
+		AE040EE51F7688FA00C06EC3 /* p_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_1.png; sourceTree = "<group>"; };
+		AE040EE61F7688FA00C06EC3 /* p_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_10.png; sourceTree = "<group>"; };
+		AE040EE71F7688FA00C06EC3 /* p_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_11.png; sourceTree = "<group>"; };
+		AE040EE81F7688FA00C06EC3 /* p_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_12.png; sourceTree = "<group>"; };
+		AE040EE91F7688FA00C06EC3 /* p_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_13.png; sourceTree = "<group>"; };
+		AE040EEA1F7688FA00C06EC3 /* p_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_14.png; sourceTree = "<group>"; };
+		AE040EEB1F7688FA00C06EC3 /* p_15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_15.png; sourceTree = "<group>"; };
+		AE040EEC1F7688FA00C06EC3 /* p_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_16.png; sourceTree = "<group>"; };
+		AE040EED1F7688FA00C06EC3 /* p_17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_17.png; sourceTree = "<group>"; };
+		AE040EEE1F7688FA00C06EC3 /* p_18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_18.png; sourceTree = "<group>"; };
+		AE040EEF1F7688FA00C06EC3 /* p_19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_19.png; sourceTree = "<group>"; };
+		AE040EF01F7688FA00C06EC3 /* p_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_2.png; sourceTree = "<group>"; };
+		AE040EF11F7688FA00C06EC3 /* p_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_20.png; sourceTree = "<group>"; };
+		AE040EF21F7688FA00C06EC3 /* p_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_3.png; sourceTree = "<group>"; };
+		AE040EF31F7688FA00C06EC3 /* p_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_4.png; sourceTree = "<group>"; };
+		AE040EF41F7688FA00C06EC3 /* p_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_5.png; sourceTree = "<group>"; };
+		AE040EF51F7688FA00C06EC3 /* p_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_6.png; sourceTree = "<group>"; };
+		AE040EF61F7688FA00C06EC3 /* p_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_7.png; sourceTree = "<group>"; };
+		AE040EF71F7688FA00C06EC3 /* p_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_8.png; sourceTree = "<group>"; };
+		AE040EF81F7688FA00C06EC3 /* p_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p_9.png; sourceTree = "<group>"; };
+		AE040EF91F7688FA00C06EC3 /* room.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = room.jpg; sourceTree = "<group>"; };
+		AE040EFA1F7688FA00C06EC3 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = "<group>"; };
+		AE040EFB1F7688FA00C06EC3 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
+		AE040EFC1F7688FA00C06EC3 /* start_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_down.png; sourceTree = "<group>"; };
+		AE040EFE1F7688FA00C06EC3 /* dis.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dis.wav; sourceTree = "<group>"; };
+		AE040EFF1F7688FA00C06EC3 /* gu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gu.mp3; sourceTree = "<group>"; };
 		AE8D61BD1F74A88600FDFC1C /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9F31D51F69070E00339BB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -415,6 +471,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE040EE21F7688FA00C06EC3 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				AE040EE31F7688FA00C06EC3 /* Image */,
+				AE040EFD1F7688FA00C06EC3 /* Sound */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		AE040EE31F7688FA00C06EC3 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				AE040EE41F7688FA00C06EC3 /* bubble.jpg */,
+				AE040EE51F7688FA00C06EC3 /* p_1.png */,
+				AE040EE61F7688FA00C06EC3 /* p_10.png */,
+				AE040EE71F7688FA00C06EC3 /* p_11.png */,
+				AE040EE81F7688FA00C06EC3 /* p_12.png */,
+				AE040EE91F7688FA00C06EC3 /* p_13.png */,
+				AE040EEA1F7688FA00C06EC3 /* p_14.png */,
+				AE040EEB1F7688FA00C06EC3 /* p_15.png */,
+				AE040EEC1F7688FA00C06EC3 /* p_16.png */,
+				AE040EED1F7688FA00C06EC3 /* p_17.png */,
+				AE040EEE1F7688FA00C06EC3 /* p_18.png */,
+				AE040EEF1F7688FA00C06EC3 /* p_19.png */,
+				AE040EF01F7688FA00C06EC3 /* p_2.png */,
+				AE040EF11F7688FA00C06EC3 /* p_20.png */,
+				AE040EF21F7688FA00C06EC3 /* p_3.png */,
+				AE040EF31F7688FA00C06EC3 /* p_4.png */,
+				AE040EF41F7688FA00C06EC3 /* p_5.png */,
+				AE040EF51F7688FA00C06EC3 /* p_6.png */,
+				AE040EF61F7688FA00C06EC3 /* p_7.png */,
+				AE040EF71F7688FA00C06EC3 /* p_8.png */,
+				AE040EF81F7688FA00C06EC3 /* p_9.png */,
+				AE040EF91F7688FA00C06EC3 /* room.jpg */,
+				AE040EFA1F7688FA00C06EC3 /* selected.png */,
+				AE040EFB1F7688FA00C06EC3 /* start.png */,
+				AE040EFC1F7688FA00C06EC3 /* start_down.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		AE040EFD1F7688FA00C06EC3 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				AE040EFE1F7688FA00C06EC3 /* dis.wav */,
+				AE040EFF1F7688FA00C06EC3 /* gu.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		AE8D61BC1F74A88100FDFC1C /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -758,6 +864,7 @@
 		AEBB55551F75E7B800A94B88 /* LinkGame */ = {
 			isa = PBXGroup;
 			children = (
+				AE040EE21F7688FA00C06EC3 /* Resource */,
 				AEBB559B1F75EC4200A94B88 /* Board */,
 				AEBB559A1F75EC3500A94B88 /* Tool */,
 				AEBB55961F75EC2100A94B88 /* Model */,
@@ -766,6 +873,7 @@
 				AEBB555D1F75E7B800A94B88 /* Assets.xcassets */,
 				AEBB55621F75E7B800A94B88 /* Info.plist */,
 				AEBB555F1F75E7B800A94B88 /* LaunchScreen.storyboard */,
+				AE040EE01F76796600C06EC3 /* GameView.swift */,
 			);
 			path = LinkGame;
 			sourceTree = "<group>";
@@ -1044,6 +1152,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE040F191F76895500C06EC3 /* dis.wav in Resources */,
+				AE040F1A1F76895500C06EC3 /* gu.mp3 in Resources */,
+				AE040F001F76894800C06EC3 /* bubble.jpg in Resources */,
+				AE040F011F76894800C06EC3 /* p_1.png in Resources */,
+				AE040F021F76894800C06EC3 /* p_10.png in Resources */,
+				AE040F031F76894800C06EC3 /* p_11.png in Resources */,
+				AE040F041F76894800C06EC3 /* p_12.png in Resources */,
+				AE040F051F76894800C06EC3 /* p_13.png in Resources */,
+				AE040F061F76894800C06EC3 /* p_14.png in Resources */,
+				AE040F071F76894800C06EC3 /* p_15.png in Resources */,
+				AE040F081F76894800C06EC3 /* p_16.png in Resources */,
+				AE040F091F76894800C06EC3 /* p_17.png in Resources */,
+				AE040F0A1F76894800C06EC3 /* p_18.png in Resources */,
+				AE040F0B1F76894800C06EC3 /* p_19.png in Resources */,
+				AE040F0C1F76894800C06EC3 /* p_2.png in Resources */,
+				AE040F0D1F76894800C06EC3 /* p_20.png in Resources */,
+				AE040F0E1F76894800C06EC3 /* p_3.png in Resources */,
+				AE040F0F1F76894800C06EC3 /* p_4.png in Resources */,
+				AE040F101F76894800C06EC3 /* p_5.png in Resources */,
+				AE040F111F76894800C06EC3 /* p_6.png in Resources */,
+				AE040F121F76894800C06EC3 /* p_7.png in Resources */,
+				AE040F131F76894800C06EC3 /* p_8.png in Resources */,
+				AE040F141F76894800C06EC3 /* p_9.png in Resources */,
+				AE040F151F76894800C06EC3 /* room.jpg in Resources */,
+				AE040F161F76894800C06EC3 /* selected.png in Resources */,
+				AE040F171F76894800C06EC3 /* start.png in Resources */,
+				AE040F181F76894800C06EC3 /* start_down.png in Resources */,
 				AEBB55611F75E7B800A94B88 /* LaunchScreen.storyboard in Resources */,
 				AEBB555E1F75E7B800A94B88 /* Assets.xcassets in Resources */,
 			);
@@ -1267,6 +1402,7 @@
 				AEBB55B01F75EEBE00A94B88 /* FullBoard.swift in Sources */,
 				AEBB559E1F75EC7800A94B88 /* LinkLine.swift in Sources */,
 				AEBB55571F75E7B800A94B88 /* AppDelegate.swift in Sources */,
+				AE040EE11F76796600C06EC3 /* GameView.swift in Sources */,
 				AEBB55B71F75EF4800A94B88 /* ImageTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1554,12 +1690,13 @@
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = LinkGame/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ShadowEdge.LinkGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1574,12 +1711,13 @@
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = LinkGame/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ShadowEdge.LinkGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
