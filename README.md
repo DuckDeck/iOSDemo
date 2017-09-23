@@ -365,9 +365,3 @@ tb.rx.itemSelected.subscribe(onNext: { (index) in
 - 添加`ViewModel`到`ViewController`并传递需要绑定的属性，并且同时将想着事件绑定到`ViewModel`的命令上
 - 最后就是在`ViewModel`里更新逻辑，在修改属性(数据)的同时，也会更新`UI`。
 
-其实`MVVM`的理念并不难理解，我感觉可能比`MVC`更简单，但是在`iOS上`写`MVVM`确是一件不简单的事。如果在没有`RXSwift`和其他相关`RX`库的帮助的情况下，强行用`MVVM`理念来开发`iOS`，其复杂度可能要比传统的`MVC`开发高很多。理论上，使用基于`RX`响应式编程的`MVVM`框架非常适合开发大型项目。在你使用`RXSwift`和其他`RX`库非常熟练的情况下，使用`MVVM`开发大型商业项目应该也不成问题了。
-
-最后再次给出Demo :[Novel小说阅读](https://github.com/DuckDeck/iOSDemo)，
-
-
-如果读者想认真学习`MVVM`框架，一定要自己尝试写一个小项目来体验一下。如果你不知道怎么下手，建议`Clone`此项目然后再仿照写一次，相信你会对`MVVM`有一个完整认识了。如果此项目对你有帮助的话，不要忘记Star哦。
