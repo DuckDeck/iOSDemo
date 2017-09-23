@@ -134,7 +134,7 @@ class ToastLable:UILabel {
     override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
         var rect = bounds
         if let txt = self.text{
-            rect.size =  (txt as NSString).boundingRect(with: CGSize(width: CGFloat(self.maxWidth!) - self.textInsets!.left - self.textInsets!.right, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName:self.font], context: nil).size
+            rect.size =  (txt as NSString).boundingRect(with: CGSize(width: CGFloat(self.maxWidth!) - self.textInsets!.left - self.textInsets!.right, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:self.font], context: nil).size
         }
         return rect
     }

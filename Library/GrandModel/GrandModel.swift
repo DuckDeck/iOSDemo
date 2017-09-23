@@ -95,8 +95,8 @@ class GrandModel:NSObject,NSCoding{
         var count:UInt32 =  0
         let properties = class_copyPropertyList(type(of: self), &count)
         for i in 0..<count {
-            let t = property_getName(properties?[Int(i)])
-            if let n = NSString(cString: t!, encoding: String.Encoding.utf8.rawValue) as String?
+            let t = property_getName((properties?[Int(i)])!)
+            if let n = NSString(cString: t, encoding: String.Encoding.utf8.rawValue) as String?
             {
                 selfProperties.append(n as String)
             }
@@ -116,8 +116,8 @@ extension GrandModel{
             var count:UInt32 =  0
             let properties = class_copyPropertyList(type(of: self), &count)
             for i in 0..<count {
-                let t = property_getName(properties?[Int(i)])
-                if let n = NSString(cString: t!, encoding: String.Encoding.utf8.rawValue) as String?
+                let t = property_getName((properties?[Int(i)])!)
+                if let n = NSString(cString: t, encoding: String.Encoding.utf8.rawValue) as String?
                 {
                     let v = self.value(forKey: n ) ?? "nil"
                     dict[n] = v as AnyObject?

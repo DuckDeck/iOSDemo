@@ -1,15 +1,16 @@
 //
-//  ViewController.swift
+//  MediaViewController.swift
 //  iOSDemo
 //
-//  Created by Stan Hu on 13/9/2017.
-//  Copyright © 2017 Stan Hu. All rights reserved.
+//  Created by Stan Hu on 2017/9/23.
+//  Copyright © 2017年 Stan Hu. All rights reserved.
 //
 
 import UIKit
 import TangramKit
-class ViewController: UIViewController {
-    var arrData = ["Memery","Media"]
+class MediaViewController: UIViewController {
+
+    var arrData = ["CaptureVideo"]
     var tbMenu = UITableView()
     
     override func loadView() {
@@ -28,12 +29,10 @@ class ViewController: UIViewController {
         tbMenu.tg_top.equal(0)
         tbMenu.tableFooterView = UIView()
         view.addSubview(tbMenu)
-
     }
-
 }
 
-extension ViewController:UITableViewDelegate,UITableViewDataSource{
+extension MediaViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrData.count
     }
@@ -50,15 +49,14 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
-            navigationController?.pushViewController(MemeryViewController(), animated: true)
+            navigationController?.pushViewController(CaptureVideoViewController(), animated: true)
         case 1:
-            navigationController?.pushViewController(MediaViewController(), animated: true)
-        case 2:
-            
             break
+        case 2:
+            break
+            
         default:
             break
         }
     }
-
 }

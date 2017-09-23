@@ -58,7 +58,7 @@ class MemeryLeakTestViewController: UIViewController {
         
     }
 
-    func tick()  {
+    @objc func tick()  {
         num += 1
         lblNum.text = "\(num)"
         Log(message: num)
