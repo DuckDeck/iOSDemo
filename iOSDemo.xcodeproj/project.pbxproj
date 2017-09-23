@@ -140,8 +140,16 @@
 		AEBB55591F75E7B800A94B88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB55581F75E7B800A94B88 /* ViewController.swift */; };
 		AEBB555E1F75E7B800A94B88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEBB555D1F75E7B800A94B88 /* Assets.xcassets */; };
 		AEBB55611F75E7B800A94B88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBB555F1F75E7B800A94B88 /* LaunchScreen.storyboard */; };
-		AEBB55871F75E97000A94B88 /* Board in Resources */ = {isa = PBXBuildFile; fileRef = AEBB55861F75E97000A94B88 /* Board */; };
-		AEBB55891F75E9B700A94B88 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = AEBB55881F75E9B700A94B88 /* Model */; };
+		AEBB559E1F75EC7800A94B88 /* LinkLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB559D1F75EC7800A94B88 /* LinkLine.swift */; };
+		AEBB55A21F75ECEE00A94B88 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB55A11F75ECEE00A94B88 /* Piece.swift */; };
+		AEBB55A41F75ED0300A94B88 /* PieceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB55A31F75ED0300A94B88 /* PieceImage.swift */; };
+		AEBB55A61F75ED1E00A94B88 /* LinkPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB55A51F75ED1E00A94B88 /* LinkPoint.swift */; };
+		AEBB55AE1F75EE9100A94B88 /* BaseBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB55AD1F75EE9100A94B88 /* BaseBoard.swift */; };
+		AEBB55B01F75EEBE00A94B88 /* FullBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB55AF1F75EEBE00A94B88 /* FullBoard.swift */; };
+		AEBB55B21F75EED700A94B88 /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB55B11F75EED700A94B88 /* GameService.swift */; };
+		AEBB55B31F75EF1000A94B88 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */; };
+		AEBB55B51F75EF2D00A94B88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB55B41F75EF2D00A94B88 /* Constants.swift */; };
+		AEBB55B71F75EF4800A94B88 /* ImageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB55B61F75EF4800A94B88 /* ImageTool.swift */; };
 		AEF4A4381F6BC7DA00EE4001 /* NovelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4371F6BC7DA00EE4001 /* NovelConfig.swift */; };
 		AEF4A43A1F6BD28500EE4001 /* NovelContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4391F6BD28500EE4001 /* NovelContentCell.swift */; };
 		AEF4A43D1F6F602500EE4001 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF4A43C1F6F602500EE4001 /* RxDataSources.framework */; };
@@ -298,8 +306,15 @@
 		AEBB55621F75E7B800A94B88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEBB55671F75E7B800A94B88 /* LinkGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBB55721F75E7B800A94B88 /* LinkGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AEBB55861F75E97000A94B88 /* Board */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Board; sourceTree = "<group>"; };
-		AEBB55881F75E9B700A94B88 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
+		AEBB559D1F75EC7800A94B88 /* LinkLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLine.swift; sourceTree = "<group>"; };
+		AEBB55A11F75ECEE00A94B88 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
+		AEBB55A31F75ED0300A94B88 /* PieceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceImage.swift; sourceTree = "<group>"; };
+		AEBB55A51F75ED1E00A94B88 /* LinkPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkPoint.swift; sourceTree = "<group>"; };
+		AEBB55AD1F75EE9100A94B88 /* BaseBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBoard.swift; sourceTree = "<group>"; };
+		AEBB55AF1F75EEBE00A94B88 /* FullBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullBoard.swift; sourceTree = "<group>"; };
+		AEBB55B11F75EED700A94B88 /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
+		AEBB55B41F75EF2D00A94B88 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AEBB55B61F75EF4800A94B88 /* ImageTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTool.swift; sourceTree = "<group>"; };
 		AEF4A4371F6BC7DA00EE4001 /* NovelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelConfig.swift; sourceTree = "<group>"; };
 		AEF4A4391F6BD28500EE4001 /* NovelContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelContentCell.swift; sourceTree = "<group>"; };
 		AEF4A43C1F6F602500EE4001 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
@@ -743,15 +758,46 @@
 		AEBB55551F75E7B800A94B88 /* LinkGame */ = {
 			isa = PBXGroup;
 			children = (
-				AEBB55881F75E9B700A94B88 /* Model */,
-				AEBB55861F75E97000A94B88 /* Board */,
+				AEBB559B1F75EC4200A94B88 /* Board */,
+				AEBB559A1F75EC3500A94B88 /* Tool */,
+				AEBB55961F75EC2100A94B88 /* Model */,
 				AEBB55561F75E7B800A94B88 /* AppDelegate.swift */,
 				AEBB55581F75E7B800A94B88 /* ViewController.swift */,
 				AEBB555D1F75E7B800A94B88 /* Assets.xcassets */,
-				AEBB555F1F75E7B800A94B88 /* LaunchScreen.storyboard */,
 				AEBB55621F75E7B800A94B88 /* Info.plist */,
+				AEBB555F1F75E7B800A94B88 /* LaunchScreen.storyboard */,
 			);
 			path = LinkGame;
+			sourceTree = "<group>";
+		};
+		AEBB55961F75EC2100A94B88 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AEBB55A51F75ED1E00A94B88 /* LinkPoint.swift */,
+				AEBB55A11F75ECEE00A94B88 /* Piece.swift */,
+				AEBB559D1F75EC7800A94B88 /* LinkLine.swift */,
+				AEBB55A31F75ED0300A94B88 /* PieceImage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AEBB559A1F75EC3500A94B88 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				AEBB55B41F75EF2D00A94B88 /* Constants.swift */,
+				AEBB55B61F75EF4800A94B88 /* ImageTool.swift */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		AEBB559B1F75EC4200A94B88 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				AEBB55AD1F75EE9100A94B88 /* BaseBoard.swift */,
+				AEBB55AF1F75EEBE00A94B88 /* FullBoard.swift */,
+				AEBB55B11F75EED700A94B88 /* GameService.swift */,
+			);
+			path = Board;
 			sourceTree = "<group>";
 		};
 		AEF4A4471F6FA65600EE4001 /* PLeakSniffer */ = {
@@ -998,9 +1044,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEBB55871F75E97000A94B88 /* Board in Resources */,
 				AEBB55611F75E7B800A94B88 /* LaunchScreen.storyboard in Resources */,
-				AEBB55891F75E9B700A94B88 /* Model in Resources */,
 				AEBB555E1F75E7B800A94B88 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1212,8 +1256,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEBB55B31F75EF1000A94B88 /* Foundation+Extension.swift in Sources */,
+				AEBB55B51F75EF2D00A94B88 /* Constants.swift in Sources */,
+				AEBB55AE1F75EE9100A94B88 /* BaseBoard.swift in Sources */,
+				AEBB55A61F75ED1E00A94B88 /* LinkPoint.swift in Sources */,
+				AEBB55A21F75ECEE00A94B88 /* Piece.swift in Sources */,
+				AEBB55B21F75EED700A94B88 /* GameService.swift in Sources */,
 				AEBB55591F75E7B800A94B88 /* ViewController.swift in Sources */,
+				AEBB55A41F75ED0300A94B88 /* PieceImage.swift in Sources */,
+				AEBB55B01F75EEBE00A94B88 /* FullBoard.swift in Sources */,
+				AEBB559E1F75EC7800A94B88 /* LinkLine.swift in Sources */,
 				AEBB55571F75E7B800A94B88 /* AppDelegate.swift in Sources */,
+				AEBB55B71F75EF4800A94B88 /* ImageTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
