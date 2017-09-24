@@ -1,15 +1,16 @@
 //
-//  ViewController.swift
+//  LayoutViewController.swift
 //  iOSDemo
 //
-//  Created by Stan Hu on 13/9/2017.
-//  Copyright © 2017 Stan Hu. All rights reserved.
+//  Created by Stan Hu on 2017/9/24.
+//  Copyright © 2017年 Stan Hu. All rights reserved.
 //
 
 import UIKit
 import TangramKit
-class ViewController: UIViewController {
-    var arrData = ["Memery","Media","Animation","Layout"]
+class LayoutViewController: UIViewController {
+
+    var arrData = ["ScrollMenu"]
     var tbMenu = UITableView()
     
     override func loadView() {
@@ -28,12 +29,10 @@ class ViewController: UIViewController {
         tbMenu.tg_top.equal(0)
         tbMenu.tableFooterView = UIView()
         view.addSubview(tbMenu)
-
     }
-
 }
 
-extension ViewController:UITableViewDelegate,UITableViewDataSource{
+extension LayoutViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrData.count
     }
@@ -50,17 +49,16 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
-            navigationController?.pushViewController(MemeryViewController(), animated: true)
+            navigationController?.pushViewController(ScrollMenuViewController(), animated: true)
         case 1:
-            navigationController?.pushViewController(MediaViewController(), animated: true)
+            break
         case 2:
-              navigationController?.pushViewController(AnimationViewController(), animated: true)
-        case 3:
-            navigationController?.pushViewController(LayoutViewController(), animated: true)
+            break
             
         default:
             break
         }
     }
+  
 
 }

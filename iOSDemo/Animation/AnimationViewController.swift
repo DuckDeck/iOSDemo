@@ -9,7 +9,7 @@
 import UIKit
 import TangramKit
 class AnimationViewController: UIViewController {
-    var arrData = ["LayerAnimation"]
+    var arrData = ["LayerAnimation","GradientLayer","Replication"]
     var tbMenu = UITableView()
     override func loadView() {
         super.loadView()

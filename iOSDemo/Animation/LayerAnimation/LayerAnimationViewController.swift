@@ -97,7 +97,7 @@ class LayerAnimationViewController: UIViewController,CAAnimationDelegate {
     //    答:视图不需要交互,且动画的开始和结束需要设置特殊的值.
     
     
-    func click(_ sender:UIButton) {
+    @objc func click(_ sender:UIButton) {
         switch sender.tag {
         case 0:
             moveAnimation()
@@ -142,7 +142,7 @@ class LayerAnimationViewController: UIViewController,CAAnimationDelegate {
         
     }
     
-    func stopClick(_ sender:UIButton)  {
+    @objc func stopClick(_ sender:UIButton)  {
         imgDemo.layer.removeAnimation(forKey: "position")
         imgDemo.layer.removeAllAnimations()
     }
@@ -160,7 +160,7 @@ class LayerAnimationViewController: UIViewController,CAAnimationDelegate {
     }
     
     
-    func animationGroupClick(_ sender:UIButton){
+    @objc func animationGroupClick(_ sender:UIButton){
         let groupAnimation = CAAnimationGroup()
         groupAnimation.beginTime = CACurrentMediaTime() + 1
         groupAnimation.duration = 3
@@ -177,7 +177,7 @@ class LayerAnimationViewController: UIViewController,CAAnimationDelegate {
         scaleDown.toValue = 1.0
         
         let rotate = CABasicAnimation(keyPath: "transform.rotation")
-        rotate.fromValue = CGFloat(M_PI_4)
+        rotate.fromValue = CGFloat(Double.pi / 4)
         rotate.toValue = 0.0
         
         let fade = CABasicAnimation(keyPath: "opacity")
@@ -189,7 +189,7 @@ class LayerAnimationViewController: UIViewController,CAAnimationDelegate {
     }
     
     
-    func springClick(_ sender:UIButton)  {
+    @objc func springClick(_ sender:UIButton)  {
         let scaleDown = CASpringAnimation(keyPath: "transform.scale")
         scaleDown.fromValue = 1.5
         scaleDown.toValue  = 1.0
@@ -208,7 +208,7 @@ class LayerAnimationViewController: UIViewController,CAAnimationDelegate {
     
     
     
-    func keyFrameClick(_ sender:UIButton) {
+    @objc func keyFrameClick(_ sender:UIButton) {
         // 这个是移动位置
         //        let flight = CAKeyframeAnimation(keyPath: "position")
         //        flight.duration = 4.0
@@ -228,7 +228,7 @@ class LayerAnimationViewController: UIViewController,CAAnimationDelegate {
         let swagger = CAKeyframeAnimation(keyPath: "transform.rotation")
         swagger.duration = 3
         swagger.repeatCount = MAXFLOAT
-        swagger.values = [0.0,-M_PI_4 / 4,0.0,M_PI_4 / 3,0.0]
+        swagger.values = [0.0,-Double.pi / 16,0.0,Double.pi / 12,0.0]
         swagger.keyTimes = [0.0,0.25,0.5,0.75,1.0]
         imgDemo.layer.add(swagger, forKey: nil)
     }

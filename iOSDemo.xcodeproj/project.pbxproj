@@ -60,6 +60,10 @@
 		AE3AF04B1F773D6200AF182A /* AnimationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF04A1F773D6200AF182A /* AnimationVIew.swift */; };
 		AE3AF04D1F773DEB00AF182A /* GradientLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF04C1F773DEB00AF182A /* GradientLayerViewController.swift */; };
 		AE3AF04F1F77404900AF182A /* ReplicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF04E1F77404900AF182A /* ReplicatorViewController.swift */; };
+		AE3AF0521F7743D500AF182A /* MsgSend.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0511F7743D500AF182A /* MsgSend.m */; };
+		AE3AF0551F77448A00AF182A /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0541F77448A00AF182A /* LayoutViewController.swift */; };
+		AE3AF0581F7744D500AF182A /* ScrollMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0571F7744D500AF182A /* ScrollMenuViewController.swift */; };
+		AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */; };
 		AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752921F76931C00F6AAC5 /* MediaViewController.swift */; };
 		AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */; };
 		AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D51F69070E00339BB8 /* AppDelegate.swift */; };
@@ -237,7 +241,7 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 7;
+			dstSubfolderSpec = 10;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +315,11 @@
 		AE3AF04A1F773D6200AF182A /* AnimationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVIew.swift; sourceTree = "<group>"; };
 		AE3AF04C1F773DEB00AF182A /* GradientLayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLayerViewController.swift; sourceTree = "<group>"; };
 		AE3AF04E1F77404900AF182A /* ReplicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplicatorViewController.swift; sourceTree = "<group>"; };
+		AE3AF0501F7743D500AF182A /* MsgSend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MsgSend.h; sourceTree = "<group>"; };
+		AE3AF0511F7743D500AF182A /* MsgSend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MsgSend.m; sourceTree = "<group>"; };
+		AE3AF0541F77448A00AF182A /* LayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutViewController.swift; sourceTree = "<group>"; };
+		AE3AF0571F7744D500AF182A /* ScrollMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMenuViewController.swift; sourceTree = "<group>"; };
+		AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMenuView.swift; sourceTree = "<group>"; };
 		AE5752921F76931C00F6AAC5 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureVideoViewController.swift; sourceTree = "<group>"; };
 		AE8D61BD1F74A88600FDFC1C /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
@@ -616,6 +625,24 @@
 			path = Replicator;
 			sourceTree = "<group>";
 		};
+		AE3AF0531F77447A00AF182A /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				AE3AF0561F7744C900AF182A /* SrollMenu */,
+				AE3AF0541F77448A00AF182A /* LayoutViewController.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		AE3AF0561F7744C900AF182A /* SrollMenu */ = {
+			isa = PBXGroup;
+			children = (
+				AE3AF0571F7744D500AF182A /* ScrollMenuViewController.swift */,
+				AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */,
+			);
+			path = SrollMenu;
+			sourceTree = "<group>";
+		};
 		AE5752911F76930000F6AAC5 /* Media */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +698,7 @@
 		AE9F31D41F69070E00339BB8 /* iOSDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AE3AF0531F77447A00AF182A /* Layout */,
 				AE3AF0421F773AF500AF182A /* Animation */,
 				AE5752911F76930000F6AAC5 /* Media */,
 				AE8D61BC1F74A88100FDFC1C /* Network */,
@@ -961,6 +989,8 @@
 		AEA07F131F710D7E00FC9770 /* Console */ = {
 			isa = PBXGroup;
 			children = (
+				AE3AF0501F7743D500AF182A /* MsgSend.h */,
+				AE3AF0511F7743D500AF182A /* MsgSend.m */,
 				AEA07F141F710D7E00FC9770 /* main.m */,
 			);
 			path = Console;
@@ -1396,8 +1426,11 @@
 				AEA07F081F7103BE00FC9770 /* NSObject+PLeakTrack.m in Sources */,
 				AE9F32701F690F3500339BB8 /* MJRefreshConst.m in Sources */,
 				AE9F32681F690F3500339BB8 /* MJRefreshAutoStateFooter.m in Sources */,
+				AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */,
 				AE9F32631F690F3500339BB8 /* MJRefreshComponent.m in Sources */,
 				AE9F32731F690F3500339BB8 /* UIScrollView+MJRefresh.m in Sources */,
+				AE3AF0581F7744D500AF182A /* ScrollMenuViewController.swift in Sources */,
+				AE3AF0551F77448A00AF182A /* LayoutViewController.swift in Sources */,
 				AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */,
 				AE9F32721F690F3500339BB8 /* UIScrollView+MJExtension.m in Sources */,
 				AE3AF0441F773B0000AF182A /* AnimationViewController.swift in Sources */,
@@ -1507,6 +1540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEA07F151F710D7E00FC9770 /* main.m in Sources */,
+				AE3AF0521F7743D500AF182A /* MsgSend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
