@@ -9,7 +9,7 @@
 import UIKit
 import TangramKit
 class ViewController: UIViewController {
-    var arrData = ["Memery","Media","Animation","Layout"]
+    var arrData = ["Memery","Media","Animation","Layout","AI"]
     var tbMenu = UITableView()
     
     override func loadView() {
@@ -28,16 +28,14 @@ class ViewController: UIViewController {
         tbMenu.tg_top.equal(0)
         tbMenu.tableFooterView = UIView()
         view.addSubview(tbMenu)
-
     }
-
 }
 
 extension ViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrData.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil{
@@ -57,7 +55,8 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
               navigationController?.pushViewController(AnimationViewController(), animated: true)
         case 3:
             navigationController?.pushViewController(LayoutViewController(), animated: true)
-            
+        case 4:
+            navigationController?.pushViewController(AIViewController(), animated: true)
         default:
             break
         }

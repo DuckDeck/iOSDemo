@@ -217,6 +217,13 @@
 		AEF4A45C1F6FA65600EE4001 /* UIViewController+PLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4551F6FA65600EE4001 /* UIViewController+PLeak.m */; };
 		AEF4A4601F6FCAF800EE4001 /* novel1.gif in Resources */ = {isa = PBXBuildFile; fileRef = AEF4A45F1F6FCAF800EE4001 /* novel1.gif */; };
 		AEF4A4621F6FCB5B00EE4001 /* novel2.gif in Resources */ = {isa = PBXBuildFile; fileRef = AEF4A4611F6FCB5B00EE4001 /* novel2.gif */; };
+		AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CA1F7793D300D9A09F /* AIViewController.swift */; };
+		AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CD1F77945800D9A09F /* ImageRecognitionViewController.swift */; };
+		AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CF1F77952B00D9A09F /* Resnet50.mlmodel */; };
+		AEF589D21F779BC800D9A09F /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF589D11F779BC700D9A09F /* ImagePicker.framework */; };
+		AEF589D61F779BF100D9A09F /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF589D11F779BC700D9A09F /* ImagePicker.framework */; };
+		AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF589D81F77ABB800D9A09F /* CoreML.framework */; };
+		AEF589DD1F77D03A00D9A09F /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = AEF589DC1F77D03A00D9A09F /* readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,15 +244,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		AE040F1B1F768D7300C06EC3 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AE040F9E1F768E1100C06EC3 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -462,6 +460,12 @@
 		AEF4A4551F6FA65600EE4001 /* UIViewController+PLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PLeak.m"; sourceTree = "<group>"; };
 		AEF4A45F1F6FCAF800EE4001 /* novel1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = novel1.gif; sourceTree = "<group>"; };
 		AEF4A4611F6FCB5B00EE4001 /* novel2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = novel2.gif; sourceTree = "<group>"; };
+		AEF589CA1F7793D300D9A09F /* AIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIViewController.swift; sourceTree = "<group>"; };
+		AEF589CD1F77945800D9A09F /* ImageRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognitionViewController.swift; sourceTree = "<group>"; };
+		AEF589CF1F77952B00D9A09F /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
+		AEF589D11F779BC700D9A09F /* ImagePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImagePicker.framework; path = Carthage/Build/iOS/ImagePicker.framework; sourceTree = "<group>"; };
+		AEF589D81F77ABB800D9A09F /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
+		AEF589DC1F77D03A00D9A09F /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -469,8 +473,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */,
 				AEA07EF81F70C44000FC9770 /* RxCocoa.framework in Frameworks */,
 				AEA07EF61F70C44000FC9770 /* Kingfisher.framework in Frameworks */,
+				AEF589D61F779BF100D9A09F /* ImagePicker.framework in Frameworks */,
 				AEA07EFA1F70C44000FC9770 /* TangramKit.framework in Frameworks */,
 				AE040F881F768E1100C06EC3 /* RxMoya.framework in Frameworks */,
 				AEA07EF51F70C44000FC9770 /* Kanna.framework in Frameworks */,
@@ -483,6 +489,7 @@
 				AE040F8A1F768E1100C06EC3 /* Moya.framework in Frameworks */,
 				AEA07EF91F70C44000FC9770 /* RxSwift.framework in Frameworks */,
 				AEA07EFB1F70C44000FC9770 /* WSProgressHUD.framework in Frameworks */,
+				AEF589D21F779BC800D9A09F /* ImagePicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,6 +705,7 @@
 		AE9F31D41F69070E00339BB8 /* iOSDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AEF589C91F7793BF00D9A09F /* AI */,
 				AE3AF0531F77447A00AF182A /* Layout */,
 				AE3AF0421F773AF500AF182A /* Animation */,
 				AE5752911F76930000F6AAC5 /* Media */,
@@ -736,6 +744,8 @@
 		AE9F321B1F690DBF00339BB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEF589D81F77ABB800D9A09F /* CoreML.framework */,
+				AEF589D11F779BC700D9A09F /* ImagePicker.framework */,
 				AEF4A4421F6F74C100EE4001 /* Differentiator.framework */,
 				AEF4A43C1F6F602500EE4001 /* RxDataSources.framework */,
 				AEB772031F6B684F008C4365 /* URLNavigator.framework */,
@@ -1093,6 +1103,25 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
+		AEF589C91F7793BF00D9A09F /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				AEF589CF1F77952B00D9A09F /* Resnet50.mlmodel */,
+				AEF589CA1F7793D300D9A09F /* AIViewController.swift */,
+				AEF589CC1F77943E00D9A09F /* ImageRecognition */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
+		AEF589CC1F77943E00D9A09F /* ImageRecognition */ = {
+			isa = PBXGroup;
+			children = (
+				AEF589CD1F77945800D9A09F /* ImageRecognitionViewController.swift */,
+				AEF589DC1F77D03A00D9A09F /* readme.md */,
+			);
+			path = ImageRecognition;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1104,7 +1133,6 @@
 				AE9F31CF1F69070E00339BB8 /* Frameworks */,
 				AE9F31D01F69070E00339BB8 /* Resources */,
 				AEA07EFC1F70C44700FC9770 /* ShellScript */,
-				AE040F1B1F768D7300C06EC3 /* CopyFiles */,
 				AE040F9E1F768E1100C06EC3 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -1277,6 +1305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEF589DD1F77D03A00D9A09F /* readme.md in Resources */,
 				AE9F31E01F69070E00339BB8 /* LaunchScreen.storyboard in Resources */,
 				AEF4A4621F6FCB5B00EE4001 /* novel2.gif in Resources */,
 				AE9F31DD1F69070E00339BB8 /* Assets.xcassets in Resources */,
@@ -1396,6 +1425,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kanna.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ImagePicker.framework",
 			);
 			outputPaths = (
 			);
@@ -1420,6 +1450,7 @@
 				AE9F32611F690F3500339BB8 /* MJRefreshAutoFooter.m in Sources */,
 				AE3AF04F1F77404900AF182A /* ReplicatorViewController.swift in Sources */,
 				AE9F32871F690F5200339BB8 /* GrandStore.swift in Sources */,
+				AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */,
 				AEA07F0A1F7103C200FC9770 /* PObjectProxy.m in Sources */,
 				AE9F326B1F690F3500339BB8 /* MJRefreshBackStateFooter.m in Sources */,
 				AEA07F021F70C7D200FC9770 /* MemeryLeakTestViewController.swift in Sources */,
@@ -1444,6 +1475,7 @@
 				AE9F32671F690F3500339BB8 /* MJRefreshAutoNormalFooter.m in Sources */,
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
 				AE3AF04B1F773D6200AF182A /* AnimationVIew.swift in Sources */,
+				AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */,
 				AEA07F0B1F7103C500FC9770 /* UINavigationController+PLeak.m in Sources */,
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
 				AE9F32861F690F5200339BB8 /* GrandType.swift in Sources */,
@@ -1459,6 +1491,7 @@
 				AE9F32891F690F5200339BB8 /* GrandTimer.swift in Sources */,
 				AE9F32841F690F5200339BB8 /* GrandModel+Map.swift in Sources */,
 				AE9F32881F690F5200339BB8 /* GrandTime.swift in Sources */,
+				AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */,
 				AE9F32641F690F3500339BB8 /* MJRefreshFooter.m in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
 				AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */,
