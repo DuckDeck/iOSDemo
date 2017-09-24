@@ -55,6 +55,11 @@
 		AE040F991F768E1100C06EC3 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32201F690DCC00339BB8 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE040F9B1F768E1100C06EC3 /* TangramKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F321E1F690DC400339BB8 /* TangramKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE040F9D1F768E1100C06EC3 /* WSProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F321C1F690DBF00339BB8 /* WSProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE3AF0441F773B0000AF182A /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0431F773B0000AF182A /* AnimationViewController.swift */; };
+		AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0461F773B3300AF182A /* LayerAnimationViewController.swift */; };
+		AE3AF04B1F773D6200AF182A /* AnimationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF04A1F773D6200AF182A /* AnimationVIew.swift */; };
+		AE3AF04D1F773DEB00AF182A /* GradientLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF04C1F773DEB00AF182A /* GradientLayerViewController.swift */; };
+		AE3AF04F1F77404900AF182A /* ReplicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF04E1F77404900AF182A /* ReplicatorViewController.swift */; };
 		AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752921F76931C00F6AAC5 /* MediaViewController.swift */; };
 		AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */; };
 		AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D51F69070E00339BB8 /* AppDelegate.swift */; };
@@ -301,6 +306,11 @@
 		AE040EFC1F7688FA00C06EC3 /* start_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_down.png; sourceTree = "<group>"; };
 		AE040EFE1F7688FA00C06EC3 /* dis.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dis.wav; sourceTree = "<group>"; };
 		AE040EFF1F7688FA00C06EC3 /* gu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gu.mp3; sourceTree = "<group>"; };
+		AE3AF0431F773B0000AF182A /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
+		AE3AF0461F773B3300AF182A /* LayerAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerAnimationViewController.swift; sourceTree = "<group>"; };
+		AE3AF04A1F773D6200AF182A /* AnimationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVIew.swift; sourceTree = "<group>"; };
+		AE3AF04C1F773DEB00AF182A /* GradientLayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLayerViewController.swift; sourceTree = "<group>"; };
+		AE3AF04E1F77404900AF182A /* ReplicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplicatorViewController.swift; sourceTree = "<group>"; };
 		AE5752921F76931C00F6AAC5 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureVideoViewController.swift; sourceTree = "<group>"; };
 		AE8D61BD1F74A88600FDFC1C /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
@@ -570,6 +580,42 @@
 			path = Sound;
 			sourceTree = "<group>";
 		};
+		AE3AF0421F773AF500AF182A /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				AE3AF0431F773B0000AF182A /* AnimationViewController.swift */,
+				AE3AF0491F773BEB00AF182A /* Replicator */,
+				AE3AF0481F773BCC00AF182A /* GradientLayer */,
+				AE3AF0451F773B2600AF182A /* LayerAnimation */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		AE3AF0451F773B2600AF182A /* LayerAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				AE3AF0461F773B3300AF182A /* LayerAnimationViewController.swift */,
+				AE3AF04A1F773D6200AF182A /* AnimationVIew.swift */,
+			);
+			path = LayerAnimation;
+			sourceTree = "<group>";
+		};
+		AE3AF0481F773BCC00AF182A /* GradientLayer */ = {
+			isa = PBXGroup;
+			children = (
+				AE3AF04C1F773DEB00AF182A /* GradientLayerViewController.swift */,
+			);
+			path = GradientLayer;
+			sourceTree = "<group>";
+		};
+		AE3AF0491F773BEB00AF182A /* Replicator */ = {
+			isa = PBXGroup;
+			children = (
+				AE3AF04E1F77404900AF182A /* ReplicatorViewController.swift */,
+			);
+			path = Replicator;
+			sourceTree = "<group>";
+		};
 		AE5752911F76930000F6AAC5 /* Media */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +671,7 @@
 		AE9F31D41F69070E00339BB8 /* iOSDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AE3AF0421F773AF500AF182A /* Animation */,
 				AE5752911F76930000F6AAC5 /* Media */,
 				AE8D61BC1F74A88100FDFC1C /* Network */,
 				AEA07EFD1F70C7A300FC9770 /* Memery */,
@@ -1337,9 +1384,11 @@
 				AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */,
 				AE9F32711F690F3500339BB8 /* NSBundle+MJRefresh.m in Sources */,
 				AE9F32821F690F5200339BB8 /* GrandCue.swift in Sources */,
+				AE3AF04D1F773DEB00AF182A /* GradientLayerViewController.swift in Sources */,
 				AE9F326E1F690F3500339BB8 /* MJRefreshStateHeader.m in Sources */,
 				AEA07F0C1F7103C700FC9770 /* UIView+PLeak.m in Sources */,
 				AE9F32611F690F3500339BB8 /* MJRefreshAutoFooter.m in Sources */,
+				AE3AF04F1F77404900AF182A /* ReplicatorViewController.swift in Sources */,
 				AE9F32871F690F5200339BB8 /* GrandStore.swift in Sources */,
 				AEA07F0A1F7103C200FC9770 /* PObjectProxy.m in Sources */,
 				AE9F326B1F690F3500339BB8 /* MJRefreshBackStateFooter.m in Sources */,
@@ -1351,6 +1400,7 @@
 				AE9F32731F690F3500339BB8 /* UIScrollView+MJRefresh.m in Sources */,
 				AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */,
 				AE9F32721F690F3500339BB8 /* UIScrollView+MJExtension.m in Sources */,
+				AE3AF0441F773B0000AF182A /* AnimationViewController.swift in Sources */,
 				AE9F32741F690F3500339BB8 /* UIView+MJExtension.m in Sources */,
 				AE9F32851F690F5200339BB8 /* GrandModel.swift in Sources */,
 				AE9F32651F690F3500339BB8 /* MJRefreshHeader.m in Sources */,
@@ -1360,6 +1410,7 @@
 				AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */,
 				AE9F32671F690F3500339BB8 /* MJRefreshAutoNormalFooter.m in Sources */,
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
+				AE3AF04B1F773D6200AF182A /* AnimationVIew.swift in Sources */,
 				AEA07F0B1F7103C500FC9770 /* UINavigationController+PLeak.m in Sources */,
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
 				AE9F32861F690F5200339BB8 /* GrandType.swift in Sources */,
@@ -1377,6 +1428,7 @@
 				AE9F32881F690F5200339BB8 /* GrandTime.swift in Sources */,
 				AE9F32641F690F3500339BB8 /* MJRefreshFooter.m in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
+				AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */,
 				AE9F328A1F690F5200339BB8 /* TimeSpan.swift in Sources */,
 				AE9F32661F690F3500339BB8 /* MJRefreshAutoGifFooter.m in Sources */,
 			);
