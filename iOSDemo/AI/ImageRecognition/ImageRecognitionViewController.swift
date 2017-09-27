@@ -44,7 +44,6 @@ class ImageRecognitionViewController: UIViewController {
         btnStart.tg_width.equal(.fill)
         btnStart.tg_height.equal(36)
         
-        
         lblResult.color(color: UIColor.red).txtAlignment(ali: .center).bgColor(color: UIColor.blue).addTo(view: vMain).completed()
         lblResult.tg_top.equal(10)
         lblResult.tg_width.equal(.fill)
@@ -86,9 +85,7 @@ class ImageRecognitionViewController: UIViewController {
             self.lblProbably.text = "probability \(tempClassification?.confidence ?? 0)"
         }
         let vnImageRequestHandle = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
-       try?  vnImageRequestHandle.perform([vnCoreMlRequest])
-        
-        
+        try?  vnImageRequestHandle.perform([vnCoreMlRequest])
     }
     override func viewDidLoad() {
         super.viewDidLoad()
