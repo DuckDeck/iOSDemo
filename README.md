@@ -365,3 +365,8 @@ tb.rx.itemSelected.subscribe(onNext: { (index) in
 - 添加`ViewModel`到`ViewController`并传递需要绑定的属性，并且同时将想着事件绑定到`ViewModel`的命令上
 - 最后就是在`ViewModel`里更新逻辑，在修改属性(数据)的同时，也会更新`UI`。
 
+
+##### AI项目
+
+需要下载
+MLMODEL文件
