@@ -1250,7 +1250,7 @@
 					};
 					AE9F32081F69087E00339BB8 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 76966J85NL;
+						DevelopmentTeam = 3YCGH6CCXA;
 						ProvisioningStyle = Automatic;
 					};
 					AEA07F111F710D7E00FC9770 = {
@@ -1763,6 +1763,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1773,7 +1775,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = StanHu.iOSDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/stanhu/Documents/iOSDemo/iOSDemo/bridge.h;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/iOSDemo/bridge.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1784,6 +1787,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1794,7 +1799,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = StanHu.iOSDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/stanhu/Documents/iOSDemo/iOSDemo/bridge.h;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/iOSDemo/bridge.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1805,7 +1811,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 76966J85NL;
+				DEVELOPMENT_TEAM = 3YCGH6CCXA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1820,7 +1826,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = StanHu.Novel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/stanhu/Documents/iOSDemo/Novel/bridge.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Novel/bridge.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1829,7 +1835,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 76966J85NL;
+				DEVELOPMENT_TEAM = 3YCGH6CCXA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1844,7 +1850,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = StanHu.Novel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/stanhu/Documents/iOSDemo/Novel/bridge.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Novel/bridge.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
