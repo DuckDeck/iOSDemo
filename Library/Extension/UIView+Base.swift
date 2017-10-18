@@ -161,7 +161,6 @@ extension UIButton{
     
     func setTarget(_ target: Any?, action: Selector) -> Self {
         self.addTarget(target, action: action, for: .touchUpInside)
-        //self.addTarget(_ target: Any?, action: Selector, for controlEvents: .touchupInside)
         return self
     }
     
