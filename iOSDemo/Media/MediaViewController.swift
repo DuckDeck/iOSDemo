@@ -10,7 +10,7 @@ import UIKit
 import TangramKit
 class MediaViewController: UIViewController {
 
-    var arrData = ["CaptureVideo"]
+    var arrData = ["CaptureVideo","Play Music"]
     var tbMenu = UITableView()
     
     override func loadView() {
@@ -51,7 +51,7 @@ extension MediaViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             navigationController?.pushViewController(CaptureVideoViewController(), animated: true)
         case 1:
-            break
+            navigationController?.pushViewController(MusicListViewController(), animated: true)
         case 2:
             break
             

@@ -56,6 +56,7 @@
 		AE040F991F768E1100C06EC3 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32201F690DCC00339BB8 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE040F9B1F768E1100C06EC3 /* TangramKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F321E1F690DC400339BB8 /* TangramKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE040F9D1F768E1100C06EC3 /* WSProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F321C1F690DBF00339BB8 /* WSProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE161F711F98910800B3293F /* MusicListViewController.swift */; };
 		AE3AF0441F773B0000AF182A /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0431F773B0000AF182A /* AnimationViewController.swift */; };
 		AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0461F773B3300AF182A /* LayerAnimationViewController.swift */; };
 		AE3AF04B1F773D6200AF182A /* AnimationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF04A1F773D6200AF182A /* AnimationVIew.swift */; };
@@ -270,6 +271,7 @@
 		AE040EFC1F7688FA00C06EC3 /* start_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_down.png; sourceTree = "<group>"; };
 		AE040EFE1F7688FA00C06EC3 /* dis.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dis.wav; sourceTree = "<group>"; };
 		AE040EFF1F7688FA00C06EC3 /* gu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gu.mp3; sourceTree = "<group>"; };
+		AE161F711F98910800B3293F /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
 		AE3AF0431F773B0000AF182A /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		AE3AF0461F773B3300AF182A /* LayerAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerAnimationViewController.swift; sourceTree = "<group>"; };
 		AE3AF04A1F773D6200AF182A /* AnimationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVIew.swift; sourceTree = "<group>"; };
@@ -519,6 +521,14 @@
 			path = Sound;
 			sourceTree = "<group>";
 		};
+		AE161F701F988CFB00B3293F /* MusicPlay */ = {
+			isa = PBXGroup;
+			children = (
+				AE161F711F98910800B3293F /* MusicListViewController.swift */,
+			);
+			path = MusicPlay;
+			sourceTree = "<group>";
+		};
 		AE3AF0421F773AF500AF182A /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,6 +587,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5752921F76931C00F6AAC5 /* MediaViewController.swift */,
+				AE161F701F988CFB00B3293F /* MusicPlay */,
 				AE5752941F76933800F6AAC5 /* CaptureVideo */,
 			);
 			path = Media;
@@ -1302,6 +1313,7 @@
 				AE9F32841F690F5200339BB8 /* GrandModel+Map.swift in Sources */,
 				AE9F32881F690F5200339BB8 /* GrandTime.swift in Sources */,
 				AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */,
+				AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
 				AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */,
 				AE9F328A1F690F5200339BB8 /* TimeSpan.swift in Sources */,
