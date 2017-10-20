@@ -68,6 +68,7 @@
 		AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */; };
 		AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752921F76931C00F6AAC5 /* MediaViewController.swift */; };
 		AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */; };
+		AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */; };
 		AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D51F69070E00339BB8 /* AppDelegate.swift */; };
 		AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D71F69070E00339BB8 /* ViewController.swift */; };
 		AE9F31DD1F69070E00339BB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9F31DC1F69070E00339BB8 /* Assets.xcassets */; };
@@ -284,6 +285,7 @@
 		AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMenuView.swift; sourceTree = "<group>"; };
 		AE5752921F76931C00F6AAC5 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureVideoViewController.swift; sourceTree = "<group>"; };
+		AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSession.swift; sourceTree = "<group>"; };
 		AE8D61BD1F74A88600FDFC1C /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9F31D51F69070E00339BB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */,
+				AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */,
 			);
 			path = CaptureVideo;
 			sourceTree = "<group>";
@@ -1301,6 +1304,7 @@
 				AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */,
 				AEA07F0B1F7103C500FC9770 /* UINavigationController+PLeak.m in Sources */,
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
+				AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */,
 				AE9F32861F690F5200339BB8 /* GrandType.swift in Sources */,
 				AEA07F071F7103BB00FC9770 /* NSObject+PLeak.m in Sources */,
 				AEA07F091F7103C000FC9770 /* PLeakSniffer.m in Sources */,
