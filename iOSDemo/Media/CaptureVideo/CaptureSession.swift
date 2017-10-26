@@ -214,6 +214,13 @@ class CaptureSession: NSObject {
     }
     
     
+    func changeDevicePropertySafety(propertyChange:(_ captureDevice:AVCaptureDevice)->Void)  {
+         //也可以直接用_videoDevice,但是下面这种更好
+        let captureDevice = videoInput.device
+        let lockAcquired = try! captureDevice.lockForConfiguration()
+        
+    }
+    
     
     func startRunning(){
         session.startRunning()
