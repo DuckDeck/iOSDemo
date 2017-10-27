@@ -66,26 +66,62 @@ class CaptureSession: NSObject {
             }
         }
     }
-    
-    var captureCamera = CaptureCamera.BackCamera
+    var _captureCamera = CaptureCamera.BackCamera
+    var captureCamera:CaptureCamera
+    {
+        get{
+            return _captureCamera
+        }
+        set{
+            if newValue != _captureCamera{
+                _captureCamera = newValue
+                if _captureCamera == .FrontCamera{
+                    videoDevice = deviceWithMediaType(mediaType: AVMediaType.video, position: AVCaptureDevice.Position.front)
+                }
+                else{
+                     videoDevice = deviceWithMediaType(mediaType: AVMediaType.video, position: AVCaptureDevice.Position.back)
+                }
+                changeDevicePropertySafety(propertyChange: { (captureDevice) in
+                    let newVideoInput = try? AVCaptureDeviceInput(device: videoDevice!)
+                    if newVideoInput != nil{
+                        session.removeInput(videoInput!)
+                        if session.canAddInput(newVideoInput!){
+                            session.addInput(newVideoInput!)
+                            videoInput = newVideoInput
+                        }
+                        else{
+                            session.addInput(videoInput)
+                        }
+                        
+                    }
+                })
+            }
+        }
+    }
     var delegate:CaptureSessionDelegate?
     var sessionPreset:CaptureSessionPreset = CaptureSessionPreset.CaptureSessionPreset540x960
     
-    func defaultJFCaptureSessionWithSessionPreset(sessionPreset:CaptureSessionPreset) -> CaptureSession {
-        let captureSession = CaptureSession()
-        captureSession.sessionPreset = sessionPreset
-        captureSession.initAVCaptureSession()
-        return captureSession
+    init(sessionPreset:CaptureSessionPreset) {
+        super.init()
+        self.sessionPreset = sessionPreset
+        initAVCaptureSession()
     }
+    
+  
     
     func initAVCaptureSession() {
         // 初始化
         session = AVCaptureSession()
         // 设置录像的分辨率
-        session.canSetSessionPreset(supportSessionPreset())
+        session.canSetSessionPreset(supportSessionPreset)
         /** 注意: 配置AVCaptureSession 的时候, 必须先开始配置, beginConfiguration, 配置完成, 必须提交配置 commitConfiguration, 否则配置无效  **/
         session.beginConfiguration()
         // 设置视频 I/O 对象 并添加到session
+        videoInputAndOutput()
+         // 设置音频 I/O 对象 并添加到session
+        audioInputAndOutput()
+         // 提交配置
+        session.commitConfiguration()
     }
     
 
@@ -97,8 +133,8 @@ class CaptureSession: NSObject {
         let devices = AVCaptureDevice.devices(for: AVMediaType.video)
          // 便利获取的所有支持的摄像头类型
         for device in devices{
-              // 默然先开启前置摄像头
-            if device.position == AVCaptureDevice.Position.front{
+              // 默然先开启后摄像头
+            if device.position == AVCaptureDevice.Position.back{
                 self.videoDevice = device
             }
         }
@@ -203,22 +239,39 @@ class CaptureSession: NSObject {
         return true
     }
     
-    func supportSessionPreset() -> AVCaptureSession.Preset {
-        if !session.canSetSessionPreset(AVCaptureSession.Preset(rawValue: avPreset)) {
-            sessionPreset = CaptureSessionPreset.CaptureSessionPreset540x960
+    var supportSessionPreset : AVCaptureSession.Preset {
+        get{
+            if !session.canSetSessionPreset(AVCaptureSession.Preset(rawValue: avPreset)) {
+                sessionPreset = CaptureSessionPreset.CaptureSessionPreset540x960
+            }
+            else{
+                sessionPreset = CaptureSessionPreset.CaptureSessionPreset368x640
+            }
+            return AVCaptureSession.Preset(rawValue: avPreset)
         }
-        else{
-            sessionPreset = CaptureSessionPreset.CaptureSessionPreset368x640
-        }
-        return AVCaptureSession.Preset(rawValue: avPreset)
     }
     
+    func deviceWithMediaType(mediaType:AVMediaType,position:AVCaptureDevice.Position) -> AVCaptureDevice {
+        let devices = AVCaptureDevice.devices(for:  mediaType)
+        var captureDevice = devices.first!
+        for dev in devices{
+            if dev.position == position{
+                captureDevice = dev
+                break
+            }
+        }
+        return captureDevice
+    }
     
     func changeDevicePropertySafety(propertyChange:(_ captureDevice:AVCaptureDevice)->Void)  {
          //也可以直接用_videoDevice,但是下面这种更好
         let captureDevice = videoInput.device
-        let lockAcquired = try! captureDevice.lockForConfiguration()
-        
+        try? captureDevice.lockForConfiguration()
+        //调整设备前后要调用beginConfiguration/commitConfiguration
+        session.beginConfiguration()
+        propertyChange(captureDevice)
+        captureDevice.unlockForConfiguration()
+        session.commitConfiguration()
     }
     
     

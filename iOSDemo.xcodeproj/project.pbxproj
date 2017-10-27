@@ -57,6 +57,8 @@
 		AE040F9B1F768E1100C06EC3 /* TangramKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F321E1F690DC400339BB8 /* TangramKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE040F9D1F768E1100C06EC3 /* WSProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F321C1F690DBF00339BB8 /* WSProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE161F711F98910800B3293F /* MusicListViewController.swift */; };
+		AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
+		AE2C8C761FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
 		AE3AF0441F773B0000AF182A /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0431F773B0000AF182A /* AnimationViewController.swift */; };
 		AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0461F773B3300AF182A /* LayerAnimationViewController.swift */; };
 		AE3AF04B1F773D6200AF182A /* AnimationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF04A1F773D6200AF182A /* AnimationVIew.swift */; };
@@ -273,6 +275,7 @@
 		AE040EFE1F7688FA00C06EC3 /* dis.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dis.wav; sourceTree = "<group>"; };
 		AE040EFF1F7688FA00C06EC3 /* gu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gu.mp3; sourceTree = "<group>"; };
 		AE161F711F98910800B3293F /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
+		AE2C8C741FA30BB100000A1D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		AE3AF0431F773B0000AF182A /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		AE3AF0461F773B3300AF182A /* LayerAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerAnimationViewController.swift; sourceTree = "<group>"; };
 		AE3AF04A1F773D6200AF182A /* AnimationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVIew.swift; sourceTree = "<group>"; };
@@ -851,8 +854,9 @@
 		AEB771FC1F6A807D008C4365 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				AEF4A4471F6FA65600EE4001 /* PLeakSniffer */,
 				AEB771FD1F6A8089008C4365 /* Tool.swift */,
+				AE2C8C741FA30BB100000A1D /* Auth.swift */,
+				AEF4A4471F6FA65600EE4001 /* PLeakSniffer */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1282,6 +1286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE9F32831F690F5200339BB8 /* GrandModel+Convert.swift in Sources */,
+				AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */,
 				AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */,
 				AE9F32821F690F5200339BB8 /* GrandCue.swift in Sources */,
 				AE3AF04D1F773DEB00AF182A /* GradientLayerViewController.swift in Sources */,
@@ -1342,6 +1347,7 @@
 				AEF4A4571F6FA65600EE4001 /* NSObject+PLeakTrack.m in Sources */,
 				AEF4A4581F6FA65600EE4001 /* PLeakSniffer.m in Sources */,
 				AEB772081F6B68F3008C4365 /* BookmarkViewController.swift in Sources */,
+				AE2C8C761FA30BB300000A1D /* Auth.swift in Sources */,
 				AEF4A4411F6F630B00EE4001 /* SectionTableInfo.swift in Sources */,
 				AEF4A45B1F6FA65600EE4001 /* UIView+PLeak.m in Sources */,
 				AE9F32971F6911B100339BB8 /* GrandModel+Map.swift in Sources */,
