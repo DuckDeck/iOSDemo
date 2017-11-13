@@ -185,7 +185,6 @@
 		AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CA1F7793D300D9A09F /* AIViewController.swift */; };
 		AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CD1F77945800D9A09F /* ImageRecognitionViewController.swift */; };
 		AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CF1F77952B00D9A09F /* Resnet50.mlmodel */; };
-		AEF589D21F779BC800D9A09F /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF589D11F779BC700D9A09F /* ImagePicker.framework */; };
 		AEF589D61F779BF100D9A09F /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF589D11F779BC700D9A09F /* ImagePicker.framework */; };
 		AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF589D81F77ABB800D9A09F /* CoreML.framework */; };
 		AEF589DD1F77D03A00D9A09F /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = AEF589DC1F77D03A00D9A09F /* readme.md */; };
@@ -418,7 +417,6 @@
 				AE040F8A1F768E1100C06EC3 /* Moya.framework in Frameworks */,
 				AEA07EF91F70C44000FC9770 /* RxSwift.framework in Frameworks */,
 				AEA07EFB1F70C44000FC9770 /* WSProgressHUD.framework in Frameworks */,
-				AEF589D21F779BC800D9A09F /* ImagePicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1085,7 +1083,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Stan Hu";
 				TargetAttributes = {
 					AE9F31D11F69070E00339BB8 = {
@@ -1638,7 +1636,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = StanHu.Novel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Novel/bridge.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1662,7 +1660,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = StanHu.Novel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Novel/bridge.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

@@ -108,7 +108,7 @@ class CaptureVideoViewController: UIViewController {
         isRecoding = !isRecoding
     }
     
-    func switchCamera()  {
+    @objc func switchCamera()  {
         if currentCamera == .BackCamera {
             session?.captureCamera = .FrontCamera
             currentCamera = .FrontCamera
