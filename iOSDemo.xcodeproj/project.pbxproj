@@ -56,6 +56,17 @@
 		AE040F991F768E1100C06EC3 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32201F690DCC00339BB8 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE040F9B1F768E1100C06EC3 /* TangramKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F321E1F690DC400339BB8 /* TangramKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE040F9D1F768E1100C06EC3 /* WSProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F321C1F690DBF00339BB8 /* WSProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE0F70241FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70231FBA8F6000C8135C /* SWHttpTrafficRecorder.m */; };
+		AE0F70251FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70231FBA8F6000C8135C /* SWHttpTrafficRecorder.m */; };
+		AE0F70261FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70231FBA8F6000C8135C /* SWHttpTrafficRecorder.m */; };
+		AE0F702D1FBA90A500C8135C /* RequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70291FBA90A500C8135C /* RequestInfo.swift */; };
+		AE0F702E1FBA90A500C8135C /* RequestDataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F702A1FBA90A500C8135C /* RequestDataInfo.swift */; };
+		AE0F702F1FBA90A500C8135C /* RequestTimelineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F702B1FBA90A500C8135C /* RequestTimelineInfo.swift */; };
+		AE0F70301FBA90A500C8135C /* APIInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F702C1FBA90A500C8135C /* APIInfo.swift */; };
+		AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70311FBA918E00C8135C /* HttpRecordViewController.swift */; };
+		AE0F70351FBA925900C8135C /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70341FBA925900C8135C /* HttpManager.swift */; };
+		AE0F70371FBA9ACF00C8135C /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70361FBA9ACF00C8135C /* NetworkViewController.swift */; };
+		AE0F70381FBABF0100C8135C /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D61BD1F74A88600FDFC1C /* HttpClient.swift */; };
 		AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE161F711F98910800B3293F /* MusicListViewController.swift */; };
 		AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
 		AE2C8C761FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
@@ -273,6 +284,15 @@
 		AE040EFC1F7688FA00C06EC3 /* start_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_down.png; sourceTree = "<group>"; };
 		AE040EFE1F7688FA00C06EC3 /* dis.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dis.wav; sourceTree = "<group>"; };
 		AE040EFF1F7688FA00C06EC3 /* gu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gu.mp3; sourceTree = "<group>"; };
+		AE0F70221FBA8F6000C8135C /* SWHttpTrafficRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWHttpTrafficRecorder.h; sourceTree = "<group>"; };
+		AE0F70231FBA8F6000C8135C /* SWHttpTrafficRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWHttpTrafficRecorder.m; sourceTree = "<group>"; };
+		AE0F70291FBA90A500C8135C /* RequestInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestInfo.swift; sourceTree = "<group>"; };
+		AE0F702A1FBA90A500C8135C /* RequestDataInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDataInfo.swift; sourceTree = "<group>"; };
+		AE0F702B1FBA90A500C8135C /* RequestTimelineInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTimelineInfo.swift; sourceTree = "<group>"; };
+		AE0F702C1FBA90A500C8135C /* APIInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIInfo.swift; sourceTree = "<group>"; };
+		AE0F70311FBA918E00C8135C /* HttpRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRecordViewController.swift; sourceTree = "<group>"; };
+		AE0F70341FBA925900C8135C /* HttpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
+		AE0F70361FBA9ACF00C8135C /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
 		AE161F711F98910800B3293F /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
 		AE2C8C741FA30BB100000A1D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		AE3AF0431F773B0000AF182A /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
@@ -524,6 +544,44 @@
 			path = Sound;
 			sourceTree = "<group>";
 		};
+		AE0F70211FBA8F6000C8135C /* SWHttpTrafficRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				AE0F70221FBA8F6000C8135C /* SWHttpTrafficRecorder.h */,
+				AE0F70231FBA8F6000C8135C /* SWHttpTrafficRecorder.m */,
+			);
+			path = SWHttpTrafficRecorder;
+			sourceTree = "<group>";
+		};
+		AE0F70271FBA900200C8135C /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				AE0F70331FBA924F00C8135C /* HttpManager */,
+				AE0F70281FBA906A00C8135C /* RequestInfo */,
+				AE0F70211FBA8F6000C8135C /* SWHttpTrafficRecorder */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		AE0F70281FBA906A00C8135C /* RequestInfo */ = {
+			isa = PBXGroup;
+			children = (
+				AE0F702C1FBA90A500C8135C /* APIInfo.swift */,
+				AE0F702A1FBA90A500C8135C /* RequestDataInfo.swift */,
+				AE0F70291FBA90A500C8135C /* RequestInfo.swift */,
+				AE0F702B1FBA90A500C8135C /* RequestTimelineInfo.swift */,
+			);
+			path = RequestInfo;
+			sourceTree = "<group>";
+		};
+		AE0F70331FBA924F00C8135C /* HttpManager */ = {
+			isa = PBXGroup;
+			children = (
+				AE0F70341FBA925900C8135C /* HttpManager.swift */,
+			);
+			path = HttpManager;
+			sourceTree = "<group>";
+		};
 		AE161F701F988CFB00B3293F /* MusicPlay */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,6 +667,8 @@
 			isa = PBXGroup;
 			children = (
 				AE8D61BD1F74A88600FDFC1C /* HttpClient.swift */,
+				AE0F70311FBA918E00C8135C /* HttpRecordViewController.swift */,
+				AE0F70361FBA9ACF00C8135C /* NetworkViewController.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -707,6 +767,7 @@
 		AE9F32311F690F1B00339BB8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				AE0F70271FBA900200C8135C /* Http */,
 				AEB771FC1F6A807D008C4365 /* Tool */,
 				AE9F328F1F690FE100339BB8 /* Base */,
 				AE9F328C1F690FBA00339BB8 /* Extension */,
@@ -1283,6 +1344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0F70381FBABF0100C8135C /* HttpClient.swift in Sources */,
 				AE9F32831F690F5200339BB8 /* GrandModel+Convert.swift in Sources */,
 				AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */,
 				AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */,
@@ -1294,6 +1356,8 @@
 				AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */,
 				AEA07F0A1F7103C200FC9770 /* PObjectProxy.m in Sources */,
 				AEA07F021F70C7D200FC9770 /* MemeryLeakTestViewController.swift in Sources */,
+				AE0F702D1FBA90A500C8135C /* RequestInfo.swift in Sources */,
+				AE0F70371FBA9ACF00C8135C /* NetworkViewController.swift in Sources */,
 				AEA07F081F7103BE00FC9770 /* NSObject+PLeakTrack.m in Sources */,
 				AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */,
 				AE3AF0581F7744D500AF182A /* ScrollMenuViewController.swift in Sources */,
@@ -1302,23 +1366,29 @@
 				AE3AF0441F773B0000AF182A /* AnimationViewController.swift in Sources */,
 				AE9F32851F690F5200339BB8 /* GrandModel.swift in Sources */,
 				AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */,
+				AE0F70241FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */,
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
 				AE3AF04B1F773D6200AF182A /* AnimationVIew.swift in Sources */,
 				AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */,
 				AEA07F0B1F7103C500FC9770 /* UINavigationController+PLeak.m in Sources */,
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
+				AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */,
 				AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */,
 				AE9F32861F690F5200339BB8 /* GrandType.swift in Sources */,
 				AEA07F071F7103BB00FC9770 /* NSObject+PLeak.m in Sources */,
 				AEA07F091F7103C000FC9770 /* PLeakSniffer.m in Sources */,
 				AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */,
+				AE0F702E1FBA90A500C8135C /* RequestDataInfo.swift in Sources */,
 				AE9F32A31F69144C00339BB8 /* ResultInfo.swift in Sources */,
 				AEA07F0D1F7103C900FC9770 /* UIViewController+PLeak.m in Sources */,
 				AE9F328E1F690FD200339BB8 /* UIView+Base.swift in Sources */,
 				AEA07EFF1F70C7B900FC9770 /* MemeryViewController.swift in Sources */,
 				AE9F32891F690F5200339BB8 /* GrandTimer.swift in Sources */,
 				AE9F32841F690F5200339BB8 /* GrandModel+Map.swift in Sources */,
+				AE0F70351FBA925900C8135C /* HttpManager.swift in Sources */,
+				AE0F702F1FBA90A500C8135C /* RequestTimelineInfo.swift in Sources */,
 				AE9F32881F690F5200339BB8 /* GrandTime.swift in Sources */,
+				AE0F70301FBA90A500C8135C /* APIInfo.swift in Sources */,
 				AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */,
 				AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
@@ -1368,6 +1438,7 @@
 				AE9F32991F6911B500339BB8 /* GrandType.swift in Sources */,
 				AE9F32C91F6A5F1400339BB8 /* NovelTbCell.swift in Sources */,
 				AEB772061F6B689F008C4365 /* NavigationMap.swift in Sources */,
+				AE0F70251FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */,
 				AEB772011F6A81F4008C4365 /* Tool.swift in Sources */,
 				AEB7720C1F6B71D2008C4365 /* SectionListViewController.swift in Sources */,
 				AE9F329B1F6911BE00339BB8 /* GrandTimer.swift in Sources */,
@@ -1382,6 +1453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEA07F151F710D7E00FC9770 /* main.m in Sources */,
+				AE0F70261FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */,
 				AE3AF0521F7743D500AF182A /* MsgSend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

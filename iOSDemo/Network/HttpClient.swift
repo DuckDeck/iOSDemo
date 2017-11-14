@@ -7,30 +7,30 @@
 //
 
 import UIKit
-internal enum HttpMethod:Int{
-    case get = 0
-    case post
-    case put
-    case delete
-    case head
-    
-     var discription:String{
-        get{
-            switch self {
-            case HttpMethod.get:
-                return "Get"
-            case HttpMethod.post:
-                return "Post"
-            case HttpMethod.put:
-                return "Put"
-            case HttpMethod.head:
-                return "Head"
-            case HttpMethod.delete:
-                return "Delete"
-            }
-        }
-    }
-}
+//internal enum HttpMethod:Int{
+//    case get = 0
+//    case post
+//    case put
+//    case delete
+//    case head
+//    
+//     var discription:String{
+//        get{
+//            switch self {
+//            case HttpMethod.get:
+//                return "Get"
+//            case HttpMethod.post:
+//                return "Post"
+//            case HttpMethod.put:
+//                return "Put"
+//            case HttpMethod.head:
+//                return "Head"
+//            case HttpMethod.delete:
+//                return "Delete"
+//            }
+//        }
+//    }
+//}
 public enum HttpClientRequestState{
     case ready
     case executing
