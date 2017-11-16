@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootNavigationController = UINavigationController(rootViewController: mainViewController)
         window?.rootViewController = rootNavigationController
         window?.makeKeyAndVisible()
+        NFX.sharedInstance().start()
         IQKeyboardManager.sharedManager().enable = true
         PLeakSniffer.sharedInstance().installLeakSniffer()
         return true

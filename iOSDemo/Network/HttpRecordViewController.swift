@@ -31,9 +31,9 @@ class HttpRecordViewController: UIViewController {
             record.recordingFormat = .mocktail
             record.progressDelegate = self
             let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true) as [String]
-           // try! record.startRecording(atPath: paths[0], for: URLSessionConfiguration.default)
+            try! record.startRecording(atPath: paths[0], for: URLSessionConfiguration.default)
             //try! record.startRecording(atPath: paths[0], for: Alamofire.URLSessionConfiguration)
-            //Alamofire.URLSessionConfiguration can not abtain
+            //Alamofire.URLSessionConfiguration can not abtainf
         }
         
         requestInfo = RequestInfo()
