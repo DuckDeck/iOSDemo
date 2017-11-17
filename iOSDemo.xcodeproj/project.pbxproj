@@ -92,6 +92,8 @@
 		AE0F70811FBD6F2B00C8135C /* NFXStatisticsController_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F705E1FBD6F2B00C8135C /* NFXStatisticsController_iOS.swift */; };
 		AE0F70821FBD6F2B00C8135C /* NFXSettingsController_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F705F1FBD6F2B00C8135C /* NFXSettingsController_iOS.swift */; };
 		AE0F70831FBD6F2B00C8135C /* NFXListCell_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70601FBD6F2B00C8135C /* NFXListCell_iOS.swift */; };
+		AE0F70861FBE861A00C8135C /* SliderDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70851FBE861A00C8135C /* SliderDemoViewController.swift */; };
+		AE0F70881FBE864300C8135C /* GrandSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70871FBE864200C8135C /* GrandSlider.swift */; };
 		AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE161F711F98910800B3293F /* MusicListViewController.swift */; };
 		AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
 		AE2C8C761FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
@@ -344,6 +346,8 @@
 		AE0F705E1FBD6F2B00C8135C /* NFXStatisticsController_iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXStatisticsController_iOS.swift; sourceTree = "<group>"; };
 		AE0F705F1FBD6F2B00C8135C /* NFXSettingsController_iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXSettingsController_iOS.swift; sourceTree = "<group>"; };
 		AE0F70601FBD6F2B00C8135C /* NFXListCell_iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXListCell_iOS.swift; sourceTree = "<group>"; };
+		AE0F70851FBE861A00C8135C /* SliderDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderDemoViewController.swift; sourceTree = "<group>"; };
+		AE0F70871FBE864200C8135C /* GrandSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandSlider.swift; sourceTree = "<group>"; };
 		AE161F711F98910800B3293F /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
 		AE2C8C741FA30BB100000A1D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		AE3AF0431F773B0000AF182A /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
@@ -683,6 +687,15 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		AE0F70841FBE860100C8135C /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				AE0F70871FBE864200C8135C /* GrandSlider.swift */,
+				AE0F70851FBE861A00C8135C /* SliderDemoViewController.swift */,
+			);
+			path = Slider;
+			sourceTree = "<group>";
+		};
 		AE161F701F988CFB00B3293F /* MusicPlay */ = {
 			isa = PBXGroup;
 			children = (
@@ -695,6 +708,7 @@
 			isa = PBXGroup;
 			children = (
 				AE3AF0431F773B0000AF182A /* AnimationViewController.swift */,
+				AE0F70841FBE860100C8135C /* Slider */,
 				AE3AF0491F773BEB00AF182A /* Replicator */,
 				AE3AF0481F773BCC00AF182A /* GradientLayer */,
 				AE3AF0451F773B2600AF182A /* LayerAnimation */,
@@ -1449,6 +1463,7 @@
 				AE0F707D1FBD6F2B00C8135C /* NFXDetailsController_iOS.swift in Sources */,
 				AE9F32831F690F5200339BB8 /* GrandModel+Convert.swift in Sources */,
 				AE0F70651FBD6F2B00C8135C /* NFXSettingsController.swift in Sources */,
+				AE0F70861FBE861A00C8135C /* SliderDemoViewController.swift in Sources */,
 				AE0F706B1FBD6F2B00C8135C /* NFX.swift in Sources */,
 				AE0F70821FBD6F2B00C8135C /* NFXSettingsController_iOS.swift in Sources */,
 				AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */,
@@ -1472,6 +1487,7 @@
 				AE0F707E1FBD6F2B00C8135C /* NFXListController_iOS.swift in Sources */,
 				AEA07F081F7103BE00FC9770 /* NSObject+PLeakTrack.m in Sources */,
 				AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */,
+				AE0F70881FBE864300C8135C /* GrandSlider.swift in Sources */,
 				AE3AF0581F7744D500AF182A /* ScrollMenuViewController.swift in Sources */,
 				AE0F70701FBD6F2B00C8135C /* NFXHelper.swift in Sources */,
 				AE3AF0551F77448A00AF182A /* LayoutViewController.swift in Sources */,

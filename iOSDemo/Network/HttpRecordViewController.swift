@@ -25,16 +25,17 @@ class HttpRecordViewController: UIViewController {
         btn.setTitleColor(UIColor.red, for: .normal)
         btn.addTarget(self, action: #selector(HttpRecordViewController.request(sender:)), for: .touchUpInside)
         view.addSubview(btn)
+
+        //this library now work for Alamofire
         
-        
-        if let record = SWHttpTrafficRecorder.shared(){
-            record.recordingFormat = .mocktail
-            record.progressDelegate = self
-            let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true) as [String]
-            try! record.startRecording(atPath: paths[0], for: URLSessionConfiguration.default)
-            //try! record.startRecording(atPath: paths[0], for: Alamofire.URLSessionConfiguration)
-            //Alamofire.URLSessionConfiguration can not abtainf
-        }
+//        if let record = SWHttpTrafficRecorder.shared(){
+//            record.recordingFormat = .mocktail
+//            record.progressDelegate = self
+//            let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true) as [String]
+//            try! record.startRecording(atPath: paths[0], for: URLSessionConfiguration.default)
+//            //try! record.startRecording(atPath: paths[0], for: Alamofire.URLSessionConfiguration)
+//            //Alamofire.URLSessionConfiguration can not abtainf
+//        }
         
         requestInfo = RequestInfo()
         requestInfo?.deviceInfo = UIDevice.current.name
@@ -64,7 +65,7 @@ extension HttpRecordViewController:SWHttpTrafficRecordingProgressDelegate{
             return
         }
          print("first\(Date())")
-         print(request.url)
+
         if requestInfo!.apiInfo != nil {
             let apiInfo = APIInfo()
             apiInfo.author = "思聪"
