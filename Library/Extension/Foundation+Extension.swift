@@ -74,6 +74,26 @@ extension Array{
             self.append(obj)
         }
     }
+    
+    
+    mutating func removeAdIndexs(indexs:[Int])  {
+        if indexs.count <= 0{
+            return
+        }
+        if indexs.first! < 0 {
+            return
+        }
+        if indexs.last! > self.count{
+            return
+        }
+        let sortedIndex =  indexs.sorted()
+        var s = 0
+        
+        for i in sortedIndex{
+            self.remove(at: i - s)
+            s = s + 1
+        }
+    }
 }
 
 extension Dictionary{

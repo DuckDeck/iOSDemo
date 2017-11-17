@@ -94,6 +94,15 @@
 		AE0F70831FBD6F2B00C8135C /* NFXListCell_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70601FBD6F2B00C8135C /* NFXListCell_iOS.swift */; };
 		AE0F70861FBE861A00C8135C /* SliderDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70851FBE861A00C8135C /* SliderDemoViewController.swift */; };
 		AE0F70881FBE864300C8135C /* GrandSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70871FBE864200C8135C /* GrandSlider.swift */; };
+		AE0F708B1FBEB94100C8135C /* TouchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F708A1FBEB94100C8135C /* TouchViewController.swift */; };
+		AE0F708E1FBEB96E00C8135C /* TouchTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F708D1FBEB96E00C8135C /* TouchTestViewController.swift */; };
+		AE0F70961FBEB9CA00C8135C /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70901FBEB9CA00C8135C /* Line.swift */; };
+		AE0F70971FBEB9CA00C8135C /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70911FBEB9CA00C8135C /* DrawView.swift */; };
+		AE0F70981FBEB9CA00C8135C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70921FBEB9CA00C8135C /* Settings.swift */; };
+		AE0F70991FBEB9CA00C8135C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70931FBEB9CA00C8135C /* SettingViewController.swift */; };
+		AE0F709A1FBEB9CA00C8135C /* CrossLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70941FBEB9CA00C8135C /* CrossLine.swift */; };
+		AE0F709C1FBEB9CE00C8135C /* Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F709B1FBEB9CE00C8135C /* Trace.swift */; };
+		AE0F709D1FBEBA5C00C8135C /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */; };
 		AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE161F711F98910800B3293F /* MusicListViewController.swift */; };
 		AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
 		AE2C8C761FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
@@ -348,6 +357,14 @@
 		AE0F70601FBD6F2B00C8135C /* NFXListCell_iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXListCell_iOS.swift; sourceTree = "<group>"; };
 		AE0F70851FBE861A00C8135C /* SliderDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderDemoViewController.swift; sourceTree = "<group>"; };
 		AE0F70871FBE864200C8135C /* GrandSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandSlider.swift; sourceTree = "<group>"; };
+		AE0F708A1FBEB94100C8135C /* TouchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchViewController.swift; sourceTree = "<group>"; };
+		AE0F708D1FBEB96E00C8135C /* TouchTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchTestViewController.swift; sourceTree = "<group>"; };
+		AE0F70901FBEB9CA00C8135C /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		AE0F70911FBEB9CA00C8135C /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		AE0F70921FBEB9CA00C8135C /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		AE0F70931FBEB9CA00C8135C /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		AE0F70941FBEB9CA00C8135C /* CrossLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossLine.swift; sourceTree = "<group>"; };
+		AE0F709B1FBEB9CE00C8135C /* Trace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trace.swift; sourceTree = "<group>"; };
 		AE161F711F98910800B3293F /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
 		AE2C8C741FA30BB100000A1D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		AE3AF0431F773B0000AF182A /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
@@ -696,6 +713,29 @@
 			path = Slider;
 			sourceTree = "<group>";
 		};
+		AE0F70891FBEB92900C8135C /* Touch */ = {
+			isa = PBXGroup;
+			children = (
+				AE0F708A1FBEB94100C8135C /* TouchViewController.swift */,
+				AE0F708C1FBEB96100C8135C /* TouchTest */,
+			);
+			path = Touch;
+			sourceTree = "<group>";
+		};
+		AE0F708C1FBEB96100C8135C /* TouchTest */ = {
+			isa = PBXGroup;
+			children = (
+				AE0F708D1FBEB96E00C8135C /* TouchTestViewController.swift */,
+				AE0F709B1FBEB9CE00C8135C /* Trace.swift */,
+				AE0F70941FBEB9CA00C8135C /* CrossLine.swift */,
+				AE0F70911FBEB9CA00C8135C /* DrawView.swift */,
+				AE0F70901FBEB9CA00C8135C /* Line.swift */,
+				AE0F70921FBEB9CA00C8135C /* Settings.swift */,
+				AE0F70931FBEB9CA00C8135C /* SettingViewController.swift */,
+			);
+			path = TouchTest;
+			sourceTree = "<group>";
+		};
 		AE161F701F988CFB00B3293F /* MusicPlay */ = {
 			isa = PBXGroup;
 			children = (
@@ -818,6 +858,7 @@
 		AE9F31D41F69070E00339BB8 /* iOSDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AE0F70891FBEB92900C8135C /* Touch */,
 				AEF589C91F7793BF00D9A09F /* AI */,
 				AE3AF0531F77447A00AF182A /* Layout */,
 				AE3AF0421F773AF500AF182A /* Animation */,
@@ -1474,15 +1515,20 @@
 				AE3AF04D1F773DEB00AF182A /* GradientLayerViewController.swift in Sources */,
 				AEA07F0C1F7103C700FC9770 /* UIView+PLeak.m in Sources */,
 				AE3AF04F1F77404900AF182A /* ReplicatorViewController.swift in Sources */,
+				AE0F70961FBEB9CA00C8135C /* Line.swift in Sources */,
 				AE0F706D1FBD6F2B00C8135C /* NFXRawBodyDetailsController.swift in Sources */,
 				AE0F70721FBD6F2B00C8135C /* NFXImageBodyDetailsController.swift in Sources */,
 				AE0F70631FBD6F2B00C8135C /* NFXInfoController.swift in Sources */,
 				AE9F32871F690F5200339BB8 /* GrandStore.swift in Sources */,
 				AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */,
+				AE0F708B1FBEB94100C8135C /* TouchViewController.swift in Sources */,
 				AEA07F0A1F7103C200FC9770 /* PObjectProxy.m in Sources */,
 				AEA07F021F70C7D200FC9770 /* MemeryLeakTestViewController.swift in Sources */,
+				AE0F709A1FBEB9CA00C8135C /* CrossLine.swift in Sources */,
+				AE0F709C1FBEB9CE00C8135C /* Trace.swift in Sources */,
 				AE0F702D1FBA90A500C8135C /* RequestInfo.swift in Sources */,
 				AE0F70371FBA9ACF00C8135C /* NetworkViewController.swift in Sources */,
+				AE0F70971FBEB9CA00C8135C /* DrawView.swift in Sources */,
 				AE0F70611FBD6F2B00C8135C /* NFXAssets.swift in Sources */,
 				AE0F707E1FBD6F2B00C8135C /* NFXListController_iOS.swift in Sources */,
 				AEA07F081F7103BE00FC9770 /* NSObject+PLeakTrack.m in Sources */,
@@ -1501,7 +1547,9 @@
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
 				AE0F706C1FBD6F2B00C8135C /* NFXProtocol.swift in Sources */,
 				AE3AF04B1F773D6200AF182A /* AnimationVIew.swift in Sources */,
+				AE0F70981FBEB9CA00C8135C /* Settings.swift in Sources */,
 				AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */,
+				AE0F70991FBEB9CA00C8135C /* SettingViewController.swift in Sources */,
 				AEA07F0B1F7103C500FC9770 /* UINavigationController+PLeak.m in Sources */,
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
 				AE0F706F1FBD6F2B00C8135C /* NFXHTTPModel.swift in Sources */,
@@ -1524,6 +1572,8 @@
 				AE9F32841F690F5200339BB8 /* GrandModel+Map.swift in Sources */,
 				AE0F70351FBA925900C8135C /* HttpManager.swift in Sources */,
 				AE0F702F1FBA90A500C8135C /* RequestTimelineInfo.swift in Sources */,
+				AE0F709D1FBEBA5C00C8135C /* Foundation+Extension.swift in Sources */,
+				AE0F708E1FBEB96E00C8135C /* TouchTestViewController.swift in Sources */,
 				AE0F70811FBD6F2B00C8135C /* NFXStatisticsController_iOS.swift in Sources */,
 				AE0F70681FBD6F2B00C8135C /* NFXConstants.swift in Sources */,
 				AE0F70711FBD6F2B00C8135C /* NFXDetailsController.swift in Sources */,
