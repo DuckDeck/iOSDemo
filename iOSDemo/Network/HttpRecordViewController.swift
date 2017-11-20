@@ -48,8 +48,8 @@ class HttpRecordViewController: UIViewController {
     
     @objc func request(sender:UIButton)  {
         HttpManager.get("https://api.bqbbq.com/api/index").completion { (data, err) in
-            let str = String(data: data!, encoding: String.Encoding.utf8)
-            print(str)
+            let _ = String(data: data!, encoding: String.Encoding.utf8)
+            //print(str)
         }
 
  
@@ -88,10 +88,12 @@ extension HttpRecordViewController:SWHttpTrafficRecordingProgressDelegate{
             }
         }
         if let response = info[SWHTTPTrafficRecordingProgressResponseKey] as? URLResponse {
+            print(response)
             print(Date())
         }
         
         if let responseData = info[SWHTTPTrafficRecordingProgressBodyDataKey] as? URLResponse {
+            print(responseData)
             print(Date())
         }
         let progress =  ["Received","Skipped","Started","Loaded","Recorded", "FailedToLoad", "FailedToRecord"][currentProgress.rawValue-1]

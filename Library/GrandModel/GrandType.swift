@@ -192,7 +192,7 @@ extension String{
     func contain(subStr: String) -> Bool {return (self as NSString).range(of: subStr).length > 0}
     
     func explode (_ separator: Character) -> [String] {
-        return self.characters.split(whereSeparator: { (element: Character) -> Bool in
+        return self.split(whereSeparator: { (element: Character) -> Bool in
             return element == separator
         }).map { String($0) }
     }
@@ -226,7 +226,7 @@ func ClassFromString(_ str: String) -> AnyClass!{
     
     if  var appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String {
         
-        if appName == "" {appName = ((Bundle.main.bundleIdentifier!).characters.split{$0 == "."}.map { String($0) }).last ?? ""}
+        if appName == "" {appName = ((Bundle.main.bundleIdentifier!).split{$0 == "."}.map { String($0) }).last ?? ""}
         
         var clsStr = str
         
@@ -246,7 +246,7 @@ func ClassFromString(_ str: String) -> AnyClass!{
             
             for (_, s): (Int, String) in strArr.enumerated(){
                 
-                nameStringM += "\(s.characters.count)\(s)"
+                nameStringM += "\(s.count)\(s)"
             }
             
             className = nameStringM

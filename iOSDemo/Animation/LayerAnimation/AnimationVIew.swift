@@ -77,7 +77,7 @@ class AnimationVIew: UIView {
         UIView.animate(withDuration: animationDuration, delay: animationDuration, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: [], animations: {
             self.center = originalCenter
         }, completion: {_ in
-            delay(time: 0.1) {
+          _ =  delay(time: 0.1) {
                 if !self.isSquare {
                     self.boundsOffset(boundsOffset, morphSize: morphSize)
                 }
