@@ -117,6 +117,7 @@
 		AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */; };
 		AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752921F76931C00F6AAC5 /* MediaViewController.swift */; };
 		AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */; };
+		AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */; };
 		AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */; };
 		AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D51F69070E00339BB8 /* AppDelegate.swift */; };
 		AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D71F69070E00339BB8 /* ViewController.swift */; };
@@ -379,6 +380,7 @@
 		AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMenuView.swift; sourceTree = "<group>"; };
 		AE5752921F76931C00F6AAC5 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureVideoViewController.swift; sourceTree = "<group>"; };
+		AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterViewController.swift; sourceTree = "<group>"; };
 		AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSession.swift; sourceTree = "<group>"; };
 		AE8D61BD1F74A88600FDFC1C /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -748,6 +750,7 @@
 			isa = PBXGroup;
 			children = (
 				AE3AF0431F773B0000AF182A /* AnimationViewController.swift */,
+				AE67CDF51FC2B79100AE4CD6 /* Emitter */,
 				AE0F70841FBE860100C8135C /* Slider */,
 				AE3AF0491F773BEB00AF182A /* Replicator */,
 				AE3AF0481F773BCC00AF182A /* GradientLayer */,
@@ -816,6 +819,14 @@
 				AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */,
 			);
 			path = CaptureVideo;
+			sourceTree = "<group>";
+		};
+		AE67CDF51FC2B79100AE4CD6 /* Emitter */ = {
+			isa = PBXGroup;
+			children = (
+				AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */,
+			);
+			path = Emitter;
 			sourceTree = "<group>";
 		};
 		AE8D61BC1F74A88100FDFC1C /* Network */ = {
@@ -1582,6 +1593,7 @@
 				AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */,
 				AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
+				AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */,
 				AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */,
 				AE0F707F1FBD6F2B00C8135C /* NFXHelper_iOS.swift in Sources */,
 				AE9F328A1F690F5200339BB8 /* TimeSpan.swift in Sources */,

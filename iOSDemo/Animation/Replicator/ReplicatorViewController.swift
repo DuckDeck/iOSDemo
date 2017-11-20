@@ -9,10 +9,19 @@
 import UIKit
 
 class ReplicatorViewController: UIViewController {
- var viewDeme = UIView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.size.width, height: 100))
+    var viewDeme = UIView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.size.width, height: 100))
+    var viewDemo2 = UIView(frame: CGRect(x: 0, y: 220, width: UIScreen.main.bounds.size.width, height: 100))
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.lightGray
+        
+        setupView1()
+        setupView2()
+    }
+
+    
+    
+    func setupView1()  {
         view.addSubview(viewDeme)
         // Do any additional setup after loading the view.
         
@@ -97,21 +106,38 @@ class ReplicatorViewController: UIViewController {
         rotation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         replicator.add(rotation, forKey: "replicatorRotation")
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setupView2()  {
+        view.addSubview(viewDemo2)
+        let layer = CALayer()
+        layer.frame = CGRect(x: 0, y: 0, width: 10, height: 80)
+        layer.backgroundColor = UIColor.white.cgColor
+        layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        layer.add(scaleYAnimation(), forKey: "scaleAnimation")
+        
+        
+        
+       
+        let replicator = CAReplicatorLayer()
+        replicator.instanceCount = 10  //        设置复制层里面包含子层的个数
+        replicator.instanceTransform = CATransform3DMakeTranslation(45, 10, 0) //        设置子层相对于前一个层的偏移量
+        replicator.instanceDelay = 0.2 //        设置子层相对于前一个层的延迟时间
+        replicator.instanceColor = UIColor.green.cgColor //        设置层的颜色，(前提是要设置层的背景颜色，如果没有设置背景颜色，默认是透明的，再设置这个属性不会有效果。
+        replicator.instanceGreenOffset = -0.2 //        颜色的渐变，相对于前一个层的渐变（取值-1~+1）.RGB有三种颜色，所以这里也是绿红蓝三种。
+        replicator.instanceRedOffset = -0.2
+        replicator.instanceBlueOffset = -0.2
+        replicator.addSublayer(layer) //        需要把子层加入到复制层中，复制层按照前面设置的参数自动复制
+        
+        viewDemo2.layer.addSublayer(replicator)
     }
-    */
 
+
+    func scaleYAnimation() -> CABasicAnimation {
+        let anim = CABasicAnimation(keyPath: "transform.scale.y")
+        anim.toValue = 0.1
+        anim.duration = 0.4
+        anim.autoreverses = true
+        anim.repeatCount = MAXFLOAT
+        return anim
+    }
 }
