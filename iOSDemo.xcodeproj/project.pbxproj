@@ -223,6 +223,11 @@
 		AEBE404D1FC806E40087D7ED /* CityDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE404B1FC806E40087D7ED /* CityDB.swift */; };
 		AEBE404E1FC806E40087D7ED /* DBTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE404C1FC806E40087D7ED /* DBTool.swift */; };
 		AEBE40501FC8075C0087D7ED /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = AEBE404F1FC8075C0087D7ED /* city.json */; };
+		AEBE40521FC80A5C0087D7ED /* CityChooseViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE40511FC80A5C0087D7ED /* CityChooseViewController+Delegate.swift */; };
+		AEBE40541FC80A810087D7ED /* CitySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE40531FC80A810087D7ED /* CitySearchView.swift */; };
+		AEBE40561FC80A930087D7ED /* CitySearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE40551FC80A930087D7ED /* CitySearchResultView.swift */; };
+		AEBE40591FC80E500087D7ED /* UIScrollView+EmptyMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBE40571FC80E500087D7ED /* UIScrollView+EmptyMessage.m */; };
+		AEBE405E1FC81FE80087D7ED /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE405D1FC81FE80087D7ED /* CityTableViewCell.swift */; };
 		AEF4A4381F6BC7DA00EE4001 /* NovelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4371F6BC7DA00EE4001 /* NovelConfig.swift */; };
 		AEF4A43A1F6BD28500EE4001 /* NovelContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4391F6BD28500EE4001 /* NovelContentCell.swift */; };
 		AEF4A43D1F6F602500EE4001 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF4A43C1F6F602500EE4001 /* RxDataSources.framework */; };
@@ -476,6 +481,12 @@
 		AEBE404B1FC806E40087D7ED /* CityDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDB.swift; sourceTree = "<group>"; };
 		AEBE404C1FC806E40087D7ED /* DBTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBTool.swift; sourceTree = "<group>"; };
 		AEBE404F1FC8075C0087D7ED /* city.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.json; sourceTree = "<group>"; };
+		AEBE40511FC80A5C0087D7ED /* CityChooseViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CityChooseViewController+Delegate.swift"; sourceTree = "<group>"; };
+		AEBE40531FC80A810087D7ED /* CitySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchView.swift; sourceTree = "<group>"; };
+		AEBE40551FC80A930087D7ED /* CitySearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchResultView.swift; sourceTree = "<group>"; };
+		AEBE40571FC80E500087D7ED /* UIScrollView+EmptyMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyMessage.m"; sourceTree = "<group>"; };
+		AEBE40581FC80E500087D7ED /* UIScrollView+EmptyMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyMessage.h"; sourceTree = "<group>"; };
+		AEBE405D1FC81FE80087D7ED /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		AEF4A4371F6BC7DA00EE4001 /* NovelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelConfig.swift; sourceTree = "<group>"; };
 		AEF4A4391F6BD28500EE4001 /* NovelContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelContentCell.swift; sourceTree = "<group>"; };
 		AEF4A43C1F6F602500EE4001 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
@@ -1024,6 +1035,8 @@
 		AE9F328C1F690FBA00339BB8 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				AEBE40581FC80E500087D7ED /* UIScrollView+EmptyMessage.h */,
+				AEBE40571FC80E500087D7ED /* UIScrollView+EmptyMessage.m */,
 				AE9F328D1F690FD200339BB8 /* UIView+Base.swift */,
 				AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */,
 				AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */,
@@ -1179,7 +1192,11 @@
 				AEBE404B1FC806E40087D7ED /* CityDB.swift */,
 				AEBE404C1FC806E40087D7ED /* DBTool.swift */,
 				AEBE403F1FC803A60087D7ED /* CityChooseViewController.swift */,
+				AEBE40511FC80A5C0087D7ED /* CityChooseViewController+Delegate.swift */,
 				AEBE40411FC804820087D7ED /* AddressInfo.swift */,
+				AEBE40531FC80A810087D7ED /* CitySearchView.swift */,
+				AEBE40551FC80A930087D7ED /* CitySearchResultView.swift */,
+				AEBE405D1FC81FE80087D7ED /* CityTableViewCell.swift */,
 			);
 			path = CityChoose;
 			sourceTree = "<group>";
@@ -1571,10 +1588,12 @@
 				AE0F70861FBE861A00C8135C /* SliderDemoViewController.swift in Sources */,
 				AEBE404D1FC806E40087D7ED /* CityDB.swift in Sources */,
 				AE0F706B1FBD6F2B00C8135C /* NFX.swift in Sources */,
+				AEBE40561FC80A930087D7ED /* CitySearchResultView.swift in Sources */,
 				AE0F70821FBD6F2B00C8135C /* NFXSettingsController_iOS.swift in Sources */,
 				AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */,
 				AE0F70691FBD6F2B00C8135C /* NFXGenericBodyDetailsController.swift in Sources */,
 				AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */,
+				AEBE40521FC80A5C0087D7ED /* CityChooseViewController+Delegate.swift in Sources */,
 				AE0F70641FBD6F2B00C8135C /* NFXGenericController.swift in Sources */,
 				AE9F32821F690F5200339BB8 /* GrandCue.swift in Sources */,
 				AE3AF04D1F773DEB00AF182A /* GradientLayerViewController.swift in Sources */,
@@ -1591,6 +1610,7 @@
 				AEA07F021F70C7D200FC9770 /* MemeryLeakTestViewController.swift in Sources */,
 				AE0F709A1FBEB9CA00C8135C /* CrossLine.swift in Sources */,
 				AE0F709C1FBEB9CE00C8135C /* Trace.swift in Sources */,
+				AEBE40591FC80E500087D7ED /* UIScrollView+EmptyMessage.m in Sources */,
 				AE0F702D1FBA90A500C8135C /* RequestInfo.swift in Sources */,
 				AE0F70371FBA9ACF00C8135C /* NetworkViewController.swift in Sources */,
 				AE0F70971FBEB9CA00C8135C /* DrawView.swift in Sources */,
@@ -1616,6 +1636,7 @@
 				AE3AF04B1F773D6200AF182A /* AnimationVIew.swift in Sources */,
 				AE0F70981FBEB9CA00C8135C /* Settings.swift in Sources */,
 				AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */,
+				AEBE405E1FC81FE80087D7ED /* CityTableViewCell.swift in Sources */,
 				AE0F70991FBEB9CA00C8135C /* SettingViewController.swift in Sources */,
 				AEBE40421FC804820087D7ED /* AddressInfo.swift in Sources */,
 				AEA07F0B1F7103C500FC9770 /* UINavigationController+PLeak.m in Sources */,
@@ -1636,6 +1657,7 @@
 				AE9F328E1F690FD200339BB8 /* UIView+Base.swift in Sources */,
 				AEA07EFF1F70C7B900FC9770 /* MemeryViewController.swift in Sources */,
 				AE0F706E1FBD6F2B00C8135C /* NFXStatisticsController.swift in Sources */,
+				AEBE40541FC80A810087D7ED /* CitySearchView.swift in Sources */,
 				AE9F32891F690F5200339BB8 /* GrandTimer.swift in Sources */,
 				AE9F32841F690F5200339BB8 /* GrandModel+Map.swift in Sources */,
 				AE0F70351FBA925900C8135C /* HttpManager.swift in Sources */,

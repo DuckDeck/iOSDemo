@@ -7,7 +7,7 @@
 //  Copyright © 2017 Stan Hu. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension NSObject{
     func addDispose()  {
@@ -43,6 +43,21 @@ extension String{
         return subRange(start: start, end: len - 1)
     }
 
+    
+    //将原始的url编码为合法的url
+    func urlEncoded() -> String {
+        let encodeUrlString = self.addingPercentEncoding(withAllowedCharacters:
+            .urlQueryAllowed)
+        return encodeUrlString ?? ""
+    }
+    
+    
+    //将编码后的url转换回原始的url
+    func urlDecoded() -> String {
+        return self.removingPercentEncoding ?? ""
+    }
+    
+    
 }
 
 extension Array{
@@ -101,6 +116,27 @@ extension Dictionary{
         for (k,v) in newDict{
             self[k] = v
         }
+    }
+}
+
+extension UIColor{
+    static func Hex(hexString : String) -> UIColor {
+        let r, g, b: CGFloat
+        if hexString.hasPrefix("#") {
+            let start = hexString.index(hexString.startIndex, offsetBy: 1)
+            let hexColor = hexString.substring(from: start)
+            if hexColor.count == 6 {
+                let scanner = Scanner(string: hexColor)
+                var hexNumber: UInt64 = 0
+                if scanner.scanHexInt64(&hexNumber) {
+                    r = CGFloat((hexNumber & 0xff0000) >> 16)
+                    g = CGFloat((hexNumber & 0x00ff00) >> 8)
+                    b = CGFloat(hexNumber & 0x0000ff)
+                    return UIColor(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: 1)
+                }
+            }
+        }
+        return UIColor.white;
     }
 }
 

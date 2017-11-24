@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import Photos
+import AssetsLibrary
+import CoreLocation
 @objc enum AuthType:Int {
     case Camera = 0, Photo,Position,PushNotifcation,BackgroundAppRefresh,Video,Audio
 }
@@ -34,5 +36,27 @@ class Auth:NSObject {
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         alertControllr.addAction(cancelAction)
         view.present(alertControllr, animated: true, completion: nil)
+    }
+    
+    @objc static func isAuthPhoto()->Bool{
+        if #available(iOS 9.0, *) {
+            let library:PHAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
+            return  library != PHAuthorizationStatus.denied && library != PHAuthorizationStatus.restricted
+        }else{
+            let authStatus = ALAssetsLibrary.authorizationStatus()
+            return authStatus != .restricted && authStatus != .denied
+        }
+    }
+    
+    @objc static func isAuthLocation()->Bool{
+        if CLLocationManager.locationServicesEnabled() &&
+            (CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+                CLLocationManager.authorizationStatus() == .notDetermined ||
+                CLLocationManager.authorizationStatus() == .authorizedAlways)
+        {
+            return true
+            
+        }
+        return false
     }
 }

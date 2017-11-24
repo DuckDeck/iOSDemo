@@ -23,3 +23,19 @@ func ChineseToPinyin(chinese:String)->String{
     CFStringTransform(py, nil, kCFStringTransformStripCombiningMarks, false)
     return py as String
 }
+
+func handleResult(result:ResultInfo) -> Bool {
+    return handleResult(result: result, needHideWait: true)
+}
+
+func handleResult(result:ResultInfo,needHideWait:Bool) -> Bool {
+    if needHideWait {
+        GrandCue.dismissLoading()
+    }
+    
+    if result.code != 0 {
+        GrandCue.showToast(msg: result.msg)
+        return false
+    }
+    return true
+}

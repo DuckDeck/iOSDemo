@@ -116,29 +116,32 @@ class AddressInfo:NSObject, NSCoding {
     }
     
     
-//    static func getCoorFromCity(city:String,complete:@escaping completedBlock){
-//        let result = ResultInfo()
-//        let url = "http://api.map.baidu.com/geocoder/v2/?&output=json&ak=GmgLlkoB8sqMU3HFHuztPezuo2Zpp1mi&address=" + city.urlEncoded()
-//        HttpClient.get(url).completion { (data, err) in
-//            if data == nil || err != nil{
-//                result.code = -1
-//                complete(result)
-//                return
-//            }
-//            let js = JSON(data!)
-//            if js["status"].intValue != 0{
-//                result.code = js["status"].intValue
-//                complete(result)
-//                return
-//            }
-//            let address = AddressInfo()
-//            address.city = city
-//            address.latitude = js["result"]["location"]["lat"].doubleValue
-//            address.longitude = js["result"]["location"]["lng"].doubleValue
-//            result.data = address
-//            complete(result)
-//        }
-//    }
+    static func getCoorFromCity(city:String,complete:@escaping completed){
+        var result = ResultInfo()
+        let url = "http://api.map.baidu.com/geocoder/v2/?&output=json&ak=GmgLlkoB8sqMU3HFHuztPezuo2Zpp1mi&address=" + city.urlEncoded()
+
+        HttpManager.get(url).completion  { (data, err) in
+            if data == nil || err != nil{
+                result.code = -1
+                complete(result)
+                return
+            }
+            let js = JSON(data!)
+            if js["status"].intValue != 0{
+                result.code = js["status"].intValue
+                complete(result)
+                return
+            }
+            let address = AddressInfo()
+            address.city = city
+            address.latitude = js["result"]["location"]["lat"].doubleValue
+            address.longitude = js["result"]["location"]["lng"].doubleValue
+            result.data = address
+            complete(result)
+        }
+        
+        
+    }
     
     override init() {
         
