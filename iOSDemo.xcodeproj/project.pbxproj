@@ -215,6 +215,14 @@
 		AEBB55B31F75EF1000A94B88 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */; };
 		AEBB55B51F75EF2D00A94B88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB55B41F75EF2D00A94B88 /* Constants.swift */; };
 		AEBB55B71F75EF4800A94B88 /* ImageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB55B61F75EF4800A94B88 /* ImageTool.swift */; };
+		AEBE40371FC802770087D7ED /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBE40361FC802770087D7ED /* FMDB.framework */; };
+		AEBE403D1FC803620087D7ED /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE403C1FC803620087D7ED /* LibraryViewController.swift */; };
+		AEBE40401FC803A60087D7ED /* CityChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE403F1FC803A60087D7ED /* CityChooseViewController.swift */; };
+		AEBE40421FC804820087D7ED /* AddressInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE40411FC804820087D7ED /* AddressInfo.swift */; };
+		AEBE40441FC806020087D7ED /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBE40431FC806020087D7ED /* SwiftyJSON.framework */; };
+		AEBE404D1FC806E40087D7ED /* CityDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE404B1FC806E40087D7ED /* CityDB.swift */; };
+		AEBE404E1FC806E40087D7ED /* DBTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE404C1FC806E40087D7ED /* DBTool.swift */; };
+		AEBE40501FC8075C0087D7ED /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = AEBE404F1FC8075C0087D7ED /* city.json */; };
 		AEF4A4381F6BC7DA00EE4001 /* NovelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4371F6BC7DA00EE4001 /* NovelConfig.swift */; };
 		AEF4A43A1F6BD28500EE4001 /* NovelContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4391F6BD28500EE4001 /* NovelContentCell.swift */; };
 		AEF4A43D1F6F602500EE4001 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF4A43C1F6F602500EE4001 /* RxDataSources.framework */; };
@@ -460,6 +468,14 @@
 		AEBB55B11F75EED700A94B88 /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
 		AEBB55B41F75EF2D00A94B88 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AEBB55B61F75EF4800A94B88 /* ImageTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTool.swift; sourceTree = "<group>"; };
+		AEBE40361FC802770087D7ED /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB.framework; path = Carthage/Build/iOS/FMDB.framework; sourceTree = "<group>"; };
+		AEBE403C1FC803620087D7ED /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		AEBE403F1FC803A60087D7ED /* CityChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityChooseViewController.swift; sourceTree = "<group>"; };
+		AEBE40411FC804820087D7ED /* AddressInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInfo.swift; sourceTree = "<group>"; };
+		AEBE40431FC806020087D7ED /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		AEBE404B1FC806E40087D7ED /* CityDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDB.swift; sourceTree = "<group>"; };
+		AEBE404C1FC806E40087D7ED /* DBTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBTool.swift; sourceTree = "<group>"; };
+		AEBE404F1FC8075C0087D7ED /* city.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.json; sourceTree = "<group>"; };
 		AEF4A4371F6BC7DA00EE4001 /* NovelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelConfig.swift; sourceTree = "<group>"; };
 		AEF4A4391F6BD28500EE4001 /* NovelContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelContentCell.swift; sourceTree = "<group>"; };
 		AEF4A43C1F6F602500EE4001 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
@@ -498,6 +514,7 @@
 				AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */,
 				AEA07EF81F70C44000FC9770 /* RxCocoa.framework in Frameworks */,
 				AEA07EF61F70C44000FC9770 /* Kingfisher.framework in Frameworks */,
+				AEBE40441FC806020087D7ED /* SwiftyJSON.framework in Frameworks */,
 				AEF589D61F779BF100D9A09F /* ImagePicker.framework in Frameworks */,
 				AEA07EFA1F70C44000FC9770 /* TangramKit.framework in Frameworks */,
 				AE040F881F768E1100C06EC3 /* RxMoya.framework in Frameworks */,
@@ -511,6 +528,7 @@
 				AE040F8A1F768E1100C06EC3 /* Moya.framework in Frameworks */,
 				AEA07EF91F70C44000FC9770 /* RxSwift.framework in Frameworks */,
 				AEA07EFB1F70C44000FC9770 /* WSProgressHUD.framework in Frameworks */,
+				AEBE40371FC802770087D7ED /* FMDB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -829,6 +847,13 @@
 			path = Emitter;
 			sourceTree = "<group>";
 		};
+		AE67CDF81FC3F94600AE4CD6 /* Sensor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sensor;
+			sourceTree = "<group>";
+		};
 		AE8D61BC1F74A88100FDFC1C /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -869,6 +894,8 @@
 		AE9F31D41F69070E00339BB8 /* iOSDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AEBE403B1FC803420087D7ED /* Library */,
+				AE67CDF81FC3F94600AE4CD6 /* Sensor */,
 				AE0F70891FBEB92900C8135C /* Touch */,
 				AEF589C91F7793BF00D9A09F /* AI */,
 				AE3AF0531F77447A00AF182A /* Layout */,
@@ -909,6 +936,8 @@
 		AE9F321B1F690DBF00339BB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEBE40431FC806020087D7ED /* SwiftyJSON.framework */,
+				AEBE40361FC802770087D7ED /* FMDB.framework */,
 				AE00CB931F95FF1500AE2190 /* MJRefresh.framework */,
 				AEF589D81F77ABB800D9A09F /* CoreML.framework */,
 				AEF589D11F779BC700D9A09F /* ImagePicker.framework */,
@@ -1132,6 +1161,27 @@
 				AEBB55B11F75EED700A94B88 /* GameService.swift */,
 			);
 			path = Board;
+			sourceTree = "<group>";
+		};
+		AEBE403B1FC803420087D7ED /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				AEBE403E1FC8037A0087D7ED /* CityChoose */,
+				AEBE403C1FC803620087D7ED /* LibraryViewController.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		AEBE403E1FC8037A0087D7ED /* CityChoose */ = {
+			isa = PBXGroup;
+			children = (
+				AEBE404F1FC8075C0087D7ED /* city.json */,
+				AEBE404B1FC806E40087D7ED /* CityDB.swift */,
+				AEBE404C1FC806E40087D7ED /* DBTool.swift */,
+				AEBE403F1FC803A60087D7ED /* CityChooseViewController.swift */,
+				AEBE40411FC804820087D7ED /* AddressInfo.swift */,
+			);
+			path = CityChoose;
 			sourceTree = "<group>";
 		};
 		AEF4A4471F6FA65600EE4001 /* PLeakSniffer */ = {
@@ -1377,6 +1427,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEBE40501FC8075C0087D7ED /* city.json in Resources */,
 				AEF589DD1F77D03A00D9A09F /* readme.md in Resources */,
 				AE9F31E01F69070E00339BB8 /* LaunchScreen.storyboard in Resources */,
 				AEF4A4621F6FCB5B00EE4001 /* novel2.gif in Resources */,
@@ -1497,6 +1548,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kanna.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ImagePicker.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FMDB.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			outputPaths = (
 			);
@@ -1516,6 +1569,7 @@
 				AE9F32831F690F5200339BB8 /* GrandModel+Convert.swift in Sources */,
 				AE0F70651FBD6F2B00C8135C /* NFXSettingsController.swift in Sources */,
 				AE0F70861FBE861A00C8135C /* SliderDemoViewController.swift in Sources */,
+				AEBE404D1FC806E40087D7ED /* CityDB.swift in Sources */,
 				AE0F706B1FBD6F2B00C8135C /* NFX.swift in Sources */,
 				AE0F70821FBD6F2B00C8135C /* NFXSettingsController_iOS.swift in Sources */,
 				AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */,
@@ -1544,7 +1598,9 @@
 				AE0F707E1FBD6F2B00C8135C /* NFXListController_iOS.swift in Sources */,
 				AEA07F081F7103BE00FC9770 /* NSObject+PLeakTrack.m in Sources */,
 				AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */,
+				AEBE40401FC803A60087D7ED /* CityChooseViewController.swift in Sources */,
 				AE0F70881FBE864300C8135C /* GrandSlider.swift in Sources */,
+				AEBE403D1FC803620087D7ED /* LibraryViewController.swift in Sources */,
 				AE3AF0581F7744D500AF182A /* ScrollMenuViewController.swift in Sources */,
 				AE0F70701FBD6F2B00C8135C /* NFXHelper.swift in Sources */,
 				AE3AF0551F77448A00AF182A /* LayoutViewController.swift in Sources */,
@@ -1561,6 +1617,7 @@
 				AE0F70981FBEB9CA00C8135C /* Settings.swift in Sources */,
 				AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */,
 				AE0F70991FBEB9CA00C8135C /* SettingViewController.swift in Sources */,
+				AEBE40421FC804820087D7ED /* AddressInfo.swift in Sources */,
 				AEA07F0B1F7103C500FC9770 /* UINavigationController+PLeak.m in Sources */,
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
 				AE0F706F1FBD6F2B00C8135C /* NFXHTTPModel.swift in Sources */,
@@ -1594,6 +1651,7 @@
 				AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
 				AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */,
+				AEBE404E1FC806E40087D7ED /* DBTool.swift in Sources */,
 				AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */,
 				AE0F707F1FBD6F2B00C8135C /* NFXHelper_iOS.swift in Sources */,
 				AE9F328A1F690F5200339BB8 /* TimeSpan.swift in Sources */,

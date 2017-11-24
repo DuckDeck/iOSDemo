@@ -1,15 +1,16 @@
 //
-//  ViewController.swift
+//  LibraryViewController.swift
 //  iOSDemo
 //
-//  Created by Stan Hu on 13/9/2017.
+//  Created by Stan Hu on 24/11/2017.
 //  Copyright © 2017 Stan Hu. All rights reserved.
 //
 
 import UIKit
 import TangramKit
-class ViewController: UIViewController {
-    var arrData = ["Memery","Media","Animation","Layout","AI","Network","Touch","Library"]
+class LibraryViewController :UIViewController {
+    
+    var arrData = ["CityChoose"]
     var tbMenu = UITableView()
     
     override func loadView() {
@@ -31,11 +32,11 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController:UITableViewDelegate,UITableViewDataSource{
+extension LibraryViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrData.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil{
@@ -48,22 +49,17 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
-            navigationController?.pushViewController(MemeryViewController(), animated: true)
+            navigationController?.pushViewController(CityChooseViewController(), animated: true)
         case 1:
-            navigationController?.pushViewController(MediaViewController(), animated: true)
+            break
         case 2:
-              navigationController?.pushViewController(AnimationViewController(), animated: true)
-        case 3:
-            navigationController?.pushViewController(LayoutViewController(), animated: true)
-        case 4:
-            navigationController?.pushViewController(AIViewController(), animated: true)
-        case 5:
-            navigationController?.pushViewController(NetworkViewController(), animated: true)
-        case 6:
-            navigationController?.pushViewController(TouchViewController(), animated: true)
+            break
+            
         default:
             break
         }
     }
-
+    
+    
 }
+

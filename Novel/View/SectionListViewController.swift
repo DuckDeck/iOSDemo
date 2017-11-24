@@ -33,7 +33,6 @@ final class SectionListViewController: UIViewController {
         view.addSubview(tb)
       
         vm = SectionListViewModel(input: (tb,Variable<NovelInfo>(novelInfo!)))
-        
     }
 }
 extension SectionListViewController:URLNavigable{

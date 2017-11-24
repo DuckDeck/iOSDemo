@@ -1,7 +1,8 @@
-github "Alamofire/Alamofire" ~> 4.0
-github "tid-kijyun/Kanna" ~> 2.1.0
-github "youngsoft/TangramKit" ~> 1.0.0
-github "onevcat/Kingfisher" ~> 3.10.0
+gitHub "CoderMJLee/MJRefresh"
+github "Alamofire/Alamofire"
+github "tid-kijyun/Kanna"
+github "youngsoft/TangramKit"
+github "onevcat/Kingfisher"
 github "hackiftekhar/IQKeyboardManager"
 github "devSC/WSProgressHUD"
 github "ReactiveX/RxSwift"
@@ -9,3 +10,5 @@ github "Moya/Moya"
 github "devxoul/URLNavigator"
 github "RxSwiftCommunity/RxDataSources"
 github "hyperoslo/ImagePicker"
+github "ccgus/fmdb"
+github "SwiftyJSON/SwiftyJSON"
