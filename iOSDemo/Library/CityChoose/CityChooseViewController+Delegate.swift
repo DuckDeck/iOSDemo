@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SnapKit
 extension CityChooseViewController:UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         if let count = arrSectionTitle?.count {
@@ -34,7 +34,7 @@ extension CityChooseViewController:UITableViewDelegate,UITableViewDataSource{
         var head = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header")
         if head == nil {
             head = UITableViewHeaderFooterView(reuseIdentifier: "header")
-            let lblTitle = UILabel(frame:  CGRect(x: 10, y: 0, w: 80, h: 25)).text(text: "").color(color: UIColor.Hex(hexString: "#999999")).bgColor(color: UIColor.Hex(hexString: "#f0f1f1"))
+            let lblTitle = UILabel(frame:  CGRect(x: 10, y: 0, width: 80, height: 25)).text(text: "").color(color: UIColor.Hex(hexString: "#999999")).bgColor(color: UIColor.Hex(hexString: "#f0f1f1"))
             lblTitle.tag = 1
             lblTitle.font = UIFont.systemFont(ofSize: 13)
             head?.contentView.addSubview(lblTitle)
@@ -79,7 +79,7 @@ extension CityChooseViewController:UITableViewDelegate,UITableViewDataSource{
         if indexPath.section == 1 {
             var cell = tableView.dequeueReusableCell(withIdentifier: "cityCell") as? CityTableViewCell
             if cell == nil {
-                cell = UITableViewCell(style: .default, reuseIdentifier: "cityCell")
+                cell = CityTableViewCell(style: .default, reuseIdentifier: "cityCell")
                 cell?.cityChooseBlock = {[weak self](city:AddressInfo) in
                     self?.chooseCity(city: city)
                 }
@@ -150,7 +150,7 @@ extension CityChooseViewController :CitySearchDelegate,CitySearchResultDelegate{
     
     func searchString(keyword: String) {
         vSearchResult?.tbCity.removeEmptyPage(withIdentity: "CitySearch")
-        if keyword.length == 0 {
+        if keyword.count == 0 {
             vSearchResult?.arrCity?.removeAll()
             vSearchResult?.tbCity.reloadData()
             return
@@ -240,6 +240,8 @@ class locationTableViewCell: UITableViewCell {
         btnLocate.addTarget(self, action: #selector(btnClick(sender:)), for: .touchUpInside)
         addSubview(btnLocate)
         
+        
+        
         btnLocate.snp.makeConstraints{ (make) in
             make.left.equalTo(15)
             make.top.equalTo(10)
@@ -248,7 +250,7 @@ class locationTableViewCell: UITableViewCell {
         setLocateState(status: "", statueCode: 0)
     }
     
-    func btnClick(sender:UIButton) {
+    @objc func btnClick(sender:UIButton) {
         if sender.tag == 2 {
             setLocateState(status: "", statueCode: 0)
         }

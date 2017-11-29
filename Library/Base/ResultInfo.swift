@@ -34,7 +34,7 @@ func handleResult(result:ResultInfo,needHideWait:Bool) -> Bool {
     }
     
     if result.code != 0 {
-        GrandCue.showToast(msg: result.msg)
+        GrandCue.toast(result.message)
         return false
     }
     return true

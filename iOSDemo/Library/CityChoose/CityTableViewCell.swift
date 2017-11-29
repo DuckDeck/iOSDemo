@@ -18,12 +18,14 @@ class CityTableViewCell: UITableViewCell {
     var info: [AddressInfo]? {
         didSet {
             if let cities = info {
-                contentView.removeSubviews()
+                for v in contentView.subviews{
+                    v.removeFromSuperview()
+                }
                 var i = 0
                 while i < cities.count {
                     
                     let f = CGRect(x: CGFloat(i % 3) * (btnWidth + 10) + 15, y: 10 + CGFloat( i / 3) * (btnHeight + 10) , width: btnWidth, height: btnHeight)
-                    let btn = UIButton(frame: f).title(title: cities[i].city).color(color: colorMoneyf64950).bgColor(color: UIColor.white).cornerRadius(radius: 4).borderWidth(width: lineHeight).borderColor(color: colorMoneyf64950)
+                    let btn = UIButton(frame: f).title(title: cities[i].city).color(color: UIColor.Hex(hexString: "#f64950")).bgColor(color: UIColor.white).cornerRadius(radius: 4).borderWidth(width: lineHeight).borderColor(color: UIColor.Hex(hexString: "#f64950"))
                     btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
                     btn.tag = cities[i].areaId
                     btn.addTarget(self, action: #selector(CityTableViewCell.btnClick(sender:)), for: .touchUpInside)
@@ -40,11 +42,11 @@ class CityTableViewCell: UITableViewCell {
     
     convenience init(style: UITableViewCellStyle, reuseIdentifier: String?,cities:[(String,Int)]) {
         self.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = colorBgGrayf0f1f1
+        backgroundColor = UIColor.Hex(hexString: "#f0f0f1")
         var i = 0
         while i < cities.count {
             let f = CGRect(x: CGFloat(i % 3) * (btnWidth + 10) + 15, y: 10 + CGFloat( i / 3) * (btnHeight + 10) , width: btnWidth, height: btnHeight)
-            let btn = UIButton(frame: f).title(title: cities[i].0).color(color: colorMoneyf64950).bgColor(color: UIColor.white).cornerRadius(radius: 4).borderWidth(width: lineHeight).borderColor(color: colorMoneyf64950)
+            let btn = UIButton(frame: f).title(title: cities[i].0).color(color: UIColor.Hex(hexString: "#f64950")).bgColor(color: UIColor.white).cornerRadius(radius: 4).borderWidth(width: lineHeight).borderColor(color: UIColor.Hex(hexString: "#f64950"))
             btn.tag = cities[i].1
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
             btn.addTarget(self, action: #selector(CityTableViewCell.btnClick(sender:)), for: .touchUpInside)
@@ -53,7 +55,7 @@ class CityTableViewCell: UITableViewCell {
         }
     }
     
-    func btnClick(sender:UIButton)  {
+    @objc func btnClick(sender:UIButton)  {
         let c = AddressInfo()
         if let blk = cityChooseBlock {
             c.city = sender.title(for: .normal)!

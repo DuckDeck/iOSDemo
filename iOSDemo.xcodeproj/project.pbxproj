@@ -228,6 +228,7 @@
 		AEBE40561FC80A930087D7ED /* CitySearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE40551FC80A930087D7ED /* CitySearchResultView.swift */; };
 		AEBE40591FC80E500087D7ED /* UIScrollView+EmptyMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBE40571FC80E500087D7ED /* UIScrollView+EmptyMessage.m */; };
 		AEBE405E1FC81FE80087D7ED /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE405D1FC81FE80087D7ED /* CityTableViewCell.swift */; };
+		AEBE40771FCEC25C0087D7ED /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBE40761FCEC25C0087D7ED /* SnapKit.framework */; };
 		AEF4A4381F6BC7DA00EE4001 /* NovelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4371F6BC7DA00EE4001 /* NovelConfig.swift */; };
 		AEF4A43A1F6BD28500EE4001 /* NovelContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4391F6BD28500EE4001 /* NovelContentCell.swift */; };
 		AEF4A43D1F6F602500EE4001 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF4A43C1F6F602500EE4001 /* RxDataSources.framework */; };
@@ -487,6 +488,7 @@
 		AEBE40571FC80E500087D7ED /* UIScrollView+EmptyMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyMessage.m"; sourceTree = "<group>"; };
 		AEBE40581FC80E500087D7ED /* UIScrollView+EmptyMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyMessage.h"; sourceTree = "<group>"; };
 		AEBE405D1FC81FE80087D7ED /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		AEBE40761FCEC25C0087D7ED /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		AEF4A4371F6BC7DA00EE4001 /* NovelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelConfig.swift; sourceTree = "<group>"; };
 		AEF4A4391F6BD28500EE4001 /* NovelContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelContentCell.swift; sourceTree = "<group>"; };
 		AEF4A43C1F6F602500EE4001 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 				AEA07EF91F70C44000FC9770 /* RxSwift.framework in Frameworks */,
 				AEA07EFB1F70C44000FC9770 /* WSProgressHUD.framework in Frameworks */,
 				AEBE40371FC802770087D7ED /* FMDB.framework in Frameworks */,
+				AEBE40771FCEC25C0087D7ED /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -947,6 +950,7 @@
 		AE9F321B1F690DBF00339BB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEBE40761FCEC25C0087D7ED /* SnapKit.framework */,
 				AEBE40431FC806020087D7ED /* SwiftyJSON.framework */,
 				AEBE40361FC802770087D7ED /* FMDB.framework */,
 				AE00CB931F95FF1500AE2190 /* MJRefresh.framework */,
@@ -1567,6 +1571,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ImagePicker.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/FMDB.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 			);
 			outputPaths = (
 			);
