@@ -8,21 +8,22 @@
 
 import UIKit
 import IQKeyboardManagerSwift
-
+import URLNavigator
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var navigator: NavigatorType?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-      
+        let navigator = Navigator()
+        NavigationMap.initialize(navigator: navigator)
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         let mainViewController = ViewController()
         let nav = UINavigationController(rootViewController: mainViewController)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
-        NavigationMap.initialize()
         IQKeyboardManager.sharedManager().enable = true
         PLeakSniffer.sharedInstance().installLeakSniffer()
         return true

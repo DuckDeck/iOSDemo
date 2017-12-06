@@ -10,6 +10,7 @@ import UIKit
 import URLNavigator
 import TangramKit
 import RxSwift
+import MJRefresh
 final class NovelContentViewController: UIViewController {
     init() { super.init(nibName: nil, bundle: nil) }
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented")  }
@@ -44,7 +45,7 @@ final class NovelContentViewController: UIViewController {
         navigationItem.rightBarButtonItem = buttonSaveBoookmark
         
         vm = NovelContentViewModel(input: (tb,novelInfo!,currentSection!,arrSectionUrl)) //暂时没想出以构造函数的方式绑定
-        vm?.sectionTitle.asDriver().drive(navigationItem.rx.title).addDisposableTo(bag)
+        vm?.sectionTitle.asDriver().drive(navigationItem.rx.title).disposed(by: bag)
         weak var weakself = self
         tb.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
             if  !weakself!.vm!.isLoading {
@@ -54,7 +55,7 @@ final class NovelContentViewController: UIViewController {
         
     }
 
-    func saveBookmark()  {
+    @objc func saveBookmark()  {
         vm?.saveBookmark()
     }
     
@@ -79,14 +80,14 @@ extension NovelContentViewController:UITableViewDelegate{
     }
 }
 
-extension NovelContentViewController:URLNavigable{
-    convenience init?(navigation: Navigation) {
-        guard let dict = navigation.navigationContext as? [String:Any] else { return nil }
-        self.init()
-       novelInfo = dict["novelInfo"] as? NovelInfo
-       currentSection = dict["currentSection"] as? SectionInfo
-       arrSectionUrl = dict["arrSectionUrl"] as? [SectionInfo]
-    }
-}
+//extension NovelContentViewController:URLNavigable{
+//    convenience init?(navigation: Navigation) {
+//        guard let dict = navigation.navigationContext as? [String:Any] else { return nil }
+//        self.init()
+//       novelInfo = dict["novelInfo"] as? NovelInfo
+//       currentSection = dict["currentSection"] as? SectionInfo
+//       arrSectionUrl = dict["arrSectionUrl"] as? [SectionInfo]
+//    }
+//}
 
 

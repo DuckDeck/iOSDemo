@@ -42,7 +42,7 @@ class NovelSearchViewModel {
      init(input:(tb:UITableView,searchKey:Driver<String>,searchTap:Driver<Void>)) {
         tb = input.tb
         key = input.searchKey
-        key.drive(keyStr).addDisposableTo(bag)
+        key.drive(keyStr).disposed(by: bag)
         searchCommand = input.searchTap
         bind()
      }
@@ -53,14 +53,14 @@ class NovelSearchViewModel {
           tb.tableFooterView = UIView()
           modelObserable.asObservable().bind(to: tb.rx.items(cellIdentifier: cellID, cellType: NovelTbCell.self)){ row , model , cell in
                 cell.novelIndo = model
-          }.addDisposableTo(bag)
+            }.disposed(by: bag)
         
         tb.rx.itemSelected.subscribe(onNext: { (index) in
             guard  let novel = wkself?.modelObserable.value[index.row] else{
                 return
             }
-            Navigator.push(Routers.sectionList, context: novel, from: nil, animated: true)
-        }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
+            (UIApplication.shared.delegate as! AppDelegate).navigator?.push(Routers.sectionList, context: novel, from: nil, animated: true)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: bag)
         
         requestNewDataCommond.subscribe { [weak self](event) in
            Tool.hiddenKeyboard()
@@ -97,12 +97,12 @@ class NovelSearchViewModel {
                     }
                 }).addDisposableTo(self!.bag)
             }
-        }.addDisposableTo(bag)
+            }.disposed(by: bag)
         
         
         searchCommand.drive(onNext: {
-          refreshStateObserable.value = .beginHeaderRefresh
-        }, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
+            self.refreshStateObserable.value = .beginHeaderRefresh
+        }, onCompleted: nil, onDisposed: nil).disposed(by: bag)
         
         refreshStateObserable.asObservable().subscribe(onNext: { (status) in
             switch(status){
@@ -120,6 +120,6 @@ class NovelSearchViewModel {
             default:
                 break
             }
-        }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: bag)
       }
 }

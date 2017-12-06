@@ -78,7 +78,7 @@ class BookMarkViewModel {
         tb.rx.itemSelected.subscribe(onNext: { (index) in
             let bookmarks = Bookmark.Value!
             let dict = ["novelInfo":bookmarks[index.section],"currentSection":bookmarks[index.section].arrBookMark![index.row]] as [String : Any]
-            Navigator.push(Routers.novelContent, context: dict, from: nil, animated: true)
+            (UIApplication.shared.delegate as AppDelegate).navigator?.push(Routers.sectionList, context: dict, from: nil, animated: true)
         }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
 
     }

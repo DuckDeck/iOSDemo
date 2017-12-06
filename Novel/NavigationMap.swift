@@ -9,25 +9,42 @@
 import UIKit
 import URLNavigator
 struct  NavigationMap{
-    static func initialize(){
-        Navigator.map(Routers.bookmark, BookmarkViewController.self)
-        Navigator.map(Routers.sectionList, SectionListViewController.self)
-        Navigator.map(Routers.novelContent, NovelContentViewController.self)
-        Navigator.map("navigator://alert", self.alert)
-
-//        Navigator.map("", {(url,values)->Bool in
-//            return true
-//        })
+    static func initialize(navigator: NavigatorType){
+        let nav = Navigator()
+        nav.register(Routers.bookmark) { (url, values, context) -> UIViewController? in
+            return BookmarkViewController()
+        }
+        
+        nav.register(Routers.sectionList) { (url, values, context) -> UIViewController? in
+            let vc = SectionListViewController()
+            if let novel = context as? NovelInfo{
+                vc.novelInfo = novel
+            }
+           return  SectionListViewController()
+        }
+        
+        nav.register(Routers.novelContent) { (url, values, context) -> UIViewController? in
+            let vc = NovelContentViewController()
+            if let dict = context as? [String:Any] {
+                vc.novelInfo = dict["novelInfo"] as? NovelInfo
+                vc.currentSection = dict["currentSection"] as? SectionInfo
+                vc.arrSectionUrl = dict["arrSectionUrl"] as? [SectionInfo]
+            }
+            return vc
+        }
 
     }
-    
-    private static func alert(URL: URLConvertible, values: [String: Any]) -> Bool {
-        let title = URL.queryParameters["title"]
-        let message = URL.queryParameters["message"]
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        Navigator.present(alertController)
-        return true
+    private static func alert(navigator: NavigatorType) -> URLOpenHandlerFactory {
+        return { url, values, context in
+            guard let title = url.queryParameters["title"] else { return false }
+            let message = url.queryParameters["message"]
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            navigator.present(alertController)
+            return true
+        }
     }
+
+
 
 }

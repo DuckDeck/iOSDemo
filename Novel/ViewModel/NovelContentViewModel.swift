@@ -38,13 +38,16 @@ class NovelContentViewModel {
     }
     
     func bind()  {
+        
+        
+        
         tb.register(NovelContentCell.self, forCellReuseIdentifier: cellID)
         tb.tableFooterView = UIView()
         arrSection.asObservable().bind(to: tb.rx.items(cellIdentifier: cellID, cellType: NovelContentCell.self)){ [weak self] row , model , cell in
             self?.currentDisplayRow = model
             self?.sectionTitle.value = model.sectionName
             cell.setText(str: model.sectionAttributeContent)
-            }.addDisposableTo(bag)
+            }.disposed(by: bag)
     }
     
     func initData()  {

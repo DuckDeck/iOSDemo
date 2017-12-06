@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 import RxSwift
 import URLNavigator
+import MJRefresh
 class ViewController: UIViewController {
     let txtSearch = UITextField()
     let btnSearch = UIButton()
@@ -36,7 +37,7 @@ class ViewController: UIViewController {
         
         txtSearch.rx.controlEvent([.editingDidEndOnExit]).subscribe(onNext: {
             wkself?.tb.mj_header.beginRefreshing()
-        }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(vm!.bag)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: vm!.bag)
         
         
        
@@ -58,7 +59,7 @@ class ViewController: UIViewController {
 
 
     func checkBBookmark() {
-        Navigator.push(Routers.bookmark)
+        (UIApplication.shared.delegate as! AppDelegate).navigator?.push(Routers.bookmark, context: nil, from: nil, animated: true)
     }
 }
 

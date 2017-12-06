@@ -106,6 +106,7 @@
 		AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE161F711F98910800B3293F /* MusicListViewController.swift */; };
 		AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
 		AE2C8C761FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
+		AE3961EA1FD13D2400BF4CE9 /* GandAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3961E91FD13D2400BF4CE9 /* GandAlert.swift */; };
 		AE3AF0441F773B0000AF182A /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0431F773B0000AF182A /* AnimationViewController.swift */; };
 		AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0461F773B3300AF182A /* LayerAnimationViewController.swift */; };
 		AE3AF04B1F773D6200AF182A /* AnimationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF04A1F773D6200AF182A /* AnimationVIew.swift */; };
@@ -382,6 +383,7 @@
 		AE0F709B1FBEB9CE00C8135C /* Trace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trace.swift; sourceTree = "<group>"; };
 		AE161F711F98910800B3293F /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
 		AE2C8C741FA30BB100000A1D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		AE3961E91FD13D2400BF4CE9 /* GandAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GandAlert.swift; sourceTree = "<group>"; };
 		AE3AF0431F773B0000AF182A /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		AE3AF0461F773B3300AF182A /* LayerAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerAnimationViewController.swift; sourceTree = "<group>"; };
 		AE3AF04A1F773D6200AF182A /* AnimationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVIew.swift; sourceTree = "<group>"; };
@@ -995,6 +997,7 @@
 			isa = PBXGroup;
 			children = (
 				AE9F32761F690F5200339BB8 /* GrandCue.swift */,
+				AE3961E91FD13D2400BF4CE9 /* GandAlert.swift */,
 			);
 			path = GrandCue;
 			sourceTree = "<group>";
@@ -1618,6 +1621,7 @@
 				AEBE40591FC80E500087D7ED /* UIScrollView+EmptyMessage.m in Sources */,
 				AE0F702D1FBA90A500C8135C /* RequestInfo.swift in Sources */,
 				AE0F70371FBA9ACF00C8135C /* NetworkViewController.swift in Sources */,
+				AE3961EA1FD13D2400BF4CE9 /* GandAlert.swift in Sources */,
 				AE0F70971FBEB9CA00C8135C /* DrawView.swift in Sources */,
 				AE0F70611FBD6F2B00C8135C /* NFXAssets.swift in Sources */,
 				AE0F707E1FBD6F2B00C8135C /* NFXListController_iOS.swift in Sources */,

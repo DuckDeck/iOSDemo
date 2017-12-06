@@ -35,10 +35,4 @@ final class SectionListViewController: UIViewController {
         vm = SectionListViewModel(input: (tb,Variable<NovelInfo>(novelInfo!)))
     }
 }
-extension SectionListViewController:URLNavigable{
-    convenience init?(navigation: Navigation) {
-        guard let novel = navigation.navigationContext as? NovelInfo else { return nil }
-        self.init()
-        novelInfo = novel
-    }
-}
+

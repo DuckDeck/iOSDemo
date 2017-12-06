@@ -42,7 +42,7 @@ final class BookmarkViewController: UIViewController {
     }
     
     
-    func clearBookmark()  {
+    @objc func clearBookmark()  {
         if Bookmark.Value!.count <= 0{
             return
         }
@@ -63,12 +63,7 @@ final class BookmarkViewController: UIViewController {
     }
 }
 
-extension BookmarkViewController:URLNavigable{
-    convenience init?(navigation: Navigation) {
-//        guard let _ = navigation.url.urlValue else { return nil }
-        self.init()
-    }
-}
+
 
 extension BookmarkViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
