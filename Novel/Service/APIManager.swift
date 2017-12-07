@@ -71,12 +71,12 @@ extension APIManager:TargetType{
     
 }
 
-extension MoyaProvider{
-    public final class func myRequestMapping(for endpoint: Endpoint<Target>, closure: RequestResultClosure) {
-        if let request = endpoint.urlRequest  {
-            Log(message: "\(request.httpMethod!)------\(request.url!)")
-        }
-       MoyaProvider.defaultRequestMapping(for: endpoint, closure: closure)
-    }
-}
+//extension MoyaProvider{
+//    public final class func myRequestMapping(for endpoint: Endpoint<Target>, closure: RequestResultClosure) {
+//        if let request = endpoint.urlRequest  {
+//            Log(message: "\(request.httpMethod!)------\(request.url!)")
+//        }
+//       MoyaProvider.defaultRequestMapping(for: endpoint, closure: closure)
+//    }
+//}
 

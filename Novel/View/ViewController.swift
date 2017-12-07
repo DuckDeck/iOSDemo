@@ -52,15 +52,15 @@ class ViewController: UIViewController {
         
        tb.mj_header.beginRefreshing()
         
-        let buttonSaveBoookmark = UIBarButtonItem(title: "查看书签", style: .plain, target: self, action: #selector(ViewController.checkBBookmark))
-        navigationItem.rightBarButtonItem = buttonSaveBoookmark
+//        let buttonSaveBoookmark = UIBarButtonItem(title: "查看书签", style: .plain, target: self, action: #selector(ViewController.checkBookmark))
+//        navigationItem.rightBarButtonItem = buttonSaveBoookmark
         
     }
 
 
-    func checkBBookmark() {
-        (UIApplication.shared.delegate as! AppDelegate).navigator?.push(Routers.bookmark, context: nil, from: nil, animated: true)
-    }
+//    @objc func checkBookmark() {
+//       _ =  (UIApplication.shared.delegate as! AppDelegate).navigator?.push(Routers.bookmark, context: nil, from: nil, animated: true)
+//    }
 }
 
 

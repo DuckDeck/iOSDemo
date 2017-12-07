@@ -30,12 +30,16 @@ class BookMarkViewModel {
         
          tb.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         
-        let dataSource = RxTableViewSectionedAnimatedDataSource<SectionTableInfo>()
-        dataSource.configureCell = {  ds, tv, ip, item in
+        let dataSource = RxTableViewSectionedAnimatedDataSource<SectionTableInfo>(configureCell: {ds,tv,ip,item in
             let cell = tv.dequeueReusableCell(withIdentifier: self.cellID) ?? UITableViewCell(style: .default, reuseIdentifier: self.cellID)
             cell.textLabel?.text = item.sectionName
             return cell
-        }
+        })
+//        dataSource.configureCell = {  ds, tv, ip, item in
+//            let cell = tv.dequeueReusableCell(withIdentifier: self.cellID) ?? UITableViewCell(style: .default, reuseIdentifier: self.cellID)
+//            cell.textLabel?.text = item.sectionName
+//            return cell
+//        }
         
         dataSource.titleForHeaderInSection = { ds, index in
             return ds.sectionModels[index].header
@@ -60,26 +64,26 @@ class BookMarkViewModel {
             .map {
                 $0.sections
             }
-            .shareReplay(1)
+            .share(replay: 1)
             .bind(to: tb.rx.items(dataSource: dataSource))
-            .addDisposableTo(bag)
+            .disposed(by: bag)
         
         
-        dataSource.canEditRowAtIndexPath = { _ in
+        dataSource.canEditRowAtIndexPath = { _,_  in
             return true
         }
         
         bookmarks.asObservable()
             .bind(to: tb.rx.items(dataSource: dataSource))
-            .addDisposableTo(bag)
+            .disposed(by: bag)
         
         self.dataSource = dataSource
         
         tb.rx.itemSelected.subscribe(onNext: { (index) in
             let bookmarks = Bookmark.Value!
             let dict = ["novelInfo":bookmarks[index.section],"currentSection":bookmarks[index.section].arrBookMark![index.row]] as [String : Any]
-            (UIApplication.shared.delegate as AppDelegate).navigator?.push(Routers.sectionList, context: dict, from: nil, animated: true)
-        }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
+//            _ = (UIApplication.shared.delegate as! AppDelegate).navigator?.push(Routers.sectionList, context: dict, from: nil, animated: true)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: bag)
 
     }
     

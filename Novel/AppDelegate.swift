@@ -13,10 +13,10 @@ import URLNavigator
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var navigator: NavigatorType?
+    var navigator = Navigator()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let navigator = Navigator()
+
         NavigationMap.initialize(navigator: navigator)
         
         window = UIWindow(frame: UIScreen.main.bounds)

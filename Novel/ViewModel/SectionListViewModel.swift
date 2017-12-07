@@ -17,7 +17,8 @@ import URLNavigator
 class SectionListViewModel {
     let cellID = "cell"
     var bag : DisposeBag = DisposeBag()
-    let provider = RxMoyaProvider<APIManager>(requestClosure:MoyaProvider.myRequestMapping)
+//    let provider = RxMoyaProvider<APIManager>(requestClosure:MoyaProvider.myRequestMapping)
+    let provider = MoyaProvider<APIManager>()
     var modelObserable = Variable<[SectionInfo]> ([])
     let requestNewDataCommond =  PublishSubject<Bool>()
     var tb : UITableView
@@ -34,15 +35,20 @@ class SectionListViewModel {
         tb.tableFooterView = UIView()
         modelObserable.asObservable().bind(to: tb.rx.items(cellIdentifier: cellID, cellType: UITableViewCell.self)){ row , model , cell in
                 cell.textLabel?.text = model.sectionName
-            }.addDisposableTo(bag)
+            }.disposed(by: bag)
         weak var wkself = self
         tb.rx.itemSelected.subscribe(onNext: { (index) in
             guard  let section = wkself?.modelObserable.value[index.row] else{
                 return
             }
             let dict = ["novelInfo":wkself!.novelInfo.value,"currentSection":section,"arrSectionUrl":wkself!.modelObserable.value] as [String : Any]
-            Navigator.push(Routers.novelContent, context: dict, from: nil, animated: true)
-        }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(bag)
+            if let del = UIApplication.shared.delegate as? AppDelegate{
+                del.navigator.push(Routers.novelContent, context: dict, from: nil, animated: true)
+            }
+            
+    
+            //            _ = (UIApplication.shared.delegate as! AppDelegate).navigator?.push(Routers.novelContent, context: dict, from: nil, animated: true)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: bag)
 
         
     }
@@ -51,7 +57,7 @@ class SectionListViewModel {
         weak var wkself = self
         let path = novelInfo.value.url.subToEnd(start: 19)
         GrandCue.showLoading()
-        provider.request(.GetSection(path)).filterSuccessfulStatusCodes().mapSectionInfo().subscribe({ (str) in
+        provider.rx.request(.GetSection(path)).filterSuccessfulStatusCodes().mapSectionInfo().subscribe({ (str) in
             GrandCue.dismissLoading()
             switch(str){
             case let .success(result):
@@ -60,7 +66,7 @@ class SectionListViewModel {
                 Log(message: err)
                 GrandCue.toast(err.localizedDescription)
             }
-        }).addDisposableTo(wkself!.bag)
+        }).disposed(by: wkself!.bag)
     }
 
 }

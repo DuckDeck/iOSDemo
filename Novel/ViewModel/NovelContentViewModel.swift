@@ -15,8 +15,8 @@ import Result
 class NovelContentViewModel {
     let cellID = "cell"
     var bag : DisposeBag = DisposeBag()
-    let provider = RxMoyaProvider<APIManager>(requestClosure:MoyaProvider.myRequestMapping)
-    
+//    let provider = MoyaProvider<APIManager>(requestClosure:MoyaProvider.myRequestMapping)
+    let provider = MoyaProvider<APIManager>()
     var pageIndex = 0
     var tb : UITableView
     var currentSection:SectionInfo                  //当前加载到最前面的section
@@ -67,7 +67,7 @@ class NovelContentViewModel {
     func getNovelContent() {
         let url = novelInfo.url.subToEnd(start: 19) + "/"+currentSection.sectionUrl
         isLoading = true
-        provider.request(.GetNovel(url)).filterSuccessfulStatusCodes().mapNovelSection().subscribe({ [weak self](str) in
+        provider.rx.request(.GetNovel(url)).filterSuccessfulStatusCodes().mapNovelSection().subscribe({ [weak self](str) in
             self?.isLoading = false
             GrandCue.dismissLoading()
             switch(str){
@@ -80,13 +80,13 @@ class NovelContentViewModel {
                 Log(message: err)
                 GrandCue.toast(err.localizedDescription)
             }
-        }).addDisposableTo(self.bag)
+        }).disposed(by: self.bag)
       
     }
 
     func getNovelSections()  {
         let path = novelInfo.url.subToEnd(start: 19)
-        provider.request(.GetSection(path)).filterSuccessfulStatusCodes().mapSectionInfo().subscribe({ [weak self] (str) in
+        provider.rx.request(.GetSection(path)).filterSuccessfulStatusCodes().mapSectionInfo().subscribe({ [weak self] (str) in
             switch(str){
             case let .success(result):
                 self?.arrSectionUrl = result.data! as? [SectionInfo]
@@ -96,7 +96,7 @@ class NovelContentViewModel {
                 GrandCue.dismissLoading()
                 GrandCue.toast(err.localizedDescription)
             }
-        }).addDisposableTo(self.bag)
+        }).disposed(by: self.bag)
 
     }
     

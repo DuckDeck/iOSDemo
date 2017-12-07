@@ -187,6 +187,7 @@
 		AEA07F0C1F7103C700FC9770 /* UIView+PLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4531F6FA65600EE4001 /* UIView+PLeak.m */; };
 		AEA07F0D1F7103C900FC9770 /* UIViewController+PLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4551F6FA65600EE4001 /* UIViewController+PLeak.m */; };
 		AEA07F151F710D7E00FC9770 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA07F141F710D7E00FC9770 /* main.m */; };
+		AEAD7D0D1FD8E5A800798BED /* URLMatcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAD7D0C1FD8E5A700798BED /* URLMatcher.framework */; };
 		AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
 		AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
 		AEB772011F6A81F4008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
@@ -446,6 +447,7 @@
 		AEA07F031F7102B900FC9770 /* bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		AEA07F121F710D7E00FC9770 /* Console */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Console; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA07F141F710D7E00FC9770 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AEAD7D0C1FD8E5A700798BED /* URLMatcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLMatcher.framework; path = Carthage/Build/iOS/URLMatcher.framework; sourceTree = "<group>"; };
 		AEB771FD1F6A8089008C4365 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Base.swift"; sourceTree = "<group>"; };
 		AEB772031F6B684F008C4365 /* URLNavigator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLNavigator.framework; path = Carthage/Build/iOS/URLNavigator.framework; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				AEF4A43D1F6F602500EE4001 /* RxDataSources.framework in Frameworks */,
 				AEF4A4431F6F74C100EE4001 /* Differentiator.framework in Frameworks */,
 				AE00CB941F95FF1500AE2190 /* MJRefresh.framework in Frameworks */,
+				AEAD7D0D1FD8E5A800798BED /* URLMatcher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -952,6 +955,7 @@
 		AE9F321B1F690DBF00339BB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEAD7D0C1FD8E5A700798BED /* URLMatcher.framework */,
 				AEBE40761FCEC25C0087D7ED /* SnapKit.framework */,
 				AEBE40431FC806020087D7ED /* SwiftyJSON.framework */,
 				AEBE40361FC802770087D7ED /* FMDB.framework */,
@@ -1544,6 +1548,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/MJRefresh.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/URLMatcher.framework",
 			);
 			outputPaths = (
 			);

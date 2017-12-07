@@ -28,7 +28,8 @@ class NovelSearchViewModel {
 
        let cellID = "cell"
        var bag : DisposeBag = DisposeBag()
-       let provider = RxMoyaProvider<APIManager>(requestClosure:MoyaProvider.myRequestMapping)
+       //let provider = MoyaProvider<APIManager>(requestClosure:MoyaProvider.myRequestMapping)
+        let provider = MoyaProvider<APIManager>()
        var modelObserable = Variable<[NovelInfo]> ([])
        var refreshStateObserable = Variable<RefreshStatus>(.none)
        let requestNewDataCommond =  PublishSubject<Bool>()
@@ -59,14 +60,19 @@ class NovelSearchViewModel {
             guard  let novel = wkself?.modelObserable.value[index.row] else{
                 return
             }
-            (UIApplication.shared.delegate as! AppDelegate).navigator?.push(Routers.sectionList, context: novel, from: nil, animated: true)
+            if let del = UIApplication.shared.delegate as? AppDelegate{
+                let _ =  del.navigator.push(Routers.sectionList, context: novel, from: nil, animated: true)
+                    //navigator can not work
+            }
+//           _ = (UIApplication.shared.delegate as! AppDelegate).navigator?.push(Routers.sectionList, context: novel, from: nil, animated: true)
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: bag)
         
         requestNewDataCommond.subscribe { [weak self](event) in
            Tool.hiddenKeyboard()
             if event.element!{
                 self?.pageIndex = 0
-                self?.provider.request(.GetSearch(self!.keyStr.value,self!.pageIndex)).filterSuccessfulStatusCodes().mapNovelInfo().subscribe({ (str) in
+  
+                self?.provider.rx.request(.GetSearch(self!.keyStr.value,self!.pageIndex)).filterSuccessfulStatusCodes().mapNovelInfo().subscribe({ (str) in
                     switch(str){
                     case let .success(result):
                             self?.modelObserable.value = result.data! as! [NovelInfo]
@@ -76,11 +82,11 @@ class NovelSearchViewModel {
                         self?.refreshStateObserable.value = .endHeaderRefresh
                         GrandCue.toast(err.localizedDescription)
                     }
-                }).addDisposableTo(self!.bag)
+                }).disposed(by: self!.bag)
             }
             else{
                 self?.pageIndex += 1
-                self?.provider.request(.GetSearch(self!.keyStr.value,self!.pageIndex)).filterSuccessfulStatusCodes().mapNovelInfo().subscribe({ (str) in
+                self?.provider.rx.request(.GetSearch(self!.keyStr.value,self!.pageIndex)).filterSuccessfulStatusCodes().mapNovelInfo().subscribe({ (str) in
                     switch(str){
                     case let .success(result):
                         let res = result.data! as! [NovelInfo]
@@ -95,7 +101,7 @@ class NovelSearchViewModel {
                         self?.refreshStateObserable.value = .endFooterRefresh
                         GrandCue.toast(err.localizedDescription)
                     }
-                }).addDisposableTo(self!.bag)
+                }).disposed(by: self!.bag)
             }
             }.disposed(by: bag)
         
