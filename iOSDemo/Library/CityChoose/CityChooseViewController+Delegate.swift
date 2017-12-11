@@ -146,6 +146,7 @@ extension CityChooseViewController :CitySearchDelegate,CitySearchResultDelegate{
         vSearchResult?.arrCity = nil
         vSearchResult?.tbCity.reloadData()
         vSearchResult?.removeFromSuperview()
+        vBlackMask.removeFromSuperview()
     }
     
     func searchString(keyword: String) {

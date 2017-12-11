@@ -61,6 +61,8 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
             navigationController?.pushViewController(NetworkViewController(), animated: true)
         case 6:
             navigationController?.pushViewController(TouchViewController(), animated: true)
+        case 7:
+            navigationController?.pushViewController(LibraryViewController(), animated: true)
         default:
             break
         }

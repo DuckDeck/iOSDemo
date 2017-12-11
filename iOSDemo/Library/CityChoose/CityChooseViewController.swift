@@ -110,7 +110,7 @@ class CityChooseViewController: UIViewController {
         vSearch.frame = CGRect(x: 0, y: 0, width: ScreenWidth - 20, height: 54)
         vSearch.delegate = self
         vBlackMask.backgroundColor = UIColor(red: 60.0/255.0, green: 60.0/255.0, blue: 60.0/255.0, alpha: 0.3)
-        vBlackMask.alpha = 0
+        vBlackMask.alpha = 0.3
         vBlackMask.isUserInteractionEnabled = true
         
         vBlackMask.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(CityChooseViewController.blackMaskTap(gesture:))))
@@ -161,7 +161,8 @@ class CityChooseViewController: UIViewController {
     }
     
     @objc func blackMaskTap(gesture:UITapGestureRecognizer) {
-        
+//        searchSelectCancel()
+        //光这样没用
     }
     
     func setLocateCity(city:AddressInfo?,status:Int = 3) {
@@ -186,7 +187,7 @@ class CityChooseViewController: UIViewController {
                 dbCity.latitude = city.latitude
                 dbCity.longitude = city.longitude
                 _ = CityDB.sharedInstance.addCity(city: dbCity)
-                
+                GrandCue.toast("你选择国\(dbCity.city)")
                 self.navigationController?.popViewController(animated: true)
             })
         }

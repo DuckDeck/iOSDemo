@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 protocol CitySearchDelegate:NSObjectProtocol {
     func searchBeginEdit()
     func searchSelectCancel()
@@ -29,13 +30,13 @@ class CitySearchView: UIView,UISearchBarDelegate {
         searchBar.tintColor = UIColor.Hex(hexString: "#48a1ff")
         addSubview(searchBar)
         
-        //        searchBar.backgroundImage = UIColor.imageFromColor(UIColor.clearColor(), frame: CGRect(x: 0, y: 0, width: ScreenWidth - 10, height: 40))
-//        searchBar.snp.makeConstraints { (make) in
-//            make.left.equalTo(5)
-//            make.top.equalTo(5)
-//            make.width.equalTo(ScreenWidth - 10)
-//            make.height.equalTo(40)
-//        }
+//        searchBar.backgroundImage = UIColor.imageFromColor(UIColor.clearColor(), frame: CGRect(x: 0, y: 0, width: ScreenWidth - 10, height: 40))
+        searchBar.snp.makeConstraints { (make) in
+            make.left.equalTo(5)
+            make.top.equalTo(5)
+            make.width.equalTo(ScreenWidth - 10)
+            make.height.equalTo(40)
+        }
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
