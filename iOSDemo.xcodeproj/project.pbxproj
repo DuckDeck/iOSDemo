@@ -120,6 +120,9 @@
 		AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */; };
 		AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */; };
 		AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */; };
+		AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD6D1FDE6DA8001882D1 /* SensorViewController.swift */; };
+		AE83BD711FDE72BF001882D1 /* ImageRotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD701FDE72BF001882D1 /* ImageRotationViewController.swift */; };
+		AE83BD741FDE876F001882D1 /* BallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD731FDE876F001882D1 /* BallViewController.swift */; };
 		AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D51F69070E00339BB8 /* AppDelegate.swift */; };
 		AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D71F69070E00339BB8 /* ViewController.swift */; };
 		AE9F31DD1F69070E00339BB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9F31DC1F69070E00339BB8 /* Assets.xcassets */; };
@@ -399,6 +402,9 @@
 		AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureVideoViewController.swift; sourceTree = "<group>"; };
 		AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterViewController.swift; sourceTree = "<group>"; };
 		AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSession.swift; sourceTree = "<group>"; };
+		AE83BD6D1FDE6DA8001882D1 /* SensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorViewController.swift; sourceTree = "<group>"; };
+		AE83BD701FDE72BF001882D1 /* ImageRotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotationViewController.swift; sourceTree = "<group>"; };
+		AE83BD731FDE876F001882D1 /* BallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallViewController.swift; sourceTree = "<group>"; };
 		AE8D61BD1F74A88600FDFC1C /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9F31D51F69070E00339BB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -869,8 +875,27 @@
 		AE67CDF81FC3F94600AE4CD6 /* Sensor */ = {
 			isa = PBXGroup;
 			children = (
+				AE83BD721FDE8765001882D1 /* Ball */,
+				AE83BD6F1FDE7237001882D1 /* ImageRotation */,
+				AE83BD6D1FDE6DA8001882D1 /* SensorViewController.swift */,
 			);
 			path = Sensor;
+			sourceTree = "<group>";
+		};
+		AE83BD6F1FDE7237001882D1 /* ImageRotation */ = {
+			isa = PBXGroup;
+			children = (
+				AE83BD701FDE72BF001882D1 /* ImageRotationViewController.swift */,
+			);
+			path = ImageRotation;
+			sourceTree = "<group>";
+		};
+		AE83BD721FDE8765001882D1 /* Ball */ = {
+			isa = PBXGroup;
+			children = (
+				AE83BD731FDE876F001882D1 /* BallViewController.swift */,
+			);
+			path = Ball;
 			sourceTree = "<group>";
 		};
 		AE8D61BC1F74A88100FDFC1C /* Network */ = {
@@ -1644,6 +1669,7 @@
 				AE9F32851F690F5200339BB8 /* GrandModel.swift in Sources */,
 				AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */,
 				AE0F70241FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */,
+				AE83BD711FDE72BF001882D1 /* ImageRotationViewController.swift in Sources */,
 				AE0F70671FBD6F2B00C8135C /* NFXHTTPModelManager.swift in Sources */,
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
 				AE0F706C1FBD6F2B00C8135C /* NFXProtocol.swift in Sources */,
@@ -1680,6 +1706,8 @@
 				AE0F708E1FBEB96E00C8135C /* TouchTestViewController.swift in Sources */,
 				AE0F70811FBD6F2B00C8135C /* NFXStatisticsController_iOS.swift in Sources */,
 				AE0F70681FBD6F2B00C8135C /* NFXConstants.swift in Sources */,
+				AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */,
+				AE83BD741FDE876F001882D1 /* BallViewController.swift in Sources */,
 				AE0F70711FBD6F2B00C8135C /* NFXDetailsController.swift in Sources */,
 				AE9F32881F690F5200339BB8 /* GrandTime.swift in Sources */,
 				AE0F70301FBA90A500C8135C /* APIInfo.swift in Sources */,
