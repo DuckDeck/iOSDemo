@@ -9,7 +9,7 @@
 import UIKit
 import TangramKit
 class AnimationViewController: UIViewController {
-    var arrData = ["LayerAnimation","GradientLayer","Replication","Slider","Emitter"]
+    var arrData = ["LayerAnimation","GradientLayer","Replication","Slider","Emitter","TwoSideView"]
     var tbMenu = UITableView()
     override func loadView() {
         super.loadView()
@@ -56,6 +56,8 @@ extension AnimationViewController:UITableViewDelegate,UITableViewDataSource{
             navigationController?.pushViewController(SliderDemoViewController(), animated: true)
         case 4:
             navigationController?.pushViewController(EmitterViewController(), animated: true)
+        case 5:
+            navigationController?.pushViewController(TwoSideViewController(), animated: true)
         default:
             break
         }

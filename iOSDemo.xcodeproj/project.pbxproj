@@ -123,6 +123,8 @@
 		AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD6D1FDE6DA8001882D1 /* SensorViewController.swift */; };
 		AE83BD711FDE72BF001882D1 /* ImageRotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD701FDE72BF001882D1 /* ImageRotationViewController.swift */; };
 		AE83BD741FDE876F001882D1 /* BallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD731FDE876F001882D1 /* BallViewController.swift */; };
+		AE83BD791FE21325001882D1 /* TwoSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD781FE21325001882D1 /* TwoSideView.swift */; };
+		AE83BD7B1FE2134E001882D1 /* TwoSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD7A1FE2134E001882D1 /* TwoSideViewController.swift */; };
 		AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D51F69070E00339BB8 /* AppDelegate.swift */; };
 		AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D71F69070E00339BB8 /* ViewController.swift */; };
 		AE9F31DD1F69070E00339BB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9F31DC1F69070E00339BB8 /* Assets.xcassets */; };
@@ -405,6 +407,8 @@
 		AE83BD6D1FDE6DA8001882D1 /* SensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorViewController.swift; sourceTree = "<group>"; };
 		AE83BD701FDE72BF001882D1 /* ImageRotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotationViewController.swift; sourceTree = "<group>"; };
 		AE83BD731FDE876F001882D1 /* BallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallViewController.swift; sourceTree = "<group>"; };
+		AE83BD781FE21325001882D1 /* TwoSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoSideView.swift; sourceTree = "<group>"; };
+		AE83BD7A1FE2134E001882D1 /* TwoSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoSideViewController.swift; sourceTree = "<group>"; };
 		AE8D61BD1F74A88600FDFC1C /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9F31D51F69070E00339BB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -793,6 +797,7 @@
 			isa = PBXGroup;
 			children = (
 				AE3AF0431F773B0000AF182A /* AnimationViewController.swift */,
+				AE83BD771FE2130D001882D1 /* TwoSideView */,
 				AE67CDF51FC2B79100AE4CD6 /* Emitter */,
 				AE0F70841FBE860100C8135C /* Slider */,
 				AE3AF0491F773BEB00AF182A /* Replicator */,
@@ -896,6 +901,15 @@
 				AE83BD731FDE876F001882D1 /* BallViewController.swift */,
 			);
 			path = Ball;
+			sourceTree = "<group>";
+		};
+		AE83BD771FE2130D001882D1 /* TwoSideView */ = {
+			isa = PBXGroup;
+			children = (
+				AE83BD781FE21325001882D1 /* TwoSideView.swift */,
+				AE83BD7A1FE2134E001882D1 /* TwoSideViewController.swift */,
+			);
+			path = TwoSideView;
 			sourceTree = "<group>";
 		};
 		AE8D61BC1F74A88100FDFC1C /* Network */ = {
@@ -1677,6 +1691,7 @@
 				AE0F70981FBEB9CA00C8135C /* Settings.swift in Sources */,
 				AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */,
 				AEBE405E1FC81FE80087D7ED /* CityTableViewCell.swift in Sources */,
+				AE83BD791FE21325001882D1 /* TwoSideView.swift in Sources */,
 				AE0F70991FBEB9CA00C8135C /* SettingViewController.swift in Sources */,
 				AEBE40421FC804820087D7ED /* AddressInfo.swift in Sources */,
 				AEA07F0B1F7103C500FC9770 /* UINavigationController+PLeak.m in Sources */,
@@ -1706,6 +1721,7 @@
 				AE0F708E1FBEB96E00C8135C /* TouchTestViewController.swift in Sources */,
 				AE0F70811FBD6F2B00C8135C /* NFXStatisticsController_iOS.swift in Sources */,
 				AE0F70681FBD6F2B00C8135C /* NFXConstants.swift in Sources */,
+				AE83BD7B1FE2134E001882D1 /* TwoSideViewController.swift in Sources */,
 				AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */,
 				AE83BD741FDE876F001882D1 /* BallViewController.swift in Sources */,
 				AE0F70711FBD6F2B00C8135C /* NFXDetailsController.swift in Sources */,
