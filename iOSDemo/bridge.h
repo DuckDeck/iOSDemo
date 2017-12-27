@@ -8,7 +8,7 @@
 
 #ifndef bridge_h
 #define bridge_h
-#import "PLeakSniffer.h"
+
 #import "SWHttpTrafficRecorder.h"
 #import "UIScrollView+EmptyMessage.h"
 #endif /* bridge_h */

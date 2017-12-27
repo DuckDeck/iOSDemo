@@ -9,7 +9,7 @@
 import UIKit
 import TangramKit
 class ViewController: UIViewController {
-    var arrData = ["Memery","Media","Animation","Layout","AI","Network","Touch","Library","Sensor","Rumtime"]
+    var arrData = ["Memery","Media","Animation&Graphic","Layout","AI","Network","Touch","Library","Sensor","Rumtime"]
     var tbMenu = UITableView()
     
     override func loadView() {

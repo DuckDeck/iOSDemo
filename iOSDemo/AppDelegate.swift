@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         NFX.sharedInstance().start()
         IQKeyboardManager.sharedManager().enable = true
-        PLeakSniffer.sharedInstance().installLeakSniffer()
+      
         return true
     }
 
