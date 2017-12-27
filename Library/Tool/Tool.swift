@@ -12,4 +12,11 @@ class Tool{
     static func hiddenKeyboard(){
        UIApplication.shared.keyWindow?.currentViewController()?.view.endEditing(true)
     }
+    
+    static func ChineseToPinyin(chinese:String)->String{
+        let py = NSMutableString(string: chinese)
+        CFStringTransform(py, nil, kCFStringTransformMandarinLatin, false)
+        CFStringTransform(py, nil, kCFStringTransformStripCombiningMarks, false)
+        return py as String
+    }
 }

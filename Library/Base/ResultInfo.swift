@@ -17,13 +17,6 @@ struct ResultInfo {
 
 
 
-func ChineseToPinyin(chinese:String)->String{
-    let py = NSMutableString(string: chinese)
-    CFStringTransform(py, nil, kCFStringTransformMandarinLatin, false)
-    CFStringTransform(py, nil, kCFStringTransformStripCombiningMarks, false)
-    return py as String
-}
-
 func handleResult(result:ResultInfo) -> Bool {
     return handleResult(result: result, needHideWait: true)
 }

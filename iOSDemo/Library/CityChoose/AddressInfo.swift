@@ -99,7 +99,7 @@ class AddressInfo:NSObject, NSCoding {
             if city.city == "市辖区" || city.city == "县"{
                 city.city = j["province"].stringValue + city.city
             }
-            city.cityPinYIn = ChineseToPinyin(chinese: city.city).lowercased()
+            city.cityPinYIn = Tool.ChineseToPinyin(chinese: city.city).lowercased()
             city.cityFirstLetterPinYIn = city.cityPinYIn.sub(start: 0, length: 1)
             let letters = city.cityPinYIn.components(separatedBy: " ")
             var allPy = ""

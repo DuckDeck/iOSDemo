@@ -66,7 +66,6 @@
 		AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70311FBA918E00C8135C /* HttpRecordViewController.swift */; };
 		AE0F70351FBA925900C8135C /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70341FBA925900C8135C /* HttpManager.swift */; };
 		AE0F70371FBA9ACF00C8135C /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70361FBA9ACF00C8135C /* NetworkViewController.swift */; };
-		AE0F70381FBABF0100C8135C /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D61BD1F74A88600FDFC1C /* HttpClient.swift */; };
 		AE0F70611FBD6F2B00C8135C /* NFXAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F703B1FBD6F2B00C8135C /* NFXAssets.swift */; };
 		AE0F70621FBD6F2B00C8135C /* NFXWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F703C1FBD6F2B00C8135C /* NFXWindowController.swift */; };
 		AE0F70631FBD6F2B00C8135C /* NFXInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F703D1FBD6F2B00C8135C /* NFXInfoController.swift */; };
@@ -118,6 +117,15 @@
 		AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */; };
 		AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752921F76931C00F6AAC5 /* MediaViewController.swift */; };
 		AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */; };
+		AE5A88631FF36F9500748F6A /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88621FF36F9500748F6A /* GridView.swift */; };
+		AE5A88641FF36F9900748F6A /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88621FF36F9500748F6A /* GridView.swift */; };
+		AE5A88681FF3709000748F6A /* JSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88671FF3709000748F6A /* JSViewController.swift */; };
+		AE5A886A1FF370B400748F6A /* question.html in Resources */ = {isa = PBXBuildFile; fileRef = AE5A88691FF370B300748F6A /* question.html */; };
+		AE5A886D1FF3746C00748F6A /* RunTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A886C1FF3746C00748F6A /* RunTimeViewController.swift */; };
+		AE5A88701FF3768100748F6A /* ThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A886F1FF3768100748F6A /* ThreadViewController.swift */; };
+		AE5A88721FF37AA800748F6A /* Semaphore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88711FF37AA800748F6A /* Semaphore.swift */; };
+		AE5A88741FF37BED00748F6A /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88731FF37BED00748F6A /* Group.swift */; };
+		AE5A88761FF37C2200748F6A /* Apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88751FF37C2200748F6A /* Apply.swift */; };
 		AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */; };
 		AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */; };
 		AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD6D1FDE6DA8001882D1 /* SensorViewController.swift */; };
@@ -402,6 +410,14 @@
 		AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMenuView.swift; sourceTree = "<group>"; };
 		AE5752921F76931C00F6AAC5 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureVideoViewController.swift; sourceTree = "<group>"; };
+		AE5A88621FF36F9500748F6A /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		AE5A88671FF3709000748F6A /* JSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSViewController.swift; sourceTree = "<group>"; };
+		AE5A88691FF370B300748F6A /* question.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = question.html; sourceTree = "<group>"; };
+		AE5A886C1FF3746C00748F6A /* RunTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunTimeViewController.swift; sourceTree = "<group>"; };
+		AE5A886F1FF3768100748F6A /* ThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadViewController.swift; sourceTree = "<group>"; };
+		AE5A88711FF37AA800748F6A /* Semaphore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semaphore.swift; sourceTree = "<group>"; };
+		AE5A88731FF37BED00748F6A /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		AE5A88751FF37C2200748F6A /* Apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apply.swift; sourceTree = "<group>"; };
 		AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterViewController.swift; sourceTree = "<group>"; };
 		AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSession.swift; sourceTree = "<group>"; };
 		AE83BD6D1FDE6DA8001882D1 /* SensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorViewController.swift; sourceTree = "<group>"; };
@@ -409,7 +425,6 @@
 		AE83BD731FDE876F001882D1 /* BallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallViewController.swift; sourceTree = "<group>"; };
 		AE83BD781FE21325001882D1 /* TwoSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoSideView.swift; sourceTree = "<group>"; };
 		AE83BD7A1FE2134E001882D1 /* TwoSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoSideViewController.swift; sourceTree = "<group>"; };
-		AE8D61BD1F74A88600FDFC1C /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9F31D51F69070E00339BB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE9F31D71F69070E00339BB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -869,6 +884,51 @@
 			path = CaptureVideo;
 			sourceTree = "<group>";
 		};
+		AE5A88611FF36F8800748F6A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE5A88621FF36F9500748F6A /* GridView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AE5A88651FF3705600748F6A /* HttpRecord */ = {
+			isa = PBXGroup;
+			children = (
+				AE0F70311FBA918E00C8135C /* HttpRecordViewController.swift */,
+			);
+			path = HttpRecord;
+			sourceTree = "<group>";
+		};
+		AE5A88661FF3707500748F6A /* JSControl */ = {
+			isa = PBXGroup;
+			children = (
+				AE5A88691FF370B300748F6A /* question.html */,
+				AE5A88671FF3709000748F6A /* JSViewController.swift */,
+			);
+			path = JSControl;
+			sourceTree = "<group>";
+		};
+		AE5A886B1FF373A000748F6A /* RunTime */ = {
+			isa = PBXGroup;
+			children = (
+				AE5A886E1FF3767800748F6A /* Thread */,
+				AE5A886C1FF3746C00748F6A /* RunTimeViewController.swift */,
+			);
+			path = RunTime;
+			sourceTree = "<group>";
+		};
+		AE5A886E1FF3767800748F6A /* Thread */ = {
+			isa = PBXGroup;
+			children = (
+				AE5A886F1FF3768100748F6A /* ThreadViewController.swift */,
+				AE5A88711FF37AA800748F6A /* Semaphore.swift */,
+				AE5A88731FF37BED00748F6A /* Group.swift */,
+				AE5A88751FF37C2200748F6A /* Apply.swift */,
+			);
+			path = Thread;
+			sourceTree = "<group>";
+		};
 		AE67CDF51FC2B79100AE4CD6 /* Emitter */ = {
 			isa = PBXGroup;
 			children = (
@@ -915,8 +975,8 @@
 		AE8D61BC1F74A88100FDFC1C /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				AE8D61BD1F74A88600FDFC1C /* HttpClient.swift */,
-				AE0F70311FBA918E00C8135C /* HttpRecordViewController.swift */,
+				AE5A88661FF3707500748F6A /* JSControl */,
+				AE5A88651FF3705600748F6A /* HttpRecord */,
 				AE0F70361FBA9ACF00C8135C /* NetworkViewController.swift */,
 			);
 			path = Network;
@@ -952,6 +1012,7 @@
 		AE9F31D41F69070E00339BB8 /* iOSDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AE5A886B1FF373A000748F6A /* RunTime */,
 				AEBE403B1FC803420087D7ED /* Library */,
 				AE67CDF81FC3F94600AE4CD6 /* Sensor */,
 				AE0F70891FBEB92900C8135C /* Touch */,
@@ -1023,6 +1084,7 @@
 		AE9F32311F690F1B00339BB8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				AE5A88611FF36F8800748F6A /* View */,
 				AE0F70271FBA900200C8135C /* Http */,
 				AEB771FC1F6A807D008C4365 /* Tool */,
 				AE9F328F1F690FE100339BB8 /* Base */,
@@ -1495,6 +1557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEBE40501FC8075C0087D7ED /* city.json in Resources */,
+				AE5A886A1FF370B400748F6A /* question.html in Resources */,
 				AEF589DD1F77D03A00D9A09F /* readme.md in Resources */,
 				AE9F31E01F69070E00339BB8 /* LaunchScreen.storyboard in Resources */,
 				AEF4A4621F6FCB5B00EE4001 /* novel2.gif in Resources */,
@@ -1633,7 +1696,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE0F70381FBABF0100C8135C /* HttpClient.swift in Sources */,
 				AE0F707D1FBD6F2B00C8135C /* NFXDetailsController_iOS.swift in Sources */,
 				AE9F32831F690F5200339BB8 /* GrandModel+Convert.swift in Sources */,
 				AE0F70651FBD6F2B00C8135C /* NFXSettingsController.swift in Sources */,
@@ -1660,6 +1722,7 @@
 				AE0F708B1FBEB94100C8135C /* TouchViewController.swift in Sources */,
 				AEA07F0A1F7103C200FC9770 /* PObjectProxy.m in Sources */,
 				AEA07F021F70C7D200FC9770 /* MemeryLeakTestViewController.swift in Sources */,
+				AE5A88701FF3768100748F6A /* ThreadViewController.swift in Sources */,
 				AE0F709A1FBEB9CA00C8135C /* CrossLine.swift in Sources */,
 				AE0F709C1FBEB9CE00C8135C /* Trace.swift in Sources */,
 				AEBE40591FC80E500087D7ED /* UIScrollView+EmptyMessage.m in Sources */,
@@ -1687,6 +1750,7 @@
 				AE0F70671FBD6F2B00C8135C /* NFXHTTPModelManager.swift in Sources */,
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
 				AE0F706C1FBD6F2B00C8135C /* NFXProtocol.swift in Sources */,
+				AE5A88721FF37AA800748F6A /* Semaphore.swift in Sources */,
 				AE3AF04B1F773D6200AF182A /* AnimationVIew.swift in Sources */,
 				AE0F70981FBEB9CA00C8135C /* Settings.swift in Sources */,
 				AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */,
@@ -1695,6 +1759,7 @@
 				AE0F70991FBEB9CA00C8135C /* SettingViewController.swift in Sources */,
 				AEBE40421FC804820087D7ED /* AddressInfo.swift in Sources */,
 				AEA07F0B1F7103C500FC9770 /* UINavigationController+PLeak.m in Sources */,
+				AE5A88741FF37BED00748F6A /* Group.swift in Sources */,
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
 				AE0F706F1FBD6F2B00C8135C /* NFXHTTPModel.swift in Sources */,
 				AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */,
@@ -1702,6 +1767,8 @@
 				AE0F70831FBD6F2B00C8135C /* NFXListCell_iOS.swift in Sources */,
 				AE9F32861F690F5200339BB8 /* GrandType.swift in Sources */,
 				AE0F70621FBD6F2B00C8135C /* NFXWindowController.swift in Sources */,
+				AE5A88631FF36F9500748F6A /* GridView.swift in Sources */,
+				AE5A88681FF3709000748F6A /* JSViewController.swift in Sources */,
 				AEA07F071F7103BB00FC9770 /* NSObject+PLeak.m in Sources */,
 				AEA07F091F7103C000FC9770 /* PLeakSniffer.m in Sources */,
 				AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */,
@@ -1725,6 +1792,8 @@
 				AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */,
 				AE83BD741FDE876F001882D1 /* BallViewController.swift in Sources */,
 				AE0F70711FBD6F2B00C8135C /* NFXDetailsController.swift in Sources */,
+				AE5A88761FF37C2200748F6A /* Apply.swift in Sources */,
+				AE5A886D1FF3746C00748F6A /* RunTimeViewController.swift in Sources */,
 				AE9F32881F690F5200339BB8 /* GrandTime.swift in Sources */,
 				AE0F70301FBA90A500C8135C /* APIInfo.swift in Sources */,
 				AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */,
@@ -1786,6 +1855,7 @@
 				AE9F329B1F6911BE00339BB8 /* GrandTimer.swift in Sources */,
 				AEF4A4381F6BC7DA00EE4001 /* NovelConfig.swift in Sources */,
 				AE9F32C51F6A16E700339BB8 /* ToModelExtension.swift in Sources */,
+				AE5A88641FF36F9900748F6A /* GridView.swift in Sources */,
 				AEF4A45A1F6FA65600EE4001 /* UINavigationController+PLeak.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,7 @@ import UIKit
 import TangramKit
 class NetworkViewController: UIViewController {
 
-    var arrData = ["HttpRecord"]
+    var arrData = ["HttpRecord","JSControl"]
     var tbMenu = UITableView()
     
     override func loadView() {
@@ -51,7 +51,7 @@ extension NetworkViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             navigationController?.pushViewController(HttpRecordViewController(), animated: true)
         case 1:
-            break
+             navigationController?.pushViewController(JSViewController(), animated: true)
         case 2:
             break
             
