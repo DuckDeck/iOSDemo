@@ -101,7 +101,7 @@ class FilterViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         print("所有内建过渡器\(allFIlters)")
         for  s  in allFIlters {
             let filter = CIFilter(name: s)
-           // print("===\(s)===\(filter?.attributes)")
+            print("===\(s)===\(filter!.attributes)")
         }
     }
     @objc func sliderChange1(sender:UISlider){

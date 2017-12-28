@@ -130,6 +130,8 @@
 		AE5A887B1FF39A3A00748F6A /* ImageTransformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A887A1FF39A3A00748F6A /* ImageTransformViewController.swift */; };
 		AE5A887E1FF39C4800748F6A /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A887D1FF39C4800748F6A /* FilterViewController.swift */; };
 		AE5A88811FF39C5800748F6A /* LayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88801FF39C5800748F6A /* LayerViewController.swift */; };
+		AE5A88831FF4913D00748F6A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88821FF4913D00748F6A /* BaseViewController.swift */; };
+		AE5A88851FF49CD300748F6A /* 3DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88841FF49CD300748F6A /* 3DViewController.swift */; };
 		AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */; };
 		AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */; };
 		AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD6D1FDE6DA8001882D1 /* SensorViewController.swift */; };
@@ -412,6 +414,8 @@
 		AE5A887A1FF39A3A00748F6A /* ImageTransformViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTransformViewController.swift; sourceTree = "<group>"; };
 		AE5A887D1FF39C4800748F6A /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		AE5A88801FF39C5800748F6A /* LayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerViewController.swift; sourceTree = "<group>"; };
+		AE5A88821FF4913D00748F6A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		AE5A88841FF49CD300748F6A /* 3DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3DViewController.swift; sourceTree = "<group>"; };
 		AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterViewController.swift; sourceTree = "<group>"; };
 		AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSession.swift; sourceTree = "<group>"; };
 		AE83BD6D1FDE6DA8001882D1 /* SensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorViewController.swift; sourceTree = "<group>"; };
@@ -932,6 +936,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5A88801FF39C5800748F6A /* LayerViewController.swift */,
+				AE5A88841FF49CD300748F6A /* 3DViewController.swift */,
 			);
 			path = Layer;
 			sourceTree = "<group>";
@@ -1168,6 +1173,7 @@
 			isa = PBXGroup;
 			children = (
 				AE9F32A11F69144900339BB8 /* ResultInfo.swift */,
+				AE5A88821FF4913D00748F6A /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1690,6 +1696,7 @@
 				AE0F706B1FBD6F2B00C8135C /* NFX.swift in Sources */,
 				AEBE40561FC80A930087D7ED /* CitySearchResultView.swift in Sources */,
 				AE0F70821FBD6F2B00C8135C /* NFXSettingsController_iOS.swift in Sources */,
+				AE5A88831FF4913D00748F6A /* BaseViewController.swift in Sources */,
 				AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */,
 				AE0F70691FBD6F2B00C8135C /* NFXGenericBodyDetailsController.swift in Sources */,
 				AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */,
@@ -1756,6 +1763,7 @@
 				AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */,
 				AE0F702E1FBA90A500C8135C /* RequestDataInfo.swift in Sources */,
 				AE9F32A31F69144C00339BB8 /* ResultInfo.swift in Sources */,
+				AE5A88851FF49CD300748F6A /* 3DViewController.swift in Sources */,
 				AE5A88811FF39C5800748F6A /* LayerViewController.swift in Sources */,
 				AE0F706A1FBD6F2B00C8135C /* NFXLoader.m in Sources */,
 				AE9F328E1F690FD200339BB8 /* UIView+Base.swift in Sources */,

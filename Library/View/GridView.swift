@@ -1,6 +1,5 @@
 //
 //  GridView.swift
-//  wanjia
 //
 //  Created by Stan Hu on 28/11/2016.
 //  Copyright © 2016 Stan Hu. All rights reserved.
