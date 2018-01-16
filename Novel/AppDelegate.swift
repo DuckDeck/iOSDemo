@@ -18,14 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         NavigationMap.initialize(navigator: navigator)
-        
+        //就目前
         window = UIWindow(frame: UIScreen.main.bounds)
         let mainViewController = ViewController()
+        mainViewController.navigator = navigator
         let nav = UINavigationController(rootViewController: mainViewController)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
         IQKeyboardManager.sharedManager().enable = true
-        PLeakSniffer.sharedInstance().installLeakSniffer()
         return true
     }
 

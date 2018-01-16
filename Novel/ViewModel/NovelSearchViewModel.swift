@@ -24,29 +24,41 @@ enum RefreshStatus {
 }
 
 typealias ClosureType = (Int) -> Void
-class NovelSearchViewModel {
+class NovelSearchViewModel:BaseViewModel {
 
        let cellID = "cell"
        var bag : DisposeBag = DisposeBag()
        //let provider = MoyaProvider<APIManager>(requestClosure:MoyaProvider.myRequestMapping)
-        let provider = MoyaProvider<APIManager>()
+       let provider = MoyaProvider<APIManager>()
        var modelObserable = Variable<[NovelInfo]> ([])
        var refreshStateObserable = Variable<RefreshStatus>(.none)
        let requestNewDataCommond =  PublishSubject<Bool>()
        var pushCloure : ClosureType?  //for what
        var pageIndex = 0
-       var tb : UITableView
-       var key :Driver<String>
-      var keyStr = Variable<String>.init("")
-       var searchCommand :Driver<Void>
+       var tb : UITableView!
+       var key :Driver<String>!
+       var keyStr = Variable<String>.init("")
+       var searchCommand :Driver<Void>!
     
-     init(input:(tb:UITableView,searchKey:Driver<String>,searchTap:Driver<Void>)) {
-        tb = input.tb
-        key = input.searchKey
-        key.drive(keyStr).disposed(by: bag)
-        searchCommand = input.searchTap
-        bind()
-     }
+
+    
+    static func create(input:(tb:UITableView,searchKey:Driver<String>,searchTap:Driver<Void>))->NovelSearchViewModel{
+        let m = NovelSearchViewModel()
+        m.tb = input.tb
+        m.key = input.searchKey
+        m.key.drive(m.keyStr).disposed(by: m.bag)
+        m.searchCommand = input.searchTap
+        m.bind()
+        return m
+    }
+    
+//     init(input:(tb:UITableView,searchKey:Driver<String>,searchTap:Driver<Void>)) {
+//        tb = input.tb
+//        key = input.searchKey
+//        key.drive(keyStr).disposed(by: bag)
+//        searchCommand = input.searchTap
+//        self.bind()
+//     }
     
       func bind(){
          weak var wkself = self
@@ -56,14 +68,16 @@ class NovelSearchViewModel {
                 cell.novelIndo = model
             }.disposed(by: bag)
         
-        tb.rx.itemSelected.subscribe(onNext: { (index) in
+        tb.rx.itemSelected.subscribe(onNext: {[weak self] (index) in
             guard  let novel = wkself?.modelObserable.value[index.row] else{
                 return
             }
-            if let del = UIApplication.shared.delegate as? AppDelegate{
-                let _ =  del.navigator.push(Routers.sectionList, context: novel, from: nil, animated: true)
+            self?.urlNav?.push(Routers.sectionList, context: novel, from: nil, animated: true)
+            //critic issue  新版本的URLNavgator 在MVVM 看来是不能用了
+            //if let del = UIApplication.shared.delegate as? AppDelegate{
+                //let _ =  del.navigator.push(Routers.sectionList, context: novel, from: nil, animated: true)
                     //navigator can not work
-            }
+            //}
 //           _ = (UIApplication.shared.delegate as! AppDelegate).navigator?.push(Routers.sectionList, context: novel, from: nil, animated: true)
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: bag)
         

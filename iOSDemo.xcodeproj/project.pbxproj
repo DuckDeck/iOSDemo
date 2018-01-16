@@ -199,6 +199,7 @@
 		AEA07EFF1F70C7B900FC9770 /* MemeryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA07EFE1F70C7B900FC9770 /* MemeryViewController.swift */; };
 		AEA07F021F70C7D200FC9770 /* MemeryLeakTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA07F011F70C7D200FC9770 /* MemeryLeakTestViewController.swift */; };
 		AEA07F151F710D7E00FC9770 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA07F141F710D7E00FC9770 /* main.m */; };
+		AEAC62CE200CAD6B008454E3 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAC62CD200CAD6B008454E3 /* BaseViewModel.swift */; };
 		AEAD7D0D1FD8E5A800798BED /* URLMatcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAD7D0C1FD8E5A700798BED /* URLMatcher.framework */; };
 		AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
 		AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
@@ -470,6 +471,7 @@
 		AEA07F031F7102B900FC9770 /* bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		AEA07F121F710D7E00FC9770 /* Console */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Console; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA07F141F710D7E00FC9770 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AEAC62CD200CAD6B008454E3 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		AEAD7D0C1FD8E5A700798BED /* URLMatcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLMatcher.framework; path = Carthage/Build/iOS/URLMatcher.framework; sourceTree = "<group>"; };
 		AEB771FD1F6A8089008C4365 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Base.swift"; sourceTree = "<group>"; };
@@ -1195,6 +1197,7 @@
 				AEB7720D1F6B9396008C4365 /* SectionListViewModel.swift */,
 				AEB772171F6BBEE9008C4365 /* NovelContentViewModel.swift */,
 				AEF4A43E1F6F60E700EE4001 /* BookMarkViewModel.swift */,
+				AEAC62CD200CAD6B008454E3 /* BaseViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1823,6 +1826,7 @@
 				AE9F32961F6911AE00339BB8 /* GrandModel+Convert.swift in Sources */,
 				AE9F320E1F69087E00339BB8 /* ViewController.swift in Sources */,
 				AE9F32A61F69176E00339BB8 /* NovelSearchViewModel.swift in Sources */,
+				AEAC62CE200CAD6B008454E3 /* BaseViewModel.swift in Sources */,
 				AE9F32AA1F6918EA00339BB8 /* APIManager.swift in Sources */,
 				AE9F320C1F69087E00339BB8 /* AppDelegate.swift in Sources */,
 				AEB772121F6BB1DD008C4365 /* Foundation+Extension.swift in Sources */,

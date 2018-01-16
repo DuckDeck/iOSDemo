@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     let txtSearch = UITextField()
     let btnSearch = UIButton()
     let tb = UITableView()
-    
+    var navigator: NavigatorType?
     var vm : NovelSearchViewModel?
     
     override func viewDidLoad() {
@@ -33,8 +33,9 @@ class ViewController: UIViewController {
         tb.setFrame(frame: CGRect(x: 0, y: NavigationBarHeight + 40, width: ScreenWidth, height: ScreenHeight - 40 - NavigationBarHeight)).addTo(view: view).completed()
         tb.estimatedRowHeight = 160
         tb.rowHeight = UITableViewAutomaticDimension
-        vm = NovelSearchViewModel(input: (tb,txtSearch.rx.text.orEmpty.asDriver(),btnSearch.rx.tap.asDriver()))
-        
+        //vm = NovelSearchViewModel(input: (tb,txtSearch.rx.text.orEmpty.asDriver(),btnSearch.rx.tap.asDriver()))
+        vm = NovelSearchViewModel.create(input: (tb,txtSearch.rx.text.orEmpty.asDriver(),btnSearch.rx.tap.asDriver()))
+        vm?.urlNav = navigator
         txtSearch.rx.controlEvent([.editingDidEndOnExit]).subscribe(onNext: {
             wkself?.tb.mj_header.beginRefreshing()
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: vm!.bag)

@@ -23,6 +23,7 @@ class SectionListViewModel {
     let requestNewDataCommond =  PublishSubject<Bool>()
     var tb : UITableView
     var novelInfo:Variable<NovelInfo>
+
     init(input:(tb:UITableView,novelInfo:Variable<NovelInfo>)) {
         self.tb = input.tb
         self.novelInfo = input.novelInfo
