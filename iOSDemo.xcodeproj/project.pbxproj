@@ -58,7 +58,6 @@
 		AE040F9D1F768E1100C06EC3 /* WSProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F321C1F690DBF00339BB8 /* WSProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE0F70241FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70231FBA8F6000C8135C /* SWHttpTrafficRecorder.m */; };
 		AE0F70251FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70231FBA8F6000C8135C /* SWHttpTrafficRecorder.m */; };
-		AE0F70261FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70231FBA8F6000C8135C /* SWHttpTrafficRecorder.m */; };
 		AE0F702D1FBA90A500C8135C /* RequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70291FBA90A500C8135C /* RequestInfo.swift */; };
 		AE0F702E1FBA90A500C8135C /* RequestDataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F702A1FBA90A500C8135C /* RequestDataInfo.swift */; };
 		AE0F702F1FBA90A500C8135C /* RequestTimelineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F702B1FBA90A500C8135C /* RequestTimelineInfo.swift */; };
@@ -133,6 +132,7 @@
 		AE5A88831FF4913D00748F6A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88821FF4913D00748F6A /* BaseViewController.swift */; };
 		AE5A88851FF49CD300748F6A /* 3DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88841FF49CD300748F6A /* 3DViewController.swift */; };
 		AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */; };
+		AE82B1CD200F3A55004D0ECE /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = AE82B1CC200F3A55004D0ECE /* Test.m */; };
 		AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */; };
 		AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD6D1FDE6DA8001882D1 /* SensorViewController.swift */; };
 		AE83BD711FDE72BF001882D1 /* ImageRotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD701FDE72BF001882D1 /* ImageRotationViewController.swift */; };
@@ -418,6 +418,8 @@
 		AE5A88821FF4913D00748F6A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AE5A88841FF49CD300748F6A /* 3DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3DViewController.swift; sourceTree = "<group>"; };
 		AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterViewController.swift; sourceTree = "<group>"; };
+		AE82B1CB200F3A55004D0ECE /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		AE82B1CC200F3A55004D0ECE /* Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
 		AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSession.swift; sourceTree = "<group>"; };
 		AE83BD6D1FDE6DA8001882D1 /* SensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorViewController.swift; sourceTree = "<group>"; };
 		AE83BD701FDE72BF001882D1 /* ImageRotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotationViewController.swift; sourceTree = "<group>"; };
@@ -1244,6 +1246,8 @@
 				AE3AF0501F7743D500AF182A /* MsgSend.h */,
 				AE3AF0511F7743D500AF182A /* MsgSend.m */,
 				AEA07F141F710D7E00FC9770 /* main.m */,
+				AE82B1CB200F3A55004D0ECE /* Test.h */,
+				AE82B1CC200F3A55004D0ECE /* Test.m */,
 			);
 			path = Console;
 			sourceTree = "<group>";
@@ -1853,7 +1857,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEA07F151F710D7E00FC9770 /* main.m in Sources */,
-				AE0F70261FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */,
+				AE82B1CD200F3A55004D0ECE /* Test.m in Sources */,
 				AE3AF0521F7743D500AF182A /* MsgSend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

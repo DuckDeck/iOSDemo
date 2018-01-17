@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Test.h"
 
 @interface Father : NSObject
 @property (nonatomic,copy) NSString* p1;
@@ -33,6 +33,7 @@
 @end
 typedef void (^blk_t)();
 int main(int argc, const char * argv[]) {
+    NSMutableSet *objs = [NSMutableSet new];
     @autoreleasepool {
         // insert code here...
         Son* son = [Son new];
@@ -253,6 +254,19 @@ int main(int argc, const char * argv[]) {
          栈块本身就在栈中，引用外部变量不会拷贝到堆中。
          
          */
+        
+        
+        
+        for (int i = 0; i < 1000; ++i) {
+            Test *obj = [Test new];
+            [objs addObject:obj];
+        }
+        sleep(100000);
+        
+        
     }
     return 0;
 }
+
+
+

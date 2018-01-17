@@ -40,8 +40,6 @@ class NovelSearchViewModel:BaseViewModel {
        var keyStr = Variable<String>.init("")
        var searchCommand :Driver<Void>!
     
-
-    
     static func create(input:(tb:UITableView,searchKey:Driver<String>,searchTap:Driver<Void>))->NovelSearchViewModel{
         let m = NovelSearchViewModel()
         m.tb = input.tb
@@ -72,7 +70,7 @@ class NovelSearchViewModel:BaseViewModel {
             guard  let novel = wkself?.modelObserable.value[index.row] else{
                 return
             }
-            self?.urlNav?.push(Routers.sectionList, context: novel, from: nil, animated: true)
+            _ = self?.urlNav?.push(Routers.sectionList, context: novel, from: nil, animated: true)
             //critic issue  新版本的URLNavgator 在MVVM 看来是不能用了
             //if let del = UIApplication.shared.delegate as? AppDelegate{
                 //let _ =  del.navigator.push(Routers.sectionList, context: novel, from: nil, animated: true)
