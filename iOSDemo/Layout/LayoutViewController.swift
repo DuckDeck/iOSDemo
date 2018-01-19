@@ -10,7 +10,7 @@ import UIKit
 import TangramKit
 class LayoutViewController: UIViewController {
 
-    var arrData = ["ScrollMenu"]
+    var arrData = ["ScrollMenu","Snapkit"]
     var tbMenu = UITableView()
     
     override func loadView() {
@@ -51,7 +51,7 @@ extension LayoutViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             navigationController?.pushViewController(ScrollMenuViewController(), animated: true)
         case 1:
-            break
+            navigationController?.pushViewController(SnapkitViewController(), animated: true)
         case 2:
             break
             

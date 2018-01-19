@@ -114,6 +114,8 @@
 		AE3AF0551F77448A00AF182A /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0541F77448A00AF182A /* LayoutViewController.swift */; };
 		AE3AF0581F7744D500AF182A /* ScrollMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0571F7744D500AF182A /* ScrollMenuViewController.swift */; };
 		AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */; };
+		AE5351202011876B00FC48A1 /* SnapkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */; };
+		AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */; };
 		AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752921F76931C00F6AAC5 /* MediaViewController.swift */; };
 		AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */; };
 		AE5A88631FF36F9500748F6A /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88621FF36F9500748F6A /* GridView.swift */; };
@@ -401,6 +403,8 @@
 		AE3AF0541F77448A00AF182A /* LayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutViewController.swift; sourceTree = "<group>"; };
 		AE3AF0571F7744D500AF182A /* ScrollMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMenuViewController.swift; sourceTree = "<group>"; };
 		AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMenuView.swift; sourceTree = "<group>"; };
+		AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitViewController.swift; sourceTree = "<group>"; };
+		AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitTableViewController.swift; sourceTree = "<group>"; };
 		AE5752921F76931C00F6AAC5 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureVideoViewController.swift; sourceTree = "<group>"; };
 		AE5A88621FF36F9500748F6A /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
@@ -841,6 +845,7 @@
 		AE3AF0531F77447A00AF182A /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				AE53511E2011875800FC48A1 /* Snapkit */,
 				AE3AF0561F7744C900AF182A /* SrollMenu */,
 				AE3AF0541F77448A00AF182A /* LayoutViewController.swift */,
 			);
@@ -854,6 +859,15 @@
 				AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */,
 			);
 			path = SrollMenu;
+			sourceTree = "<group>";
+		};
+		AE53511E2011875800FC48A1 /* Snapkit */ = {
+			isa = PBXGroup;
+			children = (
+				AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */,
+				AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */,
+			);
+			path = Snapkit;
 			sourceTree = "<group>";
 		};
 		AE5752911F76930000F6AAC5 /* Media */ = {
@@ -1739,6 +1753,7 @@
 				AE0F70701FBD6F2B00C8135C /* NFXHelper.swift in Sources */,
 				AE3AF0551F77448A00AF182A /* LayoutViewController.swift in Sources */,
 				AE0F70661FBD6F2B00C8135C /* NFXListController.swift in Sources */,
+				AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */,
 				AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */,
 				AE3AF0441F773B0000AF182A /* AnimationViewController.swift in Sources */,
 				AE9F32851F690F5200339BB8 /* GrandModel.swift in Sources */,
@@ -1803,6 +1818,7 @@
 				AE0F707F1FBD6F2B00C8135C /* NFXHelper_iOS.swift in Sources */,
 				AE9F328A1F690F5200339BB8 /* TimeSpan.swift in Sources */,
 				AE0F70801FBD6F2B00C8135C /* NFXInfoController_iOS.swift in Sources */,
+				AE5351202011876B00FC48A1 /* SnapkitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
