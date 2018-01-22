@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-class SnapkitViewController: UIViewController {
+class SnapkitViewController: UIViewController,UITextViewDelegate {
 
     let lbl = UILabel()
     let lbl1 = UILabel()
@@ -17,6 +17,7 @@ class SnapkitViewController: UIViewController {
     let sc = UIScrollView()
     var isHidden = false
     var updateConstraint:Constraint?
+    let txt = UITextView()
     var str = "购买建议：梅花扳手使用频率很多。"
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,22 +44,22 @@ class SnapkitViewController: UIViewController {
         }
         
         automaticallyAdjustsScrollViewInsets = false
-        view.addSubview(sc)
- 
-        sc.snp.makeConstraints { (m) in
-            m.left.right.equalTo(0)
-            m.top.equalTo(lbl1.snp.bottom)
-            m.bottom.equalTo(-15)
-        }
-        
+//        view.addSubview(sc)
+//
+//        sc.snp.makeConstraints { (m) in
+//            m.left.right.equalTo(0)
+//            m.top.equalTo(lbl1.snp.bottom)
+//            m.bottom.equalTo(-15)
+//        }
+//
         let viewContainer = UIView()
         viewContainer.backgroundColor = UIColor.green
-        sc.addSubview(viewContainer)
-        viewContainer.snp.makeConstraints { (m) in
-            m.top.bottom.equalTo(sc)
-            m.left.right.equalTo(view)
-            m.height.greaterThanOrEqualTo(sc).offset(1)
-        }
+//        sc.addSubview(viewContainer)
+//        viewContainer.snp.makeConstraints { (m) in
+//            m.top.bottom.equalTo(sc)
+//            m.left.right.equalTo(view)
+//            m.height.greaterThanOrEqualTo(sc).offset(1)
+//        }
         
         
         lbl2.text = "那时候，我炒白银亏了十几万元，没有闲钱，阿顺也一样，于是我俩就透支信用卡额度去投资。每月还款日一过，就把钱充到钱宝网里，临近还款日再提现出来，还信用卡。"
@@ -92,6 +93,16 @@ class SnapkitViewController: UIViewController {
             m.height.equalTo(20)
         }
         
+        txt.layer.borderWidth = 1
+        txt.delegate = self
+        view.addSubview(txt)
+        txt.snp.makeConstraints { (m) in
+                m.left.equalTo(10)
+                m.right.equalTo(-10)
+                m.top.equalTo(lbl1.snp.bottom)
+                m.height.greaterThanOrEqualTo(30)
+        }
+        
         let barBtn = UIBarButtonItem(title: "hide", style: .plain, target: self, action: #selector(hide))
         let barBtn2 = UIBarButtonItem(title: "Table", style: .plain, target: self, action: #selector(toTable))
         navigationItem.rightBarButtonItems = [barBtn,barBtn2]
@@ -105,6 +116,8 @@ class SnapkitViewController: UIViewController {
         lbl3.text = lbl3.text! + "阿顺也一样，于是我俩就透支信用卡额度去投资。每月还款日一过，就把钱充到钱宝网里，临近还款日"
     }
   
+    
+    
     @objc func hide()  {
         if isHidden{
 

@@ -26,7 +26,9 @@ class GridView: UIView {
                     if count <= 0{
                         return
                     }
-                    var right:CGFloat  = 0
+                    var isSwitch = false
+                    var isNewRow = false
+                    var right:CGFloat = 0
                     for i in 0..<count{
                         addSubview(views[i])
                         views[i].snp.makeConstraints({ (m) in
@@ -34,21 +36,30 @@ class GridView: UIView {
                             m.top.equalTo(y)
                             m.size.equalTo(cellSize)
                         })
-                        if i == count - 1{
-                            break
+                        if !isSwitch{
+                            right = x + cellSize.width + padding.right
                         }
                         if x + horizontalSpace + cellSize.width * 2 + padding.right <= maxWidth{
                             x = x + horizontalSpace + cellSize.width
+                            isNewRow = false
                         }
                         else{
-                            right = x  + cellSize.width + padding.right
+                            isSwitch = true
+                            isNewRow = true
                             x = CGFloat(padding.left)
                             y = y + verticalSpace + cellSize.height
                         }
                     }
                 self.snp.updateConstraints({ (m) in
                     m.width.greaterThanOrEqualTo(right)
-                    m.height.greaterThanOrEqualTo(y - verticalSpace + cellSize.height + padding.bottom)
+                    var b:CGFloat = 0
+                    if isNewRow{
+                       b = y - verticalSpace + padding.bottom
+                    }
+                    else{
+                        b = y + padding.bottom + cellSize.height
+                    }
+                    m.height.greaterThanOrEqualTo(b)
                 })
             }
         }
