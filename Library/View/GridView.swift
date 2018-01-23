@@ -39,7 +39,7 @@ class GridView: UIView {
                         if !isSwitch{
                             right = x + cellSize.width + padding.right
                         }
-                        if x + horizontalSpace + cellSize.width * 2 + padding.right <= maxWidth{
+                        if x + horizontalSpace + cellSize.width  + padding.right <= maxWidth{
                             x = x + horizontalSpace + cellSize.width
                             isNewRow = false
                         }

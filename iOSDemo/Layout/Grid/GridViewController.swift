@@ -62,7 +62,7 @@ class GridViewController: UIViewController {
         viewContainer.horizontalSpace = 15
         viewContainer.verticalSpace = 15
         viewContainer.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.3)
-//        viewContainer.padding = UIEdgeInsets(top: 20, left: 10, bottom: 40, right: 15)
+        viewContainer.padding = UIEdgeInsets(top: 20, left: 10, bottom: 40, right: 15)
         viewContainer.arrViews = arr
         
         lbl.text = "当一个女孩，看见她心爱的男孩下班后第一件事便是在出租屋里打游戏，周末宅在家里看片看综艺看动漫，你认为她在这个男孩身上看得见未来吗"
