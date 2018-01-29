@@ -41,6 +41,7 @@ class StackViewController: BaseViewController {
         v.snp.makeConstraints { (m) in
             m.left.right.equalTo(0)
             m.height.equalTo(50)
+//            m.top.equalTo(15) //can not use top in stackview
         }
     }
     

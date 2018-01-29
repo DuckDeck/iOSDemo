@@ -36,10 +36,8 @@ class GridView: UIView {
                             m.top.equalTo(y)
                             m.size.equalTo(cellSize)
                         })
-                        if !isSwitch{
-                            right = x + cellSize.width + padding.right
-                        }
-                        if x + horizontalSpace + cellSize.width  + padding.right <= maxWidth{
+                        
+                        if x + horizontalSpace + cellSize.width * 2  + padding.right <= maxWidth{
                             x = x + horizontalSpace + cellSize.width
                             isNewRow = false
                         }
@@ -49,18 +47,23 @@ class GridView: UIView {
                             x = CGFloat(padding.left)
                             y = y + verticalSpace + cellSize.height
                         }
+                        Log(message: "x: \(x)")
+                        Log(message: "right: \(right)")
+                        if !isSwitch{
+                            right = x - horizontalSpace +  padding.right
+                        }
                     }
-                self.snp.updateConstraints({ (m) in
-                    m.width.greaterThanOrEqualTo(right)
-                    var b:CGFloat = 0
-                    if isNewRow{
-                       b = y - verticalSpace + padding.bottom
-                    }
-                    else{
-                        b = y + padding.bottom + cellSize.height
-                    }
-                    m.height.greaterThanOrEqualTo(b)
-                })
+                    self.snp.updateConstraints({ (m) in
+                        m.width.greaterThanOrEqualTo(right)
+                        var b:CGFloat = 0
+                        if isNewRow{
+                            b = y - verticalSpace + padding.bottom
+                        }
+                        else{
+                            b = y + padding.bottom + cellSize.height + verticalSpace
+                        }
+                        m.height.equalTo(b)
+                    })
             }
         }
     }
