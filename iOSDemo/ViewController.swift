@@ -9,7 +9,7 @@
 import UIKit
 import TangramKit
 class ViewController: UIViewController {
-    var arrData = ["Memery","Media","Animation&Graphic","Layout","AI","Network","Touch","Library","Sensor","Rumtime"]
+    var arrData = ["Memery","Media","Animation&Graphic","Layout","AI","Network","Touch","Library","Sensor","Rumtime","Keyboard"]
     var tbMenu = UITableView()
     
     override func loadView() {
@@ -67,6 +67,9 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
             navigationController?.pushViewController(SensorViewController(), animated: true)
         case 9:
             navigationController?.pushViewController(RunTimeViewController(), animated: true)
+        case 10:
+            navigationController?.pushViewController(KeyboardViewController(), animated: true)
+
         default:
             break
         }
