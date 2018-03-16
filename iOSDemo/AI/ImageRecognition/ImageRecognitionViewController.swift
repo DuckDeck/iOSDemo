@@ -7,53 +7,23 @@
 //
 
 import UIKit
-import TangramKit
+import SnapKit
 import ImagePicker
 import CoreML
 import Vision
 @available(iOS 11.0, *)
 class ImageRecognitionViewController: UIViewController {
     
-    let vMain =  TGLinearLayout(TGOrientation.vert)
     let img = UIImageView()
     let btnChooseImage = UIButton()
     let btnStart  = UIButton()
     let lblResult = UILabel()
     let lblProbably = UILabel()
     let imagePickerController = ImagePickerController()
-    override func loadView() {
-        self.view = UIScrollView(frame: UIScreen.main.bounds)
-        self.view.backgroundColor = UIColor.white
-        imagePickerController.delegate = self
-        imagePickerController.imageLimit = 1
-        vMain.tg_width.equal(.fill)
-        vMain.tg_height.equal(.wrap)
-        self.view.addSubview(vMain)
-        img.tg_width.equal(.fill)
-        img.tg_height.min(300)
-        img.tg_height.equal(.wrap)
-        vMain.addSubview(img)
-        
-        btnChooseImage.setTarget(self, action: #selector(ImageRecognitionViewController.chooseImage)).title(title: "Choose Image").color(color: UIColor.red).bgColor(color: UIColor.blue).addTo(view: vMain).completed()
-        btnChooseImage.tg_top.equal(10)
-        btnChooseImage.tg_width.equal(.fill)
-        btnChooseImage.tg_height.equal(36)
-        
-        btnStart.title(title: "Start Check").setTarget(self, action: #selector(ImageRecognitionViewController.startCheck)).color(color: UIColor.red).bgColor(color: UIColor.blue).addTo(view: vMain).completed()
-        btnStart.tg_top.equal(10)
-        btnStart.tg_width.equal(.fill)
-        btnStart.tg_height.equal(36)
-        
-        lblResult.color(color: UIColor.red).txtAlignment(ali: .center).bgColor(color: UIColor.blue).addTo(view: vMain).completed()
-        lblResult.tg_top.equal(10)
-        lblResult.tg_width.equal(.fill)
-        lblResult.tg_height.equal(36)
-        
-        lblProbably.color(color: UIColor.red).txtAlignment(ali: .center).bgColor(color: UIColor.blue).addTo(view: vMain).completed()
-        lblProbably.tg_top.equal(10)
-        lblProbably.tg_width.equal(.fill)
-        lblProbably.tg_height.equal(36)
-    }
+  
+    
+    
+    
     
     @objc func chooseImage()  {
         present(imagePickerController, animated: true, completion: nil)
@@ -87,10 +57,66 @@ class ImageRecognitionViewController: UIViewController {
         let vnImageRequestHandle = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
         try?  vnImageRequestHandle.perform([vnCoreMlRequest])
     }
+    
+    override func loadView() {
+        super.loadView()
+        self.view = UIScrollView(frame: UIScreen.main.bounds)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        self.view.backgroundColor = UIColor.white
+        imagePickerController.delegate = self
+        imagePickerController.imageLimit = 1
+       
+      
+        view.addSubview(img)
+        img.snp.makeConstraints { (m) in
+            m.width.equalTo(view)
+            m.left.top.equalTo(0)
+            m.height.greaterThanOrEqualTo(300)
+        }
         
-        // Do any additional setup after loading the view.
+        
+        
+        btnChooseImage.setTarget(self, action: #selector(ImageRecognitionViewController.chooseImage)).title(title: "Choose Image").color(color: UIColor.red).bgColor(color: UIColor.blue).addTo(view: view).completed()
+        btnChooseImage.snp.makeConstraints { (m) in
+            m.top.equalTo(img.snp.bottom).offset(10)
+            m.width.equalTo(ScreenWidth - 100)
+            m.height.equalTo(36)
+            m.centerX.equalTo(view)
+        }
+        
+        btnStart.title(title: "Start Check").setTarget(self, action: #selector(ImageRecognitionViewController.startCheck)).color(color: UIColor.red).bgColor(color: UIColor.blue).addTo(view: view).completed()
+     
+        btnStart.snp.makeConstraints { (m) in
+            m.top.equalTo(btnChooseImage.snp.bottom).offset(10)
+            m.width.equalTo(ScreenWidth - 100)
+            m.height.equalTo(36)
+            m.centerX.equalTo(view)
+        }
+        
+        
+        lblResult.color(color: UIColor.red).txtAlignment(ali: .center).bgColor(color: UIColor.blue).addTo(view: view).completed()
+      
+        lblResult.snp.makeConstraints { (m) in
+            m.top.equalTo(btnStart.snp.bottom).offset(10)
+            m.width.equalTo(ScreenWidth - 100)
+            m.height.equalTo(36)
+            m.centerX.equalTo(view)
+        }
+        
+        
+        lblProbably.color(color: UIColor.red).txtAlignment(ali: .center).bgColor(color: UIColor.blue).addTo(view: view).completed()
+       
+        
+        lblProbably.snp.makeConstraints { (m) in
+            m.top.equalTo(lblResult.snp.bottom).offset(10)
+            m.width.equalTo(ScreenWidth - 100)
+            m.height.equalTo(36)
+            m.centerX.equalTo(view)
+        }
     }
     
     override func didReceiveMemoryWarning() {

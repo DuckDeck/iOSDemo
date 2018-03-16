@@ -7,26 +7,23 @@
 //
 
 import UIKit
-import TangramKit
+import SnapKit
 class MemeryLeakTestViewController: UIViewController {
 
     let lblNum = UILabel()
     var num = 1
-    override func loadView() {
-        super.loadView()
-        self.view = TGFrameLayout(frame: self.view.bounds)
-    }
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        
-        lblNum.tg_top.equal(110)
-        lblNum.tg_left.equal(10)
-        lblNum.tg_height.equal(40)
-        lblNum.tg_width.equal(80)
         view.addSubview(lblNum)
-        
+        lblNum.snp.makeConstraints { (m) in
+            m.left.equalTo(10)
+            m.top.equalTo(110)
+            m.width.equalTo(80)
+            m.height.equalTo(40)
+        }
         //情况1 nstimer
         
         let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MemeryLeakTestViewController.tick), userInfo: nil, repeats: true)
@@ -39,9 +36,6 @@ class MemeryLeakTestViewController: UIViewController {
         //Leaked memory: Memory unreferenced by your application that cannot be used again or freed (also detectable by using the Leaks instrument).
        //Abandoned memory: Memory still referenced by your application that has no useful purpose.
         //Cached memory: Memory still referenced by your application that might be used again for better performance.
-
- 
-                  
 
         
         //情况2 block

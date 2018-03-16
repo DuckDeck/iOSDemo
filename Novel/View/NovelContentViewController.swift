@@ -8,9 +8,9 @@
 
 import UIKit
 import URLNavigator
-import TangramKit
 import RxSwift
 import MJRefresh
+import SnapKit
 final class NovelContentViewController: UIViewController {
     init() { super.init(nibName: nil, bundle: nil) }
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented")  }
@@ -20,26 +20,21 @@ final class NovelContentViewController: UIViewController {
     var arrSectionUrl : [SectionInfo]?
     var vm:NovelContentViewModel?
     fileprivate let bag = DisposeBag()
-    override func loadView() {
-        super.loadView()
-        self.view = TGFrameLayout(frame: self.view.bounds)
-    }
-    
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tb.tg_width.equal(.fill)
-        tb.tg_height.equal(.fill)
-        tb.tg_left.equal(0)
-        tb.tg_top.equal(0)
+       
         tb.delegate = self
         tb.estimatedRowHeight = 8000
         tb.separatorStyle = .none
         tb.allowsSelection = false
         tb.rowHeight = UITableViewAutomaticDimension
         view.addSubview(tb)
-
+        tb.snp.makeConstraints { (m) in
+            m.edges.equalTo(0)
+        }
         
         let buttonSaveBoookmark = UIBarButtonItem(title: "添加书签", style: .plain, target: self, action: #selector(NovelContentViewController.saveBookmark))
         navigationItem.rightBarButtonItem = buttonSaveBoookmark

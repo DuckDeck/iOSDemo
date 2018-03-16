@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import TangramKit
+import SnapKit
 class NovelTbCell: UITableViewCell {
-    fileprivate(set) var rootLayout:TGBaseLayout!
+   
     let imgNovel = UIImageView()
     let lblTitle = UILabel()
     let lblIntro = UILabel()
@@ -34,58 +34,59 @@ class NovelTbCell: UITableViewCell {
         lblIntro.lineNum(num: 3).setFont(font: 13).completed()
         lblAuthor.setFont(font: 13).completed()
         lblType.setFont(font: 13).completed()
-       lblUpdateTime.setFont(font: 13).completed()
+        lblUpdateTime.setFont(font: 13).completed()
         
         createLinearRootLayout()
     }
     
     func createLinearRootLayout()  {
-        self.rootLayout = TGLinearLayout(.horz)
-        self.rootLayout.tg_topPadding = 5
-        self.rootLayout.tg_bottomPadding = 5
-        self.rootLayout.tg_width.equal(.fill)
-        self.rootLayout.tg_height.equal(.wrap)
-        self.rootLayout.tg_padding = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        self.rootLayout.tg_cacheEstimatedRect = true
-        self.contentView.addSubview(self.rootLayout)
-        
-        imgNovel.tg_width.equal(100)
-        imgNovel.tg_height.equal(150)
+      
+      
         imgNovel.cornerRadius(radius: 5).completed()
-        self.rootLayout.addSubview(imgNovel)
+        contentView.addSubview(imgNovel)
+        imgNovel.snp.makeConstraints { (m) in
+            m.left.equalTo(10)
+            m.top.equalTo(10)
+            m.width.equalTo(100)
+            m.height.equalTo(150)
+        }
         
-        let messageLayout = TGLinearLayout(.vert)
-        messageLayout.tg_width.equal(.fill)  //等价于tg_width.equal(100%)
-        messageLayout.tg_height.equal(.wrap)
-        messageLayout.tg_leading.equal(5)
-        messageLayout.tg_vspace = 5 //前面4行代码描述的是垂直布局占用除头像外的所有宽度，并和头像保持5个点的间距。
-        messageLayout.tg_padding = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        self.rootLayout.addSubview(messageLayout)
-
-       lblTitle.tg_width.equal(.fill)
-        lblTitle.tg_height.equal(.wrap)
-        messageLayout.addSubview(lblTitle)
-
-        lblIntro.tg_width.equal(.fill)
-        lblIntro.tg_height.equal(.wrap)
-        lblIntro.tg_top.equal(self.lblTitle.tg_bottom, offset:5)
-        messageLayout.addSubview(lblIntro)
-
-        lblAuthor.tg_width.equal(.fill)
-        lblAuthor.tg_height.equal(.wrap)
-        lblAuthor.tg_top.equal(self.lblIntro.tg_bottom, offset:3)
-        messageLayout.addSubview(lblAuthor)
+        contentView.addSubview(lblTitle)
+        lblTitle.snp.makeConstraints { (m) in
+            m.left.equalTo(140)
+            m.top.equalTo(10)
+            m.height.equalTo(16)
+        }
         
-        lblType.tg_width.equal(.fill)
-        lblType.tg_height.equal(.wrap)
-        lblType.tg_top.equal(self.lblAuthor.tg_bottom, offset:3)
-        messageLayout.addSubview(lblType)
+      
+        contentView.addSubview(lblIntro)
+        lblIntro.snp.makeConstraints { (m) in
+            m.top.equalTo(lblTitle.snp.bottom).offset(5)
+            m.left.equalTo(lblTitle)
+            m.height.equalTo(16)
+        }
         
-        lblUpdateTime.tg_width.equal(.fill)
-        lblUpdateTime.tg_height.equal(.wrap)
-        lblUpdateTime.tg_top.equal(self.lblType.tg_bottom, offset:3)
-        messageLayout.addSubview(lblUpdateTime)
         
+     
+        contentView.addSubview(lblAuthor)
+        lblAuthor.snp.makeConstraints { (m) in
+            m.top.equalTo(lblIntro.snp.bottom).offset(5)
+            m.left.equalTo(lblTitle)
+            m.height.equalTo(16)
+        }
+     
+        contentView.addSubview(lblType)
+        lblType.snp.makeConstraints { (m) in
+            m.top.equalTo(lblAuthor.snp.bottom).offset(5)
+            m.left.equalTo(lblTitle)
+            m.height.equalTo(16)
+        }
+        contentView.addSubview(lblUpdateTime)
+        lblUpdateTime.snp.makeConstraints { (m) in
+            m.top.equalTo(lblType.snp.bottom).offset(5)
+            m.left.equalTo(lblTitle)
+            m.height.equalTo(16)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

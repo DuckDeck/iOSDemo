@@ -7,23 +7,12 @@
 //
 
 import UIKit
-import TangramKit
 class MusicListViewController: UIViewController {
 
     let tb = UITableView()
     let arrMusics = [String]()
     
     
-    
-    override func loadView() {
-        
-        self.view = TGLinearLayout(.vert)
-        
-        view.addSubview(tb)
-        tb.tg_width.equal(.fill)
-        tb.tg_height.equal(.fill)
-        
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

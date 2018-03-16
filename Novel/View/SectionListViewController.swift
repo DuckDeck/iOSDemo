@@ -8,7 +8,7 @@
 
 import UIKit
 import URLNavigator
-import TangramKit
+import SnapKit
 import RxSwift
 final class SectionListViewController: UIViewController {
     init() { super.init(nibName: nil, bundle: nil) }
@@ -18,20 +18,14 @@ final class SectionListViewController: UIViewController {
     var vm:SectionListViewModel?
     var novelInfo:NovelInfo?
     
-    override func loadView() {
-        super.loadView()
-        self.view = TGFrameLayout(frame: self.view.bounds)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = novelInfo?.title ?? "" + "的章节"
-        tb.tg_width.equal(.fill)
-        tb.tg_height.equal(.fill)
-        tb.tg_left.equal(0)
-        tb.tg_top.equal(0)
         view.addSubview(tb)
-      
+        tb.snp.makeConstraints { (m) in
+            m.edges.equalTo(0)
+        }
         vm = SectionListViewModel(input: (tb,Variable<NovelInfo>(novelInfo!)))
     }
 }

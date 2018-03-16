@@ -7,27 +7,24 @@
 //
 
 import UIKit
-import TangramKit
+import SnapKit
 class ViewController: UIViewController {
     var arrData = ["Memery","Media","Animation&Graphic","Layout","AI","Network","Touch","Library","Sensor","Rumtime","Keyboard"]
     var tbMenu = UITableView()
     
-    override func loadView() {
-        super.loadView()
-        self.view = TGFrameLayout(frame: self.view.bounds)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         tbMenu.dataSource = self
         tbMenu.delegate = self
-        tbMenu.tg_width.equal(.fill)
-        tbMenu.tg_height.equal(.fill)
-        tbMenu.tg_left.equal(0)
-        tbMenu.tg_top.equal(0)
+        tbMenu.dataSource = self
+        tbMenu.delegate = self
         tbMenu.tableFooterView = UIView()
         view.addSubview(tbMenu)
+        tbMenu.snp.makeConstraints { (m) in
+            m.edges.equalTo(0)
+        }
     }
 }
 

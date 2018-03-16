@@ -7,43 +7,48 @@
 //
 
 import UIKit
-import TangramKit
+import SnapKit
 import Alamofire
 class HttpRecordViewController: UIViewController {
 
     let btn = UIButton()
     var requestInfo:RequestInfo?
-    override func loadView() {
-        self.view = TGLinearLayout(.vert)
+  
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         view.backgroundColor = UIColor.white
         
-        (view as! TGLinearLayout).tg_padding = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
+       
         
-        btn.tg_width.equal(100)
-        btn.tg_height.equal(50)
         btn.setTitle("请示", for: .normal)
         btn.setTitleColor(UIColor.red, for: .normal)
         btn.addTarget(self, action: #selector(HttpRecordViewController.request(sender:)), for: .touchUpInside)
         view.addSubview(btn)
-
+        btn.snp.makeConstraints { (m) in
+            m.left.equalTo(100)
+            m.top.equalTo(100)
+            m.width.equalTo(100)
+            m.height.equalTo(50)
+        }
+        
         //this library now work for Alamofire
         
-//        if let record = SWHttpTrafficRecorder.shared(){
-//            record.recordingFormat = .mocktail
-//            record.progressDelegate = self
-//            let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true) as [String]
-//            try! record.startRecording(atPath: paths[0], for: URLSessionConfiguration.default)
-//            //try! record.startRecording(atPath: paths[0], for: Alamofire.URLSessionConfiguration)
-//            //Alamofire.URLSessionConfiguration can not abtainf
-//        }
+        //        if let record = SWHttpTrafficRecorder.shared(){
+        //            record.recordingFormat = .mocktail
+        //            record.progressDelegate = self
+        //            let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true) as [String]
+        //            try! record.startRecording(atPath: paths[0], for: URLSessionConfiguration.default)
+        //            //try! record.startRecording(atPath: paths[0], for: Alamofire.URLSessionConfiguration)
+        //            //Alamofire.URLSessionConfiguration can not abtainf
+        //        }
         
         requestInfo = RequestInfo()
         requestInfo?.deviceInfo = UIDevice.current.name
         requestInfo?.osVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
         //        requestInfo?.apiInfo = APIInfo()
         requestInfo?.requestTimeLine = RequestTimelineInfo()
-        
-        
     }
     
     @objc func request(sender:UIButton)  {

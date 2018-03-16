@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import TangramKit
+import SnapKit
 import AVFoundation
 class CaptureVideoViewController: UIViewController {
 
@@ -19,34 +19,44 @@ class CaptureVideoViewController: UIViewController {
     var isVideoOK = false
     var isAudioOK = false
     var isRecoding = false
-    override func loadView() {
-        let root = TGLinearLayout(frame: UIScreen.main.bounds, orientation: .vert)
-        root.tg_padding = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        root.backgroundColor = UIColor.white
-        self.view = root
+
+   
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        imgVideo.tg_width.equal(.fill)
-        imgVideo.tg_height.equal(70%)
+      
         view.addSubview(imgVideo)
-    
+        imgVideo.snp.makeConstraints { (m) in
+            m.left.top.equalTo(0)
+            m.width.equalTo(ScreenWidth)
+            m.height.equalTo(ScreenHeight * 0.7)
+        }
+        
         btnStartRecord.title(title: "开始采集").color(color: UIColor.blue).addTo(view: view).completed()
-        btnStartRecord.tg_width.equal(50%)
-        btnStartRecord.tg_height.equal(30)
-        btnStartRecord.tg_centerY.equal(view)
+        btnStartRecord.snp.makeConstraints { (m) in
+            m.left.equalTo(10)
+            m.bottom.equalTo(-10)
+            m.width.equalTo(200)
+            m.height.equalTo(30)
+        }
         btnStartRecord.addTarget(self, action: #selector(startRecord), for: .touchUpInside)
         
         btnSwitchCamera.title(title: "后置").color(color: UIColor.blue).addTo(view: view).completed()
-        btnSwitchCamera.tg_width.equal(50%)
-        btnSwitchCamera.tg_height.equal(30)
+      
+        btnSwitchCamera.snp.makeConstraints { (m) in
+            m.right.equalTo(-10)
+            m.bottom.equalTo(-10)
+            m.width.equalTo(200)
+            m.height.equalTo(39)
+        }
+        
         btnSwitchCamera.addTarget(self, action: #selector(switchCamera), for: .touchUpInside)
-        btnSwitchCamera.tg_centerY.equal(view)
+      
         
         checkAudioAuth()
         checkVideoAuth()
         prepareRecord()
-        
     }
-   
     
     func checkVideoAuth()  {
         let res = AVCaptureDevice.authorizationStatus(for: .video)

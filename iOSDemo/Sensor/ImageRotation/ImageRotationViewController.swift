@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreMotion
-import TangramKit
+import SnapKit
 class ImageRotationViewController: UIViewController {
 
     let cmManager = CMMotionManager()
@@ -19,36 +19,45 @@ class ImageRotationViewController: UIViewController {
     var XArray = [Double]()
     var YArray = [Double]()
     let img = UIImageView()
-    override func loadView() {
-        self.view = TGLinearLayout(.vert)
-        
-        lbl1.tg_top.equal(64)
-        lbl1.tg_height.equal(25)
-        lbl1.tg_width.equal(.fill)
-        view.addSubview(lbl1)
-        
-        
-        lbl2.tg_height.equal(25)
-        lbl2.tg_width.equal(.fill)
-        view.addSubview(lbl2)
-        
-        
-        lbl3.tg_height.equal(25)
-        lbl3.tg_width.equal(.fill)
-        view.addSubview(lbl3)
-        
-        img.image = UIImage(named: "2")
-        img.tg_width.equal(.fill)
-        img.contentMode = .scaleAspectFit
-        img.tg_height.equal(.wrap)
-        img.tg_top.equal(100)
-        view.addSubview(img)
-        
-    
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        lbl1.numberOfLines = 0
+        view.addSubview(lbl1)
+        lbl1.snp.makeConstraints { (m) in
+            m.top.equalTo(64)
+            m.height.equalTo(25)
+            m.left.equalTo(10)
+        }
+        lbl2.numberOfLines = 0
+        view.addSubview(lbl2)
+        lbl2.snp.makeConstraints { (m) in
+            m.height.equalTo(25)
+            m.top.equalTo(lbl1.snp.bottom)
+            m.left.equalTo(10)
+        }
+        
+        
+        lbl3.numberOfLines = 0
+        view.addSubview(lbl3)
+        lbl3.snp.makeConstraints { (m) in
+            m.height.equalTo(35)
+            m.top.equalTo(lbl2.snp.bottom)
+            m.left.equalTo(10)
+        }
+        
+        
+        
+        img.image = UIImage(named: "2")
+        img.contentMode = .scaleAspectFit
+        view.addSubview(img)
+        img.snp.makeConstraints { (m) in
+            m.left.equalTo(10)
+            m.top.equalTo(140)
+        }
+        
+        
         view.backgroundColor = UIColor.white
         
         if cmManager.isAccelerometerAvailable {

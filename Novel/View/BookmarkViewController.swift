@@ -8,7 +8,7 @@
 
 import UIKit
 import URLNavigator
-import TangramKit
+import SnapKit
 
 final class BookmarkViewController: UIViewController {
     init() { super.init(nibName: nil, bundle: nil) }
@@ -16,25 +16,21 @@ final class BookmarkViewController: UIViewController {
 
     var tb = UITableView()
     var vm:BookMarkViewModel?
-    override func loadView() {
-        super.loadView()
-        self.view = TGFrameLayout(frame: self.view.bounds)
-    }
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "书签"
-        tb.tg_width.equal(.fill)
-        tb.tg_height.equal(.fill)
-        tb.tg_left.equal(0)
-        tb.tg_top.equal(0)
+      
         tb.tableFooterView = UIView()
         tb.delegate = self
        // tb.estimatedHeightForRow = 50 can not set estimatedHeightForRow when use rxdatasource
 
         tb.rowHeight = UITableViewAutomaticDimension
         view.addSubview(tb)
+        tb.snp.makeConstraints { (m) in
+            m.edges.equalTo(0)
+        }
         vm = BookMarkViewModel(tb: tb)
         
         let buttonSaveBoookmark = UIBarButtonItem(title: "清空书签", style: .plain, target: self, action: #selector(BookmarkViewController.clearBookmark))
