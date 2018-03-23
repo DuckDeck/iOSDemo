@@ -134,6 +134,8 @@
 		AE5A88811FF39C5800748F6A /* LayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88801FF39C5800748F6A /* LayerViewController.swift */; };
 		AE5A88831FF4913D00748F6A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88821FF4913D00748F6A /* BaseViewController.swift */; };
 		AE5A88851FF49CD300748F6A /* 3DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88841FF49CD300748F6A /* 3DViewController.swift */; };
+		AE5AD7EC206111AC00289798 /* RippleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5AD7EB206111AC00289798 /* RippleViewController.swift */; };
+		AE5AD7EE206111D600289798 /* RippleAnimtaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5AD7ED206111D600289798 /* RippleAnimtaionView.swift */; };
 		AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */; };
 		AE82B1CD200F3A55004D0ECE /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = AE82B1CC200F3A55004D0ECE /* Test.m */; };
 		AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */; };
@@ -436,6 +438,8 @@
 		AE5A88801FF39C5800748F6A /* LayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerViewController.swift; sourceTree = "<group>"; };
 		AE5A88821FF4913D00748F6A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AE5A88841FF49CD300748F6A /* 3DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3DViewController.swift; sourceTree = "<group>"; };
+		AE5AD7EB206111AC00289798 /* RippleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleViewController.swift; sourceTree = "<group>"; };
+		AE5AD7ED206111D600289798 /* RippleAnimtaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleAnimtaionView.swift; sourceTree = "<group>"; };
 		AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterViewController.swift; sourceTree = "<group>"; };
 		AE82B1CB200F3A55004D0ECE /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 		AE82B1CC200F3A55004D0ECE /* Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
@@ -835,6 +839,7 @@
 		AE3AF0421F773AF500AF182A /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				AE5AD7EA2061118F00289798 /* Ripple */,
 				AE3AF0431F773B0000AF182A /* AnimationViewController.swift */,
 				AE5A887F1FF39C5100748F6A /* Layer */,
 				AE5A887C1FF39C3D00748F6A /* Filter */,
@@ -991,6 +996,15 @@
 				AE5A88841FF49CD300748F6A /* 3DViewController.swift */,
 			);
 			path = Layer;
+			sourceTree = "<group>";
+		};
+		AE5AD7EA2061118F00289798 /* Ripple */ = {
+			isa = PBXGroup;
+			children = (
+				AE5AD7EB206111AC00289798 /* RippleViewController.swift */,
+				AE5AD7ED206111D600289798 /* RippleAnimtaionView.swift */,
+			);
+			path = Ripple;
 			sourceTree = "<group>";
 		};
 		AE67CDF51FC2B79100AE4CD6 /* Emitter */ = {
@@ -1837,6 +1851,7 @@
 				AE0F70611FBD6F2B00C8135C /* NFXAssets.swift in Sources */,
 				AE0F707E1FBD6F2B00C8135C /* NFXListController_iOS.swift in Sources */,
 				AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */,
+				AE5AD7EC206111AC00289798 /* RippleViewController.swift in Sources */,
 				AE3B77B22046AB3500844025 /* KeyboardViewController.swift in Sources */,
 				AEBE40401FC803A60087D7ED /* CityChooseViewController.swift in Sources */,
 				AE0F70881FBE864300C8135C /* GrandSlider.swift in Sources */,
@@ -1878,6 +1893,7 @@
 				AE5A88631FF36F9500748F6A /* GridView.swift in Sources */,
 				AE5A88681FF3709000748F6A /* JSViewController.swift in Sources */,
 				AE3A42F0201B00F900FF8AB2 /* StackViewController.swift in Sources */,
+				AE5AD7EE206111D600289798 /* RippleAnimtaionView.swift in Sources */,
 				AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */,
 				AE0F702E1FBA90A500C8135C /* RequestDataInfo.swift in Sources */,
 				AEDC54142012EC4100BB4E34 /* ConstraintArray+Extensions.swift in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 class AnimationViewController: UIViewController {
-    var arrData = ["LayerAnimation","GradientLayer","Replication","Slider","Emitter","TwoSideView","ImageTransform","Filter","Layer"]
+    var arrData = ["LayerAnimation","GradientLayer","Replication","Slider","Emitter","TwoSideView","ImageTransform","Filter","Layer","Ripple"]
     var tbMenu = UITableView()
    
     
@@ -61,6 +61,8 @@ extension AnimationViewController:UITableViewDelegate,UITableViewDataSource{
             navigationController?.pushViewController(FilterViewController(), animated: true)
         case 8:
             navigationController?.pushViewController(LayerViewController(), animated: true)
+        case 9:
+            navigationController?.pushViewController(RippleViewController(), animated: true)
         default:
             break
         }

@@ -9,10 +9,8 @@
 import UIKit
 import SnapKit
 class LibraryViewController :UIViewController {
-    
     var arrData = ["CityChoose"]
     var tbMenu = UITableView()
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -53,7 +51,6 @@ extension LibraryViewController:UITableViewDelegate,UITableViewDataSource{
             break
         }
     }
-    
-    
 }
+
 
