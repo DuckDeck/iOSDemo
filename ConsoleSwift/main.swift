@@ -11,6 +11,10 @@ protocol DictionaryValue{
     var value:Any{ get }
 }
 
+protocol JsonValue:DictionaryValue {
+    var jsonValue:String{get }
+}
+
 extension DictionaryValue{
     var value:Any{
         let mirror = Mirror(reflecting: self)
@@ -30,12 +34,71 @@ extension DictionaryValue{
     }
 }
 
-struct Cat:Codable,DictionaryValue{
+extension JsonValue{
+    var jsonValue:String{
+        let data = try? JSONSerialization.data(withJSONObject: value as! [String:Any], options: [])
+        let jsonStr = String(data: data!, encoding: String.Encoding.utf8)
+        return jsonStr ?? ""
+    }
+}
+
+extension Int:DictionaryValue{    var value: Any {        return self    }}
+
+extension Float:DictionaryValue{    var value: Any {        return self    }}
+
+extension String:DictionaryValue{    var value: Any {        return self    }}
+
+extension Bool:DictionaryValue{    var value: Any {        return self    }}
+
+extension Array:DictionaryValue{
+    var value : Any{
+        //这里需要判断
+        return map{($0 as! DictionaryValue).value}
+    }
+}
+
+extension Dictionary:DictionaryValue{
+    var value : Any{
+        var dict = [String:Any]()
+        for (k,v) in self{
+            dict[k as! String] = (v as! DictionaryValue).value
+        }
+        return dict
+    }
+}
+extension Array:JsonValue{
+    var jsonValue:String{
+        //这里需要判断
+        let strs = map{($0 as! DictionaryValue).value}
+        let data = try? JSONSerialization.data(withJSONObject: strs, options: [])
+        let jsonStr = String(data: data!, encoding: String.Encoding.utf8)
+        return jsonStr ?? ""
+    }
+}
+extension Dictionary:JsonValue{
+    var jsonValue:String{
+        //for normal dict ,the key always be a stribg
+        //so we can do
+        var dict = [String:Any]()
+        for (k,v) in self{
+            dict[k as! String] = (v as! DictionaryValue).value
+        }
+        let data = try? JSONSerialization.data(withJSONObject: dict, options: [])
+        let jsonStr = String(data: data!, encoding: String.Encoding.utf8)
+        return jsonStr ?? ""
+    }
+}
+
+
+struct Cat:Codable,JsonValue{
     let name:String
     let age:Int
 }
 
 let kit = Cat(name: "Kitten", age: 12)
+let js = kit.jsonValue
+print(js)
+
 let  encoder = JSONEncoder()
 do{
     let data = try encoder.encode(kit)
@@ -55,23 +118,17 @@ for c in mirror.children{
 }
 
 
-extension Int:DictionaryValue{    var value: Any {        return self    }}
-
-extension Float:DictionaryValue{    var value: Any {        return self    }}
-
-extension String:DictionaryValue{    var value: Any {        return self    }}
-
-extension Bool:DictionaryValue{    var value: Any {        return self    }}
 
 
 
-struct Wizard:DictionaryValue{
+
+struct Wizard:JsonValue{
     let name:String
     let cat:Cat
 }
 let wizard =  Wizard(name: "Hermione", cat: kit)
 print(wizard.value)
-
+print(wizard.jsonValue)
 /*
  extension Array:DictionaryValue where Element:DictionaryValue{
  var value:Any{
@@ -79,21 +136,10 @@ print(wizard.value)
  }
  }
  */
+//在swift4 里面，我作们可以用约束来。这城用强转会出错的
 
-extension Array:DictionaryValue{
-    var value : Any{
-        //这里需要判断
-        return map{($0 as! DictionaryValue).value}
-    }
-}
 
-extension Dictionary:DictionaryValue{
-    var value : Any{
-        return mapValues{($0 as! DictionaryValue).value}
-    }
-}
-
-struct Gryffindor:DictionaryValue{
+struct Gryffindor:JsonValue{
     let wizards:[Wizard]
 }
 
@@ -103,6 +149,12 @@ let hedwig = Cat(name: "Hedwig", age: 12)
 let Harry = Wizard(name: "Harry", cat: hedwig)
 let graffindor = Gryffindor(wizards: [Harry,hermione])
 print(graffindor.value)
-
+print(graffindor.jsonValue)
 //Mirror 都可以对其进行探索。强大的运行时特性，也意味着额外的开销。Mirror 的文档明确告诉我们，
 //这个类型更多是用来在 Playground 和调试器中进行输出和观察用的。如果我们想要以高效的方式来处理字典转换问题，也许应该试试看其他思路
+
+
+let test1 = ["test1":hedwig,"test2":Harry] as [String : Any]
+let test1Dict = test1.value
+print(test1Dict)
+print(test1.jsonValue)

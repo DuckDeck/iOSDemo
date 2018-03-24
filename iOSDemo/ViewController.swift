@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 class ViewController: UIViewController {
-    var arrData = ["Memery","Media","Animation&Graphic","Layout","AI","Network","Touch","Library","Sensor","Rumtime","Keyboard"]
+    var arrData = ["Memery","Media","Animation&Graphic","Layout","AI","Network","Touch","Library","Sensor","Rumtime","Keyboard","Data"]
     var tbMenu = UITableView()
     
     
@@ -66,7 +66,8 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
             navigationController?.pushViewController(RunTimeViewController(), animated: true)
         case 10:
             navigationController?.pushViewController(KeyboardViewController(), animated: true)
-
+        case 11:
+            navigationController?.pushViewController(DataViewController(), animated: true)
         default:
             break
         }

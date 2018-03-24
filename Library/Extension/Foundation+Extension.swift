@@ -147,4 +147,85 @@ extension UIColor{
     }
 }
 
+protocol DictionaryValue{
+    var value:Any{ get }
+}
+
+protocol JsonValue:DictionaryValue {
+    var jsonValue:String{get }
+}
+
+extension DictionaryValue{
+    var value:Any{
+        let mirror = Mirror(reflecting: self)
+        var result = [String:Any]()
+        for c in mirror.children{
+            guard let key = c.label else {
+                fatalError("Invalid key in child: \(c)")
+            }
+            if let v = c.value as? DictionaryValue{
+                result[key] = v.value
+            }
+            else{
+                fatalError("Invalid value in child: \(c)")
+            }
+        }
+        return result
+    }
+}
+
+extension JsonValue{
+    var jsonValue:String{
+        let data = try? JSONSerialization.data(withJSONObject: value as! [String:Any], options: [])
+        let jsonStr = String(data: data!, encoding: String.Encoding.utf8)
+        return jsonStr ?? ""
+    }
+}
+
+extension Int:DictionaryValue{    var value: Any {        return self    }}
+
+extension Float:DictionaryValue{    var value: Any {        return self    }}
+
+extension String:DictionaryValue{    var value: Any {        return self    }}
+
+extension Bool:DictionaryValue{    var value: Any {        return self    }}
+
+extension Array:DictionaryValue{
+    var value : Any{
+        //这里需要判断
+        return map{($0 as! DictionaryValue).value}
+    }
+}
+
+extension Dictionary:DictionaryValue{
+    var value : Any{
+        var dict = [String:Any]()
+        for (k,v) in self{
+            dict[k as! String] = (v as! DictionaryValue).value
+        }
+        return dict
+    }
+}
+extension Array:JsonValue{
+    var jsonValue:String{
+        //这里需要判断
+        let strs = map{($0 as! DictionaryValue).value}
+        let data = try? JSONSerialization.data(withJSONObject: strs, options: [])
+        let jsonStr = String(data: data!, encoding: String.Encoding.utf8)
+        return jsonStr ?? ""
+    }
+}
+extension Dictionary:JsonValue{
+    var jsonValue:String{
+        //for normal dict ,the key always be a stribg
+        //so we can do
+        var dict = [String:Any]()
+        for (k,v) in self{
+            dict[k as! String] = (v as! DictionaryValue).value
+        }
+        let data = try? JSONSerialization.data(withJSONObject: dict, options: [])
+        let jsonStr = String(data: data!, encoding: String.Encoding.utf8)
+        return jsonStr ?? ""
+    }
+}
 

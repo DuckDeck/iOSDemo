@@ -15,7 +15,7 @@ let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height
 let TabBarHeight:CGFloat = 49.0
 let SystemVersion:Double = Double(UIDevice.current.systemVersion)!
-let APPVersion: AnyObject? = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as AnyObject?
+let APPVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
 let Scale = ScreenWidth / 320.0
 let lineHeight:CGFloat = ScreenWidth == 414 ? 0.38334 : 0.5
 
@@ -82,12 +82,21 @@ func Log<T>(message:T,file:String = #file, method:String = #function,line:Int = 
     #if DEBUG
         if   let path = NSURL(string: file)
         {
-            print("\(path.lastPathComponent!)[\(line)],\(method) \(message)")
+            let log = "\(path.lastPathComponent!)[\(line)],\(method) \(message)"
+            print(log)
         }
     #endif
 }
 
-
+func GLog<T>(message:T,file:String = #file, method:String = #function,line:Int = #line){
+    if   let path = NSURL(string: file)
+    {
+        let log = "\(path.lastPathComponent!)[\(line)],\(method) \(message)"
+        let s = LogTool.sharedInstance.addLog(log: log)
+        print(s)
+        print(log)
+    }
+}
 
 
 infix operator =~

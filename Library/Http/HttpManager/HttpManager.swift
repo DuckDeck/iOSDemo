@@ -12,7 +12,7 @@ class HttpManager{
 
     fileprivate var url:String!
     fileprivate var method:HTTPMethod!
-    fileprivate var params:Dictionary<String,AnyObject>?
+    fileprivate var params:Dictionary<String,Any>?
 
     fileprivate  var requestOptions:Dictionary<String,AnyObject>?
     fileprivate  var headers:Dictionary<String,AnyObject>?
@@ -25,7 +25,14 @@ class HttpManager{
         return m
     }
    
-    open func addParams(_ params:Dictionary<String,AnyObject>?)->HttpManager{
+    open static func post(_ url:String)->HttpManager{
+        let m = HttpManager()
+        m.url = url
+        m.method = .post
+        return m
+    }
+    
+    open func addParams(_ params:Dictionary<String,Any>?)->HttpManager{
         self.params = params
         return self
     }
@@ -36,8 +43,20 @@ class HttpManager{
     }
     
     open func completion(_ completion:((_ data:Data?,_ error:Error?)->Void)?){
+        if !url.contain(subStr: "easylog"){
+            GLog(message: url)
+        }
+        if let p = params{
+          //  GLog(message: p)
+        }
+
         self.completedBlock = completion
         Alamofire.request(url, method: method, parameters: params).responseData {  (data) in
+            if let d = data.data{
+                if let s = String(data: d, encoding: String.Encoding.utf8){
+                   // GLog(message: s)
+                }
+            }
             self.completedBlock?(data.data,data.error)
         }
     

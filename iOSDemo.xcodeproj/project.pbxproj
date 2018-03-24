@@ -103,6 +103,8 @@
 		AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE161F711F98910800B3293F /* MusicListViewController.swift */; };
 		AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
 		AE2C8C761FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
+		AE394B4F2065F6FE00CE3BD9 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B4E2065F6FE00CE3BD9 /* DataViewController.swift */; };
+		AE394B522065F72100CE3BD9 /* SQLiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B512065F72100CE3BD9 /* SQLiteViewController.swift */; };
 		AE3961EA1FD13D2400BF4CE9 /* GandAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3961E91FD13D2400BF4CE9 /* GandAlert.swift */; };
 		AE3A42F0201B00F900FF8AB2 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A42EF201B00F900FF8AB2 /* StackViewController.swift */; };
 		AE3AF0441F773B0000AF182A /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0431F773B0000AF182A /* AnimationViewController.swift */; };
@@ -252,6 +254,10 @@
 		AEDC54142012EC4100BB4E34 /* ConstraintArray+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54122012EC4100BB4E34 /* ConstraintArray+Extensions.swift */; };
 		AEDC54152012EC4800BB4E34 /* ConstraintArray+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54122012EC4100BB4E34 /* ConstraintArray+Extensions.swift */; };
 		AEDC54162012EC4800BB4E34 /* ConstraintArrayDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */; };
+		AEF0977B2064EFC70021E4ED /* DBTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE404C1FC806E40087D7ED /* DBTool.swift */; };
+		AEF0977D2064EFFF0021E4ED /* LogTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF0977C2064EFFF0021E4ED /* LogTool.swift */; };
+		AEF0977E2064F0020021E4ED /* LogTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF0977C2064EFFF0021E4ED /* LogTool.swift */; };
+		AEF097812065EE650021E4ED /* LogInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF097802065EE650021E4ED /* LogInfo.swift */; };
 		AEF362A72058CB1F001A490D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF362A62058CB1F001A490D /* main.swift */; };
 		AEF4A4381F6BC7DA00EE4001 /* NovelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4371F6BC7DA00EE4001 /* NovelConfig.swift */; };
 		AEF4A43A1F6BD28500EE4001 /* NovelContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A4391F6BD28500EE4001 /* NovelContentCell.swift */; };
@@ -407,6 +413,8 @@
 		AE0F709B1FBEB9CE00C8135C /* Trace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trace.swift; sourceTree = "<group>"; };
 		AE161F711F98910800B3293F /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
 		AE2C8C741FA30BB100000A1D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		AE394B4E2065F6FE00CE3BD9 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		AE394B512065F72100CE3BD9 /* SQLiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteViewController.swift; sourceTree = "<group>"; };
 		AE3961E91FD13D2400BF4CE9 /* GandAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GandAlert.swift; sourceTree = "<group>"; };
 		AE3A42EF201B00F900FF8AB2 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
 		AE3AF0431F773B0000AF182A /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
@@ -545,6 +553,8 @@
 		AEDC540E2012EC0000BB4E34 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintArrayDSL.swift; sourceTree = "<group>"; };
 		AEDC54122012EC4100BB4E34 /* ConstraintArray+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintArray+Extensions.swift"; sourceTree = "<group>"; };
+		AEF0977C2064EFFF0021E4ED /* LogTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTool.swift; sourceTree = "<group>"; };
+		AEF097802065EE650021E4ED /* LogInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInfo.swift; sourceTree = "<group>"; };
 		AEF362A42058CB1F001A490D /* ConsoleSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ConsoleSwift; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF362A62058CB1F001A490D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		AEF4A4371F6BC7DA00EE4001 /* NovelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelConfig.swift; sourceTree = "<group>"; };
@@ -828,6 +838,14 @@
 			path = MusicPlay;
 			sourceTree = "<group>";
 		};
+		AE394B502065F70A00CE3BD9 /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				AE394B512065F72100CE3BD9 /* SQLiteViewController.swift */,
+			);
+			path = SQLite;
+			sourceTree = "<group>";
+		};
 		AE3A42EE201B00CC00FF8AB2 /* StackView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1100,6 +1118,7 @@
 		AE9F31D41F69070E00339BB8 /* iOSDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AEF097822065F6D60021E4ED /* Data */,
 				AE77BFDE2046AB1100E2304F /* Keyboard */,
 				AE5A886B1FF373A000748F6A /* RunTime */,
 				AEBE403B1FC803420087D7ED /* Library */,
@@ -1172,6 +1191,7 @@
 		AE9F32311F690F1B00339BB8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				AEF0977F2065EE560021E4ED /* Model */,
 				AE5A88611FF36F8800748F6A /* View */,
 				AE0F70271FBA900200C8135C /* Http */,
 				AEB771FC1F6A807D008C4365 /* Tool */,
@@ -1328,8 +1348,10 @@
 		AEB771FC1F6A807D008C4365 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				AEBE404C1FC806E40087D7ED /* DBTool.swift */,
 				AEB771FD1F6A8089008C4365 /* Tool.swift */,
 				AE2C8C741FA30BB100000A1D /* Auth.swift */,
+				AEF0977C2064EFFF0021E4ED /* LogTool.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1395,7 +1417,6 @@
 			children = (
 				AEBE404F1FC8075C0087D7ED /* city.json */,
 				AEBE404B1FC806E40087D7ED /* CityDB.swift */,
-				AEBE404C1FC806E40087D7ED /* DBTool.swift */,
 				AEBE403F1FC803A60087D7ED /* CityChooseViewController.swift */,
 				AEBE40511FC80A5C0087D7ED /* CityChooseViewController+Delegate.swift */,
 				AEBE40411FC804820087D7ED /* AddressInfo.swift */,
@@ -1421,6 +1442,23 @@
 				AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */,
 			);
 			path = SkapkitExtension;
+			sourceTree = "<group>";
+		};
+		AEF0977F2065EE560021E4ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AEF097802065EE650021E4ED /* LogInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AEF097822065F6D60021E4ED /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AE394B502065F70A00CE3BD9 /* SQLite */,
+				AE394B4E2065F6FE00CE3BD9 /* DataViewController.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		AEF362A52058CB1F001A490D /* ConsoleSwift */ = {
@@ -1833,6 +1871,7 @@
 				AE3AF04D1F773DEB00AF182A /* GradientLayerViewController.swift in Sources */,
 				AE3AF04F1F77404900AF182A /* ReplicatorViewController.swift in Sources */,
 				AE0F70961FBEB9CA00C8135C /* Line.swift in Sources */,
+				AEF0977D2064EFFF0021E4ED /* LogTool.swift in Sources */,
 				AE0F706D1FBD6F2B00C8135C /* NFXRawBodyDetailsController.swift in Sources */,
 				AE0F70721FBD6F2B00C8135C /* NFXImageBodyDetailsController.swift in Sources */,
 				AE0F70631FBD6F2B00C8135C /* NFXInfoController.swift in Sources */,
@@ -1842,6 +1881,7 @@
 				AEA07F021F70C7D200FC9770 /* MemeryLeakTestViewController.swift in Sources */,
 				AE5A88701FF3768100748F6A /* ThreadViewController.swift in Sources */,
 				AE0F709A1FBEB9CA00C8135C /* CrossLine.swift in Sources */,
+				AEF097812065EE650021E4ED /* LogInfo.swift in Sources */,
 				AE0F709C1FBEB9CE00C8135C /* Trace.swift in Sources */,
 				AEBE40591FC80E500087D7ED /* UIScrollView+EmptyMessage.m in Sources */,
 				AE0F702D1FBA90A500C8135C /* RequestInfo.swift in Sources */,
@@ -1863,8 +1903,10 @@
 				AE3AF0551F77448A00AF182A /* LayoutViewController.swift in Sources */,
 				AE0F70661FBD6F2B00C8135C /* NFXListController.swift in Sources */,
 				AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */,
+				AE394B522065F72100CE3BD9 /* SQLiteViewController.swift in Sources */,
 				AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */,
 				AE3AF0441F773B0000AF182A /* AnimationViewController.swift in Sources */,
+				AE394B4F2065F6FE00CE3BD9 /* DataViewController.swift in Sources */,
 				AE9F32851F690F5200339BB8 /* GrandModel.swift in Sources */,
 				AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */,
 				AE0F70241FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */,
@@ -1942,6 +1984,7 @@
 				AE9F329D1F6911C200339BB8 /* TimeSpan.swift in Sources */,
 				AEB772161F6BBDC9008C4365 /* LoadMoreCell.swift in Sources */,
 				AE9F329A1F6911BA00339BB8 /* GrandStore.swift in Sources */,
+				AEF0977B2064EFC70021E4ED /* DBTool.swift in Sources */,
 				AE9F32A01F6911F700339BB8 /* GrandCue.swift in Sources */,
 				AE9F32981F6911B300339BB8 /* GrandModel.swift in Sources */,
 				AEB7720A1F6B6F6C008C4365 /* Routers.swift in Sources */,
@@ -1962,6 +2005,7 @@
 				AEAC62CE200CAD6B008454E3 /* BaseViewModel.swift in Sources */,
 				AEDC54162012EC4800BB4E34 /* ConstraintArrayDSL.swift in Sources */,
 				AE9F32AA1F6918EA00339BB8 /* APIManager.swift in Sources */,
+				AEF0977E2064F0020021E4ED /* LogTool.swift in Sources */,
 				AE9F320C1F69087E00339BB8 /* AppDelegate.swift in Sources */,
 				AEB772121F6BB1DD008C4365 /* Foundation+Extension.swift in Sources */,
 				AEF4A43F1F6F60E700EE4001 /* BookMarkViewModel.swift in Sources */,

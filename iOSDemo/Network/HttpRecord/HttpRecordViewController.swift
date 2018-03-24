@@ -10,18 +10,13 @@ import UIKit
 import SnapKit
 import Alamofire
 class HttpRecordViewController: UIViewController {
-
     let btn = UIButton()
     var requestInfo:RequestInfo?
-  
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.white
-        
-       
-        
         btn.setTitle("请示", for: .normal)
         btn.setTitleColor(UIColor.red, for: .normal)
         btn.addTarget(self, action: #selector(HttpRecordViewController.request(sender:)), for: .touchUpInside)
@@ -33,6 +28,9 @@ class HttpRecordViewController: UIViewController {
             m.height.equalTo(50)
         }
         
+        
+        let btnLog = UIBarButtonItem(title: "Log", style: .plain, target: self, action: #selector(httpLog))
+        navigationItem.rightBarButtonItem = btnLog
         //this library now work for Alamofire
         
         //        if let record = SWHttpTrafficRecorder.shared(){
@@ -51,10 +49,14 @@ class HttpRecordViewController: UIViewController {
         requestInfo?.requestTimeLine = RequestTimelineInfo()
     }
     
+    @objc func httpLog()  {
+        NFX.sharedInstance().show()
+    }
+    
     @objc func request(sender:UIButton)  {
-        HttpManager.get("https://api.bqbbq.com/api/index").completion { (data, err) in
-            let _ = String(data: data!, encoding: String.Encoding.utf8)
-            //print(str)
+        HttpManager.get("https://api.douban.com/v2/movie/in_theaters").completion { (data, err) in
+            let str = String(data: data!, encoding: String.Encoding.utf8)
+            print(str)
         }
 
  
