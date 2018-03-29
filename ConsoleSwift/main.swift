@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import ObjectiveC
+/*
 protocol DictionaryValue{
     var value:Any{ get }
 }
@@ -158,3 +160,5 @@ let test1 = ["test1":hedwig,"test2":Harry] as [String : Any]
 let test1Dict = test1.value
 print(test1Dict)
 print(test1.jsonValue)
+*/
+
