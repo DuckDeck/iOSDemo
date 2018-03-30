@@ -207,6 +207,7 @@
 		AEA9F835206A2A62000E7748 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9F834206A2A62000E7748 /* HttpClient.swift */; };
 		AEA9F838206CD82F000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9F837206CD82F000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift */; };
 		AEA9F83A206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9F839206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift */; };
+		AEA9F83C206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9F83B206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift */; };
 		AEAC62CE200CAD6B008454E3 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAC62CD200CAD6B008454E3 /* BaseViewModel.swift */; };
 		AEAD7D0D1FD8E5A800798BED /* URLMatcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAD7D0C1FD8E5A700798BED /* URLMatcher.framework */; };
 		AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
@@ -509,6 +510,7 @@
 		AEA9F834206A2A62000E7748 /* HttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		AEA9F837206CD82F000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift"; sourceTree = "<group>"; };
 		AEA9F839206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift"; sourceTree = "<group>"; };
+		AEA9F83B206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift"; sourceTree = "<group>"; };
 		AEAC62CD200CAD6B008454E3 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		AEAD7D0C1FD8E5A700798BED /* URLMatcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLMatcher.framework; path = Carthage/Build/iOS/URLMatcher.framework; sourceTree = "<group>"; };
 		AEB771FD1F6A8089008C4365 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
@@ -1474,6 +1476,7 @@
 				AEF362A62058CB1F001A490D /* main.swift */,
 				AEA9F837206CD82F000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift */,
 				AEA9F839206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift */,
+				AEA9F83B206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift */,
 			);
 			path = ConsoleSwift;
 			sourceTree = "<group>";
@@ -2085,6 +2088,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEA9F83C206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift in Sources */,
 				AEA9F83A206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift in Sources */,
 				AEA9F838206CD82F000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift in Sources */,
 				AEF362A72058CB1F001A490D /* main.swift in Sources */,

@@ -119,11 +119,6 @@ for c in mirror.children{
     print("\(c.label!) - \(c.value)")
 }
 
-
-
-
-
-
 struct Wizard:JsonValue{
     let name:String
     let cat:Cat
@@ -161,4 +156,6 @@ let test1Dict = test1.value
 print(test1Dict)
 print(test1.jsonValue)
 */
+
+
 
