@@ -159,3 +159,59 @@ print(test1.jsonValue)
 
 
 
+protocol Drive{
+    func run()
+}
+
+
+public  class Tire{ //轮胎
+    var brand:String? //品牌
+    var size:Float = 0 //大小
+}
+
+public class Vehicle:Drive{
+    var carType:String?
+    var tires:[Tire]?
+    var host:String?// 主人
+    var brand:String?//汽车品牌
+    func run() {
+        if let h = host{
+            print("\(h)Drive a \(brand) \(carType) car run")
+        }
+        else{
+            print("this car is not selled")
+        }
+    }
+}
+
+public class Trunk:Vehicle{
+    public var packintBox:String?
+}
+
+public struct TranGroup{ //货运集团
+    var trunks = {
+        return [Trunk]()
+    }()
+    
+    var country:String?
+    var turnover:Float?
+}
+
+//一个中国的货运集团
+var tranGroup = TranGroup()
+
+tranGroup.country = "天朝"
+tranGroup.turnover = 2222
+let trunk1 = Trunk()
+trunk1.brand = "MAN"
+trunk1.host = "Stan"
+trunk1.packintBox = "Big And Long"
+tranGroup.trunks.append(trunk1)
+let mirrorTran = Mirror(reflecting: tranGroup)
+print(tranGroup) //打印出  Mirror for TranGroup
+print(mirrorTran.subjectType) //打印出  TranGroup
+print(mirrorTran.displayStyle) //Optional(Swift.Mirror.DisplayStyle.Struct)，是个Struct类型
+print(mirrorTran.superclassMirror) //nil，因为没有父类
+for (key,value) in mirrorTran.children{
+    print("\(key) : \(value)")
+}

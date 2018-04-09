@@ -76,7 +76,7 @@ required init?(coder aDecoder: NSCoder) {
 
 
 
-/*  -------------测试归档
+/*   
  
  @objcMembers class DemoArchiver:GrandModel,NSCoding {
  var demoString:String?
