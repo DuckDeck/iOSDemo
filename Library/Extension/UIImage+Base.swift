@@ -193,4 +193,20 @@ extension UIImage{
     }
     
     
+    func addWatermark(text:String,point:CGPoint,attribute:[NSAttributedStringKey:Any]? = [NSAttributedStringKey.foregroundColor:UIColor.white]) -> UIImage {
+        //UIGraphicsBeginImageContextWithOptions(self.size, false, 0)
+        UIGraphicsBeginImageContext(self.size)
+        let fontSize = self.size.width / 30
+        var attr = attribute ?? [NSAttributedStringKey:Any]()
+        attr[NSAttributedStringKey.font] = UIFont.systemFont(ofSize: fontSize)
+        draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        (text as NSString).draw(at: point, withAttributes: attr)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        print("self Size width: \(self.size.width) height: \(self.size.height)")
+        print("newImage Size width: \(newImage!.size.width) height: \(newImage!.size.height)")
+        return newImage ?? self
+    }
+    
+    
 }
