@@ -23,13 +23,14 @@ class SnapkitViewController: UIViewController,UITextViewDelegate {
         super.viewDidLoad()
         title = "试验Snapkit"
         view.backgroundColor = UIColor.white
-        lbl.numberOfLines  = 1
+        //lbl.numberOfLines  = 0
+        lbl.layer.borderWidth = 1
         lbl.font = UIFont.systemFont(ofSize: 15)
         lbl.text = str
         view.addSubview(lbl)
         lbl.snp.makeConstraints {
             $0.left.equalTo(10)
-            $0.height.equalTo(15)
+            //$0.height.equalTo(15)
             $0.top.equalTo(77)
         }
         

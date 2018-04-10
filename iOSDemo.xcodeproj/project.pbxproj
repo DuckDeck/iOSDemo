@@ -140,6 +140,8 @@
 		AE5AD7EE206111D600289798 /* RippleAnimtaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5AD7ED206111D600289798 /* RippleAnimtaionView.swift */; };
 		AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */; };
 		AE7BBCE4207B498B005DBE0C /* WatermarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BBCE3207B498B005DBE0C /* WatermarkViewController.swift */; };
+		AE7BBCE6207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BBCE5207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift */; };
+		AE7BBCEA207CB66A005DBE0C /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BBCE9207CB66A005DBE0C /* UIAlertController+Extension.swift */; };
 		AE82B1CD200F3A55004D0ECE /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = AE82B1CC200F3A55004D0ECE /* Test.m */; };
 		AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */; };
 		AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD6D1FDE6DA8001882D1 /* SensorViewController.swift */; };
@@ -455,6 +457,8 @@
 		AE5AD7ED206111D600289798 /* RippleAnimtaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleAnimtaionView.swift; sourceTree = "<group>"; };
 		AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterViewController.swift; sourceTree = "<group>"; };
 		AE7BBCE3207B498B005DBE0C /* WatermarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkViewController.swift; sourceTree = "<group>"; };
+		AE7BBCE5207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift"; sourceTree = "<group>"; };
+		AE7BBCE9207CB66A005DBE0C /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		AE82B1CB200F3A55004D0ECE /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 		AE82B1CC200F3A55004D0ECE /* Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
 		AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSession.swift; sourceTree = "<group>"; };
@@ -1282,6 +1286,7 @@
 				AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */,
 				AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */,
 				AE5A88771FF38F9F00748F6A /* UIImage+Base.swift */,
+				AE7BBCE9207CB66A005DBE0C /* UIAlertController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1488,6 +1493,7 @@
 				AEA9F837206CD82F000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift */,
 				AEA9F839206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift */,
 				AEA9F83B206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift */,
+				AE7BBCE5207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift */,
 			);
 			path = ConsoleSwift;
 			sourceTree = "<group>";
@@ -1914,6 +1920,7 @@
 				AE3961EA1FD13D2400BF4CE9 /* GandAlert.swift in Sources */,
 				AE0F70971FBEB9CA00C8135C /* DrawView.swift in Sources */,
 				AE0F70611FBD6F2B00C8135C /* NFXAssets.swift in Sources */,
+				AE7BBCEA207CB66A005DBE0C /* UIAlertController+Extension.swift in Sources */,
 				AE0F707E1FBD6F2B00C8135C /* NFXListController_iOS.swift in Sources */,
 				AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */,
 				AE5AD7EC206111AC00289798 /* RippleViewController.swift in Sources */,
@@ -2100,6 +2107,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE7BBCE6207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift in Sources */,
 				AEA9F83C206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift in Sources */,
 				AEA9F83A206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift in Sources */,
 				AEA9F838206CD82F000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift in Sources */,
