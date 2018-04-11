@@ -208,5 +208,14 @@ extension UIImage{
         return newImage ?? self
     }
     
+    func addWatermark(maskImage:UIImage) -> UIImage {
+        UIGraphicsBeginImageContext(self.size)
+        draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        maskImage.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+         let newImage = UIGraphicsGetImageFromCurrentImageContext()
+         UIGraphicsEndImageContext()
+        return newImage ?? self
+    }
+    
     
 }

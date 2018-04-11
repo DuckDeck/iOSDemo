@@ -13,6 +13,7 @@ class WatermarkViewController: UIViewController {
     let txtWatermark = UITextField()
     let btnChooseImg = UIButton()
     let btnAddWatermark = UIButton()
+    let btnAddImageWatermark = UIButton()
     let imgWatermark = UIImageView()
     var strWatermark = "此处设置水印"
     let imagePickerController = ImagePickerController()
@@ -32,13 +33,23 @@ class WatermarkViewController: UIViewController {
         btnChooseImg.addTarget(self, action: #selector(addImage), for: .touchUpInside)
         
         btnAddWatermark.title(title: "添加水印").color(color: UIColor.red).bgColor(color: UIColor.lightGray).addTo(view: view).snp.makeConstraints { (m) in
-            m.left.equalTo(btnChooseImg.snp.right).offset(50)
+            m.left.equalTo(btnChooseImg.snp.right).offset(30)
             m.top.equalTo(100)
             m.width.equalTo(100)
             m.height.equalTo(25)
         }
         btnAddWatermark.addTarget(self, action: #selector(addWatermark), for: .touchUpInside)
 
+        
+        btnAddImageWatermark.title(title: "添加水印").color(color: UIColor.red).bgColor(color: UIColor.lightGray).addTo(view: view).snp.makeConstraints { (m) in
+            m.left.equalTo(btnAddWatermark.snp.right).offset(30)
+            m.top.equalTo(100)
+            m.width.equalTo(100)
+            m.height.equalTo(25)
+        }
+        btnAddImageWatermark.addTarget(self, action: #selector(addImageWatermark), for: .touchUpInside)
+
+        
         imgWatermark.contentMode = .scaleAspectFit
         imgWatermark.addTo(view: view).snp.makeConstraints { (m) in
             m.left.equalTo(10)
@@ -62,6 +73,14 @@ class WatermarkViewController: UIViewController {
     @objc func addWatermark()  {
         if let img = imgWatermark.image{
             let newImage = img.addWatermark(text: strWatermark, point: CGPoint(x: 100, y: 100))
+            imgWatermark.image = newImage
+        }
+    }
+    
+    @objc func addImageWatermark()  {
+        if let img = imgWatermark.image{
+            
+            let newImage = img.addWatermark(maskImage: #imageLiteral(resourceName: "img_watermark"))
             imgWatermark.image = newImage
         }
     }
