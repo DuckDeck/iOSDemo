@@ -208,12 +208,49 @@ extension UIImage{
         return newImage ?? self
     }
     
-    func addWatermark(maskImage:UIImage) -> UIImage {
+    func addWatermark(maskImage:UIImage,scale:CGFloat = 1) -> UIImage {
         UIGraphicsBeginImageContext(self.size)
+//        print("self.size")
+//        print(self.size)
+//        print("maskImage.size")
+//        print(maskImage.size)
         draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
-        maskImage.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        var x:CGFloat = 0
+        var y:CGFloat = 0
+        // 效果还是不太好，scale还是要按照分辨率来
+        let adjustScale = self.size.width / 1500
+        let w = maskImage.size.width * scale * adjustScale
+        let h = maskImage.size.height * scale * adjustScale
+        if w < self.size.width &&  h < self.size.height{
+            while x < self.size.width && y < self.size.height{
+                maskImage.draw(in: CGRect(x: x, y: y, width: w, height: h))
+                x += w
+                if x > self.size.width{
+                    x = 0
+                    y = y + h
+                }
+            }
+        }
+        else if w < self.size.width &&  h > self.size.height{
+            while x < self.size.width {
+                maskImage.draw(in: CGRect(x: x, y: y, width: w, height: h))
+                x += w
+            }
+        }
+        else if w > self.size.width &&  h < self.size.height{
+            while y < self.size.height {
+                maskImage.draw(in: CGRect(x: x, y: y, width: w, height: h))
+                y = y + h
+            }
+        }
+        else{
+            maskImage.draw(in: CGRect(x: x, y: y, width: w, height: h))
+        }
+        
          let newImage = UIGraphicsGetImageFromCurrentImageContext()
          UIGraphicsEndImageContext()
+//        print("newImage.size")
+//        print(newImage!.size)
         return newImage ?? self
     }
     
