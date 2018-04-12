@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 class MediaViewController: UIViewController {
 
-    var arrData = ["CaptureVideo","Play Music","Add Watermark"]
+    var arrData = ["CaptureVideo","Play Music","Add Watermark","Record Voice"]
     var tbMenu = UITableView()
     
     override func viewDidLoad() {
@@ -50,7 +50,8 @@ extension MediaViewController:UITableViewDelegate,UITableViewDataSource{
             navigationController?.pushViewController(MusicListViewController(), animated: true)
         case 2:
             navigationController?.pushViewController(WatermarkViewController(), animated: true)
-            
+        case 3:
+            navigationController?.pushViewController(SoundRecordViewController(), animated: true)
         default:
             break
         }

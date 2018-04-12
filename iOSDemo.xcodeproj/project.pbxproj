@@ -139,6 +139,7 @@
 		AE5AD7EC206111AC00289798 /* RippleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5AD7EB206111AC00289798 /* RippleViewController.swift */; };
 		AE5AD7EE206111D600289798 /* RippleAnimtaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5AD7ED206111D600289798 /* RippleAnimtaionView.swift */; };
 		AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */; };
+		AE7278A9207F5A28005D9D6D /* SoundRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7278A8207F5A28005D9D6D /* SoundRecordViewController.swift */; };
 		AE7BBCE4207B498B005DBE0C /* WatermarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BBCE3207B498B005DBE0C /* WatermarkViewController.swift */; };
 		AE7BBCE6207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BBCE5207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift */; };
 		AE82B1CD200F3A55004D0ECE /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = AE82B1CC200F3A55004D0ECE /* Test.m */; };
@@ -455,6 +456,7 @@
 		AE5AD7EB206111AC00289798 /* RippleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleViewController.swift; sourceTree = "<group>"; };
 		AE5AD7ED206111D600289798 /* RippleAnimtaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleAnimtaionView.swift; sourceTree = "<group>"; };
 		AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterViewController.swift; sourceTree = "<group>"; };
+		AE7278A8207F5A28005D9D6D /* SoundRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRecordViewController.swift; sourceTree = "<group>"; };
 		AE7BBCE3207B498B005DBE0C /* WatermarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkViewController.swift; sourceTree = "<group>"; };
 		AE7BBCE5207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift"; sourceTree = "<group>"; };
 		AE82B1CB200F3A55004D0ECE /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
@@ -944,6 +946,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5752921F76931C00F6AAC5 /* MediaViewController.swift */,
+				AE7278A7207F5A08005D9D6D /* SoundRecord */,
 				AE7BBCE2207B496D005DBE0C /* Watermark */,
 				AE161F701F988CFB00B3293F /* MusicPlay */,
 				AE5752941F76933800F6AAC5 /* CaptureVideo */,
@@ -1055,6 +1058,14 @@
 				AE83BD6D1FDE6DA8001882D1 /* SensorViewController.swift */,
 			);
 			path = Sensor;
+			sourceTree = "<group>";
+		};
+		AE7278A7207F5A08005D9D6D /* SoundRecord */ = {
+			isa = PBXGroup;
+			children = (
+				AE7278A8207F5A28005D9D6D /* SoundRecordViewController.swift */,
+			);
+			path = SoundRecord;
 			sourceTree = "<group>";
 		};
 		AE77BFDE2046AB1100E2304F /* Keyboard */ = {
@@ -1880,6 +1891,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE0F707D1FBD6F2B00C8135C /* NFXDetailsController_iOS.swift in Sources */,
+				AE7278A9207F5A28005D9D6D /* SoundRecordViewController.swift in Sources */,
 				AE9F32831F690F5200339BB8 /* GrandModel+Convert.swift in Sources */,
 				AE0F70651FBD6F2B00C8135C /* NFXSettingsController.swift in Sources */,
 				AE0F70861FBE861A00C8135C /* SliderDemoViewController.swift in Sources */,
