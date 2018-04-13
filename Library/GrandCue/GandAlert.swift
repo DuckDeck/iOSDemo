@@ -21,6 +21,9 @@ extension UIAlertController{
         }
         if let m = attrMessage{
             alert.setValue(m, forKey: "attributedMessage")
+            if let v = alert.view.subviews[0].subviews[0].subviews[0].subviews[0].subviews[0].subviews[attrTitle == nil ? 0 : 1] as? UILabel{
+                v.textAlignment = .left
+            }
         }
         return alert
     }
