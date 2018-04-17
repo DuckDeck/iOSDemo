@@ -157,5 +157,18 @@ print(test1Dict)
 print(test1.jsonValue)
 */
 
-/*
 
+func getSelfProperty(obj:Any)->[String]{  //和description属性一样
+    var selfProperties = [String]()
+    var count:UInt32 =  0
+    let vars = class_copyIvarList(obj, &count)
+    for i in 0..<count {
+        let t = ivar_getName((vars?[Int(i)])!)
+        if let n = NSString(cString: t!, encoding: String.Encoding.utf8.rawValue) as String?{
+            selfProperties.append(n)
+        }
+}
+
+
+ 
+ 

@@ -88,6 +88,18 @@ extension UILabel{
         return self
     }
     
+    func TwoSideAligment() {
+        guard let txt = self.text else {
+            return
+        }
+        let textSize = (txt as NSString).boundingRect(with: CGSize(width: self.frame.size.width, height: CGFloat(MAXFLOAT)), options: [NSStringDrawingOptions.usesLineFragmentOrigin,NSStringDrawingOptions.truncatesLastVisibleLine,NSStringDrawingOptions.usesFontLeading], attributes: [NSAttributedStringKey.font:self.font], context: nil)
+        let margin = (self.frame.size.width - textSize.size.width) / CGFloat(txt.count - 1)
+        let attrStr = NSMutableAttributedString(string: txt)
+        attrStr.addAttribute(kCTKernAttributeName as NSAttributedStringKey, value: margin, range: NSMakeRange(0, txt.count - 1))
+//        attrStr.addAttributes([kCTKernAttributeName:margin], range: NSMakeRange(0, txt.count - 1))
+        self.attributedText = attrStr
+    }
+    
 }
 
 extension UITextField{

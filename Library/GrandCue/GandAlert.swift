@@ -14,6 +14,25 @@ extension UIAlertController{
         return alert
     }
     
+  
+
+    func setMessageAligment(aligment:NSTextAlignment) -> Self {
+        let parent = self.view.subviews[0].subviews[0].subviews[0].subviews[0].subviews[0]
+        if title == nil && message != nil{
+            if let lbl = parent.subviews[0] as? UILabel{
+               lbl.textAlignment = aligment  //只能改这个，不能改色和字体
+            }
+        }
+        else if title != nil && message != nil{
+            if let lbl = parent.subviews[1] as? UILabel{
+                 lbl.textAlignment = aligment
+            }
+        }
+        return self
+    }
+    
+  
+    
     static func title(attrTitle:NSAttributedString?,attrMessage:NSAttributedString?, style:UIAlertControllerStyle = .alert) -> UIAlertController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: style)
         if let t = attrTitle{
@@ -43,5 +62,9 @@ extension UIAlertController{
     
     func showAlert(viewController:UIViewController,animation:Bool = true)  {
         viewController.present(self, animated: animation, completion: nil)
+    }
+    
+    public func show() {
+        UIApplication.shared.keyWindow?.rootViewController?.present(self, animated: true, completion: nil)
     }
 }

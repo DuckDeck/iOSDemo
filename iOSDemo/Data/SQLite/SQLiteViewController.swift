@@ -51,7 +51,7 @@ class SQLiteViewController: UIViewController {
         }
     }
     
-    func uploadLog()  {
+    @objc func uploadLog()  {
         let logs = LogTool.sharedInstance.getNotUploadLog()
         let lat = 113.23123
         let lon = 11.3123123
