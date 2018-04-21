@@ -24,9 +24,9 @@ class CitySearchResultView: UIView ,UITableViewDelegate,UITableViewDataSource{
         tbCity.dataSource = self
         tbCity.tableFooterView = UIView()
         tbCity.backgroundColor = UIColor.Hex(hexString: "#f0f1f1")
-        let str = NSMutableAttributedString(string: "抱歉，未找到相关城市，可尝试修改后重试")
-        str.addAttributes([NSAttributedStringKey.foregroundColor:UIColor.Hex(hexString: "#999999"),NSAttributedStringKey.font:UIFont.systemFont(ofSize: 13)], range: NSMakeRange(0, str.length))
-        tbCity.setEmptyInfo("CitySearch", emptyMessage: str, imgUrl: "empty_city_search_gray", imageYScale: 0.16, imageHeight: 60, messageDistanseFromImage: 15, messageHeight: 18)
+//        let str = NSMutableAttributedString(string: "抱歉，未找到相关城市，可尝试修改后重试")
+//        str.addAttributes([NSAttributedStringKey.foregroundColor:UIColor.Hex(hexString: "#999999"),NSAttributedStringKey.font:UIFont.systemFont(ofSize: 13)], range: NSMakeRange(0, str.length))
+//        tbCity.setEmptyInfo("CitySearch", emptyMessage: str, imgUrl: "empty_city_search_gray", imageYScale: 0.16, imageHeight: 60, messageDistanseFromImage: 15, messageHeight: 18)
         addSubview(tbCity)
     }
     

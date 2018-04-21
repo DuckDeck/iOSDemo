@@ -31,8 +31,12 @@ class RecordListViewController: UIViewController {
             m.left.right.bottom.equalTo(0)
             m.top.equalTo(NavigationBarHeight)
         }
-        
-        
+        let v = UITableView.createEmptyView(size: CGSize(width: ScreenWidth, height: 50), text: "目前没有音频文件", font: UIFont.systemFont(ofSize: 20), color: UIColor.brown)
+        tb.setEmptyView(view: v, offset: 300)
+        listRecordings()
+    }
+
+    func listRecordings() {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let fileManager = FileManager.default
         do {
@@ -41,15 +45,14 @@ class RecordListViewController: UIViewController {
                                                             options: .skipsHiddenFiles)
             arrFiles = files.filter({ (name: URL) -> Bool in
                 return name.pathExtension == "m4a"
-              
+                
             })
-            tb.reloadData()
+            tb.emptyReload()
             
         } catch {
             print("could not get contents of directory at \(documentsDirectory)")
             print(error.localizedDescription)
         }
-        
     }
     
     @objc func tick() {
@@ -73,7 +76,7 @@ class RecordListViewController: UIViewController {
                 }
             }
             arrFiles?.removeAll()
-            tb.reloadData()
+            tb.emptyReload()
             GrandCue.toast("已经全部删除")
         }
         
@@ -101,6 +104,89 @@ class RecordListViewController: UIViewController {
             self?.deleteAllAudio()
         }).action(title: "取消", handle: nil).show()
     }
+    
+    
+    
+    func deleteAudio(url:URL)   {
+        
+        UIAlertController.title(title: "删除该\(url.lastPathComponent)声音文件", message: nil).action(title: "确定", handle: {[weak self](action:UIAlertAction) in
+            self?.deleteRecording(url)
+            self?.arrFiles?.removeWith(condition: { (u) -> Bool in
+                return  u.lastPathComponent == url.lastPathComponent
+            })
+            self?.tb.emptyReload()
+        }).action(title: "取消", handle: nil).show()
+        
+        
+    }
+    
+    func rename(url:URL) {
+        let alert = UIAlertController(title: "Rename",
+                                      message: "Rename Recording \(url.lastPathComponent)?",
+            preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {
+            [unowned alert] _ in
+            print("yes was tapped \(url)")
+            if let textFields = alert.textFields {
+                let tfa = textFields as [UITextField]
+                let text = tfa[0].text
+                let newUrl = URL(fileURLWithPath: text!)
+                self.renameRecording(url, to: newUrl)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: {_ in
+            print("no was tapped")
+        }))
+        alert.addTextField(configurationHandler: {textfield in
+            textfield.placeholder = "Enter a filename"
+            textfield.text = "\(url.lastPathComponent)"
+        })
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func renameRecording(_ from: URL, to: URL) {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let toURL = documentsDirectory.appendingPathComponent(to.lastPathComponent)
+        
+        print("renaming file \(from.absoluteString) to \(to) url \(toURL)")
+        let fileManager = FileManager.default
+        fileManager.delegate = self
+        do {
+            try FileManager.default.moveItem(at: from, to: toURL)
+        } catch {
+            print(error.localizedDescription)
+            print("error renaming recording")
+        }
+        DispatchQueue.main.async {
+            self.listRecordings()
+            self.tb.emptyReload()
+        }
+    }
+    func deleteRecording(_ url: URL) {
+        
+        print("removing file at \(url.absoluteString)")
+        let fileManager = FileManager.default
+        
+        do {
+            try fileManager.removeItem(at: url)
+        } catch {
+            print(error.localizedDescription)
+            print("error deleting recording")
+        }
+        
+        DispatchQueue.main.async {
+            self.listRecordings()
+           self.tb.emptyReload()
+        }
+    }
+}
+
+extension RecordListViewController:FileManagerDelegate{
+    func fileManager(_ fileManager: FileManager, shouldMoveItemAt srcURL: URL, to dstURL: URL) -> Bool {
+        
+        print("should move \(srcURL) to \(dstURL)")
+        return true
+    }
 }
 
 extension RecordListViewController:UITableViewDataSource,UITableViewDelegate{
@@ -124,14 +210,6 @@ extension RecordListViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let url = arrFiles![indexPath.row]
         play(url)
-    }
-    
-    func deleteAudio(url:URL)   {
-    
-    }
-    
-    func rename(url:URL) {
-        
     }
 }
 
@@ -180,11 +258,11 @@ class AudioFileCell: UITableViewCell {
     }
     
     @objc func rename() {
-        block(1,url!)
+        block?(1,url!)
     }
     
     @objc func deleteAudio() {
-        block(2,url!)
+        block?(0,url!)
     }
     
     required init?(coder aDecoder: NSCoder) {

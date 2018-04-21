@@ -10,5 +10,4 @@
 #define bridge_h
 
 #import "SWHttpTrafficRecorder.h"
-#import "UIScrollView+EmptyMessage.h"
 #endif /* bridge_h */

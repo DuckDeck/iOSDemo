@@ -150,7 +150,7 @@ extension CityChooseViewController :CitySearchDelegate,CitySearchResultDelegate{
     }
     
     func searchString(keyword: String) {
-        vSearchResult?.tbCity.removeEmptyPage(withIdentity: "CitySearch")
+       // vSearchResult?.tbCity.removeEmptyPage(withIdentity: "CitySearch")
         if keyword.count == 0 {
             vSearchResult?.arrCity?.removeAll()
             vSearchResult?.tbCity.reloadData()
@@ -158,7 +158,7 @@ extension CityChooseViewController :CitySearchDelegate,CitySearchResultDelegate{
         }
         //这里不能输入, 用与颪
         if !(keyword =~ "[a-z]|[A-Z]|^[\\u4E00-\\u9FFF]+$") {
-            vSearchResult?.tbCity.showEmptyPage(withIdentity: "CitySearch")
+            //vSearchResult?.tbCity.showEmptyPage(withIdentity: "CitySearch")
             vSearchResult?.arrCity?.removeAll()
             vSearchResult?.tbCity.reloadData()
             return
@@ -170,7 +170,7 @@ extension CityChooseViewController :CitySearchDelegate,CitySearchResultDelegate{
             arrResult = CityDB.sharedInstance.searchWithChinese(str: keyword)
         }
         if arrResult!.count == 0 {
-            vSearchResult?.tbCity.showEmptyPage(withIdentity: "CitySearch")
+            //vSearchResult?.tbCity.showEmptyPage(withIdentity: "CitySearch")
             vSearchResult?.arrCity?.removeAll()
             vSearchResult?.tbCity.reloadData()
             return

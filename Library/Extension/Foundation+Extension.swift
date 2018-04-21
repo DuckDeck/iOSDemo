@@ -75,6 +75,19 @@ extension String{
 }
 
 extension Array{
+    
+    mutating func removeWith(condition:(_ item:Element)->Bool)  {
+        var index = [Int]()
+        for i in 0..<self.count{
+            if condition(self[i]){
+                index.append(i)
+            }
+        }
+        self.removeAdIndexs(indexs: index)
+    }
+
+    
+    
     mutating func exchangeObjectAdIndex(IndexA:Int,atIndexB:Int)
     {
         if IndexA >= self.count || IndexA < 0{
