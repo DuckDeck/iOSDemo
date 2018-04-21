@@ -11,7 +11,7 @@ import UIKit
 class AlertViewController: UIViewController {
 
     let btn = UIButton()
-    
+    var timer:GrandTimer!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,13 +23,17 @@ class AlertViewController: UIViewController {
             m.height.equalTo(30)
         }
         btn.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
+        timer = GrandTimer.scheduleTimerWithTimeSpan(TimeSpan.fromSeconds(1), target: self, sel: #selector(tick), userInfo: nil, repeats: true, dispatchQueue: DispatchQueue.main)
+        
+        let startBtn = UIBarButtonItem(title: "start", style: .plain, target: self, action: #selector(start))
+        navigationItem.rightBarButtonItem = startBtn
     }
 
     @objc func showAlert() {
-        
+        timer.invalidate()
         let attrStr = NSMutableAttributedString(string: "购买本次修复服务需花费20积分,是否确实购买")
         attrStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.red, range: NSMakeRange(11, 2))
-        let alert = UIAlertController.title(attrTitle: nil, attrMessage: attrStr).action(title: "取消",handle: nil, color:UIColor.gray).action(title: "购买", handle: {[weak self](action:UIAlertAction) in
+        let alert = UIAlertController.title(attrTitle: nil, attrMessage: attrStr).action(title: "取消",handle: nil, color:UIColor.gray).action(title: "购买", handle: {(action:UIAlertAction) in
             
         })
         alert.show()
@@ -42,5 +46,12 @@ class AlertViewController: UIViewController {
 //        alert.show()
     }
    
+    @objc func start()  {
+        timer.fire()
+    }
 
+    @objc func tick() {
+        Log(message: "123132123")
+    }
+    
 }

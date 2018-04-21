@@ -91,6 +91,7 @@ class RecordListViewController: UIViewController {
             player.prepareToPlay()
             player.volume = 1.0
             player.play()
+            GrandCue.toast("正在播放\(url.lastPathComponent)")
         } catch {
             self.player = nil
             print(error.localizedDescription)
@@ -111,10 +112,6 @@ class RecordListViewController: UIViewController {
         
         UIAlertController.title(title: "删除该\(url.lastPathComponent)声音文件", message: nil).action(title: "确定", handle: {[weak self](action:UIAlertAction) in
             self?.deleteRecording(url)
-            self?.arrFiles?.removeWith(condition: { (u) -> Bool in
-                return  u.lastPathComponent == url.lastPathComponent
-            })
-            self?.tb.emptyReload()
         }).action(title: "取消", handle: nil).show()
         
         
@@ -240,18 +237,16 @@ class AudioFileCell: UITableViewCell {
             m.top.equalTo(lblName.snp.bottom).offset(8)
         }
         
-        btnDelete.title(title: "删除").color(color: UIColor.red).addTo(view: contentView).snp.makeConstraints { (m) in
+        btnDelete.title(title: "删除").setFont(font: 13).color(color: UIColor.red).addTo(view: contentView).snp.makeConstraints { (m) in
             m.right.equalTo(-10)
             m.centerY.equalTo(contentView)
-            m.width.equalTo(60)
             m.height.equalTo(30)
         }
         btnDelete.addTarget(self, action: #selector(deleteAudio), for: .touchUpInside)
         
-        btnRename.title(title: "重命名").color(color: UIColor.red).addTo(view: contentView).snp.makeConstraints { (m) in
-            m.right.equalTo(btnDelete.snp.left).offset(10)
+        btnRename.title(title: "重命名").setFont(font: 13).color(color: UIColor.red).addTo(view: contentView).snp.makeConstraints { (m) in
+            m.right.equalTo(btnDelete.snp.left).offset(-10)
             m.centerY.equalTo(contentView)
-            m.width.equalTo(60)
             m.height.equalTo(30)
         }
         btnRename.addTarget(self, action: #selector(rename), for: .touchUpInside)

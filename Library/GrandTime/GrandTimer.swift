@@ -104,6 +104,7 @@ open class GrandTimer: NSObject {
     }
     
    open func fire() {
+    
         self.timer!.resume()
    }
     
@@ -115,7 +116,17 @@ open class GrandTimer: NSObject {
                 })
             }
         }
+  }
+  open func pause() {
+        if !OSAtomicTestAndSetBarrier(7, &timerFlags.timerIsInvalid) {
+            if  let timer = self.timer{
+                self.privateSerialQueue!.async(execute: {
+                    timer.suspend()
+                })
+            }
+        }
     }
+    
     
   open  func timerFired() {
         if OSAtomicAnd32OrigBarrier(1, &timerFlags.timerIsInvalid) < 0{

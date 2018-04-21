@@ -117,6 +117,7 @@ class SoundRecordViewController: UIViewController {
         if recorder != nil && recorder.isRecording{
             Log(message: "record is recording need pause")
             recorder.pause()
+            timer.pause()
             vAni.isHidden = true
             btnRecord.setTitle("继续录音", for: .normal)
         }
@@ -225,18 +226,31 @@ class SoundRecordViewController: UIViewController {
             url = soundFileURL
         }
         Log(message: "url:\(url!.absoluteString)")
-        do{
-            player = try AVAudioPlayer(contentsOf: url!)
-            btnStop.isEnabled = true
-            player.delegate = self
-            player.prepareToPlay()
-            player.volume = 1.0
+        
+        if player != nil && player.isPlaying{
+            btnPlay.setTitle("继续播放", for: .normal)
+            player.pause()
+        }
+        else if player != nil && btnPlay.title(for: .normal)! == "继续播放"{
             player.play()
         }
-        catch{
-            player = nil
-            Log(message: error.localizedDescription)
+        else{
+            
+            do{
+                btnPlay.setTitle("暂停播放", for: .normal)
+                player = try AVAudioPlayer(contentsOf: url!)
+                btnStop.isEnabled = true
+                player.delegate = self
+                player.prepareToPlay()
+                player.volume = 1.0
+                player.play()
+            }
+            catch{
+                player = nil
+                Log(message: error.localizedDescription)
+            }
         }
+       
     }
     
     @objc func saveToAlbum() {
@@ -446,6 +460,7 @@ extension SoundRecordViewController:AVAudioPlayerDelegate{
         Log(message: "finished playing(\(flag)")
         btnRecord.isEnabled = true
         btnStop.isEnabled = false
+        btnPlay.setTitle("开始播放", for: .normal)
     }
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
         if let e = error{
