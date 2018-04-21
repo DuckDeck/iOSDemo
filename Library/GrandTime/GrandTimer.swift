@@ -68,8 +68,6 @@ open class GrandTimer: NSObject {
         let privateQueueName = "grandTimeAfter\(arc4random())"
         let dispatch = DispatchQueue(label: privateQueueName, attributes: DispatchQueue.Attributes.concurrent)
         let timer = GrandTimer.scheduleTimerWithTimeSpan(timeSpan, block: block, repeats: false, dispatchQueue: dispatch)
-
-        
         return timer
     }
     
@@ -99,18 +97,17 @@ open class GrandTimer: NSObject {
         self.timer!.setEventHandler { 
             weakSelf?.timerFired()
         }
-        self.timer!.resume()
-    }
+   }
     
-    deinit{
+   deinit{
         invalidate()
     }
     
-  open  func fire() {
-        timerFired()
-    }
+   open func fire() {
+        self.timer!.resume()
+   }
     
-  open  func invalidate() {
+   open func invalidate() {
         if !OSAtomicTestAndSetBarrier(7, &timerFlags.timerIsInvalid) {
             if  let timer = self.timer{
                 self.privateSerialQueue!.async(execute: {
@@ -128,16 +125,15 @@ open class GrandTimer: NSObject {
             DispatchQueue.main.async(execute: { 
                   blk()
             })
-          
         }
     
-     let _ =    self.target?.perform(self.selector!, with: self)
+        let _ =    self.target?.perform(self.selector!, with: self)
         if !self.repeats {
             self.invalidate()
         }
     }
     
-    var _tolerance:TimeSpan = TimeSpan()
+   var _tolerance:TimeSpan = TimeSpan()
    open var tolerance:TimeSpan?{
         set{
             objc_sync_enter(self)
@@ -162,7 +158,7 @@ open class GrandTimer: NSObject {
      //   let toleranceInNanoseconds:DispatchTimeInterval = UInt64(self.tolerance!.ticks) * 1000000
       //  self.timer!.setTimer(start: DispatchTime.now() + Double(intervalInNanoseconds) / Double(NSEC_PER_SEC), interval: UInt64(intervalInNanoseconds), leeway: toleranceInNanoseconds)
        // self.timer!.scheduleRepeating(deadline: DispatchTime.now() + Double(intervalInNanoseconds) / Double(NSEC_PER_SEC), interval: intervalInNanoseconds)
-        self.timer!.scheduleRepeating(deadline: DispatchTime.now() + intervalInNanoseconds, interval: intervalInNanoseconds)
+        self.timer!.schedule(deadline: DispatchTime.now() + intervalInNanoseconds, repeating: intervalInNanoseconds)
     }
     
     override open var description: String{

@@ -266,7 +266,13 @@ open class TimeSpan: NSObject,Comparable {
     
     open func add(_ time:TimeSpan)->TimeSpan{
         let tick = time.ticks + ticks
-        assert(ticks < TimeSpan.Max!.ticks,"the added value must < max")
+        assert(tick < TimeSpan.Max!.ticks,"the added value must < max")
+        return TimeSpan(ticks: tick)
+   }
+   
+    open func minus(_ time:TimeSpan)->TimeSpan{
+        let tick = ticks - time.ticks
+        assert(tick >= 0,"the minused value must > 0")
         return TimeSpan(ticks: tick)
     }
     
@@ -309,7 +315,29 @@ open class TimeSpan: NSObject,Comparable {
         }
     }
     
-  
+    //这个格式需要研究
+    func format(format:String = "dd HH:mm:ss") -> String {
+        let minute = String(format: "%02d", minutes)
+        let second = String(format: "%02d", seconds)
+        let millisecond = String(format: "%03d", milliseconds)
+        var result = format
+        if format.contain(subStr: "dd"){
+            result = result.replacingOccurrencesOfString("dd", withString: String(days))
+        }
+        if format.contain(subStr: "HH") {
+            result = result.replacingOccurrencesOfString("HH", withString: String(format: "%02d", hours))
+        }
+        if format.contain(subStr: "mm") {
+            result = result.replacingOccurrencesOfString("mm", withString: String(minute))
+        }
+        if format.contain(subStr: "ss") {
+            result = result.replacingOccurrencesOfString("ss", withString: String(second))
+        }
+        if format.contain(subStr: "SSS") {
+            result = result.replacingOccurrencesOfString("SSS", withString: String(millisecond))
+        }
+        return result
+    }
   
     
     fileprivate func setTimes(){
