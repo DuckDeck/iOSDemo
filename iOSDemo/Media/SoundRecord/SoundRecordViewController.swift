@@ -11,9 +11,10 @@ import SnapKit
 import AVFoundation
 class SoundRecordViewController: UIViewController {
     
-    var btnRecord = UIButton()
-    var btnStop = UIButton()
-    var btnPlay = UIButton()
+    let btnRecord = UIButton()
+    let btnStop = UIButton()
+    let btnPlay = UIButton()
+    let btnSave = UIButton()
     let vAni = RippleAnimtaionView(frame: CGRect(x: 20, y: 120, width: 50, height: 50))
     let lblTimer = UILabel()
     var timer:GrandTimer!
@@ -48,7 +49,8 @@ class SoundRecordViewController: UIViewController {
     func initView() {
         let btnNav = UIBarButtonItem(title: "已有录音", style: .plain, target: self, action: #selector(gotoRecordList))
         navigationItem.rightBarButtonItem = btnNav
-        btnRecord.title(title: "开始录音").color(color: UIColor.green).setFont(font: 14).addTo(view: view).snp.makeConstraints { (m) in
+        btnRecord.setTitleColor(UIColor.lightGray, for: .disabled)
+        btnRecord.title(title: "开始录音").color(color: UIColor.purple).setFont(font: 14).addTo(view: view).snp.makeConstraints { (m) in
             m.left.equalTo(10)
             m.height.equalTo(30)
             m.top.equalTo(80)
@@ -57,22 +59,33 @@ class SoundRecordViewController: UIViewController {
         }
         btnRecord.addTarget(self, action: #selector(startRecord), for: .touchUpInside)
         
+        btnStop.setTitleColor(UIColor.lightGray, for: .disabled)
         btnStop.isEnabled = false
-        btnStop.title(title: "停止录音").color(color: UIColor.green).setFont(font: 14).addTo(view: view).snp.makeConstraints { (m) in
+        btnStop.title(title: "停止录音").color(color: UIColor.purple).setFont(font: 14).addTo(view: view).snp.makeConstraints { (m) in
             m.left.equalTo(btnRecord.snp.right).offset(20)
             m.width.equalTo(100)
             m.height.equalTo(30)
             m.top.equalTo(80)
         }
         btnStop.addTarget(self, action: #selector(stopRecord), for: .touchUpInside)
+        
         btnPlay.isEnabled = false
-        btnPlay.title(title: "开始播放").color(color: UIColor.green).setFont(font: 14).addTo(view: view).snp.makeConstraints { (m) in
+        btnPlay.setTitleColor(UIColor.lightGray, for: .disabled)
+        btnPlay.title(title: "开始播放").color(color: UIColor.purple).setFont(font: 14).addTo(view: view).snp.makeConstraints { (m) in
             m.left.equalTo(btnStop.snp.right).offset(20)
             m.width.equalTo(100)
             m.height.equalTo(30)
             m.top.equalTo(80)
         }
         btnPlay.addTarget(self, action: #selector(playRecord), for: .touchUpInside)
+        
+        btnSave.title(title: "保存到媒体").color(color: UIColor.purple).setFont(font: 14).addTo(view: view).snp.makeConstraints { (m) in
+            m.right.equalTo(-20)
+            m.width.equalTo(100)
+            m.height.equalTo(30)
+            m.top.equalTo(140)
+        }
+        btnSave.addTarget(self, action: #selector(saveToAlbum), for: .touchUpInside)
         
         vAni.isHidden = true
         view.addSubview(vAni)
@@ -211,7 +224,7 @@ class SoundRecordViewController: UIViewController {
         else{
             url = soundFileURL
         }
-        Log(message: "url:\(url?.absoluteString)")
+        Log(message: "url:\(url!.absoluteString)")
         do{
             player = try AVAudioPlayer(contentsOf: url!)
             btnStop.isEnabled = true
@@ -224,6 +237,73 @@ class SoundRecordViewController: UIViewController {
             player = nil
             Log(message: error.localizedDescription)
         }
+    }
+    
+    @objc func saveToAlbum() {
+        if self.soundFileURL == nil {
+            print("no sound file")
+            return
+        }
+        
+        print("trimming \(soundFileURL!.absoluteString)")
+        print("trimming path \(soundFileURL!.lastPathComponent)")
+        let asset = AVAsset(url: self.soundFileURL!)
+        exportAsset(asset, fileName: "trimmed.m4a")
+    }
+    
+    func exportAsset(_ asset: AVAsset, fileName: String) {
+        print("\(#function)")
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let trimmedSoundFileURL = documentsDirectory.appendingPathComponent(fileName)
+        print("saving to \(trimmedSoundFileURL.absoluteString)")
+        if FileManager.default.fileExists(atPath: trimmedSoundFileURL.absoluteString) {
+            print("sound exists, removing \(trimmedSoundFileURL.absoluteString)")
+            do {
+                if try trimmedSoundFileURL.checkResourceIsReachable() {
+                    print("is reachable")
+                }
+                try FileManager.default.removeItem(atPath: trimmedSoundFileURL.absoluteString)
+            } catch {
+                print("could not remove \(trimmedSoundFileURL)")
+                print(error.localizedDescription)
+            }
+        }
+        
+        print("creating export session for \(asset)")
+        
+        if let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) {
+            exporter.outputFileType = AVFileType.m4a
+            exporter.outputURL = trimmedSoundFileURL
+            
+            let duration = CMTimeGetSeconds(asset.duration)
+            if duration < 5.0 {
+                print("sound is not long enough")
+                return
+            }
+            // e.g. the first 5 seconds
+            let startTime = CMTimeMake(0, 1)
+            let stopTime = CMTimeMake(5, 1)
+            exporter.timeRange = CMTimeRangeFromTimeToTime(startTime, stopTime)
+            exporter.exportAsynchronously(completionHandler: {
+                print("export complete \(exporter.status)")
+                
+                switch exporter.status {
+                case  AVAssetExportSessionStatus.failed:
+                    
+                    if let e = exporter.error {
+                        print("export failed \(e)")
+                    }
+                    
+                case AVAssetExportSessionStatus.cancelled:
+                    print("export cancelled \(String(describing: exporter.error))")
+                default:
+                    print("export complete")
+                }
+            })
+        } else {
+            print("cannot create AVAssetExportSession for asset \(asset)")
+        }
+        
     }
     
     
