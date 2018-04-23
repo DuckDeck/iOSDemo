@@ -99,10 +99,6 @@ open class GrandTimer: NSObject {
         }
    }
     
-   deinit{
-        invalidate()
-    }
-    
    open func fire() {
     
         self.timer!.resume()

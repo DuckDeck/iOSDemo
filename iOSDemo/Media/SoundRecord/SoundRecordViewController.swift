@@ -407,6 +407,7 @@ class SoundRecordViewController: UIViewController {
         } else {
             print("checking headphones requires a connection to a device")
         }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -417,12 +418,7 @@ class SoundRecordViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        timer?.invalidate()
         NotificationCenter.default.removeObserver(self)
-    }
-   
-    deinit {
-        Log(message: "SoundRecordViewController deinit")
     }
 }
 
