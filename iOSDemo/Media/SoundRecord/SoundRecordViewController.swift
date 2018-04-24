@@ -41,6 +41,7 @@ class SoundRecordViewController: UIViewController {
         view.backgroundColor = UIColor.white
         initView()
         timer = GrandTimer.scheduleTimerWithTimeSpan(TimeSpan.fromSeconds(1), target: self, sel: #selector(tick), userInfo: nil, repeats: true, dispatchQueue: DispatchQueue.main)
+        //真神奇，返回时APP会挂，不知道为什么，我全部把代码注释还会这样，但是另一个测试的不会挂，这就奇怪了
         setSessionPlayAndRecord()
         askForNotifications()
         checkHeadphones()
@@ -418,6 +419,9 @@ class SoundRecordViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        
+    }
+    deinit {
         NotificationCenter.default.removeObserver(self)
     }
 }
