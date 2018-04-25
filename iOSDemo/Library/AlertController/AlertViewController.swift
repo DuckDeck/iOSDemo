@@ -36,14 +36,16 @@ class AlertViewController: UIViewController {
         let alert = UIAlertController.title(attrTitle: nil, attrMessage: attrStr).action(title: "取消",handle: nil, color:UIColor.gray).action(title: "购买", handle: {(action:UIAlertAction) in
             self.timer.pause()
         })
-        alert.show()
+  //      alert.show()
 //
 //       let alert = UIAlertController.title(title: nil, message: "这是一个测试").setMessageFont(font: UIFont.systemFont(ofSize: 17)).action(title: "OK", handle: nil)
 //
-//       let p =  alert.getProperty()
-//
-//        print(p)
-//        alert.show()
+        let txt = UITextView()
+        let p =  txt.getProperty()
+        let pla = txt.value(forKey: "_placeholderLabel")
+        
+        print(p)
+        alert.show()
     }
    
     @objc func start()  {

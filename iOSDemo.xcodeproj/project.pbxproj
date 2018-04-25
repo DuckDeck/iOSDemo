@@ -100,6 +100,8 @@
 		AE0F709A1FBEB9CA00C8135C /* CrossLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70941FBEB9CA00C8135C /* CrossLine.swift */; };
 		AE0F709C1FBEB9CE00C8135C /* Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F709B1FBEB9CE00C8135C /* Trace.swift */; };
 		AE0F709D1FBEBA5C00C8135C /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */; };
+		AE1344DA209068C7009A210D /* block相关.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344D9209068C7009A210D /* block相关.m */; };
+		AE1344DD20906937009A210D /* object_setClass.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344DC20906937009A210D /* object_setClass.m */; };
 		AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE161F711F98910800B3293F /* MusicListViewController.swift */; };
 		AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
 		AE2C8C761FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
@@ -421,6 +423,8 @@
 		AE0F70931FBEB9CA00C8135C /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AE0F70941FBEB9CA00C8135C /* CrossLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossLine.swift; sourceTree = "<group>"; };
 		AE0F709B1FBEB9CE00C8135C /* Trace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trace.swift; sourceTree = "<group>"; };
+		AE1344D9209068C7009A210D /* block相关.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "block相关.m"; sourceTree = "<group>"; };
+		AE1344DC20906937009A210D /* object_setClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = object_setClass.m; sourceTree = "<group>"; };
 		AE161F711F98910800B3293F /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
 		AE2C8C741FA30BB100000A1D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		AE394B4E2065F6FE00CE3BD9 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
@@ -848,6 +852,33 @@
 				AE0F70931FBEB9CA00C8135C /* SettingViewController.swift */,
 			);
 			path = TouchTest;
+			sourceTree = "<group>";
+		};
+		AE1344D720906858009A210D /* iOS开发技巧 */ = {
+			isa = PBXGroup;
+			children = (
+				AEA9F837206CD82F000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift */,
+				AEA9F839206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift */,
+				AEA9F83B206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift */,
+				AE7BBCE5207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift */,
+			);
+			path = "iOS开发技巧";
+			sourceTree = "<group>";
+		};
+		AE1344D8209068A5009A210D /* Block */ = {
+			isa = PBXGroup;
+			children = (
+				AE1344D9209068C7009A210D /* block相关.m */,
+			);
+			path = Block;
+			sourceTree = "<group>";
+		};
+		AE1344DB2090692A009A210D /* Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				AE1344DC20906937009A210D /* object_setClass.m */,
+			);
+			path = Runtime;
 			sourceTree = "<group>";
 		};
 		AE161F701F988CFB00B3293F /* MusicPlay */ = {
@@ -1375,6 +1406,8 @@
 		AEA07F131F710D7E00FC9770 /* Console */ = {
 			isa = PBXGroup;
 			children = (
+				AE1344DB2090692A009A210D /* Runtime */,
+				AE1344D8209068A5009A210D /* Block */,
 				AE3AF0501F7743D500AF182A /* MsgSend.h */,
 				AE3AF0511F7743D500AF182A /* MsgSend.m */,
 				AEA07F141F710D7E00FC9770 /* main.m */,
@@ -1520,11 +1553,8 @@
 		AEF362A52058CB1F001A490D /* ConsoleSwift */ = {
 			isa = PBXGroup;
 			children = (
+				AE1344D720906858009A210D /* iOS开发技巧 */,
 				AEF362A62058CB1F001A490D /* main.swift */,
-				AEA9F837206CD82F000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift */,
-				AEA9F839206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift */,
-				AEA9F83B206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift */,
-				AE7BBCE5207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift */,
 			);
 			path = ConsoleSwift;
 			sourceTree = "<group>";
@@ -2099,6 +2129,8 @@
 			files = (
 				AEA07F151F710D7E00FC9770 /* main.m in Sources */,
 				AE82B1CD200F3A55004D0ECE /* Test.m in Sources */,
+				AE1344DA209068C7009A210D /* block相关.m in Sources */,
+				AE1344DD20906937009A210D /* object_setClass.m in Sources */,
 				AE3AF0521F7743D500AF182A /* MsgSend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
