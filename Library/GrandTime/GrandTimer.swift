@@ -22,6 +22,7 @@ open class GrandTimer: NSObject {
     var privateSerialQueue:DispatchQueue?
     var timer:DispatchSource?
     var block:(()->Void)?
+    var isNeedCount = false
    fileprivate override init() {
         super.init()
     }
@@ -97,11 +98,11 @@ open class GrandTimer: NSObject {
         self.timer!.setEventHandler { 
             weakSelf?.timerFired()
         }
-   }
+        timer?.resume()
+    }
     
    open func fire() {
-    
-        self.timer!.resume()
+        isNeedCount = true
    }
     
    open func invalidate() {
@@ -114,17 +115,14 @@ open class GrandTimer: NSObject {
         }
   }
   open func pause() {
-        if !OSAtomicTestAndSetBarrier(7, &timerFlags.timerIsInvalid) {
-            if  let timer = self.timer{
-                self.privateSerialQueue!.async(execute: {
-                    timer.suspend()
-                })
-            }
-        }
+       isNeedCount = false
     }
     
     
   open  func timerFired() {
+        if !isNeedCount{
+            return
+        }
         if OSAtomicAnd32OrigBarrier(1, &timerFlags.timerIsInvalid) < 0{
             return
         }

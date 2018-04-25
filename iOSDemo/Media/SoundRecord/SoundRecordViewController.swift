@@ -27,7 +27,7 @@ class SoundRecordViewController: UIViewController {
         didSet{
             if recordTime == TimeSpan.fromSeconds(0){
                 lblTimer.text = recordTime.format(format: "mm:ss")
-               
+                
             }
             else{
                 let rt = recordTime.minus(TimeSpan.fromSeconds(1))
@@ -42,11 +42,12 @@ class SoundRecordViewController: UIViewController {
         initView()
         timer = GrandTimer.scheduleTimerWithTimeSpan(TimeSpan.fromSeconds(1), target: self, sel: #selector(tick), userInfo: nil, repeats: true, dispatchQueue: DispatchQueue.main)
         //真神奇，返回时APP会挂，不知道为什么，我全部把代码注释还会这样，但是另一个测试的不会挂，这就奇怪了
+        //这个问题目前没有解，我只能加一个暂停的标记来修正这个问题
         setSessionPlayAndRecord()
         askForNotifications()
         checkHeadphones()
     }
-
+    
     func initView() {
         let btnNav = UIBarButtonItem(title: "已有录音", style: .plain, target: self, action: #selector(gotoRecordList))
         navigationItem.rightBarButtonItem = btnNav
@@ -95,7 +96,7 @@ class SoundRecordViewController: UIViewController {
             m.left.equalTo(90)
             m.top.equalTo(140)
         }
-       
+        
     }
     
     @objc func gotoRecordList() {
@@ -174,7 +175,7 @@ class SoundRecordViewController: UIViewController {
         self.soundFileURL = documentDirectory.appendingPathComponent(currentFileName)
         print("writing to soundfile url:  '\(soundFileURL)'")
         if FileManager.default.fileExists(atPath: soundFileURL.absoluteString){
-             print("soundfile url:  '\(soundFileURL)' exists")
+            print("soundfile url:  '\(soundFileURL)' exists")
         }
         let recordSettings:[String:Any] = [AVFormatIDKey:kAudioFormatAppleLossless,
                                            AVEncoderAudioQualityKey:AVAudioQuality.max.rawValue,
@@ -251,7 +252,7 @@ class SoundRecordViewController: UIViewController {
                 Log(message: error.localizedDescription)
             }
         }
-       
+        
     }
     
     @objc func saveToAlbum() {
@@ -468,3 +469,4 @@ extension SoundRecordViewController:AVAudioPlayerDelegate{
         }
     }
 }
+
