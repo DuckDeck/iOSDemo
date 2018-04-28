@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE00722520906B770093B478 /* GCD.m in Sources */ = {isa = PBXBuildFile; fileRef = AE00722420906B770093B478 /* GCD.m */; };
 		AE00CB941F95FF1500AE2190 /* MJRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE00CB931F95FF1500AE2190 /* MJRefresh.framework */; };
 		AE040EE11F76796600C06EC3 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE040EE01F76796600C06EC3 /* GameView.swift */; };
 		AE040F001F76894800C06EC3 /* bubble.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE040EE41F7688FA00C06EC3 /* bubble.jpg */; };
@@ -36,25 +37,6 @@
 		AE040F181F76894800C06EC3 /* start_down.png in Resources */ = {isa = PBXBuildFile; fileRef = AE040EFC1F7688FA00C06EC3 /* start_down.png */; };
 		AE040F191F76895500C06EC3 /* dis.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE040EFE1F7688FA00C06EC3 /* dis.wav */; };
 		AE040F1A1F76895500C06EC3 /* gu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AE040EFF1F7688FA00C06EC3 /* gu.mp3 */; };
-		AE040F801F768E1100C06EC3 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF4A4421F6F74C100EE4001 /* Differentiator.framework */; };
-		AE040F811F768E1100C06EC3 /* Differentiator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AEF4A4421F6F74C100EE4001 /* Differentiator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE040F821F768E1100C06EC3 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF4A43C1F6F602500EE4001 /* RxDataSources.framework */; };
-		AE040F831F768E1100C06EC3 /* RxDataSources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AEF4A43C1F6F602500EE4001 /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE040F861F768E1100C06EC3 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32C21F693F9B00339BB8 /* Result.framework */; };
-		AE040F871F768E1100C06EC3 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32C21F693F9B00339BB8 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE040F881F768E1100C06EC3 /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32C01F693F4500339BB8 /* RxMoya.framework */; };
-		AE040F891F768E1100C06EC3 /* RxMoya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32C01F693F4500339BB8 /* RxMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE040F8A1F768E1100C06EC3 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32AB1F692A8600339BB8 /* Moya.framework */; };
-		AE040F8B1F768E1100C06EC3 /* Moya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32AB1F692A8600339BB8 /* Moya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE040F8D1F768E1100C06EC3 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F322E1F690DEB00339BB8 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE040F8F1F768E1100C06EC3 /* IQKeyboardManagerSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F322C1F690DDA00339BB8 /* IQKeyboardManagerSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE040F911F768E1100C06EC3 /* Kanna.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32281F690DD500339BB8 /* Kanna.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE040F931F768E1100C06EC3 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32261F690DD300339BB8 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE040F941F768E1100C06EC3 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32241F690DD000339BB8 /* RxBlocking.framework */; };
-		AE040F951F768E1100C06EC3 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32241F690DD000339BB8 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE040F971F768E1100C06EC3 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32221F690DCE00339BB8 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE040F991F768E1100C06EC3 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32201F690DCC00339BB8 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE040F9D1F768E1100C06EC3 /* WSProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F321C1F690DBF00339BB8 /* WSProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE0F70241FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70231FBA8F6000C8135C /* SWHttpTrafficRecorder.m */; };
 		AE0F70251FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70231FBA8F6000C8135C /* SWHttpTrafficRecorder.m */; };
 		AE0F702D1FBA90A500C8135C /* RequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70291FBA90A500C8135C /* RequestInfo.swift */; };
@@ -201,13 +183,6 @@
 		AE9F32C51F6A16E700339BB8 /* ToModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32C41F6A16E700339BB8 /* ToModelExtension.swift */; };
 		AE9F32C91F6A5F1400339BB8 /* NovelTbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32C81F6A5F1400339BB8 /* NovelTbCell.swift */; };
 		AE9F32CA1F6A678600339BB8 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32221F690DCE00339BB8 /* RxCocoa.framework */; };
-		AEA07EF31F70C44000FC9770 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F322E1F690DEB00339BB8 /* Alamofire.framework */; };
-		AEA07EF41F70C44000FC9770 /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F322C1F690DDA00339BB8 /* IQKeyboardManagerSwift.framework */; };
-		AEA07EF51F70C44000FC9770 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32281F690DD500339BB8 /* Kanna.framework */; };
-		AEA07EF61F70C44000FC9770 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32261F690DD300339BB8 /* Kingfisher.framework */; };
-		AEA07EF81F70C44000FC9770 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32221F690DCE00339BB8 /* RxCocoa.framework */; };
-		AEA07EF91F70C44000FC9770 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F32201F690DCC00339BB8 /* RxSwift.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		AEA07EFB1F70C44000FC9770 /* WSProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F321C1F690DBF00339BB8 /* WSProgressHUD.framework */; };
 		AEA07EFF1F70C7B900FC9770 /* MemeryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA07EFE1F70C7B900FC9770 /* MemeryViewController.swift */; };
 		AEA07F021F70C7D200FC9770 /* MemeryLeakTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA07F011F70C7D200FC9770 /* MemeryLeakTestViewController.swift */; };
 		AEA07F151F710D7E00FC9770 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA07F141F710D7E00FC9770 /* main.m */; };
@@ -246,11 +221,9 @@
 		AEBB55B31F75EF1000A94B88 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */; };
 		AEBB55B51F75EF2D00A94B88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB55B41F75EF2D00A94B88 /* Constants.swift */; };
 		AEBB55B71F75EF4800A94B88 /* ImageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB55B61F75EF4800A94B88 /* ImageTool.swift */; };
-		AEBE40371FC802770087D7ED /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBE40361FC802770087D7ED /* FMDB.framework */; };
 		AEBE403D1FC803620087D7ED /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE403C1FC803620087D7ED /* LibraryViewController.swift */; };
 		AEBE40401FC803A60087D7ED /* CityChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE403F1FC803A60087D7ED /* CityChooseViewController.swift */; };
 		AEBE40421FC804820087D7ED /* AddressInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE40411FC804820087D7ED /* AddressInfo.swift */; };
-		AEBE40441FC806020087D7ED /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBE40431FC806020087D7ED /* SwiftyJSON.framework */; };
 		AEBE404D1FC806E40087D7ED /* CityDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE404B1FC806E40087D7ED /* CityDB.swift */; };
 		AEBE404E1FC806E40087D7ED /* DBTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE404C1FC806E40087D7ED /* DBTool.swift */; };
 		AEBE40501FC8075C0087D7ED /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = AEBE404F1FC8075C0087D7ED /* city.json */; };
@@ -258,7 +231,6 @@
 		AEBE40541FC80A810087D7ED /* CitySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE40531FC80A810087D7ED /* CitySearchView.swift */; };
 		AEBE40561FC80A930087D7ED /* CitySearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE40551FC80A930087D7ED /* CitySearchResultView.swift */; };
 		AEBE405E1FC81FE80087D7ED /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE405D1FC81FE80087D7ED /* CityTableViewCell.swift */; };
-		AEBE40771FCEC25C0087D7ED /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBE40761FCEC25C0087D7ED /* SnapKit.framework */; };
 		AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC540E2012EC0000BB4E34 /* GridViewController.swift */; };
 		AEDC54132012EC4100BB4E34 /* ConstraintArrayDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */; };
 		AEDC54142012EC4100BB4E34 /* ConstraintArray+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54122012EC4100BB4E34 /* ConstraintArray+Extensions.swift */; };
@@ -282,7 +254,6 @@
 		AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CA1F7793D300D9A09F /* AIViewController.swift */; };
 		AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CD1F77945800D9A09F /* ImageRecognitionViewController.swift */; };
 		AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CF1F77952B00D9A09F /* Resnet50.mlmodel */; };
-		AEF589D61F779BF100D9A09F /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF589D11F779BC700D9A09F /* ImagePicker.framework */; };
 		AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF589D81F77ABB800D9A09F /* CoreML.framework */; };
 		AEF589DD1F77D03A00D9A09F /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = AEF589DC1F77D03A00D9A09F /* readme.md */; };
 /* End PBXBuildFile section */
@@ -305,29 +276,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		AE040F9E1F768E1100C06EC3 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				AE040F971F768E1100C06EC3 /* RxCocoa.framework in Embed Frameworks */,
-				AE040F931F768E1100C06EC3 /* Kingfisher.framework in Embed Frameworks */,
-				AE040F891F768E1100C06EC3 /* RxMoya.framework in Embed Frameworks */,
-				AE040F911F768E1100C06EC3 /* Kanna.framework in Embed Frameworks */,
-				AE040F811F768E1100C06EC3 /* Differentiator.framework in Embed Frameworks */,
-				AE040F991F768E1100C06EC3 /* RxSwift.framework in Embed Frameworks */,
-				AE040F831F768E1100C06EC3 /* RxDataSources.framework in Embed Frameworks */,
-				AE040F8D1F768E1100C06EC3 /* Alamofire.framework in Embed Frameworks */,
-				AE040F951F768E1100C06EC3 /* RxBlocking.framework in Embed Frameworks */,
-				AE040F8B1F768E1100C06EC3 /* Moya.framework in Embed Frameworks */,
-				AE040F8F1F768E1100C06EC3 /* IQKeyboardManagerSwift.framework in Embed Frameworks */,
-				AE040F871F768E1100C06EC3 /* Result.framework in Embed Frameworks */,
-				AE040F9D1F768E1100C06EC3 /* WSProgressHUD.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AEA07F101F710D7E00FC9770 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -349,6 +297,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		28B60C39949FCFA9633560E3 /* Pods-iOSDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDemo/Pods-iOSDemo.release.xcconfig"; sourceTree = "<group>"; };
+		35FB199CD271C8888EE6FEA4 /* Pods-iOSDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDemo/Pods-iOSDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		AE00722320906B770093B478 /* GCD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
+		AE00722420906B770093B478 /* GCD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCD.m; sourceTree = "<group>"; };
 		AE00CB931F95FF1500AE2190 /* MJRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MJRefresh.framework; path = Carthage/Build/iOS/MJRefresh.framework; sourceTree = "<group>"; };
 		AE040EE01F76796600C06EC3 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		AE040EE41F7688FA00C06EC3 /* bubble.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bubble.jpg; sourceTree = "<group>"; };
@@ -594,6 +546,7 @@
 		AEF589D11F779BC700D9A09F /* ImagePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImagePicker.framework; path = Carthage/Build/iOS/ImagePicker.framework; sourceTree = "<group>"; };
 		AEF589D81F77ABB800D9A09F /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
 		AEF589DC1F77D03A00D9A09F /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		C51738191F790645B96247B2 /* Pods_iOSDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -602,23 +555,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */,
-				AEA07EF81F70C44000FC9770 /* RxCocoa.framework in Frameworks */,
-				AEA07EF61F70C44000FC9770 /* Kingfisher.framework in Frameworks */,
-				AEBE40441FC806020087D7ED /* SwiftyJSON.framework in Frameworks */,
-				AEF589D61F779BF100D9A09F /* ImagePicker.framework in Frameworks */,
-				AE040F881F768E1100C06EC3 /* RxMoya.framework in Frameworks */,
-				AEA07EF51F70C44000FC9770 /* Kanna.framework in Frameworks */,
-				AE040F861F768E1100C06EC3 /* Result.framework in Frameworks */,
-				AEA07EF31F70C44000FC9770 /* Alamofire.framework in Frameworks */,
-				AE040F801F768E1100C06EC3 /* Differentiator.framework in Frameworks */,
-				AEA07EF41F70C44000FC9770 /* IQKeyboardManagerSwift.framework in Frameworks */,
-				AE040F941F768E1100C06EC3 /* RxBlocking.framework in Frameworks */,
-				AE040F821F768E1100C06EC3 /* RxDataSources.framework in Frameworks */,
-				AE040F8A1F768E1100C06EC3 /* Moya.framework in Frameworks */,
-				AEA07EF91F70C44000FC9770 /* RxSwift.framework in Frameworks */,
-				AEA07EFB1F70C44000FC9770 /* WSProgressHUD.framework in Frameworks */,
-				AEBE40371FC802770087D7ED /* FMDB.framework in Frameworks */,
-				AEBE40771FCEC25C0087D7ED /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,6 +619,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE00722220906B5C0093B478 /* Thread */ = {
+			isa = PBXGroup;
+			children = (
+				AE00722320906B770093B478 /* GCD.h */,
+				AE00722420906B770093B478 /* GCD.m */,
+			);
+			path = Thread;
+			sourceTree = "<group>";
+		};
 		AE040EE21F7688FA00C06EC3 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -1169,6 +1114,7 @@
 				AEF362A52058CB1F001A490D /* ConsoleSwift */,
 				AE9F31D31F69070E00339BB8 /* Products */,
 				AE9F321B1F690DBF00339BB8 /* Frameworks */,
+				E69A95549E702E1CA0B857E9 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1255,6 +1201,7 @@
 				AE9F32221F690DCE00339BB8 /* RxCocoa.framework */,
 				AE9F32201F690DCC00339BB8 /* RxSwift.framework */,
 				AE9F321C1F690DBF00339BB8 /* WSProgressHUD.framework */,
+				C51738191F790645B96247B2 /* Pods_iOSDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1406,6 +1353,7 @@
 		AEA07F131F710D7E00FC9770 /* Console */ = {
 			isa = PBXGroup;
 			children = (
+				AE00722220906B5C0093B478 /* Thread */,
 				AE1344DB2090692A009A210D /* Runtime */,
 				AE1344D8209068A5009A210D /* Block */,
 				AE3AF0501F7743D500AF182A /* MsgSend.h */,
@@ -1598,6 +1546,15 @@
 			path = ImageRecognition;
 			sourceTree = "<group>";
 		};
+		E69A95549E702E1CA0B857E9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				35FB199CD271C8888EE6FEA4 /* Pods-iOSDemo.debug.xcconfig */,
+				28B60C39949FCFA9633560E3 /* Pods-iOSDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1605,11 +1562,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE9F31E41F69070E00339BB8 /* Build configuration list for PBXNativeTarget "iOSDemo" */;
 			buildPhases = (
+				9C4A10EEF6394B4CB5BBE52B /* [CP] Check Pods Manifest.lock */,
 				AE9F31CE1F69070E00339BB8 /* Sources */,
 				AE9F31CF1F69070E00339BB8 /* Frameworks */,
 				AE9F31D01F69070E00339BB8 /* Resources */,
-				AEA07EFC1F70C44700FC9770 /* ShellScript */,
-				AE040F9E1F768E1100C06EC3 /* Embed Frameworks */,
+				D64EDA57BB3E1ADE1D6AFD30 /* [CP] Embed Pods Frameworks */,
+				369C75CE69A21AC3BB96FB5A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1876,6 +1834,39 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		369C75CE69A21AC3BB96FB5A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C4A10EEF6394B4CB5BBE52B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOSDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AE9F32301F690E0F00339BB8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -1906,35 +1897,65 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
-		AEA07EFC1F70C44700FC9770 /* ShellScript */ = {
+		D64EDA57BB3E1ADE1D6AFD30 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/IQKeyboardManagerSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/WSProgressHUD.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RXSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RXCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RXBlocking.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Moya.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RXMoya.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Kanna.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ImagePicker.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/FMDB.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"${SRCROOT}/Pods/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/GrandMenu/GrandMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/MLeaksFinder/MLeaksFinder.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Shimmer/Shimmer.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework",
+				"${BUILT_PRODUCTS_DIR}/WSProgressHUD/WSProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/netfox/netfox.framework",
 			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrandMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLeaksFinder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Shimmer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLNavigator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WSProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/netfox.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2127,6 +2148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE00722520906B770093B478 /* GCD.m in Sources */,
 				AEA07F151F710D7E00FC9770 /* main.m in Sources */,
 				AE82B1CD200F3A55004D0ECE /* Test.m in Sources */,
 				AE1344DA209068C7009A210D /* block相关.m in Sources */,
@@ -2335,6 +2357,7 @@
 		};
 		AE9F31E51F69070E00339BB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35FB199CD271C8888EE6FEA4 /* Pods-iOSDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2359,6 +2382,7 @@
 		};
 		AE9F31E61F69070E00339BB8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28B60C39949FCFA9633560E3 /* Pods-iOSDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
