@@ -10,7 +10,7 @@ import UIKit
 import IQKeyboardManagerSwift
 class Tool{
     static func hiddenKeyboard(){
-       UIApplication.shared.keyWindow?.currentViewController()?.view.endEditing(true)
+        UIApplication.shared.keyWindow?.rootViewController?.view.endEditing(true)
     }
     
     static func ChineseToPinyin(chinese:String)->String{

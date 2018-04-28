@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = rootNavigationController
         window?.makeKeyAndVisible()
         NFX.sharedInstance().start()
-        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.shared.enable = true
       
         return true
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		710169C7FA45F8C13052BF93 /* Pods_iOSDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51738191F790645B96247B2 /* Pods_iOSDemo.framework */; };
 		AE00722520906B770093B478 /* GCD.m in Sources */ = {isa = PBXBuildFile; fileRef = AE00722420906B770093B478 /* GCD.m */; };
 		AE00CB941F95FF1500AE2190 /* MJRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE00CB931F95FF1500AE2190 /* MJRefresh.framework */; };
 		AE040EE11F76796600C06EC3 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE040EE01F76796600C06EC3 /* GameView.swift */; };
@@ -555,6 +556,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */,
+				710169C7FA45F8C13052BF93 /* Pods_iOSDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1908,7 +1910,6 @@
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
-				"${BUILT_PRODUCTS_DIR}/GrandMenu/GrandMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
@@ -1933,7 +1934,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrandMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
