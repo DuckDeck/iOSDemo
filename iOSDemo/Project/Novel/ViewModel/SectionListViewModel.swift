@@ -10,9 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Moya
-import RxMoya
+
 import Result
-import RxBlocking
+
 import URLNavigator
 class SectionListViewModel {
     let cellID = "cell"
@@ -44,7 +44,7 @@ class SectionListViewModel {
             }
             let dict = ["novelInfo":wkself!.novelInfo.value,"currentSection":section,"arrSectionUrl":wkself!.modelObserable.value] as [String : Any]
             if let del = UIApplication.shared.delegate as? AppDelegate{
-                del.navigator.push(Routers.novelContent, context: dict, from: nil, animated: true)
+               // del.navigator.push(Routers.novelContent, context: dict, from: nil, animated: true)
             }
             
     

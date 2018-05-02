@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Moya
-import RxMoya
+
 import Result
 class NovelContentViewModel {
     let cellID = "cell"

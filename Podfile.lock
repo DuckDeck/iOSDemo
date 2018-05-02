@@ -17,6 +17,9 @@ PODS:
   - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
+  - Moya/RxSwift (11.0.2):
+    - Moya/Core
+    - RxSwift (~> 4.0)
   - netfox (1.11.1)
   - Result (3.2.4)
   - RxCocoa (4.1.2):
@@ -43,6 +46,7 @@ DEPENDENCIES:
   - MJRefresh
   - MLeaksFinder
   - Moya
+  - Moya/RxSwift
   - netfox
   - RxCocoa
   - RxDataSources
@@ -75,6 +79,6 @@ SPEC CHECKSUMS:
   URLNavigator: af5582fbbb3586c958be16835d799bfdb23a4793
   WSProgressHUD: a0902809c8af112fb34b004fdc75c16eb85167a3
 
-PODFILE CHECKSUM: f4f1cc302fb76a3549ef163fd61d8bb0a7bae9e1
+PODFILE CHECKSUM: 77afc65c65128016fd23e14d3600011b9a08e076
 
 COCOAPODS: 1.3.1

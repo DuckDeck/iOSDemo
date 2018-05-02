@@ -11,7 +11,7 @@ import Kingfisher
 import RxSwift
 import URLNavigator
 import MJRefresh
-class ViewController: UIViewController {
+class NovelViewController: UIViewController {
     let txtSearch = UITextField()
     let btnSearch = UIButton()
     let tb = UITableView()

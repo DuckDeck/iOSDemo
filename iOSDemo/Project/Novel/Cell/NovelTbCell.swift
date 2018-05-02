@@ -49,6 +49,7 @@ class NovelTbCell: UITableViewCell {
             m.top.equalTo(10)
             m.width.equalTo(100)
             m.height.equalTo(150)
+            m.bottom.equalTo(-20)
         }
         
         contentView.addSubview(lblTitle)
@@ -93,9 +94,9 @@ class NovelTbCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-        return self.rootLayout.sizeThatFits(targetSize)
-    }
+//    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
+//        return self.rootLayout.sizeThatFits(targetSize)
+//    }
     
 
 }

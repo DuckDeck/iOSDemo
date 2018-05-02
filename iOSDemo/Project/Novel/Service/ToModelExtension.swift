@@ -14,7 +14,7 @@ extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Respo
       func mapNovelInfo() -> Single<ResultInfo> {
          var result = ResultInfo()
          return flatMap { res -> Single<ResultInfo> in
-                guard let doc =  HTML(html: res.data, encoding: .utf8) else{
+                guard let doc = try? HTML(html: res.data, encoding: .utf8) else{
                     result.code = 10
                     result.message = "解析HTML错误"
                     return Single.just(result)
@@ -51,7 +51,7 @@ extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Respo
         return flatMap { res -> Single<ResultInfo> in
             let code  = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
             let str = String(data: res.data, encoding: String.Encoding(rawValue: code))
-            guard let doc =  HTML(html: str!, encoding: .utf8) else{
+            guard let doc =  try? HTML(html: str!, encoding: .utf8) else{
                 result.code = 10
                 result.message = "解析HTML错误"
                 return Single.just(result)
@@ -79,7 +79,7 @@ extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Respo
         return flatMap { res -> Single<ResultInfo> in
             let code  = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
             let str = String(data: res.data, encoding: String.Encoding(rawValue: code))
-            guard let doc =  HTML(html: str!, encoding: .utf8) else{
+            guard let doc = try? HTML(html: str!, encoding: .utf8) else{
                 result.code = 10
                 result.message = "解析HTML错误"
                 return Single.just(result)
