@@ -115,6 +115,7 @@
 		AE1DE09B2099BE0A007910A5 /* ImageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0752099BE09007910A5 /* ImageTool.swift */; };
 		AE1DE09C2099BE0A007910A5 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0762099BE09007910A5 /* GameView.swift */; };
 		AE1DE09D2099BE0A007910A5 /* LinkGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0772099BE09007910A5 /* LinkGameViewController.swift */; };
+		AE2AE88D209AE400001FA6BE /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2AE88C209AE400001FA6BE /* VideoListViewController.swift */; };
 		AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
 		AE394B4F2065F6FE00CE3BD9 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B4E2065F6FE00CE3BD9 /* DataViewController.swift */; };
 		AE394B522065F72100CE3BD9 /* SQLiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B512065F72100CE3BD9 /* SQLiteViewController.swift */; };
@@ -349,6 +350,7 @@
 		AE1DE0752099BE09007910A5 /* ImageTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTool.swift; sourceTree = "<group>"; };
 		AE1DE0762099BE09007910A5 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		AE1DE0772099BE09007910A5 /* LinkGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkGameViewController.swift; sourceTree = "<group>"; };
+		AE2AE88C209AE400001FA6BE /* VideoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
 		AE2C8C741FA30BB100000A1D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		AE394B4E2065F6FE00CE3BD9 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		AE394B512065F72100CE3BD9 /* SQLiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteViewController.swift; sourceTree = "<group>"; };
@@ -946,6 +948,7 @@
 			children = (
 				AE5752951F76934B00F6AAC5 /* CaptureVideoViewController.swift */,
 				AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */,
+				AE2AE88C209AE400001FA6BE /* VideoListViewController.swift */,
 			);
 			path = CaptureVideo;
 			sourceTree = "<group>";
@@ -1726,6 +1729,7 @@
 				AE0F709A1FBEB9CA00C8135C /* CrossLine.swift in Sources */,
 				AE5CE7DB208B133C001DB437 /* RecordListViewController.swift in Sources */,
 				AEF097812065EE650021E4ED /* LogInfo.swift in Sources */,
+				AE2AE88D209AE400001FA6BE /* VideoListViewController.swift in Sources */,
 				AE0F709C1FBEB9CE00C8135C /* Trace.swift in Sources */,
 				AE1DE0792099BE0A007910A5 /* BaseBoard.swift in Sources */,
 				AE0F702D1FBA90A500C8135C /* RequestInfo.swift in Sources */,

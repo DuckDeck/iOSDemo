@@ -13,6 +13,7 @@ class CaptureVideoViewController: UIViewController {
 
     let btnSwitchCamera = UIButton()
     let btnStartRecord = UIButton()
+    let btnStopRecord = UIButton()
     let imgVideo = UIImageView()
     var currentCamera = CaptureCamera.BackCamera
     var session:CaptureSession?
@@ -23,7 +24,7 @@ class CaptureVideoViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = UIColor.white
       
         view.addSubview(imgVideo)
         imgVideo.snp.makeConstraints { (m) in
@@ -32,19 +33,30 @@ class CaptureVideoViewController: UIViewController {
             m.height.equalTo(ScreenHeight * 0.7)
         }
         
-        btnStartRecord.title(title: "开始采集").color(color: UIColor.blue).addTo(view: view).completed()
+        btnStartRecord.title(title: "开始采集").color(color: UIColor.darkGray).addTo(view: view).completed()
         btnStartRecord.snp.makeConstraints { (m) in
             m.left.equalTo(10)
             m.bottom.equalTo(-10)
-            m.width.equalTo(200)
+            m.width.equalTo(100)
             m.height.equalTo(30)
         }
         btnStartRecord.addTarget(self, action: #selector(startRecord), for: .touchUpInside)
         
-        btnSwitchCamera.title(title: "后置").color(color: UIColor.blue).addTo(view: view).completed()
+        
+//        btnStopRecord.title(title: "暂停采集").color(color: UIColor.darkGray).addTo(view: view).completed()
+//        btnStopRecord.isEnabled = false
+//        btnStopRecord.snp.makeConstraints { (m) in
+//            m.left.equalTo(130)
+//            m.bottom.equalTo(-10)
+//            m.width.equalTo(100)
+//            m.height.equalTo(30)
+//        }
+       // btnStopRecord.addTarget(self, action: #selector(pauseRecord), for: .touchUpInside)
+        
+        btnSwitchCamera.title(title: "后置").color(color: UIColor.darkGray).addTo(view: view).completed()
       
         btnSwitchCamera.snp.makeConstraints { (m) in
-            m.right.equalTo(-10)
+            m.left.equalTo(btnStartRecord.snp.right).offset(30)
             m.bottom.equalTo(-10)
             m.width.equalTo(200)
             m.height.equalTo(39)
@@ -53,10 +65,17 @@ class CaptureVideoViewController: UIViewController {
         btnSwitchCamera.addTarget(self, action: #selector(switchCamera), for: .touchUpInside)
       
         
+        let btnBar = UIBarButtonItem(title: "已有视频", style: .plain, target: self, action: #selector(gotoAlreadyExistVideo))
+        navigationItem.rightBarButtonItem = btnBar
         checkAudioAuth()
         checkVideoAuth()
         prepareRecord()
     }
+    
+    @objc func gotoAlreadyExistVideo()  {
+        
+    }
+    
     
     func checkVideoAuth()  {
         let res = AVCaptureDevice.authorizationStatus(for: .video)
@@ -111,12 +130,21 @@ class CaptureVideoViewController: UIViewController {
     @objc func startRecord()  {
         if !isRecoding{
             session?.startRunning()
+            btnStartRecord.setTitle("停止采集", for: .normal)
         }
         else{
             session?.stopRunning()
+            btnStartRecord.setTitle("开始采集", for: .normal)
+            
+            UIAlertController.title(title: "保存该视频", message: nil).action(title: "取消", handle: nil).action(title: "确定", handle: {(acttion:UIAlertAction) in
+                
+                
+            }).show()
         }
         isRecoding = !isRecoding
     }
+    
+   
     
     @objc func switchCamera()  {
         if currentCamera == .BackCamera {
@@ -143,6 +171,8 @@ extension CaptureVideoViewController:CaptureSessionDelegate{
         DispatchQueue.main.async {
             self.imgVideo.image = img
         }
+        
+        print("fire img")
     }
     
     func audioCaptureOutputWithSampleBuffer(sampleBuffer: CMSampleBuffer) {
