@@ -1,0 +1,180 @@
+//
+//  CaptureSessionCoordinator.swift
+//  iOSDemo
+//
+//  Created by Stan Hu on 2018/5/3.
+//  Copyright © 2018 Stan Hu. All rights reserved.
+//
+
+import Foundation
+import AVFoundation
+protocol CaptureSessionCoordinatorDelegate {
+    func coordinatorDidBeginRecording(coordinator:CaptureSessionCoordinator)->Void
+    func coordinator(coordinator:CaptureSessionCoordinator,outputFileUrl:URL,error:Error)->Void
+}
+
+class CaptureSessionCoordinator {
+    
+    var captureSession:AVCaptureSession!
+    var cameraDevice:AVCaptureDevice!
+    var delegateCallbackQueue:DispatchQueue!
+    var delegate:CaptureSessionCoordinatorDelegate?
+    var sessionQueue:DispatchQueue
+    var _previewLayer:AVCaptureVideoPreviewLayer?
+    init() {
+        sessionQueue = DispatchQueue(label: "stanhu.recorvideo")
+    }
+    
+    func setDelegate(delegate:CaptureSessionCoordinatorDelegate,callbackQueue:DispatchQueue) -> Void {
+        objc_sync_enter(self)
+        self.delegate = delegate
+        if delegateCallbackQueue == nil{
+            delegateCallbackQueue = callbackQueue
+        }
+        if delegateCallbackQueue != nil && delegateCallbackQueue != callbackQueue{
+            delegateCallbackQueue = callbackQueue
+        }
+        objc_sync_exit(self)
+    }
+    
+    func addInput(input:AVCaptureDeviceInput,captureSession:AVCaptureSession) -> Bool {
+        if captureSession.canAddInput(input){
+            captureSession.addInput(input)
+            return true
+        }
+        else{
+            print(input.description)
+            return false
+        }
+   
+    }
+    
+    func addOutput(output:AVCaptureOutput,captureSession:AVCaptureSession) -> Bool {
+        if captureSession.canAddOutput(output){
+            captureSession.addOutput(output)
+            return true
+        }
+        else{
+            print(output.description)
+            return false
+        }
+    }
+    
+    func setupCaptureSession()->AVCaptureSession {
+        let captureSession = AVCaptureSession()
+        if !addDefaultCameraInputToCaptureSession(captureSession: captureSession){
+            print("failed to add camera input to capture session")
+        }
+        
+        return captureSession
+        
+    }
+    
+    func addDefaultCameraInputToCaptureSession(captureSession:AVCaptureSession) -> Bool {
+        if let device = AVCaptureDevice.default(for: AVMediaType.video){
+            do{
+                let cameraDeviceInput = try AVCaptureDeviceInput(device: device)
+                return self.addInput(input: cameraDeviceInput, captureSession: captureSession)
+            }
+            catch{
+                print(error.localizedDescription)
+                return false
+            }
+        }
+        else{
+            return false
+        }
+    }
+
+    func addDefaultMicInputToCaptureSession(captureSession:AVCaptureSession) -> Bool {
+        if let device = AVCaptureDevice.default(for: AVMediaType.audio){
+            do{
+                let micDeviceInput = try AVCaptureDeviceInput(device: device)
+                return self.addInput(input: micDeviceInput, captureSession: captureSession)
+            }
+            catch{
+                print(error.localizedDescription)
+                return false
+            }
+        }
+        else{
+            return false
+        }
+    }
+    
+    func startRunning()  {
+        sessionQueue.sync {
+            captureSession.startRunning()
+        }
+    }
+    
+    func stopRunning()  {
+        sessionQueue.sync {
+            self.stopRecording()
+            captureSession.startRunning()
+        }
+    }
+    
+    func startRecording()  {
+        //overwritten by subclass
+    }
+    
+    func stopRecording()  {
+        //overwritten by subclass
+    }
+    
+    var previewLayer:AVCaptureVideoPreviewLayer?{
+        get{
+            if _previewLayer == nil && captureSession != nil{
+                _previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+            }
+            return _previewLayer
+        }
+    }
+    
+    func setFrameRateWithDuration(frameDuration:CMTime,device:AVCaptureDevice) -> Void {
+            let supportedFrameRateRanges = device.activeFormat.videoSupportedFrameRateRanges
+            var frameRateSupported = false
+            for range in supportedFrameRateRanges{
+                if Float64(frameDuration.value) >= range.minFrameRate && Float64(frameDuration.value) <= range.maxFrameRate{
+                    frameRateSupported = true
+                }
+            }
+        
+            if frameRateSupported  {
+                do{
+                    try device.lockForConfiguration()
+                    device.activeVideoMaxFrameDuration = frameDuration
+                    device.activeVideoMinFrameDuration = frameDuration
+                    device.unlockForConfiguration()
+                }
+                catch{
+                    print(error.localizedDescription)
+                }
+            }
+    }
+    
+    func listCamerasAndMics() {
+        print(AVCaptureDevice.devices().description)
+        let audioSession = AVAudioSession.sharedInstance()
+        do{
+           try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+           try audioSession.setActive(true)
+        }
+        catch{
+            print(error.localizedDescription)
+        }
+        guard let  availableAudioInputs =  audioSession.availableInputs else {
+            return
+        }
+       
+        print(availableAudioInputs.description)
+        if availableAudioInputs.count > 0{
+            let portDescription = availableAudioInputs.first!
+            if portDescription.dataSources!.count > 0{
+                
+            }
+        }
+        
+    }
+}

@@ -20,7 +20,7 @@ class CaptureVideoViewController: UIViewController {
     var isVideoOK = false
     var isAudioOK = false
     var isRecoding = false
-
+    var videoPath:URL!
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,15 +65,9 @@ class CaptureVideoViewController: UIViewController {
         btnSwitchCamera.addTarget(self, action: #selector(switchCamera), for: .touchUpInside)
       
         
-        let btnBar = UIBarButtonItem(title: "已有视频", style: .plain, target: self, action: #selector(gotoAlreadyExistVideo))
-        navigationItem.rightBarButtonItem = btnBar
         checkAudioAuth()
         checkVideoAuth()
         prepareRecord()
-    }
-    
-    @objc func gotoAlreadyExistVideo()  {
-        
     }
     
     
@@ -129,6 +123,8 @@ class CaptureVideoViewController: UIViewController {
     
     @objc func startRecord()  {
         if !isRecoding{
+            videoPath = CVFileManager.tempFileURL(extensionName: "mov")
+            
             session?.startRunning()
             btnStartRecord.setTitle("停止采集", for: .normal)
         }
@@ -172,7 +168,6 @@ extension CaptureVideoViewController:CaptureSessionDelegate{
             self.imgVideo.image = img
         }
         
-        print("fire img")
     }
     
     func audioCaptureOutputWithSampleBuffer(sampleBuffer: CMSampleBuffer) {
