@@ -208,6 +208,7 @@
 		AEDF8C4D209AF61F00EED6D1 /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF8C4C209AF61F00EED6D1 /* VideoListViewController.swift */; };
 		AEDF8C4F209AF66400EED6D1 /* CaptureSessionAssetWriterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF8C4E209AF66400EED6D1 /* CaptureSessionAssetWriterCoordinator.swift */; };
 		AEDF8C51209AF6B500EED6D1 /* CaptureSessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF8C50209AF6B500EED6D1 /* CaptureSessionCoordinator.swift */; };
+		AEDF8C53209C0B2900EED6D1 /* AssetWriterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF8C52209C0B2900EED6D1 /* AssetWriterCoordinator.swift */; };
 		AEF0977D2064EFFF0021E4ED /* LogTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF0977C2064EFFF0021E4ED /* LogTool.swift */; };
 		AEF097812065EE650021E4ED /* LogInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF097802065EE650021E4ED /* LogInfo.swift */; };
 		AEF362A72058CB1F001A490D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF362A62058CB1F001A490D /* main.swift */; };
@@ -470,6 +471,7 @@
 		AEDF8C4C209AF61F00EED6D1 /* VideoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
 		AEDF8C4E209AF66400EED6D1 /* CaptureSessionAssetWriterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSessionAssetWriterCoordinator.swift; sourceTree = "<group>"; };
 		AEDF8C50209AF6B500EED6D1 /* CaptureSessionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSessionCoordinator.swift; sourceTree = "<group>"; };
+		AEDF8C52209C0B2900EED6D1 /* AssetWriterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetWriterCoordinator.swift; sourceTree = "<group>"; };
 		AEF0977C2064EFFF0021E4ED /* LogTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTool.swift; sourceTree = "<group>"; };
 		AEF097802065EE650021E4ED /* LogInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInfo.swift; sourceTree = "<group>"; };
 		AEF362A42058CB1F001A490D /* ConsoleSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ConsoleSwift; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1392,6 +1394,7 @@
 				AEDF8C48209AF5F700EED6D1 /* VideoRecordViewController.swift */,
 				AEDF8C4E209AF66400EED6D1 /* CaptureSessionAssetWriterCoordinator.swift */,
 				AEDF8C50209AF6B500EED6D1 /* CaptureSessionCoordinator.swift */,
+				AEDF8C52209C0B2900EED6D1 /* AssetWriterCoordinator.swift */,
 			);
 			path = VideoRecord;
 			sourceTree = "<group>";
@@ -1830,6 +1833,7 @@
 				AE0F702E1FBA90A500C8135C /* RequestDataInfo.swift in Sources */,
 				AEDC54142012EC4100BB4E34 /* ConstraintArray+Extensions.swift in Sources */,
 				AE1DE0422099AD32007910A5 /* BaseViewModel.swift in Sources */,
+				AEDF8C53209C0B2900EED6D1 /* AssetWriterCoordinator.swift in Sources */,
 				AE9F32A31F69144C00339BB8 /* ResultInfo.swift in Sources */,
 				AE5A88851FF49CD300748F6A /* 3DViewController.swift in Sources */,
 				AE5A88811FF39C5800748F6A /* LayerViewController.swift in Sources */,

@@ -172,9 +172,54 @@ class CaptureSessionCoordinator {
         if availableAudioInputs.count > 0{
             let portDescription = availableAudioInputs.first!
             if portDescription.dataSources!.count > 0{
-                
+                do{
+                    guard  let dataSource = portDescription.dataSources?.last else{
+                        return
+                    }
+                    try portDescription.setPreferredDataSource(dataSource)
+                    try audioSession.setPreferredInput(portDescription)
+                }
+                catch{
+                    print(error.localizedDescription)
+                }
+                let availableAudioInputs = audioSession.availableInputs
+                print(availableAudioInputs?.description)
             }
         }
         
+    }
+    
+    func configureFrontMic() {
+        let audioSession = AVAudioSession.sharedInstance()
+        do{
+           try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+           try audioSession.setActive(true)
+        }
+        catch{
+            print(error.localizedDescription)
+        }
+        guard let inputs = audioSession.availableInputs else {
+            return
+        }
+        var builtInMic:AVAudioSessionPortDescription! = nil
+        for port in inputs{
+            if port.portType == AVAudioSessionPortBuiltInMic{
+                builtInMic = port
+                break
+            }
+        }
+        
+        for  source in builtInMic.dataSources! {
+            if source.orientation == AVAudioSessionOrientationFront{
+                do{
+                   try builtInMic.setPreferredDataSource(source)
+                   try audioSession.setPreferredInput(builtInMic)
+                    break
+                }
+                catch{
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }
