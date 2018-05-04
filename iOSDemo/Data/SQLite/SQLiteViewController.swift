@@ -56,7 +56,7 @@ class SQLiteViewController: UIViewController {
         let lat = 113.23123
         let lon = 11.3123123
         let address = "深圳"
-        let phone = 13122233333
+        let phone = 13122233
         let imei = "131231fsdf123"
         let IDFA = "123123123"
     
