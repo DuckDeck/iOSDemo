@@ -19,7 +19,7 @@ enum WriterStatus:Int{
 }
 protocol AssetWriterCoordinatorDelegate {
     func writerCoordinatorDidFinishPreparing(coordinator:AssetWriterCoordinator)
-    func writerCoordinator(coordinator:AssetWriterCoordinator)
+    func writerCoordinator(coordinator:AssetWriterCoordinator,error:NSError?)
     func writerCoordinatorDidFinishRecording(coordinator:AssetWriterCoordinator)
 }
 class AssetWriterCoordinator{
@@ -43,7 +43,7 @@ class AssetWriterCoordinator{
         url = theUrl
     }
     
-    func addVideoTrackWithSourceFormatDescription(formatDescription:CMFormatDescription?,videoSettings:[String:String]) {
+    func addVideoTrackWithSourceFormatDescription(formatDescription:CMFormatDescription?,videoSettings:[String:Any]) {
         guard let des = formatDescription else {
             NSException(name: NSExceptionName.invalidArgumentException, reason: "NULL format description", userInfo: nil).raise()
             return
@@ -60,7 +60,7 @@ class AssetWriterCoordinator{
         self.videoTrackSettings = videoSettings
         objc_sync_exit(self)
     }
-    func addAudioTrackWithSourceFormatDescription(formatDescription:CMFormatDescription?,videoSettings:[String:String]) {
+    func addAudioTrackWithSourceFormatDescription(formatDescription:CMFormatDescription?,audioSettings:[String:Any]) {
         guard let des = formatDescription else {
             NSException(name: NSExceptionName.invalidArgumentException, reason: "NULL format description", userInfo: nil).raise()
             return
@@ -74,7 +74,7 @@ class AssetWriterCoordinator{
             NSException(name: NSExceptionName.internalInconsistencyException, reason: "Cannot add more than one video track", userInfo: nil).raise()
         }
         audioTrackSourceFormatDescription = des
-        self.audioTrackSettings = videoSettings
+        self.audioTrackSettings = audioSettings
         objc_sync_exit(self)
     }
     
@@ -290,7 +290,7 @@ class AssetWriterCoordinator{
                     switch newStatus{
                         case .Recording: self.delegate?.writerCoordinatorDidFinishPreparing(coordinator: self)
                         case .Finished:self.delegate?.writerCoordinatorDidFinishRecording(coordinator: self)
-                        case.Failed:  self.delegate?.writerCoordinator(coordinator: self)
+                        case.Failed:  self.delegate?.writerCoordinator(coordinator: self, error: nil)
                         default:break
                     }
                 })
