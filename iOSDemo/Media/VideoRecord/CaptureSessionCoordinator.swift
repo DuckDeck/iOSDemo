@@ -13,7 +13,7 @@ protocol CaptureSessionCoordinatorDelegate {
     func coordinator(coordinator:CaptureSessionCoordinator,outputFileUrl:URL,error:Error)->Void
 }
 
-class CaptureSessionCoordinator {
+class CaptureSessionCoordinator:NSObject {
     
     var captureSession:AVCaptureSession!
     var cameraDevice:AVCaptureDevice!
@@ -21,7 +21,8 @@ class CaptureSessionCoordinator {
     var delegate:CaptureSessionCoordinatorDelegate?
     var sessionQueue:DispatchQueue
     var _previewLayer:AVCaptureVideoPreviewLayer?
-    init() {
+    override init() {
+        super.init()
         sessionQueue = DispatchQueue(label: "stanhu.recorvideo")
     }
     
