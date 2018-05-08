@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectiveC
+
 /*
 protocol DictionaryValue{
     var value:Any{ get }
@@ -157,8 +158,3 @@ print(test1Dict)
 print(test1.jsonValue)
 */
 
-
-
-
- 
- 

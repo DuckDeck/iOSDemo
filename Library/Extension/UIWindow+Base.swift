@@ -16,12 +16,12 @@ extension UIWindow{
 //            }
 //            return topViewController
 //        }
-//    
-//      open  func currentViewController() -> UIViewController {
-//            var currentViewController = topMostController()
-//            while currentViewController is UINavigationController && (currentViewController as! UINavigationController).topViewController != nil  {
-//                currentViewController = (currentViewController as! UINavigationController).topViewController!
-//            }
-//            return currentViewController
-//        }
+    
+      open  func currentViewController() -> UIViewController? {
+            var currentViewController = topMostController()
+            while currentViewController is UINavigationController && (currentViewController as! UINavigationController).topViewController != nil  {
+                currentViewController = (currentViewController as! UINavigationController).topViewController!
+            }
+            return currentViewController
+        }
 }

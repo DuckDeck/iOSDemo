@@ -106,7 +106,7 @@ func =~(lhs:String,rhs:String) -> Bool{ //正则判断
 
 let REGEX_FlOAT = "^([0-9]*.)?[0-9]+$"
 let REGEX_MAIL = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$"
-let REGEX_CELLPHONE = "^(13|14|15|17|18)\\d{9}$"
+let REGEX_CELLPHONE = "^(0|86|17951)?1[0-9]{10}$"
 let REGEX_IDENTITY_NUM = "^(\\d{6})(\\d{4})(\\d{2})(\\d{2})(\\d{3})([0-9]|X)$"
 
 

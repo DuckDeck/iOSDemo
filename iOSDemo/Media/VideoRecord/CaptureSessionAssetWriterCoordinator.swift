@@ -30,8 +30,9 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
     
     override init() {
         super.init()
-        videoDataOutputQueue = DispatchQueue(label: "stahu.capturesession.videodata")
-        videoDataOutputQueue.setTarget(queue: DispatchQueue.global())
+        videoDataOutputQueue = DispatchQueue(label: "stahu.capturesession.videodata", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: DispatchQueue.global())
+        
+//        videoDataOutputQueue.setTarget(queue: DispatchQueue.global(qos: .default))
         audioDataOutputQueue = DispatchQueue(label: "stanhu.capturesession.audiodata")
         addDataOutputsToCaptureSession(captureSession: self.captureSession)
     }
@@ -81,7 +82,7 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
     
     func setCompressionSettings() {
         videoCompressionSettings = videoDataOutput.recommendedVideoSettingsForAssetWriter(writingTo: AVFileType.mov)
-        audioCompressionSettings = audioDataOutput.recommendedAudioSettingsForAssetWriter(writingTo: AVFileType.mov) as! [String : Any]
+        audioCompressionSettings = audioDataOutput.recommendedAudioSettingsForAssetWriter(writingTo: AVFileType.m4v) as! [String : Any]
     }
     
     func setupVideoPipelineWithInputFormatDescription(inputFormatDescription:CMFormatDescription) {

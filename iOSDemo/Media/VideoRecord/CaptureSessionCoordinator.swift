@@ -24,7 +24,10 @@ class CaptureSessionCoordinator:NSObject {
     override init() {
         super.init()
         sessionQueue = DispatchQueue(label: "stanhu.recorvideo")
+        captureSession = setupCaptureSession()
     }
+    
+   
     
     func setDelegate(delegate:CaptureSessionCoordinatorDelegate,callbackQueue:DispatchQueue) -> Void {
         objc_sync_enter(self)

@@ -52,6 +52,8 @@ extension MediaViewController:UITableViewDelegate,UITableViewDataSource{
             navigationController?.pushViewController(WatermarkViewController(), animated: true)
         case 3:
             navigationController?.pushViewController(SoundRecordViewController(), animated: true)
+        case 4:
+            navigationController?.pushViewController(VideoRecordViewController(), animated: true)
         default:
             break
         }

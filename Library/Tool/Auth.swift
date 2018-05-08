@@ -59,4 +59,29 @@ class Auth:NSObject {
         }
         return false
     }
+    
+    @objc static func isAuthCamera(grandBLock:@escaping ((_ isGrant:Bool)->Void)){
+        let type = AVMediaType.video
+        AVCaptureDevice.requestAccess(for: type) { (granted) in
+            if !granted{
+                if let cuur = UIApplication.shared.keyWindow!.currentViewController(){
+                    Auth.showEventAccessDeniedAlert(view: cuur, authTpye: .Camera)
+                }
+                
+            }
+            grandBLock(granted)
+        }
+    }
+    
+    @objc static func isAuthMicrophone(grandBLock:@escaping ((_ isGrant:Bool)->Void)){
+        let type = AVMediaType.audio
+        AVCaptureDevice.requestAccess(for: type) { (granted) in
+            if !granted{
+                if let cuur = UIApplication.shared.keyWindow!.currentViewController(){
+                    Auth.showEventAccessDeniedAlert(view: cuur, authTpye: .Audio)
+                }
+            }
+            grandBLock(granted)
+        }
+    }
 }

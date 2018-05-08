@@ -8,7 +8,7 @@
 //
 
 import UIKit
-
+import Photos
 class CVFileManager {
     static func tempFileURL(extensionName:String)->URL
     {
@@ -33,6 +33,13 @@ class CVFileManager {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    static func copyFileToCameraRoll(fileUrl:URL)  {
+       try? PHPhotoLibrary.shared().performChangesAndWait {
+           PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: fileUrl)
+        }
+
     }
     
     
