@@ -19,7 +19,7 @@ enum WriterStatus:Int{
 }
 protocol AssetWriterCoordinatorDelegate {
     func writerCoordinatorDidFinishPreparing(coordinator:AssetWriterCoordinator)
-    func writerCoordinator(coordinator:AssetWriterCoordinator,error:NSError?)
+    func writerCoordinator(coordinator:AssetWriterCoordinator,error:Error?)
     func writerCoordinatorDidFinishRecording(coordinator:AssetWriterCoordinator)
 }
 class AssetWriterCoordinator{
@@ -53,7 +53,7 @@ class AssetWriterCoordinator{
              NSException(name: NSExceptionName.internalInconsistencyException, reason: "Cannot add tracks while not idle", userInfo: nil).raise()
             return
         }
-        if videoTrackSourceFormatDescription == nil{
+        if videoTrackSourceFormatDescription != nil{
             NSException(name: NSExceptionName.internalInconsistencyException, reason: "Cannot add more than one video track", userInfo: nil).raise()
         }
         videoTrackSourceFormatDescription = des
@@ -70,7 +70,7 @@ class AssetWriterCoordinator{
             NSException(name: NSExceptionName.internalInconsistencyException, reason: "Cannot add tracks while not idle", userInfo: nil).raise()
             return
         }
-        if audioTrackSourceFormatDescription == nil{
+        if audioTrackSourceFormatDescription != nil{
             NSException(name: NSExceptionName.internalInconsistencyException, reason: "Cannot add more than one video track", userInfo: nil).raise()
         }
         audioTrackSourceFormatDescription = des
@@ -95,12 +95,15 @@ class AssetWriterCoordinator{
             NSException(name: NSExceptionName.internalInconsistencyException, reason: "Cannot add tracks while not idle", userInfo: nil).raise()
             return
         }
-        self.transitionToStatus(newStatus: .PreparingToRecord)
+        self.transitionToStatus(newStatus: .PreparingToRecord,error: nil)
         objc_sync_exit(self)
         DispatchQueue.global().async {
             autoreleasepool(invoking: {
                 do{
-                    try FileManager.default.removeItem(at: self.url)
+                    if FileManager.default.fileExists(atPath: self.url.absoluteString){
+                        try FileManager.default.removeItem(at: self.url)
+                    }
+                    
                     self.assetWriter = try AVAssetWriter(url: self.url, fileType: AVFileType.mov) // 用mp3
                     var setupSuccess = false
                     if self.videoTrackSourceFormatDescription != nil && self.audioTrackSourceFormatDescription != nil{
@@ -113,20 +116,21 @@ class AssetWriterCoordinator{
                     
                     objc_sync_enter(self)
                     if !setupSuccess{
-                        self.transitionToStatus(newStatus: .Failed)
+                        self.transitionToStatus(newStatus: .Failed,error: NSError(domain: "Cannot setup asset writer input ", code: 0, userInfo: nil))
                     }
                     else{
-                        self.transitionToStatus(newStatus: .Recording)
+                         print("6")
+                        self.transitionToStatus(newStatus: .Recording,error: nil)
                     }
                     objc_sync_exit(self)
                 }
                 catch{
-                    self.transitionToStatus(newStatus: .Failed)
+                    self.transitionToStatus(newStatus: .Failed,error: error)
                 }
             })
         }
-       
     }
+    
     func appendVideoSampleBuffer(sampleBuffer:CMSampleBuffer)  {
         self.appendSampleBuffer(sampleBuffer: sampleBuffer, mediaType: AVMediaType.video)
     }
@@ -146,7 +150,7 @@ class AssetWriterCoordinator{
             shouldFinishRecording = true
         }
         if shouldFinishRecording{
-            self.transitionToStatus(newStatus: .FinishingRecordingPart1)
+            self.transitionToStatus(newStatus: .FinishingRecordingPart1,error: nil)
         }
         else{
             return
@@ -158,14 +162,14 @@ class AssetWriterCoordinator{
                 if self.status != .FinishingRecordingPart1{
                     return
                 }
-                self.transitionToStatus(newStatus: .FinishingRecordingPart2)
+                self.transitionToStatus(newStatus: .FinishingRecordingPart2,error: nil)
                   objc_sync_exit(self)
                 self.assetWriter.finishWriting(completionHandler: {
-                    if let _ =  self.assetWriter.error{
-                        self.transitionToStatus(newStatus: .Failed)
+                    if let err =  self.assetWriter.error{
+                        self.transitionToStatus(newStatus: .Failed,error: err)
                     }
                     else{
-                        self.transitionToStatus(newStatus: .Finished)
+                        self.transitionToStatus(newStatus: .Finished,error: nil)
                     }
                 })
             })
@@ -173,7 +177,6 @@ class AssetWriterCoordinator{
     }
     
     func appendSampleBuffer(sampleBuffer:CMSampleBuffer,mediaType:AVMediaType)  {
-      
         objc_sync_enter(self)
         if status.rawValue < RecordingStatus.Recoding.rawValue{
             NSException(name: NSExceptionName.internalInconsistencyException, reason: "Not ready to record yet", userInfo: nil).raise()
@@ -195,7 +198,7 @@ class AssetWriterCoordinator{
                 let success = input!.append(sampleBuffer)
                 if !success{
                     objc_sync_enter(self)
-                    self.transitionToStatus(newStatus: .Failed)
+                    self.transitionToStatus(newStatus: .Failed,error: self.assetWriter.error!)
                     objc_sync_exit(self)
                 }
             }else{
@@ -264,7 +267,7 @@ class AssetWriterCoordinator{
         return [AVVideoAverageBitRateKey:bitsPerSecond,AVVideoExpectedSourceFrameRateKey:30,AVVideoMaxKeyFrameIntervalKey:30]
     }
     
-    func transitionToStatus(newStatus:WriterStatus)  {
+    func transitionToStatus(newStatus:WriterStatus,error:Error?)  {
         var shouldNotifyDelegate = false
         if status != newStatus{
             // terminal states
@@ -290,7 +293,7 @@ class AssetWriterCoordinator{
                     switch newStatus{
                         case .Recording: self.delegate?.writerCoordinatorDidFinishPreparing(coordinator: self)
                         case .Finished:self.delegate?.writerCoordinatorDidFinishRecording(coordinator: self)
-                        case.Failed:  self.delegate?.writerCoordinator(coordinator: self, error: nil)
+                        case.Failed:  self.delegate?.writerCoordinator(coordinator: self, error: error)
                         default:break
                     }
                 })

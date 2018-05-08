@@ -19,7 +19,7 @@ class CVFileManager {
             path = "\(NSTemporaryDirectory())output\(i).\(extensionName)"
             i += 1
         }
-        return URL(string: path)!
+        return URL.init(fileURLWithPath: path)
     }
     
     static func removeFile(url:URL){

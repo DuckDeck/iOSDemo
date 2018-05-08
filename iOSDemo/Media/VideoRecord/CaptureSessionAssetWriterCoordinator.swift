@@ -21,7 +21,6 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
     var videoConnection:AVCaptureConnection!
     var videoCompressionSettings:[String:Any]!
     var audioCompressionSettings:[String:Any]!
-    var assetWriter:AVAssetWriter!
     var recordingStatus = RecordingStatus.Idle
     var recordingURL:URL!
     var outputVideoFormatDescription:CMFormatDescription!
@@ -43,7 +42,9 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
             NSException(name: NSExceptionName.invalidArgumentException, reason: "Already recording", userInfo: nil).raise()
             return
         }
-        transitionToRecordingStatus(newStatus: .Recoding, error: nil)
+        print("1")
+        transitionToRecordingStatus(newStatus: .StartingRecording, error: nil)
+         print("3")
         objc_sync_exit(self)
         recordingURL = CVFileManager.tempFileURL(extensionName: "mov")
         assetWriterCoordinator = AssetWriterCoordinator(theUrl: recordingURL)
@@ -53,6 +54,7 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
         assetWriterCoordinator.addVideoTrackWithSourceFormatDescription(formatDescription: outputVideoFormatDescription, videoSettings: videoCompressionSettings)
         let callbackQueue = DispatchQueue(label: "stanhu.capturesession.writercallback")
         assetWriterCoordinator.setDelegate(delegate: self, callbackQueue: callbackQueue)
+         print("3")
         assetWriterCoordinator.prepareToRecord()
     }
     
@@ -61,7 +63,7 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
         if recordingStatus != .Recoding{
             return
         }
-        transitionToRecordingStatus(newStatus: .Recoding, error: nil)
+        transitionToRecordingStatus(newStatus: .StopingRecording, error: nil)
         objc_sync_exit(self)
         assetWriterCoordinator.finishRecording()
     }
@@ -73,7 +75,7 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
         videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
         audioDataOutput = AVCaptureAudioDataOutput()
         audioDataOutput.setSampleBufferDelegate(self, queue: audioDataOutputQueue)
-        _ = addOutput(output: videoDataOutput, captureSession: self.captureSession)
+        _ = addOutput(output: videoDataOutput, captureSession: captureSession)
         videoConnection = videoDataOutput.connection(with: .video)
         _ = addOutput(output: audioDataOutput, captureSession: captureSession)
         audioConnection = audioDataOutput.connection(with: .audio)
@@ -82,7 +84,7 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
     
     func setCompressionSettings() {
         videoCompressionSettings = videoDataOutput.recommendedVideoSettingsForAssetWriter(writingTo: AVFileType.mov)
-        audioCompressionSettings = audioDataOutput.recommendedAudioSettingsForAssetWriter(writingTo: AVFileType.m4v) as! [String : Any]
+        audioCompressionSettings = audioDataOutput.recommendedAudioSettingsForAssetWriter(writingTo: AVFileType.mov) as! [String : Any]
     }
     
     func setupVideoPipelineWithInputFormatDescription(inputFormatDescription:CMFormatDescription) {
@@ -104,14 +106,14 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
         return false
     }
     
-    func transitionToRecordingStatus(newStatus:RecordingStatus,error:NSError?) -> Void {
+    func transitionToRecordingStatus(newStatus:RecordingStatus,error:Error?) -> Void {
         let oldStatus = recordingStatus
         recordingStatus = newStatus
         if newStatus != oldStatus{
             if error != nil && newStatus == .Idle{
                 self.delegateCallbackQueue.async {
                     autoreleasepool(invoking: {
-                        self.delegate?.coordinator(coordinator: self, outputFileUrl: self.recordingURL, error: nil)
+                        self.delegate?.coordinator(coordinator: self, outputFileUrl: self.recordingURL, error: error)
                     })
                 }
             }
@@ -123,7 +125,7 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
                         })
                     }
                 }
-                else if oldStatus == .Recoding && newStatus == .Idle{
+                else if oldStatus == .StopingRecording && newStatus == .Idle{
                     self.delegateCallbackQueue.async {
                         autoreleasepool(invoking: {
                             self.delegate?.coordinator(coordinator: self, outputFileUrl: self.recordingURL, error: nil)
@@ -137,7 +139,7 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
 }
 
 extension CaptureSessionAssetWriterCoordinator:AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureAudioDataOutputSampleBufferDelegate,AssetWriterCoordinatorDelegate{
-    func writerCoordinator(coordinator: AssetWriterCoordinator, error: NSError?) {
+    func writerCoordinator(coordinator: AssetWriterCoordinator, error: Error?) {
         objc_sync_enter(self)
         assetWriterCoordinator = nil
         transitionToRecordingStatus(newStatus: .Idle, error: error)
@@ -147,7 +149,7 @@ extension CaptureSessionAssetWriterCoordinator:AVCaptureVideoDataOutputSampleBuf
     
     func writerCoordinatorDidFinishPreparing(coordinator: AssetWriterCoordinator) {
         objc_sync_enter(self)
-        if recordingStatus != .Recoding{
+        if recordingStatus != .StartingRecording{
             NSException(name: NSExceptionName.internalInconsistencyException, reason: "Expected to be in StartingRecording state", userInfo: nil).raise()
             return
         }
@@ -158,7 +160,7 @@ extension CaptureSessionAssetWriterCoordinator:AVCaptureVideoDataOutputSampleBuf
     
     func writerCoordinatorDidFinishRecording(coordinator: AssetWriterCoordinator) {
         objc_sync_enter(self)
-        if recordingStatus != .Recoding{
+        if recordingStatus != .StopingRecording{
             NSException(name: NSExceptionName.internalInconsistencyException, reason: "Expected to be in StartingRecording state", userInfo: nil).raise()
             return
         }
@@ -188,8 +190,10 @@ extension CaptureSessionAssetWriterCoordinator:AVCaptureVideoDataOutputSampleBuf
         }
         else if connection == audioConnection{
             outputAudioFormatDescription = formatDescription
+             print("4")
             objc_sync_enter(self)
             if recordingStatus == .Recoding{
+                 print("5")
                 assetWriterCoordinator.appendAudioSampleBuffer(sampleBuffer:  sampleBuffer)
             }
             objc_sync_exit(self)

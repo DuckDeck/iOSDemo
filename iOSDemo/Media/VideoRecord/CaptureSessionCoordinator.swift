@@ -10,7 +10,7 @@ import Foundation
 import AVFoundation
 protocol CaptureSessionCoordinatorDelegate {
     func coordinatorDidBeginRecording(coordinator:CaptureSessionCoordinator)->Void
-    func coordinator(coordinator:CaptureSessionCoordinator,outputFileUrl:URL,error:NSError?)->Void
+    func coordinator(coordinator:CaptureSessionCoordinator,outputFileUrl:URL,error:Error?)->Void
 }
 
 class CaptureSessionCoordinator:NSObject {
@@ -68,6 +68,9 @@ class CaptureSessionCoordinator:NSObject {
         let captureSession = AVCaptureSession()
         if !addDefaultCameraInputToCaptureSession(captureSession: captureSession){
             print("failed to add camera input to capture session")
+        }
+        if !addDefaultMicInputToCaptureSession(captureSession: captureSession){
+             print("failed to add mic input to capture session")
         }
         return captureSession
     }

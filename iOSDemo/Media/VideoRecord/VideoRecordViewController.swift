@@ -52,11 +52,11 @@ class VideoRecordViewController: UIViewController {
         view.layer.insertSublayer(previewLayer, at: 0)
         captureSessionCoordinator.startRunning()
         
-        btnRecord.title(title: "Record").color(color: UIColor.red).setFont(font: 17).addTo(view: view).snp.makeConstraints { (m) in
+        btnRecord.title(title: "Record").bgColor(color: UIColor.yellow).color(color: UIColor.red).setFont(font: 17).addTo(view: view).snp.makeConstraints { (m) in
             m.right.equalTo(-10)
             m.bottom.equalTo(-10)
         }
-        btnRecord.isEnabled = false
+
         btnRecord.addTarget(self, action: #selector(recordVideo), for: .touchUpInside)
        
     }
@@ -71,7 +71,7 @@ class VideoRecordViewController: UIViewController {
             captureSessionCoordinator.stopRecording()
         }
         else{
-           // stopPipelineAndDismiss()
+            stopPipelineAndDismiss()
         }
     }
     
@@ -79,10 +79,10 @@ class VideoRecordViewController: UIViewController {
         if isVideoOK && isAudioOK{
             if isRecording{
                 captureSessionCoordinator.stopRecording()
+                isRecording = false
             }
             else{
                 UIApplication.shared.isIdleTimerDisabled = true
-                btnRecord.isEnabled = false
                 btnRecord.setTitle("Stop", for: .normal)
                 captureSessionCoordinator.startRecording()
                 isRecording = true
@@ -102,12 +102,17 @@ extension VideoRecordViewController:CaptureSessionCoordinatorDelegate{
         btnRecord.isEnabled = true
     }
     
-    func coordinator(coordinator: CaptureSessionCoordinator, outputFileUrl: URL, error: NSError?) {
+    func coordinator(coordinator: CaptureSessionCoordinator, outputFileUrl: URL, error: Error?) {
+        if error != nil{
+            GrandCue.toast("发生错误:\(error!.localizedDescription)")
+            return
+        }
+        
         UIApplication.shared.isIdleTimerDisabled = false
         btnRecord.setTitle("Record", for: .normal)
         isRecording = false
         UIAlertController.title(title: "保存视频", message: nil).action(title: "取消", handle: nil).action(title: "确定", handle: {(action:UIAlertAction) in
-           // save to temp file
+           CVFileManager.copyFileToCameraRoll(fileUrl: outputFileUrl)
         }).show()
         if isDismissing{
             stopPipelineAndDismiss()
