@@ -67,8 +67,8 @@ class WatermarkViewController: UIViewController {
     }
 
     @objc func addImage()  {
-        // present(imagePickerController, animated: true, completion: nil)
-        imgWatermark.image = UIImage(named: "7")
+         present(imagePickerController, animated: true, completion: nil)
+        //imgWatermark.image = UIImage(named: "7")
     }
     
     @objc func addWatermark()  {

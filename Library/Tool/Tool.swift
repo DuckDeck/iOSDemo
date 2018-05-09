@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Photos
 class Tool{
     static func hiddenKeyboard(){
         UIApplication.shared.keyWindow?.rootViewController?.view.endEditing(true)
@@ -19,4 +20,22 @@ class Tool{
         CFStringTransform(py, nil, kCFStringTransformStripCombiningMarks, false)
         return py as String
     }
+    
+    static func thumbnailImageForVideo(url:URL,time:Double = 0)->UIImage?{
+        let asset = AVAsset(url: url)
+        let assetImageGenerator = AVAssetImageGenerator(asset: asset)
+        assetImageGenerator.appliesPreferredTrackTransform = true
+        assetImageGenerator.apertureMode =  AVAssetImageGeneratorApertureMode.encodedPixels
+        let t = CMTime(seconds: time, preferredTimescale: 60)
+        do{
+            let thumbnailImageRef = try assetImageGenerator.copyCGImage(at: t, actualTime: nil)
+            return UIImage(cgImage: thumbnailImageRef)
+        }
+        catch{
+            print(error.localizedDescription)
+            return nil
+        }
+        
+    }
+    
 }

@@ -22,6 +22,16 @@ class CVFileManager {
         return URL.init(fileURLWithPath: path)
     }
     
+    static func getAllVideos()->[URL]?{
+        guard let urlStrs = try? FileManager.default.contentsOfDirectory(atPath: NSTemporaryDirectory()) else{
+            return nil
+        }
+        let urls = urlStrs.map { (str) -> URL in
+            return URL(fileURLWithPath: NSTemporaryDirectory() + str)
+        }
+        return urls
+    }
+    
     static func removeFile(url:URL){
         let path = url.path
         let fm = FileManager.default

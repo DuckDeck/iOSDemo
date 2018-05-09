@@ -53,7 +53,7 @@ extension MediaViewController:UITableViewDelegate,UITableViewDataSource{
         case 3:
             navigationController?.pushViewController(SoundRecordViewController(), animated: true)
         case 4:
-            navigationController?.pushViewController(VideoRecordViewController(), animated: true)
+            navigationController?.pushViewController(VideoListViewController(), animated: true)
         default:
             break
         }

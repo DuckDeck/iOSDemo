@@ -20,7 +20,7 @@ class VideoRecordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let btnBar = UIBarButtonItem(title: "已有视频", style: .plain, target: self, action: #selector(gotoAlreadyExistVideo))
+        let btnBar = UIBarButtonItem(title: "已有视频", style: .plain, target: self, action: #selector(setRecordSetting))
         navigationItem.rightBarButtonItem = btnBar
         
         Auth.isAuthCamera { (result) in
@@ -36,11 +36,6 @@ class VideoRecordViewController: UIViewController {
             }
             self.isAudioOK = true
         }
-        
-        
-       
-
-        
         captureSessionCoordinator = CaptureSessionAssetWriterCoordinator()
         captureSessionCoordinator.setDelegate(delegate: self, callbackQueue: DispatchQueue.main)
        
@@ -58,14 +53,21 @@ class VideoRecordViewController: UIViewController {
         }
 
         btnRecord.addTarget(self, action: #selector(recordVideo), for: .touchUpInside)
+        
+        btnClose.title(title: "Close").bgColor(color: UIColor.yellow).color(color: UIColor.red).setFont(font: 17).addTo(view: view).snp.makeConstraints { (m) in
+            m.left.equalTo(10)
+            m.bottom.equalTo(-10)
+        }
+        
+        btnClose.addTarget(self, action: #selector(closeRecordPage), for: .touchUpInside)
+        
        
     }
-    @objc func gotoAlreadyExistVideo()  {
+    @objc func setRecordSetting()  {
         
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-         super.viewWillDisappear(animated)
+    @objc func closeRecordPage() {
         if isRecording{
             isDismissing = true
             captureSessionCoordinator.stopRecording()
@@ -74,6 +76,7 @@ class VideoRecordViewController: UIViewController {
             stopPipelineAndDismiss()
         }
     }
+ 
     
     @objc func recordVideo()  {
         if isVideoOK && isAudioOK{
@@ -93,7 +96,7 @@ class VideoRecordViewController: UIViewController {
 
     func stopPipelineAndDismiss()  {
         captureSessionCoordinator.stopRunning()
-//        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
         isDismissing = false
     }
 }
