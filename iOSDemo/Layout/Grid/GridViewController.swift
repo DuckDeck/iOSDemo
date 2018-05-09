@@ -41,13 +41,12 @@ class GridViewController: UIViewController {
         
         viewContainer.layer.borderWidth = 1
         viewDemo.addSubview(viewContainer)
-        viewContainer.maxWidth = ScreenWidth - 40
+        viewContainer.maxWidth = ScreenWidth - 20
         viewContainer.snp.makeConstraints { (m) in
             m.left.equalTo(0)
             m.width.greaterThanOrEqualTo(150)
             m.top.equalTo(10)
             m.height.greaterThanOrEqualTo(150)
-            m.right.equalTo(0)
 //            m.bottom.equalTo(-10)
         }
         

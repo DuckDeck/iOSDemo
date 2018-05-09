@@ -5,6 +5,7 @@
 //  Copyright © 2016 Stan Hu. All rights reserved.
 //
 
+//功能基本正常
 import UIKit
 import SnapKit
 class GridView: UIView {
@@ -53,6 +54,9 @@ class GridView: UIView {
                             right = x - horizontalSpace +  padding.right
                         }
                     }
+                    if right <= maxWidth{
+                        right = maxWidth
+                    }
                     self.snp.updateConstraints({ (m) in
                         m.width.greaterThanOrEqualTo(right)
                         var b:CGFloat = 0
@@ -60,9 +64,9 @@ class GridView: UIView {
                             b = y - verticalSpace + padding.bottom
                         }
                         else{
-                            b = y + padding.bottom + cellSize.height + verticalSpace
+                            b = y + padding.bottom + cellSize.height
                         }
-                        m.height.equalTo(b)
+                        m.height.greaterThanOrEqualTo(b)
                     })
             }
         }
