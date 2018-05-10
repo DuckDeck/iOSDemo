@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Photos
 extension UIImage{
     static func captureView(view:UIView)->UIImage{
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0)
@@ -255,4 +255,9 @@ extension UIImage{
     }
     
     
+    func saveToAlbum() {
+        try? PHPhotoLibrary.shared().performChangesAndWait {
+            PHAssetChangeRequest.creationRequestForAsset(from: self)
+        }
+    }
 }

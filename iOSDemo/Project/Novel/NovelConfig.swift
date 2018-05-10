@@ -7,4 +7,5 @@
 //
 
 import UIKit
+import GrandStore
 let Bookmark = GrandStore(name: "Bookmark", defaultValue: [NovelInfo]())

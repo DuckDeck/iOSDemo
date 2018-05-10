@@ -5,7 +5,7 @@
 //  Created by Tyrant on 6/5/15.
 //  Copyright (c) 2015 Tyrant. All rights reserved.
 //
-
+import GrandStore
 import UIKit
 var scale:Float{
     if UIScreen.main.bounds.width  > 400

@@ -174,7 +174,6 @@
 		AE9F32841F690F5200339BB8 /* GrandModel+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32791F690F5200339BB8 /* GrandModel+Map.swift */; };
 		AE9F32851F690F5200339BB8 /* GrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F327A1F690F5200339BB8 /* GrandModel.swift */; };
 		AE9F32861F690F5200339BB8 /* GrandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F327B1F690F5200339BB8 /* GrandType.swift */; };
-		AE9F32871F690F5200339BB8 /* GrandStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F327D1F690F5200339BB8 /* GrandStore.swift */; };
 		AE9F32881F690F5200339BB8 /* GrandTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F327F1F690F5200339BB8 /* GrandTime.swift */; };
 		AE9F32891F690F5200339BB8 /* GrandTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32801F690F5200339BB8 /* GrandTimer.swift */; };
 		AE9F328A1F690F5200339BB8 /* TimeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32811F690F5200339BB8 /* TimeSpan.swift */; };
@@ -200,6 +199,7 @@
 		AEBE40541FC80A810087D7ED /* CitySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE40531FC80A810087D7ED /* CitySearchView.swift */; };
 		AEBE40561FC80A930087D7ED /* CitySearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE40551FC80A930087D7ED /* CitySearchResultView.swift */; };
 		AEBE405E1FC81FE80087D7ED /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE405D1FC81FE80087D7ED /* CityTableViewCell.swift */; };
+		AEBE709020A4449100B2E897 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE708F20A4449100B2E897 /* TakePhotoViewController.swift */; };
 		AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC540E2012EC0000BB4E34 /* GridViewController.swift */; };
 		AEDC54132012EC4100BB4E34 /* ConstraintArrayDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */; };
 		AEDC54142012EC4100BB4E34 /* ConstraintArray+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54122012EC4100BB4E34 /* ConstraintArray+Extensions.swift */; };
@@ -428,7 +428,6 @@
 		AE9F32791F690F5200339BB8 /* GrandModel+Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GrandModel+Map.swift"; sourceTree = "<group>"; };
 		AE9F327A1F690F5200339BB8 /* GrandModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandModel.swift; sourceTree = "<group>"; };
 		AE9F327B1F690F5200339BB8 /* GrandType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandType.swift; sourceTree = "<group>"; };
-		AE9F327D1F690F5200339BB8 /* GrandStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandStore.swift; sourceTree = "<group>"; };
 		AE9F327F1F690F5200339BB8 /* GrandTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandTime.swift; sourceTree = "<group>"; };
 		AE9F32801F690F5200339BB8 /* GrandTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandTimer.swift; sourceTree = "<group>"; };
 		AE9F32811F690F5200339BB8 /* TimeSpan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSpan.swift; sourceTree = "<group>"; };
@@ -465,6 +464,7 @@
 		AEBE40551FC80A930087D7ED /* CitySearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchResultView.swift; sourceTree = "<group>"; };
 		AEBE405D1FC81FE80087D7ED /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		AEBE40761FCEC25C0087D7ED /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		AEBE708F20A4449100B2E897 /* TakePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
 		AEDC540E2012EC0000BB4E34 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintArrayDSL.swift; sourceTree = "<group>"; };
 		AEDC54122012EC4100BB4E34 /* ConstraintArray+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintArray+Extensions.swift"; sourceTree = "<group>"; };
@@ -949,6 +949,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5752921F76931C00F6AAC5 /* MediaViewController.swift */,
+				AEBE708E20A4448200B2E897 /* TakePhoto */,
 				AE955C3320A2D38E0009EFFE /* VideoPlay */,
 				AEDF8C47209AF5E000EED6D1 /* VideoRecord */,
 				AE7278A7207F5A08005D9D6D /* SoundRecord */,
@@ -1224,7 +1225,6 @@
 				AE9F328B1F690F9000339BB8 /* Config */,
 				AE9F32751F690F5200339BB8 /* GrandCue */,
 				AE9F32771F690F5200339BB8 /* GrandModel */,
-				AE9F327C1F690F5200339BB8 /* GrandStore */,
 				AE9F327E1F690F5200339BB8 /* GrandTime */,
 			);
 			path = Library;
@@ -1248,14 +1248,6 @@
 				AE9F327B1F690F5200339BB8 /* GrandType.swift */,
 			);
 			path = GrandModel;
-			sourceTree = "<group>";
-		};
-		AE9F327C1F690F5200339BB8 /* GrandStore */ = {
-			isa = PBXGroup;
-			children = (
-				AE9F327D1F690F5200339BB8 /* GrandStore.swift */,
-			);
-			path = GrandStore;
 			sourceTree = "<group>";
 		};
 		AE9F327E1F690F5200339BB8 /* GrandTime */ = {
@@ -1365,6 +1357,14 @@
 				AEBE405D1FC81FE80087D7ED /* CityTableViewCell.swift */,
 			);
 			path = CityChoose;
+			sourceTree = "<group>";
+		};
+		AEBE708E20A4448200B2E897 /* TakePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				AEBE708F20A4449100B2E897 /* TakePhotoViewController.swift */,
+			);
+			path = TakePhoto;
 			sourceTree = "<group>";
 		};
 		AEDC540D2012EBF900BB4E34 /* Grid */ = {
@@ -1488,7 +1488,6 @@
 				AE9F31CF1F69070E00339BB8 /* Frameworks */,
 				AE9F31D01F69070E00339BB8 /* Resources */,
 				D64EDA57BB3E1ADE1D6AFD30 /* [CP] Embed Pods Frameworks */,
-				369C75CE69A21AC3BB96FB5A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1626,21 +1625,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		369C75CE69A21AC3BB96FB5A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9C4A10EEF6394B4CB5BBE52B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1670,6 +1654,8 @@
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/GrandMenu/GrandMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/GrandStore/GrandStore.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
@@ -1694,6 +1680,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrandMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrandStore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
@@ -1753,7 +1741,6 @@
 				AE0F706D1FBD6F2B00C8135C /* NFXRawBodyDetailsController.swift in Sources */,
 				AE0F70721FBD6F2B00C8135C /* NFXImageBodyDetailsController.swift in Sources */,
 				AE0F70631FBD6F2B00C8135C /* NFXInfoController.swift in Sources */,
-				AE9F32871F690F5200339BB8 /* GrandStore.swift in Sources */,
 				AE1DE0962099BE0A007910A5 /* PieceImage.swift in Sources */,
 				AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */,
 				AE1DE0472099AD32007910A5 /* BookmarkViewController.swift in Sources */,
@@ -1774,6 +1761,7 @@
 				AE0F70371FBA9ACF00C8135C /* NetworkViewController.swift in Sources */,
 				AE3961EA1FD13D2400BF4CE9 /* GandAlert.swift in Sources */,
 				AE0F70971FBEB9CA00C8135C /* DrawView.swift in Sources */,
+				AEBE709020A4449100B2E897 /* TakePhotoViewController.swift in Sources */,
 				AE0F70611FBD6F2B00C8135C /* NFXAssets.swift in Sources */,
 				AE0F707E1FBD6F2B00C8135C /* NFXListController_iOS.swift in Sources */,
 				AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */,
