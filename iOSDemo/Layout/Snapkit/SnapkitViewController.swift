@@ -49,7 +49,7 @@ class SnapkitViewController: UIViewController,UITextViewDelegate {
 
         sc.snp.makeConstraints { (m) in
             m.left.right.equalTo(0)
-            m.top.equalTo(lbl1.snp.bottom)
+            m.top.equalTo(lbl1.snp.bottom).offset(15)
             m.bottom.equalTo(-15)
         }
 //
@@ -110,6 +110,11 @@ class SnapkitViewController: UIViewController,UITextViewDelegate {
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        sc.addTopTranslucency(height: 30)
+    }
+    
     @objc func addText()  {
         lbl.text = str + "123"
         lbl.font = UIFont.boldSystemFont(ofSize: 13)
