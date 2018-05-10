@@ -15,43 +15,17 @@ class VideoRecordViewController: UIViewController {
     var isDismissing = false
     let btnRecord = UIButton()
     let btnClose = UIButton()
-    var isAudioOK = false
-    var isVideoOK = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let btnBar = UIBarButtonItem(title: "已有视频", style: .plain, target: self, action: #selector(setRecordSetting))
         navigationItem.rightBarButtonItem = btnBar
         
-        Auth.isAuthCamera { (result) in
-            if !result{
-                GrandCue.toast("需要视频权限")
-            }
-            self.isVideoOK = true
-        }
-        
-        Auth.isAuthMicrophone { (result) in
-            if !result{
-                GrandCue.toast("需要麦克风权限")
-            }
-            self.isAudioOK = true
-        }
-        captureSessionCoordinator = CaptureSessionAssetWriterCoordinator()
-        captureSessionCoordinator.setDelegate(delegate: self, callbackQueue: DispatchQueue.main)
-       
-        guard  let previewLayer = captureSessionCoordinator.previewLayer else{
-            return
-        }
-        
-        previewLayer.frame = view.bounds
-        view.layer.insertSublayer(previewLayer, at: 0)
-        captureSessionCoordinator.startRunning()
-        
         btnRecord.title(title: "Record").bgColor(color: UIColor.yellow).color(color: UIColor.red).setFont(font: 17).addTo(view: view).snp.makeConstraints { (m) in
             m.right.equalTo(-10)
             m.bottom.equalTo(-10)
         }
-
+        
         btnRecord.addTarget(self, action: #selector(recordVideo), for: .touchUpInside)
         
         btnClose.title(title: "Close").bgColor(color: UIColor.yellow).color(color: UIColor.red).setFont(font: 17).addTo(view: view).snp.makeConstraints { (m) in
@@ -60,9 +34,22 @@ class VideoRecordViewController: UIViewController {
         }
         
         btnClose.addTarget(self, action: #selector(closeRecordPage), for: .touchUpInside)
+        captureSessionCoordinator = CaptureSessionAssetWriterCoordinator()
+        captureSessionCoordinator.setDelegate(delegate: self, callbackQueue: DispatchQueue.main)
         
-       
+        guard  let previewLayer = captureSessionCoordinator.previewLayer else{
+            return
+        }
+        
+        previewLayer.frame = view.bounds
+        view.layer.insertSublayer(previewLayer, at: 0)
+        captureSessionCoordinator.startRunning()
+        
+        
     }
+    
+  
+    
     @objc func setRecordSetting()  {
         
     }
@@ -79,19 +66,17 @@ class VideoRecordViewController: UIViewController {
  
     
     @objc func recordVideo()  {
-        if isVideoOK && isAudioOK{
-            if isRecording{
-                captureSessionCoordinator.stopRecording()
-                isRecording = false
-            }
-            else{
-                UIApplication.shared.isIdleTimerDisabled = true
-                btnRecord.setTitle("Stop", for: .normal)
-                captureSessionCoordinator.startRecording()
-                isRecording = true
-            }
+       
+        if isRecording{
+            captureSessionCoordinator.stopRecording()
+            isRecording = false
         }
-        
+        else{
+            UIApplication.shared.isIdleTimerDisabled = true
+            btnRecord.setTitle("Stop", for: .normal)
+            captureSessionCoordinator.startRecording()
+            isRecording = true
+        }
     }
 
     func stopPipelineAndDismiss()  {

@@ -51,6 +51,25 @@ class VideoListViewController: UIViewController {
     }
     
     @objc func recordVideo() {
+        
+        if !Auth.isAuthCamera(){
+            Auth.authCamera { (result) in
+                if !result{
+                    Auth.showEventAccessDeniedAlert(view: self, authTpye: .Camera)
+                }
+            }
+            return
+        }
+        
+        if !Auth.isAuthMicrophone(){
+            Auth.authMicrophone { (result) in
+                if !result{
+                    Auth.showEventAccessDeniedAlert(view: self, authTpye: .Audio)
+                }
+            }
+            return
+        }
+        
         present(VideoRecordViewController(), animated: true) {
             print("123")
         }

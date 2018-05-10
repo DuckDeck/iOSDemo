@@ -86,7 +86,6 @@ class CaptureVideoViewController: UIViewController {
 
             default:
                 Auth.showEventAccessDeniedAlert(view: self, authTpye: .Video)
-
         }
     
     }

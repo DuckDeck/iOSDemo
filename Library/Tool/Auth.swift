@@ -36,6 +36,7 @@ class Auth:NSObject {
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         alertControllr.addAction(cancelAction)
         view.present(alertControllr, animated: true, completion: nil)
+    
     }
     
     @objc static func isAuthPhoto()->Bool{
@@ -60,28 +61,46 @@ class Auth:NSObject {
         return false
     }
     
-    @objc static func isAuthCamera(grandBLock:@escaping ((_ isGrant:Bool)->Void)){
-        let type = AVMediaType.video
-        AVCaptureDevice.requestAccess(for: type) { (granted) in
-            if !granted{
-                if let cuur = UIApplication.shared.keyWindow!.currentViewController(){
-                    Auth.showEventAccessDeniedAlert(view: cuur, authTpye: .Camera)
-                }
-                
-            }
-            grandBLock(granted)
-        }
+    @objc static func isAuthCamera() -> Bool{
+        return AVCaptureDevice.authorizationStatus(for: .video) == .authorized
     }
     
-    @objc static func isAuthMicrophone(grandBLock:@escaping ((_ isGrant:Bool)->Void)){
-        let type = AVMediaType.audio
-        AVCaptureDevice.requestAccess(for: type) { (granted) in
-            if !granted{
-                if let cuur = UIApplication.shared.keyWindow!.currentViewController(){
-                    Auth.showEventAccessDeniedAlert(view: cuur, authTpye: .Audio)
-                }
-            }
-            grandBLock(granted)
+    @objc static func authCamera(grandBLock:@escaping ((_ isGrant:Bool)->Void)){
+     
+        let res = AVCaptureDevice.authorizationStatus(for: .video)
+        switch res {
+            case .authorized:
+                grandBLock(true)
+            case .notDetermined:
+                AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted) in
+                   
+                    grandBLock(granted)
+                })
+            
+            default:
+              
+                grandBLock(false)
+        }
+        
+    }
+    
+    @objc static func isAuthMicrophone()->Bool{
+        return AVCaptureDevice.authorizationStatus(for: .audio) == .authorized
+    }
+    
+    @objc static func authMicrophone(grandBLock:@escaping ((_ isGrant:Bool)->Void)){
+        let res = AVCaptureDevice.authorizationStatus(for: .audio)
+        switch res {
+        case .authorized:
+            grandBLock(true)
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted) in
+                grandBLock(granted)
+            })
+            
+        default:
+           
+            grandBLock(false)
         }
     }
 }
