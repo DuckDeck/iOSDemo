@@ -10,4 +10,7 @@
 #define bridge_h
 
 #import "SWHttpTrafficRecorder.h"
+#import <AMapFoundationKit/AMapFoundationKit.h>
+#import <MAMapKit/MAMapKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
 #endif /* bridge_h */

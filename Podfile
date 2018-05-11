@@ -29,6 +29,8 @@ pod "Moya/RxSwift"
 pod "URLNavigator"
 pod "RxDataSources"
 pod "ImagePicker"
+pod "AMap3DMap"
+pod "AMapLocation"
 end
 
 

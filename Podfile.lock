@@ -1,5 +1,10 @@
 PODS:
   - Alamofire (4.7.2)
+  - AMap3DMap (6.2.0):
+    - AMapFoundation (~> 1.5)
+  - AMapFoundation (1.5.0)
+  - AMapLocation (2.6.0):
+    - AMapFoundation (~> 1.4)
   - Differentiator (3.0.2)
   - FBRetainCycleDetector (0.1.4)
   - FMDB (2.7.2):
@@ -40,6 +45,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - AMap3DMap
+  - AMapLocation
   - FMDB
   - GrandMenu
   - GrandStore
@@ -63,6 +70,9 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AMap3DMap
+    - AMapFoundation
+    - AMapLocation
     - Differentiator
     - FBRetainCycleDetector
     - FMDB
@@ -88,6 +98,9 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  AMap3DMap: 4170b8e1674883eefc068e277abf4dbaa9ea5f2d
+  AMapFoundation: 04fc43736ed63bed15d502e20f74ded399991f1e
+  AMapLocation: 55116a2c8956eab7550cbb56e989aa5cdcc424e3
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
@@ -111,6 +124,6 @@ SPEC CHECKSUMS:
   URLNavigator: b7bdd352cc07f4f745547807a3ca2a82980a6cea
   WSProgressHUD: a0902809c8af112fb34b004fdc75c16eb85167a3
 
-PODFILE CHECKSUM: 773bb18ce21e526782c16e045800d4a0be8822f0
+PODFILE CHECKSUM: 50da4649ea30b3a6463b64b8cf01b0d90c1f7ee9
 
 COCOAPODS: 1.5.2

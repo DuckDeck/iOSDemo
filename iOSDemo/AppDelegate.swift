@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         NFX.sharedInstance().start()
         IQKeyboardManager.shared.enable = true
-      
+        AMapServices.shared().apiKey = "168eb4f17d4999c78757b84b7012a0cf"
         return true
     }
 
