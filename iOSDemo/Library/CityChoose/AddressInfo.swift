@@ -21,21 +21,20 @@ class AddressInfo:NSObject, NSCoding {
         aCoder.encode(city, forKey: "city")
         aCoder.encode(street, forKey: "street")
         aCoder.encode(latitude, forKey: "latitude")
-        aCoder.encode(latitudeStr, forKey: "latitudeStr")
         aCoder.encode(longitude, forKey: "longitude")
-        aCoder.encode(longitudeStr, forKey: "longitudeStr")
+        aCoder.encode(district, forKey: "district")
     }
     
     required init?(coder aDecoder: NSCoder) {
-        aDecoder.decodeInteger(forKey: "areaId")
-        aDecoder.decodeObject(forKey: "province")
-        aDecoder.decodeObject(forKey: "city")
-        aDecoder.decodeObject(forKey: "district")
-        aDecoder.decodeObject(forKey: "street")
-        aDecoder.decodeDouble(forKey: "latitude")
-        aDecoder.decodeObject(forKey: "latitudeStr")
-        aDecoder.decodeDouble(forKey: "longitude")
-        aDecoder.decodeObject(forKey: "longitudeStr")
+        areaId =  aDecoder.decodeInteger(forKey: "areaId")
+        province = aDecoder.decodeObject(forKey: "province") as! String
+        city =  aDecoder.decodeObject(forKey: "city") as! String
+        if let dis =  aDecoder.decodeObject(forKey: "district") as? String{
+            district = dis
+        }
+        street = aDecoder.decodeObject(forKey: "street") as! String
+        latitude = aDecoder.decodeDouble(forKey: "latitude")
+        longitude =  aDecoder.decodeDouble(forKey: "longitude")
     }
     
     var areaId = 0

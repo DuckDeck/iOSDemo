@@ -70,6 +70,7 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
             navigationController?.pushViewController(DataViewController(), animated: true)
         case 12:
             navigationController?.pushViewController(ProjectViewController(), animated: true)
+      
         default:
             break
         }

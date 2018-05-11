@@ -15,6 +15,7 @@ class SectionInfo: GrandModel {
     var sectionUrl = ""
     var sectionName = ""
     var sectionContent = ""
+    var fontsize = 20
     public static func ==(lhs: SectionInfo, rhs: SectionInfo) -> Bool{
         return lhs.sectionUrl == rhs.sectionUrl
     }

@@ -9,7 +9,7 @@
 
 
 import UIKit
-
+import GrandStore
 let NavigationBarHeight:CGFloat = 64.0
 let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height
@@ -19,8 +19,7 @@ let APPVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! S
 let Scale = ScreenWidth / 320.0
 let lineHeight:CGFloat = ScreenWidth == 414 ? 0.38334 : 0.5
 
-
-var fontsize = 20
+let APPAreaInfo = GrandStore(name: "APPAreaInfo", defaultValue: AddressInfo())
 
 
 /* \ */

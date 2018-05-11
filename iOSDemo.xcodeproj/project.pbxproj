@@ -200,6 +200,7 @@
 		AEBE40561FC80A930087D7ED /* CitySearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE40551FC80A930087D7ED /* CitySearchResultView.swift */; };
 		AEBE405E1FC81FE80087D7ED /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE405D1FC81FE80087D7ED /* CityTableViewCell.swift */; };
 		AEBE709020A4449100B2E897 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE708F20A4449100B2E897 /* TakePhotoViewController.swift */; };
+		AEBE709920A5356500B2E897 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE709820A5356500B2E897 /* MapViewController.swift */; };
 		AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC540E2012EC0000BB4E34 /* GridViewController.swift */; };
 		AEDC54132012EC4100BB4E34 /* ConstraintArrayDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */; };
 		AEDC54142012EC4100BB4E34 /* ConstraintArray+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54122012EC4100BB4E34 /* ConstraintArray+Extensions.swift */; };
@@ -465,6 +466,7 @@
 		AEBE405D1FC81FE80087D7ED /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		AEBE40761FCEC25C0087D7ED /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		AEBE708F20A4449100B2E897 /* TakePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
+		AEBE709820A5356500B2E897 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AEDC540E2012EC0000BB4E34 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintArrayDSL.swift; sourceTree = "<group>"; };
 		AEDC54122012EC4100BB4E34 /* ConstraintArray+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintArray+Extensions.swift"; sourceTree = "<group>"; };
@@ -1355,6 +1357,7 @@
 				AEBE40531FC80A810087D7ED /* CitySearchView.swift */,
 				AEBE40551FC80A930087D7ED /* CitySearchResultView.swift */,
 				AEBE405D1FC81FE80087D7ED /* CityTableViewCell.swift */,
+				AEBE709820A5356500B2E897 /* MapViewController.swift */,
 			);
 			path = CityChoose;
 			sourceTree = "<group>";
@@ -1786,6 +1789,7 @@
 				AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */,
 				AE1DE0452099AD32007910A5 /* NovelSearchViewModel.swift in Sources */,
 				AEDF8C51209AF6B500EED6D1 /* CaptureSessionCoordinator.swift in Sources */,
+				AEBE709920A5356500B2E897 /* MapViewController.swift in Sources */,
 				AE5AD7EC206111AC00289798 /* RippleViewController.swift in Sources */,
 				AE955C3520A2D39A0009EFFE /* VideoPlayViewController.swift in Sources */,
 				AE1DE03B2099AD32007910A5 /* ToModelExtension.swift in Sources */,

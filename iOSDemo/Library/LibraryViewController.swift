@@ -41,7 +41,7 @@ extension LibraryViewController:UITableViewDelegate,UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
-            navigationController?.pushViewController(CityChooseViewController(), animated: true)
+            navigationController?.pushViewController(MapViewController(), animated: true)
         case 1:
             navigationController?.pushViewController(AlertViewController(), animated: true)
         case 2:

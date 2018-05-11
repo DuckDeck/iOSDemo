@@ -131,23 +131,23 @@ class CityChooseViewController: UIViewController {
             setLocateCity(city: nil, status: 3)
         }
         else{
-//            if let address = APPAreaInfo.Value{
-//                geoCode = CLGeocoder()
-//                let lo = CLLocation(latitude: address.latitude, longitude: address.longitude)
-//                geoCode?.reverseGeocodeLocation(lo, completionHandler: { [weak self](places, err) in
-//                    if err != nil || places == nil{
-//                        Toast.showToast(msg: err!.localizedDescription)
-//                        return
-//                    }
-//                    if let one = places!.first?.locality{
-//                        address.city = one
-//                        APPAreaInfo.Value = address
-//                        let city = AddressInfo()
-//                        city.city = address.city
-//                        self?.setLocateCity(city: city, status: 1)
-//                    }
-//                })
-//            }
+            if let address = APPAreaInfo.Value{
+                geoCode = CLGeocoder()
+                let lo = CLLocation(latitude: address.latitude, longitude: address.longitude)
+                geoCode?.reverseGeocodeLocation(lo, completionHandler: { [weak self](places, err) in
+                    if err != nil || places == nil{
+                        GrandCue.toast(err!.localizedDescription)
+                        return
+                    }
+                    if let one = places!.first?.locality{
+                        address.city = one
+                        APPAreaInfo.Value = address
+                        let city = AddressInfo()
+                        city.city = address.city
+                        self?.setLocateCity(city: city, status: 1)
+                    }
+                })
+            }
         }
         
         
@@ -161,7 +161,7 @@ class CityChooseViewController: UIViewController {
     }
     
     @objc func blackMaskTap(gesture:UITapGestureRecognizer) {
-//        searchSelectCancel()
+        searchSelectCancel()
         //光这样没用
     }
     
