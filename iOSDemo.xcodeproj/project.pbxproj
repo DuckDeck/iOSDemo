@@ -174,9 +174,6 @@
 		AE9F32841F690F5200339BB8 /* GrandModel+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32791F690F5200339BB8 /* GrandModel+Map.swift */; };
 		AE9F32851F690F5200339BB8 /* GrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F327A1F690F5200339BB8 /* GrandModel.swift */; };
 		AE9F32861F690F5200339BB8 /* GrandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F327B1F690F5200339BB8 /* GrandType.swift */; };
-		AE9F32881F690F5200339BB8 /* GrandTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F327F1F690F5200339BB8 /* GrandTime.swift */; };
-		AE9F32891F690F5200339BB8 /* GrandTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32801F690F5200339BB8 /* GrandTimer.swift */; };
-		AE9F328A1F690F5200339BB8 /* TimeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32811F690F5200339BB8 /* TimeSpan.swift */; };
 		AE9F328E1F690FD200339BB8 /* UIView+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F328D1F690FD200339BB8 /* UIView+Base.swift */; };
 		AE9F329F1F6911F300339BB8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32931F69108600339BB8 /* Config.swift */; };
 		AE9F32A31F69144C00339BB8 /* ResultInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F32A11F69144900339BB8 /* ResultInfo.swift */; };
@@ -201,6 +198,9 @@
 		AEBE405E1FC81FE80087D7ED /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE405D1FC81FE80087D7ED /* CityTableViewCell.swift */; };
 		AEBE709020A4449100B2E897 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE708F20A4449100B2E897 /* TakePhotoViewController.swift */; };
 		AEBE709920A5356500B2E897 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE709820A5356500B2E897 /* MapViewController.swift */; };
+		AEBE70A520A6D31E00B2E897 /* GrandTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE70A220A6D31E00B2E897 /* GrandTime.swift */; };
+		AEBE70A620A6D31E00B2E897 /* GrandTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE70A320A6D31E00B2E897 /* GrandTimer.swift */; };
+		AEBE70A720A6D31E00B2E897 /* TimeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE70A420A6D31E00B2E897 /* TimeSpan.swift */; };
 		AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC540E2012EC0000BB4E34 /* GridViewController.swift */; };
 		AEDC54132012EC4100BB4E34 /* ConstraintArrayDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */; };
 		AEDC54142012EC4100BB4E34 /* ConstraintArray+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54122012EC4100BB4E34 /* ConstraintArray+Extensions.swift */; };
@@ -429,9 +429,6 @@
 		AE9F32791F690F5200339BB8 /* GrandModel+Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GrandModel+Map.swift"; sourceTree = "<group>"; };
 		AE9F327A1F690F5200339BB8 /* GrandModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandModel.swift; sourceTree = "<group>"; };
 		AE9F327B1F690F5200339BB8 /* GrandType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandType.swift; sourceTree = "<group>"; };
-		AE9F327F1F690F5200339BB8 /* GrandTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandTime.swift; sourceTree = "<group>"; };
-		AE9F32801F690F5200339BB8 /* GrandTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandTimer.swift; sourceTree = "<group>"; };
-		AE9F32811F690F5200339BB8 /* TimeSpan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSpan.swift; sourceTree = "<group>"; };
 		AE9F328D1F690FD200339BB8 /* UIView+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Base.swift"; sourceTree = "<group>"; };
 		AE9F32931F69108600339BB8 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		AE9F32A11F69144900339BB8 /* ResultInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultInfo.swift; sourceTree = "<group>"; };
@@ -467,6 +464,9 @@
 		AEBE40761FCEC25C0087D7ED /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		AEBE708F20A4449100B2E897 /* TakePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
 		AEBE709820A5356500B2E897 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		AEBE70A220A6D31E00B2E897 /* GrandTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandTime.swift; sourceTree = "<group>"; };
+		AEBE70A320A6D31E00B2E897 /* GrandTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandTimer.swift; sourceTree = "<group>"; };
+		AEBE70A420A6D31E00B2E897 /* TimeSpan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSpan.swift; sourceTree = "<group>"; };
 		AEDC540E2012EC0000BB4E34 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintArrayDSL.swift; sourceTree = "<group>"; };
 		AEDC54122012EC4100BB4E34 /* ConstraintArray+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintArray+Extensions.swift"; sourceTree = "<group>"; };
@@ -1218,6 +1218,7 @@
 		AE9F32311F690F1B00339BB8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				AEBE70A120A6D31E00B2E897 /* GrandTime */,
 				AEF0977F2065EE560021E4ED /* Model */,
 				AE5A88611FF36F8800748F6A /* View */,
 				AE0F70271FBA900200C8135C /* Http */,
@@ -1227,7 +1228,6 @@
 				AE9F328B1F690F9000339BB8 /* Config */,
 				AE9F32751F690F5200339BB8 /* GrandCue */,
 				AE9F32771F690F5200339BB8 /* GrandModel */,
-				AE9F327E1F690F5200339BB8 /* GrandTime */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -1250,16 +1250,6 @@
 				AE9F327B1F690F5200339BB8 /* GrandType.swift */,
 			);
 			path = GrandModel;
-			sourceTree = "<group>";
-		};
-		AE9F327E1F690F5200339BB8 /* GrandTime */ = {
-			isa = PBXGroup;
-			children = (
-				AE9F327F1F690F5200339BB8 /* GrandTime.swift */,
-				AE9F32801F690F5200339BB8 /* GrandTimer.swift */,
-				AE9F32811F690F5200339BB8 /* TimeSpan.swift */,
-			);
-			path = GrandTime;
 			sourceTree = "<group>";
 		};
 		AE9F328B1F690F9000339BB8 /* Config */ = {
@@ -1368,6 +1358,16 @@
 				AEBE708F20A4449100B2E897 /* TakePhotoViewController.swift */,
 			);
 			path = TakePhoto;
+			sourceTree = "<group>";
+		};
+		AEBE70A120A6D31E00B2E897 /* GrandTime */ = {
+			isa = PBXGroup;
+			children = (
+				AEBE70A220A6D31E00B2E897 /* GrandTime.swift */,
+				AEBE70A320A6D31E00B2E897 /* GrandTimer.swift */,
+				AEBE70A420A6D31E00B2E897 /* TimeSpan.swift */,
+			);
+			path = GrandTime;
 			sourceTree = "<group>";
 		};
 		AEDC540D2012EBF900BB4E34 /* Grid */ = {
@@ -1840,6 +1840,7 @@
 				AE0F706F1FBD6F2B00C8135C /* NFXHTTPModel.swift in Sources */,
 				AE1DE0782099BE0A007910A5 /* FullBoard.swift in Sources */,
 				AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */,
+				AEBE70A720A6D31E00B2E897 /* TimeSpan.swift in Sources */,
 				AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */,
 				AE0F70831FBD6F2B00C8135C /* NFXListCell_iOS.swift in Sources */,
 				AE1DE03E2099AD32007910A5 /* LoadMoreCell.swift in Sources */,
@@ -1853,6 +1854,7 @@
 				AE5CE7DD208B2DBD001DB437 /* UITableView+Extension.swift in Sources */,
 				AE3A42F0201B00F900FF8AB2 /* StackViewController.swift in Sources */,
 				AE5AD7EE206111D600289798 /* RippleAnimtaionView.swift in Sources */,
+				AEBE70A520A6D31E00B2E897 /* GrandTime.swift in Sources */,
 				AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */,
 				AEDF8C4B209AF61B00EED6D1 /* CVFileManager.swift in Sources */,
 				AE1DE09D2099BE0A007910A5 /* LinkGameViewController.swift in Sources */,
@@ -1869,7 +1871,6 @@
 				AEA07EFF1F70C7B900FC9770 /* MemeryViewController.swift in Sources */,
 				AE0F706E1FBD6F2B00C8135C /* NFXStatisticsController.swift in Sources */,
 				AEBE40541FC80A810087D7ED /* CitySearchView.swift in Sources */,
-				AE9F32891F690F5200339BB8 /* GrandTimer.swift in Sources */,
 				AE9F32841F690F5200339BB8 /* GrandModel+Map.swift in Sources */,
 				AE1DE0972099BE0A007910A5 /* Piece.swift in Sources */,
 				AE0F70351FBA925900C8135C /* HttpManager.swift in Sources */,
@@ -1888,7 +1889,6 @@
 				AE5A88761FF37C2200748F6A /* Apply.swift in Sources */,
 				AE5A886D1FF3746C00748F6A /* RunTimeViewController.swift in Sources */,
 				AE1DE03F2099AD32007910A5 /* NovelTbCell.swift in Sources */,
-				AE9F32881F690F5200339BB8 /* GrandTime.swift in Sources */,
 				AE0F70301FBA90A500C8135C /* APIInfo.swift in Sources */,
 				AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */,
 				AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */,
@@ -1897,9 +1897,9 @@
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
 				AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */,
 				AEBE404E1FC806E40087D7ED /* DBTool.swift in Sources */,
+				AEBE70A620A6D31E00B2E897 /* GrandTimer.swift in Sources */,
 				AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */,
 				AE0F707F1FBD6F2B00C8135C /* NFXHelper_iOS.swift in Sources */,
-				AE9F328A1F690F5200339BB8 /* TimeSpan.swift in Sources */,
 				AE0F70801FBD6F2B00C8135C /* NFXInfoController_iOS.swift in Sources */,
 				AE5351202011876B00FC48A1 /* SnapkitViewController.swift in Sources */,
 			);

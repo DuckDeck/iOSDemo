@@ -30,7 +30,7 @@ class SoundRecordViewController: UIViewController {
                 
             }
             else{
-                let rt = recordTime.minus(TimeSpan.fromSeconds(1))
+                let rt = recordTime - TimeSpan.fromSeconds(1)
                 lblTimer.text = rt.format(format: "mm:ss")
             }
             

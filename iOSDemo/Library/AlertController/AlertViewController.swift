@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class AlertViewController: UIViewController {
 
     let btn = UIButton()

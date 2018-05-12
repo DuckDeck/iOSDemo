@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class SQLiteViewController: UIViewController {
 
     let btnGetLog = UIButton()

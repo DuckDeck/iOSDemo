@@ -28,8 +28,8 @@ class TakePhotoViewController: BaseViewController {
             m.edges.equalTo(view)
         }
         
-        btnTake.layer.cornerRadius = 20
-        btnTake.bgColor(color: UIColor.white).addTo(view: view).snp.makeConstraints { (m) in
+      
+        btnTake.title(title: "Take").color(color: UIColor.white).addTo(view: view).snp.makeConstraints { (m) in
             m.centerX.equalTo(ScreenWidth * 0.5)
             m.bottom.equalTo(-20)
             m.width.height.equalTo(40)
@@ -92,6 +92,7 @@ class TakePhotoViewController: BaseViewController {
             self.imgPreview.isHidden = true
             self.imgPreview.image = nil
             isShowing = false
+            self.btnTake.setTitle("Take", for: .normal)
         }
         else{
             if let output = session.outputs.first as? AVCaptureStillImageOutput {
@@ -109,7 +110,8 @@ class TakePhotoViewController: BaseViewController {
                     }
                     print("Image Size \(image.size)")
                     self.imgPreview.isHidden = false
-                    self.imgPreview.image = image
+                    self.imgPreview.image = image.fixImageOrientation() //加了转，可是没有用
+                   
                     self.btnTake.setTitle("ReTake", for: .normal)
                     self.isShowing = true
                     self.saveToAlbum(img: image)
@@ -126,9 +128,13 @@ class TakePhotoViewController: BaseViewController {
     }
 
     func saveToAlbum(img:UIImage) {
-        UIAlertController.title(title: "保存图片", message: nil).action(title: "取消", handle: nil).action(title: "确定", handle: {(action:UIAlertAction) in
-            img.saveToAlbum()
-        }).show()
+        DispatchQueue.main.async {
+           let s = UIAlertController.title(title: "保存图片", message: nil).action(title: "取消", handle: nil).action(title: "确定", handle: {(action:UIAlertAction) in
+                img.saveToAlbum()
+            })
+            self.present(s, animated: true, completion: nil)
+        }
+       
     }
     
 

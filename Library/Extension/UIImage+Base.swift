@@ -104,6 +104,13 @@ extension UIImage{
         return newImg!
     }
     
+    func cropImage(rect:CGRect) -> UIImage {
+        UIGraphicsBeginImageContext(self.size)
+        draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage ?? self
+    }
     
     func imageByScalingAspectToMaxSize(targetSize:CGSize) -> UIImage
     {
@@ -186,6 +193,48 @@ extension UIImage{
         return imageRotatedByRadians(radians: degrees * CGFloat(Double.pi) / 180)
     }
     
+    func fixImageOrientation() -> UIImage {
+        if self.imageOrientation == .up{
+            return self
+        }
+        var transform = CGAffineTransform.identity
+        switch self.imageOrientation {
+        case .down,.downMirrored:
+            transform = transform.translatedBy(x: self.size.width, y: self.size.height)
+            transform = transform.rotated(by: CGFloat(Double.pi))
+        case .left,.leftMirrored:
+            transform = transform.translatedBy(x: self.size.width, y: 0)
+            transform = transform.rotated(by: CGFloat(Double.pi / 2))
+        case .right,.rightMirrored:
+            transform = transform.translatedBy(x: 0, y: self.size.height)
+            transform = transform.rotated(by: CGFloat( -Double.pi / 2))
+        default:
+            break
+        }
+        switch self.imageOrientation{
+            case .upMirrored,.downMirrored:
+                transform = transform.translatedBy(x: self.size.width, y: 0)
+                transform = transform.scaledBy(x: -1, y: 1)
+            case .leftMirrored,.rightMirrored:
+                transform = transform.translatedBy(x: self.size.height, y: 0)
+                transform = transform.scaledBy(x: -1, y: 1)
+            default:
+                break
+        }
+        let ctx = CGContext(data: nil, width: Int(self.size.width), height: Int(self.size.height), bitsPerComponent: self.cgImage!.bitsPerComponent, bytesPerRow: 0, space: self.cgImage!.colorSpace!, bitmapInfo: self.cgImage!.bitmapInfo.rawValue)
+        ctx?.concatenate(transform)
+        switch self.imageOrientation {
+        case .leftMirrored,.left,.right,.rightMirrored:
+            ctx?.draw(self.cgImage!, in: CGRect(x: 0, y: 0, width: self.size.height, height: self.size.width))
+        default:
+              ctx?.draw(self.cgImage!, in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        }
+        if let cgimg = ctx?.makeImage(){
+            return UIImage(cgImage: cgimg)
+        }
+        return self
+    }
+    
     func saveToDocuments(imgName:String){
 //        var path = (NSHomeDirectory() as NSString).appendingPathComponent("Document").appendingPathComponent(imgName)
 //        UIImagePNGRepresentation(self).writeToFile(path, atomically: true)
@@ -193,64 +242,70 @@ extension UIImage{
     }
     
     
-    func addWatermark(text:String,point:CGPoint,attribute:[NSAttributedStringKey:Any]? = [NSAttributedStringKey.foregroundColor:UIColor.white]) -> UIImage {
-        //UIGraphicsBeginImageContextWithOptions(self.size, false, 0)
+    func addWatermark(text:String,point:CGPoint,repeatMark:Bool = true,attribute:[NSAttributedStringKey:Any]? = [NSAttributedStringKey.foregroundColor:UIColor.white]) -> UIImage {
+        
         UIGraphicsBeginImageContext(self.size)
-        let fontSize = self.size.width / 30
+        let fontSize = self.size.width / 23
         var attr = attribute ?? [NSAttributedStringKey:Any]()
         attr[NSAttributedStringKey.font] = UIFont.systemFont(ofSize: fontSize)
         draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
         (text as NSString).draw(at: point, withAttributes: attr)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        print("self Size width: \(self.size.width) height: \(self.size.height)")
-        print("newImage Size width: \(newImage!.size.width) height: \(newImage!.size.height)")
+        //        print("self Size width: \(self.size.width) height: \(self.size.height)")
+        //        print("newImage Size width: \(newImage!.size.width) height: \(newImage!.size.height)")
         return newImage ?? self
     }
     
-    func addWatermark(maskImage:UIImage,scale:CGFloat = 1) -> UIImage {
+    func addWatermark(maskImage:UIImage,point:CGPoint = CGPoint(x: 0, y: 0), repeatMark:Bool = true,  scale:CGFloat = 1) -> UIImage {
         UIGraphicsBeginImageContext(self.size)
-//        print("self.size")
-//        print(self.size)
-//        print("maskImage.size")
-//        print(maskImage.size)
+        //        print("self.size")
+        //        print(self.size)
+        //        print("maskImage.size")
+        //        print(maskImage.size)
         draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
-        var x:CGFloat = 0
-        var y:CGFloat = 0
+        var x:CGFloat = point.x
+        var y:CGFloat = point.y
         // 效果还是不太好，scale还是要按照分辨率来
         let adjustScale = self.size.width / 1500
         let w = maskImage.size.width * scale * adjustScale
         let h = maskImage.size.height * scale * adjustScale
-        if w < self.size.width &&  h < self.size.height{
-            while x < self.size.width && y < self.size.height{
-                maskImage.draw(in: CGRect(x: x, y: y, width: w, height: h))
-                x += w
-                if x > self.size.width{
-                    x = 0
+        if !repeatMark{
+            maskImage.draw(in: CGRect(x: x, y: y, width: w, height: h))
+        }
+        else{
+            if w < self.size.width &&  h < self.size.height{
+                while x < self.size.width && y < self.size.height{
+                    maskImage.draw(in: CGRect(x: x, y: y, width: w, height: h))
+                    x += w
+                    if x > self.size.width{
+                        x = 0
+                        y = y + h
+                    }
+                }
+            }
+            else if w < self.size.width &&  h > self.size.height{
+                while x < self.size.width {
+                    maskImage.draw(in: CGRect(x: x, y: y, width: w, height: h))
+                    x += w
+                }
+            }
+            else if w > self.size.width &&  h < self.size.height{
+                while y < self.size.height {
+                    maskImage.draw(in: CGRect(x: x, y: y, width: w, height: h))
                     y = y + h
                 }
             }
-        }
-        else if w < self.size.width &&  h > self.size.height{
-            while x < self.size.width {
+            else{
                 maskImage.draw(in: CGRect(x: x, y: y, width: w, height: h))
-                x += w
             }
-        }
-        else if w > self.size.width &&  h < self.size.height{
-            while y < self.size.height {
-                maskImage.draw(in: CGRect(x: x, y: y, width: w, height: h))
-                y = y + h
-            }
-        }
-        else{
-            maskImage.draw(in: CGRect(x: x, y: y, width: w, height: h))
         }
         
-         let newImage = UIGraphicsGetImageFromCurrentImageContext()
-         UIGraphicsEndImageContext()
-//        print("newImage.size")
-//        print(newImage!.size)
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        //        print("newImage.size")
+        //        print(newImage!.size)
         return newImage ?? self
     }
     
@@ -260,4 +315,6 @@ extension UIImage{
             PHAssetChangeRequest.creationRequestForAsset(from: self)
         }
     }
+    
+    
 }
