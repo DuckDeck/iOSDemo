@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MobilePlayer
 class VideoListViewController: UIViewController {
     
     var vc : UICollectionView!
@@ -90,6 +90,11 @@ extension VideoListViewController:UICollectionViewDelegate,UICollectionViewDataS
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = arrFile[indexPath.row]
+        let vc = MobilePlayerViewController(contentURL: item.url)
+        presentMoviePlayerViewControllerAnimated(vc)
+    }
     
 }
 

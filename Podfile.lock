@@ -19,6 +19,7 @@ PODS:
   - MJRefresh (3.1.15.3)
   - MLeaksFinder (1.0.0):
     - FBRetainCycleDetector
+  - MobilePlayer (1.2.0)
   - Moya (11.0.2):
     - Moya/Core (= 11.0.2)
   - Moya/Core (11.0.2):
@@ -56,6 +57,7 @@ DEPENDENCIES:
   - Kingfisher
   - MJRefresh
   - MLeaksFinder
+  - MobilePlayer
   - Moya
   - Moya/RxSwift
   - netfox
@@ -84,6 +86,7 @@ SPEC REPOS:
     - Kingfisher
     - MJRefresh
     - MLeaksFinder
+    - MobilePlayer
     - Moya
     - netfox
     - Result
@@ -112,6 +115,7 @@ SPEC CHECKSUMS:
   Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
+  MobilePlayer: 069b13482499f14c25b6ce53f63a91e17975b073
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   netfox: 5230196df3ca093a9418e079eb6e8f3776f15d14
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
@@ -124,6 +128,6 @@ SPEC CHECKSUMS:
   URLNavigator: b7bdd352cc07f4f745547807a3ca2a82980a6cea
   WSProgressHUD: a0902809c8af112fb34b004fdc75c16eb85167a3
 
-PODFILE CHECKSUM: 426daff9d303a66042005dfcefbeea5ab7971e69
+PODFILE CHECKSUM: 94d470aa47f662d9c31d500bbb7acc3ac82d4449
 
 COCOAPODS: 1.5.2
