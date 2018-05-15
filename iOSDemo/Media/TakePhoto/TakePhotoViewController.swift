@@ -20,6 +20,7 @@ class TakePhotoViewController: BaseViewController {
     let imgPreview = UIImageView()
     var isShowing = false
     var isFlashing = false
+    var vFocus = UIView()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,6 +75,9 @@ class TakePhotoViewController: BaseViewController {
         
         btnFlash.addTarget(self, action: #selector(openFlash), for: .touchUpInside)
         
+        vFocus.isHidden = true
+        vFocus.bgColor(color: UIColor.clear).borderWidth(width: 2).borderColor(color: UIColor.white).addTo(view: view).completed()
+        vFocus.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
     }
     
     @objc func doubleTapAction(ges:UIGestureRecognizer)  {
@@ -121,6 +125,9 @@ class TakePhotoViewController: BaseViewController {
                 }
             }
             device.unlockForConfiguration()
+            
+           
+            
         }
         catch{
             print(error.localizedDescription)
@@ -146,8 +153,20 @@ class TakePhotoViewController: BaseViewController {
                 device.exposureMode = .autoExpose
             }
             device.unlockForConfiguration()
+            vFocus.center = point
+            vFocus.isHidden = false
+            
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.vFocus.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+                }) { (finish) in
+                    if finish{
+                        self.vFocus.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        self.vFocus.isHidden = true
+                    }
+                }
             
             
+           
         }
         catch{
             print(error.localizedDescription)
@@ -185,8 +204,9 @@ class TakePhotoViewController: BaseViewController {
                     self.imgPreview.snp.updateConstraints({ (m) in
                         m.width.equalTo(newSize.width)
                         m.height.equalTo(newSize.height)
-                        m.left.equalTo((ScreenWidth - newSize.width) / 2)
+                        
                     })
+                    self.sc.contentOffset = CGPoint(x: (newSize.width - ScreenWidth) / 2, y: 0)
                     self.btnTake.setTitle("ReTake", for: .normal)
                     self.isShowing = true
                    
