@@ -16,6 +16,7 @@ class TakePhotoViewController: BaseViewController {
     let btnClose = UIButton()
     let btnTake = UIButton()
     let btnFlash = UIButton()
+    let sc = UIScrollView()
     let imgPreview = UIImageView()
     var isShowing = false
     var isFlashing = false
@@ -23,23 +24,29 @@ class TakePhotoViewController: BaseViewController {
         super.viewDidLoad()
         setupCaptureSession()
         
-        imgPreview.contentMode = .scaleAspectFill
-        imgPreview.addTo(view: view).snp.makeConstraints { (m) in
+        sc.delegate = self
+        sc.addTo(view: view).snp.makeConstraints { (m) in
             m.edges.equalTo(view)
         }
         
+        imgPreview.contentMode = .scaleAspectFit
+        imgPreview.addTo(view: sc).snp.makeConstraints { (m) in
+            m.center.equalTo(sc)
+        }
+        
       
-        btnTake.title(title: "Take").color(color: UIColor.white).addTo(view: view).snp.makeConstraints { (m) in
+        btnTake.title(title: "Take").bgColor(color: UIColor(white: 0.5, alpha: 0.3)).color(color: UIColor.white).addTo(view: view).snp.makeConstraints { (m) in
             m.centerX.equalTo(ScreenWidth * 0.5)
             m.bottom.equalTo(-20)
-            m.width.height.equalTo(40)
+            m.height.equalTo(30)
         }
         btnTake.addTarget(self, action: #selector(takePhoto), for: .touchUpInside)
         
         
-        btnClose.title(title: "Close").color(color: UIColor.white).addTo(view: view).snp.makeConstraints { (m) in
+        btnClose.title(title: "Close").bgColor(color: UIColor(white: 0.5, alpha: 0.3)).color(color: UIColor.white).addTo(view: view).snp.makeConstraints { (m) in
             m.centerX.equalTo(ScreenWidth * 0.75)
             m.bottom.equalTo(-20)
+            m.height.equalTo(30)
         }
         
         btnClose.addTarget(self, action: #selector(close), for: .touchUpInside)
@@ -89,7 +96,7 @@ class TakePhotoViewController: BaseViewController {
     
     @objc func takePhoto() {
         if isShowing{
-            self.imgPreview.isHidden = true
+            self.sc.isHidden = true
             self.imgPreview.image = nil
             isShowing = false
             self.btnTake.setTitle("Take", for: .normal)
@@ -109,7 +116,7 @@ class TakePhotoViewController: BaseViewController {
                         return
                     }
                     print("Image Size \(image.size)")
-                    self.imgPreview.isHidden = false
+                    self.sc.isHidden = false
                     self.imgPreview.image = image.fixImageOrientation() //加了转，可是没有用
                    
                     self.btnTake.setTitle("ReTake", for: .normal)
@@ -139,7 +146,7 @@ class TakePhotoViewController: BaseViewController {
     
 
 }
-fileprivate extension TakePhotoViewController {
+extension TakePhotoViewController:UIScrollViewDelegate {
     func setupCaptureSession() {
         var successful = true
         defer {
@@ -214,5 +221,19 @@ fileprivate extension TakePhotoViewController {
             print(error.localizedDescription)
             return nil
         }
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imgPreview
+    }
+    
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+//        CGFloat offsetX = (self.bounds.size.width>self.contentSize.width)?(self.bounds.size.width-self.contentSize.width)*0.5:0.0;
+//        CGFloat offsetY = (self.bounds.size.height>self.contentSize.height)?(self.bounds.size.height-self.contentSize.height)*0.5:0.0;
+//        _imageView.center = CGPointMake(scrollView.contentSize.width*0.5+offsetX, scrollView.contentSize.height*0.5+offsetY);
+
+        
+//        let offsetX = bounds.size.width > self.sc.contentSize.width ? (self.bounds.size.width - self.sc.contentSize.width) / 2 : 0
+      
     }
 }
