@@ -22,19 +22,35 @@ class TakePhotoViewController: BaseViewController {
     var isFlashing = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCaptureSession()
         
+        let tapFocus = UITapGestureRecognizer(target: self, action: #selector(focusTap(ges:)))
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(tapFocus)
+        
+        setupCaptureSession()
+        sc.isHidden = true
+        sc.backgroundColor = UIColor.white
         sc.delegate = self
+        sc.maximumZoomScale = 4
+        sc.contentSize = CGSize(width: ScreenWidth + 1, height: ScreenHeight  + 1)
         sc.addTo(view: view).snp.makeConstraints { (m) in
             m.edges.equalTo(view)
         }
         
-        imgPreview.contentMode = .scaleAspectFit
+        imgPreview.contentMode = .scaleAspectFill
         imgPreview.addTo(view: sc).snp.makeConstraints { (m) in
-            m.center.equalTo(sc)
+            m.left.equalTo(0)
+            m.top.equalTo(0)
+            m.width.equalTo(ScreenWidth)
+            m.height.equalTo(ScreenHeight)
         }
+        imgPreview.isUserInteractionEnabled = true
+        let tapGes = UITapGestureRecognizer(target: self, action: #selector(doubleTapAction(ges:)))
+        tapGes.numberOfTapsRequired = 2
+        tapGes.numberOfTouchesRequired = 1
+        imgPreview.addGestureRecognizer(tapGes)
         
-      
+        
         btnTake.title(title: "Take").bgColor(color: UIColor(white: 0.5, alpha: 0.3)).color(color: UIColor.white).addTo(view: view).snp.makeConstraints { (m) in
             m.centerX.equalTo(ScreenWidth * 0.5)
             m.bottom.equalTo(-20)
@@ -58,6 +74,23 @@ class TakePhotoViewController: BaseViewController {
         
         btnFlash.addTarget(self, action: #selector(openFlash), for: .touchUpInside)
         
+    }
+    
+    @objc func doubleTapAction(ges:UIGestureRecognizer)  {
+        var newScale:CGFloat = 1
+        if sc.zoomScale <= 1{
+            newScale = 4
+        }
+        let zoomRect = zoomRectForScale(scale: newScale, center: ges.location(in: ges.view!))
+        sc.zoom(to: zoomRect, animated: true)
+    }
+    
+    func zoomRectForScale(scale:CGFloat,center:CGPoint) -> CGRect {
+        let height = sc.frame.size.height / scale
+        let width = sc.frame.size.width / scale
+        let x = center.x - width / 2
+        let y = center.y - height / 2
+        return CGRect(x: x, y: y, width: width, height: height)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,6 +127,33 @@ class TakePhotoViewController: BaseViewController {
         }
     }
     
+    @objc func focusTap(ges:UITapGestureRecognizer)  {
+        let point = ges.location(in: ges.view!)
+        focusAtPoint(point: point)
+    }
+    
+    func focusAtPoint(point:CGPoint)  {
+        let s = view.bounds.size
+        let focusPoint = CGPoint(x: point.y / s.height, y: 1 - point.x / s.width)
+        do {
+            try device.lockForConfiguration()
+            if device.isFocusModeSupported(.autoFocus){
+                device.focusPointOfInterest = focusPoint
+                device.focusMode = .autoFocus
+            }
+            if device.isExposureModeSupported(.autoExpose){
+                device.exposurePointOfInterest = focusPoint
+                device.exposureMode = .autoExpose
+            }
+            device.unlockForConfiguration()
+            
+            
+        }
+        catch{
+            print(error.localizedDescription)
+        }
+    }
+    
     @objc func takePhoto() {
         if isShowing{
             self.sc.isHidden = true
@@ -117,11 +177,19 @@ class TakePhotoViewController: BaseViewController {
                     }
                     print("Image Size \(image.size)")
                     self.sc.isHidden = false
-                    self.imgPreview.image = image.fixImageOrientation() //加了转，可是没有用
-                   
+                    let img = image.fixImageOrientation()
+                    let ratio = img.size.width / img.size.height
+                    let newSize = CGSize(width: ScreenHeight * ratio, height: ScreenHeight)
+                    self.sc.contentSize = newSize
+                    self.imgPreview.image = img //加了转，可是没有用
+                    self.imgPreview.snp.updateConstraints({ (m) in
+                        m.width.equalTo(newSize.width)
+                        m.height.equalTo(newSize.height)
+                        m.left.equalTo((ScreenWidth - newSize.width) / 2)
+                    })
                     self.btnTake.setTitle("ReTake", for: .normal)
                     self.isShowing = true
-                    self.saveToAlbum(img: image)
+                   
                     //拍出来的照片 是 Image Size (3024.0, 4032.0) ，很大，可能要特别处理事情
                     // 还有就是照片方向问题
                 }
@@ -228,12 +296,9 @@ extension TakePhotoViewController:UIScrollViewDelegate {
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-//        CGFloat offsetX = (self.bounds.size.width>self.contentSize.width)?(self.bounds.size.width-self.contentSize.width)*0.5:0.0;
-//        CGFloat offsetY = (self.bounds.size.height>self.contentSize.height)?(self.bounds.size.height-self.contentSize.height)*0.5:0.0;
-//        _imageView.center = CGPointMake(scrollView.contentSize.width*0.5+offsetX, scrollView.contentSize.height*0.5+offsetY);
-
-        
-//        let offsetX = bounds.size.width > self.sc.contentSize.width ? (self.bounds.size.width - self.sc.contentSize.width) / 2 : 0
-      
-    }
+        var xCenter = scrollView.center.x
+        var yCenter = scrollView.center.y
+        xCenter = scrollView.contentSize.width > scrollView.frame.size.width ? scrollView.contentSize.width / 2 : xCenter
+        yCenter = scrollView.contentSize.height > scrollView.frame.size.height ? scrollView.contentSize.height / 2 : yCenter
+        imgPreview.center = CGPoint(x: xCenter, y: yCenter)    }
 }

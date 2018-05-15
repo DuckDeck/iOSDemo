@@ -256,3 +256,10 @@ extension Dictionary:JsonValue{
     }
 }
 
+extension CGSize{
+    func ratioSize(scale:CGFloat) -> CGSize {
+        return CGSize(width: scale * self.width, height: scale * self.height)
+    }
+}
+
+
