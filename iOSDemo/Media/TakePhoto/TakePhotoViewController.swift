@@ -13,6 +13,7 @@ class TakePhotoViewController: BaseViewController {
     //还需要完成。自动曝光调节 切换前后摄像头
     fileprivate let session = AVCaptureSession()
     var device:AVCaptureDevice!
+    var currentInput:AVCaptureDeviceInput!
     let btnClose = UIButton()
     let btnTake = UIButton()
     let btnFlash = UIButton()
@@ -122,7 +123,71 @@ class TakePhotoViewController: BaseViewController {
     }
     
     @objc func switchCamera() {
+        //获取摄像头的数量
+        let cameraCount = AVCaptureDevice.devices(for: .video)
+         //摄像头小于等于1的时候直接返回
+        if cameraCount.count <= 1{
+            Toast.showToast(msg: "你只有一个摄像头")
+            return
+        }
+        var newCamera:AVCaptureDevice! = nil
+        var newInput:AVCaptureDeviceInput! = nil
+        let position = device.position
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.duration = 0.5
+        animation.type = "ogflip"
+        if position == .front{
+            guard let camera = cameraWithPosition(position: .back) else {
+                return
+            }
+            newCamera = camera
+        }
+        else{
+            guard let camera = cameraWithPosition(position: .front) else {
+                return
+            }
+            newCamera = camera
+        }
+        guard let lay = view.layer.sublayers?.first else{
+            return
+        }
+        lay.add(animation, forKey: nil)
+        do{
+            newInput = try AVCaptureDeviceInput(device: newCamera)
+        }
+        catch{
+            print(error.localizedDescription)
+        }
+        device = newCamera
+        if newInput != nil{
+            session.beginConfiguration()
+            if currentInput == nil{
+                return
+            }
+             //先移除原来的input
+            session.removeInput(currentInput)
+            if session.canAddInput(newInput){
+                session.addInput(newInput)
+                currentInput = newInput
+            }
+            else{
+                //如果不能加现在的input，就加原来的input
+                session.addInput(currentInput)
+            }
+            session.commitConfiguration()
+        }
         
+    }
+    
+    func cameraWithPosition(position:AVCaptureDevice.Position) -> AVCaptureDevice? {
+        let devices = AVCaptureDevice.devices(for: .video)
+        for d in devices{
+            if d.position == position{
+                return d
+            }
+        }
+        return nil
     }
     
     @objc func openFlash() {
@@ -143,9 +208,6 @@ class TakePhotoViewController: BaseViewController {
                 }
             }
             device.unlockForConfiguration()
-            
-           
-            
         }
         catch{
             print(error.localizedDescription)
@@ -196,6 +258,8 @@ class TakePhotoViewController: BaseViewController {
             self.sc.isHidden = true
             self.imgPreview.image = nil
             isShowing = false
+            btnSwitchCamera.isEnabled = true
+            btnFlash.isEnabled = true
             self.btnTake.setTitle("Take", for: .normal)
         }
         else{
@@ -227,7 +291,9 @@ class TakePhotoViewController: BaseViewController {
                     self.sc.contentOffset = CGPoint(x: (newSize.width - ScreenWidth) / 2, y: 0)
                     self.btnTake.setTitle("ReTake", for: .normal)
                     self.isShowing = true
-                   
+                    self.btnSwitchCamera.isEnabled = false
+                    self.btnFlash.isEnabled = false
+
                     //拍出来的照片 是 Image Size (3024.0, 4032.0) ，很大，可能要特别处理事情
                     // 还有就是照片方向问题
                 }
@@ -277,6 +343,7 @@ extension TakePhotoViewController:UIScrollViewDelegate {
         // add input
         do {
             let input = try AVCaptureDeviceInput(device: device)
+            currentInput = input
             if session.canAddInput(input) {
                 session.addInput(input)
             } else {
