@@ -134,6 +134,9 @@
 		AE3F46EE20AC0300007BA637 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46ED20AC0300007BA637 /* UIColor+Extension.swift */; };
 		AE3F46F020AC058A007BA637 /* Number+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46EF20AC058A007BA637 /* Number+Extension.swift */; };
 		AE3F46F220AC06A3007BA637 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46F120AC06A3007BA637 /* Toast.swift */; };
+		AE3F46F420AC0B2B007BA637 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46F320AC0B2B007BA637 /* UIImageView+Extension.swift */; };
+		AE3F46F620AC0BF9007BA637 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46F520AC0BF9007BA637 /* UINavigationController+Extension.swift */; };
+		AE3F46F820AC0D1B007BA637 /* TimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46F720AC0D1B007BA637 /* TimerButton.swift */; };
 		AE5351202011876B00FC48A1 /* SnapkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */; };
 		AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */; };
 		AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752921F76931C00F6AAC5 /* MediaViewController.swift */; };
@@ -381,6 +384,9 @@
 		AE3F46ED20AC0300007BA637 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		AE3F46EF20AC058A007BA637 /* Number+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Extension.swift"; sourceTree = "<group>"; };
 		AE3F46F120AC06A3007BA637 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		AE3F46F320AC0B2B007BA637 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		AE3F46F520AC0BF9007BA637 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		AE3F46F720AC0D1B007BA637 /* TimerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerButton.swift; sourceTree = "<group>"; };
 		AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitViewController.swift; sourceTree = "<group>"; };
 		AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitTableViewController.swift; sourceTree = "<group>"; };
 		AE5752921F76931C00F6AAC5 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
@@ -981,6 +987,7 @@
 			children = (
 				AE5A88621FF36F9500748F6A /* GridView.swift */,
 				AE3F46EB20AC0290007BA637 /* HintView.swift */,
+				AE3F46F720AC0D1B007BA637 /* TimerButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1279,6 +1286,8 @@
 				AE5CE7DC208B2DBD001DB437 /* UITableView+Extension.swift */,
 				AE2584A020A2F5FE00764AF0 /* UIScrollView+Extension.swift */,
 				AE3F46ED20AC0300007BA637 /* UIColor+Extension.swift */,
+				AE3F46F320AC0B2B007BA637 /* UIImageView+Extension.swift */,
+				AE3F46F520AC0BF9007BA637 /* UINavigationController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1825,6 +1834,7 @@
 				AE1DE0982099BE0A007910A5 /* LinkLine.swift in Sources */,
 				AE394B522065F72100CE3BD9 /* SQLiteViewController.swift in Sources */,
 				AE1DE03D2099AD32007910A5 /* Routers.swift in Sources */,
+				AE3F46F620AC0BF9007BA637 /* UINavigationController+Extension.swift in Sources */,
 				AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */,
 				AE3AF0441F773B0000AF182A /* AnimationViewController.swift in Sources */,
 				AE1DE09C2099BE0A007910A5 /* GameView.swift in Sources */,
@@ -1849,6 +1859,7 @@
 				AE5A88741FF37BED00748F6A /* Group.swift in Sources */,
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
 				AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */,
+				AE3F46F820AC0D1B007BA637 /* TimerButton.swift in Sources */,
 				AE0F706F1FBD6F2B00C8135C /* NFXHTTPModel.swift in Sources */,
 				AE3F46F220AC06A3007BA637 /* Toast.swift in Sources */,
 				AE1DE0782099BE0A007910A5 /* FullBoard.swift in Sources */,
@@ -1907,6 +1918,7 @@
 				AE1DE0372099AD32007910A5 /* NovelInfo.swift in Sources */,
 				AE3F46EC20AC0290007BA637 /* HintView.swift in Sources */,
 				AE1DE0432099AD32007910A5 /* NovelContentViewModel.swift in Sources */,
+				AE3F46F420AC0B2B007BA637 /* UIImageView+Extension.swift in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
 				AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */,
 				AEBE404E1FC806E40087D7ED /* DBTool.swift in Sources */,

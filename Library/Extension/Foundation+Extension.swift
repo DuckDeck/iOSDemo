@@ -57,6 +57,26 @@ extension String{
         return subRange(start: start, end: len - 1)
     }
 
+    func insertString(indexs:[Int],str:String) -> String {
+        assert(indexs.count > 0, "count must bigger zero")
+        assert(indexs.count <= count, "count must small length")
+        assert(indexs.first! >= 0, "fist element must bingger or equal zero")
+        //assert(indexs.last! < length, "start must bingger zero")
+        assert(count > 0,"length must bigger 0")
+        var arr =  [String]()
+        for c in self{
+            arr.append(String(c))
+        }
+        var j = 0
+        for i in indexs{
+            if i + j > count{
+                break
+            }
+            arr.insert(str, at: i + j)
+            j += str.count
+        }
+        return arr.joined(separator: "")
+    }
     
     //将原始的url编码为合法的url
     func urlEncoded() -> String {
@@ -70,8 +90,55 @@ extension String{
     func urlDecoded() -> String {
         return self.removingPercentEncoding ?? ""
     }
+
+    func textSizeWithFont(font: UIFont, constrainedToSize size:CGSize) -> CGSize {
+        var textSize:CGSize!
+        if size.equalTo(CGSize.zero) {
+            
+            textSize = self.size(withAttributes: [NSAttributedStringKey.font:font])
+        } else {
+            let option = NSStringDrawingOptions.usesLineFragmentOrigin
+            let stringRect = self.boundingRect(with: size, options: option, attributes: [NSAttributedStringKey.font:font], context: nil)
+            textSize = stringRect.size
+        }
+        return textSize
+    }
+
+    public func split(_ separator: String) -> [String] {
+        return self.components(separatedBy: separator).filter {
+            !$0.trimmed().isEmpty
+        }
+    }
     
+    public func trimmed() -> String {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
     
+    public func toInt() -> Int? {
+        if let num = NumberFormatter().number(from: self) {
+            return num.intValue
+        } else {
+            return nil
+        }
+    }
+    
+    func pregReplace(pattern: String, with: String,
+                     options: NSRegularExpression.Options = []) -> String {
+        let regex = try! NSRegularExpression(pattern: pattern, options: options)
+        return regex.stringByReplacingMatches(in: self, options: [],
+                                              range: NSMakeRange(0, self.count),
+                                              withTemplate: with)
+    }
+}
+
+extension NSMutableAttributedString{
+    func addColor(color:UIColor,range:NSRange)  {
+        self.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: range)
+    }
+    
+    func addFont(font:UIFont,range:NSRange) {
+        self.addAttribute(NSAttributedStringKey.font, value: font, range: range)
+    }
 }
 
 extension Array{

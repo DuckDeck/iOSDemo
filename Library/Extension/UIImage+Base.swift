@@ -104,6 +104,59 @@ extension UIImage{
         return newImg!
     }
     
+    
+    class func reSizeImage(sourceImage : UIImage) -> UIImage{
+        let maxImageSize : CGFloat = 1024.0
+        var newSize =  CGSize.init(width: sourceImage.size.width, height: sourceImage.size.height)
+        var tempHeight = newSize.height / maxImageSize;
+        var tempWidth = newSize.width / maxImageSize;
+        if tempWidth == 0{
+            tempWidth = 1
+        }
+        if tempHeight == 0{
+            tempHeight = 1
+        }
+        if (tempWidth > 1.0 && tempWidth > tempHeight) {
+            newSize = CGSize.init(width: sourceImage.size.width / tempWidth, height: sourceImage.size.height / tempWidth)
+        }else if (tempHeight > 1.0 && tempWidth < tempHeight){
+            newSize = CGSize.init(width:sourceImage.size.width / tempHeight, height:  sourceImage.size.height / tempHeight)
+        }
+        UIGraphicsBeginImageContext(newSize);
+        sourceImage.draw(in: CGRect.init(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return newImage!;
+    }
+    
+    
+    class func creatQRCodeImage(text:String) -> UIImage{
+        let filter = CIFilter(name: "CIQRCodeGenerator")
+        filter?.setDefaults()
+        filter?.setValue(text.data(using: String.Encoding.utf8), forKey: "inputMessage")
+        let ciImage = filter?.outputImage
+        let bgImage = createNonInterpolatedUIImageFormCIImage(image: ciImage!, size: 300)
+        return bgImage
+    }
+    
+    class func createNonInterpolatedUIImageFormCIImage(image: CIImage, size: CGFloat) -> UIImage {
+        let extent: CGRect = image.extent.integral
+        let scale: CGFloat = min(size/extent.width, size/extent.height)
+        let width = extent.width * scale
+        let height = extent.height * scale
+        let cs: CGColorSpace = CGColorSpaceCreateDeviceGray()
+        let bitmapRef = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: cs, bitmapInfo: 0)!
+        
+        let context  = CIContext(options: nil)
+        
+        let bitmapImage: CGImage = context.createCGImage(image, from: extent)!
+        
+        bitmapRef.interpolationQuality = CGInterpolationQuality.none
+        bitmapRef.scaleBy(x: scale, y: scale)
+        bitmapRef.draw(bitmapImage, in: extent)
+        let scaledImage: CGImage = bitmapRef.makeImage()!
+        return UIImage(cgImage: scaledImage)
+    }
+    
     func cropImage(rect:CGRect) -> UIImage {
         UIGraphicsBeginImageContext(self.size)
         draw(in: rect)
