@@ -136,6 +136,24 @@ extension Array{
             s = s + 1
         }
     }
+    
+    func uniqueMerge(array:[Element],condition:((_ item:Element)->Int)) -> [Element] {
+        let a = self.map(condition)
+        let b = array.map(condition)
+        var c = [Int]()
+        for s in b{
+            if !a.contains(s){
+                c.append(s)
+            }
+        }
+        var tmp = self
+        for s in array{
+            if c.contains(condition(s)){
+                tmp.append(s)
+            }
+        }
+        return tmp
+    }
 }
 
 extension Dictionary{
@@ -146,33 +164,6 @@ extension Dictionary{
     }
 }
 
-extension UIColor{
-    static func Hex(hexString : String) -> UIColor {
-        let r, g, b: CGFloat
-        if hexString.hasPrefix("#") {
-            let start = hexString.index(hexString.startIndex, offsetBy: 1)
-            let hexColor = hexString.substring(from: start)
-            if hexColor.count == 6 {
-                let scanner = Scanner(string: hexColor)
-                var hexNumber: UInt64 = 0
-                if scanner.scanHexInt64(&hexNumber) {
-                    r = CGFloat((hexNumber & 0xff0000) >> 16)
-                    g = CGFloat((hexNumber & 0x00ff00) >> 8)
-                    b = CGFloat(hexNumber & 0x0000ff)
-                    return UIColor(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: 1)
-                }
-            }
-        }
-        return UIColor.white;
-    }
-    
-    open class var random: UIColor {
-        return UIColor(red: CGFloat(arc4random_uniform(256))/255.0,
-                       green: CGFloat(arc4random_uniform(256))/255.0,
-                       blue: CGFloat(arc4random_uniform(256))/255.0,
-                       alpha: 1.0)
-    }
-}
 
 protocol DictionaryValue{
     var value:Any{ get }
@@ -262,4 +253,9 @@ extension CGSize{
     }
 }
 
+extension CGRect {
+    public init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
+        self.init(x: x, y: y, width: w, height: h)
+    }
+}
 

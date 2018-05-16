@@ -10,7 +10,43 @@
 
 import UIKit
 import GrandStore
-let NavigationBarHeight:CGFloat = 64.0
+
+enum ServerState:Int{
+    case TestInNet = 0 //内部测试环境
+    case DevelopInNet // 内部开发环境
+    case TestOutNet  //外部测试环境
+    case ProductOutNet  //正式环境
+    
+    static func convertToServerState(status:Int) -> String {
+        switch status {
+        case 0:
+            return "内部开发环境"
+        case 1:
+            return "内部测试环境"
+        case 2:
+            return "外部测试环境"
+        case 3:
+            return "正式环境"
+        default:
+            return ""
+        }
+    }}
+
+enum APPBuildStatus:Int{
+    case Debug = 0
+    case Release
+}
+enum DeviceEnum:Int {
+    case Phone4S = 0,Phone5,Phone6,Phone6plus,PhoneX
+}
+
+let Device = ScreenHeight == 480 ? DeviceEnum.Phone4S : (ScreenHeight == 568 ? DeviceEnum.Phone5 : (ScreenHeight == 667 ? DeviceEnum.Phone6 : (ScreenHeight == 736 ? DeviceEnum.Phone6plus : DeviceEnum.PhoneX)))
+
+let iPhoneXStatusBarHeight:CGFloat = 25
+let NavigationBarHeight:CGFloat = 64.0 + (Device == DeviceEnum.PhoneX ? iPhoneXStatusBarHeight : 0)
+let StatusBarHeight:CGFloat = 0.0 + (Device == DeviceEnum.PhoneX ? iPhoneXStatusBarHeight : 0)
+let iPhoneBottomBarHeight:CGFloat = 0.0 + (Device == DeviceEnum.PhoneX ? 35 : 0)
+
 let ScreenWidth = UIScreen.main.bounds.width
 let ScreenHeight = UIScreen.main.bounds.height
 let TabBarHeight:CGFloat = 49.0
@@ -23,15 +59,6 @@ let APPAreaInfo = GrandStore(name: "APPAreaInfo", defaultValue: AddressInfo())
 
 
 /* \ */
-
-
-
-enum DeviceEnum:Int {
-    case Phone4S = 0,Phone5,Phone6,Phone6plus
-}
-
-
-let Device = ScreenHeight == 480 ? DeviceEnum.Phone4S : (ScreenHeight == 568 ? DeviceEnum.Phone5 : (ScreenHeight == 667 ? DeviceEnum.Phone6 : DeviceEnum.Phone6plus))
 
 
 
@@ -107,6 +134,15 @@ let REGEX_FlOAT = "^([0-9]*.)?[0-9]+$"
 let REGEX_MAIL = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$"
 let REGEX_CELLPHONE = "^(0|86|17951)?1[0-9]{10}$"
 let REGEX_IDENTITY_NUM = "^(\\d{6})(\\d{4})(\\d{2})(\\d{2})(\\d{3})([0-9]|X)$"
+let REGEX_EMOJI = "[\\ud83c\\udc00-\\ud83c\\udfff]|[\\ud83d\\udc00-\\ud83d\\udfff]|[\\u2600-\\u27ff]"
+let REGEX_URL = "^http://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?$"
+//#define CELLPHONE_REGEX        @"^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|17[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$"
+let REGEX_QQ = "^[1-9][0-9]{4,10}"
+//#define EMAIL_REGEX            @"^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$"
+let REGEX_TEL_PHONE = "^(([0\\+]\\d{2,3}-)?(0\\d{2,3})-)?(\\d{7,8})(-(\\d{3,}))?$"
+//#define USERNAME_REGEX         @"^[A-Za-z]\\w{5,19}$"
+//#define USERPWD_REGEX          @"^([a-zA-Z0-9]|[`~!@#$%^&*()+=|{}':;',\\[\\].<>]){5,21}$"
+
 
 
 func +(lhs: Int,rhs:Double)->Double{

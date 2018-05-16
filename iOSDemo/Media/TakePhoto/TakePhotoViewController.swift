@@ -10,13 +10,15 @@ import UIKit
 import AVFoundation
 import SnapKit
 class TakePhotoViewController: BaseViewController {
-    //还需要完成。对焦与自动曝光调节 切换前后摄像头，保存相片不知道为什么不行
+    //还需要完成。自动曝光调节 切换前后摄像头
     fileprivate let session = AVCaptureSession()
     var device:AVCaptureDevice!
     let btnClose = UIButton()
     let btnTake = UIButton()
     let btnFlash = UIButton()
+    let btnSwitchCamera = UIButton()
     let sc = UIScrollView()
+    let vMenu = UIView()
     let imgPreview = UIImageView()
     var isShowing = false
     var isFlashing = false
@@ -52,25 +54,37 @@ class TakePhotoViewController: BaseViewController {
         imgPreview.addGestureRecognizer(tapGes)
         
         
-        btnTake.title(title: "Take").bgColor(color: UIColor(white: 0.5, alpha: 0.3)).color(color: UIColor.white).addTo(view: view).snp.makeConstraints { (m) in
-            m.centerX.equalTo(ScreenWidth * 0.5)
-            m.bottom.equalTo(-20)
+        vMenu.bgColor(color: UIColor(white: 0.4, alpha: 0.3)).addTo(view: view).snp.makeConstraints { (m) in
+            m.left.right.bottom.equalTo(0)
+            m.height.equalTo(40)
+        }
+        btnTake.title(title: "Take").color(color: UIColor.white).addTo(view: vMenu).snp.makeConstraints { (m) in
+            m.centerX.equalTo(ScreenWidth * 0.2)
+            m.centerY.equalTo(vMenu)
             m.height.equalTo(30)
         }
         btnTake.addTarget(self, action: #selector(takePhoto), for: .touchUpInside)
         
+        btnSwitchCamera.title(title: "rear").color(color: UIColor.white).addTo(view: vMenu).snp.makeConstraints { (m) in
+            m.centerX.equalTo(ScreenWidth * 0.4)
+            m.centerY.equalTo(vMenu)
+            m.height.equalTo(30)
+        }
+        btnSwitchCamera.addTarget(self, action: #selector(switchCamera), for: .touchUpInside)
+
         
-        btnClose.title(title: "Close").bgColor(color: UIColor(white: 0.5, alpha: 0.3)).color(color: UIColor.white).addTo(view: view).snp.makeConstraints { (m) in
-            m.centerX.equalTo(ScreenWidth * 0.75)
-            m.bottom.equalTo(-20)
+        btnClose.title(title: "Close").color(color: UIColor.white).addTo(view: vMenu).snp.makeConstraints { (m) in
+            m.centerX.equalTo(ScreenWidth * 0.8)
+            m.centerY.equalTo(vMenu)
             m.height.equalTo(30)
         }
         
         btnClose.addTarget(self, action: #selector(close), for: .touchUpInside)
         
-        btnFlash.title(title: "FlashOff").color(color: UIColor.white).addTo(view: view).snp.makeConstraints { (m) in
-            m.centerX.equalTo(ScreenWidth * 0.75)
-            m.top.equalTo(30)
+        btnFlash.title(title: "FlashOff").color(color: UIColor.white).addTo(view: vMenu).snp.makeConstraints { (m) in
+            m.centerX.equalTo(ScreenWidth * 0.6)
+            m.centerY.equalTo(vMenu)
+            m.height.equalTo(30)
         }
         
         btnFlash.addTarget(self, action: #selector(openFlash), for: .touchUpInside)
@@ -105,6 +119,10 @@ class TakePhotoViewController: BaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         session.stopRunning()
+    }
+    
+    @objc func switchCamera() {
+        
     }
     
     @objc func openFlash() {

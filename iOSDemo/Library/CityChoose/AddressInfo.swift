@@ -119,7 +119,7 @@ class AddressInfo:NSObject, NSCoding {
         var result = ResultInfo()
         let url = "http://api.map.baidu.com/geocoder/v2/?&output=json&ak=GmgLlkoB8sqMU3HFHuztPezuo2Zpp1mi&address=" + city.urlEncoded()
 
-        HttpManager.get(url).completion  { (data, err) in
+        HttpClient.get(url).completion  { (data, err) in
             if data == nil || err != nil{
                 result.code = -1
                 complete(result)

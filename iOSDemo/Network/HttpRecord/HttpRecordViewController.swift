@@ -54,7 +54,7 @@ class HttpRecordViewController: UIViewController {
     }
     
     @objc func request(sender:UIButton)  {
-        HttpManager.get("https://api.douban.com/v2/movie/in_theaters").completion { (data, err) in
+        HttpClient.get("https://api.douban.com/v2/movie/in_theaters").completion { (data, err) in
             let str = String(data: data!, encoding: String.Encoding.utf8)
             print(str)
         }

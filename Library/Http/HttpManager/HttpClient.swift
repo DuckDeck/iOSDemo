@@ -7,6 +7,62 @@
 //
 
 import UIKit
+import Alamofire
+class HttpClient{
+    
+    fileprivate var url:String!
+    fileprivate var method:HTTPMethod!
+    fileprivate var params:Dictionary<String,Any>?
+    fileprivate  var requestOptions:Dictionary<String,AnyObject>?
+    fileprivate  var headers:Dictionary<String,String>?
+    //    fileprivate var progress:((_ progress:Float)->())?
+    fileprivate var completedBlock:((_ data:Data?,_ error:Error?)->Void)?
+    open static func get(_ url:String)->HttpClient{
+        let m = HttpClient()
+        m.url = url
+        m.method = .get
+        return m
+    }
+    
+    open static func post(_ url:String)->HttpClient{
+        let m = HttpClient()
+        m.url = url
+        m.method = .post
+        return m
+    }
+    
+    open func addParams(_ params:Dictionary<String,Any>?)->HttpClient{
+        self.params = params
+        return self
+    }
+    
+    open func addHeaders(_ params:Dictionary<String,String>?)->HttpClient{
+        self.headers = params
+        return self
+    }
+    
+    open func completion(_ completion:((_ data:Data?,_ error:Error?)->Void)?){
+        if !url.contain(subStr: "easylog"){
+            GLog(message: url)
+        }
+        if let p = params{
+            Log(message: p)
+        }
+        
+        self.completedBlock = completion
+        Alamofire.request(url, method: method, parameters: params).responseData {  (data) in
+            if let d = data.data{
+                if let s = String(data: d, encoding: String.Encoding.utf8){
+                    Log(message: s)
+                }
+            }
+            self.completedBlock?(data.data,data.error)
+        }
+        
+    }
+}
+
+
 //在Swift4下错误太多，根本改不过来。不需要改了，以后也不怎么用
 /*
 private enum httpMethod{

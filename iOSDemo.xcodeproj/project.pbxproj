@@ -15,7 +15,6 @@
 		AE0F702F1FBA90A500C8135C /* RequestTimelineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F702B1FBA90A500C8135C /* RequestTimelineInfo.swift */; };
 		AE0F70301FBA90A500C8135C /* APIInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F702C1FBA90A500C8135C /* APIInfo.swift */; };
 		AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70311FBA918E00C8135C /* HttpRecordViewController.swift */; };
-		AE0F70351FBA925900C8135C /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70341FBA925900C8135C /* HttpManager.swift */; };
 		AE0F70371FBA9ACF00C8135C /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70361FBA9ACF00C8135C /* NetworkViewController.swift */; };
 		AE0F70611FBD6F2B00C8135C /* NFXAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F703B1FBD6F2B00C8135C /* NFXAssets.swift */; };
 		AE0F70621FBD6F2B00C8135C /* NFXWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F703C1FBD6F2B00C8135C /* NFXWindowController.swift */; };
@@ -131,6 +130,10 @@
 		AE3AF0581F7744D500AF182A /* ScrollMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0571F7744D500AF182A /* ScrollMenuViewController.swift */; };
 		AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */; };
 		AE3B77B22046AB3500844025 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3B77B12046AB3500844025 /* KeyboardViewController.swift */; };
+		AE3F46EC20AC0290007BA637 /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46EB20AC0290007BA637 /* HintView.swift */; };
+		AE3F46EE20AC0300007BA637 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46ED20AC0300007BA637 /* UIColor+Extension.swift */; };
+		AE3F46F020AC058A007BA637 /* Number+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46EF20AC058A007BA637 /* Number+Extension.swift */; };
+		AE3F46F220AC06A3007BA637 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46F120AC06A3007BA637 /* Toast.swift */; };
 		AE5351202011876B00FC48A1 /* SnapkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */; };
 		AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */; };
 		AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752921F76931C00F6AAC5 /* MediaViewController.swift */; };
@@ -258,7 +261,6 @@
 		AE0F702B1FBA90A500C8135C /* RequestTimelineInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTimelineInfo.swift; sourceTree = "<group>"; };
 		AE0F702C1FBA90A500C8135C /* APIInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIInfo.swift; sourceTree = "<group>"; };
 		AE0F70311FBA918E00C8135C /* HttpRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRecordViewController.swift; sourceTree = "<group>"; };
-		AE0F70341FBA925900C8135C /* HttpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
 		AE0F70361FBA9ACF00C8135C /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
 		AE0F703B1FBD6F2B00C8135C /* NFXAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXAssets.swift; sourceTree = "<group>"; };
 		AE0F703C1FBD6F2B00C8135C /* NFXWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXWindowController.swift; sourceTree = "<group>"; };
@@ -375,6 +377,10 @@
 		AE3AF0571F7744D500AF182A /* ScrollMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMenuViewController.swift; sourceTree = "<group>"; };
 		AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMenuView.swift; sourceTree = "<group>"; };
 		AE3B77B12046AB3500844025 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		AE3F46EB20AC0290007BA637 /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
+		AE3F46ED20AC0300007BA637 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		AE3F46EF20AC058A007BA637 /* Number+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Extension.swift"; sourceTree = "<group>"; };
+		AE3F46F120AC06A3007BA637 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitViewController.swift; sourceTree = "<group>"; };
 		AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitTableViewController.swift; sourceTree = "<group>"; };
 		AE5752921F76931C00F6AAC5 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
@@ -566,7 +572,6 @@
 			isa = PBXGroup;
 			children = (
 				AEA9F834206A2A62000E7748 /* HttpClient.swift */,
-				AE0F70341FBA925900C8135C /* HttpManager.swift */,
 			);
 			path = HttpManager;
 			sourceTree = "<group>";
@@ -975,6 +980,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5A88621FF36F9500748F6A /* GridView.swift */,
+				AE3F46EB20AC0290007BA637 /* HintView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1237,6 +1243,7 @@
 			children = (
 				AE9F32761F690F5200339BB8 /* GrandCue.swift */,
 				AE3961E91FD13D2400BF4CE9 /* GandAlert.swift */,
+				AE3F46F120AC06A3007BA637 /* Toast.swift */,
 			);
 			path = GrandCue;
 			sourceTree = "<group>";
@@ -1264,12 +1271,14 @@
 			isa = PBXGroup;
 			children = (
 				AEDC54102012EC3600BB4E34 /* SkapkitExtension */,
+				AE3F46EF20AC058A007BA637 /* Number+Extension.swift */,
 				AE9F328D1F690FD200339BB8 /* UIView+Base.swift */,
 				AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */,
 				AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */,
 				AE5A88771FF38F9F00748F6A /* UIImage+Base.swift */,
 				AE5CE7DC208B2DBD001DB437 /* UITableView+Extension.swift */,
 				AE2584A020A2F5FE00764AF0 /* UIScrollView+Extension.swift */,
+				AE3F46ED20AC0300007BA637 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1825,6 +1834,7 @@
 				AE0F70241FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */,
 				AE83BD711FDE72BF001882D1 /* ImageRotationViewController.swift in Sources */,
 				AE0F70671FBD6F2B00C8135C /* NFXHTTPModelManager.swift in Sources */,
+				AE3F46EE20AC0300007BA637 /* UIColor+Extension.swift in Sources */,
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
 				AE0F706C1FBD6F2B00C8135C /* NFXProtocol.swift in Sources */,
 				AE5A88721FF37AA800748F6A /* Semaphore.swift in Sources */,
@@ -1840,6 +1850,7 @@
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
 				AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */,
 				AE0F706F1FBD6F2B00C8135C /* NFXHTTPModel.swift in Sources */,
+				AE3F46F220AC06A3007BA637 /* Toast.swift in Sources */,
 				AE1DE0782099BE0A007910A5 /* FullBoard.swift in Sources */,
 				AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */,
 				AEBE70A720A6D31E00B2E897 /* TimeSpan.swift in Sources */,
@@ -1875,7 +1886,6 @@
 				AEBE40541FC80A810087D7ED /* CitySearchView.swift in Sources */,
 				AE9F32841F690F5200339BB8 /* GrandModel+Map.swift in Sources */,
 				AE1DE0972099BE0A007910A5 /* Piece.swift in Sources */,
-				AE0F70351FBA925900C8135C /* HttpManager.swift in Sources */,
 				AE0F702F1FBA90A500C8135C /* RequestTimelineInfo.swift in Sources */,
 				AE5A88781FF38F9F00748F6A /* UIImage+Base.swift in Sources */,
 				AE0F709D1FBEBA5C00C8135C /* Foundation+Extension.swift in Sources */,
@@ -1895,6 +1905,7 @@
 				AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */,
 				AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */,
 				AE1DE0372099AD32007910A5 /* NovelInfo.swift in Sources */,
+				AE3F46EC20AC0290007BA637 /* HintView.swift in Sources */,
 				AE1DE0432099AD32007910A5 /* NovelContentViewModel.swift in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
 				AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */,
@@ -1902,6 +1913,7 @@
 				AEBE70A620A6D31E00B2E897 /* GrandTimer.swift in Sources */,
 				AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */,
 				AE0F707F1FBD6F2B00C8135C /* NFXHelper_iOS.swift in Sources */,
+				AE3F46F020AC058A007BA637 /* Number+Extension.swift in Sources */,
 				AE0F70801FBD6F2B00C8135C /* NFXInfoController_iOS.swift in Sources */,
 				AE5351202011876B00FC48A1 /* SnapkitViewController.swift in Sources */,
 			);
