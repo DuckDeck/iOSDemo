@@ -84,17 +84,7 @@ class MapViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-}
-
-extension MapViewController:AMapLocationManagerDelegate,MAMapViewDelegate{
-    
-    func amapLocationManager(_ manager: AMapLocationManager!, didFailWithError error: Error!) {
-        let error = error as NSError
-        NSLog("appdelegate --- didFailWithError:{\(error.code) - \(error.localizedDescription)}; 请检查是否开启定位功能")
-    }
-    
-    func amapLocationManager(_ manager: AMapLocationManager!, didUpdate location: CLLocation!, reGeocode: AMapLocationReGeocode!) {
-        mapView.setCenter(location.coordinate, animated: true)
+    func reverseLocation(location: CLLocation)  {
         geoCoder.reverseGeocodeLocation(location) { [weak self](places, err) in
             if places == nil || err != nil{
                 return
@@ -128,10 +118,28 @@ extension MapViewController:AMapLocationManagerDelegate,MAMapViewDelegate{
                 }
             }
         }
+    }
+}
 
+extension MapViewController:AMapLocationManagerDelegate,MAMapViewDelegate{
+    
+    func amapLocationManager(_ manager: AMapLocationManager!, didFailWithError error: Error!) {
+        let error = error as NSError
+        NSLog("appdelegate --- didFailWithError:{\(error.code) - \(error.localizedDescription)}; 请检查是否开启定位功能")
+    }
+    
+    func amapLocationManager(_ manager: AMapLocationManager!, didUpdate location: CLLocation!, reGeocode: AMapLocationReGeocode!) {
+        mapView.setCenter(location.coordinate, animated: true)
+        reverseLocation(location: location)
     }
     
     func mapView(_ mapView: MAMapView!, didUpdate userLocation: MAUserLocation!, updatingLocation: Bool) {
        
     }
+    
+    
+    func mapView(_ mapView: MAMapView!, didSingleTappedAt coordinate: CLLocationCoordinate2D) {
+        reverseLocation(location: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude))
+    }
+    
 }
