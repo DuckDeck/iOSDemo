@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GrandTime
 class AlertViewController: UIViewController {
 
     let btn = UIButton()

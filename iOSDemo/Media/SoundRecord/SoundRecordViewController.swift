@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import AVFoundation
+import GrandTime
 class SoundRecordViewController: UIViewController {
     
     let btnRecord = UIButton()

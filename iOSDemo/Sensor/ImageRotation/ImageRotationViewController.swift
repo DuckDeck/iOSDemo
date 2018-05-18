@@ -9,6 +9,7 @@
 import UIKit
 import CoreMotion
 import SnapKit
+import GrandTime
 class ImageRotationViewController: UIViewController {
 
     let cmManager = CMMotionManager()

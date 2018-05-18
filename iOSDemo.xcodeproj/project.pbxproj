@@ -204,9 +204,6 @@
 		AEBE405E1FC81FE80087D7ED /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE405D1FC81FE80087D7ED /* CityTableViewCell.swift */; };
 		AEBE709020A4449100B2E897 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE708F20A4449100B2E897 /* TakePhotoViewController.swift */; };
 		AEBE709920A5356500B2E897 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE709820A5356500B2E897 /* MapViewController.swift */; };
-		AEBE70A520A6D31E00B2E897 /* GrandTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE70A220A6D31E00B2E897 /* GrandTime.swift */; };
-		AEBE70A620A6D31E00B2E897 /* GrandTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE70A320A6D31E00B2E897 /* GrandTimer.swift */; };
-		AEBE70A720A6D31E00B2E897 /* TimeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE70A420A6D31E00B2E897 /* TimeSpan.swift */; };
 		AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC540E2012EC0000BB4E34 /* GridViewController.swift */; };
 		AEDC54132012EC4100BB4E34 /* ConstraintArrayDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */; };
 		AEDC54142012EC4100BB4E34 /* ConstraintArray+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54122012EC4100BB4E34 /* ConstraintArray+Extensions.swift */; };
@@ -476,9 +473,6 @@
 		AEBE40761FCEC25C0087D7ED /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		AEBE708F20A4449100B2E897 /* TakePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
 		AEBE709820A5356500B2E897 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		AEBE70A220A6D31E00B2E897 /* GrandTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandTime.swift; sourceTree = "<group>"; };
-		AEBE70A320A6D31E00B2E897 /* GrandTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandTimer.swift; sourceTree = "<group>"; };
-		AEBE70A420A6D31E00B2E897 /* TimeSpan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSpan.swift; sourceTree = "<group>"; };
 		AEDC540E2012EC0000BB4E34 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintArrayDSL.swift; sourceTree = "<group>"; };
 		AEDC54122012EC4100BB4E34 /* ConstraintArray+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintArray+Extensions.swift"; sourceTree = "<group>"; };
@@ -1231,7 +1225,6 @@
 		AE9F32311F690F1B00339BB8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				AEBE70A120A6D31E00B2E897 /* GrandTime */,
 				AEF0977F2065EE560021E4ED /* Model */,
 				AE5A88611FF36F8800748F6A /* View */,
 				AE0F70271FBA900200C8135C /* Http */,
@@ -1376,16 +1369,6 @@
 				AEBE708F20A4449100B2E897 /* TakePhotoViewController.swift */,
 			);
 			path = TakePhoto;
-			sourceTree = "<group>";
-		};
-		AEBE70A120A6D31E00B2E897 /* GrandTime */ = {
-			isa = PBXGroup;
-			children = (
-				AEBE70A220A6D31E00B2E897 /* GrandTime.swift */,
-				AEBE70A320A6D31E00B2E897 /* GrandTimer.swift */,
-				AEBE70A420A6D31E00B2E897 /* TimeSpan.swift */,
-			);
-			path = GrandTime;
 			sourceTree = "<group>";
 		};
 		AEDC540D2012EBF900BB4E34 /* Grid */ = {
@@ -1696,6 +1679,7 @@
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/GrandMenu/GrandMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/GrandStore/GrandStore.framework",
+				"${BUILT_PRODUCTS_DIR}/GrandTime/GrandTime.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
@@ -1723,6 +1707,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrandMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrandStore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrandTime.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
@@ -1864,7 +1849,6 @@
 				AE3F46F220AC06A3007BA637 /* Toast.swift in Sources */,
 				AE1DE0782099BE0A007910A5 /* FullBoard.swift in Sources */,
 				AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */,
-				AEBE70A720A6D31E00B2E897 /* TimeSpan.swift in Sources */,
 				AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */,
 				AE0F70831FBD6F2B00C8135C /* NFXListCell_iOS.swift in Sources */,
 				AE1DE03E2099AD32007910A5 /* LoadMoreCell.swift in Sources */,
@@ -1878,7 +1862,6 @@
 				AE5CE7DD208B2DBD001DB437 /* UITableView+Extension.swift in Sources */,
 				AE3A42F0201B00F900FF8AB2 /* StackViewController.swift in Sources */,
 				AE5AD7EE206111D600289798 /* RippleAnimtaionView.swift in Sources */,
-				AEBE70A520A6D31E00B2E897 /* GrandTime.swift in Sources */,
 				AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */,
 				AEDF8C4B209AF61B00EED6D1 /* CVFileManager.swift in Sources */,
 				AE1DE09D2099BE0A007910A5 /* LinkGameViewController.swift in Sources */,
@@ -1922,7 +1905,6 @@
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
 				AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */,
 				AEBE404E1FC806E40087D7ED /* DBTool.swift in Sources */,
-				AEBE70A620A6D31E00B2E897 /* GrandTimer.swift in Sources */,
 				AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */,
 				AE0F707F1FBD6F2B00C8135C /* NFXHelper_iOS.swift in Sources */,
 				AE3F46F020AC058A007BA637 /* Number+Extension.swift in Sources */,

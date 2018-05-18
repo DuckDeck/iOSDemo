@@ -8,6 +8,7 @@
 
 import UIKit
 import FMDB
+import GrandTime
 //IMEI and IDFA, latitude,longtitude , city,  version ,phone,  do not need store in the sqlite ,it update in the realtime
 // logId AUTOINCREMENT
 let Log_Db_Name = "log"
@@ -35,7 +36,7 @@ class LogTool:DBTool {
     
     func addLog(log:String) -> Bool {
         let sql = String(format: Sql_Add_Log, Log_Db_Name)
-        let arr:[Any] = [DateTime.now.ticks/1000,log]
+        let arr:[Any] = [DateTime.now.timestamp,log]
         return excuteSql(sql: sql, para: arr)
     }
     

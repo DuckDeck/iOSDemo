@@ -7,15 +7,13 @@
 //
 
 import UIKit
-
+import GrandTime
 extension Int{
     func toTime(format:String = "yyyy-MM-dd HH:mm:ss") -> String {
         var t = self
         if String(t).count > 11{
             t = t / 1000
         }
-        // timestamp is second
-        // tick is 1000 * timestamp
         let time = DateTime(timestamp: t)
         return time?.format(format) ?? ""
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GrandTime
 class SQLiteViewController: UIViewController {
 
     let btnGetLog = UIButton()
@@ -70,7 +71,7 @@ class SQLiteViewController: UIViewController {
     }
     
     @objc func clear() {
-       let result = LogTool.sharedInstance.deleteLog(time: DateTime.now.ticks / 1000)
+       let result = LogTool.sharedInstance.deleteLog(time: DateTime.now.timestamp)
         print(result)
     }
 
