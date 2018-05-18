@@ -18,7 +18,7 @@ pod "GrandTime"
 pod "GrandMenu"
 pod "FMDB"
 pod "MLeaksFinder"
-#pod "ViewChaos"
+pod "ViewChaos"
 pod "Kanna"
 pod "netfox“
 pod "Kingfisher"
@@ -31,7 +31,6 @@ pod "RxDataSources"
 pod "ImagePicker"
 pod "AMap3DMap"
 pod "AMapLocation"
-pod "MobilePlayer"
 end
 
 

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MobilePlayer
+import AVKit
 class VideoListViewController: UIViewController {
     
     var vc : UICollectionView!
@@ -91,9 +91,20 @@ extension VideoListViewController:UICollectionViewDelegate,UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = arrFile[indexPath.row]
-        let vc = MobilePlayerViewController(contentURL: item.url)
-        presentMoviePlayerViewControllerAnimated(vc)
+        let url = arrFile[indexPath.row].url
+        let vc = VideoPlayViewController()
+        vc.url = url!
+        present(vc, animated: true, completion: nil)
+//        let avPlayer = AVPlayer(url: url!)
+//        let vc = AVPlayerViewController()
+//        vc.player = avPlayer
+//        vc.videoGravity = AVLayerVideoGravity.resizeAspect.rawValue
+//        vc.showsPlaybackControls = true
+//        vc.view.frame = view.bounds
+//        addChildViewController(vc)
+//        view.addSubview(vc.view)
+//        vc.player?.play()
+        
     }
     
 }
