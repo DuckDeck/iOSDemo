@@ -9,6 +9,7 @@
 
 import UIKit
 import Photos
+import AVKit
 class CVFileManager {
     static func tempFileURL(extensionName:String)->URL
     {
@@ -26,9 +27,27 @@ class CVFileManager {
         guard let urlStrs = try? FileManager.default.contentsOfDirectory(atPath: NSTemporaryDirectory()) else{
             return nil
         }
-        let urls = urlStrs.map { (str) -> URL in
+        var urls = urlStrs.map { (str) -> URL in
             return URL(fileURLWithPath: NSTemporaryDirectory() + str)
         }
+        
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        do {
+            let files = try FileManager.default.contentsOfDirectory(at: documentsDirectory,
+                                                            includingPropertiesForKeys: nil,
+                                                            options: .skipsHiddenFiles)
+            for f in files{
+                let ass = AVURLAsset(url: f)
+                if ass.tracks(withMediaType: .video).count > 0{
+                    urls.append(f)
+                }
+            }
+            
+        } catch {
+            print("could not get contents of directory at \(documentsDirectory)")
+            print(error.localizedDescription)
+        }
+        
         return urls
     }
     

@@ -34,8 +34,7 @@ class VideoPlayViewController: BaseViewController {
         player = AVPlayer(playerItem: item)
        
         
-        let extensionName = url.lastPathComponent
-        dictDes["扩展名"] = extensionName.split(".").last!
+        dictDes["扩展名"] = url.pathExtension
         
         guard let a = assert.tracks.first?.formatDescriptions.first else{
             return
