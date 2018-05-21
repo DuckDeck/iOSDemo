@@ -334,7 +334,7 @@ extension ShadowPlayer{
                 
             }
         default:
-            
+            break
         }
     }
     @objc func willResignActive(notif:Notification)  {
