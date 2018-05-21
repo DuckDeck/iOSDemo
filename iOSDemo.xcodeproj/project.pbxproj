@@ -220,6 +220,9 @@
 		AEF362A72058CB1F001A490D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF362A62058CB1F001A490D /* main.swift */; };
 		AEF4A4601F6FCAF800EE4001 /* novel1.gif in Resources */ = {isa = PBXBuildFile; fileRef = AEF4A45F1F6FCAF800EE4001 /* novel1.gif */; };
 		AEF4A4621F6FCB5B00EE4001 /* novel2.gif in Resources */ = {isa = PBXBuildFile; fileRef = AEF4A4611F6FCB5B00EE4001 /* novel2.gif */; };
+		AEF51EC520B26302006C0D63 /* ShadowPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51EC420B26302006C0D63 /* ShadowPlayer.swift */; };
+		AEF51EC720B2A421006C0D63 /* ShadowPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51EC620B2A421006C0D63 /* ShadowPlayView.swift */; };
+		AEF51EC920B2A998006C0D63 /* ShadowControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51EC820B2A998006C0D63 /* ShadowControlView.swift */; };
 		AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CA1F7793D300D9A09F /* AIViewController.swift */; };
 		AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CD1F77945800D9A09F /* ImageRecognitionViewController.swift */; };
 		AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CF1F77952B00D9A09F /* Resnet50.mlmodel */; };
@@ -492,6 +495,9 @@
 		AEF4A4421F6F74C100EE4001 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
 		AEF4A45F1F6FCAF800EE4001 /* novel1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = novel1.gif; sourceTree = "<group>"; };
 		AEF4A4611F6FCB5B00EE4001 /* novel2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = novel2.gif; sourceTree = "<group>"; };
+		AEF51EC420B26302006C0D63 /* ShadowPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPlayer.swift; sourceTree = "<group>"; };
+		AEF51EC620B2A421006C0D63 /* ShadowPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPlayView.swift; sourceTree = "<group>"; };
+		AEF51EC820B2A998006C0D63 /* ShadowControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowControlView.swift; sourceTree = "<group>"; };
 		AEF589CA1F7793D300D9A09F /* AIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIViewController.swift; sourceTree = "<group>"; };
 		AEF589CD1F77945800D9A09F /* ImageRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognitionViewController.swift; sourceTree = "<group>"; };
 		AEF589CF1F77952B00D9A09F /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
@@ -1139,6 +1145,9 @@
 			isa = PBXGroup;
 			children = (
 				AE955C3420A2D39A0009EFFE /* VideoPlayViewController.swift */,
+				AEF51EC420B26302006C0D63 /* ShadowPlayer.swift */,
+				AEF51EC620B2A421006C0D63 /* ShadowPlayView.swift */,
+				AEF51EC820B2A998006C0D63 /* ShadowControlView.swift */,
 			);
 			path = VideoPlay;
 			sourceTree = "<group>";
@@ -1763,6 +1772,7 @@
 				AE1DE03C2099AD32007910A5 /* NovelConfig.swift in Sources */,
 				AE3AF04D1F773DEB00AF182A /* GradientLayerViewController.swift in Sources */,
 				AE3AF04F1F77404900AF182A /* ReplicatorViewController.swift in Sources */,
+				AEF51EC520B26302006C0D63 /* ShadowPlayer.swift in Sources */,
 				AE0F70961FBEB9CA00C8135C /* Line.swift in Sources */,
 				AEF0977D2064EFFF0021E4ED /* LogTool.swift in Sources */,
 				AE0F706D1FBD6F2B00C8135C /* NFXRawBodyDetailsController.swift in Sources */,
@@ -1862,6 +1872,7 @@
 				AE5CE7DD208B2DBD001DB437 /* UITableView+Extension.swift in Sources */,
 				AE3A42F0201B00F900FF8AB2 /* StackViewController.swift in Sources */,
 				AE5AD7EE206111D600289798 /* RippleAnimtaionView.swift in Sources */,
+				AEF51EC920B2A998006C0D63 /* ShadowControlView.swift in Sources */,
 				AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */,
 				AEDF8C4B209AF61B00EED6D1 /* CVFileManager.swift in Sources */,
 				AE1DE09D2099BE0A007910A5 /* LinkGameViewController.swift in Sources */,
@@ -1900,6 +1911,7 @@
 				AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */,
 				AE1DE0372099AD32007910A5 /* NovelInfo.swift in Sources */,
 				AE3F46EC20AC0290007BA637 /* HintView.swift in Sources */,
+				AEF51EC720B2A421006C0D63 /* ShadowPlayView.swift in Sources */,
 				AE1DE0432099AD32007910A5 /* NovelContentViewModel.swift in Sources */,
 				AE3F46F420AC0B2B007BA637 /* UIImageView+Extension.swift in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,

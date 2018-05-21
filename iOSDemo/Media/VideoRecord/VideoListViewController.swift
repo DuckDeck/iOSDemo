@@ -123,7 +123,7 @@ class VideoImageCell: UICollectionViewCell {
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.gray
+        backgroundColor = UIColor(gray: 0.3)
         contentView.addSubview(img)
         img.contentMode = .scaleAspectFit
         img.snp.makeConstraints { (m) in
