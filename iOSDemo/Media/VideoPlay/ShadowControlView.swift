@@ -11,6 +11,7 @@ import UIKit
 protocol ShadowControlViewDelegate:class {
     func controlView(view:ShadowControlView,pointSliderLocationWithCurrentValue:Float)
     func controlView(view:ShadowControlView,draggedPositionWithSlider:UISlider)
+    func controlView(view:ShadowControlView,draggedPositionExitWithSlider:UISlider)
     func controlView(view:ShadowControlView,withLargeButton:UIButton)
 }
 
@@ -94,11 +95,19 @@ class ShadowControlView: UIView {
         lblTotalTime.textColor = UIColor.white
         addSubview(lblTotalTime)
         
+        sliderBuffer.setThumbImage(UIImage(), for: .normal)
+        sliderBuffer.isContinuous = true
+        sliderBuffer.minimumTrackTintColor = UIColor.red
+        sliderBuffer.minimumValue = 0
+        sliderBuffer.maximumValue = 1
+        sliderBuffer.isUserInteractionEnabled = false
+        addSubview(sliderBuffer)
         
         slider.setThumbImage(#imageLiteral(resourceName: "knob"), for: .normal)
         slider.isContinuous = true
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(ges:)))
         slider.addTarget(self, action: #selector(handleSliderPosition(sender:)), for: .valueChanged)
+        slider.addTarget(self, action: #selector(handleSliderPositionExit(sender:)), for: UIControlEvents.touchUpInside)
         slider.addGestureRecognizer(tapGesture!)
         slider.maximumTrackTintColor = UIColor.clear
         slider.minimumTrackTintColor = UIColor.white
@@ -112,13 +121,7 @@ class ShadowControlView: UIView {
         addSubview(btnLarge)
        
         
-        sliderBuffer.setThumbImage(UIImage(), for: .normal)
-        sliderBuffer.isContinuous = true
-        sliderBuffer.minimumTrackTintColor = UIColor.red
-        sliderBuffer.minimumValue = 0
-        sliderBuffer.maximumValue = 1
-        sliderBuffer.isUserInteractionEnabled = false
-        addSubview(sliderBuffer)
+        
         addConstraintsForSubviews()
       
         NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
@@ -161,7 +164,13 @@ class ShadowControlView: UIView {
         delegate?.controlView(view: self, pointSliderLocationWithCurrentValue: Float(currentValue))
     }
     
+    @objc func handleSliderPositionExit(sender:UISlider){
+        print("exit")
+        delegate?.controlView(view: self, draggedPositionExitWithSlider: slider)
+    }
+    
     @objc func handleSliderPosition(sender:UISlider) {
+        print(sender.value)
         delegate?.controlView(view: self, draggedPositionWithSlider: slider)
     }
     

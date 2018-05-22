@@ -69,6 +69,7 @@ class ShadowPlayer: UIView {
     var oldConstriants:[NSLayoutConstraint]!
     var isPlaying = false
     var isFullScreen = false
+    var isDraging = false
     var title:String{
         set{
             lblTitle.text = newValue
@@ -83,7 +84,7 @@ class ShadowPlayer: UIView {
     private let lblTitle = UILabel()
     private let btnVideoInfo = UIButton()
     private let vActivity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
-    
+    private var currentVC:UIViewController? = nil
     static var count = 0
     
     override init(frame: CGRect) {
@@ -163,6 +164,7 @@ class ShadowPlayer: UIView {
          //初始化时间
         vControl.currentTime = "00:00"
         vControl.totalTime = "00:00"
+        
     }
    
     @objc func handleTapAction(ges:UIGestureRecognizer) {
@@ -210,7 +212,14 @@ class ShadowPlayer: UIView {
     func addPeriodicTimeObserver()  {
         weak var weakself = self
         playbackTimerObserver = player.addPeriodicTimeObserver(forInterval: CMTimeMake(1, 1), queue: nil, using: { (time) in
-            weakself?.vControl.value = Float(weakself!.item.currentTime().value / Int64(weakself!.item.currentTime().timescale))
+            //ISSUE 当在滑动的时侯，又会反馈带动这里滑动，所以会出现一跳一跳的情况。
+            //let value = Float(weakself!.item.currentTime().value / Int64(weakself!.item.currentTime().timescale))
+            
+            if !weakself!.isDraging{
+                weakself?.vControl.value = Float(weakself!.item.currentTime().value / Int64(weakself!.item.currentTime().timescale))
+            }
+            
+            
             if !weakself!.anAsset.duration.isIndefinite{
                 weakself?.vControl.currentTime = weakself!.convertTime(second: weakself!.vControl.value)
             }
@@ -319,7 +328,7 @@ class ShadowPlayer: UIView {
     }
     
     func stop() {
-        item.removeObserver(self, forKeyPath: "statue")
+        item.removeObserver(self, forKeyPath: "status")
         player.removeTimeObserver(playbackTimerObserver)
         item.removeObserver(self, forKeyPath: "loadedTimeRanges")
         item.removeObserver(self, forKeyPath: "playbackBufferEmpty")
@@ -348,6 +357,13 @@ class ShadowPlayer: UIView {
     
   
     func interfaceOrientation(orientation:UIInterfaceOrientation)  {
+//        if UIDevice.current.responds(to: Selector("setOrientation:")){
+//            let sel = Selector("setOrientation:")
+//
+//            UIDevice.current.perform(sel, with: orientation, afterDelay: 0)
+//        }
+        UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
+        
         //有一些判断
         if orientation == .landscapeRight || orientation == .landscapeLeft{
             
@@ -370,14 +386,20 @@ extension ShadowPlayer:UIGestureRecognizerDelegate,ShadowControlViewDelegate{
         ShadowPlayer.count = 0
         let pointTime = CMTimeMake(Int64(view.value) * Int64(item.currentTime().timescale), item.currentTime().timescale)
         item.seek(to: pointTime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
+        isDraging = true
+    }
+    
+    func controlView(view: ShadowControlView, draggedPositionExitWithSlider: UISlider) {
+        isDraging = false
     }
     
     func controlView(view: ShadowControlView, withLargeButton: UIButton) {
         ShadowPlayer.count = 0
-        if ScreenWidth < ScreenHeight{
+        let ori = UIDevice.current.orientation
+        if ori == .portrait || ori == .portraitUpsideDown{
             interfaceOrientation(orientation: .landscapeRight)
         }
-        else{
+        else if ori == .landscapeLeft || ori == .landscapeRight{
             interfaceOrientation(orientation: .portrait)
         }
     }
@@ -399,15 +421,19 @@ extension ShadowPlayer{
         
     }
     @objc func deviceOrientationDidChange(notif:Notification)  {
-        guard let currentVC = self.currentVC() else {
-            return
+        if currentVC == nil{
+            currentVC = self.topMostController()
+            if currentVC == nil{
+                return
+            }
         }
+        
         let _interfaceOrientation = UIApplication.shared.statusBarOrientation
         switch _interfaceOrientation {
         case .landscapeLeft,.landscapeRight:
             isFullScreen = true
             if oldConstriants == nil{
-                oldConstriants = currentVC.view.constraints
+                oldConstriants = currentVC!.view.constraints
             }
             vControl.updateConstraintsIfNeeded()
             //删除UIView animate可以去除横竖屏切换过渡动画
@@ -420,10 +446,10 @@ extension ShadowPlayer{
             }, completion: nil)
         case .portraitUpsideDown,.portrait:
             isFullScreen = false
-            currentVC.view.addSubview(self)
+            currentVC!.view.addSubview(self)
             UIView.animateKeyframes(withDuration: 0.2, delay: 0, options: UIViewKeyframeAnimationOptions.calculationModeLinear, animations: {
                 if self.oldConstriants != nil{
-                    currentVC.view.addConstraints(self.oldConstriants)
+                    self.currentVC!.view.addConstraints(self.oldConstriants)
                 }
                 self.layoutIfNeeded()
             }, completion: nil)

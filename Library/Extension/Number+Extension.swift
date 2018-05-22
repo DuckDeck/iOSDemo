@@ -109,3 +109,12 @@ extension Int{
         return within.lowerBound + Int(arc4random_uniform(UInt32(delta)))
     }
 }
+
+extension Float{
+    func inRange(target:Float,range:Float) -> Bool {
+        if self <= target + range && self > target - range{
+            return true
+        }
+        return false
+    }
+}
