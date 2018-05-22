@@ -14,6 +14,7 @@ class VideoPlayViewController: BaseViewController {
     var player:AVPlayer!
     let btnClose = UIButton()
     var dictDes = [String:String]()
+    var shadowPlayer:ShadowPlayer!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -89,10 +90,23 @@ class VideoPlayViewController: BaseViewController {
             }
             tmp = lbl
         }
+        
+        shadowPlayer = ShadowPlayer(url: url)
+        shadowPlayer.mode = .ResizeAspect
+        shadowPlayer.title = url.lastPathComponent
+        shadowPlayer.backgroundColor = UIColor.black
+        view.addSubview(shadowPlayer)
+        shadowPlayer.snp.makeConstraints { (m) in
+            m.left.right.equalTo(0)
+            m.top.equalTo(20)
+            m.height.equalTo(ScreenWidth * 0.7)
+        }
+        shadowPlayer.play()
     }
 
     
     @objc func closePage() {
+        shadowPlayer.stop()
         dismiss(animated: true, completion: nil)
     }
     

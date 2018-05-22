@@ -223,6 +223,8 @@
 		AEF51EC520B26302006C0D63 /* ShadowPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51EC420B26302006C0D63 /* ShadowPlayer.swift */; };
 		AEF51EC720B2A421006C0D63 /* ShadowPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51EC620B2A421006C0D63 /* ShadowPlayView.swift */; };
 		AEF51EC920B2A998006C0D63 /* ShadowControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51EC820B2A998006C0D63 /* ShadowControlView.swift */; };
+		AEF51ECB20B3FCBC006C0D63 /* ShadowVideoInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51ECA20B3FCBC006C0D63 /* ShadowVideoInfoView.swift */; };
+		AEF51ECD20B3FDDB006C0D63 /* ShadowPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51ECC20B3FDDB006C0D63 /* ShadowPlayerViewController.swift */; };
 		AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CA1F7793D300D9A09F /* AIViewController.swift */; };
 		AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CD1F77945800D9A09F /* ImageRecognitionViewController.swift */; };
 		AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CF1F77952B00D9A09F /* Resnet50.mlmodel */; };
@@ -498,6 +500,8 @@
 		AEF51EC420B26302006C0D63 /* ShadowPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPlayer.swift; sourceTree = "<group>"; };
 		AEF51EC620B2A421006C0D63 /* ShadowPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPlayView.swift; sourceTree = "<group>"; };
 		AEF51EC820B2A998006C0D63 /* ShadowControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowControlView.swift; sourceTree = "<group>"; };
+		AEF51ECA20B3FCBC006C0D63 /* ShadowVideoInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowVideoInfoView.swift; sourceTree = "<group>"; };
+		AEF51ECC20B3FDDB006C0D63 /* ShadowPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPlayerViewController.swift; sourceTree = "<group>"; };
 		AEF589CA1F7793D300D9A09F /* AIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIViewController.swift; sourceTree = "<group>"; };
 		AEF589CD1F77945800D9A09F /* ImageRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognitionViewController.swift; sourceTree = "<group>"; };
 		AEF589CF1F77952B00D9A09F /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
@@ -1148,6 +1152,8 @@
 				AEF51EC420B26302006C0D63 /* ShadowPlayer.swift */,
 				AEF51EC620B2A421006C0D63 /* ShadowPlayView.swift */,
 				AEF51EC820B2A998006C0D63 /* ShadowControlView.swift */,
+				AEF51ECA20B3FCBC006C0D63 /* ShadowVideoInfoView.swift */,
+				AEF51ECC20B3FDDB006C0D63 /* ShadowPlayerViewController.swift */,
 			);
 			path = VideoPlay;
 			sourceTree = "<group>";
@@ -1822,6 +1828,7 @@
 				AE1DE0482099AD32007910A5 /* NovelContentViewController.swift in Sources */,
 				AE1DE0382099AD32007910A5 /* SectionTableInfo.swift in Sources */,
 				AEDF8C4F209AF66400EED6D1 /* CaptureSessionAssetWriterCoordinator.swift in Sources */,
+				AEF51ECD20B3FDDB006C0D63 /* ShadowPlayerViewController.swift in Sources */,
 				AE3AF0551F77448A00AF182A /* LayoutViewController.swift in Sources */,
 				AE0F70661FBD6F2B00C8135C /* NFXListController.swift in Sources */,
 				AE1DE0492099AD32007910A5 /* SectionListViewController.swift in Sources */,
@@ -1859,6 +1866,7 @@
 				AE3F46F220AC06A3007BA637 /* Toast.swift in Sources */,
 				AE1DE0782099BE0A007910A5 /* FullBoard.swift in Sources */,
 				AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */,
+				AEF51ECB20B3FCBC006C0D63 /* ShadowVideoInfoView.swift in Sources */,
 				AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */,
 				AE0F70831FBD6F2B00C8135C /* NFXListCell_iOS.swift in Sources */,
 				AE1DE03E2099AD32007910A5 /* LoadMoreCell.swift in Sources */,

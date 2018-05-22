@@ -13,9 +13,18 @@ enum VideoGravity {
     case ResizeAspect,ResizeAspectFill,Resize
 }
 enum PlayerStatus{
-    case Failed,ReadyToPlay,Unknown,Bufferin,Playing,Stopped
+    case Failed,ReadyToPlay,Unknown,Buffering,Playing,Stopped
 }
 class ShadowPlayer: UIView {
+    
+   
+    override class var layerClass: AnyClass {
+        get{
+            return AVPlayerLayer.self
+        }
+        
+    }
+    
     var playbackTimerObserver:Any! = nil
     var player:AVPlayer!{
         set{
@@ -25,7 +34,7 @@ class ShadowPlayer: UIView {
             return self.playerLayer.player!
         }
     }
-    var playerLayer:AVPlayerLayer{
+    private var playerLayer:AVPlayerLayer{
         get{
             return self.layer as! AVPlayerLayer
         }
@@ -65,13 +74,14 @@ class ShadowPlayer: UIView {
             lblTitle.text = newValue
         }
         get{
-            return lblTitle.text!
+            return lblTitle.text ?? ""
         }
     }
     let vPlay = ShadowPlayView(frame: CGRect())
     let vControl = ShadowControlView(frame:CGRect())
     private var url:URL!
     private let lblTitle = UILabel()
+    private let btnVideoInfo = UIButton()
     private let vActivity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     
     static var count = 0
@@ -108,8 +118,8 @@ class ShadowPlayer: UIView {
         lblTitle.numberOfLines = 2
         addSubview(lblTitle)
         lblTitle.snp.makeConstraints { (m) in
-            m.left.right.equalTo(0)
-            m.top.equalTo(12)
+            m.left.equalTo(0)
+            m.top.equalTo(10)
             m.width.equalTo(self)
         }
          //添加点击事件
@@ -156,7 +166,8 @@ class ShadowPlayer: UIView {
     }
    
     @objc func handleTapAction(ges:UIGestureRecognizer) {
-        
+        setSubViewsIsHide(isHide: false)
+        ShadowPlayer.count = 0
     }
     
     func assetWithURL(url:URL) {
@@ -165,8 +176,8 @@ class ShadowPlayer: UIView {
         let keys = ["duration"]
         weak var weakself = self
         anAsset.loadValuesAsynchronously(forKeys: keys) {
-            let error:NSErrorPointer! = nil
-            guard let tracksStatus = weakself?.anAsset.statusOfValue(forKey: "duration", error: error) else{
+            var error:NSError? = nil
+            guard let tracksStatus = weakself?.anAsset.statusOfValue(forKey: "duration", error: &error) else{
                 return
             }
             switch tracksStatus{
@@ -183,6 +194,7 @@ class ShadowPlayer: UIView {
                 break
             }
         }
+        setupPlayerWithAsset(asset: anAsset)
     }
     
     func setupPlayerWithAsset(asset:AVURLAsset)  {
@@ -190,11 +202,13 @@ class ShadowPlayer: UIView {
         player = AVPlayer(playerItem: item)
         playerLayer.displayIfNeeded()
         playerLayer.videoGravity = .resizeAspectFill
-        
+        addPeriodicTimeObserver()
+        addKVO()
+        addNotificationCenter()
     }
     
     func addPeriodicTimeObserver()  {
-         weak var weakself = self
+        weak var weakself = self
         playbackTimerObserver = player.addPeriodicTimeObserver(forInterval: CMTimeMake(1, 1), queue: nil, using: { (time) in
             weakself?.vControl.value = Float(weakself!.item.currentTime().value / Int64(weakself!.item.currentTime().timescale))
             if !weakself!.anAsset.duration.isIndefinite{
@@ -218,6 +232,58 @@ class ShadowPlayer: UIView {
         player.addObserver(self, forKeyPath: "rate", options: .new, context: nil)
     }
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard let key = keyPath else {
+            return
+        }
+        if key == "status"{
+            guard let itemStatus = AVPlayerItemStatus(rawValue: change![NSKeyValueChangeKey.newKey] as! Int) else{
+                return
+            }
+            switch itemStatus{
+            case .unknown:
+                status = .Unknown
+                print("AVPlayerItemStatusUnknown")
+            case .readyToPlay:
+                status = .ReadyToPlay
+                print("AVPlayerItemStatusReadyToPlay")
+            case .failed:
+                status = .Failed
+                print("AVPlayerItemStatusFailed")
+            }
+        }
+        else if key == "loadedTimeRanges"{ //监听播放器的下载进度
+            let loadedTimeRanges = item.loadedTimeRanges
+            let timeRange = loadedTimeRanges.first!.timeRangeValue // 获取缓冲区域
+            let startSeconds = CMTimeGetSeconds(timeRange.start)
+            let durationSeconds = CMTimeGetSeconds(timeRange.duration)
+            let timeInterval = startSeconds + durationSeconds // 计算缓冲总进度
+            let duration = item.duration
+            let totalDuration = CMTimeGetSeconds(duration)
+            vControl.bufferValue = Float(timeInterval / totalDuration)
+        }
+        else if key == "playbackBufferEmpty"{
+            status = .Buffering
+            if !vActivity.isAnimating{
+                vActivity.startAnimating()
+            }
+        }
+        else if key == "playbackLikelyToKeepUp"{
+            print("缓冲达到可播放")
+            vActivity.stopAnimating()
+        }
+        else if key == "rate"{
+            if change![NSKeyValueChangeKey.newKey] as! Int == 0{
+                isPlaying = false
+                status = .Playing
+            }
+            else{
+                isPlaying = true
+                status = .Stopped
+            }
+        }
+    }
+    
     func addNotificationCenter()  {
         NotificationCenter.default.addObserver(self, selector: #selector(ShadowPlayerItemDidPlayToEndTimeNotification(notif:)), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: player.currentTime())
         NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange(notif:)), name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
@@ -231,7 +297,7 @@ class ShadowPlayer: UIView {
             format.dateFormat = "HH:mm:ss"
         }
         else{
-            format.dateFormat = "mnm:ss"
+            format.dateFormat = "mm:ss"
         }
         return format.string(from: d)
     }
@@ -240,12 +306,14 @@ class ShadowPlayer: UIView {
     func play()  {
         if self.player != nil{
             self.player.play()
+            vPlay.btnImage.isSelected = true
         }
     }
     
     func pause() {
         if self.player != nil{
             self.player.pause()
+            vPlay.btnImage.isSelected = false
         }
 
     }
@@ -307,14 +375,19 @@ extension ShadowPlayer:UIGestureRecognizerDelegate,ShadowControlViewDelegate{
     func controlView(view: ShadowControlView, withLargeButton: UIButton) {
         ShadowPlayer.count = 0
         if ScreenWidth < ScreenHeight{
-            
+            interfaceOrientation(orientation: .landscapeRight)
         }
         else{
-            
+            interfaceOrientation(orientation: .portrait)
         }
     }
     
-    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view is ShadowControlView{
+            return false
+        }
+        return true
+    }
 }
 
 extension ShadowPlayer{
@@ -323,21 +396,48 @@ extension ShadowPlayer{
         setSubViewsIsHide(isHide: false)
         ShadowPlayer.count = 0
         pause()
-        vPlay.btnImage.isSelected = false
+        
     }
     @objc func deviceOrientationDidChange(notif:Notification)  {
+        guard let currentVC = self.currentVC() else {
+            return
+        }
         let _interfaceOrientation = UIApplication.shared.statusBarOrientation
         switch _interfaceOrientation {
         case .landscapeLeft,.landscapeRight:
             isFullScreen = true
             if oldConstriants == nil{
-                
+                oldConstriants = currentVC.view.constraints
             }
-        default:
+            vControl.updateConstraintsIfNeeded()
+            //删除UIView animate可以去除横竖屏切换过渡动画
+            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions.transitionCurlUp, animations: {
+                UIApplication.shared.keyWindow?.addSubview(self)
+                self.snp.makeConstraints({ (m) in
+                    m.edges.equalTo(UIApplication.shared.keyWindow!)
+                })
+                self.layoutIfNeeded()
+            }, completion: nil)
+        case .portraitUpsideDown,.portrait:
+            isFullScreen = false
+            currentVC.view.addSubview(self)
+            UIView.animateKeyframes(withDuration: 0.2, delay: 0, options: UIViewKeyframeAnimationOptions.calculationModeLinear, animations: {
+                if self.oldConstriants != nil{
+                    currentVC.view.addConstraints(self.oldConstriants)
+                }
+                self.layoutIfNeeded()
+            }, completion: nil)
+        case .unknown:
+            print("UIInterfaceOrientationUnknown")
             break
         }
     }
     @objc func willResignActive(notif:Notification)  {
-        
+        if isPlaying{
+            setSubViewsIsHide(isHide: false)
+            ShadowPlayer.count = 0
+            pause()
+           
+        }
     }
 }

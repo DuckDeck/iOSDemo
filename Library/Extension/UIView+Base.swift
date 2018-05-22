@@ -184,6 +184,29 @@ extension UIView{
     func completed()  {
         
     }
+    
+    func currentVC() -> UIViewController? {
+        var vc:UIViewController! = nil
+        var window = UIApplication.shared.keyWindow!
+        if window.windowLevel != UIWindowLevelNormal{
+            let windows = UIApplication.shared.windows
+            for win in windows{
+                if win.windowLevel == UIWindowLevelNormal{
+                    window = win
+                    break
+                }
+            }
+        }
+        let frontView = window.subviews.first!
+        let responder = frontView.next
+        if responder != nil && responder! is UIViewController{
+            vc = responder! as! UIViewController
+        }
+        else{
+            vc = window.rootViewController
+        }
+        return vc
+    }
 }
 
 extension UILabel{

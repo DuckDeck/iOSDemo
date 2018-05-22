@@ -29,7 +29,6 @@ class ShadowPlayView: UIView {
         btnImage.setImage(#imageLiteral(resourceName: "play"), for: .normal)
         btnImage.showsTouchWhenHighlighted = true
         btnImage.setImage(#imageLiteral(resourceName: "pause"), for: .selected)
-        
     }
     
     @objc func handleImageTapAction(sender:UIButton) {

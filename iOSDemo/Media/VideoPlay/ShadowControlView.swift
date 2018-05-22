@@ -75,7 +75,7 @@ class ShadowControlView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        initUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -128,25 +128,25 @@ class ShadowControlView: UIView {
         lblTime.snp.makeConstraints { (m) in
             m.left.equalTo(0)
             m.bottom.equalTo(-padding)
-            m.right.equalTo(-padding).priority(10)
             m.width.equalTo(50)
         }
         slider.snp.makeConstraints { (m) in
             m.left.equalTo(lblTime.snp.right).offset(padding)
             m.right.equalTo(lblTotalTime.snp.left).offset(-padding)
             m.centerY.equalTo(lblTime)
-            if ScreenWidth < ScreenWidth{
-                m.width.equalTo(ScreenWidth - padding * 3 - 50 - 50 - 30)
-            }
+            m.height.equalTo(20)
+//            if ScreenWidth < ScreenWidth{
+//                m.width.equalTo(ScreenWidth - padding * 3 - 50 - 50 - 30)
+//            }
         }
         lblTotalTime.snp.makeConstraints { (m) in
             m.right.equalTo(btnLarge.snp.left).offset(-padding)
             m.centerY.equalTo(lblTime)
-            m.width.equalTo(50).priority(20)
+            m.width.equalTo(50)
         }
         btnLarge.snp.makeConstraints { (m) in
             m.centerY.equalTo(lblTime)
-            m.width.equalTo(30)
+            m.width.height.equalTo(30)
             m.right.equalTo(-padding)
         }
         sliderBuffer.snp.makeConstraints { (m) in
@@ -171,5 +171,9 @@ class ShadowControlView: UIView {
     
     @objc func deviceOrientationDidChange() {
         addConstraintsForSubviews()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
 }
