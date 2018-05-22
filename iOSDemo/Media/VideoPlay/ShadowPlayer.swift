@@ -16,7 +16,6 @@ enum PlayerStatus{
     case Failed,ReadyToPlay,Unknown,Buffering,Playing,Stopped
 }
 class ShadowPlayer: UIView {
-    
    
     override class var layerClass: AnyClass {
         get{
@@ -84,7 +83,7 @@ class ShadowPlayer: UIView {
     private let lblTitle = UILabel()
     private let btnVideoInfo = UIButton()
     private let vActivity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
-    private var currentVC:UIViewController? = nil
+    weak private var currentVC:UIViewController? = nil
     static var count = 0
     
     override init(frame: CGRect) {
@@ -114,13 +113,14 @@ class ShadowPlayer: UIView {
         //添加标题
         lblTitle.backgroundColor = UIColor.clear
         lblTitle.font = UIFont.systemFont(ofSize: 15)
-        lblTitle.textAlignment = .center
+        lblTitle.textAlignment = .left
         lblTitle.textColor = UIColor.white
         lblTitle.numberOfLines = 2
         addSubview(lblTitle)
         lblTitle.snp.makeConstraints { (m) in
             m.left.equalTo(0)
             m.top.equalTo(10)
+            m.right.equalTo(-30)
             m.width.equalTo(self)
         }
          //添加点击事件
@@ -165,11 +165,33 @@ class ShadowPlayer: UIView {
         vControl.currentTime = "00:00"
         vControl.totalTime = "00:00"
         
+        btnVideoInfo.setImage(#imageLiteral(resourceName: "info"), for: .normal)
+        addSubview(btnVideoInfo)
+        btnVideoInfo.snp.makeConstraints { (m) in
+            m.right.equalTo(-10)
+            m.top.equalTo(10)
+            m.width.height.equalTo(20)
+        }
+        btnVideoInfo.addTarget(self, action: #selector(showVideoInfo), for: .touchUpInside)
     }
    
     @objc func handleTapAction(ges:UIGestureRecognizer) {
         setSubViewsIsHide(isHide: false)
         ShadowPlayer.count = 0
+    }
+    
+    @objc func showVideoInfo()  {
+        let v = UIView()
+        v.backgroundColor = UIColor(gray: 0.3, alpha: 0.3)
+        addSubview(v)
+        pause()
+        v.snp.makeConstraints { (m) in
+            m.edges.equalTo(self)
+        }
+        let infos = getVideoInfo()
+        for info in infos{
+            
+        }
     }
     
     func assetWithURL(url:URL) {
@@ -357,13 +379,7 @@ class ShadowPlayer: UIView {
     
   
     func interfaceOrientation(orientation:UIInterfaceOrientation)  {
-//        if UIDevice.current.responds(to: Selector("setOrientation:")){
-//            let sel = Selector("setOrientation:")
-//
-//            UIDevice.current.perform(sel, with: orientation, afterDelay: 0)
-//        }
         UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
-        
         //有一些判断
         if orientation == .landscapeRight || orientation == .landscapeLeft{
             
@@ -372,6 +388,51 @@ class ShadowPlayer: UIView {
         }else if orientation == .portraitUpsideDown{
             
         }
+    }
+    
+    func getVideoInfo() -> [(String,String)]{
+        var info = [(String,String)]()
+        if url.absoluteString.starts(with: "file"){
+            if let attr = try? FileManager.default.attributesOfItem(atPath: url.path){
+                let size = attr[FileAttributeKey.size] as! Int
+                info.append(("文件大小","\(size / 1000000)M"))
+                info.append(("创建日期","\(attr[FileAttributeKey.creationDate]!)"))
+                info.append(("扩展名",url.pathExtension))
+            }
+        }
+        
+        
+       let assert = AVURLAsset(url: url)
+        
+        guard let a = assert.tracks.first?.formatDescriptions.first else{
+            return info
+        }
+        
+        let format = a as! CMFormatDescription
+        
+        let type = CMFormatDescriptionGetMediaType(format)
+        if type == kCMMediaType_Video{
+            info.append(("类型","视频"))
+            guard let track = assert.tracks(withMediaType: .video).first else{
+                return info
+            }
+            
+            let res = track.naturalSize
+            info.append(("分辨率","\(res.width) * \(res.height)"))
+            info.append(("时长","\(track.timeRange.duration.seconds)秒"))
+            info.append(("帧率","\(track.nominalFrameRate)帧每秒"))
+            info.append(("码率","\(track.estimatedDataRate / 8000000) M每秒"))
+        }
+        else if type == kCMMediaType_Audio{
+            info.append(("类型","音频"))
+            guard let track = assert.tracks(withMediaType: .audio).first else{
+                return info
+            }
+            info.append(("时长","\(track.timeRange.duration.seconds)秒"))
+            info.append(("帧率","\(track.nominalFrameRate)帧每秒"))
+            info.append(("码率","\(track.estimatedDataRate / 8000000) M每秒"))
+        }
+        return info
     }
 }
 
@@ -418,6 +479,7 @@ extension ShadowPlayer{
         setSubViewsIsHide(isHide: false)
         ShadowPlayer.count = 0
         pause()
+        vPlay.btnImage.isSelected = true
         
     }
     @objc func deviceOrientationDidChange(notif:Notification)  {
