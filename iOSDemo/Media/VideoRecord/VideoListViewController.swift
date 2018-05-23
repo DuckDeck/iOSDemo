@@ -21,7 +21,9 @@ class VideoListViewController: UIViewController {
     
     func initView()  {
         let btnRecord = UIBarButtonItem(title: "录视频", style: .plain, target: self, action: #selector(recordVideo))
-        navigationItem.rightBarButtonItem = btnRecord
+        let btnNetwork = UIBarButtonItem(title: "网络视频", style: .plain, target: self, action: #selector(showNetworkVideo))
+        navigationItem.rightBarButtonItems = [btnNetwork,btnRecord]
+        
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumLineSpacing = 10
@@ -48,6 +50,13 @@ class VideoListViewController: UIViewController {
             return VideoModel(url: url, coverImg: Tool.thumbnailImageForVideo(url: url), fileName: url.lastPathComponent)
         })
         vc.reloadData()
+    }
+    
+    @objc func showNetworkVideo() {
+        let url = URL(string: "http://download.3g.joy.cn/video/236/60236937/1451280942752_hd.mp4")
+        let vc = ShadowPlayerViewController()
+        vc.url = url
+        present(vc, animated: true, completion: nil)
     }
     
     @objc func recordVideo() {
@@ -94,6 +103,10 @@ extension VideoListViewController:UICollectionViewDelegate,UICollectionViewDataS
         let url = arrFile[indexPath.row].url
         let vc = VideoPlayViewController()
         vc.url = url!
+        //搞一个错误的视频
+//        let str = url!.absoluteString.replacingOccurrencesOfString(".", withString: "_")
+//        let newUrl = URL(string: str)
+//        vc.url = newUrl!
         present(vc, animated: true, completion: nil)
 //        let avPlayer = AVPlayer(url: url!)
 //        let vc = AVPlayerViewController()

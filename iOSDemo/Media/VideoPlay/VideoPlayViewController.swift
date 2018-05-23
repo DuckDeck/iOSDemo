@@ -15,6 +15,8 @@ class VideoPlayViewController: BaseViewController {
     let btnClose = UIButton()
     var dictDes = [String:String]()
     var shadowPlayer:ShadowPlayer!
+    let btnDelete = UIButton()
+    let btnCompress = UIButton()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -68,7 +70,7 @@ class VideoPlayViewController: BaseViewController {
         }
     
  
-        btnClose.title(title: "Close").color(color: UIColor.darkGray).addTo(view: view).snp.makeConstraints { (m) in
+        btnClose.title(title: "关闭").color(color: UIColor.darkGray).addTo(view: view).snp.makeConstraints { (m) in
             m.centerX.equalTo(ScreenWidth * 0.2)
             m.bottom.equalTo(-10)
         }

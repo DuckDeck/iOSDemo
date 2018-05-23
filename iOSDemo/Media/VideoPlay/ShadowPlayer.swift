@@ -83,6 +83,8 @@ class ShadowPlayer: UIView {
     private let lblTitle = UILabel()
     private let btnVideoInfo = UIButton()
     private let vScInfo = UIScrollView()
+    private let vErrorVideo = UIView()
+    private let lblError = UILabel()
     private let vActivity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     weak private var currentVC:UIViewController? = nil
     static var count = 0
@@ -188,7 +190,11 @@ class ShadowPlayer: UIView {
         var tmp:UIView! = nil
         
         for info in infos{
-            let lbl = UILabel().text(text: "\(info.0) : \(info.1)").color(color: UIColor.white).setFont(font: 14).addTo(view: vScInfo)
+            let lbl = UILabel()
+            lbl.text = "\(info.0) : \(info.1)"
+            lbl.textColor = UIColor.white
+            lbl.font = UIFont.systemFont(ofSize: 14)
+            vScInfo.addSubview(lbl)
             lbl.snp.makeConstraints { (m) in
                 m.left.equalTo(15)
                 if tmp == nil{
@@ -206,6 +212,28 @@ class ShadowPlayer: UIView {
             tmp.snp.makeConstraints { (m) in
                 m.bottom.equalTo(-10)
             }
+        }
+        vErrorVideo.isHidden = true
+        vErrorVideo.backgroundColor = UIColor(gray: 0.3, alpha: 0.5)
+        addSubview(vErrorVideo)
+        let tapError = UITapGestureRecognizer(target: self, action: #selector(handleTapError(ges:)))
+        vErrorVideo.addGestureRecognizer(tapError)
+        vErrorVideo.snp.makeConstraints { (m) in
+            m.edges.equalTo(self)
+        }
+        let imgError = UIImageView(image: #imageLiteral(resourceName: "icon_error"))
+        vErrorVideo.addSubview(imgError)
+        imgError.snp.makeConstraints { (m) in
+            m.center.equalTo(self)
+        }
+        
+        lblError.textColor = UIColor.white
+        lblError.font = UIFont.systemFont(ofSize: 18)
+        lblError.textAlignment = .center
+        vErrorVideo.addSubview(lblError)
+        lblError.snp.makeConstraints { (m) in
+            m.centerX.equalTo(self)
+            m.top.equalTo(imgError.snp.bottom).offset(4)
         }
     }
    
@@ -225,6 +253,12 @@ class ShadowPlayer: UIView {
         play()
     }
     
+    
+    @objc func handleTapError(ges:UIGestureRecognizer)  {
+       vErrorVideo.isHidden = true
+        //先这样吧
+    }
+    
     func assetWithURL(url:URL) {
         let dict = [AVURLAssetPreferPreciseDurationAndTimingKey:true]
         anAsset = AVURLAsset(url: url, options: dict)
@@ -233,6 +267,7 @@ class ShadowPlayer: UIView {
         anAsset.loadValuesAsynchronously(forKeys: keys) {
             var error:NSError? = nil
             guard let tracksStatus = weakself?.anAsset.statusOfValue(forKey: "duration", error: &error) else{
+                weakself?.showErrorInfo(info: error?.localizedDescription ?? "视频出现错误，请检查后重新播放")
                 return
             }
             switch tracksStatus{
@@ -245,6 +280,11 @@ class ShadowPlayer: UIView {
                         weakself?.vControl.maxValue = Float(second)
                     }
                 }
+            case .failed:
+                weakself?.showErrorInfo(info: error?.localizedDescription ?? "视频出现错误，请检查后重新播放")
+            case .unknown:
+                weakself?.showErrorInfo(info: "未知视频格式，请检查后重新播放")
+
             default:
                 break
             }
@@ -364,7 +404,14 @@ class ShadowPlayer: UIView {
         return format.string(from: d)
     }
         
-        
+    
+    func showErrorInfo(info:String)  {
+        lblError.text = info
+        vErrorVideo.isHidden = false
+        vPlay.isHidden = true
+        vActivity.stopAnimating()
+    }
+    
     func play()  {
         if self.player != nil{
             self.player.play()
