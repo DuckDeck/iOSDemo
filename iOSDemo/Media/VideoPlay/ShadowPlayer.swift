@@ -82,6 +82,7 @@ class ShadowPlayer: UIView {
     private var url:URL!
     private let lblTitle = UILabel()
     private let btnVideoInfo = UIButton()
+    private let vScInfo = UIScrollView()
     private let vActivity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     weak private var currentVC:UIViewController? = nil
     static var count = 0
@@ -173,6 +174,39 @@ class ShadowPlayer: UIView {
             m.width.height.equalTo(20)
         }
         btnVideoInfo.addTarget(self, action: #selector(showVideoInfo), for: .touchUpInside)
+        
+        
+        vScInfo.backgroundColor = UIColor(gray: 0.3, alpha: 0.5)
+        addSubview(vScInfo)
+        vScInfo.snp.makeConstraints { (m) in
+            m.edges.equalTo(self)
+        }
+        let tapInfo = UITapGestureRecognizer(target: self, action: #selector(handleTapInfo(ges:)))
+        vScInfo.addGestureRecognizer(tapInfo)
+        vScInfo.isHidden = true
+        let infos = getVideoInfo()
+        var tmp:UIView! = nil
+        
+        for info in infos{
+            let lbl = UILabel().text(text: "\(info.0) : \(info.1)").color(color: UIColor.white).setFont(font: 14).addTo(view: vScInfo)
+            lbl.snp.makeConstraints { (m) in
+                m.left.equalTo(15)
+                if tmp == nil{
+                    m.top.equalTo(10)
+                }
+                else{
+                    m.top.equalTo(tmp.snp.bottom).offset(5)
+                }
+                m.width.equalTo(ScreenWidth - 30)
+                m.height.equalTo(18)
+            }
+            tmp = lbl
+        }
+        if tmp != nil{
+            tmp.snp.makeConstraints { (m) in
+                m.bottom.equalTo(-10)
+            }
+        }
     }
    
     @objc func handleTapAction(ges:UIGestureRecognizer) {
@@ -181,17 +215,14 @@ class ShadowPlayer: UIView {
     }
     
     @objc func showVideoInfo()  {
-        let v = UIView()
-        v.backgroundColor = UIColor(gray: 0.3, alpha: 0.3)
-        addSubview(v)
         pause()
-        v.snp.makeConstraints { (m) in
-            m.edges.equalTo(self)
-        }
-        let infos = getVideoInfo()
-        for info in infos{
-            
-        }
+        vScInfo.isHidden = false
+    
+    }
+    
+    @objc func handleTapInfo(ges:UIGestureRecognizer)  {
+        vScInfo.isHidden = true
+        play()
     }
     
     func assetWithURL(url:URL) {
@@ -375,6 +406,7 @@ class ShadowPlayer: UIView {
         vControl.isHidden = isHide
         vPlay.isHidden = isHide
         lblTitle.isHidden = isHide
+        btnVideoInfo.isHidden = isHide
     }
     
   
@@ -444,10 +476,10 @@ extension ShadowPlayer:UIGestureRecognizerDelegate,ShadowControlViewDelegate{
     }
     
     func controlView(view: ShadowControlView, draggedPositionWithSlider: UISlider) {
+        isDraging = true
         ShadowPlayer.count = 0
         let pointTime = CMTimeMake(Int64(view.value) * Int64(item.currentTime().timescale), item.currentTime().timescale)
         item.seek(to: pointTime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
-        isDraging = true
     }
     
     func controlView(view: ShadowControlView, draggedPositionExitWithSlider: UISlider) {

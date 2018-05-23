@@ -81,7 +81,7 @@ class VideoPlayViewController: BaseViewController {
             lbl.snp.makeConstraints { (m) in
                 m.left.equalTo(15)
                 if tmp == nil{
-                    m.top.equalTo(400)
+                    m.top.equalTo(350)
                 }
                 else{
                     m.top.equalTo(tmp.snp.bottom).offset(5)
