@@ -66,13 +66,21 @@ class CaptureSessionCoordinator:NSObject {
     
     func setupCaptureSession()->AVCaptureSession {
         let captureSession = AVCaptureSession()
+        setReslution(captureSession: captureSession)
         if !addDefaultCameraInputToCaptureSession(captureSession: captureSession){
             print("failed to add camera input to capture session")
         }
         if !addDefaultMicInputToCaptureSession(captureSession: captureSession){
              print("failed to add mic input to capture session")
         }
+        
         return captureSession
+    }
+    
+    func setReslution(captureSession:AVCaptureSession) {
+        if captureSession.canSetSessionPreset(AVCaptureSession.Preset.hd1280x720){
+            captureSession.sessionPreset = AVCaptureSession.Preset.hd1280x720
+        }
     }
     
     func addDefaultCameraInputToCaptureSession(captureSession:AVCaptureSession) -> Bool {

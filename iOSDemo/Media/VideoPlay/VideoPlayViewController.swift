@@ -104,6 +104,19 @@ class VideoPlayViewController: BaseViewController {
             m.height.equalTo(ScreenWidth * 0.7)
         }
         shadowPlayer.play()
+        
+        btnDelete.title(title: "删除").color(color: UIColor.darkGray).addTo(view: view).snp.makeConstraints { (m) in
+            m.centerX.equalTo(ScreenWidth * 0.4)
+            m.bottom.equalTo(-10)
+        }
+        btnDelete.addTarget(self, action: #selector(deleteFile), for: .touchUpInside)
+      
+        btnCompress.title(title: "压缩").color(color: UIColor.darkGray).addTo(view: view).snp.makeConstraints { (m) in
+            m.centerX.equalTo(ScreenWidth * 0.6)
+            m.bottom.equalTo(-10)
+        }
+        btnCompress.addTarget(self, action: #selector(compress), for: .touchUpInside)
+        
     }
 
     
@@ -116,6 +129,54 @@ class VideoPlayViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+    @objc func compress() {
+        shadowPlayer.stop()
+        let newFileName = url.absoluteString.split(".").first! + "compress.mp4"
+        Toast.showLoading()
+        compressVideo(inputUrl: url, outputUrl: URL(string: newFileName)!) { (export) in
+            DispatchQueue.main.async {
+                Toast.showToast(msg: "压缩完成")
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        
+    }
+    
+    @objc func deleteFile() {
+        
+        UIAlertController.title(title: "删除该视频", message: nil).action(title: "取消", handle: nil).action(title: "确定", handle:{ (action:UIAlertAction) in
+            self.shadowPlayer.stop()
+            CVFileManager.removeFile(url: self.url)
+            self.dismiss(animated: true, completion: nil)
+        }).showAlert(viewController: self)
+    }
 
 
+    func compressVideo(inputUrl:URL,outputUrl:URL,completed:@escaping ((_ export:AVAssetExportSession) ->Void))  {
+        let avAsset = AVURLAsset(url: inputUrl, options: nil)
+        guard let exportSession = AVAssetExportSession(asset: avAsset, presetName: AVAssetExportPresetMediumQuality) else{
+            return
+        }
+        exportSession.outputURL = outputUrl
+        exportSession.outputFileType = AVFileType.mp4
+        exportSession.shouldOptimizeForNetworkUse = true
+        exportSession.exportAsynchronously {
+            switch exportSession.status{
+            case .cancelled:
+                print("AVAssetExportSessionStatusCancelled")
+            case .unknown:
+                print("AVAssetExportSessionStatusUnknown")
+            case .waiting:
+                print("AVAssetExportSessionStatusWaiting")
+            case .exporting:
+                print("AVAssetExportSessionStatusExporting")
+            case .completed:
+                 print("AVAssetExportSessionStatusCompleted")
+                completed(exportSession)
+            case .failed:
+                print("AVAssetExportSessionStatusFailed")
+            }
+        }
+        
+    }
 }

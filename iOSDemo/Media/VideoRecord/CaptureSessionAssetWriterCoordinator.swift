@@ -42,9 +42,7 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
             NSException(name: NSExceptionName.invalidArgumentException, reason: "Already recording", userInfo: nil).raise()
             return
         }
-        print("1")
         transitionToRecordingStatus(newStatus: .StartingRecording, error: nil)
-         print("3")
         objc_sync_exit(self)
         recordingURL = CVFileManager.tempFileURL(extensionName: "mov")
         assetWriterCoordinator = AssetWriterCoordinator(theUrl: recordingURL)
@@ -54,7 +52,6 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
         assetWriterCoordinator.addVideoTrackWithSourceFormatDescription(formatDescription: outputVideoFormatDescription, videoSettings: videoCompressionSettings)
         let callbackQueue = DispatchQueue(label: "stanhu.capturesession.writercallback")
         assetWriterCoordinator.setDelegate(delegate: self, callbackQueue: callbackQueue)
-         print("3")
         assetWriterCoordinator.prepareToRecord()
     }
     
