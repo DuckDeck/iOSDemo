@@ -20,7 +20,7 @@ class ProgressView: UIImageView {
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        layer.cornerRadius = HUDCornerRadius
+        layer.cornerRadius = 38
         clipsToBounds = true
         setUpBlurView()
         configAnimate()
@@ -32,7 +32,7 @@ class ProgressView: UIImageView {
 }
 
 //MARK: - Animation
-extension MCProgressView {
+extension ProgressView {
     
     /// 开始计时动画
     public func countingAnimate() {
@@ -46,10 +46,10 @@ extension MCProgressView {
 }
 
 // MARK: - Setup
-extension MCProgressView {
+extension ProgressView {
     
     private func configAnimate() {
-        let maskPath = UIBezierPath(roundedRect: CGRect.init(x: 0, y: 0, width: frame.width, height: frame.height), cornerRadius: HUDCornerRadius)
+        let maskPath = UIBezierPath(roundedRect: CGRect.init(x: 0, y: 0, width: frame.width, height: frame.height), cornerRadius: 38)
         let maskLayer = CAShapeLayer()
         maskLayer.backgroundColor = UIColor.clear.cgColor
         maskLayer.path = maskPath.cgPath
@@ -68,7 +68,7 @@ extension MCProgressView {
         progressLayer.fillColor = UIColor.clear.cgColor //图层背景颜色
         progressLayer.strokeColor = UIColor(red: 0.29, green: 0.29, blue: 0.29, alpha: 0.90).cgColor   //图层绘制颜色
         progressLayer.lineCap = kCALineCapButt
-        progressLayer.lineWidth = HUDHeight
+        progressLayer.lineWidth = 78
         progressLayer.path = progressPath
         progressLayer.mask = maskLayer
         
@@ -94,7 +94,11 @@ extension MCProgressView {
         UIGraphicsEndImageContext()
         image = transparentImage
         
-        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        if #available(iOS 10.0, *) {
+            blurView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        } else {
+            blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        }
         blurView.frame = bounds
         blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         blurView.layer.cornerRadius = layer.cornerRadius
