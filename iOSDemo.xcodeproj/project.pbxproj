@@ -224,6 +224,8 @@
 		AEF51EC720B2A421006C0D63 /* ShadowPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51EC620B2A421006C0D63 /* ShadowPlayView.swift */; };
 		AEF51EC920B2A998006C0D63 /* ShadowControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51EC820B2A998006C0D63 /* ShadowControlView.swift */; };
 		AEF51ECD20B3FDDB006C0D63 /* ShadowPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51ECC20B3FDDB006C0D63 /* ShadowPlayerViewController.swift */; };
+		AEF51ECF20B7EA86006C0D63 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51ECE20B7EA86006C0D63 /* VolumeView.swift */; };
+		AEF51ED120B7EAB7006C0D63 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51ED020B7EAB7006C0D63 /* ProgressView.swift */; };
 		AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CA1F7793D300D9A09F /* AIViewController.swift */; };
 		AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CD1F77945800D9A09F /* ImageRecognitionViewController.swift */; };
 		AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CF1F77952B00D9A09F /* Resnet50.mlmodel */; };
@@ -500,6 +502,8 @@
 		AEF51EC620B2A421006C0D63 /* ShadowPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPlayView.swift; sourceTree = "<group>"; };
 		AEF51EC820B2A998006C0D63 /* ShadowControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowControlView.swift; sourceTree = "<group>"; };
 		AEF51ECC20B3FDDB006C0D63 /* ShadowPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPlayerViewController.swift; sourceTree = "<group>"; };
+		AEF51ECE20B7EA86006C0D63 /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
+		AEF51ED020B7EAB7006C0D63 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		AEF589CA1F7793D300D9A09F /* AIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIViewController.swift; sourceTree = "<group>"; };
 		AEF589CD1F77945800D9A09F /* ImageRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognitionViewController.swift; sourceTree = "<group>"; };
 		AEF589CF1F77952B00D9A09F /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
@@ -925,6 +929,8 @@
 			isa = PBXGroup;
 			children = (
 				AE3AF04E1F77404900AF182A /* ReplicatorViewController.swift */,
+				AEF51ECE20B7EA86006C0D63 /* VolumeView.swift */,
+				AEF51ED020B7EAB7006C0D63 /* ProgressView.swift */,
 			);
 			path = Replicator;
 			sourceTree = "<group>";
@@ -1909,6 +1915,7 @@
 				AE0F70711FBD6F2B00C8135C /* NFXDetailsController.swift in Sources */,
 				AE5A88761FF37C2200748F6A /* Apply.swift in Sources */,
 				AE5A886D1FF3746C00748F6A /* RunTimeViewController.swift in Sources */,
+				AEF51ECF20B7EA86006C0D63 /* VolumeView.swift in Sources */,
 				AE1DE03F2099AD32007910A5 /* NovelTbCell.swift in Sources */,
 				AE0F70301FBA90A500C8135C /* APIInfo.swift in Sources */,
 				AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */,
@@ -1917,6 +1924,7 @@
 				AE3F46EC20AC0290007BA637 /* HintView.swift in Sources */,
 				AEF51EC720B2A421006C0D63 /* ShadowPlayView.swift in Sources */,
 				AE1DE0432099AD32007910A5 /* NovelContentViewModel.swift in Sources */,
+				AEF51ED120B7EAB7006C0D63 /* ProgressView.swift in Sources */,
 				AE3F46F420AC0B2B007BA637 /* UIImageView+Extension.swift in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
 				AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */,
