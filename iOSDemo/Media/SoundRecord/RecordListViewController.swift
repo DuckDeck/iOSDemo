@@ -79,8 +79,6 @@ class RecordListViewController: UIViewController {
             tb.emptyReload()
             GrandCue.toast("已经全部删除")
         }
-        
-       
     }
     
     func play(_ url: URL) {

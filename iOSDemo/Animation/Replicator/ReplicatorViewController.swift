@@ -11,14 +11,7 @@ import UIKit
 class ReplicatorViewController: UIViewController {
     var viewDeme = UIView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.size.width, height: 100))
     var viewDemo2 = UIView(frame: CGRect(x: 0, y: 220, width: UIScreen.main.bounds.size.width, height: 100))
-    public var HUDType: HUDType = .bar
-    
-    private var chatHUD: RecordHUD!
-    private var soundMeters =  [Float]()
-    private var timer: Timer?
-    private let updateFequency = 0.05
-    private let soundMeterCount = 10
-    private var recordTime = 0.00
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +20,7 @@ class ReplicatorViewController: UIViewController {
         setupView1()
         setupView2()
         
-        chatHUD = RecordHUD(type: HUDType)
-        setupWave()
+       
     }
 
     
@@ -142,32 +134,7 @@ class ReplicatorViewController: UIViewController {
     }
     
  
-    func setupWave()  {
-        view.addSubview(chatHUD)
-        chatHUD.startCounting()
-         timer = Timer.scheduledTimer(timeInterval: updateFequency, target: self, selector: #selector(updateMeters), userInfo: nil, repeats: true)
-    }
-
-    @objc func updateMeters() {
-        recordTime += updateFequency
-        addSoundMeter(item: -Float(arc4random() % 50))
-        
-    }
-    
-    private func addSoundMeter(item: Float) {
-        if soundMeters.count < soundMeterCount {
-            soundMeters.append(item)
-        } else {
-            for (index, _) in soundMeters.enumerated() {
-                if index < soundMeterCount - 1 {
-                    soundMeters[index] = soundMeters[index + 1]
-                }
-            }
-            // 插入新数据
-            soundMeters[soundMeterCount - 1] = item
-            NotificationCenter.default.post(name: NSNotification.Name.init("updateMeters"), object: soundMeters)
-        }
-    }
+   
     
     func scaleYAnimation() -> CABasicAnimation {
         let anim = CABasicAnimation(keyPath: "transform.scale.y")

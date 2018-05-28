@@ -24,6 +24,15 @@ class SoundRecordViewController: UIViewController {
     var recorder: AVAudioRecorder!
     var player: AVAudioPlayer!
     var soundFileURL: URL!
+    
+    public var HUDType: HUDType = .bar
+    
+    private var chatHUD: RecordHUD!
+    private var soundMeters =  [Float]()
+    private let updateFequency = 0.05
+    private let soundMeterCount = 10
+    private var recordingTime = 0.00
+    
     var recordTime = TimeSpan.fromSeconds(0){
         didSet{
             if recordTime == TimeSpan.fromSeconds(0){
@@ -41,17 +50,25 @@ class SoundRecordViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         initView()
-        timer = GrandTimer.scheduleTimerWithTimeSpan(TimeSpan.fromSeconds(1), target: self, sel: #selector(tick), userInfo: nil, repeats: true, dispatchQueue: DispatchQueue.main)
+        timer = GrandTimer.scheduleTimerWithTimeSpan(TimeSpan.fromTicks(50), target: self, sel: #selector(tick), userInfo: nil, repeats: true, dispatchQueue: DispatchQueue.main)
         //真神奇，返回时APP会挂，不知道为什么，我全部把代码注释还会这样，但是另一个测试的不会挂，这就奇怪了
         //这个问题目前没有解，我只能加一个暂停的标记来修正这个问题
+        view.addSubview(chatHUD)
+        chatHUD.startCounting()
+       
         setSessionPlayAndRecord()
         askForNotifications()
         checkHeadphones()
+        
     }
     
     func initView() {
         let btnNav = UIBarButtonItem(title: "已有录音", style: .plain, target: self, action: #selector(gotoRecordList))
         navigationItem.rightBarButtonItem = btnNav
+        
+        chatHUD = RecordHUD(type: HUDType)
+
+        
         btnRecord.setTitleColor(UIColor.lightGray, for: .disabled)
         btnRecord.title(title: "开始录音").color(color: UIColor.purple).setFont(font: 14).addTo(view: view).snp.makeConstraints { (m) in
             m.left.equalTo(10)
@@ -99,7 +116,7 @@ class SoundRecordViewController: UIViewController {
         }
         
     }
-    
+   
     @objc func gotoRecordList() {
         navigationController?.pushViewController(RecordListViewController(), animated: true)
     }
@@ -150,6 +167,25 @@ class SoundRecordViewController: UIViewController {
     }
     
     
+    
+    
+
+    
+    private func addSoundMeter(item: Float) {
+        if soundMeters.count < soundMeterCount {
+            soundMeters.append(item)
+        } else {
+            for (index, _) in soundMeters.enumerated() {
+                if index < soundMeterCount - 1 {
+                    soundMeters[index] = soundMeters[index + 1]
+                }
+            }
+            // 插入新数据
+            soundMeters[soundMeterCount - 1] = item
+            NotificationCenter.default.post(name: NSNotification.Name.init("updateMeters"), object: soundMeters)
+        }
+    }
+    
     func setSessionPlayAndRecord() {
         let session = AVAudioSession.sharedInstance()
         do{
@@ -198,6 +234,9 @@ class SoundRecordViewController: UIViewController {
     @objc func tick()  {
         Log(message: recordTime)
         recordTime =  recordTime.add(TimeSpan.fromSeconds(1))
+        
+        recordingTime += updateFequency
+        addSoundMeter(item: recorder.averagePower(forChannel: 0))
     }
     
     @objc func stopRecord()  {
@@ -410,7 +449,6 @@ class SoundRecordViewController: UIViewController {
         } else {
             print("checking headphones requires a connection to a device")
         }
-        
     }
     
     override func didReceiveMemoryWarning() {

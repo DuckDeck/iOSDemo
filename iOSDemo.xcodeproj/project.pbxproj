@@ -171,6 +171,9 @@
 		AE83BD791FE21325001882D1 /* TwoSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD781FE21325001882D1 /* TwoSideView.swift */; };
 		AE83BD7B1FE2134E001882D1 /* TwoSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD7A1FE2134E001882D1 /* TwoSideViewController.swift */; };
 		AE955C3520A2D39A0009EFFE /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE955C3420A2D39A0009EFFE /* VideoPlayViewController.swift */; };
+		AE95A0D320BBD2AE00C5AED6 /* RecordHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95A0D020BBD2AD00C5AED6 /* RecordHUD.swift */; };
+		AE95A0D420BBD2AE00C5AED6 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95A0D120BBD2AE00C5AED6 /* VolumeView.swift */; };
+		AE95A0D520BBD2AE00C5AED6 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95A0D220BBD2AE00C5AED6 /* ProgressView.swift */; };
 		AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D51F69070E00339BB8 /* AppDelegate.swift */; };
 		AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D71F69070E00339BB8 /* ViewController.swift */; };
 		AE9F31DD1F69070E00339BB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9F31DC1F69070E00339BB8 /* Assets.xcassets */; };
@@ -224,9 +227,6 @@
 		AEF51EC720B2A421006C0D63 /* ShadowPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51EC620B2A421006C0D63 /* ShadowPlayView.swift */; };
 		AEF51EC920B2A998006C0D63 /* ShadowControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51EC820B2A998006C0D63 /* ShadowControlView.swift */; };
 		AEF51ECD20B3FDDB006C0D63 /* ShadowPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51ECC20B3FDDB006C0D63 /* ShadowPlayerViewController.swift */; };
-		AEF51ECF20B7EA86006C0D63 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51ECE20B7EA86006C0D63 /* VolumeView.swift */; };
-		AEF51ED120B7EAB7006C0D63 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51ED020B7EAB7006C0D63 /* ProgressView.swift */; };
-		AEF51ED320B7EB0F006C0D63 /* RecordHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF51ED220B7EB0F006C0D63 /* RecordHUD.swift */; };
 		AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CA1F7793D300D9A09F /* AIViewController.swift */; };
 		AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CD1F77945800D9A09F /* ImageRecognitionViewController.swift */; };
 		AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CF1F77952B00D9A09F /* Resnet50.mlmodel */; };
@@ -426,6 +426,9 @@
 		AE83BD781FE21325001882D1 /* TwoSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoSideView.swift; sourceTree = "<group>"; };
 		AE83BD7A1FE2134E001882D1 /* TwoSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoSideViewController.swift; sourceTree = "<group>"; };
 		AE955C3420A2D39A0009EFFE /* VideoPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayViewController.swift; sourceTree = "<group>"; };
+		AE95A0D020BBD2AD00C5AED6 /* RecordHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordHUD.swift; sourceTree = "<group>"; };
+		AE95A0D120BBD2AE00C5AED6 /* VolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
+		AE95A0D220BBD2AE00C5AED6 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9F31D51F69070E00339BB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE9F31D71F69070E00339BB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -503,9 +506,6 @@
 		AEF51EC620B2A421006C0D63 /* ShadowPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPlayView.swift; sourceTree = "<group>"; };
 		AEF51EC820B2A998006C0D63 /* ShadowControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowControlView.swift; sourceTree = "<group>"; };
 		AEF51ECC20B3FDDB006C0D63 /* ShadowPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPlayerViewController.swift; sourceTree = "<group>"; };
-		AEF51ECE20B7EA86006C0D63 /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
-		AEF51ED020B7EAB7006C0D63 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
-		AEF51ED220B7EB0F006C0D63 /* RecordHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordHUD.swift; sourceTree = "<group>"; };
 		AEF589CA1F7793D300D9A09F /* AIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIViewController.swift; sourceTree = "<group>"; };
 		AEF589CD1F77945800D9A09F /* ImageRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognitionViewController.swift; sourceTree = "<group>"; };
 		AEF589CF1F77952B00D9A09F /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
@@ -931,9 +931,6 @@
 			isa = PBXGroup;
 			children = (
 				AE3AF04E1F77404900AF182A /* ReplicatorViewController.swift */,
-				AEF51ECE20B7EA86006C0D63 /* VolumeView.swift */,
-				AEF51ED020B7EAB7006C0D63 /* ProgressView.swift */,
-				AEF51ED220B7EB0F006C0D63 /* RecordHUD.swift */,
 			);
 			path = Replicator;
 			sourceTree = "<group>";
@@ -1095,6 +1092,9 @@
 		AE7278A7207F5A08005D9D6D /* SoundRecord */ = {
 			isa = PBXGroup;
 			children = (
+				AE95A0D220BBD2AE00C5AED6 /* ProgressView.swift */,
+				AE95A0D020BBD2AD00C5AED6 /* RecordHUD.swift */,
+				AE95A0D120BBD2AE00C5AED6 /* VolumeView.swift */,
 				AE7278A8207F5A28005D9D6D /* SoundRecordViewController.swift */,
 				AE5CE7DA208B133C001DB437 /* RecordListViewController.swift */,
 			);
@@ -1770,6 +1770,7 @@
 				AE0F70861FBE861A00C8135C /* SliderDemoViewController.swift in Sources */,
 				AEBE404D1FC806E40087D7ED /* CityDB.swift in Sources */,
 				AE0F706B1FBD6F2B00C8135C /* NFX.swift in Sources */,
+				AE95A0D520BBD2AE00C5AED6 /* ProgressView.swift in Sources */,
 				AEBE40561FC80A930087D7ED /* CitySearchResultView.swift in Sources */,
 				AE0F70821FBD6F2B00C8135C /* NFXSettingsController_iOS.swift in Sources */,
 				AE5A88831FF4913D00748F6A /* BaseViewController.swift in Sources */,
@@ -1782,6 +1783,7 @@
 				AE0F70641FBD6F2B00C8135C /* NFXGenericController.swift in Sources */,
 				AE9F32821F690F5200339BB8 /* GrandCue.swift in Sources */,
 				AE1DE03C2099AD32007910A5 /* NovelConfig.swift in Sources */,
+				AE95A0D420BBD2AE00C5AED6 /* VolumeView.swift in Sources */,
 				AE3AF04D1F773DEB00AF182A /* GradientLayerViewController.swift in Sources */,
 				AE3AF04F1F77404900AF182A /* ReplicatorViewController.swift in Sources */,
 				AEF51EC520B26302006C0D63 /* ShadowPlayer.swift in Sources */,
@@ -1870,6 +1872,7 @@
 				AE3F46F820AC0D1B007BA637 /* TimerButton.swift in Sources */,
 				AE0F706F1FBD6F2B00C8135C /* NFXHTTPModel.swift in Sources */,
 				AE3F46F220AC06A3007BA637 /* Toast.swift in Sources */,
+				AE95A0D320BBD2AE00C5AED6 /* RecordHUD.swift in Sources */,
 				AE1DE0782099BE0A007910A5 /* FullBoard.swift in Sources */,
 				AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */,
 				AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */,
@@ -1918,8 +1921,6 @@
 				AE0F70711FBD6F2B00C8135C /* NFXDetailsController.swift in Sources */,
 				AE5A88761FF37C2200748F6A /* Apply.swift in Sources */,
 				AE5A886D1FF3746C00748F6A /* RunTimeViewController.swift in Sources */,
-				AEF51ED320B7EB0F006C0D63 /* RecordHUD.swift in Sources */,
-				AEF51ECF20B7EA86006C0D63 /* VolumeView.swift in Sources */,
 				AE1DE03F2099AD32007910A5 /* NovelTbCell.swift in Sources */,
 				AE0F70301FBA90A500C8135C /* APIInfo.swift in Sources */,
 				AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */,
@@ -1928,7 +1929,6 @@
 				AE3F46EC20AC0290007BA637 /* HintView.swift in Sources */,
 				AEF51EC720B2A421006C0D63 /* ShadowPlayView.swift in Sources */,
 				AE1DE0432099AD32007910A5 /* NovelContentViewModel.swift in Sources */,
-				AEF51ED120B7EAB7006C0D63 /* ProgressView.swift in Sources */,
 				AE3F46F420AC0B2B007BA637 /* UIImageView+Extension.swift in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
 				AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */,
