@@ -15,6 +15,9 @@ class VolumeView: UIView {
     
     private var type: HUDType = .bar
     
+    var barWidth = 6
+    
+    var barGap = 3
     //MARK: Init
     convenience init(frame: CGRect, type: HUDType) {
         self.init(frame: frame)
@@ -37,18 +40,21 @@ class VolumeView: UIView {
             let context = UIGraphicsGetCurrentContext()
             context?.setLineCap(.round)
             context?.setLineJoin(.round)
-            context?.setStrokeColor(UIColor.white.cgColor)
+            context?.setStrokeColor(UIColor.blue.cgColor)
             
             let noVoice = -46.0     // 该值代表低于-46.0的声音都认为无声音
-            let maxVolume = 55.0    // 该值代表最高声音为55.0
+            let maxVolume = 45.0    // 该值代表最高声音为55.0
             
             switch type {
             case .bar:
-                context?.setLineWidth(3)
+                context?.setLineWidth(CGFloat(barWidth))
                 for (index,item) in soundMeters.enumerated() {
-                    let barHeight = maxVolume - (Double(item) - noVoice)    //通过当前声音表计算应该显示的声音表高度
-                    context?.move(to: CGPoint(x: index * 6 + 3, y: 40))
-                    context?.addLine(to: CGPoint(x: index * 6 + 3, y: Int(barHeight)))
+                    var barHeight = (maxVolume - (Double(item) - noVoice))    //通过当前声音表计算应该显示的声音表高度
+                    if barHeight > 45{
+                        barHeight = 45
+                    }
+                    context?.move(to: CGPoint(x: index * barWidth + barGap * index, y: 45 ))
+                    context?.addLine(to: CGPoint(x: index * barWidth + barGap * index, y:  Int(barHeight)))
                 }
             case .line:
                 context?.setLineWidth(1.5)

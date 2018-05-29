@@ -16,7 +16,7 @@ class SoundRecordViewController: UIViewController {
     let btnStop = UIButton()
     let btnPlay = UIButton()
     let btnSave = UIButton()
-    let vAni = RippleAnimtaionView(frame: CGRect(x: 20, y: 120, width: 50, height: 50))
+    let vAni = RippleAnimtaionView(frame: CGRect(x: ScreenWidth / 2 - 30, y: ScreenHeight - 100, width: 60, height: 60)) //这个色后面再改改
     let lblTimer = UILabel()
     var timer:GrandTimer!
     
@@ -28,21 +28,22 @@ class SoundRecordViewController: UIViewController {
     public var HUDType: HUDType = .bar
     
     private var chatHUD: RecordHUD!
-    private var soundMeters =  [Float]()
+    private var soundMeters =  [Float].init(repeating: -42, count: 38)
     private let updateFequency = 0.05
-    private let soundMeterCount = 10
+    private let soundMeterCount = 40
     private var recordingTime = 0.00
     
     var recordTime = TimeSpan.fromSeconds(0){
         didSet{
-            if recordTime == TimeSpan.fromSeconds(0){
-                lblTimer.text = recordTime.format(format: "mm:ss")
-                
-            }
-            else{
-                let rt = recordTime - TimeSpan.fromSeconds(1)
-                lblTimer.text = rt.format(format: "mm:ss")
-            }
+            lblTimer.text = recordTime.format(format: "mm:ss")
+//            if recordTime == TimeSpan.fromSeconds(0){
+//                lblTimer.text = recordTime.format(format: "mm:ss")
+//
+//            }
+//            else{
+//                let rt = recordTime - TimeSpan.fromSeconds(1)
+//                lblTimer.text = rt.format(format: "mm:ss")
+//            }
             
         }
     }
@@ -66,53 +67,51 @@ class SoundRecordViewController: UIViewController {
         let btnNav = UIBarButtonItem(title: "已有录音", style: .plain, target: self, action: #selector(gotoRecordList))
         navigationItem.rightBarButtonItem = btnNav
         
-        chatHUD = RecordHUD(type: HUDType)
+        chatHUD = RecordHUD(frame: CGRect(x: 0, y: 400, w: ScreenWidth, h: 100), type: .bar)
 
         
-        btnRecord.setTitleColor(UIColor.lightGray, for: .disabled)
-        btnRecord.title(title: "开始录音").color(color: UIColor.purple).setFont(font: 14).addTo(view: view).snp.makeConstraints { (m) in
-            m.left.equalTo(10)
-            m.height.equalTo(30)
-            m.top.equalTo(80)
-            m.left.equalTo(10)
-            m.width.equalTo(100)
+        vAni.isHidden = true
+        view.addSubview(vAni)
+        btnRecord.setImage(#imageLiteral(resourceName: "btn_recording_audio"), for: .normal)
+        btnRecord.setImage(#imageLiteral(resourceName: "btn_pause_recording_audio"), for: .selected)
+        btnRecord.addTo(view: view).snp.makeConstraints { (m) in
+            m.bottom.equalTo(-40)
+            m.centerX.equalTo(view)
+            m.width.height.equalTo(60)
         }
         btnRecord.addTarget(self, action: #selector(startRecord), for: .touchUpInside)
         
+
         btnStop.setTitleColor(UIColor.lightGray, for: .disabled)
         btnStop.isEnabled = false
         btnStop.title(title: "停止录音").color(color: UIColor.purple).setFont(font: 14).addTo(view: view).snp.makeConstraints { (m) in
-            m.left.equalTo(btnRecord.snp.right).offset(20)
-            m.width.equalTo(100)
-            m.height.equalTo(30)
-            m.top.equalTo(80)
+            m.centerX.equalTo(view)
+            m.bottom.equalTo(-7)
         }
+        
         btnStop.addTarget(self, action: #selector(stopRecord), for: .touchUpInside)
         
         btnPlay.isEnabled = false
-        btnPlay.setTitleColor(UIColor.lightGray, for: .disabled)
-        btnPlay.title(title: "开始播放").color(color: UIColor.purple).setFont(font: 14).addTo(view: view).snp.makeConstraints { (m) in
-            m.left.equalTo(btnStop.snp.right).offset(20)
-            m.width.equalTo(100)
-            m.height.equalTo(30)
-            m.top.equalTo(80)
+        btnPlay.setImage(#imageLiteral(resourceName: "btn_play_small"), for: .normal)
+        btnPlay.setImage(#imageLiteral(resourceName: "btn_play_small_disable"), for: .disabled)
+        btnPlay.setImage(#imageLiteral(resourceName: "btn_pause_small"), for: .selected)
+        btnPlay.addTo(view: view).snp.makeConstraints { (m) in
+            m.centerY.equalTo(btnRecord)
+            m.centerX.equalTo(ScreenWidth * 0.80)
         }
         btnPlay.addTarget(self, action: #selector(playRecord), for: .touchUpInside)
         
         btnSave.title(title: "保存到媒体").color(color: UIColor.purple).setFont(font: 14).addTo(view: view).snp.makeConstraints { (m) in
-            m.right.equalTo(-20)
-            m.width.equalTo(100)
-            m.height.equalTo(30)
-            m.top.equalTo(140)
+            m.centerY.equalTo(btnRecord)
+            m.centerX.equalTo(ScreenWidth * 0.20)
         }
         btnSave.addTarget(self, action: #selector(saveToAlbum), for: .touchUpInside)
         
-        vAni.isHidden = true
-        view.addSubview(vAni)
+       
         
         lblTimer.text(text: "00:00").color(color: UIColor.red).addTo(view: view).snp.makeConstraints { (m) in
-            m.left.equalTo(90)
-            m.top.equalTo(140)
+            m.bottom.equalTo(-130)
+            m.centerX.equalTo(view)
         }
         
     }
@@ -129,7 +128,7 @@ class SoundRecordViewController: UIViewController {
         if recorder == nil{
             Log(message: "record is nil, init record")
             vAni.isHidden = false
-            btnRecord.setTitle("暂停录音", for: .normal)
+            btnRecord.isSelected = true
             btnStop.isEnabled = true
             recordWithPermission(setup: true)
             return
@@ -139,12 +138,12 @@ class SoundRecordViewController: UIViewController {
             recorder.pause()
             timer.pause()
             vAni.isHidden = true
-            btnRecord.setTitle("继续录音", for: .normal)
+            btnRecord.isSelected = false
         }
         else{
             Log(message: "record is need proceed")
             vAni.isHidden = false
-            btnRecord.setTitle("暂停录音", for: .normal)
+            btnRecord.isSelected = true
             btnStop.isEnabled = true
             recordWithPermission(setup: false)
         }
@@ -172,6 +171,7 @@ class SoundRecordViewController: UIViewController {
 
     
     private func addSoundMeter(item: Float) {
+        print(item)
         if soundMeters.count < soundMeterCount {
             soundMeters.append(item)
         } else {
@@ -233,8 +233,8 @@ class SoundRecordViewController: UIViewController {
     
     @objc func tick()  {
         Log(message: recordTime)
-        recordTime =  recordTime.add(TimeSpan.fromSeconds(1))
-        
+        recordTime =  recordTime.add(TimeSpan.fromTicks(50))
+        recorder.updateMeters()
         recordingTime += updateFequency
         addSoundMeter(item: recorder.averagePower(forChannel: 0))
     }
@@ -246,7 +246,7 @@ class SoundRecordViewController: UIViewController {
         recordTime = TimeSpan.fromSeconds(0)
         vAni.isHidden = true
         timer.invalidate()
-        btnRecord.setTitle("开始录音", for: .normal)
+        btnRecord.isSelected = false
         let session = AVAudioSession.sharedInstance()
         do{
             try session.setActive(false)
@@ -270,16 +270,16 @@ class SoundRecordViewController: UIViewController {
         Log(message: "url:\(url!.absoluteString)")
         
         if player != nil && player.isPlaying{
-            btnPlay.setTitle("继续播放", for: .normal)
+            btnPlay.isSelected = false
             player.pause()
         }
-        else if player != nil && btnPlay.title(for: .normal)! == "继续播放"{
+        else if player != nil && btnPlay.isSelected{
             player.play()
         }
         else{
             
             do{
-                btnPlay.setTitle("暂停播放", for: .normal)
+                btnPlay.isSelected = true
                 player = try AVAudioPlayer(contentsOf: url!)
                 btnStop.isEnabled = true
                 player.delegate = self
@@ -464,6 +464,11 @@ class SoundRecordViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        btnPlay.isEnabled = false
+    }
 }
 
 
@@ -481,7 +486,7 @@ extension SoundRecordViewController:AVAudioRecorderDelegate{
         Log(message: "finished recording \(flag)")
         btnStop.isEnabled = false
         btnPlay.isEnabled = true
-        btnRecord.setTitle("开始录音", for: .normal)
+        btnRecord.isSelected = false
         timer.invalidate()
         UIAlertController.title(title: "录音器", message: "录音已经结束").action(title: "保存", handle: {(action:UIAlertAction) in
             self.recorder = nil

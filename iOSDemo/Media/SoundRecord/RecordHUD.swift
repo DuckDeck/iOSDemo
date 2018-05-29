@@ -22,7 +22,7 @@ class RecordHUD: UIView {
     
     
     //MARK: - Private Properties
-    private let progress = ProgressView(frame: CGRect(x: 0, y: 0, width: 170, height: 78))
+    private var progress:ProgressView!
     private var volume: VolumeView!
     
     //MARK: Methods
@@ -37,18 +37,16 @@ class RecordHUD: UIView {
     
     //MARK: - Init
     
-    convenience init(type: HUDType) {
-        self.init(frame: .zero)
-        self.frame.size.width = 170
-        self.frame.size.height = 78
-        center = CGPoint(x: ScreenWidth/2, y: ScreenHeight/2 - 50)
+    convenience init(frame: CGRect,type: HUDType) {
+        self.init(frame: frame)
         backgroundColor = UIColor.clear
-        addSubview(progress)
+        progress =  ProgressView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
+//        addSubview(progress)
         
-        volume = VolumeView(frame: CGRect(x: 56, y: 0, width: ScreenWidth, height: ScreenHeight), type: type)
+        volume = VolumeView(frame: CGRect(x: 5, y: 0, width: frame.size.width, height: frame.size.height), type: type)
+        volume.barWidth = 2
+        volume.barGap = 8
         addSubview(volume)
-        
-        setUpShadow()
     }
     
     override private init(frame: CGRect) {
@@ -61,27 +59,3 @@ class RecordHUD: UIView {
     
 }
 
-// MARK: - Setup
-extension RecordHUD {
-    
-    
-    
-    private func setUpShadow() {
-        
-        let progessViewBounds = progress.frame
-        let shadowWidth = progessViewBounds.size.width * 0.85
-        let shadowHeight = progessViewBounds.size.height * 0.75
-        
-        let shadowPath = UIBezierPath(roundedRect: CGRect(x: progessViewBounds.origin.x + (progessViewBounds.width - shadowWidth) * 0.5,
-                                                          y: progessViewBounds.origin.y + 20,
-                                                          width: shadowWidth,
-                                                          height: shadowHeight),
-                                      cornerRadius: progress.layer.cornerRadius)
-        
-        layer.shadowColor = UIColor(red: 0.29, green: 0.29, blue: 0.29, alpha: 1).cgColor
-        layer.shadowPath = shadowPath.cgPath
-        layer.shadowOpacity = 0.5
-        layer.shadowRadius = 8
-        layer.shadowOffset = CGSize(width: 0, height: 10)
-    }
-}
