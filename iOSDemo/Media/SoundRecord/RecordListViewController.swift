@@ -34,6 +34,10 @@ class RecordListViewController: UIViewController {
         let v = UITableView.createEmptyView(size: CGSize(width: ScreenWidth, height: 50), text: "目前没有音频文件", font: UIFont.systemFont(ofSize: 20), color: UIColor.brown)
         tb.setEmptyView(view: v, offset: 300)
         listRecordings()
+        
+        
+        try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: .defaultToSpeaker)
+        try? AVAudioSession.sharedInstance().setActive(true)
     }
 
     func listRecordings() {
@@ -44,7 +48,7 @@ class RecordListViewController: UIViewController {
                                                             includingPropertiesForKeys: nil,
                                                             options: .skipsHiddenFiles)
             arrFiles = files.filter({ (name: URL) -> Bool in
-                return name.pathExtension == "m4a"
+                return name.pathExtension == "m4a" || name.pathExtension == "mp3" || name.pathExtension == "caf"
                 
             })
             tb.emptyReload()
@@ -85,7 +89,11 @@ class RecordListViewController: UIViewController {
         print("playing \(url)")
         
         do {
-            self.player = try AVAudioPlayer(contentsOf: url)
+
+            player = try AVAudioPlayer(contentsOf: url)
+            
+//            let d = try! Data(contentsOf: url)
+//            self.player = try AVAudioPlayer(data: d, fileTypeHint: AVFileType.mp4.rawValue)
             player.prepareToPlay()
             player.volume = 1.0
             player.play()
@@ -196,12 +204,22 @@ extension RecordListViewController:UITableViewDataSource,UITableViewDelegate{
             if action == 1{
                 self?.rename(url: url)
             }
-            else{
+            else if action == 0{
                 self?.deleteAudio(url: url)
             }
+            else{
+               let dict =  TransformMP3.transformCAF(toMP3: url.path)
+                let filePath = dict!["filePath"]
+                let fileName = dict!["fileName"]
+
+            }
+            
         }
         return cell
     }
+    
+   
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let url = arrFiles![indexPath.row]
         play(url)
@@ -213,6 +231,7 @@ class AudioFileCell: UITableViewCell {
     let lblAudioLength = UILabel()
     let btnRename = UIButton()
     let btnDelete = UIButton()
+    let btnConvertMp3 = UIButton()
     var block:((_ action:Int,_ url:URL)->Void)?
     var url:URL?{
         didSet{
@@ -220,6 +239,13 @@ class AudioFileCell: UITableViewCell {
                 return
             }
             lblName.text = u.lastPathComponent
+            if u.lastPathComponent.hasSuffix("caf")
+            {
+                btnConvertMp3.isHidden = false
+            }
+            else{
+                btnConvertMp3.isHidden = true
+            }
         }
     }
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -248,6 +274,13 @@ class AudioFileCell: UITableViewCell {
             m.height.equalTo(30)
         }
         btnRename.addTarget(self, action: #selector(rename), for: .touchUpInside)
+        btnConvertMp3.isHidden = true
+        btnConvertMp3.title(title: "转Mp3").setFont(font: 13).color(color: UIColor.red).addTo(view: contentView).snp.makeConstraints { (m) in
+            m.right.equalTo(btnRename.snp.left).offset(-10)
+            m.centerY.equalTo(contentView)
+            m.height.equalTo(30)
+        }
+        btnConvertMp3.addTarget(self, action: #selector(convertMp3), for: .touchUpInside)
     }
     
     @objc func rename() {
@@ -257,6 +290,11 @@ class AudioFileCell: UITableViewCell {
     @objc func deleteAudio() {
         block?(0,url!)
     }
+    
+    @objc func convertMp3() {
+        block?(2,url!)
+    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

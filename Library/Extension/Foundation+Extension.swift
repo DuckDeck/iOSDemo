@@ -326,3 +326,18 @@ extension CGRect {
     }
 }
 
+extension URL{
+    func fileSize() -> CLongLong {
+        let manager = FileManager.default
+        if manager.fileExists(atPath: self.path) {
+            do {
+                let item = try manager.attributesOfItem(atPath: self.path)
+                return item[FileAttributeKey.size] as! CLongLong
+            } catch {
+                print("File not exist")
+            }
+        }
+        return 0;
+    }
+}
+

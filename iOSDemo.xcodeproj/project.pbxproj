@@ -195,6 +195,8 @@
 		AEA9F83C206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9F83B206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift */; };
 		AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
 		AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
+		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
+		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBE403D1FC803620087D7ED /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE403C1FC803620087D7ED /* LibraryViewController.swift */; };
 		AEBE40401FC803A60087D7ED /* CityChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE403F1FC803A60087D7ED /* CityChooseViewController.swift */; };
 		AEBE40421FC804820087D7ED /* AddressInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE40411FC804820087D7ED /* AddressInfo.swift */; };
@@ -468,6 +470,10 @@
 		AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Base.swift"; sourceTree = "<group>"; };
 		AEB772031F6B684F008C4365 /* URLNavigator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLNavigator.framework; path = Carthage/Build/iOS/URLNavigator.framework; sourceTree = "<group>"; };
 		AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
+		AEBA80D420BD50B300F6A323 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		AEBA80D520BD50B300F6A323 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
+		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
+		AEBA80D720BD50B300F6A323 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
 		AEBE40361FC802770087D7ED /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB.framework; path = Carthage/Build/iOS/FMDB.framework; sourceTree = "<group>"; };
 		AEBE403C1FC803620087D7ED /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		AEBE403F1FC803A60087D7ED /* CityChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityChooseViewController.swift; sourceTree = "<group>"; };
@@ -520,6 +526,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */,
 				AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */,
 				710169C7FA45F8C13052BF93 /* Pods_iOSDemo.framework in Frameworks */,
 			);
@@ -1246,6 +1253,7 @@
 		AE9F32311F690F1B00339BB8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				AEBA80D320BD509500F6A323 /* Lame */,
 				AEF0977F2065EE560021E4ED /* Model */,
 				AE5A88611FF36F8800748F6A /* View */,
 				AE0F70271FBA900200C8135C /* Http */,
@@ -1356,6 +1364,17 @@
 				AEF0977C2064EFFF0021E4ED /* LogTool.swift */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		AEBA80D320BD509500F6A323 /* Lame */ = {
+			isa = PBXGroup;
+			children = (
+				AEBA80D420BD50B300F6A323 /* lame.h */,
+				AEBA80D720BD50B300F6A323 /* libmp3lame.a */,
+				AEBA80D620BD50B300F6A323 /* TransformMP3.h */,
+				AEBA80D520BD50B300F6A323 /* TransformMP3.m */,
+			);
+			path = Lame;
 			sourceTree = "<group>";
 		};
 		AEBE403B1FC803420087D7ED /* Library */ = {
@@ -1841,6 +1860,7 @@
 				AE0F70661FBD6F2B00C8135C /* NFXListController.swift in Sources */,
 				AE1DE0492099AD32007910A5 /* SectionListViewController.swift in Sources */,
 				AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */,
+				AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */,
 				AE1DE0982099BE0A007910A5 /* LinkLine.swift in Sources */,
 				AE394B522065F72100CE3BD9 /* SQLiteViewController.swift in Sources */,
 				AE1DE03D2099AD32007910A5 /* Routers.swift in Sources */,
@@ -2104,6 +2124,10 @@
 				INFOPLIST_FILE = iOSDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Lame",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = StanHu.iOSDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2129,6 +2153,10 @@
 				INFOPLIST_FILE = iOSDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Lame",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = StanHu.iOSDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -207,18 +207,18 @@ class SoundRecordViewController: UIViewController {
     func setupRecorder() {
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd-HH-mm-ss"
-        let currentFileName = "recording-\(format.string(from: Date())).m4a"
+        let currentFileName = "recording-\(format.string(from: Date())).caf"
         let  documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         self.soundFileURL = documentDirectory.appendingPathComponent(currentFileName)
         print("writing to soundfile url:  '\(soundFileURL)'")
         if FileManager.default.fileExists(atPath: soundFileURL.absoluteString){
             print("soundfile url:  '\(soundFileURL)' exists")
         }
-        let recordSettings:[String:Any] = [AVFormatIDKey:kAudioFormatAppleLossless,
-                                           AVEncoderAudioQualityKey:AVAudioQuality.max.rawValue,
-                                           AVEncoderBitRateKey:32000,
-                                           AVNumberOfChannelsKey:2,
-                                           AVSampleRateKey:44100.0]
+        let recordSettings:[String:Any] = [AVFormatIDKey : NSNumber(value: kAudioFormatLinearPCM),
+                                           AVSampleRateKey : NSNumber(value: 11025.0),
+                                           AVNumberOfChannelsKey : NSNumber(value: 2),
+                                           AVEncoderBitDepthHintKey : NSNumber(value: 16),
+                                           AVEncoderAudioQualityKey : NSNumber(value: AVAudioQuality.high.rawValue)]
         do{
             recorder = try AVAudioRecorder(url: soundFileURL, settings: recordSettings)
             recorder.delegate = self

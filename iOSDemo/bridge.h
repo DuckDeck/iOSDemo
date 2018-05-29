@@ -13,4 +13,5 @@
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <MAMapKit/MAMapKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
+#import "TransformMP3.h"
 #endif /* bridge_h */
