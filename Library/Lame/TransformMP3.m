@@ -13,13 +13,10 @@
 
 + (NSDictionary *)transformCAFToMP3:(NSString *)recordFilePath {
     
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    format.dateFormat = @"yy-MM-dd_HH:mm:ss";
-    NSString *nowTime = [format stringFromDate:[NSDate date]];    //保存到Document中
-    NSString *fileName = [NSString stringWithFormat:@"/%@.mp3", nowTime];
-    NSString *filePath = [[NSHomeDirectory() stringByAppendingFormat:@"/Documents/"] stringByAppendingPathComponent:fileName];
+   
+    NSString *filePath  = [recordFilePath stringByReplacingOccurrencesOfString:@"caf" withString:@"mp3"];
     
-    NSDictionary *dict = @{@"fileName" : fileName, @"filePath" : filePath};
+    NSDictionary *dict = @{@"filePath" : filePath};
     
     @try {
         int read, write;

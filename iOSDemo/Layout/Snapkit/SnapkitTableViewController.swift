@@ -28,7 +28,13 @@ class SnapkitTableViewController: UIViewController {
         tb.tableFooterView = UIView()
         tb.separatorStyle = .none
         tb.rowHeight = UITableViewAutomaticDimension
+        
+//        let barBtn = UIBarButtonItem(title: "add", style: .plain, target: self, action: #selector(addContent))
     }
+    
+//    func addContent() {
+//
+//    }
 
     func createModel() {
         var m = Model1()
@@ -72,6 +78,10 @@ extension SnapkitTableViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SnapCell
         cell.m = arr[indexPath.row]
+        cell.index = indexPath
+        cell.updateBlock = {(index:IndexPath) in
+            tableView.reloadRows(at: [index], with: .automatic)
+        }
         return cell
     }
     
@@ -86,11 +96,33 @@ extension SnapkitTableViewController:UITableViewDataSource,UITableViewDelegate{
 class SnapCell: UITableViewCell {
     let lbl = UILabel()
     let img = UIImageView()
+    let lbl2 = UILabel()
+    var index:IndexPath?
+    var updateBlock:((_ index:IndexPath)->Void)?
+    func setVisible(visible:Bool)  {
+        if visible{
+            lbl2.snp.remakeConstraints { (m) in
+                m.left.equalTo(10)
+                m.right.equalTo(-10)
+                m.top.equalTo(lbl.snp.bottom).offset(5)
+            }
+        }
+        else{
+            lbl2.snp.remakeConstraints { (m) in
+                m.left.equalTo(10)
+                m.right.equalTo(-10)
+                m.top.equalTo(lbl.snp.bottom).offset(5)
+                m.height.equalTo(0)
+            }
+            
+        }
+    }
     
     var m:Model1?{
         didSet{
             if let s = m{
                 lbl.text = s.content
+                lbl2.text = s.content
                 img.kf.setImage(with: URL(string: s.img)!, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (imgData, err, type, url) in
                     if let i = imgData{
                        let scale = i.size.width / i.size.height
@@ -114,14 +146,36 @@ class SnapCell: UITableViewCell {
             $0.left.top.equalTo(10)
             $0.right.equalTo(-10)
         }
+
+        
+        
+        lbl2.layer.borderWidth = 1
+        lbl2.font = UIFont.systemFont(ofSize: 12)
+        lbl2.textColor = UIColor.red
+        lbl2.numberOfLines = 0
+        contentView.addSubview(lbl2)
+        lbl2.snp.makeConstraints {
+            $0.left.equalTo(10)
+            $0.right.equalTo(-10)
+            $0.top.equalTo(lbl.snp.bottom).offset(5)
+            $0.height.equalTo(0)
+        }
         
         contentView.addSubview(img)
         img.snp.makeConstraints { (m) in
             m.left.right.equalTo(0)
-            m.top.equalTo(lbl.snp.bottom).offset(20)
+            m.top.equalTo(lbl2.snp.bottom).offset(20)
             m.bottom.equalTo(-20)
             m.height.equalTo(250)
         }
+        img.isUserInteractionEnabled = true
+        img.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
+    }
+    
+    @objc func tap() {
+        m?.isShow = !m!.isShow
+        setVisible(visible: m!.isShow)
+        updateBlock?(index ?? IndexPath(row: 0, section: 0))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -136,4 +190,5 @@ class Model1: GrandModel {
     var content = ""
     var img = ""
     var imgs : [String]?
+    var isShow = false
 }
