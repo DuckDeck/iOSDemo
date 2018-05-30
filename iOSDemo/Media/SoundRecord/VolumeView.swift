@@ -7,6 +7,13 @@
 //
 
 import UIKit
+
+
+enum HUDType: Int {
+    case bar = 0
+    case line
+}
+
 class VolumeView: UIView {
     
     //MARK: Private Properties

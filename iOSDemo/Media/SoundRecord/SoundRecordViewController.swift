@@ -25,9 +25,9 @@ class SoundRecordViewController: UIViewController {
     var player: AVAudioPlayer!
     var soundFileURL: URL!
     
-    public var HUDType: HUDType = .bar
+
     
-    private var chatHUD: RecordHUD!
+    private var vWave: VolumeView!
     private var soundMeters =  [Float].init(repeating: -42, count: 38)
     private let updateFequency = 0.05
     private let soundMeterCount = 40
@@ -54,8 +54,7 @@ class SoundRecordViewController: UIViewController {
         timer = GrandTimer.scheduleTimerWithTimeSpan(TimeSpan.fromTicks(50), target: self, sel: #selector(tick), userInfo: nil, repeats: true, dispatchQueue: DispatchQueue.main)
         //真神奇，返回时APP会挂，不知道为什么，我全部把代码注释还会这样，但是另一个测试的不会挂，这就奇怪了
         //这个问题目前没有解，我只能加一个暂停的标记来修正这个问题
-        view.addSubview(chatHUD)
-        chatHUD.startCounting()
+       
        
         setSessionPlayAndRecord()
         askForNotifications()
@@ -67,7 +66,10 @@ class SoundRecordViewController: UIViewController {
         let btnNav = UIBarButtonItem(title: "已有录音", style: .plain, target: self, action: #selector(gotoRecordList))
         navigationItem.rightBarButtonItem = btnNav
         
-        chatHUD = RecordHUD(frame: CGRect(x: 0, y: 400, w: ScreenWidth, h: 100), type: .bar)
+        vWave = VolumeView(frame: CGRect(x: 0, y: 400, w: ScreenWidth, h: 100), type: .bar)
+        vWave.barGap = 8
+        vWave.barWidth = 2
+        view.addSubview(vWave)
 
         
         vAni.isHidden = true

@@ -18,6 +18,11 @@ extension Int{
         return time?.format(format) ?? ""
     }
     
+    func toTimeSpan(format:String = "HH:mm:ss") -> String {
+        let t = TimeSpan.fromSeconds(Double(self))
+        return  t.format(format:format)
+    }
+    
     func toChinese() -> String {
         switch self {
         case 0:

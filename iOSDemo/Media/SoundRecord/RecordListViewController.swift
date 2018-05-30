@@ -9,17 +9,21 @@
 
 import UIKit
 import AVFoundation
+import GrandTime
 class RecordListViewController: UIViewController {
 
     let tb = UITableView()
     var arrFiles:[URL]?
     var player: AVAudioPlayer!
+    var timer:GrandTimer!
+    var btnPlay = ProgressButton(frame: CGRect())
+    var currentSelectIndex:IndexPath?
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         let btnDelete = UIBarButtonItem(title: "删除所有录音", style: .plain, target: self, action: #selector(deleteAllRecord))
         navigationItem.rightBarButtonItem = btnDelete
-        
+        timer = GrandTimer.scheduleTimerWithTimeSpan(TimeSpan.fromTicks(500), target: self, sel: #selector(tick), userInfo: nil, repeats: true, dispatchQueue: DispatchQueue.main)
         tb.dataSource = self
         tb.delegate = self
         tb.tableFooterView = UIView()
@@ -28,8 +32,9 @@ class RecordListViewController: UIViewController {
         tb.register(AudioFileCell.self, forCellReuseIdentifier: "audio")
         view.addSubview(tb)
         tb.snp.makeConstraints { (m) in
-            m.left.right.bottom.equalTo(0)
+            m.left.right.equalTo(0)
             m.top.equalTo(NavigationBarHeight)
+            m.bottom.equalTo(-80)
         }
         let v = UITableView.createEmptyView(size: CGSize(width: ScreenWidth, height: 50), text: "目前没有音频文件", font: UIFont.systemFont(ofSize: 20), color: UIColor.brown)
         tb.setEmptyView(view: v, offset: 300)
@@ -38,7 +43,35 @@ class RecordListViewController: UIViewController {
         
         try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: .defaultToSpeaker)
         try? AVAudioSession.sharedInstance().setActive(true)
+        
+        btnPlay.setImage(#imageLiteral(resourceName: "btn_play_small_disable"), for: .disabled)
+        btnPlay.setImage(#imageLiteral(resourceName: "btn_pause_small"), for: .selected)
+        btnPlay.addTo(view: view).snp.makeConstraints { (m) in
+            m.bottom.equalTo(-10)
+            m.centerX.equalTo(ScreenWidth * 0.5)
+            m.width.height.equalTo(30)
+        }
+        btnPlay.layer.cornerRadius = 15
+        btnPlay.addTarget(self, action: #selector(playRecord), for: .touchUpInside)
+        
     }
+    
+    @objc func playRecord() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        let url = arrFiles![indexPath.row]
+        currentSelectIndex = indexPath
+        timer.fire()
+        play(url)
+    }
+    
+    @objc func tick()  {
+       let cell = tb.cellForRow(at: currentSelectIndex!) as! AudioFileCell
+        let ratio = player.currentTime / Double(cell.totalTime)
+        cell.progressBar.value = Float(ratio)
+        
+        btnPlay.value = ratio
+    }
+    
 
     func listRecordings() {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -59,9 +92,6 @@ class RecordListViewController: UIViewController {
         }
     }
     
-    @objc func tick() {
-        Log(message: "12313")
-    }
     
     func deleteAllAudio() {
         if let files = arrFiles{
@@ -85,6 +115,14 @@ class RecordListViewController: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if player != nil && player.isPlaying{
+            player.stop()
+            timer.invalidate()
+        }
+    }
+    
     func play(_ url: URL) {
         print("playing \(url)")
         
@@ -97,6 +135,7 @@ class RecordListViewController: UIViewController {
             player.prepareToPlay()
             player.volume = 1.0
             player.play()
+            player.delegate = self
             GrandCue.toast("正在播放\(url.lastPathComponent)")
         } catch {
             self.player = nil
@@ -209,8 +248,6 @@ extension RecordListViewController:UITableViewDataSource,UITableViewDelegate{
             }
             else{
                let dict =  TransformMP3.transformCAF(toMP3: url.path)
-                let filePath = dict!["filePath"]
-                let fileName = dict!["fileName"]
 
             }
             
@@ -218,21 +255,32 @@ extension RecordListViewController:UITableViewDataSource,UITableViewDelegate{
         return cell
     }
     
-   
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let url = arrFiles![indexPath.row]
+        currentSelectIndex = indexPath
+        timer.fire()
         play(url)
+    }
+}
+
+extension RecordListViewController:AVAudioPlayerDelegate{
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        timer.pause()
+        let cell = tb.cellForRow(at: currentSelectIndex!) as! AudioFileCell
+        cell.progressBar.value = 0
     }
 }
 
 class AudioFileCell: UITableViewCell {
     let lblName = UILabel()
+    let lblPlayTime = UILabel()
     let lblAudioLength = UILabel()
     let btnRename = UIButton()
     let btnDelete = UIButton()
     let btnConvertMp3 = UIButton()
     var block:((_ action:Int,_ url:URL)->Void)?
+    var progressBar = UISlider()
+    var totalTime = 0
     var url:URL?{
         didSet{
             guard let u = url else {
@@ -246,6 +294,18 @@ class AudioFileCell: UITableViewCell {
             else{
                 btnConvertMp3.isHidden = true
             }
+            
+            if let attr = try? FileManager.default.attributesOfItem(atPath: u.path){
+                let size = attr[FileAttributeKey.size] as! Int
+                print("\(size / 1000000)M")
+                let assert = AVURLAsset(url: u)
+                guard let track = assert.tracks(withMediaType: .audio).first else{
+                    return
+                }
+                totalTime = Int((track.timeRange.duration.seconds))
+                lblAudioLength.text = totalTime.toTimeSpan()
+            }
+            lblPlayTime.text = "00:00:00"
         }
     }
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -256,31 +316,53 @@ class AudioFileCell: UITableViewCell {
             m.top.equalTo(10)
         }
         
-        lblAudioLength.setFont(font: 12).color(color: UIColor.purple).addTo(view: contentView).snp.makeConstraints { (m) in
-            m.left.equalTo(15)
+        
+        lblPlayTime.setFont(font: 14).color(color: UIColor.gray).addTo(view: contentView).snp.makeConstraints { (m) in
+            m.left.equalTo(lblName)
             m.top.equalTo(lblName.snp.bottom).offset(8)
+            m.width.equalTo(65)
+            m.bottom.equalTo(-15)
+        }
+        
+        lblAudioLength.setFont(font: 12).color(color: UIColor.purple).addTo(view: contentView).snp.makeConstraints { (m) in
+            m.right.equalTo(-15)
+            m.top.equalTo(lblPlayTime)
+            m.width.equalTo(60)
         }
         
         btnDelete.title(title: "删除").setFont(font: 13).color(color: UIColor.red).addTo(view: contentView).snp.makeConstraints { (m) in
             m.right.equalTo(-10)
-            m.centerY.equalTo(contentView)
+            m.top.equalTo(lblName)
             m.height.equalTo(30)
         }
         btnDelete.addTarget(self, action: #selector(deleteAudio), for: .touchUpInside)
         
         btnRename.title(title: "重命名").setFont(font: 13).color(color: UIColor.red).addTo(view: contentView).snp.makeConstraints { (m) in
             m.right.equalTo(btnDelete.snp.left).offset(-10)
-            m.centerY.equalTo(contentView)
+           m.top.equalTo(lblName)
             m.height.equalTo(30)
         }
         btnRename.addTarget(self, action: #selector(rename), for: .touchUpInside)
         btnConvertMp3.isHidden = true
         btnConvertMp3.title(title: "转Mp3").setFont(font: 13).color(color: UIColor.red).addTo(view: contentView).snp.makeConstraints { (m) in
             m.right.equalTo(btnRename.snp.left).offset(-10)
-            m.centerY.equalTo(contentView)
+            m.top.equalTo(lblName)
             m.height.equalTo(30)
         }
         btnConvertMp3.addTarget(self, action: #selector(convertMp3), for: .touchUpInside)
+        
+        progressBar.setThumbImage(UIImage(), for: .normal)
+        progressBar.isContinuous = true
+        progressBar.maximumTrackTintColor = UIColor.gray
+        progressBar.minimumTrackTintColor = UIColor.yellow
+        progressBar.maximumValue = 1
+        progressBar.minimumValue = 0
+        addSubview(progressBar)
+        progressBar.snp.makeConstraints { (m) in
+            m.centerY.equalTo(lblPlayTime)
+            m.left.equalTo(lblPlayTime.snp.right).offset(5)
+            m.right.equalTo(lblAudioLength.snp.left).offset(-5)
+        }
     }
     
     @objc func rename() {
