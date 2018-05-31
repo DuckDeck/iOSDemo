@@ -44,14 +44,16 @@ class RecordListViewController: UIViewController {
         try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: .defaultToSpeaker)
         try? AVAudioSession.sharedInstance().setActive(true)
         
-        btnPlay.setImage(#imageLiteral(resourceName: "btn_play_small_disable"), for: .disabled)
+        
+        btnPlay.setImage(#imageLiteral(resourceName: "btn_play_small_disable"), for: .normal)
         btnPlay.setImage(#imageLiteral(resourceName: "btn_pause_small"), for: .selected)
         btnPlay.addTo(view: view).snp.makeConstraints { (m) in
-            m.bottom.equalTo(-10)
+            m.bottom.equalTo(-20)
             m.centerX.equalTo(ScreenWidth * 0.5)
-            m.width.height.equalTo(30)
+            m.width.height.equalTo(50)
         }
-        btnPlay.layer.cornerRadius = 15
+//        btnPlay.layer.cornerRadius = 15
+        btnPlay.backgroundColor = UIColor.clear
         btnPlay.addTarget(self, action: #selector(playRecord), for: .touchUpInside)
         
     }
@@ -268,6 +270,7 @@ extension RecordListViewController:AVAudioPlayerDelegate{
         timer.pause()
         let cell = tb.cellForRow(at: currentSelectIndex!) as! AudioFileCell
         cell.progressBar.value = 0
+        btnPlay.value = 0
     }
 }
 

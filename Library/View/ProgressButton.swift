@@ -26,27 +26,31 @@ class ProgressButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+    }
+
+    var lineWidth:CGFloat = 2{
+        didSet{
+            setNeedsDisplay()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else{
             return
         }
+        let newRect = CGRect(x: rect.origin.x + lineWidth, y: rect.origin.y + lineWidth, w: rect.size.width - lineWidth * 2, h: rect.size.width - lineWidth * 2)
         context.setStrokeColor(bgTintColor.cgColor)
-        context.setLineWidth(5)
-        context.strokeEllipse(in: rect)
+        context.setLineWidth(lineWidth)
+        context.strokeEllipse(in: newRect)
+        context.addArc(center: CGPoint(x: rect.size.width / 2, y: rect.size.height / 2), radius: newRect.size.width / 2, startAngle: -CGFloat(Double.pi / 2), endAngle: CGFloat(Double.pi * 2 * value / (maxValue - minValue)) - CGFloat(Double.pi / 2), clockwise: false)
         context.setStrokeColor(tintColor.cgColor)
-        if value < (maxValue - minValue) / 4{
-            context.addArc(center: CGPoint(x: rect.size.width / 2, y: rect.size.height / 2), radius: rect.size.width / 2, startAngle: CGFloat(Double.pi / 2), endAngle: CGFloat(Double.pi * 2 * value / (maxValue - minValue)), clockwise: true)
-        }
-        
         context.strokePath()
         
     }
-    
+ 
 }
