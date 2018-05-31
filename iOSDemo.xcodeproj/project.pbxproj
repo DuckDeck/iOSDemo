@@ -196,6 +196,8 @@
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
 		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
+		AEBA80E720BFCAF800F6A323 /* GifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E620BFCAF800F6A323 /* GifViewController.swift */; };
+		AEBA80E920BFD24200F6A323 /* gif0.gif in Resources */ = {isa = PBXBuildFile; fileRef = AEBA80E820BFD24100F6A323 /* gif0.gif */; };
 		AEBE403D1FC803620087D7ED /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE403C1FC803620087D7ED /* LibraryViewController.swift */; };
 		AEBE40401FC803A60087D7ED /* CityChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE403F1FC803A60087D7ED /* CityChooseViewController.swift */; };
 		AEBE40421FC804820087D7ED /* AddressInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE40411FC804820087D7ED /* AddressInfo.swift */; };
@@ -472,6 +474,8 @@
 		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
 		AEBA80D720BD50B300F6A323 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
 		AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressButton.swift; sourceTree = "<group>"; };
+		AEBA80E620BFCAF800F6A323 /* GifViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifViewController.swift; sourceTree = "<group>"; };
+		AEBA80E820BFD24100F6A323 /* gif0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gif0.gif; sourceTree = "<group>"; };
 		AEBE40361FC802770087D7ED /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB.framework; path = Carthage/Build/iOS/FMDB.framework; sourceTree = "<group>"; };
 		AEBE403C1FC803620087D7ED /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		AEBE403F1FC803A60087D7ED /* CityChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityChooseViewController.swift; sourceTree = "<group>"; };
@@ -975,6 +979,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5752921F76931C00F6AAC5 /* MediaViewController.swift */,
+				AEBA80E520BFCAED00F6A323 /* GifImage */,
 				AEBE708E20A4448200B2E897 /* TakePhoto */,
 				AE955C3320A2D38E0009EFFE /* VideoPlay */,
 				AEDF8C47209AF5E000EED6D1 /* VideoRecord */,
@@ -1374,6 +1379,14 @@
 			path = Lame;
 			sourceTree = "<group>";
 		};
+		AEBA80E520BFCAED00F6A323 /* GifImage */ = {
+			isa = PBXGroup;
+			children = (
+				AEBA80E620BFCAF800F6A323 /* GifViewController.swift */,
+			);
+			path = GifImage;
+			sourceTree = "<group>";
+		};
 		AEBE403B1FC803420087D7ED /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -1483,6 +1496,7 @@
 		AEF4A45E1F6FCAEF00EE4001 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				AEBA80E820BFD24100F6A323 /* gif0.gif */,
 				AEF4A45F1F6FCAF800EE4001 /* novel1.gif */,
 				AEF4A4611F6FCB5B00EE4001 /* novel2.gif */,
 			);
@@ -1659,6 +1673,7 @@
 				AE1DE08A2099BE0A007910A5 /* p_15.png in Resources */,
 				AE1DE08E2099BE0A007910A5 /* p_7.png in Resources */,
 				AE1DE0922099BE0A007910A5 /* p_1.png in Resources */,
+				AEBA80E920BFD24200F6A323 /* gif0.gif in Resources */,
 				AE1DE0882099BE0A007910A5 /* p_16.png in Resources */,
 				AE1DE08B2099BE0A007910A5 /* p_14.png in Resources */,
 			);
@@ -1714,6 +1729,7 @@
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/Gifu/Gifu.framework",
 				"${BUILT_PRODUCTS_DIR}/GrandMenu/GrandMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/GrandStore/GrandStore.framework",
 				"${BUILT_PRODUCTS_DIR}/GrandTime/GrandTime.framework",
@@ -1742,6 +1758,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gifu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrandMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrandStore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrandTime.framework",
@@ -1818,6 +1835,7 @@
 				AEA07F021F70C7D200FC9770 /* MemeryLeakTestViewController.swift in Sources */,
 				AEA9F835206A2A62000E7748 /* HttpClient.swift in Sources */,
 				AE5A88701FF3768100748F6A /* ThreadViewController.swift in Sources */,
+				AEBA80E720BFCAF800F6A323 /* GifViewController.swift in Sources */,
 				AE0F709A1FBEB9CA00C8135C /* CrossLine.swift in Sources */,
 				AE5CE7DB208B133C001DB437 /* RecordListViewController.swift in Sources */,
 				AEF097812065EE650021E4ED /* LogInfo.swift in Sources */,

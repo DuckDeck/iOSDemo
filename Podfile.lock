@@ -10,6 +10,7 @@ PODS:
   - FMDB (2.7.2):
     - FMDB/standard (= 2.7.2)
   - FMDB/standard (2.7.2)
+  - Gifu (3.0.0)
   - GrandMenu (1.1.3)
   - GrandStore (1.0.0)
   - GrandTime (1.3.0)
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - AMap3DMap
   - AMapLocation
   - FMDB
+  - Gifu
   - GrandMenu
   - GrandStore
   - GrandTime
@@ -80,6 +82,7 @@ SPEC REPOS:
     - Differentiator
     - FBRetainCycleDetector
     - FMDB
+    - Gifu
     - GrandMenu
     - GrandStore
     - GrandTime
@@ -110,6 +113,7 @@ SPEC CHECKSUMS:
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  Gifu: 6543ca2056a3d697097c09fe543ef49348ccc892
   GrandMenu: 7080b82e9a6504d8a1bfe6f7b7246cd1b2434fe5
   GrandStore: 15d60624e53125570c421372f2640bcbe1e6f6e2
   GrandTime: 6c01d45b9db217c9c77909b6ea7c9643d95e6fb0
@@ -132,6 +136,6 @@ SPEC CHECKSUMS:
   ViewChaos: fc0c05088747b87a2d886dbe49c34eb106e9e0f6
   WSProgressHUD: a0902809c8af112fb34b004fdc75c16eb85167a3
 
-PODFILE CHECKSUM: 6d1802a98a9cf868e2eff1a808527efc0519989f
+PODFILE CHECKSUM: 363c5ba5666b87fdeb89e28f33351e8249d6640d
 
 COCOAPODS: 1.5.2

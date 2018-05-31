@@ -31,6 +31,7 @@ pod "RxDataSources"
 pod "ImagePicker"
 pod "AMap3DMap"
 pod "AMapLocation"
+pod "Gifu"
 end
 
 
