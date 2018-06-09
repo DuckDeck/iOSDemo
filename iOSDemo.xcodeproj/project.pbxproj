@@ -55,6 +55,7 @@
 		AE1344DA209068C7009A210D /* block相关.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344D9209068C7009A210D /* block相关.m */; };
 		AE1344DD20906937009A210D /* object_setClass.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344DC20906937009A210D /* object_setClass.m */; };
 		AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE161F711F98910800B3293F /* MusicListViewController.swift */; };
+		AE1AC74820CBD2470002F779 /* ShadowAudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC74720CBD2470002F779 /* ShadowAudioPlayerView.swift */; };
 		AE1DE01C2099ACBE007910A5 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE01B2099ACBE007910A5 /* ProjectViewController.swift */; };
 		AE1DE0372099AD32007910A5 /* NovelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE01F2099AD32007910A5 /* NovelInfo.swift */; };
 		AE1DE0382099AD32007910A5 /* SectionTableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0202099AD32007910A5 /* SectionTableInfo.swift */; };
@@ -312,6 +313,7 @@
 		AE1344D9209068C7009A210D /* block相关.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "block相关.m"; sourceTree = "<group>"; };
 		AE1344DC20906937009A210D /* object_setClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = object_setClass.m; sourceTree = "<group>"; };
 		AE161F711F98910800B3293F /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
+		AE1AC74720CBD2470002F779 /* ShadowAudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowAudioPlayerView.swift; sourceTree = "<group>"; };
 		AE1DE01B2099ACBE007910A5 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
 		AE1DE01F2099AD32007910A5 /* NovelInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelInfo.swift; sourceTree = "<group>"; };
 		AE1DE0202099AD32007910A5 /* SectionTableInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTableInfo.swift; sourceTree = "<group>"; };
@@ -1172,6 +1174,7 @@
 				AEF51EC620B2A421006C0D63 /* ShadowPlayView.swift */,
 				AEF51EC820B2A998006C0D63 /* ShadowControlView.swift */,
 				AEF51ECC20B3FDDB006C0D63 /* ShadowPlayerViewController.swift */,
+				AE1AC74720CBD2470002F779 /* ShadowAudioPlayerView.swift */,
 			);
 			path = VideoPlay;
 			sourceTree = "<group>";
@@ -1951,6 +1954,7 @@
 				AE0F708E1FBEB96E00C8135C /* TouchTestViewController.swift in Sources */,
 				AE1DE07A2099BE0A007910A5 /* GameService.swift in Sources */,
 				AE0F70811FBD6F2B00C8135C /* NFXStatisticsController_iOS.swift in Sources */,
+				AE1AC74820CBD2470002F779 /* ShadowAudioPlayerView.swift in Sources */,
 				AE0F70681FBD6F2B00C8135C /* NFXConstants.swift in Sources */,
 				AE83BD7B1FE2134E001882D1 /* TwoSideViewController.swift in Sources */,
 				AE1DE0412099AD32007910A5 /* SectionListViewModel.swift in Sources */,

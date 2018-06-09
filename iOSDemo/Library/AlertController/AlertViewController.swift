@@ -10,25 +10,28 @@ import UIKit
 import GrandTime
 class AlertViewController: UIViewController {
 
-    let btn = UIButton()
+    var arrData = ["普通Alert","Alert"]
+    var tbMenu = UITableView()
     var timer:GrandTimer!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.white
-        btn.title(title: "Alert").color(color: UIColor.purple).addTo(view: view).snp.makeConstraints { (m) in
-            m.left.equalTo(10)
-            m.top.equalTo(100)
-            m.width.equalTo(100)
-            m.height.equalTo(30)
-        }
-        btn.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
         timer = GrandTimer.scheduleTimerWithTimeSpan(TimeSpan.fromSeconds(1), target: self, sel: #selector(tick), userInfo: nil, repeats: true, dispatchQueue: DispatchQueue.main)
-        
-        let startBtn = UIBarButtonItem(title: "start", style: .plain, target: self, action: #selector(start))
-        navigationItem.rightBarButtonItem = startBtn
+        tbMenu.dataSource = self
+        tbMenu.delegate = self
+        tbMenu.tableFooterView = UIView()
+        view.addSubview(tbMenu)
+        tbMenu.snp.makeConstraints { (m) in
+            m.edges.equalTo(0)
+        }
+       
     }
 
+    @objc func tick() {
+        
+    }
+    
     @objc func showAlert() {
         timer.invalidate()
         let attrStr = NSMutableAttributedString(string: "购买本次修复服务需花费20积分,是否确实购买")
@@ -36,24 +39,41 @@ class AlertViewController: UIViewController {
         let alert = UIAlertController.title(attrTitle: nil, attrMessage: attrStr).action(title: "取消",handle: nil, color:UIColor.gray).action(title: "购买", handle: {(action:UIAlertAction) in
             self.timer.pause()
         })
-  //      alert.show()
-//
-//       let alert = UIAlertController.title(title: nil, message: "这是一个测试").setMessageFont(font: UIFont.systemFont(ofSize: 17)).action(title: "OK", handle: nil)
-//
-        let txt = UITextView()
-        let p =  txt.getProperty()
-        let pla = txt.value(forKey: "_placeholderLabel")
+      
         
-        print(p)
+     
         alert.show()
     }
-   
-    @objc func start()  {
-        timer.fire()
-    }
+    
+}
 
-    @objc func tick() {
-        Log(message: "123132123")
+extension AlertViewController:UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrData.count
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        if cell == nil{
+            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        }
+        cell?.textLabel?.text = arrData[indexPath.row]
+        return cell!
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.row {
+        case 0:
+            UIAlertController.title(title: "这是标题", message:"比初代产品更小巧便携，重约4.5公斤，改进的背带背起来不会感到太过").action(title: "取消", handle: nil, color: UIColor.lightGray, style: .cancel).action(title: "确定", handle: { (action:UIAlertAction) in
+                
+            }, style: .default).show()
+        case 1:
+            break
+        case 2:
+            break
+            
+        default:
+            break
+        }
+    }
 }

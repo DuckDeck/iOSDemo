@@ -9,187 +9,233 @@
 import Foundation
 import AVKit
 
-
-class ShadowAudioPlayer: AVPlayer {
-    var playbackTimerObserver:Any! = nil
-    var item:AVPlayerItem! //AVPlayer的播放item
-    var totalTime:CMTime! //总时长
-    var currentTime:CMTime! //当前时间
-    var anAsset:AVURLAsset! //资产AVURLAsset
-    var playerStatus = PlayerStatus.Unknown{     //播放状态
-        didSet{
-            stateChange?(playerStatus)
+protocol VideoPlayerDelegate {
+    func downloadedProgress(progress:Double)
+    func readyToPlay()
+    func didUpdateProgress(progress:Double)
+    func didFinishPlayItem()
+    func didFailPlayToEnd()
+}
+let videoContext:UnsafeMutableRawPointer? = nil
+class ShadowAudioPlayer: NSObject{
+    private var assetPlayer:AVPlayer?
+    private var playerItem:AVPlayerItem?
+    private var urlAsset:AVURLAsset?
+    private var videoOutput:AVPlayerItemVideoOutput?
+    private var assetDuration:Double = 0
+    private var autoRepeatPlay:Bool = true
+    private var autoPlay:Bool = true
+    
+    var delegate:VideoPlayerDelegate?
+    
+    var playerRate:Float = 0 {
+        didSet {
+            if let player = assetPlayer {
+                player.rate = playerRate > 0 ? playerRate : 0.0
+            }
         }
     }
-    var isPlaying = false
-    var bufferProcess:((_ bufferTime:Double,_ totalTime:Double)->Void)?
-    var playProcess:((_ playTime:Double,_ totalTime:Double)->Void)?
-    var stateChange:((_ state:PlayerStatus)->Void)?
-    private var url:URL!
-    //与url初始化
-//    init(stringUrl:String)  {
-//        let u = URL(string: stringUrl)!
-//        super.init(url: u)
-//        assetWithURL(url: u)
-//    }
+    
+    var volume:Float = 1.0 {
+        didSet {
+            if let player = assetPlayer {
+                player.volume = volume > 0 ? volume : 0.0
+            }
+        }
+    }
+    
+    convenience init(urlAsset:URL,  startAutoPlay:Bool = true, repeatAfterEnd:Bool = true) {
+        self.init()
+        autoPlay = startAutoPlay
+        autoRepeatPlay = repeatAfterEnd
+        initialSetupWithURL(url: urlAsset)
+        prepareToPlay()
+    }
     
     override init() {
         super.init()
     }
     
-    override init(url URL: URL) {
-        super.init(url: URL)
-        assetWithURL(url: URL)
+    // MARK: - Public
+    
+    func isPlaying() -> Bool {
+        if let player = assetPlayer {
+            return player.rate > 0
+        } else {
+            return false
+        }
     }
     
-    //公用同一个资产请使用此方法初始化
-    convenience init(asset:AVURLAsset){
-        let it = AVPlayerItem(asset: asset)
-        self.init(playerItem: it)
-        setupPlayerWithAsset(asset: asset)
-    }
-
-    
-    override init(playerItem item: AVPlayerItem?) {
-        super.init(playerItem: item)
-    }
-    
-    func assetWithURL(url:URL) {
-        let dict = [AVURLAssetPreferPreciseDurationAndTimingKey:true]
-        anAsset = AVURLAsset(url: url, options: dict)
-        let keys = ["duration"]
-        weak var weakself = self
-        anAsset.loadValuesAsynchronously(forKeys: keys) {
-            var error:NSError? = nil
-            guard let tracksStatus = weakself?.anAsset.statusOfValue(forKey: "duration", error: &error) else{
-                print("audio file error")
-                weakself?.playerStatus = .Failed
-                return
-            }
-            switch tracksStatus{
-            case .loaded:
-                DispatchQueue.main.async {
-                    if  !weakself!.anAsset.duration.isIndefinite{
-                        //let second = weakself!.anAsset.duration.value / Int64(weakself!.anAsset.duration.timescale)
-                        weakself?.totalTime = weakself!.anAsset.duration
-                    }
-                    weakself?.playerStatus = .ReadyToPlay
-                }
-            case .failed:
-              weakself?.playerStatus = .Failed
-             print("audio file load fail")
-            case .unknown:
-               weakself?.playerStatus = .Unknown
-               print("audio file load unknow")
-                
-            default:
-                break
+    func seekToPosition(seconds:Float64) {
+        if let player = assetPlayer {
+            pause()
+            if let timeScale = player.currentItem?.asset.duration.timescale {
+                player.seek(to: CMTimeMakeWithSeconds(seconds, timeScale), completionHandler: { (complete) in
+                    self.play()
+                })
             }
         }
-        setupPlayerWithAsset(asset: anAsset)
     }
     
-    func setupPlayerWithAsset(asset:AVURLAsset)  {
-        item = AVPlayerItem(asset: asset)
-        addPeriodicTimeObserver()
-        addKVO()
-        addNotificationCenter()
+    func pause() {
+        if let player = assetPlayer {
+            player.pause()
+        }
     }
-  
-    func addPeriodicTimeObserver()  {
-        weak var weakself = self
-        playbackTimerObserver = self.addPeriodicTimeObserver(forInterval: CMTimeMake(1, 1), queue: nil, using: { (time) in
-            //ISSUE 当在滑动的时侯，又会反馈带动这里滑动，所以会出现一跳一跳的情况。
-            //let value = Float(weakself!.item.currentTime().value / Int64(weakself!.item.currentTime().timescale))
+    
+    func play() {
+        if let player = assetPlayer {
+            if (player.currentItem?.status == .readyToPlay) {
+                player.play()
+                //player.rate = playerRate
+            }
+        }
+    }
+    
+    func cleanUp() {
+        if let item = playerItem {
+            item.removeObserver(self, forKeyPath: "status")
+            item.removeObserver(self, forKeyPath: "loadedTimeRanges")
+        }
+        NotificationCenter.default.removeObserver(self)
+        assetPlayer = nil
+        playerItem = nil
+        urlAsset = nil
+    }
+    
+    // MARK: - Private
+    
+    private func prepareToPlay() {
+        let keys = ["tracks"]
+        if let asset = urlAsset {
+            asset.loadValuesAsynchronously(forKeys: keys, completionHandler: {
+                DispatchQueue.main.async {
+                    self.startLoading()
+                }
+            })
+        }
+    }
+    
+    private func startLoading(){
+        var error:NSError?
+        guard let asset = urlAsset else {return}
+        
+        let status:AVKeyValueStatus = asset.statusOfValue(forKey: "tracks", error: &error)
+        
+        if status == AVKeyValueStatus.loaded {
+            assetDuration = CMTimeGetSeconds(asset.duration)
             
-            //这里看情况
-        })
+            let videoOutputOptions = [kCVPixelBufferPixelFormatTypeKey as String : Int(kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange)]
+            videoOutput = AVPlayerItemVideoOutput(pixelBufferAttributes: videoOutputOptions)
+            playerItem = AVPlayerItem(asset: asset)
+            
+            if let item = playerItem {
+                item.addObserver(self, forKeyPath: "status", options: .initial, context: videoContext)
+                item.addObserver(self, forKeyPath: "loadedTimeRanges", options: [.new, .old], context: videoContext)
+                
+                NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector(didFailedToPlayToEnd), name: NSNotification.Name.AVPlayerItemFailedToPlayToEndTime, object: nil)
+                
+                if let output = videoOutput {
+                    item.add(output)
+                    
+                    item.audioTimePitchAlgorithm = AVAudioTimePitchAlgorithm.varispeed
+                    assetPlayer = AVPlayer(playerItem: item)
+                    
+                    if let player = assetPlayer {
+                        player.rate = playerRate
+                    }
+                    
+                    addPeriodicalObserver()
+                    
+                }
+            }
+        }
     }
     
-    
-    func addKVO()  {
-        item.addObserver(self, forKeyPath: "status", options: .new, context: nil)
-        item.addObserver(self, forKeyPath: "loadedTimeRanges", options: .new, context: nil)
-        item.addObserver(self, forKeyPath: "playbackBufferEmpty", options: .new, context: nil)
-        item.addObserver(self, forKeyPath: "playbackLikelyToKeepUp", options: .new, context: nil)
-        self.addObserver(self, forKeyPath: "rate", options: .new, context: nil)
+    private func addPeriodicalObserver() {
+        let timeInterval = CMTimeMake(1, 1)
+        
+        if let player = assetPlayer {
+            player.addPeriodicTimeObserver(forInterval: timeInterval, queue: DispatchQueue.main, using: { (time) in
+                self.playerDidChangeTime(time: time)
+            })
+        }
     }
+    
+    private func playerDidChangeTime(time:CMTime) {
+        if let player = assetPlayer {
+            let timeNow = CMTimeGetSeconds(player.currentTime())
+            let progress = timeNow / assetDuration
+            
+            delegate?.didUpdateProgress(progress: progress)
+        }
+    }
+    
+    @objc private func playerItemDidReachEnd() {
+        delegate?.didFinishPlayItem()
+        
+        if let player = assetPlayer {
+            player.seek(to: kCMTimeZero)
+            if autoRepeatPlay == true {
+                play()
+            }
+        }
+    }
+    
+    @objc private func didFailedToPlayToEnd() {
+        delegate?.didFailPlayToEnd()
+    }
+    
+    private func playerDidChangeStatus(status:AVPlayerStatus) {
+        if status == .failed {
+            print("Failed to load video")
+        } else if status == .readyToPlay, let player = assetPlayer {
+            volume = player.volume
+            delegate?.readyToPlay()
+            
+            if autoPlay == true && player.rate == 0.0 {
+                play()
+            }
+        }
+    }
+    
+    private func moviewPlayerLoadedTimeRangeDidUpdated(ranges:Array<NSValue>) {
+        var maximum:TimeInterval = 0
+        for value in ranges {
+            let range:CMTimeRange = value.timeRangeValue
+            let currentLoadedTimeRange = CMTimeGetSeconds(range.start) + CMTimeGetSeconds(range.duration)
+            if currentLoadedTimeRange > maximum {
+                maximum = currentLoadedTimeRange
+            }
+        }
+        let progress:Double = assetDuration == 0 ? 0.0 : Double(maximum) / assetDuration
+        
+        delegate?.downloadedProgress(progress: progress)
+    }
+    
+    deinit {
+        cleanUp()
+    }
+    
+    private func initialSetupWithURL(url:URL) {
+        let options = [AVURLAssetPreferPreciseDurationAndTimingKey : true]
+        urlAsset = AVURLAsset(url: url, options: options)
+    }
+    
+    // MARK: - Observations
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        guard let key = keyPath else {
-            return
-        }
-        if key == "status"{
-            guard let itemStatus = AVPlayerItemStatus(rawValue: change![NSKeyValueChangeKey.newKey] as! Int) else{
-                return
-            }
-            switch itemStatus{
-            case .unknown:
-                playerStatus = .Unknown
-                print("AVPlayerItemStatusUnknown")
-            case .readyToPlay:
-                playerStatus = .ReadyToPlay
-                print("AVPlayerItemStatusReadyToPlay")
-            case .failed:
-                playerStatus = .Failed
-                print("AVPlayerItemStatusFailed")
-            }
-        }
-        else if key == "loadedTimeRanges"{ //监听播放器的下载进度
-            let loadedTimeRanges = item.loadedTimeRanges
-            let timeRange = loadedTimeRanges.first!.timeRangeValue // 获取缓冲区域
-            let startSeconds = CMTimeGetSeconds(timeRange.start)
-            let durationSeconds = CMTimeGetSeconds(timeRange.duration)
-            let timeInterval = startSeconds + durationSeconds // 计算缓冲总进度
-            let duration = item.duration
-            let totalDuration = CMTimeGetSeconds(duration)
-            bufferProcess?(timeInterval,totalDuration)
-        }
-        else if key == "playbackBufferEmpty"{
-            playerStatus = .Buffering
-           
-        }
-        else if key == "playbackLikelyToKeepUp"{
-            print("缓冲达到可播放")
-            playerStatus = .ReadyToPlay
-        }
-        else if key == "rate"{
-            if change![NSKeyValueChangeKey.newKey] as! Int == 0{
-                isPlaying = false
-                playerStatus = .Playing
-            }
-            else{
-                isPlaying = true
-                playerStatus = .Stopped
+        if context == videoContext{
+            if let key = keyPath{
+                if key == "status", let player = assetPlayer{
+                    playerDidChangeStatus(status: player.status)
+                }else if key == "loadedTimeRange", let item = playerItem{
+                    moviewPlayerLoadedTimeRangeDidUpdated(ranges: item.loadedTimeRanges)
+                }
             }
         }
     }
     
-    func addNotificationCenter()  {
-        NotificationCenter.default.addObserver(self, selector: #selector(ShadowPlayerItemDidPlayToEndTimeNotification(notif:)), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: self.currentTime())
-    }
-    
-    
-    func stop() {
-        item.removeObserver(self, forKeyPath: "status")
-        self.removeTimeObserver(playbackTimerObserver)
-        item.removeObserver(self, forKeyPath: "loadedTimeRanges")
-        item.removeObserver(self, forKeyPath: "playbackBufferEmpty")
-        item.removeObserver(self, forKeyPath: "playbackLikelyToKeepUp")
-        self.removeObserver(self, forKeyPath: "rate")
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: self.currentTime())
-        pause()
-        anAsset = nil
-        item = nil
-    }
 }
 
-
-
-extension ShadowAudioPlayer{
-    @objc func ShadowPlayerItemDidPlayToEndTimeNotification(notif:Notification)  {
-        item.seek(to: kCMTimeZero)
-        pause()
-        playerStatus = .ReadyToPlay
-    }
-}

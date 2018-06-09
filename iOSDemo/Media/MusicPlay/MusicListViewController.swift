@@ -12,7 +12,8 @@ class MusicListViewController: UIViewController {
 //    let tb = UITableView()
 //    let arrMusics = [String]()
 
-    let url = "http://win.web.nf01.sycdn.kuwo.cn/84ec6569e8dce4a9f6632ae5840d7019/5b175326/resource/n3/31/73/3671352600.mp3"
+  //  let url = "http://up.mcyt.net/?down/47675.mp3"
+    let url = "http://ouo3vhy8x.bkt.clouddn.com/Fgj5sIiDmRqt9m8R8zNyXxtp1MC0"
 //    let url = "http://win.web.rc01.sycdn.kuwo.cn/a447b8c6025b318ea24e1f9df8f1ea49/5b17535f/resource/n3/61/58/2032057186.mp3"
 //    let url = "http://win.web.rf01.sycdn.kuwo.cn/1c4dcf2ed16d8f0b20a78a6cfbf46884/5b175373/resource/n3/4/5/1032924973.mp3"
     
@@ -21,6 +22,7 @@ class MusicListViewController: UIViewController {
     private let lblTime = UILabel()
     private let lblTotalTime = UILabel()
     var player:ShadowAudioPlayer!
+    var sPlayer:ShadowPlayer!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -76,23 +78,27 @@ class MusicListViewController: UIViewController {
             m.edges.equalTo(slider)
         }
         
-        player = ShadowAudioPlayer(url: URL(string: url)!)
+        player = ShadowAudioPlayer(urlAsset: URL(string: url)!, startAutoPlay: true, repeatAfterEnd: false)
         
-        player.bufferProcess = {[weak self](buffer:Double,totalTime:Double) in
-            self?.sliderBuffer.value = Float(buffer / totalTime)
-            
-        }
         
-        player.stateChange = {[weak self](state:PlayerStatus) in
-            if state == PlayerStatus.ReadyToPlay && !self!.player.isPlaying{
-                
-            }
-        }
+//        player.bufferProcess = {[weak self](buffer:Double,totalTime:Double) in
+//            self?.sliderBuffer.value = Float(buffer / totalTime)
+//
+//        }
+//
+//        player.stateChange = {[weak self](state:PlayerStatus) in
+//            if state == PlayerStatus.ReadyToPlay && !self!.player.isPlaying{
+//
+//            }
+//        }
+//
+//        player.playProcess = {[weak self](playTime:Double,totalTime:Double) in
+//            self?.slider.value = Float(playTime / totalTime)
+//        }
+       
         
-        player.playProcess = {[weak self](playTime:Double,totalTime:Double) in
-            self?.slider.value = Float(playTime / totalTime)
-        }
-        player.play()
+        
+        
     }
     
 
@@ -100,6 +106,10 @@ class MusicListViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        player.cleanUp()
+    }
 
 
 
