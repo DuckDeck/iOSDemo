@@ -56,6 +56,7 @@
 		AE1344DD20906937009A210D /* object_setClass.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344DC20906937009A210D /* object_setClass.m */; };
 		AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE161F711F98910800B3293F /* MusicListViewController.swift */; };
 		AE1AC74820CBD2470002F779 /* ShadowAudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC74720CBD2470002F779 /* ShadowAudioPlayerView.swift */; };
+		AE1AC75020CF6FB40002F779 /* UICollectView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC74F20CF6FB40002F779 /* UICollectView+Extension.swift */; };
 		AE1DE01C2099ACBE007910A5 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE01B2099ACBE007910A5 /* ProjectViewController.swift */; };
 		AE1DE0372099AD32007910A5 /* NovelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE01F2099AD32007910A5 /* NovelInfo.swift */; };
 		AE1DE0382099AD32007910A5 /* SectionTableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0202099AD32007910A5 /* SectionTableInfo.swift */; };
@@ -314,6 +315,7 @@
 		AE1344DC20906937009A210D /* object_setClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = object_setClass.m; sourceTree = "<group>"; };
 		AE161F711F98910800B3293F /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
 		AE1AC74720CBD2470002F779 /* ShadowAudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowAudioPlayerView.swift; sourceTree = "<group>"; };
+		AE1AC74F20CF6FB40002F779 /* UICollectView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectView+Extension.swift"; sourceTree = "<group>"; };
 		AE1DE01B2099ACBE007910A5 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
 		AE1DE01F2099AD32007910A5 /* NovelInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelInfo.swift; sourceTree = "<group>"; };
 		AE1DE0202099AD32007910A5 /* SectionTableInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTableInfo.swift; sourceTree = "<group>"; };
@@ -1318,6 +1320,7 @@
 				AE3F46ED20AC0300007BA637 /* UIColor+Extension.swift */,
 				AE3F46F320AC0B2B007BA637 /* UIImageView+Extension.swift */,
 				AE3F46F520AC0BF9007BA637 /* UINavigationController+Extension.swift */,
+				AE1AC74F20CF6FB40002F779 /* UICollectView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1966,6 +1969,7 @@
 				AE1DE03F2099AD32007910A5 /* NovelTbCell.swift in Sources */,
 				AE0F70301FBA90A500C8135C /* APIInfo.swift in Sources */,
 				AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */,
+				AE1AC75020CF6FB40002F779 /* UICollectView+Extension.swift in Sources */,
 				AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */,
 				AE1DE0372099AD32007910A5 /* NovelInfo.swift in Sources */,
 				AE3F46EC20AC0290007BA637 /* HintView.swift in Sources */,

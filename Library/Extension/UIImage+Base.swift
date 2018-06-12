@@ -138,6 +138,17 @@ extension UIImage{
         return bgImage
     }
     
+    
+    func createRect(size:CGSize,color:UIColor) -> UIImage {
+        UIGraphicsBeginImageContext(size)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor)
+        context?.fill(CGRect(origin: CGPoint(), size: size))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage ?? UIImage()
+    }
+    
     class func createNonInterpolatedUIImageFormCIImage(image: CIImage, size: CGFloat) -> UIImage {
         let extent: CGRect = image.extent.integral
         let scale: CGFloat = min(size/extent.width, size/extent.height)

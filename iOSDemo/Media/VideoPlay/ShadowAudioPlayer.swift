@@ -11,7 +11,7 @@ import AVKit
 
 protocol VideoPlayerDelegate {
     func downloadedProgress(progress:Double)
-    func readyToPlay()
+    func readyToPlay(assetDuration:Double)
     func didUpdateProgress(progress:Double)
     func didFinishPlayItem()
     func didFailPlayToEnd()
@@ -141,11 +141,10 @@ class ShadowAudioPlayer: NSObject{
                     
                     item.audioTimePitchAlgorithm = AVAudioTimePitchAlgorithm.varispeed
                     assetPlayer = AVPlayer(playerItem: item)
-                    
+                 
                     if let player = assetPlayer {
                         player.rate = playerRate
                     }
-                    
                     addPeriodicalObserver()
                     
                 }
@@ -192,8 +191,7 @@ class ShadowAudioPlayer: NSObject{
             print("Failed to load video")
         } else if status == .readyToPlay, let player = assetPlayer {
             volume = player.volume
-            delegate?.readyToPlay()
-            
+            delegate?.readyToPlay(assetDuration: assetDuration)
             if autoPlay == true && player.rate == 0.0 {
                 play()
             }
@@ -210,7 +208,6 @@ class ShadowAudioPlayer: NSObject{
             }
         }
         let progress:Double = assetDuration == 0 ? 0.0 : Double(maximum) / assetDuration
-        
         delegate?.downloadedProgress(progress: progress)
     }
     
