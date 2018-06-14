@@ -8,7 +8,8 @@
 //
 
 import UIKit
-
+import GrandTime
+import AVKit
 extension NSObject{
     func addDispose()  {
         
@@ -327,7 +328,7 @@ extension CGRect {
 }
 
 extension URL{
-    func fileSize() -> CLongLong {
+    func getfileSize() -> CLongLong {
         let manager = FileManager.default
         if manager.fileExists(atPath: self.path) {
             do {
@@ -339,5 +340,23 @@ extension URL{
         }
         return 0;
     }
+    
+    
+    
+    func getFileCreateTime() -> Int?{
+        if let attr = try? FileManager.default.attributesOfItem(atPath: self.path){
+            return DateTime.parse("\(attr[FileAttributeKey.creationDate]!)")?.timestamp
+        }
+        return 0
+    }
+    
+    func getMediaDuration(mediaType:AVMediaType) -> Int {
+        let assert = AVURLAsset(url: self)
+        if let track = assert.tracks(withMediaType: mediaType).first {
+            return Int(CMTimeGetSeconds(track.timeRange.duration))
+        }
+        return 0
+    }
+
 }
 

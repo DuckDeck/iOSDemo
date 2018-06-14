@@ -26,15 +26,22 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
     var outputVideoFormatDescription:CMFormatDescription!
     var outputAudioFormatDescription:CMFormatDescription!
     var assetWriterCoordinator:AssetWriterCoordinator!
-    
-    override init() {
+    var filePath:String!
+    fileprivate override init() {
         super.init()
         videoDataOutputQueue = DispatchQueue(label: "stahu.capturesession.videodata", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: DispatchQueue.global())
         
-//        videoDataOutputQueue.setTarget(queue: DispatchQueue.global(qos: .default))
+        //        videoDataOutputQueue.setTarget(queue: DispatchQueue.global(qos: .default))
         audioDataOutputQueue = DispatchQueue(label: "stanhu.capturesession.audiodata")
         addDataOutputsToCaptureSession(captureSession: self.captureSession)
     }
+    
+    convenience init(filePath:String) {
+        
+        self.init()
+        self.filePath = filePath
+    }
+
     
     override func startRecording() {
         objc_sync_enter(self)
@@ -44,7 +51,7 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
         }
         transitionToRecordingStatus(newStatus: .StartingRecording, error: nil)
         objc_sync_exit(self)
-        recordingURL = CVFileManager.tempFileURL(extensionName: "mov")
+        recordingURL = URL(fileURLWithPath: filePath)
         assetWriterCoordinator = AssetWriterCoordinator(theUrl: recordingURL)
         if outputAudioFormatDescription != nil{
             assetWriterCoordinator.addAudioTrackWithSourceFormatDescription(formatDescription: outputAudioFormatDescription, audioSettings:  audioCompressionSettings)

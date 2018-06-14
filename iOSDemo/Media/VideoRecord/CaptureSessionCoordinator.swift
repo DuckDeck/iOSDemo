@@ -21,12 +21,41 @@ class CaptureSessionCoordinator:NSObject {
     var delegate:CaptureSessionCoordinatorDelegate?
     var sessionQueue:DispatchQueue!
     var _previewLayer:AVCaptureVideoPreviewLayer?
+    var isFlashingOn = false
     override init() {
         super.init()
         sessionQueue = DispatchQueue(label: "stanhu.recorvideo")
         captureSession = setupCaptureSession()
     }
     
+    func setFlash(turn:Bool)  {
+        isFlashingOn = !isFlashingOn
+        do{
+            if cameraDevice == nil{
+                guard let c = AVCaptureDevice.default(for: .video)   else {
+                    return
+                }
+                cameraDevice = c
+            }
+            try cameraDevice.lockForConfiguration()
+            if isFlashingOn{
+                if cameraDevice.isFlashModeSupported(.on){
+                    cameraDevice.flashMode = .on
+                    cameraDevice.torchMode = .on
+                }
+            }
+            else{
+                if cameraDevice.isFlashModeSupported(.off){
+                    cameraDevice.flashMode = .off
+                    cameraDevice.torchMode = .off
+                }
+            }
+            cameraDevice.unlockForConfiguration()
+        }
+        catch{
+            print(error.localizedDescription)
+        }
+    }
    
     
     func setDelegate(delegate:CaptureSessionCoordinatorDelegate,callbackQueue:DispatchQueue) -> Void {

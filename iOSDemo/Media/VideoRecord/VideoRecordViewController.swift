@@ -15,6 +15,8 @@ class VideoRecordViewController: UIViewController {
     var isDismissing = false
     let btnRecord = UIButton()
     let btnClose = UIButton()
+    let btnFlash = UIButton()
+    var isFlashOn = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,7 +36,17 @@ class VideoRecordViewController: UIViewController {
         }
         
         btnClose.addTarget(self, action: #selector(closeRecordPage), for: .touchUpInside)
-        captureSessionCoordinator = CaptureSessionAssetWriterCoordinator()
+        
+        btnFlash.setImage(#imageLiteral(resourceName: "btn_flash_off"), for: .normal)
+        btnFlash.setImage(#imageLiteral(resourceName: "btn_flash_on"), for: .selected)
+        btnFlash.addTarget(self, action: #selector(switchFlash), for: .touchUpInside)
+        btnFlash.addTo(view:view).snp.makeConstraints { (m) in
+            m.right.equalTo(-15)
+            m.top.equalTo(30)
+        }
+        
+        let url = CVFileManager.tempFileURL(extensionName: "mov")
+        captureSessionCoordinator = CaptureSessionAssetWriterCoordinator(filePath: url.path)
         captureSessionCoordinator.setDelegate(delegate: self, callbackQueue: DispatchQueue.main)
         
         guard  let previewLayer = captureSessionCoordinator.previewLayer else{
@@ -49,6 +61,9 @@ class VideoRecordViewController: UIViewController {
     }
     
   
+    @objc func switchFlash()  {
+        captureSessionCoordinator.setFlash(turn: !isFlashOn)
+    }
     
     @objc func setRecordSetting()  {
         

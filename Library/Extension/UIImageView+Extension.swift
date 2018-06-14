@@ -77,3 +77,41 @@ extension UIImageView{
     //    }
     
 }
+
+extension UIImageView{
+    func addMask(img:UIImage?)  {
+        for sub in self.subviews{
+            if sub.tag == -100{
+                return
+            }
+        }
+        let imgMask = UIImageView(image: img)
+        imgMask.tag = -100
+        addSubview(imgMask)
+        imgMask.snp.makeConstraints { (m) in
+            m.edges.equalTo(self)
+        }
+    }
+    
+    func addMask(color:UIColor)  {
+        for sub in self.subviews{
+            if sub.tag == -100{
+                return
+            }
+        }
+        let vMask = UIView().bgColor(color: color)
+        vMask.tag = -100
+        addSubview(vMask)
+        vMask.snp.makeConstraints { (m) in
+            m.edges.equalTo(self)
+        }
+    }
+    
+    func removeMask() {
+        for sub in self.subviews{
+            if sub.tag == -100{
+                sub.removeFromSuperview()
+            }
+        }
+    }
+}
