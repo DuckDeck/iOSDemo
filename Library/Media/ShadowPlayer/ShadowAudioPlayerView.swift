@@ -8,8 +8,11 @@
 
 import UIKit
 
-class ShadowAudioPlayerView: UIView {
+enum AudioPlayStatus {
+    case Buffing,ReadyToPlay,LoadFail,Playing,PlayCompleted
+}
 
+class ShadowAudioPlayerView: UIView {
     let btnPlay = UIButton()
     let lblPlayTime = UILabel()
     let lblTotalTime = UILabel()
@@ -20,17 +23,18 @@ class ShadowAudioPlayerView: UIView {
     var audioDuration:Double = 0
     var tapGesture:UITapGestureRecognizer?
     var autoPlay = false
+    var playTime = 0
     convenience init(frame: CGRect,url:URL,autoPlay:Bool = false) {
         self.init(frame: frame)
         self.url = url
         self.autoPlay = autoPlay
-         initView()
+        initView()
         initPlayer()
     }
     
    fileprivate func initView() {
-        btnPlay.setImage(#imageLiteral(resourceName: "play"), for: .normal)
-        btnPlay.setImage(#imageLiteral(resourceName: "pause"), for: .selected)
+        btnPlay.setImage(#imageLiteral(resourceName: "btn_play_small"), for: .normal)
+        btnPlay.setImage(#imageLiteral(resourceName: "btn_pause_small"), for: .selected)
         btnPlay.addTarget(self, action: #selector(playAudio), for: .touchUpInside)
         addSubview(btnPlay)
         btnPlay.snp.makeConstraints { (m) in
@@ -41,11 +45,12 @@ class ShadowAudioPlayerView: UIView {
         
         lblPlayTime.font = UIFont.systemFont(ofSize: 14)
         lblPlayTime.textColor = UIColor.red
+        lblPlayTime.text = "00:00"
         addSubview(lblPlayTime)
         lblPlayTime.snp.makeConstraints { (m) in
-            m.left.equalTo(btnPlay.snp.right).offset(3)
+            m.left.equalTo(btnPlay.snp.right).offset(5)
             m.centerY.equalTo(self)
-            m.width.equalTo(62)
+            m.width.equalTo(42)
         }
         
         lblTotalTime.font = UIFont.systemFont(ofSize: 14)
@@ -54,25 +59,9 @@ class ShadowAudioPlayerView: UIView {
         lblTotalTime.snp.makeConstraints { (m) in
             m.right.equalTo(0)
             m.centerY.equalTo(self)
-            m.width.equalTo(62)
+            m.width.equalTo(42)
         }
-        
-        slider.setThumbImage(#imageLiteral(resourceName: "knob"), for: .normal)
-        slider.isContinuous = true
-        tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(ges:)))
-        slider.addTarget(self, action: #selector(handleSliderPosition(sender:)), for: .valueChanged)
-        slider.addTarget(self, action: #selector(handleSliderPositionExit(sender:)), for: UIControlEvents.touchUpInside)
-        slider.addGestureRecognizer(tapGesture!)
-        slider.maximumTrackTintColor = UIColor.clear
-        slider.minimumTrackTintColor = UIColor.white
-        addSubview(slider)
-        
-        slider.snp.makeConstraints { (m) in
-            m.left.equalTo(lblPlayTime.snp.right)
-            m.right.equalTo(lblTotalTime.snp.left)
-            m.centerY.equalTo(self)
-        }
-        
+    
         sliderBuffer.setThumbImage(UIImage(), for: .normal)
         sliderBuffer.isContinuous = true
         sliderBuffer.minimumTrackTintColor = UIColor.red
@@ -81,8 +70,28 @@ class ShadowAudioPlayerView: UIView {
         sliderBuffer.isUserInteractionEnabled = false
         addSubview(sliderBuffer)
         sliderBuffer.snp.makeConstraints { (m) in
-            m.edges.equalTo(slider)
+            m.left.equalTo(lblPlayTime.snp.right).offset(5)
+            m.right.equalTo(lblTotalTime.snp.left).offset(-5)
+            m.centerY.equalTo(self)
         }
+    
+        slider.setThumbImage(UIImage(), for: .normal)
+        slider.isContinuous = true
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(ges:)))
+        slider.addTarget(self, action: #selector(handleSliderPosition(sender:)), for: .valueChanged)
+        slider.addTarget(self, action: #selector(handleSliderPositionExit(sender:)), for: UIControlEvents.touchUpInside)
+        slider.addGestureRecognizer(tapGesture!)
+        slider.maximumTrackTintColor = UIColor.clear
+        slider.minimumTrackTintColor = UIColor.red
+        slider.maximumValue = 1
+        slider.minimumValue = 0
+        addSubview(slider)
+        
+        slider.snp.makeConstraints { (m) in
+            m.edges.equalTo(sliderBuffer)
+        }
+        
+    
     }
     
     fileprivate override init(frame: CGRect) {
@@ -100,8 +109,8 @@ class ShadowAudioPlayerView: UIView {
     
     func showAudioErrorInfo() {
         btnPlay.isSelected = true
-        lblTotalTime.text = "00:00:00"
-        lblPlayTime.text = "00:00:00"
+        lblTotalTime.text = "00:00"
+        lblPlayTime.text = "00:00"
     }
     
     @objc func playAudio() {
@@ -129,7 +138,6 @@ class ShadowAudioPlayerView: UIView {
     @objc func handleTap(ges:UIGestureRecognizer)  {
         let point = ges.location(in: slider)
         let currentValue = point.x / slider.frame.size.width * CGFloat(slider.maximumValue)
-        
     }
     
     @objc func handleSliderPositionExit(sender:UISlider){
@@ -146,34 +154,42 @@ class ShadowAudioPlayerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func convertDurationToTime(duration:Int) -> String {
-        let hour = duration / 3600
-        let remainder = duration - (hour * 3600)
-        let min = remainder / 60
-        let sec = remainder - 60 * min
-        
-        return "\(hour):\(min):\(sec)"
+    func convertTime(second:Float)->String{
+        let d = Date(timeIntervalSince1970: TimeInterval(second))
+        let format = DateFormatter()
+        if second / 3600 >= 1{
+            format.dateFormat = "HH:mm:ss"
+        }
+        else{
+            format.dateFormat = "mm:ss"
+        }
+        return format.string(from: d)
     }
     
 }
 
 extension ShadowAudioPlayerView:VideoPlayerDelegate{
     func readyToPlay(assetDuration: Double) {
-        lblPlayTime.text = "00:00:00"
+        
         self.audioDuration = assetDuration
-        lblTotalTime.text = convertDurationToTime(duration: Int(self.audioDuration))
+        lblTotalTime.text = convertTime(second: Float(self.audioDuration))
     }
     
     func downloadedProgress(progress: Double) {
-        print(progress)
+        sliderBuffer.value = Float(progress)
     }
     
     func didUpdateProgress(progress: Double) {
-        
+        slider.value = Float(progress)
+        playTime += 1
+        lblPlayTime.text = convertTime(second: Float(playTime))
     }
     
     func didFinishPlayItem() {
-        
+        btnPlay.isSelected = false
+        slider.value = 0
+        playTime = 0
+        lblPlayTime.text = "00:00"
     }
     
     func didFailPlayToEnd() {

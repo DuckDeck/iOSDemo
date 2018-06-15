@@ -165,6 +165,9 @@ class ShadowAudioPlayer: NSObject{
     private func playerDidChangeTime(time:CMTime) {
         if let player = assetPlayer {
             let timeNow = CMTimeGetSeconds(player.currentTime())
+            if timeNow == 0{
+                return
+            }
             let progress = timeNow / assetDuration
             
             delegate?.didUpdateProgress(progress: progress)

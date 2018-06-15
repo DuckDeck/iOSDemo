@@ -24,37 +24,24 @@ class MusicListViewController: UIViewController {
         view.backgroundColor = UIColor.white
         
        
-       audioPlayer = ShadowAudioPlayerView(frame: CGRect(x: 0, y: 80, w: ScreenWidth, h: 50), url: URL(string: url)!)
+       audioPlayer = ShadowAudioPlayerView(frame: CGRect(x: 10, y: 80, w: ScreenWidth-80, h: 50), url: URL(string: url)!)
        view.addSubview(audioPlayer)
-           img.image = UIImage().createRect(size: CGSize(width: 50, height: 80), color: UIColor.blue)
+       
+        
+        
+        img.image = UIImage().createRect(size: CGSize(width: 50, height: 80), color: UIColor.blue)
         view.addSubview(img)
         img.snp.makeConstraints { (m) in
             m.left.equalTo(30)
             m.top.equalTo(140)
-        }
+       }
         
-        let btn = UIButton().title(title: "测试").bgColor(color: UIColor.yellow).addTo(view: view)
-        btn.snp.makeConstraints { (m) in
-            m.right.equalTo(-20)
-            m.top.equalTo(100)
-            m.width.height.equalTo(60)
-        }
-        btn.addTarget(self, action: #selector(test), for: .touchUpInside)
         
-        let v = UIView().addTo(view: view)
-        v.isUserInteractionEnabled = true
-        v.alpha = 0
-        v.snp.makeConstraints { (m) in
-            m.edges.equalTo(0)
-        }
         
      
         
     }
-    
-    @objc func test()  {
-        print("test")
-    }
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
