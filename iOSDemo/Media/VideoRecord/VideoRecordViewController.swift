@@ -16,7 +16,7 @@ enum VideoRecordStatus {
 class VideoRecordViewController: UIViewController {
     
     var captureSessionCoordinator:CaptureSessionCoordinator!
-    let vRecordStatus = UIView()
+    let vRecordStatus = TouchView()
     let btnRecord = UIButton()
     let btnFlash = UIButton()
     let sliderProgress = UISlider()
@@ -81,7 +81,7 @@ class VideoRecordViewController: UIViewController {
                 btnDelete.isHidden = false
                 btnUpload.isHidden = false
                 vBlink.isHidden = true
-                lblTime.isHidden = true
+
             }
         }
     }
@@ -111,56 +111,9 @@ class VideoRecordViewController: UIViewController {
     
   
     func initView() {
-        vRecordStatus.addTo(view: view).snp.makeConstraints { (m) in
-            m.left.right.top.equalTo(0)
-            m.height.equalTo(100)
-        }
-        sliderProgress.setThumbImage(UIImage(), for: .normal)
-        sliderProgress.minimumTrackTintColor = UIColor(hexString: "#48FDFF")
-        sliderProgress.maximumTrackTintColor = UIColor(gray: 1, alpha: 0.5)
-        sliderProgress.maximumValue = 0
-        sliderProgress.maximumValue = 600
-        sliderProgress.isContinuous = true
-        sliderProgress.isUserInteractionEnabled = false
-        sliderProgress.isHidden = true
-        vRecordStatus.addSubview(sliderProgress)
-        sliderProgress.snp.makeConstraints { (m) in
-            m.left.right.equalTo(0)
-            m.top.equalTo(35)
-            m.height.equalTo(4)
-        }
+       
         
-        btnBack.setImage(#imageLiteral(resourceName: "public_btn_back_white_solid"), for: .normal)
-        btnBack.addTarget(self, action: #selector(back), for: .touchUpInside)
-        btnBack.addTo(view: vRecordStatus).snp.makeConstraints { (m) in
-            m.left.equalTo(15)
-            m.top.equalTo(45)
-        }
-        
-        btnFlash.addTarget(self, action: #selector(switchFlash), for: .touchUpInside)
-        btnFlash.setImage(#imageLiteral(resourceName: "btn_flash_on"), for: .selected)
-        btnFlash.setImage(#imageLiteral(resourceName: "btn_flash_off"), for: .normal)
-        btnFlash.addTo(view: vRecordStatus).snp.makeConstraints { (m) in
-            m.right.equalTo(-15)
-            m.centerY.equalTo(btnBack)
-        }
-        
-        
-        
-        lblTime.isHidden = true
-        lblTime.text(text: "00:00:00").color(color: UIColor.white).setFont(font: 18).addTo(view: vRecordStatus).snp.makeConstraints { (m) in
-            m.centerY.equalTo(btnBack)
-            m.centerX.equalTo(vRecordStatus)
-        }
-        
-        vBlink.isHidden = true
-        vBlink.bgColor(color: UIColor.red).cornerRadius(radius: 5).addTo(view: vRecordStatus).snp.makeConstraints { (m) in
-            m.centerY.equalTo(btnBack)
-            m.width.height.equalTo(10)
-            m.right.equalTo(lblTime.snp.left).offset(-5)
-        }
-        
-        vRecordControl.bgColor(color: UIColor(gray: 0.7, alpha: 0.7)).addTo(view: view).snp.makeConstraints { (m) in
+        vRecordControl.bgColor(color: UIColor(gray: 0.5, alpha: 0.3)).addTo(view: view).snp.makeConstraints { (m) in
             m.bottom.left.right.equalTo(0)
             m.height.equalTo(125)
         }
@@ -191,6 +144,59 @@ class VideoRecordViewController: UIViewController {
             m.centerY.equalTo(vRecordControl)
             m.right.equalTo(-37)
         }
+        
+        
+        vRecordStatus.addTo(view: view).snp.makeConstraints { (m) in
+            m.center.equalTo(view)
+            m.width.equalTo(ScreenWidth)
+            m.height.equalTo(ScreenHeight)
+        }
+        vRecordStatus.isUserInteractionEnabled = true
+        
+        sliderProgress.setThumbImage(UIImage(), for: .normal)
+        sliderProgress.minimumTrackTintColor = UIColor(hexString: "#48FDFF")
+        sliderProgress.maximumTrackTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
+        sliderProgress.maximumValue = 0
+        sliderProgress.maximumValue = 600
+        sliderProgress.isContinuous = true
+        sliderProgress.isUserInteractionEnabled = false
+        sliderProgress.isHidden = true
+        vRecordStatus.addSubview(sliderProgress)
+        sliderProgress.snp.makeConstraints { (m) in
+            m.left.right.equalTo(0)
+            m.top.equalTo(15)
+            m.height.equalTo(4)
+        }
+        
+        btnBack.setImage(#imageLiteral(resourceName: "public_btn_back_white_solid"), for: .normal)
+        btnBack.addTarget(self, action: #selector(back), for: .touchUpInside)
+        btnBack.addTo(view: vRecordStatus).snp.makeConstraints { (m) in
+            m.left.equalTo(20)
+            m.top.equalTo(25)
+        }
+        
+        btnFlash.addTarget(self, action: #selector(switchFlash), for: .touchUpInside)
+        btnFlash.setImage(#imageLiteral(resourceName: "btn_flash_on"), for: .selected)
+        btnFlash.setImage(#imageLiteral(resourceName: "btn_flash_off"), for: .normal)
+        btnFlash.addTo(view: vRecordStatus).snp.makeConstraints { (m) in
+            m.right.equalTo(-20)
+            m.centerY.equalTo(btnBack)
+        }
+        
+        
+        
+        lblTime.isHidden = true
+        lblTime.text(text: "00:00:00").color(color: UIColor.white).setFont(font: 18).addTo(view: vRecordStatus).snp.makeConstraints { (m) in
+            m.centerY.equalTo(btnBack)
+            m.centerX.equalTo(vRecordStatus)
+        }
+        
+        vBlink.isHidden = true
+        vBlink.bgColor(color: UIColor.red).cornerRadius(radius: 5).addTo(view: vRecordStatus).snp.makeConstraints { (m) in
+            m.centerY.equalTo(btnBack)
+            m.width.height.equalTo(10)
+            m.right.equalTo(lblTime.snp.left).offset(-5)
+        }
     }
     
 
@@ -203,6 +209,9 @@ class VideoRecordViewController: UIViewController {
         if motion.isDeviceMotionAvailable{
             motion.startDeviceMotionUpdates(to: OperationQueue.current!) {[weak self] (device, err) in
                 guard let d = device else{
+                    return
+                }
+                if fabs(d.gravity.z) > 0.5{
                     return
                 }
                 let x = d.gravity.x
@@ -228,21 +237,49 @@ class VideoRecordViewController: UIViewController {
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        motion.stopDeviceMotionUpdates()
+    }
+    
+    override var prefersStatusBarHidden: Bool{
+        return true
+    }
+    
     func updateDeviceOrientation()  {
         print(orientation)
         switch orientation {
-        case .landscapeLeft,.landscapeRight:
+        case .landscapeLeft:
             UIView.animate(withDuration: 0.2) {
+                
                 self.vRecordStatus.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
+                self.vRecordStatus.snp.updateConstraints({ (m) in
+                    m.width.equalTo(ScreenHeight)
+                    m.height.equalTo(ScreenWidth)
+                })
+                self.btnUpload.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
+                self.btnDelete.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
+                self.view.layoutIfNeeded()
             }
-        
+           
         case .portrait:  UIView.animate(withDuration: 0.2) {
-            self.vRecordStatus.transform = CGAffineTransform(rotationAngle: 0)
+            UIView.animate(withDuration: 0.2) {
+                self.vRecordStatus.transform = CGAffineTransform(rotationAngle: 0)
+                self.vRecordStatus.snp.updateConstraints({ (m) in
+                    m.width.equalTo(ScreenWidth)
+                    m.height.equalTo(ScreenHeight)
+                })
+                self.btnUpload.transform = CGAffineTransform(rotationAngle: 0)
+                self.btnDelete.transform = CGAffineTransform(rotationAngle: 0)
+                self.view.layoutIfNeeded()
+            }
         }
         default:
             break
         }
     }
+    
+    
     
     @objc func switchFlash()  {
         captureSessionCoordinator.setFlash(turn: !isFlashOn)
@@ -281,7 +318,6 @@ class VideoRecordViewController: UIViewController {
             }
             captureSessionCoordinator.stopRecording()
             isRecording = false
-            recordStatus = .Finish
             timer.pause()
         }
         else{
@@ -292,6 +328,7 @@ class VideoRecordViewController: UIViewController {
             timer.fire()
         }
     }
+    
     
     @objc func deleteRecord() {
         if !btnDelete.isSelected{
@@ -308,7 +345,6 @@ class VideoRecordViewController: UIViewController {
  
     
     @objc func recordVideo()  {
-       
         if isRecording{
             captureSessionCoordinator.stopRecording()
             isRecording = false
@@ -349,5 +385,16 @@ extension VideoRecordViewController:CaptureSessionCoordinatorDelegate{
         btnRecord.isSelected = false
         isRecording = false
         tmpVideoFile = outputFileUrl
+    }
+}
+
+class TouchView: UIView {
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        for subview in subviews {
+            if !subview.isHidden && subview.isUserInteractionEnabled && subview.point(inside: convert(point, to: subview), with: event) {
+                return true
+            }
+        }
+        return false
     }
 }

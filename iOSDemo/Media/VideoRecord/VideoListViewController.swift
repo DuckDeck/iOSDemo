@@ -80,6 +80,13 @@ class VideoListViewController: UIViewController {
             return
         }
         
+        
+        let vc = VideoRecordViewController()
+        vc.uploadVideoBlock = {(url:URL) in
+            let m = VideoModel(url: url, coverImg: Tool.thumbnailImageForVideo(url: url), fileName: url.lastPathComponent)
+            self.arrFile.insert(m, at: 0)
+            self.vc.reloadData()
+        }
         present(VideoRecordViewController(), animated: true) {
             print("123")
         }
@@ -97,6 +104,14 @@ extension VideoListViewController:UICollectionViewDelegate,UICollectionViewDataS
         cell.img.image = UIImage(named: "10")
         cell.lblTitle.text = "Look"
         cell.model = arrFile[indexPath.row]
+        cell.addLongPressGesture { (press) in
+            UIAlertController.title(title: "你要删除该视频吗", message: "删除").action(title: "Cancel", handle: nil).action(title: "Confirm", handle: { (alert) in
+                let file = self.arrFile.remove(at: indexPath.row)
+                try? FileManager.default.removeItem(at: file.url)
+                self.vc.reloadData()
+            }).show()
+            
+        }
         return cell
     }
     

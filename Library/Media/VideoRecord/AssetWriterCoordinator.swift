@@ -17,13 +17,13 @@ enum WriterStatus:Int{
     Finished,
     Failed
 }
-protocol AssetWriterCoordinatorDelegate {
+protocol AssetWriterCoordinatorDelegate :class {
     func writerCoordinatorDidFinishPreparing(coordinator:AssetWriterCoordinator)
     func writerCoordinator(coordinator:AssetWriterCoordinator,error:Error?)
     func writerCoordinatorDidFinishRecording(coordinator:AssetWriterCoordinator)
 }
 class AssetWriterCoordinator{
-    var delegate:AssetWriterCoordinatorDelegate?
+    weak var delegate:AssetWriterCoordinatorDelegate?
     var status = WriterStatus.Idle
     var writingQueue:DispatchQueue!
     var delegateCallbackQueue:DispatchQueue!

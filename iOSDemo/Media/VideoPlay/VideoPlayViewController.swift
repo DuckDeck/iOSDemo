@@ -21,6 +21,11 @@ class VideoPlayViewController: BaseViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         navigationItem.title = "视频信息"
+        btnClose.title(title: "关闭").color(color: UIColor.darkGray).addTo(view: view).snp.makeConstraints { (m) in
+            m.centerX.equalTo(ScreenWidth * 0.2)
+            m.bottom.equalTo(-10)
+        }
+        btnClose.addTarget(self, action: #selector(closePage), for: .touchUpInside)
         if url == nil{
             Toast.showToast(msg: "没有url")
             return
@@ -39,42 +44,38 @@ class VideoPlayViewController: BaseViewController {
         
         dictDes["扩展名"] = url.pathExtension
         
-        guard let a = assert.tracks.first?.formatDescriptions.first else{
-            return
+        if let a = assert.tracks.first?.formatDescriptions.first {
+            let format = a as! CMFormatDescription
+            
+            let type = CMFormatDescriptionGetMediaType(format)
+            if type == kCMMediaType_Video{
+                dictDes["类型"] = "视频"
+                guard let track = assert.tracks(withMediaType: .video).first else{
+                    return
+                }
+                
+                let res = track.naturalSize
+                dictDes["分辨率"] = "\(res.width) * \(res.height)"
+                dictDes["时长"] = "\(track.timeRange.duration.seconds)秒"
+                dictDes["帧率"] = "\(track.nominalFrameRate)帧每秒"
+                dictDes["码率"] = "\(track.estimatedDataRate / 8000000) M每秒"
+                
+            }
+            else if type == kCMMediaType_Audio{
+                dictDes["类型"] = "音频"
+                guard let track = assert.tracks(withMediaType: .audio).first else{
+                    return
+                }
+                dictDes["时长"] = "\(track.timeRange.duration.seconds)秒"
+                dictDes["帧率"] = "\(track.nominalFrameRate)帧每秒"
+                dictDes["码率"] = "\(track.estimatedDataRate / 8000000) M每秒"
+            }
         }
         
-        let format = a as! CMFormatDescription
-        
-        let type = CMFormatDescriptionGetMediaType(format)
-        if type == kCMMediaType_Video{
-            dictDes["类型"] = "视频"
-            guard let track = assert.tracks(withMediaType: .video).first else{
-                return
-            }
-            
-            let res = track.naturalSize
-            dictDes["分辨率"] = "\(res.width) * \(res.height)"
-            dictDes["时长"] = "\(track.timeRange.duration.seconds)秒"
-            dictDes["帧率"] = "\(track.nominalFrameRate)帧每秒"
-            dictDes["码率"] = "\(track.estimatedDataRate / 8000000) M每秒"
-            
-        }
-        else if type == kCMMediaType_Audio{
-            dictDes["类型"] = "音频"
-            guard let track = assert.tracks(withMediaType: .audio).first else{
-                return
-            }
-            dictDes["时长"] = "\(track.timeRange.duration.seconds)秒"
-            dictDes["帧率"] = "\(track.nominalFrameRate)帧每秒"
-            dictDes["码率"] = "\(track.estimatedDataRate / 8000000) M每秒"
-        }
+       
     
  
-        btnClose.title(title: "关闭").color(color: UIColor.darkGray).addTo(view: view).snp.makeConstraints { (m) in
-            m.centerX.equalTo(ScreenWidth * 0.2)
-            m.bottom.equalTo(-10)
-        }
-        btnClose.addTarget(self, action: #selector(closePage), for: .touchUpInside)
+       
         
         var tmp:UIView! = nil
         
@@ -121,7 +122,7 @@ class VideoPlayViewController: BaseViewController {
 
     
     @objc func closePage() {
-        shadowPlayer.stop()
+        shadowPlayer?.stop()
         dismiss(animated: true, completion: nil)
     }
     
@@ -130,7 +131,7 @@ class VideoPlayViewController: BaseViewController {
     }
     
     @objc func compress() {
-        shadowPlayer.stop()
+        shadowPlayer?.stop()
         let newFileName = url.absoluteString.split(".").first! + "compress.mp4"
         Toast.showLoading()
         compressVideo(inputUrl: url, outputUrl: URL(string: newFileName)!) { (export) in

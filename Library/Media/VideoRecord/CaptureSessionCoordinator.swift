@@ -8,7 +8,7 @@
 
 import Foundation
 import AVFoundation
-protocol CaptureSessionCoordinatorDelegate {
+protocol CaptureSessionCoordinatorDelegate :class{
     func coordinatorDidBeginRecording(coordinator:CaptureSessionCoordinator)->Void
     func coordinator(coordinator:CaptureSessionCoordinator,outputFileUrl:URL,error:Error?)->Void
 }
@@ -18,7 +18,7 @@ class CaptureSessionCoordinator:NSObject {
     var captureSession:AVCaptureSession!
     var cameraDevice:AVCaptureDevice!
     var delegateCallbackQueue:DispatchQueue!
-    var delegate:CaptureSessionCoordinatorDelegate?
+    weak var delegate:CaptureSessionCoordinatorDelegate?
     var sessionQueue:DispatchQueue!
     var _previewLayer:AVCaptureVideoPreviewLayer?
     var isFlashingOn = false

@@ -33,10 +33,28 @@ class MusicListViewController: UIViewController {
             m.top.equalTo(140)
         }
         
+        let btn = UIButton().title(title: "测试").bgColor(color: UIColor.yellow).addTo(view: view)
+        btn.snp.makeConstraints { (m) in
+            m.right.equalTo(-20)
+            m.top.equalTo(100)
+            m.width.height.equalTo(60)
+        }
+        btn.addTarget(self, action: #selector(test), for: .touchUpInside)
+        
+        let v = UIView().addTo(view: view)
+        v.isUserInteractionEnabled = true
+        v.alpha = 0
+        v.snp.makeConstraints { (m) in
+            m.edges.equalTo(0)
+        }
+        
      
         
     }
     
+    @objc func test()  {
+        print("test")
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
