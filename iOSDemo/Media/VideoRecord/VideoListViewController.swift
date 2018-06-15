@@ -56,6 +56,7 @@ class VideoListViewController: UIViewController {
         let url = URL(string: "http://download.3g.joy.cn/video/236/60236937/1451280942752_hd.mp4")
         let vc = ShadowPlayerViewController()
         vc.url = url
+        
         present(vc, animated: true, completion: nil)
     }
     
@@ -103,6 +104,7 @@ extension VideoListViewController:UICollectionViewDelegate,UICollectionViewDataS
         let url = arrFile[indexPath.row].url
         let vc = VideoPlayViewController()
         vc.url = url!
+        
         //搞一个错误的视频
 //        let str = url!.absoluteString.replacingOccurrencesOfString(".", withString: "_")
 //        let newUrl = URL(string: str)
