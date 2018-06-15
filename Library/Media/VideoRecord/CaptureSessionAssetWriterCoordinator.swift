@@ -194,10 +194,8 @@ extension CaptureSessionAssetWriterCoordinator:AVCaptureVideoDataOutputSampleBuf
         }
         else if connection == audioConnection{
             outputAudioFormatDescription = formatDescription
-             print("4")
             objc_sync_enter(self)
             if recordingStatus == .Recoding{
-                 print("5")
                 assetWriterCoordinator.appendAudioSampleBuffer(sampleBuffer:  sampleBuffer)
             }
             objc_sync_exit(self)

@@ -8,6 +8,7 @@
 
 import UIKit
 import GrandTime
+import CoreMotion
 enum VideoRecordStatus {
     case Prepared,Recording,Finish
 }
@@ -15,6 +16,7 @@ enum VideoRecordStatus {
 class VideoRecordViewController: UIViewController {
     
     var captureSessionCoordinator:CaptureSessionCoordinator!
+    let vRecordStatus = UIView()
     let btnRecord = UIButton()
     let btnFlash = UIButton()
     let sliderProgress = UISlider()
@@ -32,6 +34,19 @@ class VideoRecordViewController: UIViewController {
     var isFlashOn = false
     var uploadVideoBlock:((_ url:URL)->Void)?
     var oldConstriants:[NSLayoutConstraint]!
+    var motion:CMMotionManager!
+    var orientation : UIDeviceOrientation{
+        set{
+            if _orientation != newValue{
+                _orientation = newValue
+                updateDeviceOrientation()
+            }
+        }
+        get{
+            return  _orientation
+        }
+    }
+    var _orientation = UIDeviceOrientation.portrait
     var recordStatus = VideoRecordStatus.Prepared
     {
         didSet{
@@ -74,6 +89,7 @@ class VideoRecordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
+        
        timer = GrandTimer.scheduleTimerWithTimeSpan(TimeSpan.fromTicks(300), target: self, sel: #selector(tick), userInfo: nil, repeats: true,dispatchQueue: DispatchQueue.main)
         let url = CVFileManager.tempFileURL(extensionName: "mov")
         captureSessionCoordinator = CaptureSessionAssetWriterCoordinator(filePath: url.path)
@@ -86,13 +102,19 @@ class VideoRecordViewController: UIViewController {
         previewLayer.frame = view.bounds
         view.layer.insertSublayer(previewLayer, at: 0)
         captureSessionCoordinator.startRunning()
-        
-       NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange(notif:)), name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
+         startMotion()
     }
     
+    override var shouldAutorotate: Bool{
+        return false //在没有用屏幕关闭旋转 获取手机方向，用一般的方法是不行的
+    }
     
   
     func initView() {
+        vRecordStatus.addTo(view: view).snp.makeConstraints { (m) in
+            m.left.right.top.equalTo(0)
+            m.height.equalTo(100)
+        }
         sliderProgress.setThumbImage(UIImage(), for: .normal)
         sliderProgress.minimumTrackTintColor = UIColor(hexString: "#48FDFF")
         sliderProgress.maximumTrackTintColor = UIColor(gray: 1, alpha: 0.5)
@@ -101,7 +123,7 @@ class VideoRecordViewController: UIViewController {
         sliderProgress.isContinuous = true
         sliderProgress.isUserInteractionEnabled = false
         sliderProgress.isHidden = true
-        view.addSubview(sliderProgress)
+        vRecordStatus.addSubview(sliderProgress)
         sliderProgress.snp.makeConstraints { (m) in
             m.left.right.equalTo(0)
             m.top.equalTo(35)
@@ -110,7 +132,7 @@ class VideoRecordViewController: UIViewController {
         
         btnBack.setImage(#imageLiteral(resourceName: "public_btn_back_white_solid"), for: .normal)
         btnBack.addTarget(self, action: #selector(back), for: .touchUpInside)
-        btnBack.addTo(view: view).snp.makeConstraints { (m) in
+        btnBack.addTo(view: vRecordStatus).snp.makeConstraints { (m) in
             m.left.equalTo(15)
             m.top.equalTo(45)
         }
@@ -118,22 +140,24 @@ class VideoRecordViewController: UIViewController {
         btnFlash.addTarget(self, action: #selector(switchFlash), for: .touchUpInside)
         btnFlash.setImage(#imageLiteral(resourceName: "btn_flash_on"), for: .selected)
         btnFlash.setImage(#imageLiteral(resourceName: "btn_flash_off"), for: .normal)
-        btnFlash.addTo(view: view).snp.makeConstraints { (m) in
+        btnFlash.addTo(view: vRecordStatus).snp.makeConstraints { (m) in
             m.right.equalTo(-15)
             m.centerY.equalTo(btnBack)
         }
         
-        vBlink.isHidden = true
-        vBlink.bgColor(color: UIColor.red).cornerRadius(radius: 5).addTo(view: view).snp.makeConstraints { (m) in
-            m.centerY.equalTo(btnBack)
-            m.width.height.equalTo(10)
-            m.left.equalTo(ScreenWidth / 2 - 40)
-        }
+        
         
         lblTime.isHidden = true
-        lblTime.text(text: "00:00:00").color(color: UIColor.white).setFont(font: 18).addTo(view: view).snp.makeConstraints { (m) in
+        lblTime.text(text: "00:00:00").color(color: UIColor.white).setFont(font: 18).addTo(view: vRecordStatus).snp.makeConstraints { (m) in
             m.centerY.equalTo(btnBack)
-            m.left.equalTo(vBlink.snp.right).offset(5)
+            m.centerX.equalTo(vRecordStatus)
+        }
+        
+        vBlink.isHidden = true
+        vBlink.bgColor(color: UIColor.red).cornerRadius(radius: 5).addTo(view: vRecordStatus).snp.makeConstraints { (m) in
+            m.centerY.equalTo(btnBack)
+            m.width.height.equalTo(10)
+            m.right.equalTo(lblTime.snp.left).offset(-5)
         }
         
         vRecordControl.bgColor(color: UIColor(gray: 0.7, alpha: 0.7)).addTo(view: view).snp.makeConstraints { (m) in
@@ -169,27 +193,53 @@ class VideoRecordViewController: UIViewController {
         }
     }
     
-    @objc func deviceOrientationDidChange(notif:Notification){
-        let _interfaceOrientation = UIApplication.shared.statusBarOrientation
-        switch _interfaceOrientation {
+
+    
+    func startMotion() {
+        if motion == nil{
+            motion = CMMotionManager()
+        }
+        motion.deviceMotionUpdateInterval = 1 / 15.0
+        if motion.isDeviceMotionAvailable{
+            motion.startDeviceMotionUpdates(to: OperationQueue.current!) {[weak self] (device, err) in
+                guard let d = device else{
+                    return
+                }
+                let x = d.gravity.x
+                let y = d.gravity.y
+                print("the z is \(d.gravity.z)")
+                if fabs(y) >= fabs(x){
+                    if y > 0{
+                        self?.orientation = .portraitUpsideDown
+                    }
+                    else{
+                        self?.orientation = .portrait
+                    }
+                }
+                else{
+                    if x > 0{
+                         self?.orientation = .landscapeRight
+                    }
+                    else{
+                         self?.orientation = .landscapeLeft
+                    }
+                }
+            }
+        }
+    }
+    
+    func updateDeviceOrientation()  {
+        print(orientation)
+        switch orientation {
         case .landscapeLeft,.landscapeRight:
-            if let previewLayer = view.layer.sublayers?.first{
-                previewLayer.frame = CGRect(x: 0, y: 0, w: view.bounds.height, h: view.bounds.width)
+            UIView.animate(withDuration: 0.2) {
+                self.vRecordStatus.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
             }
-            if oldConstriants == nil{
-                oldConstriants = view.constraints
-            }
-           
-            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions.transitionCurlUp, animations: {
-               
-             
-            }, completion: nil)
-        case .portraitUpsideDown,.portrait:
-            UIView.animateKeyframes(withDuration: 0.2, delay: 0, options: UIViewKeyframeAnimationOptions.calculationModeLinear, animations: {
-             
-            }, completion: nil)
-        case .unknown:
-            print("UIInterfaceOrientationUnknown")
+        
+        case .portrait:  UIView.animate(withDuration: 0.2) {
+            self.vRecordStatus.transform = CGAffineTransform(rotationAngle: 0)
+        }
+        default:
             break
         }
     }
@@ -300,6 +350,4 @@ extension VideoRecordViewController:CaptureSessionCoordinatorDelegate{
         isRecording = false
         tmpVideoFile = outputFileUrl
     }
-    
-    
 }
