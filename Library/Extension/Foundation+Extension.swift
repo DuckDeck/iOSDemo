@@ -358,5 +358,17 @@ extension URL{
         return 0
     }
 
+    var directory:URL? {
+        get{
+            if self.isFileURL{
+                if self.lastPathComponent.count > 0{
+                    var str = self.path
+                    str.removeLast(self.lastPathComponent.count)
+                    return URL(fileURLWithPath: str)
+                }
+            }
+            return nil
+        }
+    }
 }
 

@@ -282,7 +282,7 @@ class AudioFileCell: UITableViewCell {
     let btnDelete = UIButton()
     let btnConvertMp3 = UIButton()
     var block:((_ action:Int,_ url:URL)->Void)?
-    var progressBar = UISlider()
+    var progressBar = BarSlider()
     var totalTime = 0
     var url:URL?{
         didSet{
@@ -363,6 +363,7 @@ class AudioFileCell: UITableViewCell {
         addSubview(progressBar)
         progressBar.snp.makeConstraints { (m) in
             m.centerY.equalTo(lblPlayTime)
+            m.height.equalTo(4)
             m.left.equalTo(lblPlayTime.snp.right).offset(5)
             m.right.equalTo(lblAudioLength.snp.left).offset(-5)
         }

@@ -387,7 +387,7 @@ class ShadowPlayer: UIView {
     }
     
     func addNotificationCenter()  {
-        NotificationCenter.default.addObserver(self, selector: #selector(ShadowPlayerItemDidPlayToEndTimeNotification(notif:)), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: player.currentTime())
+        NotificationCenter.default.addObserver(self, selector: #selector(ShadowPlayerItemDidPlayToEndTimeNotification(notif:)), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: player.currentItem)
         NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange(notif:)), name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive(notif:)), name: Notification.Name.UIApplicationWillResignActive, object: nil)
     }
@@ -558,8 +558,7 @@ extension ShadowPlayer{
         setSubViewsIsHide(isHide: false)
         ShadowPlayer.count = 0
         pause()
-        vPlay.btnImage.isSelected = true
-        
+        vPlay.btnImage.isSelected = false
     }
     @objc func deviceOrientationDidChange(notif:Notification)  {
         if currentVC == nil{
