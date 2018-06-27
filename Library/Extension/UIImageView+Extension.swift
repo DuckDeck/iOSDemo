@@ -17,20 +17,22 @@ extension UIImageView{
         
         if url!.hasPrefix("http"){
             
-            // use kf is not the same
-            
-//            sd_setImage(with: URL(string:url!)!, placeholderImage: UIImage(named: placeHolder), options: SDWebImageOptions.avoidAutoSetImage) { (img, err, _, _) in
-//                if let i = img{
-//                    self.image = i
-//                    completed?(self.image!)
-//                }
-//            }
+          
+            let res = ImageResource(downloadURL: URL(string: url!)!)
+            let place = UIImage(named: placeHolder)
+            kf.setImage(with: res, placeholder: place, options: nil, progressBlock: nil) { (img, err, cacheType, url) in
+                if let i = img{
+                    completed?(i)
+                }
+            }
         }
         else{
             image = UIImage(named: url!)
         }
     }
 
+    
+    //Kingfisher 目前实现不了
     //    func setImageAnimation(url:String?)  {
     //        if(url==nil||url!.length==0){
     //            self.image = UIImage(named: "public_img_picture_not_exist")

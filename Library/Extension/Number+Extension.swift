@@ -113,6 +113,11 @@ extension Int{
         let delta = within.upperBound - within.lowerBound
         return within.lowerBound + Int(arc4random_uniform(UInt32(delta)))
     }
+    
+    func random()->Int  {
+        return numericCast(arc4random_uniform(numericCast(range.count)))
+            + range.lowerBound
+    }
 }
 
 extension Float{

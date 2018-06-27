@@ -82,9 +82,25 @@ class GridViewController: UIViewController {
     }
 
     @objc func add()  {
+        if 6.random() > 3{
+            addView()
+        }
+        else{
+            addImg()
+        }
+    }
+    
+    func addView() {
         print(viewDemo.frame)
         let subview = UIView()
         subview.backgroundColor = UIColor.random
+        arr.append(subview)
+        viewContainer.arrViews = arr
+    }
+    
+    func addImg()  {
+        let subview = UIImageView()
+        subview.setImg(url: "http://d.5857.com/snhbqx_170628/001.jpg", completed: nil)
         arr.append(subview)
         viewContainer.arrViews = arr
     }
