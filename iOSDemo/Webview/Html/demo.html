@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>iOS and Js</title>
+        <style type="text/css">
+            * {
+                font-size: 40px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        
+        <div style="margin-top: 100px">
+            <h1 style="color: red;">教你如何用H5与Swift进行交互,并且把H5输入的内容显示到当前的控制器上</h1><br/>
+            <div>Javascript->Native</div>
+            <div><input type="button" value="弹出Alert" onclick="showAlert()">点击后Native响应弹窗</div>
+            <br/>
+            <div><input type="button"  value="分享" onclick="share()">点击分享,Native响应</div>
+            <br/>
+            <div><input type="button"  value="newGInfoFromNative" onclick="newGetInfoFromNative()"></div>
+            <br/>
+            <div><input type="button" value="cleanAllCallBacks" onclick="cleanAllCallBacks()"></div>
+            <br/>
+            <div><input type="button" value="点击触发JS方法(callJsConfirm)" onclick="callJsConfirm()"></div><br/>
+        </div>
+        <br/>
+        <div>
+            <div><input type="button" value="点击触发JS输入方法(callJsInput) " onclick="callJsInput()"></div><br/>
+        </div>
+        
+        <br/>
+        <div id="SwiftDiv">
+            <span id="jsParamFuncSpan" style="color: red; font-size: 50px;"></span>
+        </div>
+        
+        <script type="text/javascript">
+            function showAlert() {
+                alert("我就弹个窗")
+            }
+        
+        function share(){
+            var param = {
+                title:"分享",
+                message: "分享到QQ",
+            };
+            console.log("share")
+            window.webkit.messageHandlers.mobile.postMessage(param);
+        }
+        
+        function newGetInfoFromNative(){
+            var params = {'name':'我是jack！！！'};
+            JKEventHandler.newCallNativeFunction('newGetInfoFromNative',params,'newGetInfoFromNativeFunction',function(data){
+                                                 alert(data);
+                                                 },
+                                                 function(data){
+                                                 alert(data);
+                                                 });
+        }
+        
+        function callJsConfirm() {
+            if (confirm('confirm', 'Objective-C call js to show confirm')) {
+                document.getElementById('jsParamFuncSpan').innerHTML
+                = 'true';
+            } else {
+                document.getElementById('jsParamFuncSpan').innerHTML
+                = 'false';
+            }
+            
+        }
+        
+        function callJsInput() {
+            var response = prompt('Hello', '请输入你的名字:');
+            document.getElementById('jsParamFuncSpan').innerHTML = response;
+            alert (response);
+            
+        }
+        
+        function cleanAllCallBacks(){
+            
+            JKEventHandler.removeAllCallBacks();
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            </script>
+    </body>
+</html>

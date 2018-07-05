@@ -169,6 +169,9 @@
 		AE5AD7EE206111D600289798 /* RippleAnimtaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5AD7ED206111D600289798 /* RippleAnimtaionView.swift */; };
 		AE5CE7DB208B133C001DB437 /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CE7DA208B133C001DB437 /* RecordListViewController.swift */; };
 		AE5CE7DD208B2DBD001DB437 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CE7DC208B2DBD001DB437 /* UITableView+Extension.swift */; };
+		AE6691B320EDF39F00D019D4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6691B220EDF39F00D019D4 /* WebViewController.swift */; };
+		AE6691B620EDF3C100D019D4 /* HandleJSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6691B520EDF3C100D019D4 /* HandleJSViewController.swift */; };
+		AE6691B920EDF4C100D019D4 /* demo.html in Resources */ = {isa = PBXBuildFile; fileRef = AE6691B820EDF4C100D019D4 /* demo.html */; };
 		AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */; };
 		AE7278A9207F5A28005D9D6D /* SoundRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7278A8207F5A28005D9D6D /* SoundRecordViewController.swift */; };
 		AE7BBCE4207B498B005DBE0C /* WatermarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BBCE3207B498B005DBE0C /* WatermarkViewController.swift */; };
@@ -430,6 +433,9 @@
 		AE5AD7ED206111D600289798 /* RippleAnimtaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleAnimtaionView.swift; sourceTree = "<group>"; };
 		AE5CE7DA208B133C001DB437 /* RecordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewController.swift; sourceTree = "<group>"; };
 		AE5CE7DC208B2DBD001DB437 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		AE6691B220EDF39F00D019D4 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		AE6691B520EDF3C100D019D4 /* HandleJSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleJSViewController.swift; sourceTree = "<group>"; };
+		AE6691B820EDF4C100D019D4 /* demo.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = demo.html; sourceTree = "<group>"; };
 		AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterViewController.swift; sourceTree = "<group>"; };
 		AE7278A8207F5A28005D9D6D /* SoundRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRecordViewController.swift; sourceTree = "<group>"; };
 		AE7BBCE3207B498B005DBE0C /* WatermarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkViewController.swift; sourceTree = "<group>"; };
@@ -1123,6 +1129,32 @@
 			path = Ripple;
 			sourceTree = "<group>";
 		};
+		AE6691B120EDF37D00D019D4 /* Webview */ = {
+			isa = PBXGroup;
+			children = (
+				AE6691B720EDF4AA00D019D4 /* Html */,
+				AE6691B420EDF3B500D019D4 /* HandleJS */,
+				AE6691B220EDF39F00D019D4 /* WebViewController.swift */,
+			);
+			path = Webview;
+			sourceTree = "<group>";
+		};
+		AE6691B420EDF3B500D019D4 /* HandleJS */ = {
+			isa = PBXGroup;
+			children = (
+				AE6691B520EDF3C100D019D4 /* HandleJSViewController.swift */,
+			);
+			path = HandleJS;
+			sourceTree = "<group>";
+		};
+		AE6691B720EDF4AA00D019D4 /* Html */ = {
+			isa = PBXGroup;
+			children = (
+				AE6691B820EDF4C100D019D4 /* demo.html */,
+			);
+			path = Html;
+			sourceTree = "<group>";
+		};
 		AE67CDF51FC2B79100AE4CD6 /* Emitter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1237,6 +1269,7 @@
 		AE9F31D41F69070E00339BB8 /* iOSDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AE6691B120EDF37D00D019D4 /* Webview */,
 				AE1DE01A2099ACA9007910A5 /* Project */,
 				AEF097822065F6D60021E4ED /* Data */,
 				AE77BFDE2046AB1100E2304F /* Keyboard */,
@@ -1702,6 +1735,7 @@
 				AE1DE0862099BE0A007910A5 /* start_down.png in Resources */,
 				AE9F31DD1F69070E00339BB8 /* Assets.xcassets in Resources */,
 				AE1DE0842099BE0A007910A5 /* p_11.png in Resources */,
+				AE6691B920EDF4C100D019D4 /* demo.html in Resources */,
 				AE1DE0942099BE0A007910A5 /* dis.wav in Resources */,
 				AEF4A4601F6FCAF800EE4001 /* novel1.gif in Resources */,
 				AE1DE07F2099BE0A007910A5 /* p_18.png in Resources */,
@@ -1974,6 +2008,7 @@
 				AE5A88851FF49CD300748F6A /* 3DViewController.swift in Sources */,
 				AE5A88811FF39C5800748F6A /* LayerViewController.swift in Sources */,
 				AE0F706A1FBD6F2B00C8135C /* NFXLoader.m in Sources */,
+				AE6691B620EDF3C100D019D4 /* HandleJSViewController.swift in Sources */,
 				AE9F328E1F690FD200339BB8 /* UIView+Base.swift in Sources */,
 				AEA07EFF1F70C7B900FC9770 /* MemeryViewController.swift in Sources */,
 				AE0F706E1FBD6F2B00C8135C /* NFXStatisticsController.swift in Sources */,
@@ -2004,6 +2039,7 @@
 				AE3F46EC20AC0290007BA637 /* HintView.swift in Sources */,
 				AE1DE0432099AD32007910A5 /* NovelContentViewModel.swift in Sources */,
 				AE3F46F420AC0B2B007BA637 /* UIImageView+Extension.swift in Sources */,
+				AE6691B320EDF39F00D019D4 /* WebViewController.swift in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
 				AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */,
 				AEBE404E1FC806E40087D7ED /* DBTool.swift in Sources */,

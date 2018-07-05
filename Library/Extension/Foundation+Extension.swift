@@ -151,11 +151,10 @@ extension Array{
                 index.append(i)
             }
         }
-        self.removeAdIndexs(indexs: index)
+        self.removeAtIndexs(indexs: index)
     }
 
-    
-    
+   
     mutating func exchangeObjectAdIndex(IndexA:Int,atIndexB:Int)
     {
         if IndexA >= self.count || IndexA < 0{
@@ -186,7 +185,7 @@ extension Array{
     }
     
     
-    mutating func removeAdIndexs(indexs:[Int])  {
+    mutating func removeAtIndexs(indexs:[Int])  {
         if indexs.count <= 0{
             return
         }

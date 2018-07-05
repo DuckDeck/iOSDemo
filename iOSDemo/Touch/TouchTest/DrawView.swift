@@ -214,7 +214,7 @@ class DrawView: UIView {
                         
                     }
                 }
-                arrLines?.removeAdIndexs(indexs: index)
+                arrLines?.removeAtIndexs(indexs: index)
                 if !Settings.needKeepTrace.Value!
                 {
                     arrTraces?.removeAll(keepingCapacity: false)
@@ -233,7 +233,7 @@ class DrawView: UIView {
         super.touchesCancelled(touches, with: event)
         //先移除十字线
         for touchPoint in touches
-        {
+        { 
           
             let point = touchPoint.location(in: self)
             //怎么找到上一个Point
@@ -249,7 +249,7 @@ class DrawView: UIView {
                     index.append(j)
                 }
             }
-            arrLines?.removeAdIndexs(indexs: index)
+            arrLines?.removeAtIndexs(indexs: index)
             if !Settings.needKeepTrace.Value!
             {
                 arrTraces?.removeAll(keepingCapacity: false)
