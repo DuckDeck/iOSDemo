@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 class ViewController: UIViewController {
-    var arrData = ["Memery","Media","Animation&Graphic","Layout","AI","Network","Touch","Library","Sensor","Rumtime","Keyboard","Data","Webview","Project"]
+    var arrData = ["Memery","Media","Animation&Graphic","Layout","AI","Network","Touch","Library","Sensor","Rumtime","Keyboard","Data","Webview","Project","Open OtherApp"]
     var tbMenu = UITableView()
     
     
@@ -72,6 +72,9 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
             navigationController?.pushViewController(WebViewController(), animated: true)
         case 13:
             navigationController?.pushViewController(ProjectViewController(), animated: true)
+        case 14:
+            let url = URL(string: "yihui://")
+            UIApplication.shared.openURL(url!)
         default:
             break
         }

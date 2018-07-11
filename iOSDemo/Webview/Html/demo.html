@@ -19,7 +19,7 @@
             <br/>
             <div><input type="button"  value="分享" onclick="share()">点击分享,Native响应</div>
             <br/>
-            <div><input type="button"  value="newGInfoFromNative" onclick="newGetInfoFromNative()"></div>
+            <div><input type="button"  value="打开相册" onclick="openAlbum()"></div>
             <br/>
             <div><input type="button" value="cleanAllCallBacks" onclick="cleanAllCallBacks()"></div>
             <br/>
@@ -31,11 +31,21 @@
         </div>
         
         <br/>
+        <div>Native->Javascript</div>
         <div id="SwiftDiv">
-            <span id="jsParamFuncSpan" style="color: red; font-size: 50px;"></span>
+            <span id="runjs" style="color: red; font-size: 50px;"></span>
         </div>
         
+        <br/>
+       
+        <div></div>
+        
+        
         <script type="text/javascript">
+            
+            
+            
+            
             function showAlert() {
                 alert("我就弹个窗")
             }
@@ -49,14 +59,8 @@
             window.webkit.messageHandlers.mobile.postMessage(param);
         }
         
-        function newGetInfoFromNative(){
-            var params = {'name':'我是jack！！！'};
-            JKEventHandler.newCallNativeFunction('newGetInfoFromNative',params,'newGetInfoFromNativeFunction',function(data){
-                                                 alert(data);
-                                                 },
-                                                 function(data){
-                                                 alert(data);
-                                                 });
+        function openAlbum(){
+           
         }
         
         function callJsConfirm() {
@@ -84,13 +88,11 @@
         }
         
         
-        
-        
-        
-        
-        
-        
-        
+        function passAnArray(para){
+            alert("passAnArray方法跑起来了" + para)
+            document.getElementById("runjs").innerHTML = para
+            return "返回数据测试"
+        }
         
         
         

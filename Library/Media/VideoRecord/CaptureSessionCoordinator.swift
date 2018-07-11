@@ -28,6 +28,12 @@ class CaptureSessionCoordinator:NSObject {
         captureSession = setupCaptureSession()
     }
     
+    var isRunning:Bool{
+        get{
+            return captureSession.isRunning
+        }
+    }
+    
     func setFlash(turn:Bool)  {
         isFlashingOn = !isFlashingOn
         do{

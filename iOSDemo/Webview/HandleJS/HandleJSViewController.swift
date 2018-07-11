@@ -13,10 +13,15 @@ class HandleJSViewController: BaseViewController {
     var web:WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let btnRunjs = UIBarButtonItem(title: "RunJs", style: .plain, target: self, action: #selector(runJS))
+        navigationItem.rightBarButtonItem = btnRunjs
         let config = WKWebViewConfiguration()
         let hander = ScriptMessageHandler()
         hander.delegate = self
+        let param = [1,2,3,4,5]
+        let script = WKUserScript(source: "function callJs(){passAnArray(\(param));}", injectionTime: .atDocumentEnd, forMainFrameOnly: true)
         config.userContentController.add(hander, name: "mobile")
+        config.userContentController.addUserScript(script)
         let htmlUrl = Bundle.main.url(forResource: "demo", withExtension: "html")
         let str = try! String.init(contentsOf: htmlUrl!)
         web = WKWebView(frame: CGRect(), configuration: config)
@@ -29,6 +34,13 @@ class HandleJSViewController: BaseViewController {
         // Do any additional setup after loading the view.
     }
 
+    @objc func runJS() {
+        let js = "callJs()"
+        web.evaluate(script: js) { (res, err) in
+            print(res)
+        }
+    }
+    
     deinit {
         web.configuration.userContentController.removeScriptMessageHandler(forName: "mobile")
     }
@@ -65,6 +77,26 @@ extension ScriptMessageHandler:WKScriptMessageHandler{
             target.userContentController(userContentController, didReceive: message)
         }
     }
-    
-    
+}
+
+
+extension WKWebView {
+    func evaluate(script: String, completion: @escaping (_ result: Any?, _ error: Error?) -> Void) {
+        var finished = false
+        
+        evaluateJavaScript(script) { (result, error) in
+            if error == nil {
+                if result != nil {
+                    completion(result, nil)
+                }
+            } else {
+                completion(nil, error)
+            }
+            finished = true
+        }
+        
+        while !finished {
+            RunLoop.current.run(mode: .defaultRunLoopMode, before: Date.distantFuture)
+        }
+    }
 }

@@ -145,6 +145,7 @@ class ShadowPlayer: UIView {
         vPlay.snp.makeConstraints { (m) in
             m.edges.equalTo(self)
         }
+        vPlay.isHidden = true
          //添加控制视图
         vControl.delegate = self
         vControl.backgroundColor = UIColor.clear
@@ -349,6 +350,7 @@ class ShadowPlayer: UIView {
             case .readyToPlay:
                 status = .ReadyToPlay
                 print("AVPlayerItemStatusReadyToPlay")
+                vPlay.isHidden = false
             case .failed:
                 status = .Failed
                 print("AVPlayerItemStatusFailed")
@@ -373,6 +375,7 @@ class ShadowPlayer: UIView {
         else if key == "playbackLikelyToKeepUp"{
             print("缓冲达到可播放")
             vActivity.stopAnimating()
+            vPlay.isHidden = false
         }
         else if key == "rate"{
             if change![NSKeyValueChangeKey.newKey] as! Int == 0{
