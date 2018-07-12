@@ -19,7 +19,7 @@ class ImageRecognitionViewController: UIViewController {
     let btnStart  = UIButton()
     let lblResult = UILabel()
     let lblProbably = UILabel()
-    let imagePickerController = ImagePickerController()
+    var imagePickerController:ImagePickerController!
   
     
     
@@ -67,6 +67,13 @@ class ImageRecognitionViewController: UIViewController {
         super.viewDidLoad()
        
         self.view.backgroundColor = UIColor.white
+       
+        
+        var configuration = Configuration()
+        configuration.doneButtonTitle = "Finish"
+        configuration.noImagesTitle = "Sorry! There are no images here!"
+        configuration.allowMultiplePhotoSelection = true
+        imagePickerController = ImagePickerController(configuration: configuration)
         imagePickerController.delegate = self
         imagePickerController.imageLimit = 1
        

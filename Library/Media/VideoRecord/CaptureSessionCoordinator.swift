@@ -159,7 +159,7 @@ class CaptureSessionCoordinator:NSObject {
     func stopRunning()  {
         sessionQueue.sync {
             self.stopRecording()
-            captureSession.startRunning()
+            captureSession.stopRunning()
         }
     }
     

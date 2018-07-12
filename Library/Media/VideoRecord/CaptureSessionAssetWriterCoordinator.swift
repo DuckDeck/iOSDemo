@@ -122,7 +122,7 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
                 }
             }
             else{
-                if oldStatus == .Recoding && newStatus == .Recoding{
+                if oldStatus == .StartingRecording && newStatus == .Recoding{
                     self.delegateCallbackQueue.async {
                         autoreleasepool(invoking: {
                             self.delegate?.coordinatorDidBeginRecording(coordinator: self)
