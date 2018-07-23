@@ -12,7 +12,8 @@ import Social
 let Share_Weixin = "com.tencent.xin.sharetimeline"
 class ShareViewController: BaseViewController {
     let btnOrigin = UIButton()
-    let btnSocial = UIButton()
+    let btnSocialSina = UIButton()
+    let btnSocialWebchat = UIButton()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -23,12 +24,19 @@ class ShareViewController: BaseViewController {
         
         btnOrigin.addTarget(self, action: #selector(originShare), for: .touchUpInside)
         
-        btnSocial.title(title: "使用Social Framework").color(color: UIColor.red).addTo(view: view).snp.makeConstraints { (m) in
+        btnSocialSina.title(title: "使用Social Framework 分享到 新浪").color(color: UIColor.red).addTo(view: view).snp.makeConstraints { (m) in
             m.centerX.equalTo(view)
             m.top.equalTo(btnOrigin).offset(50)
         }
         
-        btnSocial.addTarget(self, action: #selector(socialShare), for: .touchUpInside)
+        btnSocialSina.addTarget(self, action: #selector(shareToSina), for: .touchUpInside)
+        
+        btnSocialWebchat.title(title: "使用Social Framework 分享到 微信").color(color: UIColor.red).addTo(view: view).snp.makeConstraints { (m) in
+            m.centerX.equalTo(view)
+            m.top.equalTo(btnSocialSina).offset(50)
+        }
+        
+        btnSocialWebchat.addTarget(self, action: #selector(shareToWebchat), for: .touchUpInside)
         
         // Do any additional setup after loading the view.
     }
@@ -42,7 +50,7 @@ class ShareViewController: BaseViewController {
         present(vcActivity, animated: true, completion: nil)
     }
     
-    @objc func socialShare()  {
+    @objc func shareToSina()  {
         guard let vc = SLComposeViewController(forServiceType: SLServiceTypeSinaWeibo) else{
             print("没有安装新浪微博")
             return
@@ -64,9 +72,34 @@ class ShareViewController: BaseViewController {
                 Toast.showToast(msg: "你点了发送")
             }
         }
-        
- 
     }
+    
+    
+    @objc func shareToWebchat()  {
+        if !SLComposeViewController.isAvailable(forServiceType: Share_Weixin){
+            print("软件没有配置登录微信信息")
+            return
+        }
+        
+        guard let vc = SLComposeViewController(forServiceType: Share_Weixin) else{
+            return
+        }
+        //没有弹出分享出来就取消了
+        vc.setInitialText("这里要分享的内容")
+        vc.add(UIImage(named: "6")!)
+        vc.add(URL(string: "http://baidu.com")!)
+        present(vc, animated: true, completion: nil)
+        vc.completionHandler = {(result:SLComposeViewControllerResult) in
+            if result == SLComposeViewControllerResult.cancelled{
+                Toast.showToast(msg: "你点了取消")
+            }
+            else{
+                Toast.showToast(msg: "你点了发送")
+            }
+        }
+        
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
