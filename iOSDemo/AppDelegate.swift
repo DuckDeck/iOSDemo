@@ -11,10 +11,7 @@ import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         let mainViewController = ViewController()
@@ -24,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NFX.sharedInstance().start()
         IQKeyboardManager.shared.enable = true
         AMapServices.shared().apiKey = "168eb4f17d4999c78757b84b7012a0cf"
-        
-        
         return true
     }
 

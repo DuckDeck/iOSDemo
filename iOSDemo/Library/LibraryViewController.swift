@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 class LibraryViewController :UIViewController {
-    var arrData = ["CityChoose","Alert"]
+    var arrData = ["CityChoose","Alert","Share"]
     var tbMenu = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ extension LibraryViewController:UITableViewDelegate,UITableViewDataSource{
         case 1:
             navigationController?.pushViewController(AlertViewController(), animated: true)
         case 2:
-            break
+            navigationController?.pushViewController(ShareViewController(), animated: true)
             
         default:
             break

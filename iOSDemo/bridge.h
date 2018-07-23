@@ -14,4 +14,5 @@
 #import <MAMapKit/MAMapKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
 #import "TransformMP3.h"
+#import "iOSPalette.h"
 #endif /* bridge_h */

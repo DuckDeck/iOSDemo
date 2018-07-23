@@ -213,6 +213,7 @@
 		AEA9F838206CD82F000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9F837206CD82F000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift */; };
 		AEA9F83A206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9F839206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift */; };
 		AEA9F83C206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9F83B206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift */; };
+		AEADFD2721056EF200E6B58D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD2621056EF200E6B58D /* ShareViewController.swift */; };
 		AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
 		AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
@@ -511,6 +512,7 @@
 		AEA9F839206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift"; sourceTree = "<group>"; };
 		AEA9F83B206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift"; sourceTree = "<group>"; };
 		AEAD7D0C1FD8E5A700798BED /* URLMatcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLMatcher.framework; path = Carthage/Build/iOS/URLMatcher.framework; sourceTree = "<group>"; };
+		AEADFD2621056EF200E6B58D /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		AEB771FD1F6A8089008C4365 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Base.swift"; sourceTree = "<group>"; };
 		AEB772031F6B684F008C4365 /* URLNavigator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLNavigator.framework; path = Carthage/Build/iOS/URLNavigator.framework; sourceTree = "<group>"; };
@@ -1504,6 +1506,14 @@
 			path = Console;
 			sourceTree = "<group>";
 		};
+		AEADFD2521056EE800E6B58D /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				AEADFD2621056EF200E6B58D /* ShareViewController.swift */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
 		AEB771FC1F6A807D008C4365 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -1537,6 +1547,7 @@
 		AEBE403B1FC803420087D7ED /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				AEADFD2521056EE800E6B58D /* Share */,
 				AEDD2C9E2085E61900CD1FDE /* AlertController */,
 				AEBE403E1FC8037A0087D7ED /* CityChoose */,
 				AEBE403C1FC803620087D7ED /* LibraryViewController.swift */,
@@ -2073,6 +2084,7 @@
 				AE5A88631FF36F9500748F6A /* GridView.swift in Sources */,
 				AE5A88681FF3709000748F6A /* JSViewController.swift in Sources */,
 				AEDD2CA02085E62500CD1FDE /* AlertViewController.swift in Sources */,
+				AEADFD2721056EF200E6B58D /* ShareViewController.swift in Sources */,
 				AE5CE7DD208B2DBD001DB437 /* UITableView+Extension.swift in Sources */,
 				AE3A42F0201B00F900FF8AB2 /* StackViewController.swift in Sources */,
 				AE1AC80D20D25F5A0002F779 /* ShadowPlayerViewController.swift in Sources */,

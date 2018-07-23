@@ -59,7 +59,7 @@ extension MediaViewController:UITableViewDelegate,UITableViewDataSource{
         case 6:
             navigationController?.pushViewController(GifViewController(), animated: true)
         case 7:
-            navigationController?.pushViewController(GifViewController(), animated: true)
+            navigationController?.pushViewController(PaletteViewController(), animated: true)
         default:
             break
         }
