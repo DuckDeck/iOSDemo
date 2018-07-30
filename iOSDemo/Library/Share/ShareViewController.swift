@@ -14,6 +14,7 @@ class ShareViewController: BaseViewController {
     let btnOrigin = UIButton()
     let btnSocialSina = UIButton()
     let btnSocialWebchat = UIButton()
+    let btnShareCollect = UIButton()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -37,6 +38,13 @@ class ShareViewController: BaseViewController {
         }
         
         btnSocialWebchat.addTarget(self, action: #selector(shareToWebchat), for: .touchUpInside)
+        
+        btnShareCollect.title(title: "自定义分享界面").color(color: UIColor.red).addTo(view: view).snp.makeConstraints { (m) in
+            m.centerX.equalTo(view)
+            m.top.equalTo(btnSocialWebchat).offset(50)
+        }
+        
+        btnShareCollect.addTarget(self, action: #selector(shareCollect), for: .touchUpInside)
         
         // Do any additional setup after loading the view.
     }
@@ -100,12 +108,105 @@ class ShareViewController: BaseViewController {
         
     }
     
+    @objc func shareCollect() {
+        UIApplication.shared.keyWindow?.addSubview(ShareView.shareInstace)
+       
+
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-   
+}
+
+class ShareView: UIView {
+    
+    static let shareInstace = ShareView(frame: UIScreen.main.bounds)
+    let vBg = UIView()
+    let vContent = UIView()
+    let btnShareToQQ = JXLayoutButton()
+    let btnShareToWebchat = JXLayoutButton()
+    let btnShareToFriends = JXLayoutButton()
+    let btnCopyLing = JXLayoutButton()
+    
+    override func willMove(toSuperview newSuperview: UIView?) {
+        UIView.animate(withDuration: 0.5) {
+            self.vContent.snp.updateConstraints { (m) in
+                m.bottom.equalTo(0)
+            }
+            self.layoutIfNeeded()
+        }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        vContent.bgColor(color: UIColor.white).addTo(view: self).snp.makeConstraints { (m) in
+            m.left.right.equalTo(0)
+            m.height.equalTo(150)
+            m.bottom.equalTo(-150)
+        }
+        
+        vBg.backgroundColor = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 0.3)
+        vBg.addTo(view: self).snp.makeConstraints { (m) in
+            m.left.right.top.equalTo(0)
+            m.bottom.equalTo(vContent.snp.top)
+        }
+        vBg.addTapGesture { [weak self](tap) in
+            self?.removeFromSuperview()
+            self?.vContent.snp.updateConstraints { (m) in
+                m.bottom.equalTo(-150)
+            }
+        }
+        
+        btnShareToQQ.setImage(#imageLiteral(resourceName: "btn_recording_audio"), for: .normal)
+        btnShareToQQ.layoutStyle = .upImageDownTitle
+        btnShareToQQ.midSpacing = 10
+        btnShareToQQ.imageSize = CGSize(width: 80, height: 80)
+        btnShareToQQ.title(title: "分享到QQ").color(color: UIColor.gray).addTo(view: vContent).snp.makeConstraints { (m) in
+            m.left.top.equalTo(0)
+            m.width.equalTo(ScreenWidth / 4)
+            m.height.equalTo(vContent)
+        }
+        
+        btnShareToWebchat.setImage(#imageLiteral(resourceName: "btn_recording_audio"), for: .normal)
+        btnShareToWebchat.layoutStyle = .upImageDownTitle
+        btnShareToWebchat.midSpacing = 10
+        btnShareToWebchat.imageSize = CGSize(width: 80, height: 80)
+        btnShareToWebchat.title(title: "分享到QQ").color(color: UIColor.gray).addTo(view: vContent).snp.makeConstraints { (m) in
+            m.top.equalTo(0)
+            m.width.equalTo(ScreenWidth / 4)
+            m.height.equalTo(vContent)
+            m.left.equalTo(btnShareToQQ.snp.right)
+        }
+        
+        btnShareToFriends.setImage(#imageLiteral(resourceName: "btn_recording_audio"), for: .normal)
+        btnShareToFriends.layoutStyle = .upImageDownTitle
+        btnShareToFriends.midSpacing = 10
+        btnShareToFriends.imageSize = CGSize(width: 80, height: 80)
+        btnShareToFriends.title(title: "分享到QQ").color(color: UIColor.gray).addTo(view: vContent).snp.makeConstraints { (m) in
+            m.top.equalTo(0)
+            m.width.equalTo(ScreenWidth / 4)
+            m.height.equalTo(vContent)
+            m.left.equalTo(btnShareToWebchat.snp.right)
+        }
+        
+        btnCopyLing.setImage(#imageLiteral(resourceName: "btn_recording_audio"), for: .normal)
+        btnCopyLing.layoutStyle = .upImageDownTitle
+        btnCopyLing.midSpacing = 10
+        btnCopyLing.imageSize = CGSize(width: 80, height: 80)
+        btnCopyLing.title(title: "分享到QQ").color(color: UIColor.gray).addTo(view: vContent).snp.makeConstraints { (m) in
+            m.top.equalTo(0)
+            m.width.equalTo(ScreenWidth / 4)
+            m.height.equalTo(vContent)
+            m.left.equalTo(btnShareToFriends.snp.right)
+        }
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

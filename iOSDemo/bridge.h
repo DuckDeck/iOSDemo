@@ -15,4 +15,5 @@
 #import <AMapLocationKit/AMapLocationKit.h>
 #import "TransformMP3.h"
 #import "iOSPalette.h"
+#import "JXLayoutButton.h"
 #endif /* bridge_h */

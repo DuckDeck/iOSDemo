@@ -381,4 +381,45 @@ extension UIImage{
     }
     
     
+    func compressWithMaxLength(maxLength:UInt) -> Data? {
+        var compression:CGFloat = 1
+        guard var data = UIImageJPEGRepresentation(self, compression) else{
+            return nil
+        }
+        var d = NSData(data: data)
+        if d.length < maxLength{
+            return data
+        }
+        var max:CGFloat = 1
+        var min:CGFloat = 0
+        for _ in 0..<6{
+            compression = (max + min) / 2
+            d = NSData(data: UIImageJPEGRepresentation(self, compression)!)
+            if Double(d.length) < maxLength * 0.9{
+                min = compression
+            }
+            else if d.length > maxLength{
+                max = compression
+            }
+            else{
+                break
+            }
+        }
+        if d.length < maxLength{
+            return d as Data
+        }
+        var resultImg = UIImage(data: d as Data)
+        var lastDataLength = 0
+        while d.length > maxLength && d.length != lastDataLength {
+            lastDataLength = d.length
+            let ratio = Float(maxLength) / Float(d.length)
+            let size = CGSize(width: resultImg!.size.width * CGFloat(sqrtf(ratio)), height: resultImg!.size.height * CGFloat(sqrtf(ratio)))
+            UIGraphicsBeginImageContext(size)
+            resultImg?.draw(in: CGRect(x: 0, y: 0, w: size.width, h: size.height))
+            resultImg = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            data = UIImageJPEGRepresentation(resultImg!, compression)!
+        }
+        return data
+    }
 }

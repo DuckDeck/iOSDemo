@@ -214,6 +214,7 @@
 		AEA9F83A206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9F839206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift */; };
 		AEA9F83C206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9F83B206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift */; };
 		AEADFD2721056EF200E6B58D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD2621056EF200E6B58D /* ShareViewController.swift */; };
+		AEADFD2A2105B40E00E6B58D /* JXLayoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD292105B40E00E6B58D /* JXLayoutButton.m */; };
 		AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
 		AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
@@ -513,6 +514,8 @@
 		AEA9F83B206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift"; sourceTree = "<group>"; };
 		AEAD7D0C1FD8E5A700798BED /* URLMatcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLMatcher.framework; path = Carthage/Build/iOS/URLMatcher.framework; sourceTree = "<group>"; };
 		AEADFD2621056EF200E6B58D /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		AEADFD282105B40D00E6B58D /* JXLayoutButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXLayoutButton.h; sourceTree = "<group>"; };
+		AEADFD292105B40E00E6B58D /* JXLayoutButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXLayoutButton.m; sourceTree = "<group>"; };
 		AEB771FD1F6A8089008C4365 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Base.swift"; sourceTree = "<group>"; };
 		AEB772031F6B684F008C4365 /* URLNavigator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLNavigator.framework; path = Carthage/Build/iOS/URLNavigator.framework; sourceTree = "<group>"; };
@@ -1078,6 +1081,8 @@
 		AE5A88611FF36F8800748F6A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AEADFD282105B40D00E6B58D /* JXLayoutButton.h */,
+				AEADFD292105B40E00E6B58D /* JXLayoutButton.m */,
 				AE5A88621FF36F9500748F6A /* GridView.swift */,
 				AE3F46EB20AC0290007BA637 /* HintView.swift */,
 				AE3F46F720AC0D1B007BA637 /* TimerButton.swift */,
@@ -2048,6 +2053,7 @@
 				AE9F32851F690F5200339BB8 /* GrandModel.swift in Sources */,
 				AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */,
 				AE0F70241FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */,
+				AEADFD2A2105B40E00E6B58D /* JXLayoutButton.m in Sources */,
 				AE83BD711FDE72BF001882D1 /* ImageRotationViewController.swift in Sources */,
 				AE0F70671FBD6F2B00C8135C /* NFXHTTPModelManager.swift in Sources */,
 				AE3F46EE20AC0300007BA637 /* UIColor+Extension.swift in Sources */,

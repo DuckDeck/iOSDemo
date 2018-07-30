@@ -11,7 +11,8 @@ import UIKit
 class EmitterViewController: UIViewController {
 
     let btnStar = UIButton(frame: CGRect(x: 10, y: 100, width: 50, height: 50))
-    
+    let vAni = UIView(frame: CGRect(x: 10, y: 200, w: 50, h: 50))
+    var isAni = false
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -21,11 +22,32 @@ class EmitterViewController: UIViewController {
         btnStar.setImage(#imageLiteral(resourceName: "star_hollow"), for: .normal)
         btnStar.setImage(#imageLiteral(resourceName: "star_full"), for: .highlighted)
         btnStar.addTarget(self, action: #selector(click(sender:)), for: .touchUpInside)
+        view.addSubview(vAni)
+        vAni.backgroundColor = UIColor.red
     }
 
 
     @objc func click(sender:UIButton)  {
         sender.isSelected = !sender.isSelected
+        if isAni{
+            return
+        }
+        isAni = true
+        print(Date().timeIntervalSince1970)
+        UIView.animate(withDuration: 0.2, animations: {
+            self.vAni.frame = CGRect(x: 10, y: 300, w: 50, h: 50)
+        }) { (finish) in
+            print(Date().timeIntervalSince1970)
+            self.isAni = false
+            if finish{
+                UIView.animate(withDuration: 0.2, delay: 1, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                    self.vAni.frame = CGRect(x: 10, y: 200, w: 50, h: 50)
+                }, completion: {(finish) in
+                    
+                })
+            }
+        }
+        
     }
     
     
