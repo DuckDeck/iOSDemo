@@ -215,6 +215,7 @@
 		AEA9F83C206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9F83B206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift */; };
 		AEADFD2721056EF200E6B58D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD2621056EF200E6B58D /* ShareViewController.swift */; };
 		AEADFD2A2105B40E00E6B58D /* JXLayoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD292105B40E00E6B58D /* JXLayoutButton.m */; };
+		AEADFD41210EBCE100E6B58D /* CompressImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD40210EBCE100E6B58D /* CompressImageViewController.swift */; };
 		AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
 		AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
@@ -516,6 +517,7 @@
 		AEADFD2621056EF200E6B58D /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		AEADFD282105B40D00E6B58D /* JXLayoutButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXLayoutButton.h; sourceTree = "<group>"; };
 		AEADFD292105B40E00E6B58D /* JXLayoutButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXLayoutButton.m; sourceTree = "<group>"; };
+		AEADFD40210EBCE100E6B58D /* CompressImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressImageViewController.swift; sourceTree = "<group>"; };
 		AEB771FD1F6A8089008C4365 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Base.swift"; sourceTree = "<group>"; };
 		AEB772031F6B684F008C4365 /* URLNavigator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLNavigator.framework; path = Carthage/Build/iOS/URLNavigator.framework; sourceTree = "<group>"; };
@@ -1056,6 +1058,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5752921F76931C00F6AAC5 /* MediaViewController.swift */,
+				AEADFD3F210EBCC700E6B58D /* CompressImage */,
 				AE6691DB20F49BC400D019D4 /* Palette */,
 				AEBA80E520BFCAED00F6A323 /* GifImage */,
 				AEBE708E20A4448200B2E897 /* TakePhoto */,
@@ -1519,6 +1522,14 @@
 			path = Share;
 			sourceTree = "<group>";
 		};
+		AEADFD3F210EBCC700E6B58D /* CompressImage */ = {
+			isa = PBXGroup;
+			children = (
+				AEADFD40210EBCE100E6B58D /* CompressImageViewController.swift */,
+			);
+			path = CompressImage;
+			sourceTree = "<group>";
+		};
 		AEB771FC1F6A807D008C4365 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -1965,6 +1976,7 @@
 				AE0F70651FBD6F2B00C8135C /* NFXSettingsController.swift in Sources */,
 				AE0F70861FBE861A00C8135C /* SliderDemoViewController.swift in Sources */,
 				AEBE404D1FC806E40087D7ED /* CityDB.swift in Sources */,
+				AEADFD41210EBCE100E6B58D /* CompressImageViewController.swift in Sources */,
 				AE0F706B1FBD6F2B00C8135C /* NFX.swift in Sources */,
 				AEBE40561FC80A930087D7ED /* CitySearchResultView.swift in Sources */,
 				AE0F70821FBD6F2B00C8135C /* NFXSettingsController_iOS.swift in Sources */,
