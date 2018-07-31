@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 class ViewController: UIViewController {
-    var arrData = ["Memery","Media","Animation&Graphic","Layout","AI","Network","Touch","Library","Sensor","Rumtime","Keyboard","Data","Webview","Project","Open OtherApp"]
+    var arrData = ["Basic","Media","Animation&Graphic","Layout","AI","Network","Touch","Library","Sensor","Data","Webview","Project"]
     var tbMenu = UITableView()
     
     
@@ -45,7 +45,7 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
-            navigationController?.pushViewController(MemeryViewController(), animated: true)
+            navigationController?.pushViewController(BasicViewController(), animated: true)
         case 1:
             navigationController?.pushViewController(MediaViewController(), animated: true)
         case 2:
@@ -63,18 +63,13 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
         case 8:
             navigationController?.pushViewController(SensorViewController(), animated: true)
         case 9:
-            navigationController?.pushViewController(RunTimeViewController(), animated: true)
-        case 10:
-            navigationController?.pushViewController(KeyboardViewController(), animated: true)
-        case 11:
             navigationController?.pushViewController(DataViewController(), animated: true)
-        case 12:
+        case 10:
             navigationController?.pushViewController(WebViewController(), animated: true)
-        case 13:
+        case 11:
             navigationController?.pushViewController(ProjectViewController(), animated: true)
-        case 14:
-            let url = URL(string: "yihui://")
-            UIApplication.shared.openURL(url!)
+        case 12:
+            break
         default:
             break
         }

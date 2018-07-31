@@ -23,16 +23,17 @@ class CompressImageViewController: UIViewController {
         imgOrigin.addTo(view: view).snp.makeConstraints { (m) in
             m.left.equalTo(10)
             m.top.equalTo(NavigationBarHeight + 10)
-            m.width.equalTo(ScreenWidth - 70)
-            m.height.equalTo(200)
+            m.width.equalTo(ScreenWidth - 120)
+            m.height.equalTo(160)
         }
         
         lblOriginSize.color(color: UIColor.gray).addTo(view: view).snp.makeConstraints { (m) in
             m.centerX.equalTo(imgOrigin)
             m.top.equalTo(imgOrigin.snp.bottom).offset(10)
+            m.height.equalTo(15)
         }
         
-        btnChoose.title(title: "选择图片").addTo(view: view).snp.makeConstraints { (m) in
+        btnChoose.title(title: "选择图片").color(color: UIColor.gray).addTo(view: view).snp.makeConstraints { (m) in
             m.left.equalTo(imgOrigin.snp.right).offset(10)
             m.right.equalTo(-10)
             m.centerY.equalTo(imgOrigin)
@@ -42,21 +43,23 @@ class CompressImageViewController: UIViewController {
         imgCompress.addTo(view: view).snp.makeConstraints { (m) in
             m.left.equalTo(10)
             m.top.equalTo(lblOriginSize.snp.bottom).offset(10)
-            m.width.equalTo(ScreenWidth - 70)
-            m.height.equalTo(200)
+            m.width.equalTo(ScreenWidth - 120)
+            m.height.equalTo(160)
         }
         
         lblCompressSize.color(color: UIColor.gray).addTo(view: view).snp.makeConstraints { (m) in
-            m.centerX.equalTo(imgOrigin)
+            m.centerX.equalTo(imgCompress)
             m.top.equalTo(imgCompress.snp.bottom).offset(10)
+            m.height.equalTo(15)
         }
         
-        btnCompress.title(title: "选择图片").addTo(view: view).snp.makeConstraints { (m) in
+        btnCompress.title(title: "压缩图片").color(color: UIColor.gray).addTo(view: view).snp.makeConstraints { (m) in
             m.left.equalTo(imgOrigin.snp.right).offset(10)
             m.right.equalTo(-10)
-            m.centerY.equalTo(imgOrigin)
+            
+            m.centerY.equalTo(imgCompress)
         }
-        btnChoose.addTarget(self, action: #selector(chooseImage), for: .touchUpInside)
+        btnCompress.addTarget(self, action: #selector(compressImage), for: .touchUpInside)
         
         
         
@@ -67,6 +70,17 @@ class CompressImageViewController: UIViewController {
     
     @objc func chooseImage() {
          present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @objc func compressImage(){
+        if let img = imgOrigin.image{
+            if let d = img.compressWithMaxLength(maxLength: 35000){
+                let i = UIImage(data: d)!
+                imgCompress.image = i
+                lblCompressSize.text = "\((d as NSData).length) b"
+            }
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,7 +98,7 @@ extension  CompressImageViewController:ImagePickerDelegate{
         imagePickerController.dismiss(animated: true, completion: nil)
         if let one = images.first{
             imgOrigin.image = one
-            lblOriginSize.text = "\((UIImageJPEGRepresentation(one, 1) as! NSData).length) kb"
+            lblOriginSize.text = "\((UIImageJPEGRepresentation(one, 1)! as NSData).length) b"
         }
     }
     

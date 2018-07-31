@@ -8,9 +8,9 @@
 
 import UIKit
 import SnapKit
-class RunTimeViewController: UIViewController {
+class BasicViewController: UIViewController {
 
-    var arrData = ["Thread"]
+    var arrData = ["Thread","MemeryLeak"]
     var tbMenu = UITableView()
       
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ class RunTimeViewController: UIViewController {
     }
 
 }
-extension RunTimeViewController:UITableViewDelegate,UITableViewDataSource{
+extension BasicViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrData.count
     }
@@ -46,7 +46,7 @@ extension RunTimeViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             navigationController?.pushViewController(ThreadViewController(), animated: true)
         case 1:
-            break
+            navigationController?.pushViewController(MemeryLeakTestViewController(), animated: true)
         default:
             break
         }

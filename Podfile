@@ -32,6 +32,7 @@ pod "ImagePicker"
 pod "AMap3DMap"
 pod "AMapLocation"
 pod "Gifu"
+pod "Eureka"
 end
 
 

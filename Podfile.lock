@@ -6,6 +6,7 @@ PODS:
   - AMapLocation (2.6.0):
     - AMapFoundation (~> 1.4)
   - Differentiator (3.0.2)
+  - Eureka (4.1.1)
   - FBRetainCycleDetector (0.1.4)
   - FMDB (2.7.2):
     - FMDB/standard (= 2.7.2)
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - Alamofire
   - AMap3DMap
   - AMapLocation
+  - Eureka
   - FMDB
   - Gifu
   - GrandMenu
@@ -80,6 +82,7 @@ SPEC REPOS:
     - AMapFoundation
     - AMapLocation
     - Differentiator
+    - Eureka
     - FBRetainCycleDetector
     - FMDB
     - Gifu
@@ -111,6 +114,7 @@ SPEC CHECKSUMS:
   AMapFoundation: d1af683f29b344e469b043561105dd656033a881
   AMapLocation: 55116a2c8956eab7550cbb56e989aa5cdcc424e3
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
+  Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   Gifu: 6543ca2056a3d697097c09fe543ef49348ccc892
@@ -136,6 +140,6 @@ SPEC CHECKSUMS:
   ViewChaos: fc0c05088747b87a2d886dbe49c34eb106e9e0f6
   WSProgressHUD: a0902809c8af112fb34b004fdc75c16eb85167a3
 
-PODFILE CHECKSUM: 363c5ba5666b87fdeb89e28f33351e8249d6640d
+PODFILE CHECKSUM: 93c1c651794c758d35f5e980683ab80f5a67c264
 
 COCOAPODS: 1.5.2
