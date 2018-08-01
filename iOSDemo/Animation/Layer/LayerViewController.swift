@@ -16,7 +16,7 @@ class LayerViewController: BaseViewController,CALayerDelegate {
         let bar = UIBarButtonItem(title: "3D", style: .plain, target: self, action: #selector(barTap))
         navigationItem.rightBarButtonItem = bar
         
-        view.backgroundColor = UIColor.gray
+        view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 8
         view.layer.borderWidth = 4
         view.layer.borderColor = UIColor.red.cgColor
@@ -107,6 +107,24 @@ class LayerViewController: BaseViewController,CALayerDelegate {
         animation.duration = 2.0
         animLayer.add(anima, forKey: "anim")
         
+        let line = UIView(frame: CGRect(x: 0, y: 500, w: ScreenWidth, h: 44))
+//        line.backgroundColor = UIColor.lightGray
+//        line.layer.shadowColor = UIColor.lightGray.cgColor
+//        line.layer.shadowOffset = CGSize(width: 0, height: -4)
+//        line.layer.shadowOpacity = 0.5
+//        line.layer.shadowRadius = 5
+//        let pathWidth = line.layer.shadowRadius
+//        let rect = CGRect(x: 0, y: 0 - pathWidth / 2, w: line.frame.size.width, h: pathWidth)
+//        let path = UIBezierPath(rect: rect)
+//        line.layer.shadowPath = path.cgPath
+        
+        let ly2 = CAGradientLayer()
+        ly2.startPoint = CGPoint(x: 0.5, y: 0)
+        ly2.endPoint = CGPoint(x: 0.5, y: 1)
+        ly2.colors = [UIColor.clear.cgColor,UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 0.3).cgColor]
+        ly2.frame = CGRect(x: 0, y: 0, w: ScreenWidth, h: 44)
+        line.layer.insertSublayer(ly2, at: 0)
+        view.addSubview(line)
     }
 
      func drawLayer(layer: CALayer!, inContext ctx: CGContext!) {
