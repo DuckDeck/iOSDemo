@@ -215,6 +215,8 @@
 		AEADFD41210EBCE100E6B58D /* CompressImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD40210EBCE100E6B58D /* CompressImageViewController.swift */; };
 		AEADFD44211001BE00E6B58D /* MemeryLeakTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD43211001BE00E6B58D /* MemeryLeakTestViewController.swift */; };
 		AEADFD472110031B00E6B58D /* FormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD462110031B00E6B58D /* FormTableViewController.swift */; };
+		AEADFD4921115BBE00E6B58D /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD4821115BBE00E6B58D /* UIButton+Extension.swift */; };
+		AEADFD4C2111601100E6B58D /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD4B2111601100E6B58D /* DemoViewController.swift */; };
 		AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
 		AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
@@ -516,6 +518,8 @@
 		AEADFD40210EBCE100E6B58D /* CompressImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressImageViewController.swift; sourceTree = "<group>"; };
 		AEADFD43211001BE00E6B58D /* MemeryLeakTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeryLeakTestViewController.swift; sourceTree = "<group>"; };
 		AEADFD462110031B00E6B58D /* FormTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTableViewController.swift; sourceTree = "<group>"; };
+		AEADFD4821115BBE00E6B58D /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		AEADFD4B2111601100E6B58D /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		AEB771FD1F6A8089008C4365 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Base.swift"; sourceTree = "<group>"; };
 		AEB772031F6B684F008C4365 /* URLNavigator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLNavigator.framework; path = Carthage/Build/iOS/URLNavigator.framework; sourceTree = "<group>"; };
@@ -1114,6 +1118,7 @@
 		AE5A886B1FF373A000748F6A /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				AEADFD4A21115FF600E6B58D /* Demo */,
 				AEADFD42211001BE00E6B58D /* MemeryLeak */,
 				AE5A886E1FF3767800748F6A /* Thread */,
 				AE5A886C1FF3746C00748F6A /* BasicViewController.swift */,
@@ -1459,6 +1464,7 @@
 				AE3F46F320AC0B2B007BA637 /* UIImageView+Extension.swift */,
 				AE3F46F520AC0BF9007BA637 /* UINavigationController+Extension.swift */,
 				AE1AC74F20CF6FB40002F779 /* UICollectView+Extension.swift */,
+				AEADFD4821115BBE00E6B58D /* UIButton+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1517,6 +1523,14 @@
 				AEADFD462110031B00E6B58D /* FormTableViewController.swift */,
 			);
 			path = Form;
+			sourceTree = "<group>";
+		};
+		AEADFD4A21115FF600E6B58D /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				AEADFD4B2111601100E6B58D /* DemoViewController.swift */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 		AEB771FC1F6A807D008C4365 /* Tool */ = {
@@ -1998,6 +2012,7 @@
 				AE0F708B1FBEB94100C8135C /* TouchViewController.swift in Sources */,
 				AE1DE0462099AD32007910A5 /* NovelViewController.swift in Sources */,
 				AE1DE04A2099AD32007910A5 /* NavigationMap.swift in Sources */,
+				AEADFD4921115BBE00E6B58D /* UIButton+Extension.swift in Sources */,
 				AEDF8C4D209AF61F00EED6D1 /* VideoListViewController.swift in Sources */,
 				AE1DE0392099AD32007910A5 /* SectionInfo.swift in Sources */,
 				AEA9F835206A2A62000E7748 /* HttpClient.swift in Sources */,
@@ -2084,6 +2099,7 @@
 				AE1DE03E2099AD32007910A5 /* LoadMoreCell.swift in Sources */,
 				AE1AC80C20D25F5A0002F779 /* ShadowAudioPlayer.swift in Sources */,
 				AE9F32861F690F5200339BB8 /* GrandType.swift in Sources */,
+				AEADFD4C2111601100E6B58D /* DemoViewController.swift in Sources */,
 				AE1DE0992099BE0A007910A5 /* LinkPoint.swift in Sources */,
 				AE6691D820F49B3A00D019D4 /* PriorityBoxArray.m in Sources */,
 				AE0F70621FBD6F2B00C8135C /* NFXWindowController.swift in Sources */,

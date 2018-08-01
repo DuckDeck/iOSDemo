@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 class BasicViewController: UIViewController {
 
-    var arrData = ["Thread","MemeryLeak"]
+    var arrData = ["Demo","Thread","MemeryLeak"]
     var tbMenu = UITableView()
       
     override func viewDidLoad() {
@@ -44,8 +44,10 @@ extension BasicViewController:UITableViewDelegate,UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
-            navigationController?.pushViewController(ThreadViewController(), animated: true)
+            navigationController?.pushViewController(DemoViewController(), animated: true)
         case 1:
+            navigationController?.pushViewController(ThreadViewController(), animated: true)
+        case 2:
             navigationController?.pushViewController(MemeryLeakTestViewController(), animated: true)
         default:
             break
