@@ -27,11 +27,18 @@ class DemoViewController: BaseViewController {
         
         btnLargeTouch2.layer.cornerRadius = 50
         btnLargeTouch2.addTarget(self, action: #selector(testTouch2), for: .touchUpInside)
-        btnLargeTouch2.color(color: UIColor.gray).title(title: "大的边缘范围").bgColor(color: UIColor.yellow).addTo(view: view).snp.makeConstraints { (m) in
-            m.left.equalTo(100)
-            m.top.equalTo(400)
-            m.width.height.equalTo(100)
-        }
+//        btnLargeTouch2.color(color: UIColor.gray).title(title: "大的边缘范围").bgColor(color: UIColor.yellow).addTo(view: view).snp.makeConstraints { (m) in
+//            m.left.equalTo(100)
+//            m.top.equalTo(400)
+//            m.width.height.equalTo(100)
+//        }
+        btnLargeTouch2.translatesAutoresizingMaskIntoConstraints = false
+        btnLargeTouch2.color(color: UIColor.gray).title(title: "大的边缘范围").bgColor(color: UIColor.yellow).addTo(view: view).completed()
+        let cenX = NSLayoutConstraint(item: btnLargeTouch2, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
+        let cenY = NSLayoutConstraint(item: btnLargeTouch2, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
+        let width = NSLayoutConstraint(item: btnLargeTouch2, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100)
+        let height = NSLayoutConstraint(item: btnLargeTouch2, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100)
+        NSLayoutConstraint.activate([cenX,cenY,width,height])
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
