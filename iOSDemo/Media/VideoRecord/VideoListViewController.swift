@@ -53,6 +53,7 @@ class VideoListViewController: UIViewController {
     }
     
     @objc func showNetworkVideo() {
+        //http://dev.qiniu-app.yihuivip.cn/15351672430
         let url = URL(string: "http://download.3g.joy.cn/video/236/60236937/1451280942752_hd.mp4")
         let vc = ShadowPlayerViewController()
         vc.url = url

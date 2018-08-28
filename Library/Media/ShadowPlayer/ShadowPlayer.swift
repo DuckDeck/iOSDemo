@@ -16,7 +16,7 @@ enum PlayerStatus{
     case Failed,ReadyToPlay,Unknown,Buffering,Playing,Stopped
 }
 class ShadowPlayer: UIView {
-   
+//目前这个方法还不支持缓存到本地，需要改进
     override class var layerClass: AnyClass {
         get{
             return AVPlayerLayer.self
@@ -263,6 +263,12 @@ class ShadowPlayer: UIView {
     func assetWithURL(url:URL) {
         let dict = [AVURLAssetPreferPreciseDurationAndTimingKey:true]
         anAsset = AVURLAsset(url: url, options: dict)
+        anAsset.resourceLoader.setDelegate(self, queue: DispatchQueue.main)
+        if #available(iOS 10.0, *) {
+            player.automaticallyWaitsToMinimizeStalling = false
+        } else {
+            // Fallback on earlier versions
+        }
         let keys = ["duration"]
         weak var weakself = self
         anAsset.loadValuesAsynchronously(forKeys: keys) {
@@ -608,5 +614,12 @@ extension ShadowPlayer{
             pause()
            
         }
+    }
+}
+//这个功能太复杂了，需要比较多的时间研究
+extension ShadowPlayer:AVAssetResourceLoaderDelegate{
+   
+    func resourceLoader(_ resourceLoader: AVAssetResourceLoader, shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool {
+        return true
     }
 }
