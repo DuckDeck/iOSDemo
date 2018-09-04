@@ -25,9 +25,7 @@ class ShadowAudioPlayer: NSObject{
     private var assetDuration:Double = 0
     private var autoRepeatPlay:Bool = true
     private var autoPlay:Bool = true
-    
     var delegate:VideoPlayerDelegate?
-    
     var playerRate:Float = 0 {
         didSet {
             if let player = assetPlayer {
@@ -104,7 +102,6 @@ class ShadowAudioPlayer: NSObject{
     }
     
     // MARK: - Private
-    
     private func prepareToPlay() {
         let keys = ["tracks"]
         if let asset = urlAsset {
@@ -119,34 +116,25 @@ class ShadowAudioPlayer: NSObject{
     private func startLoading(){
         var error:NSError?
         guard let asset = urlAsset else {return}
-        
         let status:AVKeyValueStatus = asset.statusOfValue(forKey: "tracks", error: &error)
-        
         if status == AVKeyValueStatus.loaded {
             assetDuration = CMTimeGetSeconds(asset.duration)
-            
             let videoOutputOptions = [kCVPixelBufferPixelFormatTypeKey as String : Int(kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange)]
             videoOutput = AVPlayerItemVideoOutput(pixelBufferAttributes: videoOutputOptions)
             playerItem = AVPlayerItem(asset: asset)
-            
             if let item = playerItem {
                 item.addObserver(self, forKeyPath: "status", options: .initial, context: videoContext)
                 item.addObserver(self, forKeyPath: "loadedTimeRanges", options: [.new, .old], context: videoContext)
-                
                 NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
                 NotificationCenter.default.addObserver(self, selector: #selector(didFailedToPlayToEnd), name: NSNotification.Name.AVPlayerItemFailedToPlayToEndTime, object: nil)
-                
                 if let output = videoOutput {
                     item.add(output)
-                    
                     item.audioTimePitchAlgorithm = AVAudioTimePitchAlgorithm.varispeed
                     assetPlayer = AVPlayer(playerItem: item)
-                 
                     if let player = assetPlayer {
                         player.rate = playerRate
                     }
                     addPeriodicalObserver()
-                    
                 }
             }
         }
