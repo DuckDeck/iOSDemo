@@ -148,6 +148,7 @@
 		AE3F46F820AC0D1B007BA637 /* TimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46F720AC0D1B007BA637 /* TimerButton.swift */; };
 		AE4DA61B213E68B300FCC7FD /* ShadowFileHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61A213E68B300FCC7FD /* ShadowFileHandle.swift */; };
 		AE4DA61D213E762500FCC7FD /* ShadowRequestTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61C213E762500FCC7FD /* ShadowRequestTask.swift */; };
+		AE4DA61F213E833D00FCC7FD /* ShadowResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61E213E833D00FCC7FD /* ShadowResourceLoader.swift */; };
 		AE5351202011876B00FC48A1 /* SnapkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */; };
 		AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */; };
 		AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752921F76931C00F6AAC5 /* MediaViewController.swift */; };
@@ -427,6 +428,7 @@
 		AE3F46F720AC0D1B007BA637 /* TimerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerButton.swift; sourceTree = "<group>"; };
 		AE4DA61A213E68B300FCC7FD /* ShadowFileHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowFileHandle.swift; sourceTree = "<group>"; };
 		AE4DA61C213E762500FCC7FD /* ShadowRequestTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowRequestTask.swift; sourceTree = "<group>"; };
+		AE4DA61E213E833D00FCC7FD /* ShadowResourceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowResourceLoader.swift; sourceTree = "<group>"; };
 		AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitViewController.swift; sourceTree = "<group>"; };
 		AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitTableViewController.swift; sourceTree = "<group>"; };
 		AE5752921F76931C00F6AAC5 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
@@ -788,6 +790,7 @@
 				AE1AC80820D25F5A0002F779 /* ShadowPlayView.swift */,
 				AE4DA61A213E68B300FCC7FD /* ShadowFileHandle.swift */,
 				AE4DA61C213E762500FCC7FD /* ShadowRequestTask.swift */,
+				AE4DA61E213E833D00FCC7FD /* ShadowResourceLoader.swift */,
 			);
 			path = ShadowPlayer;
 			sourceTree = "<group>";
@@ -2123,6 +2126,7 @@
 				AE1DE09D2099BE0A007910A5 /* LinkGameViewController.swift in Sources */,
 				AE0F702E1FBA90A500C8135C /* RequestDataInfo.swift in Sources */,
 				AE1AC81120D25F5A0002F779 /* ShadowPlayer.swift in Sources */,
+				AE4DA61F213E833D00FCC7FD /* ShadowResourceLoader.swift in Sources */,
 				AE2584A120A2F5FE00764AF0 /* UIScrollView+Extension.swift in Sources */,
 				AEDC54142012EC4100BB4E34 /* ConstraintArray+Extensions.swift in Sources */,
 				AE6691D720F49B3A00D019D4 /* PaletteColorModel.m in Sources */,

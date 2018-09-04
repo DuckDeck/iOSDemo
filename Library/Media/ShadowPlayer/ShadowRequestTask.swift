@@ -55,6 +55,37 @@ extension ShadowRequestTask:URLSessionDataDelegate{
         if isCancel{
             return
         }
-        
+        completionHandler(.allow)
+        let httpResponse = response as! HTTPURLResponse
+        let contentange = httpResponse.allHeaderFields["Content-Range"] as! String
+        let length = contentange.components(separatedBy: "/").last!
+        fileLength = Int(length)! > 0 ? Int(length)! : Int(response.expectedContentLength)
+        delegate?.requestTaskDidReceiveResponse?()
+    }
+    
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        if isCancel{
+            return
+        }
+        ShadowFileHandle.writeTempFile(data: data, path: path!)
+        cacheLength += data.count
+        delegate?.requestTaskDidUpdateCache()
+    }
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        if isCancel{
+            
+        }
+        else{
+            if error != nil{
+                delegate?.requestTaskDidFailWithError?(error: error!)
+            }
+            else{
+                if isCancel{
+                    _ = ShadowFileHandle.cacheTempFileWithFile(fileName: requestUrl!.path.components(separatedBy: "/").last!, tmpPath: path!)
+                }
+                delegate?.requestTaskDidFinishLoadingWithCache?(isCache: isCancel)
+            }
+        }
     }
 }
