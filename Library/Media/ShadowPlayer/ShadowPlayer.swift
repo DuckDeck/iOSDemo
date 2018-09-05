@@ -79,7 +79,6 @@ class ShadowPlayer: UIView {
     }
     let vPlay = ShadowPlayView(frame: CGRect())
     let vControl = ShadowControlView(frame:CGRect())
-    var resourceLoader:ShadowResourceLoader?
     private var url:URL!
     private let lblTitle = UILabel()
     private let btnVideoInfo = UIButton()
@@ -269,22 +268,22 @@ class ShadowPlayer: UIView {
     
     func assetWithURL(url:URL) {
         let dict = [AVURLAssetPreferPreciseDurationAndTimingKey:true]
-        if url.absoluteString.hasPrefix("http"){
-            if let cacheFilePath = ShadowFileHandle.cacheFileExistsWith(url: url){
-                let fileUrl = URL(fileURLWithPath: cacheFilePath)
-                 anAsset = AVURLAsset(url: fileUrl, options: dict)
-            }
-            else{
-                resourceLoader = ShadowResourceLoader()
-                resourceLoader?.delegate = self
-                anAsset = AVURLAsset(url: url.changeSchema(targetSchema: "streaming")!, options: dict)
-                anAsset.resourceLoader.setDelegate(self.resourceLoader, queue: DispatchQueue.main)
-            }
-        }
-        else{
-            anAsset = AVURLAsset(url: url, options: dict)
-        }
-     
+//        if url.absoluteString.hasPrefix("http"){
+//            if let cacheFilePath = ShadowFileHandle.cacheFileExistsWith(url: url){
+//                let fileUrl = URL(fileURLWithPath: cacheFilePath)
+//                 anAsset = AVURLAsset(url: fileUrl, options: dict)
+//            }
+//            else{
+//                resourceLoader = ShadowResourceLoader()
+//                resourceLoader?.delegate = self
+//                anAsset = AVURLAsset(url: url.changeSchema(targetSchema: "streaming")!, options: dict)
+//                anAsset.resourceLoader.setDelegate(self.resourceLoader, queue: DispatchQueue.main)
+//            }
+//        }
+//        else{
+//            anAsset = AVURLAsset(url: url, options: dict)
+//        }
+        anAsset = AVURLAsset(url: url, options: dict)
         let keys = ["duration"]
         weak var weakself = self
         anAsset.loadValuesAsynchronously(forKeys: keys) {
@@ -641,11 +640,4 @@ extension ShadowPlayer{
            
         }
     }
-}
-extension ShadowPlayer:ShadowResourceLoaderDelegate{
-    func loader(loader: ShadowResourceLoader, progress: Float) {
-        
-    }
-    
-    
 }

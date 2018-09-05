@@ -146,8 +146,8 @@
 		AE3F46F420AC0B2B007BA637 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46F320AC0B2B007BA637 /* UIImageView+Extension.swift */; };
 		AE3F46F620AC0BF9007BA637 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46F520AC0BF9007BA637 /* UINavigationController+Extension.swift */; };
 		AE3F46F820AC0D1B007BA637 /* TimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46F720AC0D1B007BA637 /* TimerButton.swift */; };
-		AE4DA61B213E68B300FCC7FD /* ShadowFileHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61A213E68B300FCC7FD /* ShadowFileHandle.swift */; };
-		AE4DA61D213E762500FCC7FD /* ShadowRequestTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61C213E762500FCC7FD /* ShadowRequestTask.swift */; };
+		AE4DA61B213E68B300FCC7FD /* ShadowDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61A213E68B300FCC7FD /* ShadowDataManager.swift */; };
+		AE4DA61D213E762500FCC7FD /* ShadowDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61C213E762500FCC7FD /* ShadowDownloader.swift */; };
 		AE4DA61F213E833D00FCC7FD /* ShadowResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61E213E833D00FCC7FD /* ShadowResourceLoader.swift */; };
 		AE5351202011876B00FC48A1 /* SnapkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */; };
 		AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */; };
@@ -426,8 +426,8 @@
 		AE3F46F320AC0B2B007BA637 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		AE3F46F520AC0BF9007BA637 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		AE3F46F720AC0D1B007BA637 /* TimerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerButton.swift; sourceTree = "<group>"; };
-		AE4DA61A213E68B300FCC7FD /* ShadowFileHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowFileHandle.swift; sourceTree = "<group>"; };
-		AE4DA61C213E762500FCC7FD /* ShadowRequestTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowRequestTask.swift; sourceTree = "<group>"; };
+		AE4DA61A213E68B300FCC7FD /* ShadowDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDataManager.swift; sourceTree = "<group>"; };
+		AE4DA61C213E762500FCC7FD /* ShadowDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDownloader.swift; sourceTree = "<group>"; };
 		AE4DA61E213E833D00FCC7FD /* ShadowResourceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowResourceLoader.swift; sourceTree = "<group>"; };
 		AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitViewController.swift; sourceTree = "<group>"; };
 		AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitTableViewController.swift; sourceTree = "<group>"; };
@@ -788,8 +788,8 @@
 				AE1AC80B20D25F5A0002F779 /* ShadowPlayer.swift */,
 				AE1AC80720D25F5A0002F779 /* ShadowPlayerViewController.swift */,
 				AE1AC80820D25F5A0002F779 /* ShadowPlayView.swift */,
-				AE4DA61A213E68B300FCC7FD /* ShadowFileHandle.swift */,
-				AE4DA61C213E762500FCC7FD /* ShadowRequestTask.swift */,
+				AE4DA61A213E68B300FCC7FD /* ShadowDataManager.swift */,
+				AE4DA61C213E762500FCC7FD /* ShadowDownloader.swift */,
 				AE4DA61E213E833D00FCC7FD /* ShadowResourceLoader.swift */,
 			);
 			path = ShadowPlayer;
@@ -2150,7 +2150,7 @@
 				AE0F708E1FBEB96E00C8135C /* TouchTestViewController.swift in Sources */,
 				AE1DE07A2099BE0A007910A5 /* GameService.swift in Sources */,
 				AE0F70811FBD6F2B00C8135C /* NFXStatisticsController_iOS.swift in Sources */,
-				AE4DA61B213E68B300FCC7FD /* ShadowFileHandle.swift in Sources */,
+				AE4DA61B213E68B300FCC7FD /* ShadowDataManager.swift in Sources */,
 				AE0F70681FBD6F2B00C8135C /* NFXConstants.swift in Sources */,
 				AEADFD472110031B00E6B58D /* FormTableViewController.swift in Sources */,
 				AE83BD7B1FE2134E001882D1 /* TwoSideViewController.swift in Sources */,
@@ -2159,7 +2159,7 @@
 				AE83BD741FDE876F001882D1 /* BallViewController.swift in Sources */,
 				AE0F70711FBD6F2B00C8135C /* NFXDetailsController.swift in Sources */,
 				AE5A88761FF37C2200748F6A /* Apply.swift in Sources */,
-				AE4DA61D213E762500FCC7FD /* ShadowRequestTask.swift in Sources */,
+				AE4DA61D213E762500FCC7FD /* ShadowDownloader.swift in Sources */,
 				AE5A886D1FF3746C00748F6A /* BasicViewController.swift in Sources */,
 				AE1DE03F2099AD32007910A5 /* NovelTbCell.swift in Sources */,
 				AE0F70301FBA90A500C8135C /* APIInfo.swift in Sources */,
