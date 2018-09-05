@@ -17,7 +17,7 @@ import UIKit
 
 class ShadowRequestTask: NSObject {
     weak var delegate:ShadowRequestTaskDeledate?
-    var requestUrl:URL?
+    var requestUrl:URL!
     var requestOffset = 0
     var fileLength = 0
     var cacheLength = 0
@@ -26,13 +26,23 @@ class ShadowRequestTask: NSObject {
     private var session:URLSession?
     private var task:URLSessionTask?
     var path:String?
-    override init() {
-       path =  ShadowFileHandle.createTempFile(fileName: "temp1", extensionName: "mp4")
+    fileprivate override init() {
+        
+    }
+    init(url:URL) {
+        self.requestUrl = url
+        var fileName = url.pathComponents.last ?? "tmp"
+        var extensionname = "mp4"
+        if fileName.contains("."){
+            extensionname = fileName.components(separatedBy: ".").last!
+            fileName = fileName.components(separatedBy: ".").first!
+        }
+        path =  ShadowFileHandle.createTempFile(fileName: fileName, extensionName: extensionname)
     }
     
     func start()  {
         
-        var request = URLRequest(url: requestUrl!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 10)
+        var request = URLRequest(url: requestUrl.changeSchema(targetSchema: "http")!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 10)
         if requestOffset > 0{
             request.addValue("bytes=\(requestOffset)-\(fileLength-1)", forHTTPHeaderField: "Range")
         }
@@ -57,8 +67,8 @@ extension ShadowRequestTask:URLSessionDataDelegate{
         }
         completionHandler(.allow)
         let httpResponse = response as! HTTPURLResponse
-        let contentange = httpResponse.allHeaderFields["Content-Range"] as! String
-        let length = contentange.components(separatedBy: "/").last!
+        let contentRange = httpResponse.allHeaderFields["Content-Range"] as? String
+        let length = contentRange?.components(separatedBy: "/").last ?? "0"
         fileLength = Int(length)! > 0 ? Int(length)! : Int(response.expectedContentLength)
         delegate?.requestTaskDidReceiveResponse?()
     }
@@ -82,7 +92,7 @@ extension ShadowRequestTask:URLSessionDataDelegate{
             }
             else{
                 if isCancel{
-                    _ = ShadowFileHandle.cacheTempFileWithFile(fileName: requestUrl!.path.components(separatedBy: "/").last!, tmpPath: path!)
+                    _ = ShadowFileHandle.cacheTempFileWithFile(fileName: requestUrl.path.components(separatedBy: "/").last!, tmpPath: path!)
                 }
                 delegate?.requestTaskDidFinishLoadingWithCache?(isCache: isCancel)
             }

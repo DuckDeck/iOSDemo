@@ -13,11 +13,16 @@ import UIKit
 
 class ShadowFileHandle: NSObject {
     static func createTempFile(fileName:String,extensionName:String)->String?{
-        let path = "\(NSTemporaryDirectory())/tmpvideo/\(fileName).\(extensionName)"
+        
+        let path = "\(NSTemporaryDirectory())\(fileName).\(extensionName)"
         if FileManager.default.fileExists(atPath: path){
             try? FileManager.default.removeItem(atPath: path)
         }
-        return FileManager.default.createFile(atPath: path, contents: nil, attributes: nil) ? path : nil
+        let result = FileManager.default.createFile(atPath: path, contents: nil, attributes: nil)
+        if result{
+            return path
+        }
+        return nil
     }
     
     static func writeTempFile(data:Data,path:String){
@@ -37,7 +42,7 @@ class ShadowFileHandle: NSObject {
     }
     
     static func cacheTempFileWithFile(fileName:String,tmpPath:String)->Bool{
-        let path = "\(NSTemporaryDirectory())/cachevideo"
+        let path = "\(NSTemporaryDirectory())cachevideo"
         if !FileManager.default.fileExists(atPath: path){
            try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
         }
@@ -55,7 +60,7 @@ class ShadowFileHandle: NSObject {
         guard let fileName = url.path.components(separatedBy: "/").last else{
             return nil
         }
-        let path = "\(NSTemporaryDirectory())/cachevideo/\(fileName)"
+        let path = "\(NSTemporaryDirectory())cachevideo/\(fileName)"
         if FileManager.default.fileExists(atPath: path){
             return path
         }
@@ -65,7 +70,7 @@ class ShadowFileHandle: NSObject {
     
     
     static func clearCache()->Bool{
-        let path = "\(NSTemporaryDirectory())/cachevideo"
+        let path = "\(NSTemporaryDirectory())cachevideo"
         do{
            try FileManager.default.removeItem(atPath: path)
            return true

@@ -369,5 +369,11 @@ extension URL{
             return nil
         }
     }
+    
+    func changeSchema(targetSchema:String) -> URL? {
+        var com = URLComponents(url: self, resolvingAgainstBaseURL: false)
+        com?.scheme = targetSchema
+        return com?.url
+    }
 }
 

@@ -21,8 +21,6 @@ class ShadowResourceLoader: NSObject {
     var requestTask:ShadowRequestTask?
     
     
-    
-    
     func stopLoading() {
         requestTask?.isCancel = true
     }
@@ -53,8 +51,7 @@ class ShadowResourceLoader: NSObject {
             fileLength = requestTask!.fileLength
             requestTask?.isCancel = true
         }
-        requestTask = ShadowRequestTask()
-        requestTask?.requestUrl = loadingRequest.request.url
+        requestTask = ShadowRequestTask(url: loadingRequest.request.url!)
         requestTask?.requestOffset = Int(loadingRequest.dataRequest!.requestedOffset)
         requestTask?.isCache = isCache
         if fileLength > 0{
@@ -85,7 +82,7 @@ class ShadowResourceLoader: NSObject {
     
     func finishLoadingWithLoadingRequest(loadingRequest:AVAssetResourceLoadingRequest) -> Bool {
           //填充信息
-        loadingRequest.contentInformationRequest?.contentType = "video/mp4"
+        loadingRequest.contentInformationRequest?.contentType = "public.mpeg-4"
         loadingRequest.contentInformationRequest?.isByteRangeAccessSupported = true
         loadingRequest.contentInformationRequest?.contentLength = Int64(requestTask!.fileLength)
         let cacheLength = requestTask!.cacheLength

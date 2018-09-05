@@ -79,6 +79,7 @@ class ShadowPlayer: UIView {
     }
     let vPlay = ShadowPlayView(frame: CGRect())
     let vControl = ShadowControlView(frame:CGRect())
+    var resourceLoader:ShadowResourceLoader?
     private var url:URL!
     private let lblTitle = UILabel()
     private let btnVideoInfo = UIButton()
@@ -88,7 +89,9 @@ class ShadowPlayer: UIView {
     private let vActivity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     weak private var currentVC:UIViewController? = nil
     static var count = 0
-    
+    var isCached = false
+    var cachePath:String?
+  
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -104,6 +107,10 @@ class ShadowPlayer: UIView {
         self.init(frame: CGRect())
         setupPlayerUI()
         setupPlayerWithAsset(asset: asset)
+    }
+    
+    func replaceWithUrl(url:URL){
+        assetWithURL(url: url)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -262,13 +269,22 @@ class ShadowPlayer: UIView {
     
     func assetWithURL(url:URL) {
         let dict = [AVURLAssetPreferPreciseDurationAndTimingKey:true]
-        anAsset = AVURLAsset(url: url, options: dict)
-        anAsset.resourceLoader.setDelegate(self, queue: DispatchQueue.main)
-        if #available(iOS 10.0, *) {
-            player.automaticallyWaitsToMinimizeStalling = false
-        } else {
-            // Fallback on earlier versions
+        if url.absoluteString.hasPrefix("http"){
+            if let cacheFilePath = ShadowFileHandle.cacheFileExistsWith(url: url){
+                let fileUrl = URL(fileURLWithPath: cacheFilePath)
+                 anAsset = AVURLAsset(url: fileUrl, options: dict)
+            }
+            else{
+                resourceLoader = ShadowResourceLoader()
+                resourceLoader?.delegate = self
+                anAsset = AVURLAsset(url: url.changeSchema(targetSchema: "streaming")!, options: dict)
+                anAsset.resourceLoader.setDelegate(self.resourceLoader, queue: DispatchQueue.main)
+            }
         }
+        else{
+            anAsset = AVURLAsset(url: url, options: dict)
+        }
+     
         let keys = ["duration"]
         weak var weakself = self
         anAsset.loadValuesAsynchronously(forKeys: keys) {
@@ -302,6 +318,11 @@ class ShadowPlayer: UIView {
     func setupPlayerWithAsset(asset:AVURLAsset)  {
         item = AVPlayerItem(asset: asset)
         player = AVPlayer(playerItem: item)
+        if #available(iOS 10.0, *) {
+            player.automaticallyWaitsToMinimizeStalling = false
+        } else {
+            // Fallback on earlier versions
+        }
         playerLayer.displayIfNeeded()
         playerLayer.videoGravity = .resizeAspectFill
         addPeriodicTimeObserver()
@@ -522,6 +543,10 @@ class ShadowPlayer: UIView {
         }
         return info
     }
+    
+    func clearCache(){
+        
+    }
 }
 
 extension ShadowPlayer:UIGestureRecognizerDelegate,ShadowControlViewDelegate{
@@ -529,6 +554,7 @@ extension ShadowPlayer:UIGestureRecognizerDelegate,ShadowControlViewDelegate{
         ShadowPlayer.count = 0
         let pointTime = CMTimeMake(Int64(pointSliderLocationWithCurrentValue) * Int64(item.currentTime().timescale), item.currentTime().timescale)
         item.seek(to: pointTime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
+        
     }
     
     func controlView(view: ShadowControlView, draggedPositionWithSlider: UISlider) {
@@ -616,10 +642,10 @@ extension ShadowPlayer{
         }
     }
 }
-//这个功能太复杂了，需要比较多的时间研究
-extension ShadowPlayer:AVAssetResourceLoaderDelegate{
-   
-    func resourceLoader(_ resourceLoader: AVAssetResourceLoader, shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool {
-        return true
+extension ShadowPlayer:ShadowResourceLoaderDelegate{
+    func loader(loader: ShadowResourceLoader, progress: Float) {
+        
     }
+    
+    
 }
