@@ -17,6 +17,32 @@ enum PlayerStatus{
 }
 class ShadowPlayer: UIView {
 //目前这个方法还不支持缓存到本地，需要改进
+    var playbackTimerObserver:Any! = nil
+    var item:AVPlayerItem! //AVPlayer的播放item
+    var totalTime:CMTime! //总时长
+    var currentTime:CMTime! //当前时间
+    var anAsset:AVURLAsset! //资产AVURLAsset
+    var status = PlayerStatus.Unknown     //播放状态
+    var oldConstriants:[NSLayoutConstraint]!
+    var isPlaying = false
+    var isFullScreen = false
+    var isDraging = false
+    private var url:URL!
+    private let lblTitle = UILabel()
+    private let btnVideoInfo = UIButton()
+    private let vScInfo = UIScrollView()
+    private let vErrorVideo = UIView()
+    private let lblError = UILabel()
+    private let vActivity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+    weak private var currentVC:UIViewController? = nil
+    static var count = 0
+    var isCached = false
+    var cachePath:String?
+    var dataManager:ShadowDataManager?
+    var lastToEndDownloader:ShadowDownloader?
+    var nonToEndDownloaderArray:[ShadowDownloader]?
+    var isFileExist = false
+    var isFileCacheComplete = false
     override class var layerClass: AnyClass {
         get{
             return AVPlayerLayer.self
@@ -24,7 +50,7 @@ class ShadowPlayer: UIView {
         
     }
     
-    var playbackTimerObserver:Any! = nil
+    
     var player:AVPlayer!{
         set{
             self.playerLayer.player = newValue
@@ -38,10 +64,7 @@ class ShadowPlayer: UIView {
             return self.layer as! AVPlayerLayer
         }
     }
-    var item:AVPlayerItem! //AVPlayer的播放item
-    var totalTime:CMTime! //总时长
-    var currentTime:CMTime! //当前时间
-    var anAsset:AVURLAsset! //资产AVURLAsset
+   
     var rate:Float //播放器Playback Rate
     {
         get{
@@ -51,7 +74,7 @@ class ShadowPlayer: UIView {
             self.player.rate = newValue
         }
     }
-    var status = PlayerStatus.Unknown     //播放状态
+  
     var mode = VideoGravity.ResizeAspect  //videoGravity设置屏幕填充模式，（只写）
     {
         didSet{
@@ -65,10 +88,7 @@ class ShadowPlayer: UIView {
             }
         }
     }
-    var oldConstriants:[NSLayoutConstraint]!
-    var isPlaying = false
-    var isFullScreen = false
-    var isDraging = false
+
     var title:String{
         set{
             lblTitle.text = newValue
@@ -79,17 +99,7 @@ class ShadowPlayer: UIView {
     }
     let vPlay = ShadowPlayView(frame: CGRect())
     let vControl = ShadowControlView(frame:CGRect())
-    private var url:URL!
-    private let lblTitle = UILabel()
-    private let btnVideoInfo = UIButton()
-    private let vScInfo = UIScrollView()
-    private let vErrorVideo = UIView()
-    private let lblError = UILabel()
-    private let vActivity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
-    weak private var currentVC:UIViewController? = nil
-    static var count = 0
-    var isCached = false
-    var cachePath:String?
+   
   
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -267,50 +277,56 @@ class ShadowPlayer: UIView {
     }
     
     func assetWithURL(url:URL) {
+        isFileCacheComplete = false
         let dict = [AVURLAssetPreferPreciseDurationAndTimingKey:true]
-//        if url.absoluteString.hasPrefix("http"){
-//            if let cacheFilePath = ShadowFileHandle.cacheFileExistsWith(url: url){
-//                let fileUrl = URL(fileURLWithPath: cacheFilePath)
-//                 anAsset = AVURLAsset(url: fileUrl, options: dict)
-//            }
-//            else{
-//                resourceLoader = ShadowResourceLoader()
-//                resourceLoader?.delegate = self
-//                anAsset = AVURLAsset(url: url.changeSchema(targetSchema: "streaming")!, options: dict)
-//                anAsset.resourceLoader.setDelegate(self.resourceLoader, queue: DispatchQueue.main)
-//            }
-//        }
-//        else{
-//            anAsset = AVURLAsset(url: url, options: dict)
-//        }
-        anAsset = AVURLAsset(url: url, options: dict)
-        let keys = ["duration"]
-        weak var weakself = self
-        anAsset.loadValuesAsynchronously(forKeys: keys) {
-            var error:NSError? = nil
-            guard let tracksStatus = weakself?.anAsset.statusOfValue(forKey: "duration", error: &error) else{
-                weakself?.showErrorInfo(info: error?.localizedDescription ?? "视频出现错误，请检查后重新播放")
-                return
-            }
-            switch tracksStatus{
-            case .loaded:
-                DispatchQueue.main.async {
-                    if  !weakself!.anAsset.duration.isIndefinite{
-                        let second = weakself!.anAsset.duration.value / Int64(weakself!.anAsset.duration.timescale)
-                        weakself?.vControl.totalTime = weakself!.convertTime(second: Float(second))
-                        weakself?.vControl.minValue = 0
-                        weakself?.vControl.maxValue = Float(second)
-                    }
-                }
-            case .failed:
-                weakself?.showErrorInfo(info: error?.localizedDescription ?? "视频出现错误，请检查后重新播放")
-            case .unknown:
-                weakself?.showErrorInfo(info: "未知视频格式，请检查后重新播放")
-
-            default:
-                break
-            }
+        if url.absoluteString.hasPrefix("http"){
+             let filePath = ShadowDataManager.checkCached(urlStr: url.absoluteString)
+             if filePath.1 {
+                anAsset = AVURLAsset(url: URL(fileURLWithPath: filePath.0), options: dict)
+                isFileExist = true
+             }
+             else{
+                self.dataManager = ShadowDataManager(urlStr: url.absoluteString, cachePath: filePath.0)!
+                self.dataManager?.delegate = self
+                //此处需要将原始的url的协议头处理成系统无法处理的自定义协议头，此时才会进入AVAssetResourceLoaderDelegate的代理方法中
+                let schemaUrl = url.changeSchema(targetSchema: "streaming")
+                anAsset = AVURLAsset(url: schemaUrl!, options: dict)
+                anAsset.resourceLoader.setDelegate(self, queue: DispatchQueue.main)
+             }
         }
+        else{
+            anAsset = AVURLAsset(url: url, options: dict)
+        }
+        //anAsset = AVURLAsset(url: url, options: dict)
+//        let keys = ["duration"]
+//        weak var weakself = self
+        //如果使用第三方下载这个就不能用了
+        
+//        anAsset.loadValuesAsynchronously(forKeys: keys) {
+//            var error:NSError? = nil
+//            guard let tracksStatus = weakself?.anAsset.statusOfValue(forKey: "duration", error: &error) else{
+//                weakself?.showErrorInfo(info: error?.localizedDescription ?? "视频出现错误，请检查后重新播放")
+//                return
+//            }
+//            switch tracksStatus{
+//            case .loaded:
+//                DispatchQueue.main.async {
+//                    if  !weakself!.anAsset.duration.isIndefinite{
+//                        let second = weakself!.anAsset.duration.value / Int64(weakself!.anAsset.duration.timescale)
+//                        weakself?.vControl.totalTime = weakself!.convertTime(second: Float(second))
+//                        weakself?.vControl.minValue = 0
+//                        weakself?.vControl.maxValue = Float(second)
+//                    }
+//                }
+//            case .failed:
+//                weakself?.showErrorInfo(info: error?.localizedDescription ?? "视频出现错误，请检查后重新播放")
+//            case .unknown:
+//                weakself?.showErrorInfo(info: "未知视频格式，请检查后重新播放")
+//
+//            default:
+//                break
+//            }
+//        }
         setupPlayerWithAsset(asset: anAsset)
     }
     
@@ -476,6 +492,14 @@ class ShadowPlayer: UIView {
             player = nil
             removeSubviews()
         }
+        dataManager = nil
+        lastToEndDownloader?.cancel()
+        lastToEndDownloader = nil
+        if let arr = nonToEndDownloaderArray{
+            for downloader in arr{
+                downloader.cancel()
+            }
+        }
     }
     
     func setSubViewsIsHide(isHide:Bool){
@@ -638,6 +662,51 @@ extension ShadowPlayer{
             ShadowPlayer.count = 0
             pause()
            
+        }
+    }
+}
+
+extension ShadowPlayer:ShadowDataManagerDelegate,AVAssetResourceLoaderDelegate{
+    func resourceLoader(_ resourceLoader: AVAssetResourceLoader, shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool {
+        handleLoadingRequest(loadingRequest: loadingRequest)
+        return true
+    }
+    
+    func handleLoadingRequest(loadingRequest:AVAssetResourceLoadingRequest)  {
+        //取消上一个requestsAllDataToEndOfResource的请求
+        if loadingRequest.dataRequest!.requestsAllDataToEndOfResource{
+            if lastToEndDownloader != nil{
+                let lastRequestedOffset = lastToEndDownloader!.loadingRequest.dataRequest!.requestedOffset
+                let lastRequestedLength = lastToEndDownloader!.loadingRequest.dataRequest?.requestedLength
+                let lastCurrentOffset = lastToEndDownloader?.loadingRequest.dataRequest!.currentOffset
+                let currentRequestedOffset = loadingRequest.dataRequest!.requestedOffset
+                let currentRequestedLength = loadingRequest.dataRequest!.requestedLength
+                let currentCurrentOffset = loadingRequest.dataRequest!.currentOffset
+                if lastRequestedOffset == currentRequestedOffset && lastRequestedLength == currentRequestedLength && lastCurrentOffset == currentCurrentOffset{
+                    //在弱网络情况下，下载文件最后部分时，会出现所请求数据完全一致的loadingRequest（且requestsAllDataToEndOfResource = YES），此时不应取消前一个与其相同的请求；否则会无限生成相同的请求范围的loadingRequest，无限取消，产生循环
+                    return
+                }
+                lastToEndDownloader?.cancel()
+                
+            }
+        }
+        let rangeModelArray = ShadowRangeManager.shareInstance!.calculateRangeModelArrayForLoadingRequest(loadingRequest: loadingRequest)
+        let urlScheme = url.scheme
+        let downloader = ShadowDownloader(loadingRequest: loadingRequest, rangeInfoArray: rangeModelArray, urlSchema: urlScheme!, dataManager: dataManager!)
+        if loadingRequest.dataRequest!.requestsAllDataToEndOfResource{
+            lastToEndDownloader = downloader
+        }
+        else{
+            if nonToEndDownloaderArray == nil{
+                nonToEndDownloaderArray = [ShadowDownloader]()
+            }
+            nonToEndDownloaderArray?.append(downloader!)
+        }
+    }
+    
+    func fileDownloadAndSaveSuccess() {
+        if !isFileExist{
+            isFileCacheComplete = true
         }
     }
 }

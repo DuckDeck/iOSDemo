@@ -16,20 +16,22 @@ enum RangeInfoRequestType:Int{
 }
 
 class ShadowDownloader:NSObject {
-    var loadingRequest:AVAssetResourceLoadingRequest
-    fileprivate var rangeInfoArray:[ShadowRangeInfo]
-    fileprivate var urlSchema:String
-    fileprivate var dataManager:ShadowDataManager
+    var loadingRequest:AVAssetResourceLoadingRequest!
+    fileprivate var rangeInfoArray:[ShadowRangeInfo]!
+    fileprivate var urlSchema:String!
+    fileprivate var dataManager:ShadowDataManager!
     fileprivate var currentRangeInfo:ShadowRangeInfo?
     fileprivate var urlSession:URLSession?
     fileprivate var dataTask:URLSessionDataTask?
     fileprivate var receivedDataLength = 0
+
     init?(loadingRequest:AVAssetResourceLoadingRequest,rangeInfoArray:[ShadowRangeInfo],urlSchema:String,dataManager:ShadowDataManager) {
+        super.init()
         self.rangeInfoArray = rangeInfoArray
         self.loadingRequest = loadingRequest
         self.urlSchema = urlSchema
         self.dataManager = dataManager
-        
+        self.handleLoadingRequest(loadingRequest: loadingRequest, rangeArray: rangeInfoArray)
     }
     
     func handleLoadingRequest(loadingRequest:AVAssetResourceLoadingRequest,rangeArray:[ShadowRangeInfo])  {
@@ -85,7 +87,8 @@ class ShadowDownloader:NSObject {
         guard let httpResponse = response as? HTTPURLResponse else {
             return
         }
-        let byteRangeAccessSupported = (httpResponse.allHeaderFields["Accept-Ranges"] as! String) == "bytes"
+        let byteRangeAccessSupported = (httpResponse.allHeaderFields["Accept-Ranges"] as? String) == "bytes"
+        
         let contentLength = (httpResponse.allHeaderFields["Content-Range"] as! String).components(separatedBy: "/").last?.toInt() ?? 0
         dataManager.contentLength = contentLength
         guard let mimeType = httpResponse.mimeType else{
@@ -112,13 +115,22 @@ class ShadowDownloader:NSObject {
 extension ShadowDownloader:URLSessionDataDelegate{
  
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
-        
+        fillContentInfo(response: response)
+        completionHandler(.allow)
     }
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        
+        handleReceiveData(data: data)
     }
     
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        if error != nil{
+            print(error!.localizedDescription)
+        }
+        else{
+                handleLoadingRequest(loadingRequest: loadingRequest, rangeArray: rangeInfoArray)
+        }
+    }
 }
 
 struct  ShadowRangeInfo {

@@ -25,7 +25,6 @@ class ShadowDataManager {
     fileprivate var cachedDataLength = 0
 
     init?(urlStr:String,cachePath:String) {
-       
         let success = createTmpPathWith(urlStr: urlStr, cachePath: cachePath)
         if !success{
             return nil
@@ -77,24 +76,24 @@ class ShadowDataManager {
         return true
     }
     
-    static func checkCached(urlStr:String)->String?{
+    static func checkCached(urlStr:String)->(String,Bool){
         if urlStr.hasPrefix("/var"){
-            return urlStr
+            return (urlStr,true)
         }
         let url = URL(string: urlStr)!
         let fileType = url.pathExtension
         let cachePath = "\(NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last!)/ShadowCache/\(urlStr.hashValue).\(fileType)"
         if FileManager.default.fileExists(atPath: cachePath){
-            return cachePath
+            return (cachePath,true)
         }
       
-        return nil
+        return (cachePath,false)
         
     }
     
-    static func checkCached(path:String)->String?{
-        if FileManager.default.fileExists(atPath: path){
-            return path
+    static func checkCached(filePath:String)->String?{
+        if FileManager.default.fileExists(atPath: filePath){
+            return filePath
         }
         else{
             return nil
