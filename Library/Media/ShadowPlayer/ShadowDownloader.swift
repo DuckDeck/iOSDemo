@@ -71,7 +71,11 @@ class ShadowDownloader:NSObject {
     }
     
     func cancel()  {
-        
+        if !loadingRequest.isFinished{
+            loadingRequest.finishLoading()
+        }
+        dataTask?.cancel()//保证请求被立即取消，不然服务器还会继续返回一段数据，这段数据不会被利用到，浪费流量
+        urlSession?.invalidateAndCancel()
     }
     
     func fillContentInfo(response:URLResponse)  {
@@ -98,7 +102,9 @@ class ShadowDownloader:NSObject {
     func handleReceiveData(data:Data)  {
         let cacheRange = NSRange(location: currentRangeInfo!.requestRange.location + receivedDataLength, length: data.count)
         dataManager.addCache(data: data, range: cacheRange)
-        
+        ShadowRangeManager.shareInstance?.addCacheRange(newRange: cacheRange)
+        receivedDataLength += data.count
+        loadingRequest.dataRequest?.respond(with: data)
     }
     
 }
