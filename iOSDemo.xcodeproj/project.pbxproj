@@ -149,6 +149,8 @@
 		AE4DA61B213E68B300FCC7FD /* ShadowDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61A213E68B300FCC7FD /* ShadowDataManager.swift */; };
 		AE4DA61D213E762500FCC7FD /* ShadowDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61C213E762500FCC7FD /* ShadowDownloader.swift */; };
 		AE4DA61F213E833D00FCC7FD /* ShadowRangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61E213E833D00FCC7FD /* ShadowRangeManager.swift */; };
+		AE4DA62121425B8800FCC7FD /* ShadowVideoPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA62021425B8800FCC7FD /* ShadowVideoPlayView.swift */; };
+		AE4DA6232142803800FCC7FD /* ShadowPlayBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA6222142803800FCC7FD /* ShadowPlayBack.swift */; };
 		AE5351202011876B00FC48A1 /* SnapkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */; };
 		AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */; };
 		AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752921F76931C00F6AAC5 /* MediaViewController.swift */; };
@@ -429,6 +431,8 @@
 		AE4DA61A213E68B300FCC7FD /* ShadowDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDataManager.swift; sourceTree = "<group>"; };
 		AE4DA61C213E762500FCC7FD /* ShadowDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDownloader.swift; sourceTree = "<group>"; };
 		AE4DA61E213E833D00FCC7FD /* ShadowRangeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowRangeManager.swift; sourceTree = "<group>"; };
+		AE4DA62021425B8800FCC7FD /* ShadowVideoPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowVideoPlayView.swift; sourceTree = "<group>"; };
+		AE4DA6222142803800FCC7FD /* ShadowPlayBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPlayBack.swift; sourceTree = "<group>"; };
 		AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitViewController.swift; sourceTree = "<group>"; };
 		AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitTableViewController.swift; sourceTree = "<group>"; };
 		AE5752921F76931C00F6AAC5 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
@@ -791,6 +795,8 @@
 				AE4DA61A213E68B300FCC7FD /* ShadowDataManager.swift */,
 				AE4DA61C213E762500FCC7FD /* ShadowDownloader.swift */,
 				AE4DA61E213E833D00FCC7FD /* ShadowRangeManager.swift */,
+				AE4DA62021425B8800FCC7FD /* ShadowVideoPlayView.swift */,
+				AE4DA6222142803800FCC7FD /* ShadowPlayBack.swift */,
 			);
 			path = ShadowPlayer;
 			sourceTree = "<group>";
@@ -2171,10 +2177,12 @@
 				AE1DE0432099AD32007910A5 /* NovelContentViewModel.swift in Sources */,
 				AE3F46F420AC0B2B007BA637 /* UIImageView+Extension.swift in Sources */,
 				AE6691B320EDF39F00D019D4 /* WebViewController.swift in Sources */,
+				AE4DA62121425B8800FCC7FD /* ShadowVideoPlayView.swift in Sources */,
 				AE6691DD20F49BD600D019D4 /* PaletteViewController.swift in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
 				AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */,
 				AEBE404E1FC806E40087D7ED /* DBTool.swift in Sources */,
+				AE4DA6232142803800FCC7FD /* ShadowPlayBack.swift in Sources */,
 				AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */,
 				AE0F707F1FBD6F2B00C8135C /* NFXHelper_iOS.swift in Sources */,
 				AE3F46F020AC058A007BA637 /* Number+Extension.swift in Sources */,

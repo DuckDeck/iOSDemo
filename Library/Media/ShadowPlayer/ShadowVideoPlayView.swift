@@ -1,5 +1,5 @@
 //
-//  ShadowPlayer.swift
+//  ShadowVideoPlayerView.swift
 //  iOSDemo
 //
 //  Created by Stan Hu on 2018/5/21.
@@ -9,14 +9,9 @@
 import Foundation
 import AVKit
 
-enum VideoGravity {
-    case ResizeAspect,ResizeAspectFill,Resize
-}
-enum PlayerStatus{
-    case Failed,ReadyToPlay,Unknown,Buffering,Playing,Stopped
-}
-class ShadowPlayer: UIView {
-//目前这个方法还不支持缓存到本地，需要改进
+
+class ShadowVideoPlayerView: UIView {
+    //目前这个方法还不支持缓存到本地，需要改进
     var playbackTimerObserver:Any! = nil
     var item:AVPlayerItem! //AVPlayer的播放item
     var totalTime:CMTime! //总时长
@@ -64,7 +59,7 @@ class ShadowPlayer: UIView {
             return self.layer as! AVPlayerLayer
         }
     }
-   
+    
     var rate:Float //播放器Playback Rate
     {
         get{
@@ -74,7 +69,7 @@ class ShadowPlayer: UIView {
             self.player.rate = newValue
         }
     }
-  
+    
     var mode = VideoGravity.ResizeAspect  //videoGravity设置屏幕填充模式，（只写）
     {
         didSet{
@@ -88,7 +83,7 @@ class ShadowPlayer: UIView {
             }
         }
     }
-
+    
     var title:String{
         set{
             lblTitle.text = newValue
@@ -99,8 +94,8 @@ class ShadowPlayer: UIView {
     }
     let vPlay = ShadowPlayView(frame: CGRect())
     let vControl = ShadowControlView(frame:CGRect())
-   
-  
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -142,7 +137,7 @@ class ShadowPlayer: UIView {
             m.right.equalTo(-30)
             m.width.equalTo(self)
         }
-         //添加点击事件
+        //添加点击事件
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapAction(ges:)))
         tap.delegate = self
         addGestureRecognizer(tap)
@@ -162,11 +157,11 @@ class ShadowPlayer: UIView {
             m.edges.equalTo(self)
         }
         vPlay.isHidden = true
-         //添加控制视图
+        //添加控制视图
         vControl.delegate = self
         vControl.backgroundColor = UIColor.clear
         if let ges = self.vPlay.btnImage.gestureRecognizers?.first{
-             vControl.tapGesture?.require(toFail: ges)
+            vControl.tapGesture?.require(toFail: ges)
         }
         addSubview(vControl)
         vControl.snp.makeConstraints { (m) in
@@ -174,14 +169,14 @@ class ShadowPlayer: UIView {
             m.height.equalTo(44)
         }
         layoutIfNeeded()
-         //添加加载视图
+        //添加加载视图
         vActivity.hidesWhenStopped = true
         addSubview(vActivity)
         vActivity.snp.makeConstraints { (m) in
             m.width.height.equalTo(80)
             m.center.equalTo(self)
         }
-         //初始化时间
+        //初始化时间
         vControl.currentTime = "00:00"
         vControl.totalTime = "00:00"
         
@@ -253,7 +248,7 @@ class ShadowPlayer: UIView {
             m.top.equalTo(imgError.snp.bottom).offset(4)
         }
     }
-   
+    
     @objc func handleTapAction(ges:UIGestureRecognizer) {
         setSubViewsIsHide(isHide: false)
         ShadowPlayer.count = 0
@@ -262,7 +257,7 @@ class ShadowPlayer: UIView {
     @objc func showVideoInfo()  {
         pause()
         vScInfo.isHidden = false
-    
+        
     }
     
     @objc func handleTapInfo(ges:UIGestureRecognizer)  {
@@ -272,7 +267,7 @@ class ShadowPlayer: UIView {
     
     
     @objc func handleTapError(ges:UIGestureRecognizer)  {
-       vErrorVideo.isHidden = true
+        vErrorVideo.isHidden = true
         //先这样吧
     }
     
@@ -280,19 +275,19 @@ class ShadowPlayer: UIView {
         isFileCacheComplete = false
         let dict = [AVURLAssetPreferPreciseDurationAndTimingKey:true]
         if url.absoluteString.hasPrefix("http"){
-             let filePath = ShadowDataManager.checkCached(urlStr: url.absoluteString)
-             if filePath.1 {
+            let filePath = ShadowDataManager.checkCached(urlStr: url.absoluteString)
+            if filePath.1 {
                 anAsset = AVURLAsset(url: URL(fileURLWithPath: filePath.0), options: dict)
                 isFileExist = true
-             }
-             else{
+            }
+            else{
                 self.dataManager = ShadowDataManager(urlStr: url.absoluteString, cachePath: filePath.0)!
                 self.dataManager?.delegate = self
                 //此处需要将原始的url的协议头处理成系统无法处理的自定义协议头，此时才会进入AVAssetResourceLoaderDelegate的代理方法中
                 let schemaUrl = url.changeSchema(targetSchema: "streaming")
                 anAsset = AVURLAsset(url: schemaUrl!, options: nil)
                 anAsset.resourceLoader.setDelegate(self, queue: DispatchQueue.main)
-             }
+            }
         }
         else{
             anAsset = AVURLAsset(url: url, options: dict)
@@ -319,10 +314,10 @@ class ShadowPlayer: UIView {
                     }
                 }
             case .failed:
-               // weakself?.showErrorInfo(info: error?.localizedDescription ?? "视频出现错误，请检查后重新播放")
+                // weakself?.showErrorInfo(info: error?.localizedDescription ?? "视频出现错误，请检查后重新播放")
                 print(error?.localizedDescription)
             case .unknown:
-               // weakself?.showErrorInfo(info: "未知视频格式，请检查后重新播放")
+                // weakself?.showErrorInfo(info: "未知视频格式，请检查后重新播放")
                 print(error?.localizedDescription)
             default:
                 break
@@ -344,7 +339,7 @@ class ShadowPlayer: UIView {
         addPeriodicTimeObserver()
         addKVO()
         addNotificationCenter()
-
+        
     }
     
     func addPeriodicTimeObserver()  {
@@ -450,7 +445,7 @@ class ShadowPlayer: UIView {
         }
         return format.string(from: d)
     }
-        
+    
     
     func showErrorInfo(info:String)  {
         lblError.text = info
@@ -471,7 +466,7 @@ class ShadowPlayer: UIView {
             self.player.pause()
             vPlay.btnImage.isSelected = false
         }
-
+        
     }
     
     func stop() {
@@ -511,7 +506,7 @@ class ShadowPlayer: UIView {
         btnVideoInfo.isHidden = isHide
     }
     
-  
+    
     func interfaceOrientation(orientation:UIInterfaceOrientation)  {
         UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
         //有一些判断
@@ -536,7 +531,7 @@ class ShadowPlayer: UIView {
         }
         
         
-       let assert = AVURLAsset(url: url)
+        let assert = AVURLAsset(url: url)
         
         guard let a = assert.tracks.first?.formatDescriptions.first else{
             return info
@@ -612,7 +607,7 @@ extension ShadowPlayer:UIGestureRecognizerDelegate,ShadowControlViewDelegate{
     }
 }
 
-extension ShadowPlayer{
+extension ShadowVideoPlayerView{
     @objc func ShadowPlayerItemDidPlayToEndTimeNotification(notif:Notification)  {
         item.seek(to: kCMTimeZero)
         setSubViewsIsHide(isHide: false)
@@ -663,54 +658,10 @@ extension ShadowPlayer{
             setSubViewsIsHide(isHide: false)
             ShadowPlayer.count = 0
             pause()
-           
+            
         }
     }
 }
 
-extension ShadowPlayer:ShadowDataManagerDelegate,AVAssetResourceLoaderDelegate{
-    func resourceLoader(_ resourceLoader: AVAssetResourceLoader, shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool {
-        handleLoadingRequest(loadingRequest: loadingRequest)
-        Log(message: "开始请求，当前位置\(loadingRequest.dataRequest!.currentOffset)---请求长度\(loadingRequest.dataRequest!.requestedLength)----请求偏移\(loadingRequest.dataRequest!.requestedOffset)")
-        //Issue 目前对于测试视频来说，不会做分片请求，第二次就直接全部请求了。
-        return true
-    }
-    
-    func handleLoadingRequest(loadingRequest:AVAssetResourceLoadingRequest)  {
-        //取消上一个requestsAllDataToEndOfResource的请求
-        if loadingRequest.dataRequest!.requestsAllDataToEndOfResource{
-            if lastToEndDownloader != nil{
-                let lastRequestedOffset = lastToEndDownloader!.loadingRequest.dataRequest!.requestedOffset
-                let lastRequestedLength = lastToEndDownloader!.loadingRequest.dataRequest?.requestedLength
-                let lastCurrentOffset = lastToEndDownloader?.loadingRequest.dataRequest!.currentOffset
-                let currentRequestedOffset = loadingRequest.dataRequest!.requestedOffset
-                let currentRequestedLength = loadingRequest.dataRequest!.requestedLength
-                let currentCurrentOffset = loadingRequest.dataRequest!.currentOffset
-                if lastRequestedOffset == currentRequestedOffset && lastRequestedLength == currentRequestedLength && lastCurrentOffset == currentCurrentOffset{
-                    //在弱网络情况下，下载文件最后部分时，会出现所请求数据完全一致的loadingRequest（且requestsAllDataToEndOfResource = YES），此时不应取消前一个与其相同的请求；否则会无限生成相同的请求范围的loadingRequest，无限取消，产生循环
-                    return
-                }
-                lastToEndDownloader?.cancel()
-                
-            }
-        }
-        let rangeModelArray = ShadowRangeManager.shareInstance!.calculateRangeModelArrayForLoadingRequest(loadingRequest: loadingRequest)
-        let urlScheme = url.scheme
-        let downloader = ShadowDownloader(loadingRequest: loadingRequest, rangeInfoArray: rangeModelArray, urlSchema: urlScheme!, dataManager: dataManager!)
-        if loadingRequest.dataRequest!.requestsAllDataToEndOfResource{
-            lastToEndDownloader = downloader
-        }
-        else{
-            if nonToEndDownloaderArray == nil{
-                nonToEndDownloaderArray = [ShadowDownloader]()
-            }
-            nonToEndDownloaderArray?.append(downloader!)
-        }
-    }
-    
-    func fileDownloadAndSaveSuccess() {
-        if !isFileExist{
-            isFileCacheComplete = true
-        }
-    }
-}
+
+

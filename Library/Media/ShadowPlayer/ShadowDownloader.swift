@@ -31,21 +31,20 @@ class ShadowDownloader:NSObject {
         self.loadingRequest = loadingRequest
         self.urlSchema = urlSchema
         self.dataManager = dataManager
-        self.handleLoadingRequest(loadingRequest: loadingRequest, rangeArray: rangeInfoArray)
+        self.handleLoadingRequest(loadingRequest: loadingRequest)
     }
     
-    func handleLoadingRequest(loadingRequest:AVAssetResourceLoadingRequest,rangeArray:[ShadowRangeInfo])  {
-        if rangeArray.count > 0{
-            let rangeInfo = rangeArray.first!
+    func handleLoadingRequest(loadingRequest:AVAssetResourceLoadingRequest)  {
+        if rangeInfoArray.count > 0{
+            let rangeInfo = rangeInfoArray.first!
             currentRangeInfo = rangeInfo
             receivedDataLength = 0
+            rangeInfoArray.remove(at: 0)
             if rangeInfo.requestType == .RequestFromCache{
                 let cacheRange = rangeInfo.requestRange
                 let cacheData = dataManager.readCacheDataIn(range: cacheRange)
                 loadingRequest.dataRequest?.respond(with: cacheData)
-                var tmp = rangeArray
-                tmp.remove(at: 0)
-                handleLoadingRequest(loadingRequest: loadingRequest, rangeArray: tmp)
+                handleLoadingRequest(loadingRequest: loadingRequest)
             }
             else{
                 //将私有协议开头的请求处理成真正可用的url
@@ -61,6 +60,7 @@ class ShadowDownloader:NSObject {
                 var request = URLRequest(url: urlComponents.url!)
                 request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
                 let requestRange = "bytes=\(rangeInfo.requestRange.location)-\(rangeInfo.requestRange.location + rangeInfo.requestRange.length - 1)"
+                Log(message: "设置请求范围\(requestRange)")
                 request.setValue(requestRange, forHTTPHeaderField: "Range")
                 let task = urlSession!.dataTask(with: request)
                 dataTask = task
@@ -87,13 +87,28 @@ class ShadowDownloader:NSObject {
         guard let httpResponse = response as? HTTPURLResponse else {
             return
         }
-        let byteRangeAccessSupported = (httpResponse.allHeaderFields["Accept-Ranges"] as? String) == "bytes"
-        
-        let contentLength = (httpResponse.allHeaderFields["Content-Range"] as! String).components(separatedBy: "/").last?.toInt() ?? 0
+         //服务器端是否支持分段传输
+        var  byteRangeAccessSupported = false
+        //返回的是这样的
+        //- value : "Content-Range"
+        //- value : bytes 0-1/4425575
+        //ISSUE我用URLSession里面设置了Range，所以返回的allHeaderFields里面没有Accept-Ranges这个字段，取而代之的是Content-Range，里面有文件长度和当前请求的长度
+        //所以判断里面有没有bytes所以得出支不支持分段传输
+        if httpResponse.allHeaderFields.keys.contains("Accept-Ranges") && httpResponse.allHeaderFields["Accept-Ranges"] is String{
+            let acceprange = httpResponse.allHeaderFields["Accept-Ranges"] as! String
+            byteRangeAccessSupported = acceprange == "bytes"
+        }
+         //获取返回文件的长度，同时判断支不支持分段传输
+        let contentLengthStr = httpResponse.allHeaderFields["Content-Range"] as? String ?? ""
+        if contentLengthStr.contains("bytes"){
+            byteRangeAccessSupported = true
+        }
+        let contentLength = contentLengthStr.components(separatedBy: "/").last?.toInt() ?? 0
         dataManager.contentLength = contentLength
         guard let mimeType = httpResponse.mimeType else{
             return
         }
+         //获取返回文件的类型
         guard let contentType = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, mimeType as CFString, nil)?.takeRetainedValue() as String? else{
             return
         }
@@ -115,22 +130,28 @@ class ShadowDownloader:NSObject {
 extension ShadowDownloader:URLSessionDataDelegate{
  
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+        //服务器首次响应请求时，返回的响应头，长度为2字节，包含该次网络请求返回的音频文件的内容信息，例如文件长度，类型等
         fillContentInfo(response: response)
         completionHandler(.allow)
     }
     
+    //下载中，服务器返回数据时，调用该方法，可能会调用多次
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         handleReceiveData(data: data)
+        //这里还可以设置进度
     }
     
+    //请求完成调用该方法   请求失败则error有值
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if error != nil{
             print(error!.localizedDescription)
         }
         else{
-                handleLoadingRequest(loadingRequest: loadingRequest, rangeArray: rangeInfoArray)
+             handleLoadingRequest(loadingRequest: loadingRequest)
         }
     }
+    
+    
 }
 
 struct  ShadowRangeInfo {
