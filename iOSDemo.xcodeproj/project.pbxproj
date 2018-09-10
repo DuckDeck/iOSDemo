@@ -151,6 +151,7 @@
 		AE4DA61F213E833D00FCC7FD /* ShadowRangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61E213E833D00FCC7FD /* ShadowRangeManager.swift */; };
 		AE4DA62121425B8800FCC7FD /* ShadowVideoPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA62021425B8800FCC7FD /* ShadowVideoPlayView.swift */; };
 		AE4DA6232142803800FCC7FD /* ShadowPlayBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA6222142803800FCC7FD /* ShadowPlayBack.swift */; };
+		AE4DA625214667A200FCC7FD /* ShadowAudioPlayerBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA624214667A200FCC7FD /* ShadowAudioPlayerBack.swift */; };
 		AE5351202011876B00FC48A1 /* SnapkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */; };
 		AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */; };
 		AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752921F76931C00F6AAC5 /* MediaViewController.swift */; };
@@ -433,6 +434,7 @@
 		AE4DA61E213E833D00FCC7FD /* ShadowRangeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowRangeManager.swift; sourceTree = "<group>"; };
 		AE4DA62021425B8800FCC7FD /* ShadowVideoPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowVideoPlayView.swift; sourceTree = "<group>"; };
 		AE4DA6222142803800FCC7FD /* ShadowPlayBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPlayBack.swift; sourceTree = "<group>"; };
+		AE4DA624214667A200FCC7FD /* ShadowAudioPlayerBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowAudioPlayerBack.swift; sourceTree = "<group>"; };
 		AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitViewController.swift; sourceTree = "<group>"; };
 		AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitTableViewController.swift; sourceTree = "<group>"; };
 		AE5752921F76931C00F6AAC5 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
@@ -797,6 +799,7 @@
 				AE4DA61E213E833D00FCC7FD /* ShadowRangeManager.swift */,
 				AE4DA62021425B8800FCC7FD /* ShadowVideoPlayView.swift */,
 				AE4DA6222142803800FCC7FD /* ShadowPlayBack.swift */,
+				AE4DA624214667A200FCC7FD /* ShadowAudioPlayerBack.swift */,
 			);
 			path = ShadowPlayer;
 			sourceTree = "<group>";
@@ -1992,6 +1995,7 @@
 				AE7278A9207F5A28005D9D6D /* SoundRecordViewController.swift in Sources */,
 				AE9F32831F690F5200339BB8 /* GrandModel+Convert.swift in Sources */,
 				AEDF8C49209AF5F700EED6D1 /* VideoRecordViewController.swift in Sources */,
+				AE4DA625214667A200FCC7FD /* ShadowAudioPlayerBack.swift in Sources */,
 				AE1AC81720D25FBC0002F779 /* CaptureSessionCoordinator.swift in Sources */,
 				AE0F70651FBD6F2B00C8135C /* NFXSettingsController.swift in Sources */,
 				AE0F70861FBE861A00C8135C /* SliderDemoViewController.swift in Sources */,

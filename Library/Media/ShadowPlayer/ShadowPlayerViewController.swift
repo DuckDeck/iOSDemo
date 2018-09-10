@@ -12,7 +12,7 @@ class ShadowPlayerViewController: UIViewController {
     var url:URL?
     var videoTitle:String?{
         didSet{
-            player.title = videoTitle ?? ""
+           // player.title = videoTitle ?? ""
         }
     }
     let btnClose = UIButton()
@@ -23,15 +23,15 @@ class ShadowPlayerViewController: UIViewController {
         assert(navigationController == nil, "你不能Navigation到这个页面")
         assert(url != nil, "videl url can not be nil")
         player = ShadowPlayer(url: url!)
-        player.mode = .ResizeAspect
-        player.title = url!.lastPathComponent
-        player.backgroundColor = UIColor.black
-        view.addSubview(player)
-        player.snp.makeConstraints { (m) in
-            m.left.right.equalTo(0)
-            m.top.equalTo(50)
-            m.bottom.equalTo(-50)
-        }
+ 
+//        player.title = url!.lastPathComponent
+//        player.backgroundColor = UIColor.black
+//        view.addSubview(player)
+//        player.snp.makeConstraints { (m) in
+//            m.left.right.equalTo(0)
+//            m.top.equalTo(50)
+//            m.bottom.equalTo(-50)
+//        }
         
         btnClose.setImage(#imageLiteral(resourceName: "icon_close"), for: .normal)
         view.addSubview(btnClose)
@@ -46,7 +46,7 @@ class ShadowPlayerViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        player.stop()
+        //player.stop()
     }
     
     @objc func close()  {

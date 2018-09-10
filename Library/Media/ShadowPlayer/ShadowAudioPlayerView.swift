@@ -19,7 +19,7 @@ class ShadowAudioPlayerView: UIView {
     var url:URL!
     let slider = UISlider()
     let sliderBuffer = UISlider()
-    var player:ShadowAudioPlayer!
+    var player:ShadowPlayer!
     var audioDuration:Double = 0
     var tapGesture:UITapGestureRecognizer?
     var autoPlay = false
@@ -103,7 +103,7 @@ class ShadowAudioPlayerView: UIView {
             showAudioErrorInfo()
             return
         }
-        player = ShadowAudioPlayer(urlAsset: url, startAutoPlay: autoPlay, repeatAfterEnd: false)
+        player = ShadowPlayer(url: url)
         player.delegate = self
     }
     
@@ -129,7 +129,7 @@ class ShadowAudioPlayerView: UIView {
     
     deinit {
         if player != nil{
-            player.cleanUp()
+            player.stop()
             player = nil
         }
     }
@@ -168,33 +168,58 @@ class ShadowAudioPlayerView: UIView {
     
 }
 
-extension ShadowAudioPlayerView:VideoPlayerDelegate{
-    func readyToPlay(assetDuration: Double) {
-        
-        self.audioDuration = assetDuration
-        lblTotalTime.text = convertTime(second: Float(self.audioDuration))
+extension ShadowAudioPlayerView:ShadowPlayDelegate{
+    func bufferProcess(percent: Float) {
+        sliderBuffer.value = percent
     }
     
-    func downloadedProgress(progress: Double) {
-        sliderBuffer.value = Float(progress)
+    func playStateChange(status: PlayerStatus, dict: [String : Any]?) {
+        switch status {
+        case .ReadyToPlay:
+            
+            lblTotalTime.text = convertTime(second: Float(self.audioDuration))
+        case .Finished:
+            btnPlay.isSelected = false
+            slider.value = 0
+            playTime = 0
+            lblPlayTime.text = "00:00"
+        default:
+            break
+        }
     }
     
-    func didUpdateProgress(progress: Double) {
-        slider.value = Float(progress)
+    func playProcess(percent: Float) {
+        slider.value = percent
         playTime += 1
         lblPlayTime.text = convertTime(second: Float(playTime))
     }
     
-    func didFinishPlayItem() {
-        btnPlay.isSelected = false
-        slider.value = 0
-        playTime = 0
-        lblPlayTime.text = "00:00"
-    }
-    
-    func didFailPlayToEnd() {
-        
-    }
+//    func readyToPlay(assetDuration: Double) {
+//
+//        self.audioDuration = assetDuration
+//        lblTotalTime.text = convertTime(second: Float(self.audioDuration))
+//    }
+//
+//    func downloadedProgress(progress: Double) {
+//        sliderBuffer.value = Float(progress)
+//    }
+//
+//    func didUpdateProgress(progress: Double) {
+//        slider.value = Float(progress)
+//        playTime += 1
+//        lblPlayTime.text = convertTime(second: Float(playTime))
+//    }
+//
+//    func didFinishPlayItem() {
+//        btnPlay.isSelected = false
+//        slider.value = 0
+//        playTime = 0
+//        lblPlayTime.text = "00:00"
+//    }
+//
+//    func didFailPlayToEnd() {
+//
+//    }
     
     
 }

@@ -14,7 +14,7 @@ class VideoPlayViewController: BaseViewController {
     var player:AVPlayer!
     let btnClose = UIButton()
     var dictDes = [String:String]()
-    var shadowPlayer:ShadowPlayer!
+    var shadowPlayer:ShadowVideoPlayerView!
     let btnDelete = UIButton()
     let btnCompress = UIButton()
     override func viewDidLoad() {
@@ -96,8 +96,8 @@ class VideoPlayViewController: BaseViewController {
             tmp = lbl
         }
         
-        shadowPlayer = ShadowPlayer(url: url)
-        shadowPlayer.mode = .ResizeAspect
+        shadowPlayer = ShadowVideoPlayerView(frame: CGRect(), url: url)
+        
         shadowPlayer.title = url.lastPathComponent
         shadowPlayer.backgroundColor = UIColor.black
         view.addSubview(shadowPlayer)
