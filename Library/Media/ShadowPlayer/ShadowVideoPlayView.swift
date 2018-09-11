@@ -471,8 +471,15 @@ extension ShadowVideoPlayerView:ShadowPlayDelegate{
         vControl.bufferValue = percent
     }
     
-    func playStateChange(status: PlayerStatus, dict: [String : Any]?) {
-        
+    func playStateChange(status: PlayerStatus, info:MediaInfo?) {
+        switch status {
+        case .GetInfo:
+            if info != nil{
+                print(info!)
+            }
+        default:
+            break
+        }
     }
     
     func playProcess(percent: Float) {

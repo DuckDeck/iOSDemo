@@ -13,13 +13,21 @@ enum VideoGravity {
     case ResizeAspect,ResizeAspectFill,Resize
 }
 enum PlayerStatus:Int{
-    case Failed = 0,ReadyToPlay,Unknown,Buffering,Playing,Stopped,Finished
+    case Failed = 0,GetInfo, ReadyToPlay,Unknown,Buffering,Playing,Stopped,Finished
 }
 
 protocol ShadowPlayDelegate:class {
     func bufferProcess(percent:Float)
-    func playStateChange(status:PlayerStatus,dict:[String:Any]?)
+    func playStateChange(status:PlayerStatus,info:MediaInfo?)
     func playProcess(percent:Float)
+}
+
+struct MediaInfo {
+    let mediaType:AVMediaType
+    let resolution:String?
+    let duration:Double
+    let frameRate:Float
+    let bitRate:Float
 }
 
 class ShadowPlayer:NSObject {
@@ -40,8 +48,6 @@ class ShadowPlayer:NSObject {
     var nonToEndDownloaderArray:[ShadowDownloader]?
     var isFileExist = false
     var isFileCacheComplete = false
-    var autoStartPlay = false
-    var repeatPlay = false
 
     weak var delegate:ShadowPlayDelegate?
     
@@ -53,7 +59,10 @@ class ShadowPlayer:NSObject {
         }
         set{
             pause()
-            item.seek(to: currentTime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
+            item.seek(to: currentTime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero) { [weak self](finish) in
+                self?.play()
+            }
+           
         }
     }
     
@@ -124,9 +133,32 @@ class ShadowPlayer:NSObject {
             switch tracksStatus{
             case .loaded:
                 DispatchQueue.main.async {
-                    if  !weakself!.anAsset.duration.isIndefinite{
-                        let second = weakself!.anAsset.duration.value / Int64(weakself!.anAsset.duration.timescale)
+                    guard let mediaInfo = weakself?.anAsset.tracks.first?.formatDescriptions.first else{
+                        weakself?.delegate?.playStateChange(status: .GetInfo, info: nil)//表示fail
+                        return
                     }
+                    let format = mediaInfo as! CMFormatDescription
+                    let type = CMFormatDescriptionGetMediaType(format)
+                    if type == kCMMediaType_Video{
+                        guard let track = weakself?.anAsset.tracks(withMediaType: .video).first else{
+                            return
+                        }
+                        
+                        let res = track.naturalSize
+                      
+                        let info = MediaInfo(mediaType: AVMediaType.video, resolution: "\(res.width) * \(res.height)", duration: track.timeRange.duration.seconds, frameRate: track.nominalFrameRate, bitRate: track.estimatedDataRate)
+                        weakself?.delegate?.playStateChange(status: .GetInfo, info: info)
+                        
+                    }
+                    else if type == kCMMediaType_Audio{
+                        guard let track = weakself?.anAsset.tracks(withMediaType: .audio).first else{
+                            return
+                        }
+                        let info = MediaInfo(mediaType: AVMediaType.audio, resolution: "", duration: track.timeRange.duration.seconds, frameRate: track.nominalFrameRate, bitRate: track.estimatedDataRate)
+                        weakself?.delegate?.playStateChange(status: .GetInfo, info: info)
+                    }
+                    
+                  
                 }
             case .failed:
                // weakself?.showErrorInfo(info: error?.localizedDescription ?? "视频出现错误，请检查后重新播放")
@@ -153,9 +185,7 @@ class ShadowPlayer:NSObject {
         addPeriodicTimeObserver()
         addKVO()
         addNotificationCenter()
-        if autoStartPlay{
-            play()
-        }
+
     }
     
     func addPeriodicTimeObserver()  {
@@ -222,7 +252,7 @@ class ShadowPlayer:NSObject {
                 status = .Stopped
             }
         }
-        delegate?.playStateChange(status: status, dict: nil)
+        delegate?.playStateChange(status: status, info: nil)
     }
     
     func addNotificationCenter()  {
@@ -294,7 +324,7 @@ extension ShadowPlayer{
         item.seek(to: kCMTimeZero)
         pause()
         status = .Finished
-        delegate?.playStateChange(status: status, dict: nil)
+        delegate?.playStateChange(status: status, info: nil)
     }
    
 

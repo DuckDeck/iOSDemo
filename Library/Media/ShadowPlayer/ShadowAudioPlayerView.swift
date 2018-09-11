@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreMedia
 enum AudioPlayStatus {
     case Buffing,ReadyToPlay,LoadFail,Playing,PlayCompleted
 }
@@ -23,7 +23,6 @@ class ShadowAudioPlayerView: UIView {
     var audioDuration:Double = 0
     var tapGesture:UITapGestureRecognizer?
     var autoPlay = false
-    var playTime = 0
     convenience init(frame: CGRect,url:URL,autoPlay:Bool = false) {
         self.init(frame: frame)
         self.url = url
@@ -75,14 +74,14 @@ class ShadowAudioPlayerView: UIView {
             m.centerY.equalTo(self)
         }
     
-        slider.setThumbImage(UIImage(), for: .normal)
+        slider.setThumbImage(#imageLiteral(resourceName: "knob"), for: .normal)
         slider.isContinuous = true
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(ges:)))
         slider.addTarget(self, action: #selector(handleSliderPosition(sender:)), for: .valueChanged)
         slider.addTarget(self, action: #selector(handleSliderPositionExit(sender:)), for: UIControlEvents.touchUpInside)
         slider.addGestureRecognizer(tapGesture!)
         slider.maximumTrackTintColor = UIColor.clear
-        slider.minimumTrackTintColor = UIColor.red
+        slider.minimumTrackTintColor = UIColor.blue
         slider.maximumValue = 1
         slider.minimumValue = 0
         addSubview(slider)
@@ -138,6 +137,7 @@ class ShadowAudioPlayerView: UIView {
     @objc func handleTap(ges:UIGestureRecognizer)  {
         let point = ges.location(in: slider)
         let currentValue = point.x / slider.frame.size.width * CGFloat(slider.maximumValue)
+        player.currentTime = CMTimeMakeWithSeconds(Float64(currentValue), 0)
     }
     
     @objc func handleSliderPositionExit(sender:UISlider){
@@ -154,7 +154,7 @@ class ShadowAudioPlayerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func convertTime(second:Float)->String{
+    func convertTime(second:Double)->String{
         let d = Date(timeIntervalSince1970: TimeInterval(second))
         let format = DateFormatter()
         if second / 3600 >= 1{
@@ -170,56 +170,37 @@ class ShadowAudioPlayerView: UIView {
 
 extension ShadowAudioPlayerView:ShadowPlayDelegate{
     func bufferProcess(percent: Float) {
+        print("缓冲进度\(percent)")
         sliderBuffer.value = percent
     }
     
-    func playStateChange(status: PlayerStatus, dict: [String : Any]?) {
+    func playStateChange(status: PlayerStatus, info: MediaInfo?) {
         switch status {
+        case .GetInfo:
+            if info !=  nil{
+                lblTotalTime.text = convertTime(second: info!.duration)
+                slider.maximumValue = Float(info!.duration)
+            }
         case .ReadyToPlay:
-            
-            lblTotalTime.text = convertTime(second: Float(self.audioDuration))
+            if autoPlay{
+                playAudio()
+            }
         case .Finished:
             btnPlay.isSelected = false
             slider.value = 0
-            playTime = 0
             lblPlayTime.text = "00:00"
+            print("播放完成")
         default:
             break
         }
     }
     
     func playProcess(percent: Float) {
+        print("播放进度\(percent)")
         slider.value = percent
-        playTime += 1
-        lblPlayTime.text = convertTime(second: Float(playTime))
+        lblPlayTime.text = convertTime(second: Double(percent))
     }
     
-//    func readyToPlay(assetDuration: Double) {
-//
-//        self.audioDuration = assetDuration
-//        lblTotalTime.text = convertTime(second: Float(self.audioDuration))
-//    }
-//
-//    func downloadedProgress(progress: Double) {
-//        sliderBuffer.value = Float(progress)
-//    }
-//
-//    func didUpdateProgress(progress: Double) {
-//        slider.value = Float(progress)
-//        playTime += 1
-//        lblPlayTime.text = convertTime(second: Float(playTime))
-//    }
-//
-//    func didFinishPlayItem() {
-//        btnPlay.isSelected = false
-//        slider.value = 0
-//        playTime = 0
-//        lblPlayTime.text = "00:00"
-//    }
-//
-//    func didFailPlayToEnd() {
-//
-//    }
     
     
 }
