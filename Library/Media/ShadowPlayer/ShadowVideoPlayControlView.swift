@@ -7,9 +7,9 @@
 //
 
 import UIKit
-class ShadowPlayView: UIView {
+class ShadowVideoPlayControlView: UIView {
     let btnImage = UIButton()
-    var playBlock:((_ view:ShadowPlayView,_ state:Bool)->Void)?
+    var playBlock:((_ view:ShadowVideoPlayControlView,_ state:Bool)->Void)?
     var state = false
     
     override init(frame: CGRect) {

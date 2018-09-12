@@ -8,7 +8,7 @@
 
 import UIKit
 //http://download.3g.joy.cn/video/236/60236937/1451280942752_hd.mp4
-class ShadowPlayerViewController: UIViewController {
+class ShadowVideoPlayerViewController: UIViewController {
     var url:URL?
     var videoTitle:String?{
         didSet{

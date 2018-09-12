@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol ShadowControlViewDelegate:class {
-    func controlView(view:ShadowControlView,pointSliderLocationWithCurrentValue:Float)
-    func controlView(view:ShadowControlView,draggedPositionWithSlider:UISlider)
-    func controlView(view:ShadowControlView,draggedPositionExitWithSlider:UISlider)
-    func controlView(view:ShadowControlView,withLargeButton:UIButton)
+protocol ShadowVideoControlViewDelegate:class {
+    func controlView(view:ShadowVideoControlView,pointSliderLocationWithCurrentValue:Float)
+    func controlView(view:ShadowVideoControlView,draggedPositionWithSlider:UISlider)
+    func controlView(view:ShadowVideoControlView,draggedPositionExitWithSlider:UISlider)
+    func controlView(view:ShadowVideoControlView,withLargeButton:UIButton)
 }
 
-class ShadowControlView: UIView {
+class ShadowVideoControlView: UIView {
     let btnLarge = UIButton(type: UIButtonType.custom)
     var value:Float{
         set{
@@ -66,7 +66,7 @@ class ShadowControlView: UIView {
         }
     }
     var tapGesture:UITapGestureRecognizer?
-    weak var delegate:ShadowControlViewDelegate?
+    weak var delegate:ShadowVideoControlViewDelegate?
     private let lblTime = UILabel()
     private let lblTotalTime = UILabel()
     private let slider = UISlider()        // show the play process

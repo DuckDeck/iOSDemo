@@ -37,6 +37,7 @@ class ShadowPlayer:NSObject {
     var totalTime:CMTime! //总时长
     fileprivate var anAsset:AVURLAsset! //资产AVURLAsset
     var player:AVPlayer!
+    var playerLayer:AVPlayerLayer!
     var status = PlayerStatus.Unknown     //播放状态
     fileprivate var url:URL!
     var isCached = false
@@ -100,6 +101,13 @@ class ShadowPlayer:NSObject {
         self.assetWithURL(url: url)
     }
 
+    convenience init(url:URL,playerLayer:AVPlayerLayer)  {
+        self.init()
+        self.url = url
+        self.playerLayer = playerLayer
+        self.assetWithURL(url: url)
+    }
+    
     //还要一个可以配置的初始化
     
     func replaceWithUrl(url:URL){

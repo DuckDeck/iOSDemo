@@ -28,9 +28,6 @@ class ShadowVideoPlayerView: UIView {
     static var count = 0
     var isCached = false
     var cachePath:String?
-    var dataManager:ShadowDataManager?
-    var lastToEndDownloader:ShadowDownloader?
-    var nonToEndDownloaderArray:[ShadowDownloader]?
     var isFileExist = false
     var isFileCacheComplete = false
     override class var layerClass: AnyClass {
@@ -73,8 +70,8 @@ class ShadowVideoPlayerView: UIView {
             return lblTitle.text ?? ""
         }
     }
-    let vPlay = ShadowPlayView(frame: CGRect())
-    let vControl = ShadowControlView(frame:CGRect())
+    let vPlay = ShadowVideoPlayControlView(frame: CGRect())
+    let vControl = ShadowVideoControlView(frame:CGRect())
     
     
     fileprivate override init(frame: CGRect) {
@@ -121,7 +118,7 @@ class ShadowVideoPlayerView: UIView {
         addGestureRecognizer(tap)
         //添加播放和暂停按钮
         vPlay.backgroundColor = UIColor.clear
-        vPlay.playBlock = {[weak self](view:ShadowPlayView,state:Bool) in
+        vPlay.playBlock = {[weak self](view:ShadowVideoPlayControlView,state:Bool) in
             ShadowVideoPlayerView.count = 0
             if state{
                 self?.play()
@@ -369,26 +366,26 @@ class ShadowVideoPlayerView: UIView {
     }
 }
 
-extension ShadowVideoPlayerView:UIGestureRecognizerDelegate,ShadowControlViewDelegate{
+extension ShadowVideoPlayerView:UIGestureRecognizerDelegate,ShadowVideoControlViewDelegate{
     
-    func controlView(view: ShadowControlView, pointSliderLocationWithCurrentValue: Float) {
+    func controlView(view: ShadowVideoControlView, pointSliderLocationWithCurrentValue: Float) {
         ShadowVideoPlayerView.count = 0
         
         player.currentTime = Double(pointSliderLocationWithCurrentValue)
         
     }
     
-    func controlView(view: ShadowControlView, draggedPositionWithSlider: UISlider) {
+    func controlView(view: ShadowVideoControlView, draggedPositionWithSlider: UISlider) {
         isDraging = true
         ShadowVideoPlayerView.count = 0
         player.currentTime = Double(view.value)
     }
     
-    func controlView(view: ShadowControlView, draggedPositionExitWithSlider: UISlider) {
+    func controlView(view: ShadowVideoControlView, draggedPositionExitWithSlider: UISlider) {
         isDraging = false
     }
     
-    func controlView(view: ShadowControlView, withLargeButton: UIButton) {
+    func controlView(view: ShadowVideoControlView, withLargeButton: UIButton) {
         ShadowVideoPlayerView.count = 0
         let ori = UIDevice.current.orientation
         if ori == .portrait || ori == .portraitUpsideDown{
@@ -401,7 +398,7 @@ extension ShadowVideoPlayerView:UIGestureRecognizerDelegate,ShadowControlViewDel
  
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if touch.view is ShadowControlView{
+        if touch.view is ShadowVideoControlView{
             return false
         }
         return true

@@ -56,11 +56,10 @@
 		AE1344DD20906937009A210D /* object_setClass.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344DC20906937009A210D /* object_setClass.m */; };
 		AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE161F711F98910800B3293F /* MusicListViewController.swift */; };
 		AE1AC75020CF6FB40002F779 /* UICollectView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC74F20CF6FB40002F779 /* UICollectView+Extension.swift */; };
-		AE1AC80C20D25F5A0002F779 /* ShadowAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC80620D25F590002F779 /* ShadowAudioPlayer.swift */; };
-		AE1AC80D20D25F5A0002F779 /* ShadowPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC80720D25F5A0002F779 /* ShadowPlayerViewController.swift */; };
-		AE1AC80E20D25F5A0002F779 /* ShadowPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC80820D25F5A0002F779 /* ShadowPlayView.swift */; };
+		AE1AC80D20D25F5A0002F779 /* ShadowVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC80720D25F5A0002F779 /* ShadowVideoPlayerViewController.swift */; };
+		AE1AC80E20D25F5A0002F779 /* ShadowVideoPlayControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC80820D25F5A0002F779 /* ShadowVideoPlayControlView.swift */; };
 		AE1AC80F20D25F5A0002F779 /* ShadowAudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC80920D25F5A0002F779 /* ShadowAudioPlayerView.swift */; };
-		AE1AC81020D25F5A0002F779 /* ShadowControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC80A20D25F5A0002F779 /* ShadowControlView.swift */; };
+		AE1AC81020D25F5A0002F779 /* ShadowVideoControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC80A20D25F5A0002F779 /* ShadowVideoControlView.swift */; };
 		AE1AC81120D25F5A0002F779 /* ShadowPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC80B20D25F5A0002F779 /* ShadowPlayer.swift */; };
 		AE1AC81620D25FBC0002F779 /* CaptureSessionAssetWriterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC81320D25FBC0002F779 /* CaptureSessionAssetWriterCoordinator.swift */; };
 		AE1AC81720D25FBC0002F779 /* CaptureSessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC81420D25FBC0002F779 /* CaptureSessionCoordinator.swift */; };
@@ -338,11 +337,10 @@
 		AE1344DC20906937009A210D /* object_setClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = object_setClass.m; sourceTree = "<group>"; };
 		AE161F711F98910800B3293F /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
 		AE1AC74F20CF6FB40002F779 /* UICollectView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectView+Extension.swift"; sourceTree = "<group>"; };
-		AE1AC80620D25F590002F779 /* ShadowAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowAudioPlayer.swift; sourceTree = "<group>"; };
-		AE1AC80720D25F5A0002F779 /* ShadowPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowPlayerViewController.swift; sourceTree = "<group>"; };
-		AE1AC80820D25F5A0002F779 /* ShadowPlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowPlayView.swift; sourceTree = "<group>"; };
+		AE1AC80720D25F5A0002F779 /* ShadowVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowVideoPlayerViewController.swift; sourceTree = "<group>"; };
+		AE1AC80820D25F5A0002F779 /* ShadowVideoPlayControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowVideoPlayControlView.swift; sourceTree = "<group>"; };
 		AE1AC80920D25F5A0002F779 /* ShadowAudioPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowAudioPlayerView.swift; sourceTree = "<group>"; };
-		AE1AC80A20D25F5A0002F779 /* ShadowControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowControlView.swift; sourceTree = "<group>"; };
+		AE1AC80A20D25F5A0002F779 /* ShadowVideoControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowVideoControlView.swift; sourceTree = "<group>"; };
 		AE1AC80B20D25F5A0002F779 /* ShadowPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowPlayer.swift; sourceTree = "<group>"; };
 		AE1AC81320D25FBC0002F779 /* CaptureSessionAssetWriterCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureSessionAssetWriterCoordinator.swift; sourceTree = "<group>"; };
 		AE1AC81420D25FBC0002F779 /* CaptureSessionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureSessionCoordinator.swift; sourceTree = "<group>"; };
@@ -788,12 +786,11 @@
 		AE1AC80520D25F4A0002F779 /* ShadowPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				AE1AC80620D25F590002F779 /* ShadowAudioPlayer.swift */,
 				AE1AC80920D25F5A0002F779 /* ShadowAudioPlayerView.swift */,
-				AE1AC80A20D25F5A0002F779 /* ShadowControlView.swift */,
+				AE1AC80A20D25F5A0002F779 /* ShadowVideoControlView.swift */,
 				AE1AC80B20D25F5A0002F779 /* ShadowPlayer.swift */,
-				AE1AC80720D25F5A0002F779 /* ShadowPlayerViewController.swift */,
-				AE1AC80820D25F5A0002F779 /* ShadowPlayView.swift */,
+				AE1AC80720D25F5A0002F779 /* ShadowVideoPlayerViewController.swift */,
+				AE1AC80820D25F5A0002F779 /* ShadowVideoPlayControlView.swift */,
 				AE4DA61A213E68B300FCC7FD /* ShadowDataManager.swift */,
 				AE4DA61C213E762500FCC7FD /* ShadowDownloader.swift */,
 				AE4DA61E213E833D00FCC7FD /* ShadowRangeManager.swift */,
@@ -2012,7 +2009,7 @@
 				AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */,
 				AEBE40521FC80A5C0087D7ED /* CityChooseViewController+Delegate.swift in Sources */,
 				AE0F70641FBD6F2B00C8135C /* NFXGenericController.swift in Sources */,
-				AE1AC80E20D25F5A0002F779 /* ShadowPlayView.swift in Sources */,
+				AE1AC80E20D25F5A0002F779 /* ShadowVideoPlayControlView.swift in Sources */,
 				AE6691D620F49B3A00D019D4 /* UIImage+Palette.m in Sources */,
 				AE9F32821F690F5200339BB8 /* GrandCue.swift in Sources */,
 				AE1DE03C2099AD32007910A5 /* NovelConfig.swift in Sources */,
@@ -2110,13 +2107,12 @@
 				AE0F706F1FBD6F2B00C8135C /* NFXHTTPModel.swift in Sources */,
 				AE3F46F220AC06A3007BA637 /* Toast.swift in Sources */,
 				AE1DE0782099BE0A007910A5 /* FullBoard.swift in Sources */,
-				AE1AC81020D25F5A0002F779 /* ShadowControlView.swift in Sources */,
+				AE1AC81020D25F5A0002F779 /* ShadowVideoControlView.swift in Sources */,
 				AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */,
 				AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */,
 				AE0F70831FBD6F2B00C8135C /* NFXListCell_iOS.swift in Sources */,
 				AE1AC80F20D25F5A0002F779 /* ShadowAudioPlayerView.swift in Sources */,
 				AE1DE03E2099AD32007910A5 /* LoadMoreCell.swift in Sources */,
-				AE1AC80C20D25F5A0002F779 /* ShadowAudioPlayer.swift in Sources */,
 				AE9F32861F690F5200339BB8 /* GrandType.swift in Sources */,
 				AEADFD4C2111601100E6B58D /* DemoViewController.swift in Sources */,
 				AE1DE0992099BE0A007910A5 /* LinkPoint.swift in Sources */,
@@ -2129,7 +2125,7 @@
 				AEADFD2721056EF200E6B58D /* ShareViewController.swift in Sources */,
 				AE5CE7DD208B2DBD001DB437 /* UITableView+Extension.swift in Sources */,
 				AE3A42F0201B00F900FF8AB2 /* StackViewController.swift in Sources */,
-				AE1AC80D20D25F5A0002F779 /* ShadowPlayerViewController.swift in Sources */,
+				AE1AC80D20D25F5A0002F779 /* ShadowVideoPlayerViewController.swift in Sources */,
 				AE5AD7EE206111D600289798 /* RippleAnimtaionView.swift in Sources */,
 				AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */,
 				AEDF8C4B209AF61B00EED6D1 /* CVFileManager.swift in Sources */,

@@ -56,7 +56,7 @@ class VideoListViewController: UIViewController {
         //http://dev.qiniu-app.yihuivip.cn/15351672430
         //http://v.qq.com/txp/iframe/player.html?origin=https%3A%2F%2Fmp.weixin.qq.com&vid=q1347ovavz5&autoplay=false&full=true&show1080p=false&isDebugIframe=false
         let url = URL(string: "http://download.3g.joy.cn/video/236/60236937/1451280942752_hd.mp4")
-        let vc = ShadowPlayerViewController()
+        let vc = ShadowVideoPlayerViewController()
         vc.url = url
         
         present(vc, animated: true, completion: nil)
