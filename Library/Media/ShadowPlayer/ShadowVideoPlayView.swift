@@ -82,8 +82,7 @@ class ShadowVideoPlayerView: UIView {
         self.init(frame: frame)
         self.url = url
         setupPlayerUI()
-        player = ShadowPlayer(url: url)
-        player.player = self.playerLayer.player
+        player = ShadowPlayer(url: url, playerLayer: playerLayer)
         player.delegate = self
     }
   
@@ -290,6 +289,7 @@ class ShadowVideoPlayerView: UIView {
             vControl.value = 0
             vControl.currentTime = "00:00"
             vControl.totalTime = "00:00"
+            player.stop()
             player = nil
             removeSubviews()
         }
@@ -473,6 +473,13 @@ extension ShadowVideoPlayerView:ShadowPlayDelegate{
             if info != nil{
                 print(info!)
             }
+        case .Buffering:
+            if !vActivity.isAnimating && vControl.bufferValue <= player.currentTime / player.totalTime.seconds + 5{
+                vActivity.startAnimating()
+            }
+        case .ReadyToPlay:
+            vActivity.stopAnimating()
+            vPlay.isHidden = false
         default:
             break
         }

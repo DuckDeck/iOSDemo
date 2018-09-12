@@ -36,7 +36,25 @@ class ShadowPlayer:NSObject {
     fileprivate var item:AVPlayerItem! //AVPlayer的播放item
     var totalTime:CMTime! //总时长
     fileprivate var anAsset:AVURLAsset! //资产AVURLAsset
-    var player:AVPlayer!
+    var _player:AVPlayer!
+    var player:AVPlayer!{
+        get{
+            if playerLayer != nil{
+                return playerLayer.player!
+            }
+            else{
+                return _player
+            }
+        }
+        set{
+            if playerLayer != nil{
+                playerLayer.player = newValue
+            }
+            else{
+                _player = newValue
+            }
+        }
+    }
     var playerLayer:AVPlayerLayer!
     var status = PlayerStatus.Unknown     //播放状态
     fileprivate var url:URL!
@@ -325,7 +343,7 @@ class ShadowPlayer:NSObject {
             pause()
             anAsset = nil
             item = nil
-            player = nil
+            _player = nil
         }
         status = .Stopped
         delegate?.playStateChange(status: status, info: nil)
