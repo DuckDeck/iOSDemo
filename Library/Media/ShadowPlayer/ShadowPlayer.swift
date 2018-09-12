@@ -13,7 +13,7 @@ enum VideoGravity {
     case ResizeAspect,ResizeAspectFill,Resize
 }
 enum PlayerStatus:Int{
-    case Failed = 0,GetInfo, ReadyToPlay,Unknown,Buffering,Playing,Stopped,Finished
+    case Failed = 0,GetInfo, ReadyToPlay,Unknown,Buffering,Playing,Pausing, Stopped,Finished
 }
 
 protocol ShadowPlayDelegate:class {
@@ -52,16 +52,30 @@ class ShadowPlayer:NSObject {
     weak var delegate:ShadowPlayDelegate?
     
     
-    var currentTime:CMTime!
+    var currentTime:Double
     {
         get{
-            return item.currentTime()
+            return item.currentTime().seconds
         }
         set{
-            pause()
-            item.seek(to: currentTime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero) { [weak self](finish) in
-                self?.play()
+            let tmp = status
+            if status == .Playing{
+                pause()
             }
+            
+            if let timeScale = player.currentItem?.asset.duration.timescale {
+                player.seek(to: CMTimeMakeWithSeconds(currentTime, timeScale), completionHandler: {[weak self] (complete) in
+                    if tmp == .Playing{
+                        self?.play()
+                    }
+                })
+            }
+            
+//            item.seek(to: currentTime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero) { [weak self](finish) in
+//                if tmp == .Playing{
+//                    self?.play()
+//                }
+//            }
            
         }
     }
@@ -143,10 +157,10 @@ class ShadowPlayer:NSObject {
                         guard let track = weakself?.anAsset.tracks(withMediaType: .video).first else{
                             return
                         }
-                        
                         let res = track.naturalSize
-                      
+                        weakself?.totalTime = track.timeRange.duration
                         let info = MediaInfo(mediaType: AVMediaType.video, resolution: "\(res.width) * \(res.height)", duration: track.timeRange.duration.seconds, frameRate: track.nominalFrameRate, bitRate: track.estimatedDataRate)
+                        
                         weakself?.delegate?.playStateChange(status: .GetInfo, info: info)
                         
                     }
@@ -154,6 +168,7 @@ class ShadowPlayer:NSObject {
                         guard let track = weakself?.anAsset.tracks(withMediaType: .audio).first else{
                             return
                         }
+                        weakself?.totalTime = track.timeRange.duration
                         let info = MediaInfo(mediaType: AVMediaType.audio, resolution: "", duration: track.timeRange.duration.seconds, frameRate: track.nominalFrameRate, bitRate: track.estimatedDataRate)
                         weakself?.delegate?.playStateChange(status: .GetInfo, info: info)
                     }
@@ -276,12 +291,16 @@ class ShadowPlayer:NSObject {
     func play()  {
         if self.player != nil{
             self.player.play()
+            status = .Playing
+            delegate?.playStateChange(status: status, info: nil)
         }
     }
     
     func pause() {
         if self.player != nil{
             self.player.pause()
+            status = .Pausing
+            delegate?.playStateChange(status: status, info: nil)
         }
 
     }
@@ -302,14 +321,16 @@ class ShadowPlayer:NSObject {
             item = nil
             player = nil
         }
-        dataManager = nil
-        lastToEndDownloader?.cancel()
-        lastToEndDownloader = nil
-        if let arr = nonToEndDownloaderArray{
-            for downloader in arr{
-                downloader.cancel()
-            }
-        }
+        status = .Stopped
+        delegate?.playStateChange(status: status, info: nil)
+//        dataManager = nil
+//        lastToEndDownloader?.cancel()
+//        lastToEndDownloader = nil
+//        if let arr = nonToEndDownloaderArray{
+//            for downloader in arr{
+//                downloader.cancel()
+//            }
+//        }
     }
     
     required init?(coder aDecoder: NSCoder) {

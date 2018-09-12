@@ -373,16 +373,15 @@ extension ShadowVideoPlayerView:UIGestureRecognizerDelegate,ShadowControlViewDel
     
     func controlView(view: ShadowControlView, pointSliderLocationWithCurrentValue: Float) {
         ShadowVideoPlayerView.count = 0
-        let pointTime = CMTimeMake(Int64(pointSliderLocationWithCurrentValue) * Int64(player.currentTime.timescale), player.currentTime.timescale)
-        player.currentTime = pointTime
+        
+        player.currentTime = Double(pointSliderLocationWithCurrentValue)
         
     }
     
     func controlView(view: ShadowControlView, draggedPositionWithSlider: UISlider) {
         isDraging = true
         ShadowVideoPlayerView.count = 0
-        let pointTime = CMTimeMake(Int64(view.value) * Int64(player.currentTime.timescale), player.currentTime.timescale)
-        player.currentTime = pointTime
+        player.currentTime = Double(view.value)
     }
     
     func controlView(view: ShadowControlView, draggedPositionExitWithSlider: UISlider) {

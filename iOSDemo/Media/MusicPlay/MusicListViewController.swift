@@ -13,7 +13,7 @@ class MusicListViewController: UIViewController {
 //    let arrMusics = [String]()
 
   //  let url = "http://up.mcyt.net/?down/47675.mp3"
-    let url = "http://ouo3vhy8x.bkt.clouddn.com/Fgj5sIiDmRqt9m8R8zNyXxtp1MC0"
+    let url = "http://dev.qiniu-app.yihuivip.cn/FrwcrnvrFBfBKsa5C1oVGoIyWn0h"
 //    let url = "http://win.web.rc01.sycdn.kuwo.cn/a447b8c6025b318ea24e1f9df8f1ea49/5b17535f/resource/n3/61/58/2032057186.mp3"
 //    let url = "http://win.web.rf01.sycdn.kuwo.cn/1c4dcf2ed16d8f0b20a78a6cfbf46884/5b175373/resource/n3/4/5/1032924973.mp3"
     

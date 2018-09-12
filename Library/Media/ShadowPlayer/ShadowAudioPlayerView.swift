@@ -137,17 +137,19 @@ class ShadowAudioPlayerView: UIView {
     @objc func handleTap(ges:UIGestureRecognizer)  {
         let point = ges.location(in: slider)
         let currentValue = point.x / slider.frame.size.width * CGFloat(slider.maximumValue)
-        player.currentTime = CMTimeMakeWithSeconds(Float64(currentValue), 0)
+        player.currentTime = Double(currentValue)
     }
     
     @objc func handleSliderPositionExit(sender:UISlider){
-        print("exit")
+
+         print("silder handleSliderPositionExit .value\(sender.value)")
+        player.currentTime = Double(sender.value)
        
     }
     
     @objc func handleSliderPosition(sender:UISlider) {
         print(sender.value)
-        
+         player.currentTime = Double(sender.value)
     }
     
     required init?(coder aDecoder: NSCoder) {
