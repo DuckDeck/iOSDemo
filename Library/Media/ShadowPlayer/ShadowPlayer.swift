@@ -34,12 +34,10 @@ class ShadowPlayer:NSObject {
 //目前这个方法还不支持缓存到本地，需要改进
     var playbackTimerObserver:Any! = nil
     fileprivate var item:AVPlayerItem! //AVPlayer的播放item
-    fileprivate var totalTime:CMTime! //总时长
-    
+    var totalTime:CMTime! //总时长
     fileprivate var anAsset:AVURLAsset! //资产AVURLAsset
     var player:AVPlayer!
     var status = PlayerStatus.Unknown     //播放状态
-
     fileprivate var url:URL!
     var isCached = false
     var cachePath:String?
@@ -50,8 +48,7 @@ class ShadowPlayer:NSObject {
     var isFileCacheComplete = false
 
     weak var delegate:ShadowPlayDelegate?
-    
-    
+    var isSeeking = false
     var currentTime:Double
     {
         get{
@@ -62,21 +59,19 @@ class ShadowPlayer:NSObject {
             if status == .Playing{
                 pause()
             }
-            
+            if isSeeking {
+                return
+            }
             if let timeScale = player.currentItem?.asset.duration.timescale {
-                player.seek(to: CMTimeMakeWithSeconds(currentTime, timeScale), completionHandler: {[weak self] (complete) in
+                print("seek 到 \(newValue)timescale \(timeScale) ")
+                isSeeking = true
+                player.seek(to: CMTimeMakeWithSeconds(newValue, timeScale), completionHandler: {[weak self] (complete) in
+                    self?.isSeeking = false
                     if tmp == .Playing{
                         self?.play()
                     }
                 })
             }
-            
-//            item.seek(to: currentTime, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero) { [weak self](finish) in
-//                if tmp == .Playing{
-//                    self?.play()
-//                }
-//            }
-           
         }
     }
     
@@ -207,6 +202,9 @@ class ShadowPlayer:NSObject {
         weak var weakself = self
         playbackTimerObserver = player.addPeriodicTimeObserver(forInterval: CMTimeMake(1, 1), queue: nil, using: { (time) in
             //ISSUE 当在滑动的时侯，又会反馈带动这里滑动，所以会出现一跳一跳的情况。
+            if weakself!.isSeeking{
+                return
+            }
             let value = Float(weakself!.item.currentTime().value / Int64(weakself!.item.currentTime().timescale))
             weakself?.delegate?.playProcess(percent: value)
            

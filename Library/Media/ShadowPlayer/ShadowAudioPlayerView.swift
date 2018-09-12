@@ -22,6 +22,7 @@ class ShadowAudioPlayerView: UIView {
     var player:ShadowPlayer!
     var audioDuration:Double = 0
     var tapGesture:UITapGestureRecognizer?
+    let vLoading = UIActivityIndicatorView()
     var autoPlay = false
     convenience init(frame: CGRect,url:URL,autoPlay:Bool = false) {
         self.init(frame: frame)
@@ -41,6 +42,15 @@ class ShadowAudioPlayerView: UIView {
             m.centerY.equalTo(self)
             m.width.height.equalTo(25)
         }
+        btnPlay.isHidden = true
+        addSubview(vLoading)
+        vLoading.hidesWhenStopped = true
+        vLoading.startAnimating()
+        vLoading.snp.makeConstraints { (m) in
+            m.left.equalTo(0)
+            m.centerY.equalTo(self)
+            m.width.height.equalTo(25)
+        }
         
         lblPlayTime.font = UIFont.systemFont(ofSize: 14)
         lblPlayTime.textColor = UIColor.red
@@ -54,6 +64,7 @@ class ShadowAudioPlayerView: UIView {
         
         lblTotalTime.font = UIFont.systemFont(ofSize: 14)
         lblTotalTime.textColor = UIColor.red
+        lblTotalTime.text = "00:00"
         addSubview(lblTotalTime)
         lblTotalTime.snp.makeConstraints { (m) in
             m.right.equalTo(0)
@@ -138,18 +149,23 @@ class ShadowAudioPlayerView: UIView {
         let point = ges.location(in: slider)
         let currentValue = point.x / slider.frame.size.width * CGFloat(slider.maximumValue)
         player.currentTime = Double(currentValue)
+        slider.value = Float(currentValue)
+        lblPlayTime.text = convertTime(second: Double(currentValue))
     }
     
     @objc func handleSliderPositionExit(sender:UISlider){
 
          print("silder handleSliderPositionExit .value\(sender.value)")
         player.currentTime = Double(sender.value)
-       
+        lblPlayTime.text = convertTime(second: Double(sender.value))
     }
     
+    
+
     @objc func handleSliderPosition(sender:UISlider) {
         print(sender.value)
-         player.currentTime = Double(sender.value)
+        player.currentTime = Double(sender.value)
+        lblPlayTime.text = convertTime(second: Double(sender.value))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -178,12 +194,15 @@ extension ShadowAudioPlayerView:ShadowPlayDelegate{
     
     func playStateChange(status: PlayerStatus, info: MediaInfo?) {
         switch status {
+            
         case .GetInfo:
             if info !=  nil{
                 lblTotalTime.text = convertTime(second: info!.duration)
                 slider.maximumValue = Float(info!.duration)
             }
         case .ReadyToPlay:
+            btnPlay.isHidden = false
+            vLoading.stopAnimating()
             if autoPlay{
                 playAudio()
             }
@@ -192,6 +211,10 @@ extension ShadowAudioPlayerView:ShadowPlayDelegate{
             slider.value = 0
             lblPlayTime.text = "00:00"
             print("播放完成")
+        case .Failed:
+             vLoading.stopAnimating()
+            btnPlay.isHidden = false
+            btnPlay.isEnabled = false
         default:
             break
         }
