@@ -481,7 +481,7 @@ extension ShadowVideoPlayerView:ShadowPlayDelegate{
 //            if !vActivity.isAnimating && vControl.bufferValue <= player.currentTime / player.totalTime.seconds + 5{
 //                vActivity.startAnimating()
 //            }
-            if !vActivity.isAnimating {
+            if !vActivity.isHidden {
                 vActivity.startAnimating()
             }
         case .ReadyToPlay:
