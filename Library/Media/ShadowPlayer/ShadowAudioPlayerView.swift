@@ -187,9 +187,9 @@ class ShadowAudioPlayerView: UIView {
 }
 
 extension ShadowAudioPlayerView:ShadowPlayDelegate{
-    func bufferProcess(percent: Float) {
-        print("缓冲进度\(percent)")
-        sliderBuffer.value = percent
+    func bufferProcess(current: Float,duration:Float) {
+        print("缓冲进度\(current)")
+        sliderBuffer.value = current
     }
     
     func playStateChange(status: PlayerStatus, info: MediaInfo?) {
@@ -220,10 +220,10 @@ extension ShadowAudioPlayerView:ShadowPlayDelegate{
         }
     }
     
-    func playProcess(percent: Float) {
-        print("播放进度\(percent)")
-        slider.value = percent
-        lblPlayTime.text = convertTime(second: Double(percent))
+    func playProcess(current: Float,duration:Float) {
+        print("播放进度\(current)")
+        slider.value = current
+        lblPlayTime.text = convertTime(second: Double(current))
     }
     
     

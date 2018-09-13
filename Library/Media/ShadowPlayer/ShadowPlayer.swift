@@ -17,9 +17,9 @@ enum PlayerStatus:Int{
 }
 
 protocol ShadowPlayDelegate:class {
-    func bufferProcess(percent:Float)
+    func bufferProcess(current:Float,duration:Float)
     func playStateChange(status:PlayerStatus,info:MediaInfo?)
-    func playProcess(percent:Float)
+    func playProcess(current:Float,duration:Float)
 }
 
 struct MediaInfo {
@@ -232,8 +232,7 @@ class ShadowPlayer:NSObject {
                 return
             }
             let value = Float(weakself!.item.currentTime().value / Int64(weakself!.item.currentTime().timescale))
-            weakself?.delegate?.playProcess(percent: value)
-           
+            weakself?.delegate?.playProcess(current: value, duration: Float(weakself!.item.duration.seconds))
         })
     }
     
@@ -273,7 +272,7 @@ class ShadowPlayer:NSObject {
             let timeInterval = startSeconds + durationSeconds // 计算缓冲总进度
             let duration = item.duration
             let totalDuration = CMTimeGetSeconds(duration)
-            delegate?.bufferProcess(percent: Float(timeInterval / totalDuration))
+            delegate?.bufferProcess(current: Float(timeInterval / totalDuration), duration:  Float(duration.seconds))
         }
         else if key == "playbackBufferEmpty"{
             status = .Buffering

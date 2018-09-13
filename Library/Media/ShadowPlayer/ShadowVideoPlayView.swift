@@ -489,9 +489,9 @@ extension ShadowVideoPlayerView{
 }
 
 extension ShadowVideoPlayerView:ShadowPlayDelegate{
-    func bufferProcess(percent: Float) {
-        print(percent)
-        vControl.bufferValue = percent
+    func bufferProcess(current: Float,duration:Float) {
+        print(current)
+        vControl.bufferValue = current
     }
     
     func playStateChange(status: PlayerStatus, info:MediaInfo?) {
@@ -524,10 +524,10 @@ extension ShadowVideoPlayerView:ShadowPlayDelegate{
         }
     }
     
-    func playProcess(percent: Float) {
-        print("播放到\(percent)")
-        vControl.value = percent
-        vControl.currentTime =  convertTime(second: percent)
+    func playProcess(current: Float,duration:Float) {
+        print("播放到\(current)")
+        vControl.value = current
+        vControl.currentTime =  convertTime(second: current)
         if ShadowVideoPlayerView.count >= 4 {
             setSubViewsIsHide(isHide: true)
         }
