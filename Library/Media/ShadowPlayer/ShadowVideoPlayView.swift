@@ -471,22 +471,39 @@ extension ShadowVideoPlayerView:ShadowPlayDelegate{
         switch status {
         case .GetInfo:
             if info != nil{
-                print(info!)
+//                vcon.text = convertTime(second: info!.duration)
+//                slider.maximumValue = Float(info!.duration)
+                vControl.maxValue = Float(info!.duration)
+                vControl.minValue = 0
+                vControl.totalTime = convertTime(second: Float(info!.duration))
             }
         case .Buffering:
-            if !vActivity.isAnimating && vControl.bufferValue <= player.currentTime / player.totalTime.seconds + 5{
+//            if !vActivity.isAnimating && vControl.bufferValue <= player.currentTime / player.totalTime.seconds + 5{
+//                vActivity.startAnimating()
+//            }
+            if !vActivity.isAnimating {
                 vActivity.startAnimating()
             }
         case .ReadyToPlay:
             vActivity.stopAnimating()
             vPlay.isHidden = false
+        
         default:
             break
         }
     }
     
     func playProcess(percent: Float) {
-        
+        print("播放到\(percent)")
+        vControl.value = percent
+        vControl.currentTime =  convertTime(second: percent)
+        if ShadowVideoPlayerView.count >= 4 {
+            setSubViewsIsHide(isHide: true)
+        }
+        else{
+            setSubViewsIsHide(isHide: false)
+        }
+        ShadowVideoPlayerView.count += 1
     }
     
     
