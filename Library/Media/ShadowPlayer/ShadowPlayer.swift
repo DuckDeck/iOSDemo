@@ -13,7 +13,7 @@ enum VideoGravity {
     case ResizeAspect,ResizeAspectFill,Resize
 }
 enum PlayerStatus:Int{
-    case Failed = 0,GetInfo, ReadyToPlay,Unknown,Buffering,Playing,Pausing, Stopped,Finished
+    case Failed = 0,GetInfo, ReadyToPlay,Unknown,Buffering,Playing,Paused, Stopped,Finished
 }
 
 protocol ShadowPlayDelegate:class {
@@ -323,7 +323,7 @@ class ShadowPlayer:NSObject {
     func pause() {
         if self.player != nil{
             self.player.pause()
-            status = .Pausing
+            status = .Paused
             delegate?.playStateChange(status: status, info: nil)
         }
 
@@ -367,7 +367,7 @@ class ShadowPlayer:NSObject {
 extension ShadowPlayer{
     @objc func ShadowPlayerItemDidPlayToEndTimeNotification(notif:Notification)  {
         item.seek(to: kCMTimeZero)
-        pause()
+        self.player.pause()
         status = .Finished
         delegate?.playStateChange(status: status, info: nil)
     }

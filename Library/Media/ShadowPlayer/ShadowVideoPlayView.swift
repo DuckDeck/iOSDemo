@@ -84,6 +84,10 @@ class ShadowVideoPlayerView: UIView {
         setupPlayerUI()
         player = ShadowPlayer(url: url, playerLayer: playerLayer)
         player.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange(notif:)), name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willResignActive(notif:)), name: Notification.Name.UIApplicationWillResignActive, object: nil)
+        
+
     }
   
     
@@ -291,10 +295,11 @@ class ShadowVideoPlayerView: UIView {
             vControl.totalTime = "00:00"
             player.stop()
             player = nil
-            removeSubviews()
+            removeSubviews() //有疑问
         }
     }
  
+    
     
     func setSubViewsIsHide(isHide:Bool){
         vControl.isHidden = isHide
@@ -315,6 +320,28 @@ class ShadowVideoPlayerView: UIView {
             
         }
     }
+    
+    func rotate(orientation:UIDeviceOrientation)  {
+        switch orientation {
+        case .portrait:
+        break //默认为这种，不需要再处理
+        case .landscapeLeft:
+            UIView.animate(withDuration: 0.2) {
+                self.vPlay.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
+                self.vControl.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
+                self.vControl.snp.updateConstraints({ (m) in
+                    m.width.equalTo(ScreenHeight)
+                    m.height.equalTo(ScreenWidth)
+                })
+                self.layoutIfNeeded()
+            }
+            
+            break
+        default:
+            break
+        }
+    }
+
     
     func getVideoInfo() -> [(String,String)]{
         var info = [(String,String)]()
@@ -364,6 +391,12 @@ class ShadowVideoPlayerView: UIView {
     func clearCache(){
         
     }
+    
+    deinit {
+        print("deinit the ShadowVideoPlayView")
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIApplicationWillResignActive, object: nil)
+    }
 }
 
 extension ShadowVideoPlayerView:UIGestureRecognizerDelegate,ShadowVideoControlViewDelegate{
@@ -406,13 +439,7 @@ extension ShadowVideoPlayerView:UIGestureRecognizerDelegate,ShadowVideoControlVi
 }
 
 extension ShadowVideoPlayerView{
-//    @objc func ShadowPlayerItemDidPlayToEndTimeNotification(notif:Notification)  {
-//        item.seek(to: kCMTimeZero)
-//        setSubViewsIsHide(isHide: false)
-//        ShadowPlayer.count = 0
-//        pause()
-//        vPlay.btnImage.isSelected = false
-//    }
+
     @objc func deviceOrientationDidChange(notif:Notification)  {
         if currentVC == nil{
             currentVC = self.topMostController()
@@ -487,7 +514,11 @@ extension ShadowVideoPlayerView:ShadowPlayDelegate{
         case .ReadyToPlay:
             vActivity.stopAnimating()
             vPlay.isHidden = false
-        
+        case .Finished:
+            setSubViewsIsHide(isHide: false)
+            ShadowVideoPlayerView.count = 0
+            pause()
+            vPlay.btnImage.isSelected = false
         default:
             break
         }
