@@ -65,6 +65,7 @@ class ShadowPlayer:NSObject {
     var nonToEndDownloaderArray:[ShadowDownloader]?
     var isFileExist = false
     var isFileCacheComplete = false
+    var isAutoCache = true
 
     weak var delegate:ShadowPlayDelegate?
     var isSeeking = false
@@ -113,13 +114,14 @@ class ShadowPlayer:NSObject {
     fileprivate override init() {}
     
     //与url初始化,目前只支持HTTP协议和FILE协议
-    convenience init(url:URL)  {
+    convenience init(url:URL,autoCache:Bool = true)  {
         self.init()
         self.url = url
+        self.isAutoCache = autoCache
         self.assetWithURL(url: url)
     }
-
-    convenience init(url:URL,playerLayer:AVPlayerLayer)  {
+    
+    convenience init(url:URL,playerLayer:AVPlayerLayer,autoCache:Bool = true)  {
         self.init()
         self.url = url
         self.playerLayer = playerLayer
@@ -325,7 +327,9 @@ class ShadowPlayer:NSObject {
             status = .Paused
             delegate?.playStateChange(status: status, info: nil)
         }
-
+        else{
+            setupPlayerWithAsset(asset: anAsset)
+        }
     }
     
     func stop() {
