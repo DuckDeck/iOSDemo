@@ -139,11 +139,21 @@ extension UIImage{
     }
     
     
-    func createRect(size:CGSize,color:UIColor) -> UIImage {
+    static func createRect(size:CGSize,color:UIColor) -> UIImage {
         UIGraphicsBeginImageContext(size)
         let context = UIGraphicsGetCurrentContext()
         context?.setFillColor(color.cgColor)
         context?.fill(CGRect(origin: CGPoint(), size: size))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage ?? UIImage()
+    }
+    
+    static func createEllipse(size:CGSize,color:UIColor) -> UIImage {
+        UIGraphicsBeginImageContext(size)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor)
+        context?.fillEllipse(in: CGRect(origin: CGPoint(), size: size))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage ?? UIImage()

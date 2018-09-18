@@ -274,7 +274,7 @@ class ShadowPlayer:NSObject {
             let timeInterval = startSeconds + durationSeconds // 计算缓冲总进度
             let duration = item.duration
             let totalDuration = CMTimeGetSeconds(duration)
-            delegate?.bufferProcess(current: Float(timeInterval / totalDuration), duration:  Float(duration.seconds))
+            delegate?.bufferProcess(current: Float(timeInterval), duration:  Float(totalDuration))
         }
         else if key == "playbackBufferEmpty"{
             status = .Buffering
@@ -319,6 +319,12 @@ class ShadowPlayer:NSObject {
             status = .Playing
             delegate?.playStateChange(status: status, info: nil)
         }
+        else{
+            setupPlayerWithAsset(asset: anAsset)
+            self.player.play()
+            status = .Playing
+            delegate?.playStateChange(status: status, info: nil)
+        }
     }
     
     func pause() {
@@ -327,9 +333,7 @@ class ShadowPlayer:NSObject {
             status = .Paused
             delegate?.playStateChange(status: status, info: nil)
         }
-        else{
-            setupPlayerWithAsset(asset: anAsset)
-        }
+       
     }
     
     func stop() {

@@ -29,7 +29,7 @@ class MusicListViewController: UIViewController {
        
         
         
-        img.image = UIImage().createRect(size: CGSize(width: 50, height: 80), color: UIColor.blue)
+        img.image = UIImage.createRect(size: CGSize(width: 50, height: 80), color: UIColor.blue)
         view.addSubview(img)
         img.snp.makeConstraints { (m) in
             m.left.equalTo(30)
