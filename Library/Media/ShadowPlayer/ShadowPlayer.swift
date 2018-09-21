@@ -118,6 +118,9 @@ class ShadowPlayer:NSObject {
         self.init()
         self.url = url
         self.isAutoCache = autoCache
+        let session = AVAudioSession.sharedInstance()
+        try? session.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
+
         self.assetWithURL(url: url)
     }
     
