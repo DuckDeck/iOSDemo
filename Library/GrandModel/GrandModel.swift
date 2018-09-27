@@ -22,6 +22,8 @@ class GrandModel:NSObject,NSCoding{
         }
     }
     
+    var cellHeight:Float?
+    
     static var typeMapTable:[String:[String:GrandType]] = [String:[String:GrandType]]()
     required override init() {
         super.init()

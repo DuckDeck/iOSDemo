@@ -78,7 +78,7 @@ class DBManager {
         }
         
         pathDbCommon = "\(pathDbCommon)common.sqlite3"
-        commonQueue =  FMDatabaseQueue(path: pathDbCommon)
+        commonQueue =  FMDatabaseQueue(path: pathDbCommon)!
     }
     static  let sharedInstance = DBManager()
 }

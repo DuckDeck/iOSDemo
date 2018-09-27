@@ -10,7 +10,7 @@ import UIKit
 
 class ProjectViewController: UIViewController {
 
-    var arrData = ["Novel","LinkGame"]
+    var arrData = ["Novel","LinkGame","PointLock"]
     var tbMenu = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -27,7 +27,7 @@ class SnapkitTableViewController: UIViewController {
         tb.estimatedRowHeight = 300
         tb.tableFooterView = UIView()
         tb.separatorStyle = .none
-        tb.rowHeight = UITableViewAutomaticDimension
+        //tb.rowHeight = UITableViewAutomaticDimension
         
 //        let barBtn = UIBarButtonItem(title: "add", style: .plain, target: self, action: #selector(addContent))
     }
@@ -79,6 +79,8 @@ extension SnapkitTableViewController:UITableViewDataSource,UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SnapCell
         cell.m = arr[indexPath.row]
         cell.index = indexPath
+        let height = cell.systemLayoutSizeFitting(CGSize(width: ScreenWidth, height: 0), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
+        arr[indexPath.row].cellHeight = Float(height.height)
         cell.updateBlock = {(index:IndexPath) in
             tableView.reloadRows(at: [index], with: .automatic)
         }
@@ -89,7 +91,15 @@ extension SnapkitTableViewController:UITableViewDataSource,UITableViewDelegate{
         return arr.count
     }
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let m = arr[indexPath.row]
+        if let h = m.cellHeight{
+            return CGFloat(h)
+        }
+        else{
+            return UITableViewAutomaticDimension
+        }
+    }
     
 }
 
@@ -128,6 +138,7 @@ class SnapCell: UITableViewCell {
                        let scale = i.size.width / i.size.height
                         self.img.snp.updateConstraints({ (m) in
                             m.height.equalTo(ScreenWidth / scale) //在这里更新高度
+                            //但是这样还是太慢了，因为这种要等图片下过来才能设定
                         })
                     }
                 })
