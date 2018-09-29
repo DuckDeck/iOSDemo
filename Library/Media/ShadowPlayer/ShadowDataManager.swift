@@ -115,8 +115,8 @@ class ShadowDataManager {
     }
     
     func readCacheDataIn(range:NSRange) -> Data {
-         objc_sync_enter(self.readFileHandle!)
-         readFileHandle?.seek(toFileOffset: UInt64(range.location))
+        objc_sync_enter(self.readFileHandle!)
+        readFileHandle?.seek(toFileOffset: UInt64(range.location))
         let data = readFileHandle!.readData(ofLength: range.length)
         objc_sync_exit(self.readFileHandle!)
         return data

@@ -46,8 +46,7 @@ extension ProjectViewController:UITableViewDelegate,UITableViewDataSource{
         case 1:
            navigationController?.pushViewController(LinkGameViewController(), animated: true)
         case 2:
-            break
-            
+            navigationController?.pushViewController(PointLockViewController(), animated: true)
         default:
             break
         }

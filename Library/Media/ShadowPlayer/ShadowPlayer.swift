@@ -141,7 +141,7 @@ class ShadowPlayer:NSObject {
     func assetWithURL(url:URL) {
         isFileCacheComplete = false
         let dict = [AVURLAssetPreferPreciseDurationAndTimingKey:true]
-        /*
+        
         if url.absoluteString.hasPrefix("http"){
              let filePath = ShadowDataManager.checkCached(urlStr: url.absoluteString)
              if filePath.1 {
@@ -159,8 +159,8 @@ class ShadowPlayer:NSObject {
         }
         else{
             anAsset = AVURLAsset(url: url, options: dict)
-        }*/
-        anAsset = AVURLAsset(url: url, options: dict)
+        }
+        //anAsset = AVURLAsset(url: url, options: dict)
         let keys = ["duration"]
         weak var weakself = self
         //如果使用第三方下载这个就不能用了
