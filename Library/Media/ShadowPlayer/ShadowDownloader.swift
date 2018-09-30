@@ -131,6 +131,7 @@ extension ShadowDownloader:URLSessionDataDelegate{
  
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
         //服务器首次响应请求时，返回的响应头，长度为2字节，包含该次网络请求返回的音频文件的内容信息，例如文件长度，类型等
+        print("获取数据开始")
         fillContentInfo(response: response)
         completionHandler(.allow)
     }
@@ -138,11 +139,13 @@ extension ShadowDownloader:URLSessionDataDelegate{
     //下载中，服务器返回数据时，调用该方法，可能会调用多次
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         handleReceiveData(data: data)
+         print("获取到数据，大小是\(data.count)")
         //这里还可以设置进度
     }
     
     //请求完成调用该方法   请求失败则error有值
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        print("获取数据结结束")
         if error != nil{
             print(error!.localizedDescription)
         }
@@ -150,6 +153,7 @@ extension ShadowDownloader:URLSessionDataDelegate{
              handleLoadingRequest(loadingRequest: loadingRequest)
         }
     }
+    
     
     
 }

@@ -39,7 +39,7 @@ class ShadowRangeManager {
                 let intersectionRange = NSIntersectionRange(value, requestRange)
                 if intersectionRange.length > 0{
                     let info = ShadowRangeInfo(requestType: .RequestFromCache, requestRange: intersectionRange)
-                    cachedInfoArray.append(info)
+                    rangeInfoArray.append(info)
                 }
             }
             //围绕交集，进行需要网络请求的range的拆解
@@ -50,7 +50,7 @@ class ShadowRangeManager {
             else{
                 for (index,value) in cachedInfoArray.enumerated(){
                     if index == 0{
-                        if value.requestRange.location > requestRange.location{
+                        if value.requestRange.location > requestRange.location{//在第一个cacheRange前还有一部分需要net请求
                             let info = ShadowRangeInfo(requestType: .RequestFromNet, requestRange: NSRange(location: requestRange.location, length: value.requestRange.location - requestRange.location))
                             rangeInfoArray.append(info)
                             //注意此处的rangModelArray是最终的包含该loadingRequest的全部rangeModel的数组，因此不要忘记将刚才cachedModelArray中的model也添加进来，而且要注意顺序，依次添加

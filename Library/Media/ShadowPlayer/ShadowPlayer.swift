@@ -389,7 +389,10 @@ extension ShadowPlayer:ShadowDataManagerDelegate,AVAssetResourceLoaderDelegate{
     func resourceLoader(_ resourceLoader: AVAssetResourceLoader, shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool {
         handleLoadingRequest(loadingRequest: loadingRequest)
         Log(message: "开始请求，当前位置\(loadingRequest.dataRequest!.currentOffset)---请求长度\(loadingRequest.dataRequest!.requestedLength)----请求偏移\(loadingRequest.dataRequest!.requestedOffset)")
-        //Issue 目前对于测试视频来说，不会做分片请求，第二次就直接全部请求了。
+        //Issue1 目前对于测试视频来说，不会做分片请求，第二次就直接全部请求了。
+        //Issue2还有问题就是请求完的数据不会推过来，播放器接收不到数据无法播放
+        //Issue3视频暂时有问题，用音频试试
+        //Issue4需要处理后缀没有的问题，如果保存的文件没有后缀好像不能播放
         return true
     }
     
@@ -412,6 +415,7 @@ extension ShadowPlayer:ShadowDataManagerDelegate,AVAssetResourceLoaderDelegate{
             }
         }
         let rangeModelArray = ShadowRangeManager.shareInstance!.calculateRangeModelArrayForLoadingRequest(loadingRequest: loadingRequest)
+        //如果rangeModelArray返回为空，说明这次请示已经被缓存，那么就不需要
         let urlScheme = url.scheme
         let downloader = ShadowDownloader(loadingRequest: loadingRequest, rangeInfoArray: rangeModelArray, urlSchema: urlScheme!, dataManager: dataManager!)
         if loadingRequest.dataRequest!.requestsAllDataToEndOfResource{
