@@ -34,10 +34,10 @@ class DemoViewController: BaseViewController {
 //        }
         btnLargeTouch2.translatesAutoresizingMaskIntoConstraints = false
         btnLargeTouch2.color(color: UIColor.gray).title(title: "大的边缘范围").bgColor(color: UIColor.yellow).addTo(view: view).completed()
-        let cenX = NSLayoutConstraint(item: btnLargeTouch2, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
-        let cenY = NSLayoutConstraint(item: btnLargeTouch2, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
-        let width = NSLayoutConstraint(item: btnLargeTouch2, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100)
-        let height = NSLayoutConstraint(item: btnLargeTouch2, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100)
+        let cenX = NSLayoutConstraint(item: btnLargeTouch2, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
+        let cenY = NSLayoutConstraint(item: btnLargeTouch2, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
+        let width = NSLayoutConstraint(item: btnLargeTouch2, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
+        let height = NSLayoutConstraint(item: btnLargeTouch2, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
         NSLayoutConstraint.activate([cenX,cenY,width,height])
     }
     

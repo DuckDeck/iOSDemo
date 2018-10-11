@@ -96,10 +96,10 @@ extension String{
         var textSize:CGSize!
         if size.equalTo(CGSize.zero) {
             
-            textSize = self.size(withAttributes: [NSAttributedStringKey.font:font])
+            textSize = self.size(withAttributes: [NSAttributedString.Key.font:font])
         } else {
             let option = NSStringDrawingOptions.usesLineFragmentOrigin
-            let stringRect = self.boundingRect(with: size, options: option, attributes: [NSAttributedStringKey.font:font], context: nil)
+            let stringRect = self.boundingRect(with: size, options: option, attributes: [NSAttributedString.Key.font:font], context: nil)
             textSize = stringRect.size
         }
         return textSize
@@ -134,11 +134,11 @@ extension String{
 
 extension NSMutableAttributedString{
     func addColor(color:UIColor,range:NSRange)  {
-        self.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: range)
+        self.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
     }
     
     func addFont(font:UIFont,range:NSRange) {
-        self.addAttribute(NSAttributedStringKey.font, value: font, range: range)
+        self.addAttribute(NSAttributedString.Key.font, value: font, range: range)
     }
 }
 

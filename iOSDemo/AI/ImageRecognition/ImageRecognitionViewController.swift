@@ -8,25 +8,20 @@
 
 import UIKit
 import SnapKit
-import ImagePicker
+import TZImagePickerController
 import CoreML
 import Vision
 @available(iOS 11.0, *)
-class ImageRecognitionViewController: UIViewController {
+class ImageRecognitionViewController: UIViewController,TZImagePickerControllerDelegate {
     
     let img = UIImageView()
     let btnChooseImage = UIButton()
     let btnStart  = UIButton()
     let lblResult = UILabel()
     let lblProbably = UILabel()
-    var imagePickerController:ImagePickerController!
-  
-    
-    
-    
-    
+    var imagePickerController:TZImagePickerController!
     @objc func chooseImage()  {
-        present(imagePickerController, animated: true, completion: nil)
+      present(imagePickerController, animated: true, completion: nil)
     }
     
     @objc func startCheck(){
@@ -69,20 +64,18 @@ class ImageRecognitionViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
        
         
-        var configuration = Configuration()
-        configuration.doneButtonTitle = "Finish"
-        configuration.noImagesTitle = "Sorry! There are no images here!"
-        configuration.allowMultiplePhotoSelection = true
-        imagePickerController = ImagePickerController(configuration: configuration)
-        imagePickerController.delegate = self
-        imagePickerController.imageLimit = 1
-       
+        imagePickerController = TZImagePickerController(maxImagesCount: 1, delegate: self)
+        imagePickerController.didFinishPickingPhotosHandle = {[weak self](images,assert,isSelectOriginalPhoto) in
+            if let one = images?.first{
+                self?.img.image = one
+            }
+        }
       
         view.addSubview(img)
         img.snp.makeConstraints { (m) in
             m.width.equalTo(view)
             m.left.top.equalTo(0)
-            m.height.greaterThanOrEqualTo(300)
+            m.height.lessThanOrEqualTo(300)
         }
         
         
@@ -132,22 +125,3 @@ class ImageRecognitionViewController: UIViewController {
     }
 }
 
-@available(iOS 11.0, *)
-extension ImageRecognitionViewController:ImagePickerDelegate{
-    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        
-    }
-    
-    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        imagePickerController.dismiss(animated: true, completion: nil)
-        if let one = images.first{
-            img.image = one
-        }
-    }
-    
-    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-        
-    }
-    
-    
-}

@@ -31,8 +31,6 @@ class VideoPlayViewController: BaseViewController {
             return
         }
         
-        let u = url.directory
-        print(u)
         if let attr = try? FileManager.default.attributesOfItem(atPath: url.path){
             let size = attr[FileAttributeKey.size] as! Int
             dictDes["文件大小"] = "\(size / 1000000)M"

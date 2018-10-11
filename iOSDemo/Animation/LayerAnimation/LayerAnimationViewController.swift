@@ -24,39 +24,39 @@ class LayerAnimationViewController: UIViewController,CAAnimationDelegate {
         view.backgroundColor = UIColor.white
         imgDemo.frame = CGRect(x: 0, y: 64, width: 200, height: 300)
         view.addSubview(imgDemo)
-        btnMove.setTitle("开始动画", for: UIControlState())
+        btnMove.setTitle("开始动画", for: UIControl.State())
         btnMove.tag = 0
-        btnMove.setTitleColor(UIColor.red, for: UIControlState())
+        btnMove.setTitleColor(UIColor.red, for: UIControl.State())
         btnMove.addTarget(self, action: #selector(LayerAnimationViewController.click(_:)), for: .touchUpInside)
         view.addSubview(btnMove)
         
-        btnStop.setTitle("停止", for: UIControlState())
+        btnStop.setTitle("停止", for: UIControl.State())
         btnStop.addTarget(self, action: #selector(LayerAnimationViewController.stopClick(_:)), for: .touchUpInside)
-        btnStop.setTitleColor(UIColor.red, for: UIControlState())
+        btnStop.setTitleColor(UIColor.red, for: UIControl.State())
         view.addSubview(btnStop)
         
         
-        btnAnimtaionGroup.setTitle("动画组", for: UIControlState())
+        btnAnimtaionGroup.setTitle("动画组", for: UIControl.State())
         btnAnimtaionGroup.addTarget(self, action: #selector(LayerAnimationViewController.animationGroupClick(_:)), for: .touchUpInside)
-        btnAnimtaionGroup.setTitleColor(UIColor.red, for: UIControlState())
+        btnAnimtaionGroup.setTitleColor(UIColor.red, for: UIControl.State())
         view.addSubview(btnAnimtaionGroup)
         
         
-        btnSpringAnimation.setTitle("弹簧", for: UIControlState())
+        btnSpringAnimation.setTitle("弹簧", for: UIControl.State())
         btnSpringAnimation.addTarget(self, action: #selector(LayerAnimationViewController.springClick(_:)), for: .touchUpInside)
-        btnSpringAnimation.setTitleColor(UIColor.red, for: UIControlState())
+        btnSpringAnimation.setTitleColor(UIColor.red, for: UIControl.State())
         view.addSubview(btnSpringAnimation)
         
         
-        btnKeyframeAimation.setTitle("关键帧", for: UIControlState())
+        btnKeyframeAimation.setTitle("关键帧", for: UIControl.State())
         btnKeyframeAimation.addTarget(self, action: #selector(LayerAnimationViewController.keyFrameClick(_:)), for: .touchUpInside)
-        btnKeyframeAimation.setTitleColor(UIColor.red, for: UIControlState())
+        btnKeyframeAimation.setTitleColor(UIColor.red, for: UIControl.State())
         view.addSubview(btnKeyframeAimation)
         
-        btnAddMusk.setTitle("加Mask", for: UIControlState())
+        btnAddMusk.setTitle("加Mask", for: UIControl.State())
         btnAddMusk.tag = 1
         btnAddMusk.addTarget(self, action: #selector(LayerAnimationViewController.click(_:)), for: .touchUpInside)
-        btnAddMusk.setTitleColor(UIColor.red, for: UIControlState())
+        btnAddMusk.setTitleColor(UIColor.red, for: UIControl.State())
         view.addSubview(btnAddMusk)
         
         
@@ -115,7 +115,7 @@ class LayerAnimationViewController: UIViewController,CAAnimationDelegate {
         // 动画结束后,layer会保持结束状态
         flyRight.isRemovedOnCompletion = false
         // 保证fillMode起作用
-        flyRight.fillMode = kCAFillModeBoth
+        flyRight.fillMode = CAMediaTimingFillMode.both
         flyRight.fromValue = 100   //position.x是指中心
         flyRight.toValue = 200
         flyRight.duration = 1
@@ -165,9 +165,9 @@ class LayerAnimationViewController: UIViewController,CAAnimationDelegate {
         groupAnimation.beginTime = CACurrentMediaTime() + 1
         groupAnimation.duration = 3
         groupAnimation.isRemovedOnCompletion = false
-        groupAnimation.fillMode = kCAScrollBoth
+        groupAnimation.fillMode = CAMediaTimingFillMode.both
         
-        groupAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        groupAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         groupAnimation.repeatCount = 4.5
         groupAnimation.autoreverses = true
         groupAnimation.speed = 2.0

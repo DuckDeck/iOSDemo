@@ -52,7 +52,7 @@ import UIKit
         }
         if let block = titleBlock {
             let title = block(countDown + 1, timerButtonStatus)
-            setTitle(title, for: UIControlState.normal)
+            setTitle(title, for: UIControl.State.normal)
         }
     }
     

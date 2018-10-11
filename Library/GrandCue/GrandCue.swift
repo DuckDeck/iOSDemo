@@ -111,7 +111,7 @@ class ToastLable:UILabel {
         animationGroup.duration = forwardAnimation.duration + backWardAnimation.duration + waitAnimationDuration
         animationGroup.isRemovedOnCompletion = false
 //        animationGroup.delegate = self
-        animationGroup.fillMode = kCAFillModeForwards
+        animationGroup.fillMode = CAMediaTimingFillMode.forwards
         self.layer.add(animationGroup, forKey: "animation")
     }
     override func sizeToFit() {
@@ -129,12 +129,13 @@ class ToastLable:UILabel {
         }
     }
     override func drawText(in rect: CGRect) {
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, self.textInsets!))
+        
+        super.drawText(in: rect.inset(by: self.textInsets!))
     }
     override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
         var rect = bounds
         if let txt = self.text{
-            rect.size =  (txt as NSString).boundingRect(with: CGSize(width: CGFloat(self.maxWidth!) - self.textInsets!.left - self.textInsets!.right, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:self.font], context: nil).size
+            rect.size =  (txt as NSString).boundingRect(with: CGSize(width: CGFloat(self.maxWidth!) - self.textInsets!.left - self.textInsets!.right, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font:self.font], context: nil).size
         }
         return rect
     }

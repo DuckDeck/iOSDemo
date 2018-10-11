@@ -29,7 +29,7 @@ class SettingViewController: UIViewController {
         view.addSubview(lblShowTrace)
         switchShowTrace = UISwitch(frame: CGRect(x: UIScreen.main.bounds.width-100, y: 80, width: 80, height: 50))
         switchShowTrace?.tag = 0
-        switchShowTrace?.addTarget(self, action: #selector(SettingViewController.switchValueChange(sender:)), for: UIControlEvents.valueChanged)
+        switchShowTrace?.addTarget(self, action: #selector(SettingViewController.switchValueChange(sender:)), for: UIControl.Event.valueChanged)
         view.addSubview(switchShowTrace!)
         let lblKeepTrace = UILabel(frame: CGRect(x:30, y:130, width:130,height: 32))
         lblKeepTrace.text = "保留触摸痕迹"
@@ -37,7 +37,7 @@ class SettingViewController: UIViewController {
         view.addSubview(lblKeepTrace)
         switchKeepTrace = UISwitch(frame: CGRect(x:UIScreen.main.bounds.width-100, y: 130, width: 80, height: 50))
         switchKeepTrace?.tag = 1
-        switchKeepTrace?.addTarget(self, action: #selector(SettingViewController.switchValueChange(sender:)), for: UIControlEvents.valueChanged)
+        switchKeepTrace?.addTarget(self, action: #selector(SettingViewController.switchValueChange(sender:)), for: UIControl.Event.valueChanged)
         view.addSubview(switchKeepTrace!)
         let lblShowCoordinate = UILabel(frame: CGRect(x:30,y: 180,width: 120,height: 32))
         lblShowCoordinate.text = "显示触摸坐标"
@@ -45,7 +45,7 @@ class SettingViewController: UIViewController {
         view.addSubview(lblShowCoordinate)
         switchShowCoordinate = UISwitch(frame: CGRect(x:UIScreen.main.bounds.width-100, y: 180, width: 80, height: 50))
         switchShowCoordinate?.tag = 2
-        switchShowCoordinate?.addTarget(self, action: #selector(SettingViewController.switchValueChange(sender:)), for: UIControlEvents.valueChanged)
+        switchShowCoordinate?.addTarget(self, action: #selector(SettingViewController.switchValueChange(sender:)), for: UIControl.Event.valueChanged)
         view.addSubview(switchShowCoordinate!)
         
         let lblTraceThickness = UILabel(frame: CGRect(x:30, y:230,width: 120,height: 35))
@@ -61,7 +61,7 @@ class SettingViewController: UIViewController {
         sliderTraceThickness = UISlider(frame: CGRect(x:10, y:270, width:UIScreen.main.bounds.width-20,height: 20))
         sliderTraceThickness?.maximumValue = 30
         sliderTraceThickness?.minimumValue = 0.5
-        sliderTraceThickness?.addTarget(self, action: #selector(SettingViewController.sliderValueChange(sender:)), for: UIControlEvents.valueChanged)
+        sliderTraceThickness?.addTarget(self, action: #selector(SettingViewController.sliderValueChange(sender:)), for: UIControl.Event.valueChanged)
         view.addSubview(sliderTraceThickness!)
         
         
@@ -74,7 +74,7 @@ class SettingViewController: UIViewController {
         btnBack?.layer.borderWidth = 2
         btnBack?.layer.borderColor = UIColor.white.cgColor
         btnBack?.layer.cornerRadius = 15
-        btnBack?.addTarget(self, action: #selector(SettingViewController.back(sender:)), for: UIControlEvents.touchUpInside)
+        btnBack?.addTarget(self, action: #selector(SettingViewController.back(sender:)), for: UIControl.Event.touchUpInside)
         view.addSubview(btnBack!)
         
         let lblAuthor = UILabel(frame: CGRect(x: 20, y: 350, width: UIScreen.main.bounds.width-40, height: 30))
@@ -111,9 +111,9 @@ class SettingViewController: UIViewController {
         }
         lblTraceThicknessNum?.text = NSString(format: "%4.2f", Settings.traceThickness.Value!) as String
         let maxPoints = NSMutableAttributedString(string:NSString(format: "你的设置最多支持%d点触摸", Settings.maxSupportTouches.Value!) as String )
-        maxPoints.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.white, range: NSMakeRange(0, maxPoints.length))
-        maxPoints.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.green, range: NSMakeRange(8, 1))
-        maxPoints.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 20), range: NSMakeRange(0, maxPoints.length))
+        maxPoints.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSMakeRange(0, maxPoints.length))
+        maxPoints.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: NSMakeRange(8, 1))
+        maxPoints.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 20), range: NSMakeRange(0, maxPoints.length))
         lblSupportMaxTouches?.attributedText = maxPoints
     }
     

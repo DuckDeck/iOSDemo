@@ -32,7 +32,7 @@ class NovelViewController: UIViewController {
         txtSearch.returnKeyType = .search
         tb.setFrame(frame: CGRect(x: 0, y: NavigationBarHeight + 40, width: ScreenWidth, height: ScreenHeight - 40 - NavigationBarHeight)).addTo(view: view).completed()
         tb.estimatedRowHeight = 160
-        tb.rowHeight = UITableViewAutomaticDimension
+        tb.rowHeight = UITableView.automaticDimension
         //vm = NovelSearchViewModel(input: (tb,txtSearch.rx.text.orEmpty.asDriver(),btnSearch.rx.tap.asDriver()))
         vm = NovelSearchViewModel.create(input: (tb,txtSearch.rx.text.orEmpty.asDriver(),btnSearch.rx.tap.asDriver()))
         vm?.urlNav = navigator

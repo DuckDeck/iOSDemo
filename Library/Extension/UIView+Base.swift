@@ -188,10 +188,10 @@ extension UIView{
     func currentVC() -> UIViewController? {
         var vc:UIViewController! = nil
         var window = UIApplication.shared.keyWindow!
-        if window.windowLevel != UIWindowLevelNormal{
+        if window.windowLevel != UIWindow.Level.normal{
             let windows = UIApplication.shared.windows
             for win in windows{
-                if win.windowLevel == UIWindowLevelNormal{
+                if win.windowLevel == UIWindow.Level.normal{
                     window = win
                     break
                 }
@@ -200,7 +200,7 @@ extension UIView{
         let frontView = window.subviews.first!
         let responder = frontView.next
         if responder != nil && responder! is UIViewController{
-            vc = responder! as! UIViewController
+            vc = responder! as? UIViewController
         }
         else{
             vc = window.rootViewController
@@ -252,10 +252,10 @@ extension UILabel{
         guard let txt = self.text else {
             return
         }
-        let textSize = (txt as NSString).boundingRect(with: CGSize(width: self.frame.size.width, height: CGFloat(MAXFLOAT)), options: [NSStringDrawingOptions.usesLineFragmentOrigin,NSStringDrawingOptions.truncatesLastVisibleLine,NSStringDrawingOptions.usesFontLeading], attributes: [NSAttributedStringKey.font:self.font], context: nil)
+        let textSize = (txt as NSString).boundingRect(with: CGSize(width: self.frame.size.width, height: CGFloat(MAXFLOAT)), options: [NSStringDrawingOptions.usesLineFragmentOrigin,NSStringDrawingOptions.truncatesLastVisibleLine,NSStringDrawingOptions.usesFontLeading], attributes: [NSAttributedString.Key.font:self.font], context: nil)
         let margin = (self.frame.size.width - textSize.size.width) / CGFloat(txt.count - 1)
         let attrStr = NSMutableAttributedString(string: txt)
-        attrStr.addAttribute(kCTKernAttributeName as NSAttributedStringKey, value: margin, range: NSMakeRange(0, txt.count - 1))
+        attrStr.addAttribute(kCTKernAttributeName as NSAttributedString.Key, value: margin, range: NSMakeRange(0, txt.count - 1))
 //        attrStr.addAttributes([kCTKernAttributeName:margin], range: NSMakeRange(0, txt.count - 1))
         self.attributedText = attrStr
     }
@@ -270,7 +270,7 @@ extension UILabel{
             UIMenuController.shared.menuItems = [item]
             UIMenuController.shared.arrowDirection = .up
             UIMenuController.shared.setMenuVisible(true, animated: true)
-            NotificationCenter.default.addObserver(self!, selector: #selector(self!.hide), name: NSNotification.Name.UIMenuControllerDidHideMenu, object: nil)
+            NotificationCenter.default.addObserver(self!, selector: #selector(self!.hide), name: UIMenuController.didHideMenuNotification, object: nil)
         }
     }
     
@@ -411,7 +411,7 @@ open class BlockLongPress: UILongPressGestureRecognizer {
     }
     
     @objc open func didLongPressed(_ longPress: UILongPressGestureRecognizer) {
-        if longPress.state == UIGestureRecognizerState.began {
+        if longPress.state == UIGestureRecognizer.State.began {
             longPressAction?(longPress)
         }
     }

@@ -28,13 +28,13 @@ class GradientLayerViewController: UIViewController {
 
 
 class GradientLabel: UIView {
-    lazy var textAttributes:[NSAttributedStringKey:AnyObject] = {
+    lazy var textAttributes:[NSAttributedString.Key:AnyObject] = {
         let style = NSMutableParagraphStyle()
         style.alignment = .center
         return [
             
-            NSAttributedStringKey.font:UIFont(name: "HelveticaNeue-Thin", size: 28.0)!,
-            NSAttributedStringKey.paragraphStyle:style
+            NSAttributedString.Key.font:UIFont(name: "HelveticaNeue-Thin", size: 28.0)!,
+            NSAttributedString.Key.paragraphStyle:style
         ]
     }()
     

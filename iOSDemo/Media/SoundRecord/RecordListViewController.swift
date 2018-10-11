@@ -40,8 +40,7 @@ class RecordListViewController: UIViewController {
         tb.setEmptyView(view: v, offset: 300)
         listRecordings()
         
-        
-        try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: .defaultToSpeaker)
+        try? AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
         try? AVAudioSession.sharedInstance().setActive(true)
         
         
@@ -311,7 +310,7 @@ class AudioFileCell: UITableViewCell {
             lblPlayTime.text = "00:00:00"
         }
     }
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         lblName.setFont(font: 14).color(color: UIColor.darkGray).addTo(view: contentView).snp.makeConstraints { (m) in

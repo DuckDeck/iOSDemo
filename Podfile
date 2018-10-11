@@ -8,7 +8,7 @@ target 'iOSDemo' do
 
   # Pods for iOSDemo
 pod "SwiftyJSON"
-pod "Alamofire", '4.7.1'
+pod "Alamofire"
 pod "IQKeyboardManagerSwift"
 pod "SnapKit"
 pod "WSProgressHUD"
@@ -21,18 +21,19 @@ pod "MLeaksFinder"
 pod "ViewChaos"
 pod "Kanna"
 pod "netfox“
-pod "Kingfisher", '4.9.0'
-pod "RxSwift", '4.3.0'
-pod "RxCocoa", '4.3.0'
+pod "Kingfisher"
+pod "RxSwift"
+pod "RxCocoa"
 pod "Moya"
 pod "Moya/RxSwift"
 pod "URLNavigator"
 pod "RxDataSources"
-pod "ImagePicker"
+pod "TZImagePickerController" #iOS8 and later
 pod "AMap3DMap"
 pod "AMapLocation"
 pod "Gifu"
-pod "Eureka" , '4.2.0'
+pod "Eureka"
+pod "netfox"
 end
 
 

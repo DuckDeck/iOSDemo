@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Alamofire
+import netfox
 class HttpRecordViewController: UIViewController {
     let btn = UIButton()
     var requestInfo:RequestInfo?
@@ -56,7 +57,7 @@ class HttpRecordViewController: UIViewController {
     @objc func request(sender:UIButton)  {
         HttpClient.get("https://api.douban.com/v2/movie/in_theaters").completion { (data, err) in
             let str = String(data: data!, encoding: String.Encoding.utf8)
-            print(str)
+            print(str ?? "test NFX")
         }
 
  

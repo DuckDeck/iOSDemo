@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import ImagePicker
-class CompressImageViewController: UIViewController {
+import TZImagePickerController
+class CompressImageViewController: UIViewController,TZImagePickerControllerDelegate {
 
     let imgOrigin = UIImageView()
     let btnChoose = UIButton()
@@ -16,7 +16,7 @@ class CompressImageViewController: UIViewController {
     let btnCompress = UIButton()
     let lblOriginSize = UILabel()
     let lblCompressSize = UILabel()
-    let imagePickerController = ImagePickerController()
+    var imagePickerController:TZImagePickerController!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -62,14 +62,20 @@ class CompressImageViewController: UIViewController {
         btnCompress.addTarget(self, action: #selector(compressImage), for: .touchUpInside)
         
         
+        imagePickerController = TZImagePickerController(maxImagesCount: 3, delegate: self)
+        imagePickerController.didFinishPickingPhotosHandle = {[weak self](images,assert,isSelectOriginalPhoto) in
+            if let one = images?.first{
+                self?.imgOrigin.image = one
+                self?.lblOriginSize.text = "\((one.jpegData(compressionQuality: 1)! as NSData).length) b"
+            }
+        }
         
-        imagePickerController.delegate = self
-        imagePickerController.imageLimit = 1
+       
     }
 
     
     @objc func chooseImage() {
-         present(imagePickerController, animated: true, completion: nil)
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     @objc func compressImage(){
@@ -89,21 +95,3 @@ class CompressImageViewController: UIViewController {
 
 
 }
-extension  CompressImageViewController:ImagePickerDelegate{
-    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        
-    }
-    
-    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        imagePickerController.dismiss(animated: true, completion: nil)
-        if let one = images.first{
-            imgOrigin.image = one
-            lblOriginSize.text = "\((UIImageJPEGRepresentation(one, 1)! as NSData).length) b"
-        }
-    }
-    
-    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-        
-    }
-}
-

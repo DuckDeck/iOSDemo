@@ -46,7 +46,7 @@ open class GrandSlider: UIView,UIScrollViewDelegate {
                         viewController.automaticallyAdjustsScrollViewInsets = false
                     }
                 }
-                scrollView?.autoresizingMask = UIViewAutoresizing.flexibleWidth
+                scrollView?.autoresizingMask = UIView.AutoresizingMask.flexibleWidth
                 scrollView?.contentSize = CGSize(width: CGFloat(3) * scrollView!.frame.width, height: scrollView!.frame.height)
                 scrollView?.delegate = self
                 scrollView?.isPagingEnabled = true
@@ -356,7 +356,7 @@ class DotViewControl: UIView {
     func setCurrentPage(_ pageIndex:Int){
         if highLightdView != nil{
             let newRect = CGRect(x: CGFloat(self.dotGap! + self.dotWidth!) * CGFloat(GrandSlider.scale) * CGFloat(pageIndex), y: 0, width: CGFloat(dotWidth! * GrandSlider.scale), height: CGFloat(dotHeight! * GrandSlider.scale))
-            UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: { () -> Void in
                 self.highLightdView?.frame = newRect
                 }, completion: nil)
         }

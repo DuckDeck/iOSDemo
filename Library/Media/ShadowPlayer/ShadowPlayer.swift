@@ -85,7 +85,7 @@ class ShadowPlayer:NSObject {
             if let timeScale = player.currentItem?.asset.duration.timescale {
                 print("seek 到 \(newValue)timescale \(timeScale) ")
                 isSeeking = true
-                player.seek(to: CMTimeMakeWithSeconds(newValue, timeScale), completionHandler: {[weak self] (complete) in
+                player.seek(to: CMTimeMakeWithSeconds(newValue, preferredTimescale: timeScale), completionHandler: {[weak self] (complete) in
                     self?.isSeeking = false
                     if tmp == .Playing{
                         self?.play()
@@ -119,7 +119,7 @@ class ShadowPlayer:NSObject {
         self.url = url
         self.isAutoCache = autoCache
         let session = AVAudioSession.sharedInstance()
-        try? session.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
+        try? session.setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
 
         self.assetWithURL(url: url)
     }
@@ -203,10 +203,10 @@ class ShadowPlayer:NSObject {
                 }
             case .failed:
                // weakself?.showErrorInfo(info: error?.localizedDescription ?? "视频出现错误，请检查后重新播放")
-                print(error?.localizedDescription)
+                print(error?.localizedDescription ?? "")
             case .unknown:
                 // weakself?.showErrorInfo(info: "未知视频格式，请检查后重新播放")
-                print(error?.localizedDescription)
+                print(error?.localizedDescription ?? "")
             default:
                 break
             }
@@ -231,7 +231,7 @@ class ShadowPlayer:NSObject {
     
     func addPeriodicTimeObserver()  {
         weak var weakself = self
-        playbackTimerObserver = player.addPeriodicTimeObserver(forInterval: CMTimeMake(1, 1), queue: nil, using: { (time) in
+        playbackTimerObserver = player.addPeriodicTimeObserver(forInterval: CMTimeMake(value: 1, timescale: 1), queue: nil, using: { (time) in
             //ISSUE 当在滑动的时侯，又会反馈带动这里滑动，所以会出现一跳一跳的情况。
             if weakself!.isSeeking{
                 return
@@ -254,7 +254,7 @@ class ShadowPlayer:NSObject {
             return
         }
         if key == "status"{
-            guard let itemStatus = AVPlayerItemStatus(rawValue: change![NSKeyValueChangeKey.newKey] as! Int) else{
+            guard let itemStatus = AVPlayerItem.Status(rawValue: change![NSKeyValueChangeKey.newKey] as! Int) else{
                 return
             }
             switch itemStatus{
@@ -347,8 +347,8 @@ class ShadowPlayer:NSObject {
         item.removeObserver(self, forKeyPath: "playbackLikelyToKeepUp")
         player.removeObserver(self, forKeyPath: "rate")
         NotificationCenter.default.removeObserver(self, name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: player.currentTime())
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willResignActiveNotification, object: nil)
         if player != nil{
             pause()
             anAsset = nil
@@ -376,7 +376,7 @@ class ShadowPlayer:NSObject {
 
 extension ShadowPlayer{
     @objc func ShadowPlayerItemDidPlayToEndTimeNotification(notif:Notification)  {
-        item.seek(to: kCMTimeZero)
+        item.seek(to: CMTime.zero)
         self.player.pause()
         status = .Finished
         delegate?.playStateChange(status: status, info: nil)

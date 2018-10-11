@@ -25,7 +25,7 @@ class Tool{
         let asset = AVAsset(url: url)
         let assetImageGenerator = AVAssetImageGenerator(asset: asset)
         assetImageGenerator.appliesPreferredTrackTransform = true
-        assetImageGenerator.apertureMode =  AVAssetImageGeneratorApertureMode.encodedPixels
+        assetImageGenerator.apertureMode =  AVAssetImageGenerator.ApertureMode.encodedPixels
         let t = CMTime(seconds: time, preferredTimescale: 60)
         do{
             let thumbnailImageRef = try assetImageGenerator.copyCGImage(at: t, actualTime: nil)

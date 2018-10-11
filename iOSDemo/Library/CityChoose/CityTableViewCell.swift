@@ -36,11 +36,11 @@ class CityTableViewCell: UITableViewCell {
         }
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    convenience init(style: UITableViewCellStyle, reuseIdentifier: String?,cities:[(String,Int)]) {
+    convenience init(style: UITableViewCell.CellStyle, reuseIdentifier: String?,cities:[(String,Int)]) {
         self.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = UIColor.Hex(hexString: "#f0f0f1")
         var i = 0

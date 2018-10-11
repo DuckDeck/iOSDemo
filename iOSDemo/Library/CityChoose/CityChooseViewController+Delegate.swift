@@ -230,7 +230,7 @@ class locationTableViewCell: UITableViewCell {
         }
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = UIColor.Hex(hexString: "#f0f1f1")
         btnLocate.backgroundColor = UIColor.white

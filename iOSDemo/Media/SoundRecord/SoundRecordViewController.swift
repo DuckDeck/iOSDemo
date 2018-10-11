@@ -191,7 +191,9 @@ class SoundRecordViewController: UIViewController {
     func setSessionPlayAndRecord() {
         let session = AVAudioSession.sharedInstance()
         do{
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
+            
+            try session.setCategory(AVAudioSession.Category.playAndRecord, mode: AVAudioSession.Mode.default, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
+            
         }
         catch{
             Log(message: "could not set session category")
@@ -212,7 +214,7 @@ class SoundRecordViewController: UIViewController {
         let currentFileName = "recording-\(format.string(from: Date())).caf"
         let  documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         self.soundFileURL = documentDirectory.appendingPathComponent(currentFileName)
-        print("writing to soundfile url:  '\(soundFileURL)'")
+     
         if FileManager.default.fileExists(atPath: soundFileURL.absoluteString){
             print("soundfile url:  '\(soundFileURL)' exists")
         }
@@ -339,20 +341,20 @@ class SoundRecordViewController: UIViewController {
                 return
             }
             // e.g. the first 5 seconds
-            let startTime = CMTimeMake(0, 1)
-            let stopTime = CMTimeMake(5, 1)
-            exporter.timeRange = CMTimeRangeFromTimeToTime(startTime, stopTime)
+            let startTime = CMTimeMake(value: 0, timescale: 1)
+            let stopTime = CMTimeMake(value: 5, timescale: 1)
+            exporter.timeRange = CMTimeRangeFromTimeToTime(start: startTime, end: stopTime)
             exporter.exportAsynchronously(completionHandler: {
                 print("export complete \(exporter.status)")
                 
                 switch exporter.status {
-                case  AVAssetExportSessionStatus.failed:
+                case  AVAssetExportSession.Status.failed:
                     
                     if let e = exporter.error {
                         print("export failed \(e)")
                     }
                     
-                case AVAssetExportSessionStatus.cancelled:
+                case AVAssetExportSession.Status.cancelled:
                     print("export cancelled \(String(describing: exporter.error))")
                 default:
                     print("export complete")
@@ -370,17 +372,17 @@ class SoundRecordViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(SoundRecordViewController.background(_:)),
-                                               name: NSNotification.Name.UIApplicationWillResignActive,
+                                               name: UIApplication.willResignActiveNotification,
                                                object: nil)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(SoundRecordViewController.foreground(_:)),
-                                               name: NSNotification.Name.UIApplicationWillEnterForeground,
+                                               name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(SoundRecordViewController.routeChange(_:)),
-                                               name: NSNotification.Name.AVAudioSessionRouteChange,
+                                               name: AVAudioSession.routeChangeNotification,
                                                object: nil)
     }
     
@@ -407,26 +409,26 @@ class SoundRecordViewController: UIViewController {
             //print("userInfo \(userInfo)")
             if let reason = userInfo[AVAudioSessionRouteChangeReasonKey] as? UInt {
                 //print("reason \(reason)")
-                switch AVAudioSessionRouteChangeReason(rawValue: reason)! {
-                case AVAudioSessionRouteChangeReason.newDeviceAvailable:
+                switch AVAudioSession.RouteChangeReason(rawValue: reason)! {
+                case AVAudioSession.RouteChangeReason.newDeviceAvailable:
                     print("NewDeviceAvailable")
                     print("did you plug in headphones?")
                     checkHeadphones()
-                case AVAudioSessionRouteChangeReason.oldDeviceUnavailable:
+                case AVAudioSession.RouteChangeReason.oldDeviceUnavailable:
                     print("OldDeviceUnavailable")
                     print("did you unplug headphones?")
                     checkHeadphones()
-                case AVAudioSessionRouteChangeReason.categoryChange:
+                case AVAudioSession.RouteChangeReason.categoryChange:
                     print("CategoryChange")
-                case AVAudioSessionRouteChangeReason.override:
+                case AVAudioSession.RouteChangeReason.override:
                     print("Override")
-                case AVAudioSessionRouteChangeReason.wakeFromSleep:
+                case AVAudioSession.RouteChangeReason.wakeFromSleep:
                     print("WakeFromSleep")
-                case AVAudioSessionRouteChangeReason.unknown:
+                case AVAudioSession.RouteChangeReason.unknown:
                     print("Unknown")
-                case AVAudioSessionRouteChangeReason.noSuitableRouteForCategory:
+                case AVAudioSession.RouteChangeReason.noSuitableRouteForCategory:
                     print("NoSuitableRouteForCategory")
-                case AVAudioSessionRouteChangeReason.routeConfigurationChange:
+                case AVAudioSession.RouteChangeReason.routeConfigurationChange:
                     print("RouteConfigurationChange")
                     
                 }
@@ -441,7 +443,7 @@ class SoundRecordViewController: UIViewController {
         let currentRoute = AVAudioSession.sharedInstance().currentRoute
         if !currentRoute.outputs.isEmpty {
             for description in currentRoute.outputs {
-                if description.portType == AVAudioSessionPortHeadphones {
+                if description.portType == AVAudioSession.Port.headphones {
                     print("headphones are plugged in")
                     break
                 } else {

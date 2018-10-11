@@ -41,8 +41,8 @@ class JSViewController: UIViewController {
 extension JSViewController:WKScriptMessageHandler,WKUIDelegate,WKNavigationDelegate{
    
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
-        let alert = UIAlertController(title: message, message: nil, preferredStyle: UIAlertControllerStyle.alert)
-        let action = UIAlertAction(title: "好的", style: UIAlertActionStyle.cancel) { (_) in
+        let alert = UIAlertController(title: message, message: nil, preferredStyle: UIAlertController.Style.alert)
+        let action = UIAlertAction(title: "好的", style: UIAlertAction.Style.cancel) { (_) in
             completionHandler()
         }
         alert.addAction(action)
@@ -51,11 +51,11 @@ extension JSViewController:WKScriptMessageHandler,WKUIDelegate,WKNavigationDeleg
     
     //confirm弹框
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
-        let alert = UIAlertController(title: message, message: nil, preferredStyle: UIAlertControllerStyle.alert)
-        let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.default) { (_) in
+        let alert = UIAlertController(title: message, message: nil, preferredStyle: UIAlertController.Style.alert)
+        let action = UIAlertAction(title: "确定", style: UIAlertAction.Style.default) { (_) in
             completionHandler(true)
         }
-        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel) { (_) in
+        let cancelAction = UIAlertAction(title: "取消", style: UIAlertAction.Style.cancel) { (_) in
             completionHandler(false)
         }
         alert.addAction(action)
@@ -65,9 +65,9 @@ extension JSViewController:WKScriptMessageHandler,WKUIDelegate,WKNavigationDeleg
     
     //TextInput弹框
     func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
-        let alert = UIAlertController(title: "", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "", message: nil, preferredStyle: UIAlertController.Style.alert)
         alert.addTextField { (_) in}
-        let action = UIAlertAction(title: "确定", style: UIAlertActionStyle.default) { (_) in
+        let action = UIAlertAction(title: "确定", style: UIAlertAction.Style.default) { (_) in
             completionHandler(alert.textFields?.last?.text)
         }
         alert.addAction(action)

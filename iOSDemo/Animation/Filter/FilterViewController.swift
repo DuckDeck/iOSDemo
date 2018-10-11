@@ -35,31 +35,31 @@ class FilterViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         img = UIImageView(frame: CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: 250))
         view.addSubview(img!);
         slider1 = UISlider(frame: CGRect(x: 0, y: 305, width: UIScreen.main.bounds.width, height: 30))
-        slider1?.addTarget(self, action: #selector(sliderChange1(sender:)), for: UIControlEvents.valueChanged)
+        slider1?.addTarget(self, action: #selector(sliderChange1(sender:)), for: UIControl.Event.valueChanged)
         view.addSubview(slider1!)
         slider2 = UISlider(frame: CGRect(x: 0, y: 335, width: UIScreen.main.bounds.width, height: 30))
-        slider2?.addTarget(self, action: #selector(sliderChange2(sender:)), for: UIControlEvents.valueChanged)
+        slider2?.addTarget(self, action: #selector(sliderChange2(sender:)), for: UIControl.Event.valueChanged)
         view.addSubview(slider2!)
         slider3 = UISlider(frame: CGRect(x: 0, y: 365, width: UIScreen.main.bounds.width, height: 30))
-        slider3?.addTarget(self, action: #selector(sliderChange3(sender:)), for: UIControlEvents.valueChanged)
+        slider3?.addTarget(self, action: #selector(sliderChange3(sender:)), for: UIControl.Event.valueChanged)
         view.addSubview(slider3!)
         slider4 = UISlider(frame: CGRect(x: 0, y: 395, width: UIScreen.main.bounds.width, height: 30))
-        slider4?.addTarget(self, action: #selector(sliderChange4(sender:)), for: UIControlEvents.valueChanged)
+        slider4?.addTarget(self, action: #selector(sliderChange4(sender:)), for: UIControl.Event.valueChanged)
         view.addSubview(slider4!)
         btnReset = UIButton(frame: CGRect(x: 0, y: 430, width: 100, height: 30))
-        btnReset?.setTitle("重设", for: UIControlState.normal)
-        btnReset?.addTarget(self, action: #selector(reset(sender:)), for: UIControlEvents.touchUpInside)
-        btnReset?.setTitleColor(UIColor.black, for: UIControlState.normal)
+        btnReset?.setTitle("重设", for: UIControl.State.normal)
+        btnReset?.addTarget(self, action: #selector(reset(sender:)), for: UIControl.Event.touchUpInside)
+        btnReset?.setTitleColor(UIColor.black, for: UIControl.State.normal)
         view.addSubview(btnReset!)
         btnChoosePhoto = UIButton(frame: CGRect(x: 106, y: 430, width: 100, height: 30))
-        btnChoosePhoto?.setTitle("照片", for: UIControlState.normal)
-        btnChoosePhoto?.addTarget(self, action: #selector(load(sender:)), for: UIControlEvents.touchUpInside)
-        btnChoosePhoto?.setTitleColor(UIColor.black, for: UIControlState.normal)
+        btnChoosePhoto?.setTitle("照片", for: UIControl.State.normal)
+        btnChoosePhoto?.addTarget(self, action: #selector(load(sender:)), for: UIControl.Event.touchUpInside)
+        btnChoosePhoto?.setTitleColor(UIColor.black, for: UIControl.State.normal)
         view.addSubview(btnChoosePhoto!)
         btnSave = UIButton(frame: CGRect(x: 212, y: 430, width: 100, height: 30))
-        btnSave?.setTitle("保存", for: UIControlState.normal)
-        btnSave?.addTarget(self, action: #selector(save(sender:)), for: UIControlEvents.touchUpInside)
-        btnSave?.setTitleColor(UIColor.black, for: UIControlState.normal)
+        btnSave?.setTitle("保存", for: UIControl.State.normal)
+        btnSave?.addTarget(self, action: #selector(save(sender:)), for: UIControl.Event.touchUpInside)
+        btnSave?.setTitleColor(UIColor.black, for: UIControl.State.normal)
         view.addSubview(btnSave!)
         
         
@@ -163,14 +163,16 @@ class FilterViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         UIImageWriteToSavedPhotosAlbum(imgResult!, nil, nil, nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         self.dismiss(animated: true, completion: nil)
-        if let imgSeleted = info[UIImagePickerControllerOriginalImage] as? UIImage
+        if let imgSeleted = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         {
             imgBegin = CIImage(cgImage: imgSeleted.cgImage!)
             img?.image = imgSeleted
         }
     }
+    
+   
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)

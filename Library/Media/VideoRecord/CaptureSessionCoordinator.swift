@@ -203,10 +203,9 @@ class CaptureSessionCoordinator:NSObject {
     }
     
     func listCamerasAndMics() {
-        print(AVCaptureDevice.devices().description)
         let audioSession = AVAudioSession.sharedInstance()
         do{
-           try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try audioSession.setCategory(AVAudioSession.Category.playAndRecord, mode: AVAudioSession.Mode.default, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
            try audioSession.setActive(true)
         }
         catch{
@@ -231,7 +230,7 @@ class CaptureSessionCoordinator:NSObject {
                     print(error.localizedDescription)
                 }
                 let availableAudioInputs = audioSession.availableInputs
-                print(availableAudioInputs?.description)
+                print(availableAudioInputs?.description ?? "")
             }
         }
         
@@ -240,7 +239,7 @@ class CaptureSessionCoordinator:NSObject {
     func configureFrontMic() {
         let audioSession = AVAudioSession.sharedInstance()
         do{
-           try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try audioSession.setCategory(AVAudioSession.Category.playAndRecord, mode: AVAudioSession.Mode.default, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
            try audioSession.setActive(true)
         }
         catch{
@@ -251,14 +250,14 @@ class CaptureSessionCoordinator:NSObject {
         }
         var builtInMic:AVAudioSessionPortDescription! = nil
         for port in inputs{
-            if port.portType == AVAudioSessionPortBuiltInMic{
+            if port.portType == AVAudioSession.Port.builtInMic{
                 builtInMic = port
                 break
             }
         }
         
         for  source in builtInMic.dataSources! {
-            if source.orientation == AVAudioSessionOrientationFront{
+            if source.location == AVAudioSession.Location.orientationFront{
                 do{
                    try builtInMic.setPreferredDataSource(source)
                    try audioSession.setPreferredInput(builtInMic)

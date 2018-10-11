@@ -134,9 +134,9 @@ class TakePhotoViewController: BaseViewController {
         var newInput:AVCaptureDeviceInput! = nil
         let position = device.position
         let animation = CATransition()
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         animation.duration = 0.5
-        animation.type = "ogflip"
+        animation.type = CATransitionType(rawValue: "ogflip")
         if position == .front{
             guard let camera = cameraWithPosition(position: .back) else {
                 return

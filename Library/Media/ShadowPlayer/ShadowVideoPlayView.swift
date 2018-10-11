@@ -23,7 +23,7 @@ class ShadowVideoPlayerView: UIView {
     private let vScInfo = UIScrollView()
     private let vErrorVideo = UIView()
     private let lblError = UILabel()
-    private let vActivity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+    private let vActivity = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
     weak private var currentVC:UIViewController? = nil
     static var count = 0
     var isCached = false
@@ -84,8 +84,8 @@ class ShadowVideoPlayerView: UIView {
         setupPlayerUI()
         player = ShadowPlayer(url: url, playerLayer: playerLayer)
         player.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange(notif:)), name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(willResignActive(notif:)), name: Notification.Name.UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange(notif:)), name: UIDevice.orientationDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willResignActive(notif:)), name: UIApplication.willResignActiveNotification, object: nil)
         
 
     }
@@ -394,8 +394,8 @@ class ShadowVideoPlayerView: UIView {
     
     deinit {
         print("deinit the ShadowVideoPlayView")
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willResignActiveNotification, object: nil)
     }
 }
 
@@ -457,7 +457,7 @@ extension ShadowVideoPlayerView{
             }
             vControl.updateConstraintsIfNeeded()
             //删除UIView animate可以去除横竖屏切换过渡动画
-            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions.transitionCurlUp, animations: {
+            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIView.AnimationOptions.transitionCurlUp, animations: {
                 UIApplication.shared.keyWindow?.addSubview(self)
                 self.snp.makeConstraints({ (m) in
                     m.edges.equalTo(UIApplication.shared.keyWindow!)
@@ -467,7 +467,7 @@ extension ShadowVideoPlayerView{
         case .portraitUpsideDown,.portrait:
             isFullScreen = false
             currentVC!.view.addSubview(self)
-            UIView.animateKeyframes(withDuration: 0.2, delay: 0, options: UIViewKeyframeAnimationOptions.calculationModeLinear, animations: {
+            UIView.animateKeyframes(withDuration: 0.2, delay: 0, options: UIView.KeyframeAnimationOptions.calculationModeLinear, animations: {
                 if self.oldConstriants != nil{
                     self.currentVC!.view.addConstraints(self.oldConstriants)
                 }

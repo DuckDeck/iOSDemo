@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import ImagePicker
-class WatermarkViewController: UIViewController {
+import TZImagePickerController
+class WatermarkViewController: UIViewController,TZImagePickerControllerDelegate {
 
     let txtWatermark = UITextField()
     let btnChooseImg = UIButton()
@@ -16,13 +16,19 @@ class WatermarkViewController: UIViewController {
     let btnAddImageWatermark = UIButton()
     let imgWatermark = UIImageView()
     var strWatermark = "此处设置水印"
-    let imagePickerController = ImagePickerController()
+    var imagePickerController:TZImagePickerController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        imagePickerController.delegate = self
-        imagePickerController.imageLimit = 1
+       
+        imagePickerController = TZImagePickerController(maxImagesCount: 3, delegate: self)
+        imagePickerController.didFinishPickingPhotosHandle = {[weak self](images,assert,isSelectOriginalPhoto) in
+            if let one = images?.first{
+                self?.imgWatermark.image = one
+            }
+        }
+        
         btnChooseImg.title(title: "添加图片").color(color: UIColor.red).bgColor(color: UIColor.lightGray).addTo(view: view).snp.makeConstraints { (m) in
             m.left.equalTo(20)
             m.top.equalTo(90)
@@ -67,7 +73,7 @@ class WatermarkViewController: UIViewController {
     }
 
     @objc func addImage()  {
-         present(imagePickerController, animated: true, completion: nil)
+       
         //imgWatermark.image = UIImage(named: "7")
     }
     
@@ -92,19 +98,3 @@ class WatermarkViewController: UIViewController {
     
 }
 
-extension WatermarkViewController:ImagePickerDelegate{
-    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        
-    }
-    
-    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        imagePickerController.dismiss(animated: true, completion: nil)
-        if let one = images.first{
-            imgWatermark.image = one
-        }
-    }
-    
-    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-        
-    }
-}

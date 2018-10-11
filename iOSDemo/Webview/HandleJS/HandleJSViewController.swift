@@ -96,7 +96,7 @@ extension WKWebView {
         }
         
         while !finished {
-            RunLoop.current.run(mode: .defaultRunLoopMode, before: Date.distantFuture)
+            RunLoop.current.run(mode: .default, before: Date.distantFuture)
         }
     }
 }

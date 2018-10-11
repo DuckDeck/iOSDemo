@@ -28,7 +28,7 @@ class Auth:NSObject {
         }
         let alertControllr = UIAlertController(title: "获取权限", message: msg, preferredStyle: .alert)
         let settingAction = UIAlertAction(title: "去设置", style: .default) { (alertAction) -> Void in
-            if let appSettings = NSURL(string: UIApplicationOpenSettingsURLString){
+            if let appSettings = NSURL(string: UIApplication.openSettingsURLString){
                 UIApplication.shared.openURL(appSettings as URL)
             }
         }

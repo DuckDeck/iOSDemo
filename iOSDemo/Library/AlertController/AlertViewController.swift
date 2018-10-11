@@ -35,7 +35,7 @@ class AlertViewController: UIViewController {
     @objc func showAlert() {
         timer.invalidate()
         let attrStr = NSMutableAttributedString(string: "购买本次修复服务需花费20积分,是否确实购买")
-        attrStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.red, range: NSMakeRange(11, 2))
+        attrStr.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSMakeRange(11, 2))
         let alert = UIAlertController.title(attrTitle: nil, attrMessage: attrStr).action(title: "取消",handle: nil, color:UIColor.gray).action(title: "购买", handle: {(action:UIAlertAction) in
             self.timer.pause()
         })

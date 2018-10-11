@@ -114,9 +114,9 @@ class CaptureVideoViewController: UIViewController {
             session = CaptureSession(sessionPreset: .CaptureSessionPreset540x960)
             session?.preView = view
             session?.delegate = self
-            view.bringSubview(toFront: imgVideo)
-            view.bringSubview(toFront: btnStartRecord)
-            view.bringSubview(toFront: btnSwitchCamera)
+            view.bringSubviewToFront(imgVideo)
+            view.bringSubviewToFront(btnStartRecord)
+            view.bringSubviewToFront(btnSwitchCamera)
         }
     }
     

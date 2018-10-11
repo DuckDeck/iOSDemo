@@ -29,11 +29,12 @@ extension UIButton{
     }
     
     open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        if UIEdgeInsetsEqualToEdgeInsets(self.touchInsets, .zero) || !self.isEnabled || self.isHidden{
+        if self.touchInsets == .zero || !self.isEnabled || self.isHidden{
             return super.point(inside: point, with: event)
         }
         let relativeFramt = self.bounds
-        let hitFrame = UIEdgeInsetsInsetRect(relativeFramt, self.touchInsets)
+        
+        let hitFrame = relativeFramt.inset(by: self.touchInsets)
         return hitFrame.contains(point)
     }
 }

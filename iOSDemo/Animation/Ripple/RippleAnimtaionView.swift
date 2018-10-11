@@ -76,7 +76,7 @@ class RippleAnimtaionView: UIView {
         group.animations = arr
         group.isRemovedOnCompletion = false
          // 添加动画曲线。关于其他的动画曲线，也可以自行尝试
-        group.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+        group.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
         return group
     }
     
@@ -214,7 +214,7 @@ class RippleAnimtaionView2: UIView {
         group.animations = arr
         group.isRemovedOnCompletion = false
         // 添加动画曲线。关于其他的动画曲线，也可以自行尝试
-        group.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+        group.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
         return group
     }
     

@@ -316,12 +316,12 @@ extension UIImage{
     }
     
     
-    func addWatermark(text:String,point:CGPoint,repeatMark:Bool = true,attribute:[NSAttributedStringKey:Any]? = [NSAttributedStringKey.foregroundColor:UIColor.white]) -> UIImage {
+    func addWatermark(text:String,point:CGPoint,repeatMark:Bool = true,attribute:[NSAttributedString.Key:Any]? = [NSAttributedString.Key.foregroundColor:UIColor.white]) -> UIImage {
         
         UIGraphicsBeginImageContext(self.size)
         let fontSize = self.size.width / 23
-        var attr = attribute ?? [NSAttributedStringKey:Any]()
-        attr[NSAttributedStringKey.font] = UIFont.systemFont(ofSize: fontSize)
+        var attr = attribute ?? [NSAttributedString.Key:Any]()
+        attr[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: fontSize)
         draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
         (text as NSString).draw(at: point, withAttributes: attr)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -393,7 +393,7 @@ extension UIImage{
     
     func compressWithMaxLength(maxLength:UInt) -> Data? {
         var compression:CGFloat = 1
-        guard var data = UIImageJPEGRepresentation(self, compression) else{
+        guard var data = self.jpegData(compressionQuality: compression) else{
             return nil
         }
         var d = NSData(data: data)
@@ -404,7 +404,8 @@ extension UIImage{
         var min:CGFloat = 0
         for _ in 0..<6{
             compression = (max + min) / 2
-            d = NSData(data: UIImageJPEGRepresentation(self, compression)!)
+            
+            d = NSData(data: self.jpegData(compressionQuality: compression)!)
             if Double(d.length) < maxLength * 0.9{
                 min = compression
             }
@@ -428,7 +429,7 @@ extension UIImage{
             resultImg?.draw(in: CGRect(x: 0, y: 0, w: size.width, h: size.height))
             resultImg = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-            data = UIImageJPEGRepresentation(resultImg!, compression)!
+            data = resultImg!.jpegData(compressionQuality: compression)!
         }
         return data
     }

@@ -8,9 +8,9 @@
 //
 
 import UIKit
-import ImagePicker
-class PaletteViewController: UIViewController {
-    var imagePickerController:ImagePickerController!
+import TZImagePickerController
+class PaletteViewController: UIViewController,TZImagePickerControllerDelegate {
+    var imagePickerController:TZImagePickerController!
     let img = UIImageView()
     var recommandColor = ""
     var colorsHint:[String:Any]?
@@ -24,13 +24,25 @@ class PaletteViewController: UIViewController {
     
     func initView() {
         view.backgroundColor = UIColor.white
-        var configuration = Configuration()
-        configuration.doneButtonTitle = "Finish"
-        configuration.noImagesTitle = "Sorry! There are no images here!"
-        configuration.allowMultiplePhotoSelection = true
-        imagePickerController = ImagePickerController(configuration: configuration)
-        imagePickerController.delegate = self
-        imagePickerController.imageLimit = 1
+
+        imagePickerController = TZImagePickerController(maxImagesCount: 3, delegate: self)
+        imagePickerController.didFinishPickingPhotosHandle = {[weak self](images,assert,isSelectOriginalPhoto) in
+            if let one = images?.first{
+                self?.img.image = one
+                
+                one.getPaletteImageColor(with: .ALL_MODE_PALETTE) { [weak self](mode, dict, err) in
+                    if err != nil || mode == nil{
+                        Toast.showToast(msg: err?.localizedDescription ?? "识别失败")
+                        return
+                    }
+                    self?.recommandColor = mode!.imageColorString
+                    self?.colorsHint = dict as? [String:Any]
+                    let c = UIColor(hexString: mode!.imageColorString)
+                    self?.img.layer.borderColor = c!.cgColor
+                    self?.tb.reloadData()
+                }
+            }
+        }
         
         let btnChoose = UIBarButtonItem(title: "添加照片", style: .plain, target: self, action: #selector(addImage))
         navigationItem.rightBarButtonItem = btnChoose
@@ -68,34 +80,7 @@ class PaletteViewController: UIViewController {
 
 }
 
-extension PaletteViewController:ImagePickerDelegate,UITableViewDelegate,UITableViewDataSource{
-    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        
-    }
-    
-    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        imagePickerController.dismiss(animated: true, completion: nil)
-        if let one = images.first{
-            img.image = one
-            
-            one.getPaletteImageColor(with: .ALL_MODE_PALETTE) { [weak self](mode, dict, err) in
-                if err != nil || mode == nil{
-                    Toast.showToast(msg: err?.localizedDescription ?? "识别失败")
-                    return
-                }
-                self?.recommandColor = mode!.imageColorString
-                self?.colorsHint = dict as? [String:Any]
-                let c = UIColor(hexString: mode!.imageColorString)
-                self?.img.layer.borderColor = c!.cgColor
-                self?.tb.reloadData()
-            }
-        }
-    }
-    
-    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-        
-    }
-    
+extension PaletteViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return colorsHint?.count ?? 0
     }
@@ -144,7 +129,7 @@ class ColorHintCell: UITableViewCell {
             lblColor.backgroundColor = UIColor.darkGray
         }
     }
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         lblColor.txtAlignment(ali: .center).color(color: UIColor.white).addTo(view: contentView).snp.makeConstraints { (m) in
             m.edges.equalTo(0)

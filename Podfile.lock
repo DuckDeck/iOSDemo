@@ -1,24 +1,23 @@
 PODS:
-  - Alamofire (4.7.1)
+  - Alamofire (4.7.3)
   - AMap3DMap (6.4.0):
     - AMapFoundation (~> 1.5)
   - AMapFoundation (1.5.4)
   - AMapLocation (2.6.1):
     - AMapFoundation (~> 1.4)
   - Differentiator (3.1.0)
-  - Eureka (4.2.0)
+  - Eureka (4.3.0)
   - FBRetainCycleDetector (0.1.4)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
-  - Gifu (3.1.0)
-  - GrandMenu (1.1.3)
-  - GrandStore (1.0.0)
-  - GrandTime (1.3.1)
-  - ImagePicker (3.1.0)
-  - IQKeyboardManagerSwift (6.1.1)
+  - Gifu (3.2.0)
+  - GrandMenu (1.2.0)
+  - GrandStore (1.1.0)
+  - GrandTime (1.4.0)
+  - IQKeyboardManagerSwift (6.2.0)
   - Kanna (4.0.2)
-  - Kingfisher (4.9.0)
+  - Kingfisher (4.10.0)
   - MJRefresh (3.1.15.7)
   - MLeaksFinder (1.0.0):
     - FBRetainCycleDetector
@@ -32,45 +31,46 @@ PODS:
     - RxSwift (~> 4.0)
   - netfox (1.12.1)
   - Result (3.2.4)
-  - RxCocoa (4.3.0):
+  - RxCocoa (4.3.1):
     - RxSwift (~> 4.0)
   - RxDataSources (3.1.0):
     - Differentiator (~> 3.0)
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-  - RxSwift (4.3.0)
+  - RxSwift (4.3.1)
   - Shimmer (1.0.2)
   - SnapKit (4.0.1)
-  - SwiftyJSON (4.1.0)
-  - URLNavigator (2.0.6)
-  - ViewChaos (1.4.0)
+  - SwiftyJSON (4.2.0)
+  - TZImagePickerController (3.0.9)
+  - URLNavigator (2.1.0)
+  - ViewChaos (1.5.0)
   - WSProgressHUD (1.1.3):
     - Shimmer
 
 DEPENDENCIES:
-  - Alamofire (= 4.7.1)
+  - Alamofire
   - AMap3DMap
   - AMapLocation
-  - Eureka (= 4.2.0)
+  - Eureka
   - FMDB
   - Gifu
   - GrandMenu
   - GrandStore
   - GrandTime
-  - ImagePicker
   - IQKeyboardManagerSwift
   - Kanna
-  - Kingfisher (= 4.9.0)
+  - Kingfisher
   - MJRefresh
   - MLeaksFinder
   - Moya
   - Moya/RxSwift
   - netfox
-  - RxCocoa (= 4.3.0)
+  - RxCocoa
   - RxDataSources
-  - RxSwift (= 4.3.0)
+  - RxSwift
   - SnapKit
   - SwiftyJSON
+  - TZImagePickerController
   - URLNavigator
   - ViewChaos
   - WSProgressHUD
@@ -89,7 +89,6 @@ SPEC REPOS:
     - GrandMenu
     - GrandStore
     - GrandTime
-    - ImagePicker
     - IQKeyboardManagerSwift
     - Kanna
     - Kingfisher
@@ -104,42 +103,43 @@ SPEC REPOS:
     - Shimmer
     - SnapKit
     - SwiftyJSON
+    - TZImagePickerController
     - URLNavigator
     - ViewChaos
     - WSProgressHUD
 
 SPEC CHECKSUMS:
-  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AMap3DMap: ebfb4e202c2bee9c3a6c296264e29f12436b6379
   AMapFoundation: bff8688722e886feda4edd77f1443746ddd7e2e2
   AMapLocation: cf024b53dc03663efb4ea4bcce27d4cce58bb97a
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
+  Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
-  Gifu: fd1e9e3a15ac5d90bae0a510e4ed9f94b485ab03
-  GrandMenu: 7080b82e9a6504d8a1bfe6f7b7246cd1b2434fe5
-  GrandStore: 15d60624e53125570c421372f2640bcbe1e6f6e2
-  GrandTime: 51b716c6772e6aad1aba77b1c8ec6eb4b1771014
-  ImagePicker: db1fd7626337b2577c523bef5f499bbbe5a37079
-  IQKeyboardManagerSwift: 977affaeb4d6e971975c7790a6850f31d38f1207
+  Gifu: 7bcb6427457d85e0b4dff5a84ec5947ac19a93ea
+  GrandMenu: f00aa63e307933dd51662f8f5db37cd0700665e7
+  GrandStore: 577b6bd733611d054a4463dcf32d418806367985
+  GrandTime: 69143fc82e14bc2c22afd8d3cc6fffb65e4cb871
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   Kanna: c60b61d72554bf04ed1ee074f9b379855cab4892
-  Kingfisher: 64539b51826b778206daa6ed815d12653caa69dd
+  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   netfox: 21a2a441f64bdb6c611d1b7417d27d4abb424d5c
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  RxCocoa: 71b9cce833fbcb89a8eec11816dd225830c2bd3c
+  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxSwift: a9717a34df3179fe63563f76e046ad345078dd3a
+  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
-  URLNavigator: 2357a32f3b3787b748bf87deb927761f8b0f7f53
-  ViewChaos: 32236c86d9d6881ae29d6adff0aed00661b7cc8c
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  TZImagePickerController: ea3e906af8caa7088f612ad673feb73cc6aa6bfc
+  URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
+  ViewChaos: 375a3e48bfe82ca5c65966142f47bb84ce82b3ab
   WSProgressHUD: a0902809c8af112fb34b004fdc75c16eb85167a3
 
-PODFILE CHECKSUM: 84a013ca24f73137e90465a6792f1d29d893ec0e
+PODFILE CHECKSUM: 8516bc736b884e7cfb7646ae4add22e8da53a57c
 
 COCOAPODS: 1.5.2

@@ -65,7 +65,7 @@ class ReplicatorViewController: UIViewController {
         scale.duration = 0.33
         scale.repeatCount = Float.infinity
         scale.autoreverses = true
-        scale.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        scale.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         dot.add(scale, forKey: "dotScale")
         
         //4 .添加一个渐变色
@@ -76,7 +76,7 @@ class ReplicatorViewController: UIViewController {
         fade.beginTime = CACurrentMediaTime() + 0.33
         fade.repeatCount = Float.infinity
         fade.autoreverses = true
-        fade.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        fade.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         dot.add(fade, forKey: "dotOpacity")
         //5 . 添加渐变的颜色
         let tint = CABasicAnimation(keyPath: "backgroundColor")
@@ -84,10 +84,10 @@ class ReplicatorViewController: UIViewController {
         tint.toValue = UIColor.cyan.cgColor
         tint.duration = 0.66
         tint.beginTime = CACurrentMediaTime() + 0.28
-        tint.fillMode = kCAFillModeBackwards
+        tint.fillMode = CAMediaTimingFillMode.backwards
         tint.repeatCount = Float.infinity
         tint.autoreverses = true
-        tint.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        tint.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         dot.add(tint, forKey: "dotColor")
         
         //设置成上下摇摆
@@ -96,8 +96,8 @@ class ReplicatorViewController: UIViewController {
         initialRotation.toValue = 0.01
         initialRotation.duration = 0.33
         initialRotation.isRemovedOnCompletion = false
-        initialRotation.fillMode = kCAFillModeBackwards
-        initialRotation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        initialRotation.fillMode = CAMediaTimingFillMode.backwards
+        initialRotation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         replicator.add(initialRotation, forKey: "initialRocation")
         
         let rotation = CABasicAnimation(keyPath: "instanceTransform.rotation")
@@ -107,7 +107,7 @@ class ReplicatorViewController: UIViewController {
         rotation.beginTime = CACurrentMediaTime() + 0.33
         rotation.repeatCount = Float.infinity
         rotation.autoreverses = true
-        rotation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        rotation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         replicator.add(rotation, forKey: "replicatorRotation")
     }
     

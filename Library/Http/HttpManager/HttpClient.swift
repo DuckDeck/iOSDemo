@@ -17,14 +17,14 @@ class HttpClient{
     fileprivate  var headers:Dictionary<String,String>?
     //    fileprivate var progress:((_ progress:Float)->())?
     fileprivate var completedBlock:((_ data:Data?,_ error:Error?)->Void)?
-    open static func get(_ url:String)->HttpClient{
+    public static func get(_ url:String)->HttpClient{
         let m = HttpClient()
         m.url = url
         m.method = .get
         return m
     }
     
-    open static func post(_ url:String)->HttpClient{
+    public static func post(_ url:String)->HttpClient{
         let m = HttpClient()
         m.url = url
         m.method = .post

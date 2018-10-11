@@ -22,7 +22,7 @@ class TwoSideView: UIView {
                 return
             }
             addSubview(frontView!)
-            bringSubview(toFront: frontView!)
+            bringSubviewToFront(frontView!)
             let transform = CATransform3DMakeRotation(CGFloat(Double.pi), 0, 1, 0)
             frontView!.layer.transform = transform
         }
@@ -33,7 +33,7 @@ class TwoSideView: UIView {
                 return
             }
             addSubview(backView!)
-            sendSubview(toBack: backView!)
+            sendSubviewToBack(backView!)
             let transform = CATransform3DMakeRotation(CGFloat(Double.pi), 0, 1, 0)
             backView!.layer.transform = transform
         }
@@ -48,11 +48,11 @@ class TwoSideView: UIView {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + duration / 2) {
             if self.turnStatus == .Front{
-                self.bringSubview(toFront: self.backView!)
+                self.bringSubviewToFront(self.backView!)
                 self.turnStatus = .Back
             }
             else{
-                self.bringSubview(toFront: self.frontView!)
+                self.bringSubviewToFront(self.frontView!)
                 self.turnStatus = .Front
             }
         }

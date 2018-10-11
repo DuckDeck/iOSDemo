@@ -16,31 +16,6 @@
 		AE0F70301FBA90A500C8135C /* APIInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F702C1FBA90A500C8135C /* APIInfo.swift */; };
 		AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70311FBA918E00C8135C /* HttpRecordViewController.swift */; };
 		AE0F70371FBA9ACF00C8135C /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70361FBA9ACF00C8135C /* NetworkViewController.swift */; };
-		AE0F70611FBD6F2B00C8135C /* NFXAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F703B1FBD6F2B00C8135C /* NFXAssets.swift */; };
-		AE0F70621FBD6F2B00C8135C /* NFXWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F703C1FBD6F2B00C8135C /* NFXWindowController.swift */; };
-		AE0F70631FBD6F2B00C8135C /* NFXInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F703D1FBD6F2B00C8135C /* NFXInfoController.swift */; };
-		AE0F70641FBD6F2B00C8135C /* NFXGenericController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F703F1FBD6F2B00C8135C /* NFXGenericController.swift */; };
-		AE0F70651FBD6F2B00C8135C /* NFXSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70401FBD6F2B00C8135C /* NFXSettingsController.swift */; };
-		AE0F70661FBD6F2B00C8135C /* NFXListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70411FBD6F2B00C8135C /* NFXListController.swift */; };
-		AE0F70671FBD6F2B00C8135C /* NFXHTTPModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70421FBD6F2B00C8135C /* NFXHTTPModelManager.swift */; };
-		AE0F70681FBD6F2B00C8135C /* NFXConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70431FBD6F2B00C8135C /* NFXConstants.swift */; };
-		AE0F70691FBD6F2B00C8135C /* NFXGenericBodyDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70441FBD6F2B00C8135C /* NFXGenericBodyDetailsController.swift */; };
-		AE0F706A1FBD6F2B00C8135C /* NFXLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70451FBD6F2B00C8135C /* NFXLoader.m */; };
-		AE0F706B1FBD6F2B00C8135C /* NFX.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70461FBD6F2B00C8135C /* NFX.swift */; };
-		AE0F706C1FBD6F2B00C8135C /* NFXProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70471FBD6F2B00C8135C /* NFXProtocol.swift */; };
-		AE0F706D1FBD6F2B00C8135C /* NFXRawBodyDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70481FBD6F2B00C8135C /* NFXRawBodyDetailsController.swift */; };
-		AE0F706E1FBD6F2B00C8135C /* NFXStatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70491FBD6F2B00C8135C /* NFXStatisticsController.swift */; };
-		AE0F706F1FBD6F2B00C8135C /* NFXHTTPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F704A1FBD6F2B00C8135C /* NFXHTTPModel.swift */; };
-		AE0F70701FBD6F2B00C8135C /* NFXHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F704B1FBD6F2B00C8135C /* NFXHelper.swift */; };
-		AE0F70711FBD6F2B00C8135C /* NFXDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F704C1FBD6F2B00C8135C /* NFXDetailsController.swift */; };
-		AE0F70721FBD6F2B00C8135C /* NFXImageBodyDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F704D1FBD6F2B00C8135C /* NFXImageBodyDetailsController.swift */; };
-		AE0F707D1FBD6F2B00C8135C /* NFXDetailsController_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F705A1FBD6F2B00C8135C /* NFXDetailsController_iOS.swift */; };
-		AE0F707E1FBD6F2B00C8135C /* NFXListController_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F705B1FBD6F2B00C8135C /* NFXListController_iOS.swift */; };
-		AE0F707F1FBD6F2B00C8135C /* NFXHelper_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F705C1FBD6F2B00C8135C /* NFXHelper_iOS.swift */; };
-		AE0F70801FBD6F2B00C8135C /* NFXInfoController_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F705D1FBD6F2B00C8135C /* NFXInfoController_iOS.swift */; };
-		AE0F70811FBD6F2B00C8135C /* NFXStatisticsController_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F705E1FBD6F2B00C8135C /* NFXStatisticsController_iOS.swift */; };
-		AE0F70821FBD6F2B00C8135C /* NFXSettingsController_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F705F1FBD6F2B00C8135C /* NFXSettingsController_iOS.swift */; };
-		AE0F70831FBD6F2B00C8135C /* NFXListCell_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70601FBD6F2B00C8135C /* NFXListCell_iOS.swift */; };
 		AE0F70861FBE861A00C8135C /* SliderDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70851FBE861A00C8135C /* SliderDemoViewController.swift */; };
 		AE0F70881FBE864300C8135C /* GrandSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70871FBE864200C8135C /* GrandSlider.swift */; };
 		AE0F708B1FBEB94100C8135C /* TouchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F708A1FBEB94100C8135C /* TouchViewController.swift */; };
@@ -301,32 +276,6 @@
 		AE0F702C1FBA90A500C8135C /* APIInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIInfo.swift; sourceTree = "<group>"; };
 		AE0F70311FBA918E00C8135C /* HttpRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRecordViewController.swift; sourceTree = "<group>"; };
 		AE0F70361FBA9ACF00C8135C /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
-		AE0F703B1FBD6F2B00C8135C /* NFXAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXAssets.swift; sourceTree = "<group>"; };
-		AE0F703C1FBD6F2B00C8135C /* NFXWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXWindowController.swift; sourceTree = "<group>"; };
-		AE0F703D1FBD6F2B00C8135C /* NFXInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXInfoController.swift; sourceTree = "<group>"; };
-		AE0F703E1FBD6F2B00C8135C /* NFXLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NFXLoader.h; sourceTree = "<group>"; };
-		AE0F703F1FBD6F2B00C8135C /* NFXGenericController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXGenericController.swift; sourceTree = "<group>"; };
-		AE0F70401FBD6F2B00C8135C /* NFXSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXSettingsController.swift; sourceTree = "<group>"; };
-		AE0F70411FBD6F2B00C8135C /* NFXListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXListController.swift; sourceTree = "<group>"; };
-		AE0F70421FBD6F2B00C8135C /* NFXHTTPModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXHTTPModelManager.swift; sourceTree = "<group>"; };
-		AE0F70431FBD6F2B00C8135C /* NFXConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXConstants.swift; sourceTree = "<group>"; };
-		AE0F70441FBD6F2B00C8135C /* NFXGenericBodyDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXGenericBodyDetailsController.swift; sourceTree = "<group>"; };
-		AE0F70451FBD6F2B00C8135C /* NFXLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NFXLoader.m; sourceTree = "<group>"; };
-		AE0F70461FBD6F2B00C8135C /* NFX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFX.swift; sourceTree = "<group>"; };
-		AE0F70471FBD6F2B00C8135C /* NFXProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXProtocol.swift; sourceTree = "<group>"; };
-		AE0F70481FBD6F2B00C8135C /* NFXRawBodyDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXRawBodyDetailsController.swift; sourceTree = "<group>"; };
-		AE0F70491FBD6F2B00C8135C /* NFXStatisticsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXStatisticsController.swift; sourceTree = "<group>"; };
-		AE0F704A1FBD6F2B00C8135C /* NFXHTTPModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXHTTPModel.swift; sourceTree = "<group>"; };
-		AE0F704B1FBD6F2B00C8135C /* NFXHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXHelper.swift; sourceTree = "<group>"; };
-		AE0F704C1FBD6F2B00C8135C /* NFXDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXDetailsController.swift; sourceTree = "<group>"; };
-		AE0F704D1FBD6F2B00C8135C /* NFXImageBodyDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXImageBodyDetailsController.swift; sourceTree = "<group>"; };
-		AE0F705A1FBD6F2B00C8135C /* NFXDetailsController_iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXDetailsController_iOS.swift; sourceTree = "<group>"; };
-		AE0F705B1FBD6F2B00C8135C /* NFXListController_iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXListController_iOS.swift; sourceTree = "<group>"; };
-		AE0F705C1FBD6F2B00C8135C /* NFXHelper_iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXHelper_iOS.swift; sourceTree = "<group>"; };
-		AE0F705D1FBD6F2B00C8135C /* NFXInfoController_iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXInfoController_iOS.swift; sourceTree = "<group>"; };
-		AE0F705E1FBD6F2B00C8135C /* NFXStatisticsController_iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXStatisticsController_iOS.swift; sourceTree = "<group>"; };
-		AE0F705F1FBD6F2B00C8135C /* NFXSettingsController_iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXSettingsController_iOS.swift; sourceTree = "<group>"; };
-		AE0F70601FBD6F2B00C8135C /* NFXListCell_iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFXListCell_iOS.swift; sourceTree = "<group>"; };
 		AE0F70851FBE861A00C8135C /* SliderDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderDemoViewController.swift; sourceTree = "<group>"; };
 		AE0F70871FBE864200C8135C /* GrandSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandSlider.swift; sourceTree = "<group>"; };
 		AE0F708A1FBEB94100C8135C /* TouchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchViewController.swift; sourceTree = "<group>"; };
@@ -639,7 +588,6 @@
 		AE0F70271FBA900200C8135C /* Http */ = {
 			isa = PBXGroup;
 			children = (
-				AE0F70391FBD6F2B00C8135C /* netfox */,
 				AE0F70331FBA924F00C8135C /* HttpManager */,
 				AE0F70281FBA906A00C8135C /* RequestInfo */,
 				AE0F70211FBA8F6000C8135C /* SWHttpTrafficRecorder */,
@@ -664,55 +612,6 @@
 				AEA9F834206A2A62000E7748 /* HttpClient.swift */,
 			);
 			path = HttpManager;
-			sourceTree = "<group>";
-		};
-		AE0F70391FBD6F2B00C8135C /* netfox */ = {
-			isa = PBXGroup;
-			children = (
-				AE0F703A1FBD6F2B00C8135C /* Core */,
-				AE0F70591FBD6F2B00C8135C /* iOS */,
-			);
-			path = netfox;
-			sourceTree = "<group>";
-		};
-		AE0F703A1FBD6F2B00C8135C /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				AE0F703B1FBD6F2B00C8135C /* NFXAssets.swift */,
-				AE0F703C1FBD6F2B00C8135C /* NFXWindowController.swift */,
-				AE0F703D1FBD6F2B00C8135C /* NFXInfoController.swift */,
-				AE0F703E1FBD6F2B00C8135C /* NFXLoader.h */,
-				AE0F703F1FBD6F2B00C8135C /* NFXGenericController.swift */,
-				AE0F70401FBD6F2B00C8135C /* NFXSettingsController.swift */,
-				AE0F70411FBD6F2B00C8135C /* NFXListController.swift */,
-				AE0F70421FBD6F2B00C8135C /* NFXHTTPModelManager.swift */,
-				AE0F70431FBD6F2B00C8135C /* NFXConstants.swift */,
-				AE0F70441FBD6F2B00C8135C /* NFXGenericBodyDetailsController.swift */,
-				AE0F70451FBD6F2B00C8135C /* NFXLoader.m */,
-				AE0F70461FBD6F2B00C8135C /* NFX.swift */,
-				AE0F70471FBD6F2B00C8135C /* NFXProtocol.swift */,
-				AE0F70481FBD6F2B00C8135C /* NFXRawBodyDetailsController.swift */,
-				AE0F70491FBD6F2B00C8135C /* NFXStatisticsController.swift */,
-				AE0F704A1FBD6F2B00C8135C /* NFXHTTPModel.swift */,
-				AE0F704B1FBD6F2B00C8135C /* NFXHelper.swift */,
-				AE0F704C1FBD6F2B00C8135C /* NFXDetailsController.swift */,
-				AE0F704D1FBD6F2B00C8135C /* NFXImageBodyDetailsController.swift */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		AE0F70591FBD6F2B00C8135C /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				AE0F705A1FBD6F2B00C8135C /* NFXDetailsController_iOS.swift */,
-				AE0F705B1FBD6F2B00C8135C /* NFXListController_iOS.swift */,
-				AE0F705C1FBD6F2B00C8135C /* NFXHelper_iOS.swift */,
-				AE0F705D1FBD6F2B00C8135C /* NFXInfoController_iOS.swift */,
-				AE0F705E1FBD6F2B00C8135C /* NFXStatisticsController_iOS.swift */,
-				AE0F705F1FBD6F2B00C8135C /* NFXSettingsController_iOS.swift */,
-				AE0F70601FBD6F2B00C8135C /* NFXListCell_iOS.swift */,
-			);
-			path = iOS;
 			sourceTree = "<group>";
 		};
 		AE0F70841FBE860100C8135C /* Slider */ = {
@@ -1946,7 +1845,6 @@
 				"${BUILT_PRODUCTS_DIR}/GrandStore/GrandStore.framework",
 				"${BUILT_PRODUCTS_DIR}/GrandTime/GrandTime.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
@@ -1959,6 +1857,7 @@
 				"${BUILT_PRODUCTS_DIR}/Shimmer/Shimmer.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
 				"${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework",
 				"${BUILT_PRODUCTS_DIR}/ViewChaos/ViewChaos.framework",
 				"${BUILT_PRODUCTS_DIR}/WSProgressHUD/WSProgressHUD.framework",
@@ -1976,7 +1875,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrandStore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrandTime.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
@@ -1989,6 +1887,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Shimmer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLNavigator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewChaos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WSProgressHUD.framework",
@@ -2008,7 +1907,6 @@
 			files = (
 				AE1DE0402099AD32007910A5 /* NovelContentCell.swift in Sources */,
 				AE1DE09B2099BE0A007910A5 /* ImageTool.swift in Sources */,
-				AE0F707D1FBD6F2B00C8135C /* NFXDetailsController_iOS.swift in Sources */,
 				AEEE485E215CC61B003C9943 /* PointLockViewController.swift in Sources */,
 				AE7278A9207F5A28005D9D6D /* SoundRecordViewController.swift in Sources */,
 				AE4DA62D214B9BB900FCC7FD /* UIViewController+Extension.swift in Sources */,
@@ -2016,21 +1914,16 @@
 				AEDF8C49209AF5F700EED6D1 /* VideoRecordViewController.swift in Sources */,
 				AE4DA625214667A200FCC7FD /* ShadowAudioPlayerBack.swift in Sources */,
 				AE1AC81720D25FBC0002F779 /* CaptureSessionCoordinator.swift in Sources */,
-				AE0F70651FBD6F2B00C8135C /* NFXSettingsController.swift in Sources */,
 				AE0F70861FBE861A00C8135C /* SliderDemoViewController.swift in Sources */,
 				AEBE404D1FC806E40087D7ED /* CityDB.swift in Sources */,
 				AEADFD41210EBCE100E6B58D /* CompressImageViewController.swift in Sources */,
-				AE0F706B1FBD6F2B00C8135C /* NFX.swift in Sources */,
 				AEBE40561FC80A930087D7ED /* CitySearchResultView.swift in Sources */,
-				AE0F70821FBD6F2B00C8135C /* NFXSettingsController_iOS.swift in Sources */,
 				AE5A88831FF4913D00748F6A /* BaseViewController.swift in Sources */,
 				AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */,
-				AE0F70691FBD6F2B00C8135C /* NFXGenericBodyDetailsController.swift in Sources */,
 				AE1DE01C2099ACBE007910A5 /* ProjectViewController.swift in Sources */,
 				AE7BBCE4207B498B005DBE0C /* WatermarkViewController.swift in Sources */,
 				AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */,
 				AEBE40521FC80A5C0087D7ED /* CityChooseViewController+Delegate.swift in Sources */,
-				AE0F70641FBD6F2B00C8135C /* NFXGenericController.swift in Sources */,
 				AE1AC80E20D25F5A0002F779 /* ShadowVideoPlayControlView.swift in Sources */,
 				AE6691D620F49B3A00D019D4 /* UIImage+Palette.m in Sources */,
 				AE9F32821F690F5200339BB8 /* GrandCue.swift in Sources */,
@@ -2040,10 +1933,7 @@
 				AE3AF04F1F77404900AF182A /* ReplicatorViewController.swift in Sources */,
 				AE0F70961FBEB9CA00C8135C /* Line.swift in Sources */,
 				AEF0977D2064EFFF0021E4ED /* LogTool.swift in Sources */,
-				AE0F706D1FBD6F2B00C8135C /* NFXRawBodyDetailsController.swift in Sources */,
-				AE0F70721FBD6F2B00C8135C /* NFXImageBodyDetailsController.swift in Sources */,
 				AE6691D920F49B3A00D019D4 /* PaletteTarget.m in Sources */,
-				AE0F70631FBD6F2B00C8135C /* NFXInfoController.swift in Sources */,
 				AE1DE0962099BE0A007910A5 /* PieceImage.swift in Sources */,
 				AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */,
 				AE1DE0472099AD32007910A5 /* BookmarkViewController.swift in Sources */,
@@ -2066,9 +1956,7 @@
 				AE3961EA1FD13D2400BF4CE9 /* GandAlert.swift in Sources */,
 				AE0F70971FBEB9CA00C8135C /* DrawView.swift in Sources */,
 				AEBE709020A4449100B2E897 /* TakePhotoViewController.swift in Sources */,
-				AE0F70611FBD6F2B00C8135C /* NFXAssets.swift in Sources */,
 				AEDCE5BE20DBA15900A50536 /* BarSlider.swift in Sources */,
-				AE0F707E1FBD6F2B00C8135C /* NFXListController_iOS.swift in Sources */,
 				AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */,
 				AE6691D420F49B3A00D019D4 /* Palette.m in Sources */,
 				AE1DE0452099AD32007910A5 /* NovelSearchViewModel.swift in Sources */,
@@ -2085,14 +1973,12 @@
 				AE1DE09A2099BE0A007910A5 /* Constants.swift in Sources */,
 				AE3AF0581F7744D500AF182A /* ScrollMenuViewController.swift in Sources */,
 				AE5A887E1FF39C4800748F6A /* FilterViewController.swift in Sources */,
-				AE0F70701FBD6F2B00C8135C /* NFXHelper.swift in Sources */,
 				AEDC54132012EC4100BB4E34 /* ConstraintArrayDSL.swift in Sources */,
 				AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */,
 				AE1DE0482099AD32007910A5 /* NovelContentViewController.swift in Sources */,
 				AE1DE0382099AD32007910A5 /* SectionTableInfo.swift in Sources */,
 				AE6691D320F49B3A00D019D4 /* PaletteColorUtils.m in Sources */,
 				AE3AF0551F77448A00AF182A /* LayoutViewController.swift in Sources */,
-				AE0F70661FBD6F2B00C8135C /* NFXListController.swift in Sources */,
 				AE1DE0492099AD32007910A5 /* SectionListViewController.swift in Sources */,
 				AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */,
 				AE6691D520F49B3A00D019D4 /* PaletteSwatch.m in Sources */,
@@ -2110,10 +1996,8 @@
 				AE0F70241FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */,
 				AEADFD2A2105B40E00E6B58D /* JXLayoutButton.m in Sources */,
 				AE83BD711FDE72BF001882D1 /* ImageRotationViewController.swift in Sources */,
-				AE0F70671FBD6F2B00C8135C /* NFXHTTPModelManager.swift in Sources */,
 				AE3F46EE20AC0300007BA637 /* UIColor+Extension.swift in Sources */,
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
-				AE0F706C1FBD6F2B00C8135C /* NFXProtocol.swift in Sources */,
 				AE5A88721FF37AA800748F6A /* Semaphore.swift in Sources */,
 				AE3AF04B1F773D6200AF182A /* AnimationVIew.swift in Sources */,
 				AE0F70981FBEB9CA00C8135C /* Settings.swift in Sources */,
@@ -2127,20 +2011,17 @@
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
 				AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */,
 				AE3F46F820AC0D1B007BA637 /* TimerButton.swift in Sources */,
-				AE0F706F1FBD6F2B00C8135C /* NFXHTTPModel.swift in Sources */,
 				AE3F46F220AC06A3007BA637 /* Toast.swift in Sources */,
 				AE1DE0782099BE0A007910A5 /* FullBoard.swift in Sources */,
 				AE1AC81020D25F5A0002F779 /* ShadowVideoControlView.swift in Sources */,
 				AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */,
 				AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */,
-				AE0F70831FBD6F2B00C8135C /* NFXListCell_iOS.swift in Sources */,
 				AE1AC80F20D25F5A0002F779 /* ShadowAudioPlayerView.swift in Sources */,
 				AE1DE03E2099AD32007910A5 /* LoadMoreCell.swift in Sources */,
 				AE9F32861F690F5200339BB8 /* GrandType.swift in Sources */,
 				AEADFD4C2111601100E6B58D /* DemoViewController.swift in Sources */,
 				AE1DE0992099BE0A007910A5 /* LinkPoint.swift in Sources */,
 				AE6691D820F49B3A00D019D4 /* PriorityBoxArray.m in Sources */,
-				AE0F70621FBD6F2B00C8135C /* NFXWindowController.swift in Sources */,
 				AE1DE0442099AD32007910A5 /* BookMarkViewModel.swift in Sources */,
 				AE5A88631FF36F9500748F6A /* GridView.swift in Sources */,
 				AE5A88681FF3709000748F6A /* JSViewController.swift in Sources */,
@@ -2164,10 +2045,8 @@
 				AE1AC81820D25FBC0002F779 /* AssetWriterCoordinator.swift in Sources */,
 				AE5A88851FF49CD300748F6A /* 3DViewController.swift in Sources */,
 				AE5A88811FF39C5800748F6A /* LayerViewController.swift in Sources */,
-				AE0F706A1FBD6F2B00C8135C /* NFXLoader.m in Sources */,
 				AE6691B620EDF3C100D019D4 /* HandleJSViewController.swift in Sources */,
 				AE9F328E1F690FD200339BB8 /* UIView+Base.swift in Sources */,
-				AE0F706E1FBD6F2B00C8135C /* NFXStatisticsController.swift in Sources */,
 				AEBE40541FC80A810087D7ED /* CitySearchView.swift in Sources */,
 				AE9F32841F690F5200339BB8 /* GrandModel+Map.swift in Sources */,
 				AE1DE0972099BE0A007910A5 /* Piece.swift in Sources */,
@@ -2178,15 +2057,12 @@
 				AE0F709D1FBEBA5C00C8135C /* Foundation+Extension.swift in Sources */,
 				AE0F708E1FBEB96E00C8135C /* TouchTestViewController.swift in Sources */,
 				AE1DE07A2099BE0A007910A5 /* GameService.swift in Sources */,
-				AE0F70811FBD6F2B00C8135C /* NFXStatisticsController_iOS.swift in Sources */,
 				AE4DA61B213E68B300FCC7FD /* ShadowDataManager.swift in Sources */,
-				AE0F70681FBD6F2B00C8135C /* NFXConstants.swift in Sources */,
 				AEADFD472110031B00E6B58D /* FormTableViewController.swift in Sources */,
 				AE83BD7B1FE2134E001882D1 /* TwoSideViewController.swift in Sources */,
 				AE1DE0412099AD32007910A5 /* SectionListViewModel.swift in Sources */,
 				AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */,
 				AE83BD741FDE876F001882D1 /* BallViewController.swift in Sources */,
-				AE0F70711FBD6F2B00C8135C /* NFXDetailsController.swift in Sources */,
 				AE5A88761FF37C2200748F6A /* Apply.swift in Sources */,
 				AE4DA61D213E762500FCC7FD /* ShadowDownloader.swift in Sources */,
 				AE5A886D1FF3746C00748F6A /* BasicViewController.swift in Sources */,
@@ -2208,9 +2084,7 @@
 				AE4DA6232142803800FCC7FD /* ShadowPlayBack.swift in Sources */,
 				AED97B47215A1E2500B124E7 /* BaseModel.swift in Sources */,
 				AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */,
-				AE0F707F1FBD6F2B00C8135C /* NFXHelper_iOS.swift in Sources */,
 				AE3F46F020AC058A007BA637 /* Number+Extension.swift in Sources */,
-				AE0F70801FBD6F2B00C8135C /* NFXInfoController_iOS.swift in Sources */,
 				AE5351202011876B00FC48A1 /* SnapkitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2387,7 +2261,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/iOSDemo/bridge.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7s";
 			};
@@ -2417,7 +2291,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/iOSDemo/bridge.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7s";
 			};

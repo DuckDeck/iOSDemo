@@ -97,7 +97,7 @@ extension SnapkitTableViewController:UITableViewDataSource,UITableViewDelegate{
             return CGFloat(h)
         }
         else{
-            return UITableViewAutomaticDimension
+            return UITableView.automaticDimension
         }
     }
     
@@ -146,7 +146,7 @@ class SnapCell: UITableViewCell {
         }
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         lbl.layer.borderWidth = 1
         lbl.font = UIFont.boldSystemFont(ofSize: 16)

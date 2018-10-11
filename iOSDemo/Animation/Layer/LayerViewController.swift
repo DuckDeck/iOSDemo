@@ -161,11 +161,11 @@ class delegateView: UIView {
         UIGraphicsPushContext(ctx)
         UIColor.white.set()
         UIRectFill(layer.bounds)
-        let font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        let font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
         let color = UIColor.purple
         let style = NSMutableParagraphStyle()
         style.alignment = NSTextAlignment.center
-        let attribs = [NSAttributedStringKey.font:font,NSAttributedStringKey.foregroundColor:color,NSAttributedStringKey.paragraphStyle:style]
+        let attribs = [NSAttributedString.Key.font:font,NSAttributedString.Key.foregroundColor:color,NSAttributedString.Key.paragraphStyle:style]
         let text = NSMutableAttributedString(string: "Pushing The Limits", attributes: attribs)
         text.draw(in: layer.bounds)
         UIGraphicsPopContext()

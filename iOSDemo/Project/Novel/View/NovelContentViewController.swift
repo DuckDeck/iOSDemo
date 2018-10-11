@@ -30,7 +30,7 @@ final class NovelContentViewController: UIViewController {
         tb.estimatedRowHeight = 8000
         tb.separatorStyle = .none
         tb.allowsSelection = false
-        tb.rowHeight = UITableViewAutomaticDimension
+        tb.rowHeight = UITableView.automaticDimension
         view.addSubview(tb)
         tb.snp.makeConstraints { (m) in
             m.edges.equalTo(0)

@@ -16,7 +16,7 @@ protocol ShadowVideoControlViewDelegate:class {
 }
 
 class ShadowVideoControlView: UIView {
-    let btnLarge = UIButton(type: UIButtonType.custom)
+    let btnLarge = UIButton(type: UIButton.ButtonType.custom)
     var value:Float{
         set{
             slider.value = newValue
@@ -107,7 +107,7 @@ class ShadowVideoControlView: UIView {
         slider.isContinuous = true
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(ges:)))
         slider.addTarget(self, action: #selector(handleSliderPosition(sender:)), for: .valueChanged)
-        slider.addTarget(self, action: #selector(handleSliderPositionExit(sender:)), for: UIControlEvents.touchUpInside)
+        slider.addTarget(self, action: #selector(handleSliderPositionExit(sender:)), for: UIControl.Event.touchUpInside)
         slider.addGestureRecognizer(tapGesture!)
         slider.maximumTrackTintColor = UIColor.clear
         slider.minimumTrackTintColor = UIColor.white
@@ -124,7 +124,7 @@ class ShadowVideoControlView: UIView {
         
         addConstraintsForSubviews()
       
-        NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     func addConstraintsForSubviews() {
@@ -183,6 +183,7 @@ class ShadowVideoControlView: UIView {
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 }

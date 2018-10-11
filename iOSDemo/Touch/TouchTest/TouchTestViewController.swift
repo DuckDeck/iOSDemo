@@ -16,7 +16,7 @@ class TouchTestViewController: UIViewController,drawViewDelegate {
         view.isMultipleTouchEnabled = true  //允许多点  //因为和多任务手势冲突,所以当用4指的4指以上时会导致功能不可用.这个要关掉系统的多任务手势就行了,现在是想办法能让代码关了多任务手势
         view.backgroundColor = UIColor.black
         view.addSubview(drawView)
-        view.sendSubview(toBack: drawView)
+        view.sendSubviewToBack(drawView)
         // Do any additional setup after loading the view.
     }
 

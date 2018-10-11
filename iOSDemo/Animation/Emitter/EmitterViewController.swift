@@ -40,7 +40,7 @@ class EmitterViewController: UIViewController {
             print(Date().timeIntervalSince1970)
             self.isAni = false
             if finish{
-                UIView.animate(withDuration: 0.2, delay: 1, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                UIView.animate(withDuration: 0.2, delay: 1, options: UIView.AnimationOptions.curveEaseInOut, animations: {
                     self.vAni.frame = CGRect(x: 10, y: 200, w: 50, h: 50)
                 }, completion: {(finish) in
                     

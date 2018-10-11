@@ -26,7 +26,7 @@ final class BookmarkViewController: UIViewController {
         tb.delegate = self
        // tb.estimatedHeightForRow = 50 can not set estimatedHeightForRow when use rxdatasource
 
-        tb.rowHeight = UITableViewAutomaticDimension
+        tb.rowHeight = UITableView.automaticDimension
         view.addSubview(tb)
         tb.snp.makeConstraints { (m) in
             m.edges.equalTo(0)

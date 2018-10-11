@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIAlertController{
-    static func title(title:String?,message:String?, style:UIAlertControllerStyle = .alert) -> UIAlertController {
+    static func title(title:String?,message:String?, style:UIAlertController.Style = .alert) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
         return alert
     }
@@ -33,7 +33,7 @@ extension UIAlertController{
     
   
     
-    static func title(attrTitle:NSAttributedString?,attrMessage:NSAttributedString?, style:UIAlertControllerStyle = .alert) -> UIAlertController {
+    static func title(attrTitle:NSAttributedString?,attrMessage:NSAttributedString?, style:UIAlertController.Style = .alert) -> UIAlertController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: style)
         if let t = attrTitle{
             alert.setValue(t, forKey: "attributedTitle")
@@ -44,13 +44,13 @@ extension UIAlertController{
         return alert
     }
     
-    func action(title:String,handle:((_ action:UIAlertAction)->Void)?, style:UIAlertActionStyle = .default) -> Self  {
+    func action(title:String,handle:((_ action:UIAlertAction)->Void)?, style:UIAlertAction.Style = .default) -> Self  {
         let action = UIAlertAction(title: title, style: style, handler: handle)
         self.addAction(action)
         return self
     }
     
-    func action(title:String,handle:((_ action:UIAlertAction)->Void)?, color:UIColor, style:UIAlertActionStyle = .default) -> Self  {
+    func action(title:String,handle:((_ action:UIAlertAction)->Void)?, color:UIColor, style:UIAlertAction.Style = .default) -> Self  {
         let action = UIAlertAction(title: title, style: style, handler: handle)
         action.setValue(color, forKey: "_titleTextColor")
         self.addAction(action)
