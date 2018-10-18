@@ -5,7 +5,7 @@
 
 
 
-### 目前苹果更新了Swift4， 在XCode9下有些第三方库不支持Swift4，项目不能正常启动，但XCode8是没有问题的
+### 目前苹果更新了Swift4，更新xcode到10且支持Swift4.2
 
 首先给大家直接上图，让大家能更直观看到这个APP的操作逻辑和布局。
 ![搜索阅读小说](https://raw.githubusercontent.com/DuckDeck/iOSDemo/master/Image/novel1.gif)
