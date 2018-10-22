@@ -6,6 +6,7 @@
 
 
 ### 目前苹果更新了Swift4，更新xcode到10且支持Swift4.2
+研究视频缓存功能
 
 首先给大家直接上图，让大家能更直观看到这个APP的操作逻辑和布局。
 ![搜索阅读小说](https://raw.githubusercontent.com/DuckDeck/iOSDemo/master/Image/novel1.gif)
