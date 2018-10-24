@@ -114,6 +114,7 @@ class ShadowPlayer:NSObject {
     fileprivate override init() {}
     
     //与url初始化,目前只支持HTTP协议和FILE协议
+    //这个用于播放音频
     convenience init(url:URL,autoCache:Bool = true)  {
         self.init()
         self.url = url
@@ -123,7 +124,7 @@ class ShadowPlayer:NSObject {
 
         self.assetWithURL(url: url)
     }
-    
+    //这个用于播放视频
     convenience init(url:URL,playerLayer:AVPlayerLayer,autoCache:Bool = true)  {
         self.init()
         self.url = url
@@ -161,10 +162,10 @@ class ShadowPlayer:NSObject {
             anAsset = AVURLAsset(url: url, options: dict)
         }
         //anAsset = AVURLAsset(url: url, options: dict)
+        /*
         let keys = ["duration"]
         weak var weakself = self
         //如果使用第三方下载这个就不能用了
-        
         anAsset.loadValuesAsynchronously(forKeys: keys) {
             var error:NSError? = nil
             guard let tracksStatus = weakself?.anAsset.statusOfValue(forKey: "duration", error: &error) else{
@@ -210,7 +211,7 @@ class ShadowPlayer:NSObject {
             default:
                 break
             }
-        }
+        }*/
         setupPlayerWithAsset(asset: anAsset)
     }
     
@@ -277,11 +278,12 @@ class ShadowPlayer:NSObject {
             let timeInterval = startSeconds + durationSeconds // 计算缓冲总进度
             let duration = item.duration
             let totalDuration = CMTimeGetSeconds(duration)
+            print("缓冲到\(timeInterval)")
             delegate?.bufferProcess(current: Float(timeInterval), duration:  Float(totalDuration))
         }
         else if key == "playbackBufferEmpty"{
             status = .Buffering
-           
+            pause()
         }
         else if key == "playbackLikelyToKeepUp"{
             print("缓冲达到可播放")
@@ -357,19 +359,21 @@ class ShadowPlayer:NSObject {
         }
         status = .Stopped
         delegate?.playStateChange(status: status, info: nil)
-//        dataManager = nil
-//        lastToEndDownloader?.cancel()
-//        lastToEndDownloader = nil
-//        if let arr = nonToEndDownloaderArray{
-//            for downloader in arr{
-//                downloader.cancel()
-//            }
-//        }
+        dataManager = nil
+        lastToEndDownloader?.cancel()
+        lastToEndDownloader = nil
+        if let arr = nonToEndDownloaderArray{
+            for downloader in arr{
+                downloader.cancel()
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+
 }
 
 

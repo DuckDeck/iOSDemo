@@ -43,8 +43,7 @@ class ShadowDataManager {
         }
         let url = URL(string: urlStr)!
         let fileType = url.pathExtension
-        let urlHash = urlStr.hashValue
-        tmpPath = "\(playerTmpDire)/\(urlHash).\(fileType)"
+        tmpPath = "\(playerTmpDire)/\(urlStr.toUrlFileName()).\(fileType)"
         do{
             if FileManager.default.fileExists(atPath: tmpPath){
                try FileManager.default.removeItem(atPath: tmpPath)
@@ -69,7 +68,7 @@ class ShadowDataManager {
             if !checkDirectoryPath(path: playerCacheDire){
                 return false
             }
-            self.cachePath = "\(playerCacheDire)/\(urlHash).\(fileType)"
+            self.cachePath = "\(playerCacheDire)/\(urlStr.toUrlFileName()).\(fileType)"
         }
         writeFileHandle = FileHandle(forWritingAtPath: tmpPath)
         readFileHandle = FileHandle(forReadingAtPath: tmpPath)
@@ -81,14 +80,19 @@ class ShadowDataManager {
             return (urlStr,true)
         }
         let url = URL(string: urlStr)!
-        let fileType = url.pathExtension
-        let cachePath = "\(NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last!)/ShadowCache/\(urlStr.hashValue).\(fileType)"
+        let fileType = url.pathExtension //这个并不准，因为很多并没有以文件格式后缀结尾巴，URL里有.没有影响
+        let cachePath = "\(NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last!)/ShadowCache/\(urlStr.toUrlFileName()).\(fileType)"
         if FileManager.default.fileExists(atPath: cachePath){
             return (cachePath,true)
         }
       
         return (cachePath,false)
         
+    }
+    
+    static func convertUrlToFileName(url:String)->String{
+        return url.replacingOccurrences(of: ":", with: "_").replacingOccurrences(of: "/", with: "-").replacingOccurrences(of: "#", with: "_").replacingOccurrences(of: "&", with: "_").replacingOccurrences(of: "?", with: "_")
+
     }
     
     static func checkCached(filePath:String)->String?{

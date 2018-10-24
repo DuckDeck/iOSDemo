@@ -34,7 +34,7 @@ class ShadowDownloader:NSObject {
         self.handleLoadingRequest(loadingRequest: loadingRequest)
     }
     
-    func handleLoadingRequest(loadingRequest:AVAssetResourceLoadingRequest)  {
+    func handleLoadingRequest( loadingRequest:AVAssetResourceLoadingRequest)  {
         if rangeInfoArray.count > 0{
             let rangeInfo = rangeInfoArray.first!
             currentRangeInfo = rangeInfo
@@ -67,7 +67,7 @@ class ShadowDownloader:NSObject {
                 task.resume()
             }
         }
-        else{
+        else{//如果当前rangeModelArray.count <= 0,则说明当前loadingRequest已经处理完成，可做finish处理
             cancel()
         }
     }

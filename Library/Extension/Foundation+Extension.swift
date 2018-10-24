@@ -130,6 +130,10 @@ extension String{
                                               range: NSMakeRange(0, self.count),
                                               withTemplate: with)
     }
+    
+    func toUrlFileName() -> String {
+        return self.replacingOccurrences(of: ":", with: "_").replacingOccurrences(of: "/", with: "-").replacingOccurrences(of: "#", with: "_").replacingOccurrences(of: "&", with: "_").replacingOccurrences(of: "?", with: "_")
+    }
 }
 
 extension NSMutableAttributedString{
