@@ -25,8 +25,18 @@ class ViewController: UIViewController {
         tbMenu.snp.makeConstraints { (m) in
             m.edges.equalTo(0)
         }
+        
+        let btnRight = UIBarButtonItem(title: "清空缓存", style: .plain, target: self, action: #selector(clearCache))
+        navigationItem.rightBarButtonItem = btnRight
+    }
+    
+    @objc func clearCache() {
+        ShadowDataManager.clearCache()
+        Toast.showToast(msg: "清除音视频文件成功")
     }
 }
+
+
 
 extension ViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

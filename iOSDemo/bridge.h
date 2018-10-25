@@ -16,4 +16,5 @@
 #import "TransformMP3.h"
 #import "iOSPalette.h"
 #import "JXLayoutButton.h"
+#import "opencvTool.h"
 #endif /* bridge_h */

@@ -26,7 +26,7 @@ class SectionInfo: GrandModel {
                 do{
                     
                     let fontContent = "<p style=\"font-size:\(fontsize)px\" >\(sectionContent)</p>"
-                    try? _sectionAttributeContent =   NSAttributedString(data: fontContent.data(using: .unicode)!, options: [.documentType:NSAttributedString.DocumentType.html], documentAttributes: nil)
+                    try _sectionAttributeContent =   NSAttributedString(data: fontContent.data(using: .unicode)!, options: [.documentType:NSAttributedString.DocumentType.html], documentAttributes: nil)
                 }
                 catch{
                     _sectionAttributeContent = NSAttributedString()

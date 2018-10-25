@@ -153,6 +153,7 @@ class ShadowPlayer:NSObject {
                 self.dataManager = ShadowDataManager(urlStr: url.absoluteString, cachePath: filePath.0)!
                 self.dataManager?.delegate = self
                 //此处需要将原始的url的协议头处理成系统无法处理的自定义协议头，此时才会进入AVAssetResourceLoaderDelegate的代理方法中
+                //目前这个无解，从dataManager获取的数据无法播放，
                 let schemaUrl = url.changeSchema(targetSchema: "streaming")
                 anAsset = AVURLAsset(url: schemaUrl!, options: nil)
                 anAsset.resourceLoader.setDelegate(self, queue: DispatchQueue.main)
@@ -162,7 +163,7 @@ class ShadowPlayer:NSObject {
             anAsset = AVURLAsset(url: url, options: dict)
         }
         //anAsset = AVURLAsset(url: url, options: dict)
-        /*
+       
         let keys = ["duration"]
         weak var weakself = self
         //如果使用第三方下载这个就不能用了
@@ -211,7 +212,7 @@ class ShadowPlayer:NSObject {
             default:
                 break
             }
-        }*/
+        }
         setupPlayerWithAsset(asset: anAsset)
     }
     

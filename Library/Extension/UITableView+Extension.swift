@@ -39,7 +39,7 @@ extension UITableView{
         
     }
     
-    open static func createEmptyView(size:CGSize,img:String,text:NSAttributedString)->UIView{
+    public static func createEmptyView(size:CGSize,img:String,text:NSAttributedString)->UIView{
         let v = UIView(frame: CGRect(origin: CGPoint(), size: size))
         let image = UIImageView(image: UIImage(named: img))
         v.addSubview(image)
@@ -58,7 +58,7 @@ extension UITableView{
         return v
     }
     
-    open static func createEmptyView(size:CGSize,img:String,text:String,font:UIFont,color:UIColor)->UIView{
+    public static func createEmptyView(size:CGSize,img:String,text:String,font:UIFont,color:UIColor)->UIView{
         let v = UIView(frame: CGRect(origin: CGPoint(), size: size))
         let image = UIImageView(image: UIImage(named: img))
         v.addSubview(image)
@@ -81,7 +81,7 @@ extension UITableView{
     
     
     
-    open static func createEmptyView(size:CGSize,text:NSAttributedString)->UIView{
+    public static func createEmptyView(size:CGSize,text:NSAttributedString)->UIView{
         let v = UIView(frame: CGRect(origin: CGPoint(), size: size))
         let lbl = UILabel()
         lbl.attributedText = text
@@ -94,7 +94,7 @@ extension UITableView{
         return v
     }
     
-    open static func createEmptyView(size:CGSize,text:String,font:UIFont,color:UIColor)->UIView{
+    public static func createEmptyView(size:CGSize,text:String,font:UIFont,color:UIColor)->UIView{
         let v = UIView(frame: CGRect(origin: CGPoint(), size: size))
         let lbl = UILabel()
         lbl.text = text

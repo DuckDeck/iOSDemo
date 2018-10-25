@@ -95,6 +95,16 @@ class ShadowDataManager {
 
     }
     
+    public static func clearCache(){
+        let path = "\(NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last!)/ShadowCache/"
+        if let items = try? FileManager.default.contentsOfDirectory(atPath: path){
+            for item in items{
+               try? FileManager.default.removeItem(atPath: path + item)
+            }
+        }
+        
+    }
+    
     static func checkCached(filePath:String)->String?{
         if FileManager.default.fileExists(atPath: filePath){
             return filePath

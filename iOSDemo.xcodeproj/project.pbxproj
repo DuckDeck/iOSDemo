@@ -127,6 +127,14 @@
 		AE4DA6232142803800FCC7FD /* ShadowPlayBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA6222142803800FCC7FD /* ShadowPlayBack.swift */; };
 		AE4DA625214667A200FCC7FD /* ShadowAudioPlayerBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA624214667A200FCC7FD /* ShadowAudioPlayerBack.swift */; };
 		AE4DA62D214B9BB900FCC7FD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA62C214B9BB900FCC7FD /* UIViewController+Extension.swift */; };
+		AE4EA74921806B150061FA84 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4EA74721806A120061FA84 /* opencv2.framework */; };
+		AE4EA74B21806C160061FA84 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4EA74A21806C160061FA84 /* libc++.tbd */; };
+		AE4EA74D21806C1E0061FA84 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4EA74C21806C1E0061FA84 /* CoreImage.framework */; };
+		AE4EA74F21806C2A0061FA84 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4EA74E21806C2A0061FA84 /* Accelerate.framework */; };
+		AE4EA75121806C390061FA84 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4EA75021806C390061FA84 /* CoreMedia.framework */; };
+		AE4EA75321806C3F0061FA84 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4EA75221806C3F0061FA84 /* CoreVideo.framework */; };
+		AE4EA75A218071C30061FA84 /* opencvTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = AE4EA759218071C30061FA84 /* opencvTool.mm */; };
+		AE4EA75C218072580061FA84 /* opencvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4EA75B218072580061FA84 /* opencvViewController.swift */; };
 		AE5351202011876B00FC48A1 /* SnapkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */; };
 		AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */; };
 		AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752921F76931C00F6AAC5 /* MediaViewController.swift */; };
@@ -387,6 +395,15 @@
 		AE4DA6222142803800FCC7FD /* ShadowPlayBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPlayBack.swift; sourceTree = "<group>"; };
 		AE4DA624214667A200FCC7FD /* ShadowAudioPlayerBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowAudioPlayerBack.swift; sourceTree = "<group>"; };
 		AE4DA62C214B9BB900FCC7FD /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		AE4EA74721806A120061FA84 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = framework/opencv2.framework; sourceTree = "<group>"; };
+		AE4EA74A21806C160061FA84 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		AE4EA74C21806C1E0061FA84 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		AE4EA74E21806C2A0061FA84 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		AE4EA75021806C390061FA84 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		AE4EA75221806C3F0061FA84 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		AE4EA758218071C30061FA84 /* opencvTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = opencvTool.h; sourceTree = "<group>"; };
+		AE4EA759218071C30061FA84 /* opencvTool.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = opencvTool.mm; sourceTree = "<group>"; };
+		AE4EA75B218072580061FA84 /* opencvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = opencvViewController.swift; sourceTree = "<group>"; };
 		AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitViewController.swift; sourceTree = "<group>"; };
 		AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitTableViewController.swift; sourceTree = "<group>"; };
 		AE5752921F76931C00F6AAC5 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
@@ -544,6 +561,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE4EA75321806C3F0061FA84 /* CoreVideo.framework in Frameworks */,
+				AE4EA75121806C390061FA84 /* CoreMedia.framework in Frameworks */,
+				AE4EA74F21806C2A0061FA84 /* Accelerate.framework in Frameworks */,
+				AE4EA74D21806C1E0061FA84 /* CoreImage.framework in Frameworks */,
+				AE4EA74B21806C160061FA84 /* libc++.tbd in Frameworks */,
+				AE4EA74921806B150061FA84 /* opencv2.framework in Frameworks */,
 				AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */,
 				AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */,
 				710169C7FA45F8C13052BF93 /* Pods_iOSDemo.framework in Frameworks */,
@@ -971,6 +994,14 @@
 			path = SrollMenu;
 			sourceTree = "<group>";
 		};
+		AE4EA75421806E510061FA84 /* opencv */ = {
+			isa = PBXGroup;
+			children = (
+				AE4EA75B218072580061FA84 /* opencvViewController.swift */,
+			);
+			path = opencv;
+			sourceTree = "<group>";
+		};
 		AE53511E2011875800FC48A1 /* Snapkit */ = {
 			isa = PBXGroup;
 			children = (
@@ -983,6 +1014,7 @@
 		AE5752911F76930000F6AAC5 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				AE4EA75421806E510061FA84 /* opencv */,
 				AE5752921F76931C00F6AAC5 /* MediaViewController.swift */,
 				AEADFD3F210EBCC700E6B58D /* CompressImage */,
 				AE6691DB20F49BC400D019D4 /* Palette */,
@@ -1298,6 +1330,12 @@
 		AE9F321B1F690DBF00339BB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE4EA75221806C3F0061FA84 /* CoreVideo.framework */,
+				AE4EA75021806C390061FA84 /* CoreMedia.framework */,
+				AE4EA74E21806C2A0061FA84 /* Accelerate.framework */,
+				AE4EA74C21806C1E0061FA84 /* CoreImage.framework */,
+				AE4EA74A21806C160061FA84 /* libc++.tbd */,
+				AE4EA74721806A120061FA84 /* opencv2.framework */,
 				AEAD7D0C1FD8E5A700798BED /* URLMatcher.framework */,
 				AEBE40761FCEC25C0087D7ED /* SnapKit.framework */,
 				AEBE40431FC806020087D7ED /* SwiftyJSON.framework */,
@@ -1465,6 +1503,8 @@
 				AEB771FD1F6A8089008C4365 /* Tool.swift */,
 				AE2C8C741FA30BB100000A1D /* Auth.swift */,
 				AEF0977C2064EFFF0021E4ED /* LogTool.swift */,
+				AE4EA758218071C30061FA84 /* opencvTool.h */,
+				AE4EA759218071C30061FA84 /* opencvTool.mm */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1986,6 +2026,7 @@
 				AE1DE0982099BE0A007910A5 /* LinkLine.swift in Sources */,
 				AE394B522065F72100CE3BD9 /* SQLiteViewController.swift in Sources */,
 				AE1DE03D2099AD32007910A5 /* Routers.swift in Sources */,
+				AE4EA75C218072580061FA84 /* opencvViewController.swift in Sources */,
 				AE3F46F620AC0BF9007BA637 /* UINavigationController+Extension.swift in Sources */,
 				AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */,
 				AE3AF0441F773B0000AF182A /* AnimationViewController.swift in Sources */,
@@ -2071,6 +2112,7 @@
 				AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */,
 				AE1AC75020CF6FB40002F779 /* UICollectView+Extension.swift in Sources */,
 				AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */,
+				AE4EA75A218071C30061FA84 /* opencvTool.mm in Sources */,
 				AE1DE0372099AD32007910A5 /* NovelInfo.swift in Sources */,
 				AE3F46EC20AC0290007BA637 /* HintView.swift in Sources */,
 				AE1DE0432099AD32007910A5 /* NovelContentViewModel.swift in Sources */,
@@ -2248,6 +2290,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/framework",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(PROJECT_DIR)/ffmpeg_ios/include",
 				);
 				INFOPLIST_FILE = iOSDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2255,6 +2304,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Lame",
+					"$(PROJECT_DIR)/ffmpeg_ios/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = StanHu.iOSDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2278,6 +2328,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/framework",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(PROJECT_DIR)/ffmpeg_ios/include",
 				);
 				INFOPLIST_FILE = iOSDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2285,6 +2342,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Lame",
+					"$(PROJECT_DIR)/ffmpeg_ios/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = StanHu.iOSDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
