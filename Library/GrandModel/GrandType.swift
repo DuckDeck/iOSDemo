@@ -157,7 +157,7 @@ extension GrandType{
         
         if cls == nil && type.isReflect {
             
-            let nameSpaceString = "\(type.belongType).\(String(describing: clsString))"
+            let nameSpaceString = "\(String(describing: type.belongType)).\(String(describing: clsString))"
             
             cls = ClassFromString(nameSpaceString)
         }

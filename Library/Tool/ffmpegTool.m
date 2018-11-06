@@ -6,8 +6,8 @@
 //  Copyright © 2018 Stan Hu. All rights reserved.
 //
 
-#import "fmpegTool.h"
+#import "ffmpegTool.h"
 
-@implementation fmpegTool
+@implementation ffmpegTool
 
 @end

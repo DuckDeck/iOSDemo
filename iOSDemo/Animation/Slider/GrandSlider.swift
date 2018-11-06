@@ -108,7 +108,7 @@ open class GrandSlider: UIView,UIScrollViewDelegate {
     }
     fileprivate var displayView:[UIView]?
     fileprivate var pageControl:DotViewControl?
-  open  static var scale:Float{
+    public  static var scale:Float{
         get{
             return Float(UIScreen.main.bounds.width) / 320.0
         }
