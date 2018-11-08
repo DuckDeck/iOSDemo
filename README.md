@@ -1,5 +1,7 @@
 # iOSDemo
 
+更新swift 4.2支持
+
 项目一： Novel小说 APP
 ![惯例的开场美图](http://upload-images.jianshu.io/upload_images/1281203-3f339ba854803865.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
