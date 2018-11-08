@@ -16,13 +16,10 @@ class opencvViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         imgView.addTo(view: view).snp.makeConstraints { (m) in
             m.edges.equalTo(view)
         }
-        
         startLiveVideo()
-        
         Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(setPreviewImage), userInfo: nil, repeats: true)
         
     }
