@@ -2,6 +2,10 @@
 
 更新swift 4.2支持
 
+因为我添加了FFMpeg和Opencv所以这个项目现在跑不起来。需要去
+https://pan.baidu.com/disk/home?#/all?vmode=list&path=%2F%E5%BC%80%E5%8F%91
+下载需要的文件才能跑起来
+
 项目一： Novel小说 APP
 ![惯例的开场美图](http://upload-images.jianshu.io/upload_images/1281203-3f339ba854803865.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
