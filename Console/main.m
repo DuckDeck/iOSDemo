@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "Test.h"
 #import "GCD.h"
-
+#import "Hydron.h"
 #import <objc/runtime.h>
+#import "CFDemo.h"
 @interface Father : NSObject
 @property (nonatomic,copy) NSString* p1;
 @end
@@ -43,8 +44,16 @@ int main(int argc, const char * argv[]) {
         [gcd testGCDGroup];
        //不知道这个是干什么的
         
+        //测试消息转发
+        Hydron* h1 = [[Hydron alloc] init];
+        NSString* result = [h1 hydronId];
+        NSLog(@"%@",result);
         
-     
+        
+        
+        [CFDemo test];
+        
+      
     }
     return 0;
 }

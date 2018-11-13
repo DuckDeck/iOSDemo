@@ -135,6 +135,7 @@ class ShadowPlayer:NSObject {
     //还要一个可以配置的初始化
     
     func replaceWithUrl(url:URL){
+        stop()
         assetWithURL(url: url)
     }
    
@@ -143,26 +144,26 @@ class ShadowPlayer:NSObject {
         isFileCacheComplete = false
         let dict = [AVURLAssetPreferPreciseDurationAndTimingKey:true]
         
-        if url.absoluteString.hasPrefix("http"){
-             let filePath = ShadowDataManager.checkCached(urlStr: url.absoluteString)
-             if filePath.1 {
-                anAsset = AVURLAsset(url: URL(fileURLWithPath: filePath.0), options: dict)
-                isFileExist = true
-             }
-             else{
-                self.dataManager = ShadowDataManager(urlStr: url.absoluteString, cachePath: filePath.0)!
-                self.dataManager?.delegate = self
-                //此处需要将原始的url的协议头处理成系统无法处理的自定义协议头，此时才会进入AVAssetResourceLoaderDelegate的代理方法中
-                //目前这个无解，从dataManager获取的数据无法播放，
-                let schemaUrl = url.changeSchema(targetSchema: "streaming")
-                anAsset = AVURLAsset(url: schemaUrl!, options: nil)
-                anAsset.resourceLoader.setDelegate(self, queue: DispatchQueue.main)
-             }
-        }
-        else{
-            anAsset = AVURLAsset(url: url, options: dict)
-        }
-        //anAsset = AVURLAsset(url: url, options: dict)
+//        if url.absoluteString.hasPrefix("http"){
+//             let filePath = ShadowDataManager.checkCached(urlStr: url.absoluteString)
+//             if filePath.1 {
+//                anAsset = AVURLAsset(url: URL(fileURLWithPath: filePath.0), options: dict)
+//                isFileExist = true
+//             }
+//             else{
+//                self.dataManager = ShadowDataManager(urlStr: url.absoluteString, cachePath: filePath.0)!
+//                self.dataManager?.delegate = self
+//                //此处需要将原始的url的协议头处理成系统无法处理的自定义协议头，此时才会进入AVAssetResourceLoaderDelegate的代理方法中
+//                //目前这个无解，从dataManager获取的数据无法播放，
+//                let schemaUrl = url.changeSchema(targetSchema: "streaming")
+//                anAsset = AVURLAsset(url: schemaUrl!, options: nil)
+//                anAsset.resourceLoader.setDelegate(self, queue: DispatchQueue.main)
+//             }
+//        }
+//        else{
+//            anAsset = AVURLAsset(url: url, options: dict)
+//        }
+        anAsset = AVURLAsset(url: url, options: dict)
        
         let keys = ["duration"]
         weak var weakself = self

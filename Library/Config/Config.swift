@@ -37,7 +37,7 @@ enum APPBuildStatus:Int{
     case Release
 }
 enum DeviceEnum:Int {
-    case Phone4S = 0,Phone5,Phone6,Phone6plus,PhoneX
+    case Phone4S = 0,Phone5,Phone6,Phone6plus,PhoneX,PhoneXR,PhoneXSMax
 }
 
 let Device = ScreenHeight == 480 ? DeviceEnum.Phone4S : (ScreenHeight == 568 ? DeviceEnum.Phone5 : (ScreenHeight == 667 ? DeviceEnum.Phone6 : (ScreenHeight == 736 ? DeviceEnum.Phone6plus : DeviceEnum.PhoneX)))
