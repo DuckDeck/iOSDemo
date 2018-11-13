@@ -12,6 +12,8 @@
 #import "Hydron.h"
 #import <objc/runtime.h>
 #import "CFDemo.h"
+#import "SelDemo.h"
+#import "Runspector.h"
 @interface Father : NSObject
 @property (nonatomic,copy) NSString* p1;
 @end
@@ -52,7 +54,11 @@ int main(int argc, const char * argv[]) {
         
         
         [CFDemo test];
-        
+        //[SelDemo testSel];
+        //[SelDemo testSelDynamic];
+        //[SelDemo testSelString];
+        [Runspector testClass];
+        [Runspector dynaClass];
       
     }
     return 0;

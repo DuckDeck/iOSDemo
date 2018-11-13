@@ -251,6 +251,8 @@
 		AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CF1F77952B00D9A09F /* Resnet50.mlmodel */; };
 		AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF589D81F77ABB800D9A09F /* CoreML.framework */; };
 		AEF589DD1F77D03A00D9A09F /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = AEF589DC1F77D03A00D9A09F /* readme.md */; };
+		F6C59D4C219AF68100825BBA /* SelDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4B219AF68100825BBA /* SelDemo.m */; };
+		F6C59D4F219B045200825BBA /* Runspector.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4E219B045200825BBA /* Runspector.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -566,6 +568,10 @@
 		AEF589D81F77ABB800D9A09F /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
 		AEF589DC1F77D03A00D9A09F /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		C51738191F790645B96247B2 /* Pods_iOSDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6C59D4A219AF68100825BBA /* SelDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelDemo.h; sourceTree = "<group>"; };
+		F6C59D4B219AF68100825BBA /* SelDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelDemo.m; sourceTree = "<group>"; };
+		F6C59D4D219B045200825BBA /* Runspector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Runspector.h; sourceTree = "<group>"; };
+		F6C59D4E219B045200825BBA /* Runspector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Runspector.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -704,6 +710,8 @@
 			isa = PBXGroup;
 			children = (
 				AE1344DC20906937009A210D /* object_setClass.m */,
+				F6C59D4D219B045200825BBA /* Runspector.h */,
+				F6C59D4E219B045200825BBA /* Runspector.m */,
 			);
 			path = Runtime;
 			sourceTree = "<group>";
@@ -1526,6 +1534,8 @@
 			children = (
 				AEB6F55E219AB52C005CA2BE /* CFDemo.h */,
 				AEB6F55F219AB52C005CA2BE /* CFDemo.m */,
+				F6C59D4A219AF68100825BBA /* SelDemo.h */,
+				F6C59D4B219AF68100825BBA /* SelDemo.m */,
 			);
 			path = CoreFoundation;
 			sourceTree = "<group>";
@@ -2177,11 +2187,13 @@
 				AEB6F55921997748005CA2BE /* Hydron.m in Sources */,
 				AE00722520906B770093B478 /* GCD.m in Sources */,
 				AEA07F151F710D7E00FC9770 /* main.m in Sources */,
+				F6C59D4C219AF68100825BBA /* SelDemo.m in Sources */,
 				AEB6F55C21997777005CA2BE /* HydronForward.m in Sources */,
 				AE82B1CD200F3A55004D0ECE /* Test.m in Sources */,
 				AE1344DA209068C7009A210D /* block相关.m in Sources */,
 				AEB6F560219AB52C005CA2BE /* CFDemo.m in Sources */,
 				AE1344DD20906937009A210D /* object_setClass.m in Sources */,
+				F6C59D4F219B045200825BBA /* Runspector.m in Sources */,
 				AE3AF0521F7743D500AF182A /* MsgSend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2245,7 +2257,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2304,7 +2316,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
