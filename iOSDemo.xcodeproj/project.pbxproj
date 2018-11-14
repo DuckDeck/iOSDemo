@@ -209,6 +209,8 @@
 		AEB6F55921997748005CA2BE /* Hydron.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55721997748005CA2BE /* Hydron.m */; };
 		AEB6F55C21997777005CA2BE /* HydronForward.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55B21997777005CA2BE /* HydronForward.m */; };
 		AEB6F560219AB52C005CA2BE /* CFDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55F219AB52C005CA2BE /* CFDemo.m */; };
+		AEB6F563219BC5FA005CA2BE /* Invoke.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F562219BC5FA005CA2BE /* Invoke.m */; };
+		AEB6F566219BC708005CA2BE /* AspectProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F565219BC708005CA2BE /* AspectProxy.m */; };
 		AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
 		AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
@@ -515,6 +517,10 @@
 		AEB6F55B21997777005CA2BE /* HydronForward.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HydronForward.m; sourceTree = "<group>"; };
 		AEB6F55E219AB52C005CA2BE /* CFDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFDemo.h; sourceTree = "<group>"; };
 		AEB6F55F219AB52C005CA2BE /* CFDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CFDemo.m; sourceTree = "<group>"; };
+		AEB6F561219BC5FA005CA2BE /* Invoke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Invoke.h; sourceTree = "<group>"; };
+		AEB6F562219BC5FA005CA2BE /* Invoke.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Invoke.m; sourceTree = "<group>"; };
+		AEB6F564219BC708005CA2BE /* AspectProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AspectProxy.h; sourceTree = "<group>"; };
+		AEB6F565219BC708005CA2BE /* AspectProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AspectProxy.m; sourceTree = "<group>"; };
 		AEB771FD1F6A8089008C4365 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Base.swift"; sourceTree = "<group>"; };
 		AEB772031F6B684F008C4365 /* URLNavigator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLNavigator.framework; path = Carthage/Build/iOS/URLNavigator.framework; sourceTree = "<group>"; };
@@ -1525,6 +1531,10 @@
 				AEB6F55721997748005CA2BE /* Hydron.m */,
 				AEB6F55A21997777005CA2BE /* HydronForward.h */,
 				AEB6F55B21997777005CA2BE /* HydronForward.m */,
+				AEB6F561219BC5FA005CA2BE /* Invoke.h */,
+				AEB6F562219BC5FA005CA2BE /* Invoke.m */,
+				AEB6F564219BC708005CA2BE /* AspectProxy.h */,
+				AEB6F565219BC708005CA2BE /* AspectProxy.m */,
 			);
 			path = MessagForward;
 			sourceTree = "<group>";
@@ -2187,6 +2197,7 @@
 				AEB6F55921997748005CA2BE /* Hydron.m in Sources */,
 				AE00722520906B770093B478 /* GCD.m in Sources */,
 				AEA07F151F710D7E00FC9770 /* main.m in Sources */,
+				AEB6F566219BC708005CA2BE /* AspectProxy.m in Sources */,
 				F6C59D4C219AF68100825BBA /* SelDemo.m in Sources */,
 				AEB6F55C21997777005CA2BE /* HydronForward.m in Sources */,
 				AE82B1CD200F3A55004D0ECE /* Test.m in Sources */,
@@ -2195,6 +2206,7 @@
 				AE1344DD20906937009A210D /* object_setClass.m in Sources */,
 				F6C59D4F219B045200825BBA /* Runspector.m in Sources */,
 				AE3AF0521F7743D500AF182A /* MsgSend.m in Sources */,
+				AEB6F563219BC5FA005CA2BE /* Invoke.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

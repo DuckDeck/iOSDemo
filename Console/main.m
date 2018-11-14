@@ -14,6 +14,7 @@
 #import "CFDemo.h"
 #import "SelDemo.h"
 #import "Runspector.h"
+#import "AspectProxy.h"
 @interface Father : NSObject
 @property (nonatomic,copy) NSString* p1;
 @end
@@ -57,9 +58,9 @@ int main(int argc, const char * argv[]) {
         //[SelDemo testSel];
         //[SelDemo testSelDynamic];
         //[SelDemo testSelString];
-        [Runspector testClass];
-        [Runspector dynaClass];
-      
+//        [Runspector testClass];
+//        [Runspector dynaClass];
+        [AspectProxy testProxy];
     }
     return 0;
 }
