@@ -211,6 +211,7 @@
 		AEB6F560219AB52C005CA2BE /* CFDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55F219AB52C005CA2BE /* CFDemo.m */; };
 		AEB6F563219BC5FA005CA2BE /* Invoke.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F562219BC5FA005CA2BE /* Invoke.m */; };
 		AEB6F566219BC708005CA2BE /* AspectProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F565219BC708005CA2BE /* AspectProxy.m */; };
+		AEB6F569219C206E005CA2BE /* ConcurrentProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F568219C206E005CA2BE /* ConcurrentProcessor.m */; };
 		AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
 		AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
@@ -521,6 +522,8 @@
 		AEB6F562219BC5FA005CA2BE /* Invoke.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Invoke.m; sourceTree = "<group>"; };
 		AEB6F564219BC708005CA2BE /* AspectProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AspectProxy.h; sourceTree = "<group>"; };
 		AEB6F565219BC708005CA2BE /* AspectProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AspectProxy.m; sourceTree = "<group>"; };
+		AEB6F567219C206E005CA2BE /* ConcurrentProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConcurrentProcessor.h; sourceTree = "<group>"; };
+		AEB6F568219C206E005CA2BE /* ConcurrentProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConcurrentProcessor.m; sourceTree = "<group>"; };
 		AEB771FD1F6A8089008C4365 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Base.swift"; sourceTree = "<group>"; };
 		AEB772031F6B684F008C4365 /* URLNavigator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLNavigator.framework; path = Carthage/Build/iOS/URLNavigator.framework; sourceTree = "<group>"; };
@@ -619,6 +622,8 @@
 			children = (
 				AE00722320906B770093B478 /* GCD.h */,
 				AE00722420906B770093B478 /* GCD.m */,
+				AEB6F567219C206E005CA2BE /* ConcurrentProcessor.h */,
+				AEB6F568219C206E005CA2BE /* ConcurrentProcessor.m */,
 			);
 			path = Thread;
 			sourceTree = "<group>";
@@ -2201,6 +2206,7 @@
 				F6C59D4C219AF68100825BBA /* SelDemo.m in Sources */,
 				AEB6F55C21997777005CA2BE /* HydronForward.m in Sources */,
 				AE82B1CD200F3A55004D0ECE /* Test.m in Sources */,
+				AEB6F569219C206E005CA2BE /* ConcurrentProcessor.m in Sources */,
 				AE1344DA209068C7009A210D /* block相关.m in Sources */,
 				AEB6F560219AB52C005CA2BE /* CFDemo.m in Sources */,
 				AE1344DD20906937009A210D /* object_setClass.m in Sources */,
