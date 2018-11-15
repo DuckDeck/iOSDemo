@@ -124,6 +124,7 @@ class TakePhotoViewController: BaseViewController {
     
     @objc func switchCamera() {
         //获取摄像头的数量
+        
         let cameraCount = AVCaptureDevice.devices(for: .video)
          //摄像头小于等于1的时候直接返回
         if cameraCount.count <= 1{
@@ -181,7 +182,12 @@ class TakePhotoViewController: BaseViewController {
     }
     
     func cameraWithPosition(position:AVCaptureDevice.Position) -> AVCaptureDevice? {
-        let devices = AVCaptureDevice.devices(for: .video)
+        if #available(iOS 10.2, *) {
+           let devices = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInDualCamera], mediaType: AVMediaType.video, position: AVCaptureDevice.Position.back)
+        } else {
+            let devices = AVCaptureDevice.devices(for: .video)
+        }
+        
         for d in devices{
             if d.position == position{
                 return d

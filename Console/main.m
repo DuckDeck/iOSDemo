@@ -44,6 +44,11 @@ int main(int argc, const char * argv[]) {
         // insert code here...
       
         
+        dispatch_queue_t q = dispatch_get_main_queue();
+        dispatch_async(q, ^{
+            NSLog(@"Hello");
+        });
+        
         GCD* gcd = [GCD new];
         [gcd testGCDGroup];
        //不知道这个是干什么的
@@ -59,9 +64,9 @@ int main(int argc, const char * argv[]) {
         //[SelDemo testSel];
         //[SelDemo testSelDynamic];
         //[SelDemo testSelString];
-//        [Runspector testClass];
-//        [Runspector dynaClass];
-        [AspectProxy testProxy];
+        //[zunspector testClass];
+        //[Runspector dynaClass];
+       // [AspectProxy testProxy];
         
         /*
         NSScanner* sca = [NSScanner scannerWithString:@"111"];
