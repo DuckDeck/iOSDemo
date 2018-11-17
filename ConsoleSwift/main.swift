@@ -160,3 +160,35 @@ print(test1Dict)
 print(test1.jsonValue)
 */
 
+
+let test = [23,112,3,4,5]
+for x in test.dropLast(){  //不要最后一个
+    print(x)
+}
+
+for x in test.dropFirst(){  //不要第一个
+    print(x)
+}
+for x in test.dropLast(3){
+    print(x)
+}
+
+for (index,value) in test.enumerated(){//这样就有了index
+    print("\(index) : \(value)")
+}
+
+//“想要寻找一个指定元素的位置” 这个index真没有
+
+let z = test.reduce(0,+)
+print(z)
+
+let k = (1..<20).map{$0*$0}.filter{$0%2==0}
+print(k)
+
+
+let testdict = ["a":"123","v":"123","b":"123","n":"123",]
+let res = testdict.mapValues { (s) -> String in
+    return s + "123123"
+}
+print(res)
+
