@@ -99,11 +99,11 @@ class AddressInfo:NSObject, NSCoding {
                 city.city = j["province"].stringValue + city.city
             }
             city.cityPinYIn = Tool.ChineseToPinyin(chinese: city.city).lowercased()
-            city.cityFirstLetterPinYIn = city.cityPinYIn.sub(start: 0, length: 1)
+            city.cityFirstLetterPinYIn = city.cityPinYIn.substring(from: 0, length: 1)
             let letters = city.cityPinYIn.components(separatedBy: " ")
             var allPy = ""
             for c in letters{
-                allPy += c.sub(start: 0, length: 1)
+                allPy += c.substring(from: 0, length: 1)
             }
             city.cityAllLetterPinyin = allPy
             i += 1

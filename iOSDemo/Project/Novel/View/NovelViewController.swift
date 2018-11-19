@@ -18,6 +18,8 @@ class NovelViewController: UIViewController {
     var navigator: NavigatorType?
     var vm : NovelSearchViewModel?
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          weak var wkself = self

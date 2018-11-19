@@ -65,7 +65,7 @@ class NovelContentViewModel {
     }
     
     func getNovelContent() {
-        let url = novelInfo.url.subToEnd(start: 19) + "/"+currentSection.sectionUrl
+        let url = novelInfo.url.substring(from: 19) + "/"+currentSection.sectionUrl
         isLoading = true
         provider.rx.request(.GetNovel(url)).filterSuccessfulStatusCodes().mapNovelSection().subscribe({ [weak self](str) in
             self?.isLoading = false
@@ -85,7 +85,7 @@ class NovelContentViewModel {
     }
 
     func getNovelSections()  {
-        let path = novelInfo.url.subToEnd(start: 19)
+        let path = novelInfo.url.substring(from: 19)
         provider.rx.request(.GetSection(path)).filterSuccessfulStatusCodes().mapSectionInfo().subscribe({ [weak self] (str) in
             switch(str){
             case let .success(result):

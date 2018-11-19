@@ -56,7 +56,7 @@ class SectionListViewModel {
     
     func initData(){
         weak var wkself = self
-        let path = novelInfo.value.url.subToEnd(start: 19)
+        let path = novelInfo.value.url.substring(from: 19)
         GrandCue.showLoading()
         provider.rx.request(.GetSection(path)).filterSuccessfulStatusCodes().mapSectionInfo().subscribe({ (str) in
             GrandCue.dismissLoading()

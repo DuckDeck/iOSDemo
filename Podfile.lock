@@ -21,16 +21,16 @@ PODS:
   - MJRefresh (3.1.15.7)
   - MLeaksFinder (1.0.0):
     - FBRetainCycleDetector
-  - Moya (11.0.2):
-    - Moya/Core (= 11.0.2)
-  - Moya/Core (11.0.2):
+  - Moya (12.0.1):
+    - Moya/Core (= 12.0.1)
+  - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
-    - Result (~> 3.0)
-  - Moya/RxSwift (11.0.2):
+    - Result (~> 4.0)
+  - Moya/RxSwift (12.0.1):
     - Moya/Core
     - RxSwift (~> 4.0)
   - netfox (1.13.0)
-  - Result (3.2.4)
+  - Result (4.0.0)
   - RxAtomic (4.4.0)
   - RxCocoa (4.4.0):
     - RxSwift (~> 4.0)
@@ -45,7 +45,7 @@ PODS:
   - SwiftyJSON (4.2.0)
   - TZImagePickerController (3.1.2)
   - URLNavigator (2.1.0)
-  - ViewChaos (1.5.0)
+  - ViewChaos (1.5.1)
   - WSProgressHUD (1.1.3):
     - Shimmer
 
@@ -129,9 +129,9 @@ SPEC CHECKSUMS:
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
-  Moya: a725035953bc1c0eb1be505ab903984501d82440
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   netfox: 44e626a4fe8bd1cde774346b03edb84a593077de
-  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
@@ -141,9 +141,9 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   TZImagePickerController: 29b279caee3309cbaa04ef1384b036ec90297f3f
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
-  ViewChaos: 375a3e48bfe82ca5c65966142f47bb84ce82b3ab
+  ViewChaos: 04994fba914627016e618d0525654111e2a1813c
   WSProgressHUD: a0902809c8af112fb34b004fdc75c16eb85167a3
 
 PODFILE CHECKSUM: 8516bc736b884e7cfb7646ae4add22e8da53a57c
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.6.0.beta.2

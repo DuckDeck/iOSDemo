@@ -9,7 +9,7 @@
 import UIKit
 import URLNavigator
 struct  NavigationMap{
-    static func initialize(navigator: NavigatorType){
+    static func initialize(){
         let nav = Navigator()
         nav.register(Routers.bookmark) { (url, values, context) -> UIViewController? in
             return BookmarkViewController()
