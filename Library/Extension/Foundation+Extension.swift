@@ -7,7 +7,7 @@
 //  Copyright © 2017 Stan Hu. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import GrandTime
 import AVKit
 extension NSObject{
@@ -225,6 +225,7 @@ extension Array{
         }
         return tmp
     }
+
 }
 
 extension Dictionary{
@@ -381,3 +382,24 @@ extension URL{
     }
 }
 
+
+extension Sequence where Element:Hashable{
+    
+    //如果集合中所有元素都满足要求就返回true
+    public func all(matching predicate:(Element)->Bool)->Bool{
+        return !contains{!predicate($0)}
+    }
+    //返回该集合中所有唯一的元素
+    public func unique()->[Element]{
+        var seen:Set<Element> = []
+        return filter({ (element) -> Bool in
+            if seen.contains(element){
+                return false
+            }
+            else{
+                seen.insert(element)
+                return true
+            }
+        })
+    }
+}
