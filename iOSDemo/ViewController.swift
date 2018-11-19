@@ -34,6 +34,30 @@ class ViewController: UIViewController {
         ShadowDataManager.clearCache()
         Toast.showToast(msg: "清除音视频文件成功")
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("Old ViewController viewWillDisappear")
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("Old ViewController viewDidDisappear")
+    }
+   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("Old ViewController viewWillAppear")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("Old ViewController viewDidAppear")
+    }
+    
+    //所以Push产析ViewController的生命周期是:
+    //新的VC LoadView -> viewDidLoad 旧的VC  viewWillDisappear 新的VC viewWillAppear 旧的VC viewDidDisappear   新的VC viewDidAppear
+    //Pop新的VC到旧的VC的生命周期是:
+    //新的VC viewWillDisappear 旧的VC viewWillAppear 新的VC viewDidDisappear 旧的VC viewDidAppear 新的VC deinit
 }
 
 

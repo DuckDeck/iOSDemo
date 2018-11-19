@@ -14,6 +14,11 @@ class MediaViewController: UIViewController {
     var arrData = ["CaptureVideo","Play Music","Add Watermark","Record Audio","Record Video","Take Photo","Gif","Palette","Compress Image","opencv"]
     var tbMenu = UITableView()
     
+    override func loadView() {
+        super.loadView()
+        print("New ViewController LoadView")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -26,7 +31,33 @@ class MediaViewController: UIViewController {
         tbMenu.snp.makeConstraints { (m) in
             m.edges.equalTo(0)
         }
+        
+        print("New ViewController viewDidLoad")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+       print("New ViewController viewWillAppear")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("New ViewController viewDidAppear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("New ViewController viewWillDisappear")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("New ViewController viewDidDisappear")
+    }
+    deinit {
+        print("New ViewController deinit")
+    }
+    
 }
 
 extension MediaViewController:UITableViewDelegate,UITableViewDataSource{
