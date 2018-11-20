@@ -161,6 +161,7 @@ print(test1.jsonValue)
 */
 
 
+/*
 let test = [23,112,3,4,5]
 for x in test.dropLast(){  //不要最后一个
     print(x)
@@ -176,11 +177,9 @@ for x in test.dropLast(3){
 for (index,value) in test.enumerated(){//这样就有了index
     print("\(index) : \(value)")
 }
-
+*/
 //“想要寻找一个指定元素的位置” 这个index真没有
 
-let z = test.reduce(0,+)
-print(z)
 
 let k = (1..<20).map{$0*$0}.filter{$0%2==0}
 print(k)
@@ -192,3 +191,12 @@ let res = testdict.mapValues { (s) -> String in
 }
 print(res)
 
+var testdict1 = testdict
+
+print(testdict as NSDictionary == testdict1 as NSDictionary)
+print(testdict1)
+testdict1["a"] = "aaa123"
+print(testdict1)
+print(testdict1.hashValue == testdict.hashValue)
+
+objc_object
