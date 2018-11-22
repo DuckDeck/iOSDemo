@@ -94,7 +94,7 @@ class Auth:NSObject {
         case .authorized:
             grandBLock(true)
         case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted) in
+            AVCaptureDevice.requestAccess(for: .audio, completionHandler: { (granted) in
                 grandBLock(granted)
             })
             
