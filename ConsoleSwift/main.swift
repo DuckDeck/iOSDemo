@@ -199,4 +199,29 @@ testdict1["a"] = "aaa123"
 print(testdict1)
 print(testdict1.hashValue == testdict.hashValue)
 
-objc_object
+
+let txt = "知识小集是由几位志同道合的伙伴组成。你了解这个团队吗？我们在一起相处了 1 年多的时光！我想说：“我们是最棒的！”"
+let sss = txt.count
+
+
+//txt.enumerateSubstrings(in: ss, options: String.EnumerationOptions.bySentences) { (str, _, _, _) in
+//
+//}
+
+
+
+extension String {
+    func toRange(_ range: NSRange) -> Range<String.Index>? {
+        guard let from16 = utf16.index(utf16.startIndex, offsetBy: range.location, limitedBy: utf16.endIndex) else { return nil }
+        guard let to16 = utf16.index(from16, offsetBy: range.length, limitedBy: utf16.endIndex) else { return nil }
+        guard let from = String.Index(from16, within: self) else { return nil }
+        guard let to = String.Index(to16, within: self) else { return nil }
+        return from ..< to
+    }
+}
+
+let t = txt.toRange(NSRange(location: 0, length: sss))
+
+txt.enumerateSubstrings(in: t!, options: String.EnumerationOptions.bySentences) { (str, r1, r2, stop) in
+    print("sentence\(str)")
+}
