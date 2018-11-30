@@ -29,7 +29,7 @@
         <div>
             <div><input type="button" value="点击触发JS输入方法(callJsInput) " onclick="callJsInput()"></div><br/>
         </div>
-        
+        <div id="jsParamFuncSpan"></div>
         <br/>
         <div>Native->Javascript</div>
         <div id="SwiftDiv">
@@ -60,16 +60,20 @@
         }
         
         function openAlbum(){
-           
+            var param = {
+                title:"openAlbum",
+                message: "请输入你的名字:",
+            };
+            window.webkit.messageHandlers.mobile.postMessage(param);
         }
         
         function callJsConfirm() {
+            //看来WKWebView不支持confirm和prompt，直接就给false
             if (confirm('confirm', 'Objective-C call js to show confirm')) {
-                document.getElementById('jsParamFuncSpan').innerHTML
-                = 'true';
+                document.getElementById('jsParamFuncSpan').innerHTML   = 'true';
             } else {
-                document.getElementById('jsParamFuncSpan').innerHTML
-                = 'false';
+                alert('WKWebView不支持直接在JS里调用confirm和prompt')
+                document.getElementById('jsParamFuncSpan').innerHTML   = 'false';
             }
             
         }
@@ -77,8 +81,14 @@
         function callJsInput() {
             var response = prompt('Hello', '请输入你的名字:');
             document.getElementById('jsParamFuncSpan').innerHTML = response;
-            alert (response);
-            
+            //alert (response);
+           //alert('WKWebView不支持直接在JS里调用confirm和prompt')
+           
+           var param = {
+               title:"openPrompt",
+               message: "请输入你的名字:",
+           };
+           window.webkit.messageHandlers.mobile.postMessage(param);
         }
         
         function cleanAllCallBacks(){

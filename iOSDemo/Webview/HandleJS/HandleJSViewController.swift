@@ -8,9 +8,11 @@
 
 import UIKit
 import WebKit
+import TZImagePickerController
 //这里用js打开相册和摄像头
 class HandleJSViewController: BaseViewController {
     var web:WKWebView!
+    var imagePickerController:TZImagePickerController!
     override func viewDidLoad() {
         super.viewDidLoad()
         let btnRunjs = UIBarButtonItem(title: "RunJs", style: .plain, target: self, action: #selector(runJS))
@@ -56,7 +58,25 @@ extension HandleJSViewController:WKUIDelegate,WKNavigationDelegate,WKScriptMessa
         let title = dict["title"] as? String
         let message = dict["message"] as? String
         //这些信息要商量好
-        UIAlertController.title(title: title ?? "", message: message ?? "").action(title: "OK", handle: nil).show()
+       
+        if let t = title , t == "openPrompt"{
+            web.evaluate(script: "confirm('Hello from evaluateJavascript()')") { (res, err) in
+                UIAlertController.title(title:  "不支持", message: "WKWebView不支持调用confirm和prompt").action(title: "OK", handle: nil).show()
+            }
+        }
+        else if let t = title , t == "openAlbum"{
+            imagePickerController = TZImagePickerController(maxImagesCount: 1, delegate: self)
+            imagePickerController.didFinishPickingPhotosHandle = {(images,assert,isSelectOriginalPhoto) in
+               
+            }
+            present(imagePickerController, animated: true, completion: nil)
+        }
+        else{
+            UIAlertController.title(title: title ?? "", message: message ?? "").action(title: "OK", handle: nil).show()
+        }
+        
+        
+        
     }
     
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
@@ -64,6 +84,10 @@ extension HandleJSViewController:WKUIDelegate,WKNavigationDelegate,WKScriptMessa
         completionHandler()
     }
     
+    
+}
+
+extension HandleJSViewController:TZImagePickerControllerDelegate{
     
 }
 

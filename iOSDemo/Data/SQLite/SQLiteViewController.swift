@@ -62,7 +62,7 @@ class SQLiteViewController: UIViewController {
     
        
         let dict = ["phone":phone,"imei":imei,"idfa":IDFA,"latitude":lat,"longtitude":lon,"version":APPVersion,"log":logs.jsonValue,"address":address] as [String : Any]
-        HttpClient.post("http://127.0.0.1:3000/api/easylog").addParams(dict).completion { (data, err) in
+        HttpClient.post("http://api.bqbbq.com/api/easylog").addParams(dict).completion { (data, err) in
             if let s = String(data: data!, encoding: String.Encoding.utf8){
                 print(s)
             }

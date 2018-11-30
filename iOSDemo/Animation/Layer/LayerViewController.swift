@@ -125,6 +125,21 @@ class LayerViewController: BaseViewController,CALayerDelegate {
         ly2.frame = CGRect(x: 0, y: 0, w: ScreenWidth, h: 44)
         line.layer.insertSublayer(ly2, at: 0)
         view.addSubview(line)
+        
+        let vDash = UILabel()
+        vDash.text = "我有虚线边框"
+        vDash.frame = CGRect(x: 100, y: ScreenHeight - 100, w: 200, h: 50)
+        vDash.backgroundColor = UIColor.lightGray
+        let borderLayer = CAShapeLayer()
+        borderLayer.strokeColor = UIColor.purple.cgColor
+        borderLayer.fillColor = nil
+        borderLayer.lineDashPattern = [4,2]
+        borderLayer.path = UIBezierPath(rect: vDash.bounds).cgPath
+        borderLayer.frame = vDash.bounds
+        vDash.layer.addSublayer(borderLayer)
+        view.addSubview(vDash)
+        
+        
     }
 
      func drawLayer(layer: CALayer!, inContext ctx: CGContext!) {

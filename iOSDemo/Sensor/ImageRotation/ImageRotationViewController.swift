@@ -69,9 +69,9 @@ class ImageRotationViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "拉", style: .plain, target: self, action: #selector(getData))
         weak var weakself = self
         timer = GrandTimer.every(TimeSpan.fromTicks(20), block: {
-//            print("x=\(String(describing: weakself?.cmManager.accelerometerData?.acceleration.x))")
-//            print("y=\(String(describing: weakself?.cmManager.accelerometerData?.acceleration.y))")
-//            print("z=\(String(describing: weakself?.cmManager.accelerometerData?.acceleration.z))")
+            print("x=\(String(describing: weakself?.cmManager.accelerometerData?.acceleration.x))")
+            print("y=\(String(describing: weakself?.cmManager.accelerometerData?.acceleration.y))")
+            print("z=\(String(describing: weakself?.cmManager.accelerometerData?.acceleration.z))")
             weakself?.lbl1.text = "x: \(weakself!.cmManager.accelerometerData!.acceleration.x)"
             
             weakself?.lbl2.text = "y: \(weakself!.cmManager.accelerometerData!.acceleration.y)"
