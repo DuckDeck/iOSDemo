@@ -16,6 +16,7 @@
 #import "Runspector.h"
 #import "AspectProxy.h"
 #import "ConcurrentProcessor.h"
+#import "Lock.h"
 @interface Father : NSObject
 @property (nonatomic,copy) NSString* p1;
 @end
@@ -90,6 +91,8 @@ int main(int argc, const char * argv[]) {
         */
         
         [ConcurrentProcessor testThis];
+        
+        [[Lock new] ticketTest];
         
     }
     return 0;

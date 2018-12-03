@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import netfox
+//import KTVHTTPCache
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?

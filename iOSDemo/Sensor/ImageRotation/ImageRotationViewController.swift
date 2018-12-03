@@ -24,6 +24,14 @@ class ImageRotationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        img.image = UIImage(named: "2")
+        img.contentMode = .scaleAspectFit
+        view.addSubview(img)
+        img.snp.makeConstraints { (m) in
+           m.edges.equalTo(view)
+        }
+        
+        
         lbl1.numberOfLines = 0
         view.addSubview(lbl1)
         lbl1.snp.makeConstraints { (m) in
@@ -50,14 +58,7 @@ class ImageRotationViewController: UIViewController {
         
         
         
-        img.image = UIImage(named: "2")
-        img.contentMode = .scaleAspectFit
-        view.addSubview(img)
-        img.snp.makeConstraints { (m) in
-            m.left.equalTo(10)
-            m.top.equalTo(140)
-        }
-        
+      
         
         view.backgroundColor = UIColor.white
         
@@ -93,7 +94,7 @@ class ImageRotationViewController: UIViewController {
             let rotation = atan2(weakself!.getAvgX(), weakself!.getAvgY()) - Double.pi
             weakself?.img.transform = CGAffineTransform(rotationAngle: CGFloat(rotation))
         })
-        
+        timer?.fire()
         // Do any additional setup after loading the view.
     }
 
