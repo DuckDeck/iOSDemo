@@ -8,6 +8,7 @@ https://pan.baidu.com/disk/home?#/all?vmode=list&path=%2F%E5%BC%80%E5%8F%91
 还有就是机器学习的mlmodel文件
 https://developer.apple.com/machine-learning/build-run-models/，在里下载 ResNet50文件放到AL文件夹就行
 因为新的Router组件API设计可能和MVVM框架不好集成，所以目前导航功能不能用
+
 项目一： Novel小说 APP
 ![惯例的开场美图](http://upload-images.jianshu.io/upload_images/1281203-3f339ba854803865.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
