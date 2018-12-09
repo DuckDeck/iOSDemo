@@ -5,8 +5,10 @@
 因为我添加了FFMpeg和Opencv所以这个项目现在跑不起来。需要去
 https://pan.baidu.com/disk/home?#/all?vmode=list&path=%2F%E5%BC%80%E5%8F%91
 下载需要的文件才能跑起来
+
 还有就是机器学习的mlmodel文件
 https://developer.apple.com/machine-learning/build-run-models/，在里下载 ResNet50文件放到AL文件夹就行
+
 因为新的Router组件API设计可能和MVVM框架不好集成，所以目前导航功能不能用
 
 项目一： Novel小说 APP
