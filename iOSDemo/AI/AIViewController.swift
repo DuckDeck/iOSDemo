@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 class AIViewController: UIViewController {
 
-    var arrData = ["Image Recognition"]
+    var arrData = ["Image Recognition","OpenCV图像识别"]
     var tbMenu = UITableView()
     
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ extension AIViewController:UITableViewDelegate,UITableViewDataSource{
                 // Fallback on earlier versions
             }
         case 1:
-            break
+             navigationController?.pushViewController(OpenCVImageRecognitionViewController(), animated: true)
         case 2:
             break
             
