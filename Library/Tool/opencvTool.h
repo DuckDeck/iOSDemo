@@ -25,8 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIImage *)imageWithColor:(UIColor *)rectColor size:(CGSize)size rectArray:(NSArray *)rectArray;
 
 
-//将CMSampleBufferRef转为cv::Mat
-+ (UIImage *)bufferToMat:(CMSampleBufferRef) sampleBuffer;
 
 @end
 

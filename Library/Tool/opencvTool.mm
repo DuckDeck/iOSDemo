@@ -5,10 +5,10 @@
 //  Created by Stan Hu on 2018/10/24.
 //  Copyright © 2018 Stan Hu. All rights reserved.
 //
-
-#import "opencvTool.h"
 #import <opencv2/opencv.hpp>
 #import <opencv2/imgcodecs/ios.h>
+#import "opencvTool.h"
+
 @interface opencvTool ()
 
 @end
@@ -70,37 +70,5 @@
     return img;
 }
 
-
-#pragma mark - 将CMSampleBufferRef转为cv::Mat
-+(UIImage *)bufferToMat:(CMSampleBufferRef) sampleBuffer{
-    CVImageBufferRef imgBuf = CMSampleBufferGetImageBuffer(sampleBuffer);
-    
-    //锁定内存
-    CVPixelBufferLockBaseAddress(imgBuf, 0);
-    // get the address to the image data
-    void *imgBufAddr = CVPixelBufferGetBaseAddress(imgBuf);
-    
-    // get image properties
-    int w = (int)CVPixelBufferGetWidth(imgBuf);
-    int h = (int)CVPixelBufferGetHeight(imgBuf);
-    
-    // create the cv mat
-    cv::Mat mat(h, w, CV_8UC4, imgBufAddr, 0);
-    //    //转换为灰度图像
-    //    cv::Mat edges;
-    //    cv::cvtColor(mat, edges, CV_BGR2GRAY);
-    
-    //旋转90度
-    cv::Mat transMat;
-    cv::transpose(mat, transMat);
-    
-    //翻转,1是x方向，0是y方向，-1位Both
-    cv::Mat flipMat;
-    cv::flip(transMat, flipMat, 1);
-    
-    CVPixelBufferUnlockBaseAddress(imgBuf, 0);
-    
-    return MatToUIImage(flipMat);
-}
 
 @end

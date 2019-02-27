@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface OpenCVHandle : NSObject
 
 -(UIImage *) RegImage:(CMSampleBufferRef)buff;
-
+-(UIImage *) RegImage2:(UIImage* )img;
 @end
 
 NS_ASSUME_NONNULL_END

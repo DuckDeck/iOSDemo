@@ -10,11 +10,18 @@ import UIKit
 import AVFoundation
 class OpenCVImageRecognitionViewController: OpenCVBaseViewController {
   
-    var previewImage : UIImage?
+    
     var handle:OpenCVHandle!
+    var previewImage : UIImage?
+   let imgView = UIImageView()
     override func viewDidLoad() {
         super.viewDidLoad()
-     Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(setPreviewImage), userInfo: nil, repeats: true)
+        let layerWidth = view.bounds.size.width - 40
+        imgView.addTo(view: view).snp.makeConstraints { (m) in
+            m.top.equalTo(layerWidth + 100)
+            m.centerX.equalTo(view)
+            m.width.height.equalTo(layerWidth)
+        }
         handle = OpenCVHandle()
         // Do any additional setup after loading the view.
     }
@@ -27,6 +34,11 @@ class OpenCVImageRecognitionViewController: OpenCVBaseViewController {
         }
         let ciimage = CIImage(cvImageBuffer: imageBuffer)
         previewImage = convertCIImageToUIImage(cimage: ciimage)
+        let img = handle.regImage2(previewImage!)
+        DispatchQueue.main.sync {
+           
+            tagLayer?.contents = img.cgImage
+        }
     }
 
     func convertCIImageToUIImage(cimage:CIImage) -> UIImage? {
@@ -36,13 +48,6 @@ class OpenCVImageRecognitionViewController: OpenCVBaseViewController {
         }
         let image = UIImage(cgImage: cgImage, scale: 1, orientation: UIImage.Orientation.right)
         return image
-    }
-    @objc func setPreviewImage()  {
-        if previewImage == nil{
-            return
-        }
-        let image = handle.regImage(previewImage!)
-        tagLayer?.contents = image.cgImage
     }
 
 }
@@ -54,6 +59,9 @@ extension OpenCVImageRecognitionViewController:AVCaptureVideoDataOutputSampleBuf
 
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         connection.videoOrientation = AVCaptureVideoOrientation.portrait
+//        let img = handle.regImage(sampleBuffer)
+//        tagLayer?.contents = img.cgImage
+        
         updatePreviewImage(sampleBuffer: sampleBuffer)
     }
 }

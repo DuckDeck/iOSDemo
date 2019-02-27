@@ -24,7 +24,7 @@
 {
     self = [super init];
     if (self) {
-        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"lbpcascade_frontalface" ofType:nil];
+        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"lbpcascade_frontalface.xml" ofType:nil];
         cv::String fileName = [bundlePath cStringUsingEncoding:NSUTF8StringEncoding];
         
         BOOL isSuccessLoadFile = icon_cascade.load(fileName);
@@ -46,17 +46,72 @@
     
     [NSThread sleepForTimeInterval:0.5];
     cv::Mat imgMat;
-    imgMat = [opencvTool bufferToMat:buff]
+    
+    
+    CVImageBufferRef imgBuf = CMSampleBufferGetImageBuffer(buff);
+    
+    //锁定内存
+    CVPixelBufferLockBaseAddress(imgBuf, 0);
+    // get the address to the image data
+    void *imgBufAddr = CVPixelBufferGetBaseAddress(imgBuf);
+    
+    // get image properties
+    int w = (int)CVPixelBufferGetWidth(imgBuf);
+    int h = (int)CVPixelBufferGetHeight(imgBuf);
+    
+    // create the cv mat
+    cv::Mat mat(h, w, CV_8UC4, imgBufAddr, 0);
+    //    //转换为灰度图像
+    //    cv::Mat edges;
+    //    cv::cvtColor(mat, edges, CV_BGR2GRAY);
+    
+    //旋转90度
+    cv::Mat transMat;
+    cv::transpose(mat, transMat);
+    
+    //翻转,1是x方向，0是y方向，-1位Both
+   
+    cv::flip(transMat, imgMat, 1);
+    
+    CVPixelBufferUnlockBaseAddress(imgBuf, 0);
+    
+    
     
     cv::cvtColor(imgMat, imgMat, cv::COLOR_BGR2GRAY);
     UIImage *tempImg = MatToUIImage(imgMat);
     
     //获取标记的矩形
     NSArray *rectArr = [self getTagRectInLayer:imgMat];
+    
+    NSLog(@"识别到%lu个目标",(unsigned long)[rectArr count]);
+    
     //转换为图片
     UIImage *rectImg = [opencvTool imageWithColor:[UIColor redColor] size:tempImg.size rectArray:rectArr];
     
-   
+    return rectImg;
+}
+
+
+-(UIImage *) RegImage2:(UIImage* )img{
+    if(!isSuccessLoadXml){
+        return nil;
+    }
+    
+    [NSThread sleepForTimeInterval:0.5];
+    cv::Mat imgMat;
+    
+    UIImageToMat(img, imgMat);
+        
+    cv::cvtColor(imgMat, imgMat, cv::COLOR_BGR2GRAY);
+    UIImage *tempImg = MatToUIImage(imgMat);
+    
+    //获取标记的矩形
+    NSArray *rectArr = [self getTagRectInLayer:imgMat];
+    
+    NSLog(@"识别到%lu个目标",(unsigned long)[rectArr count]);
+    
+    //转换为图片
+    UIImage *rectImg = [opencvTool imageWithColor:[UIColor redColor] size:tempImg.size rectArray:rectArr];
     
     return rectImg;
 }
