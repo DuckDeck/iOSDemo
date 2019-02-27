@@ -17,4 +17,5 @@
 #import "iOSPalette.h"
 #import "JXLayoutButton.h"
 #import "opencvTool.h"
+#import "OpenCVHandle.h"
 #endif /* bridge_h */

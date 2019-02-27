@@ -10,20 +10,35 @@ import UIKit
 import AVFoundation
 class OpenCVBaseViewController: BaseViewController {
 
-    var previewLayer:AVCaptureVideoPreviewLayer
-    var tagLayer:CAShapeLayer
+    var previewLayer:AVCaptureVideoPreviewLayer? = nil
+    var tagLayer:CAShapeLayer? = nil
+    var session:AVCaptureSession! = nil
+    lazy var frontCameraInput:AVCaptureDeviceInput? = {
+        guard let device = cameraWithPosition(position: AVCaptureDevice.Position.front) else{
+            print("获取前置摄像头失败")
+            return nil
+        }
+        let input = try? AVCaptureDeviceInput(device: device)
+        return input
+    }()
+     lazy var backCameraInput:AVCaptureDeviceInput? = {
+        guard let device = cameraWithPosition(position: AVCaptureDevice.Position.back) else{
+            print("获取后置摄像头失败")
+            return nil
+        }
+        let input = try? AVCaptureDeviceInput(device: device)
+        return input
+    }()
     
-    fileprivate var session:AVCaptureSession
-    fileprivate var frontCameraInput:AVCaptureDeviceInput
-    fileprivate var backCameraInput:AVCaptureDeviceInput
+    var isDeicePositionFront = false
     
-    fileprivate var isDeicePositionFront = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let btnRight = UIButton(type: .system)
-        btnRight.setTitle("切换rr摄像头", for: .normal)
+        btnRight.setTitle("切换摄像头", for: .normal)
         btnRight.sizeToFit()
         btnRight.addTarget(self, action: #selector(switchCamera(sender:)), for: .touchUpInside)
         let item = UIBarButtonItem(customView: btnRight)
@@ -36,19 +51,21 @@ class OpenCVBaseViewController: BaseViewController {
     @objc func switchCamera(sender:UIButton)  {
         if isDeicePositionFront{
             session.stopRunning()
-            session.removeInput(frontCameraInput)
-            if session.canAddInput(backCameraInput){
-                session.addInput(backCameraInput)
+            session.removeInput(frontCameraInput!)
+            if session.canAddInput(backCameraInput!){
+                session.addInput(backCameraInput!)
                 session.startRunning()
             }
+            isDeicePositionFront = false
         }
         else{
             session.stopRunning()
-            session.removeInput(backCameraInput)
-            if session.canAddInput(frontCameraInput){
-                session.addInput(frontCameraInput)
+            session.removeInput(backCameraInput!)
+            if session.canAddInput(frontCameraInput!){
+                session.addInput(frontCameraInput!)
                 session.startRunning()
             }
+            isDeicePositionFront = false
         }
     }
 
@@ -63,10 +80,10 @@ class OpenCVBaseViewController: BaseViewController {
         
         let setting = [kCVPixelBufferPixelFormatTypeKey as String:kCVPixelFormatType_32BGRA]
         output.videoSettings = setting
-        output.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .default))
+        output.setSampleBufferDelegate((self as! AVCaptureVideoDataOutputSampleBufferDelegate), queue: DispatchQueue.global(qos: .default))
         
-        if session.canAddInput(input){
-            session.addInput(input)
+        if session.canAddInput(input!){
+            session.addInput(input!)
         }
         if session.canAddOutput(output){
             session.addOutput(output)
@@ -75,7 +92,7 @@ class OpenCVBaseViewController: BaseViewController {
         let _previewLayer = AVCaptureVideoPreviewLayer(session: session)
         
         let layerWidth = view.bounds.size.width - 40
-        previewLayer.frame = CGRect(x: 20, y: 70, w: layerWidth, h: layerWidth)
+        _previewLayer.frame = CGRect(x: 20, y: 70, w: layerWidth, h: layerWidth)
         
         _previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         
@@ -83,7 +100,7 @@ class OpenCVBaseViewController: BaseViewController {
         self.previewLayer = _previewLayer
         
         let targetLayer = CAShapeLayer()
-        targetLayer.frame = previewLayer.frame
+        targetLayer.frame = CGRect(x: 20, y: 70 , w: layerWidth, h: layerWidth)
         view.layer.addSublayer(targetLayer)
         targetLayer.backgroundColor = UIColor.clear.cgColor
         tagLayer = targetLayer
@@ -91,15 +108,15 @@ class OpenCVBaseViewController: BaseViewController {
         
     }
  
-
-}
-extension OpenCVBaseViewController:AVCaptureVideoDataOutputSampleBufferDelegate{
-    func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
-    }
     
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        connection.videoOrientation = AVCaptureVideoOrientation.portrait
-        updatePreviewImage(sampleBuffer: sampleBuffer)
+    func cameraWithPosition(position:AVCaptureDevice.Position) -> AVCaptureDevice? {
+        let devices = AVCaptureDevice.devices(for: .video)
+        for dev in devices{
+            if dev.position == position{
+                return dev
+            }
+        }
+        return nil
     }
+
 }

@@ -175,6 +175,7 @@
 		AE69C5A4222526AD004DC8AE /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = AE69C5A2222526AD004DC8AE /* haarcascade_eye_tree_eyeglasses.xml */; };
 		AE69C5A9222533D1004DC8AE /* OpenCVImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69C5A8222533D1004DC8AE /* OpenCVImageRecognitionViewController.swift */; };
 		AE69C5AB22253518004DC8AE /* OpenCVBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69C5AA22253518004DC8AE /* OpenCVBaseViewController.swift */; };
+		AE69C5AE22263537004DC8AE /* OpenCVHandle.mm in Sources */ = {isa = PBXBuildFile; fileRef = AE69C5AD22263537004DC8AE /* OpenCVHandle.mm */; };
 		AE7278A9207F5A28005D9D6D /* SoundRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7278A8207F5A28005D9D6D /* SoundRecordViewController.swift */; };
 		AE7BBCE4207B498B005DBE0C /* WatermarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BBCE3207B498B005DBE0C /* WatermarkViewController.swift */; };
 		AE7BBCE6207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BBCE5207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift */; };
@@ -419,7 +420,7 @@
 		AE4EA74E21806C2A0061FA84 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		AE4EA75021806C390061FA84 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		AE4EA75221806C3F0061FA84 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		AE4EA758218071C30061FA84 /* opencvTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = opencvTool.h; sourceTree = "<group>"; };
+		AE4EA758218071C30061FA84 /* opencvTool.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = opencvTool.h; sourceTree = "<group>"; };
 		AE4EA759218071C30061FA84 /* opencvTool.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = opencvTool.mm; sourceTree = "<group>"; };
 		AE4EA75B218072580061FA84 /* opencvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = opencvViewController.swift; sourceTree = "<group>"; };
 		AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitViewController.swift; sourceTree = "<group>"; };
@@ -469,6 +470,8 @@
 		AE69C5A2222526AD004DC8AE /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
 		AE69C5A8222533D1004DC8AE /* OpenCVImageRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCVImageRecognitionViewController.swift; sourceTree = "<group>"; };
 		AE69C5AA22253518004DC8AE /* OpenCVBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCVBaseViewController.swift; sourceTree = "<group>"; };
+		AE69C5AC22263537004DC8AE /* OpenCVHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVHandle.h; sourceTree = "<group>"; };
+		AE69C5AD22263537004DC8AE /* OpenCVHandle.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVHandle.mm; sourceTree = "<group>"; };
 		AE7278A8207F5A28005D9D6D /* SoundRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRecordViewController.swift; sourceTree = "<group>"; };
 		AE7BBCE3207B498B005DBE0C /* WatermarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkViewController.swift; sourceTree = "<group>"; };
 		AE7BBCE5207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift"; sourceTree = "<group>"; };
@@ -1274,6 +1277,8 @@
 			isa = PBXGroup;
 			children = (
 				AE69C5A8222533D1004DC8AE /* OpenCVImageRecognitionViewController.swift */,
+				AE69C5AC22263537004DC8AE /* OpenCVHandle.h */,
+				AE69C5AD22263537004DC8AE /* OpenCVHandle.mm */,
 			);
 			path = OpenCVImageRecognition;
 			sourceTree = "<group>";
@@ -2134,6 +2139,7 @@
 				AE9F32851F690F5200339BB8 /* GrandModel.swift in Sources */,
 				AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */,
 				AE0F70241FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */,
+				AE69C5AE22263537004DC8AE /* OpenCVHandle.mm in Sources */,
 				AEADFD2A2105B40E00E6B58D /* JXLayoutButton.m in Sources */,
 				AE83BD711FDE72BF001882D1 /* ImageRotationViewController.swift in Sources */,
 				AE3F46EE20AC0300007BA637 /* UIColor+Extension.swift in Sources */,
@@ -2403,6 +2409,9 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/framework",
 				);
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/usr/include/libxml2",
@@ -2441,6 +2450,9 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/framework",
 				);
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/usr/include/libxml2",
