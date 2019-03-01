@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import URLNavigator
 class ProjectViewController: UIViewController {
 
-    var arrData = ["Novel","LinkGame","PointLock"]
+    var arrData = ["LinkGame","PointLock"]
     var tbMenu = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +40,10 @@ extension ProjectViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
+      
         case 0:
-            NavigationMap.initialize() //现在的API改成每个ViewController都有Navigator了，我不喜欢这样，感觉要换一个,目前这个功能就用不了
-            navigationController?.pushViewController(NovelViewController(), animated: true)
-        case 1:
            navigationController?.pushViewController(LinkGameViewController(), animated: true)
-        case 2:
+        case 1:
             navigationController?.pushViewController(PointLockViewController(), animated: true)
         default:
             break

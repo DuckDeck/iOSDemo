@@ -1,12 +1,12 @@
 PODS:
-  - Alamofire (4.7.3)
+  - Alamofire (4.8.1)
   - AMap3DMap (6.5.0):
     - AMapFoundation (~> 1.5)
-  - AMapFoundation (1.5.5)
+  - AMapFoundation (1.5.6)
   - AMapLocation (2.6.1):
     - AMapFoundation (~> 1.4)
   - Differentiator (3.1.0)
-  - Eureka (4.3.0)
+  - Eureka (4.3.1)
   - FBRetainCycleDetector (0.1.4)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -16,8 +16,8 @@ PODS:
   - GrandStore (1.1.0)
   - GrandTime (1.4.0)
   - IQKeyboardManagerSwift (6.2.0)
-  - Kanna (4.0.2)
-  - Kingfisher (4.10.1)
+  - Kanna (4.0.3)
+  - Kingfisher (5.2.0)
   - MJRefresh (3.1.15.7)
   - MLeaksFinder (1.0.0):
     - FBRetainCycleDetector
@@ -29,29 +29,28 @@ PODS:
   - Moya/RxSwift (12.0.1):
     - Moya/Core
     - RxSwift (~> 4.0)
-  - netfox (1.13.0)
-  - Result (4.0.0)
-  - RxAtomic (4.4.0)
-  - RxCocoa (4.4.0):
+  - netfox (1.15.0)
+  - Result (4.1.0)
+  - RxAtomic (4.4.1)
+  - RxCocoa (4.4.1):
     - RxSwift (~> 4.0)
   - RxDataSources (3.1.0):
     - Differentiator (~> 3.0)
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-  - RxSwift (4.4.0):
+  - RxSwift (4.4.1):
     - RxAtomic (~> 4.4)
   - Shimmer (1.0.2)
   - SnapKit (4.2.0)
   - SwiftyJSON (4.2.0)
-  - TZImagePickerController (3.1.2)
-  - URLNavigator (2.1.0)
+  - TZImagePickerController (3.1.9)
   - ViewChaos (1.5.1)
   - WSProgressHUD (1.1.3):
     - Shimmer
 
 DEPENDENCIES:
   - Alamofire
-  - AMap3DMap
+  - AMap3DMap (= 6.5.0)
   - AMapLocation
   - Eureka
   - FMDB
@@ -73,7 +72,6 @@ DEPENDENCIES:
   - SnapKit
   - SwiftyJSON
   - TZImagePickerController
-  - URLNavigator
   - ViewChaos
   - WSProgressHUD
 
@@ -107,17 +105,16 @@ SPEC REPOS:
     - SnapKit
     - SwiftyJSON
     - TZImagePickerController
-    - URLNavigator
     - ViewChaos
     - WSProgressHUD
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   AMap3DMap: cbe10cc4302ac3f2817ef4221e1259d7e18d1c2f
-  AMapFoundation: 652bd70ba579f48a98bdf0c74d6e62a89a06ca58
+  AMapFoundation: 20fce2a12cd152e1092afdd04379cdac21932185
   AMapLocation: cf024b53dc03663efb4ea4bcce27d4cce58bb97a
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
+  Eureka: 28ea296f06710f6745266b71f17862048941a32d
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Gifu: 7bcb6427457d85e0b4dff5a84ec5947ac19a93ea
@@ -125,25 +122,24 @@ SPEC CHECKSUMS:
   GrandStore: 577b6bd733611d054a4463dcf32d418806367985
   GrandTime: 69143fc82e14bc2c22afd8d3cc6fffb65e4cb871
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
-  Kanna: c60b61d72554bf04ed1ee074f9b379855cab4892
-  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  Kanna: 0ebbdd0e7e3308f0aafbd569e79c8cadc5eb877c
+  Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
-  netfox: 44e626a4fe8bd1cde774346b03edb84a593077de
-  Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
-  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
-  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  netfox: 6ddcca687ad0a58550054fea481cb487461b5e0c
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
+  RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
-  TZImagePickerController: 29b279caee3309cbaa04ef1384b036ec90297f3f
-  URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
+  TZImagePickerController: c3f7c505d23281e21e98df6dbeae372946caa28f
   ViewChaos: 04994fba914627016e618d0525654111e2a1813c
   WSProgressHUD: a0902809c8af112fb34b004fdc75c16eb85167a3
 
-PODFILE CHECKSUM: 8516bc736b884e7cfb7646ae4add22e8da53a57c
+PODFILE CHECKSUM: f379c86ce98150ac345a5fc63110dfad301ebeed
 
 COCOAPODS: 1.6.0.beta.2

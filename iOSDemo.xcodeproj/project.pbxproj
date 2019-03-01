@@ -40,26 +40,6 @@
 		AE1AC81720D25FBC0002F779 /* CaptureSessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC81420D25FBC0002F779 /* CaptureSessionCoordinator.swift */; };
 		AE1AC81820D25FBC0002F779 /* AssetWriterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC81520D25FBC0002F779 /* AssetWriterCoordinator.swift */; };
 		AE1DE01C2099ACBE007910A5 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE01B2099ACBE007910A5 /* ProjectViewController.swift */; };
-		AE1DE0372099AD32007910A5 /* NovelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE01F2099AD32007910A5 /* NovelInfo.swift */; };
-		AE1DE0382099AD32007910A5 /* SectionTableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0202099AD32007910A5 /* SectionTableInfo.swift */; };
-		AE1DE0392099AD32007910A5 /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0212099AD32007910A5 /* SectionInfo.swift */; };
-		AE1DE03A2099AD32007910A5 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0232099AD32007910A5 /* APIManager.swift */; };
-		AE1DE03B2099AD32007910A5 /* ToModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0242099AD32007910A5 /* ToModelExtension.swift */; };
-		AE1DE03C2099AD32007910A5 /* NovelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0252099AD32007910A5 /* NovelConfig.swift */; };
-		AE1DE03D2099AD32007910A5 /* Routers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0262099AD32007910A5 /* Routers.swift */; };
-		AE1DE03E2099AD32007910A5 /* LoadMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0282099AD32007910A5 /* LoadMoreCell.swift */; };
-		AE1DE03F2099AD32007910A5 /* NovelTbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0292099AD32007910A5 /* NovelTbCell.swift */; };
-		AE1DE0402099AD32007910A5 /* NovelContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE02A2099AD32007910A5 /* NovelContentCell.swift */; };
-		AE1DE0412099AD32007910A5 /* SectionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE02C2099AD32007910A5 /* SectionListViewModel.swift */; };
-		AE1DE0422099AD32007910A5 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE02D2099AD32007910A5 /* BaseViewModel.swift */; };
-		AE1DE0432099AD32007910A5 /* NovelContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE02E2099AD32007910A5 /* NovelContentViewModel.swift */; };
-		AE1DE0442099AD32007910A5 /* BookMarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE02F2099AD32007910A5 /* BookMarkViewModel.swift */; };
-		AE1DE0452099AD32007910A5 /* NovelSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0302099AD32007910A5 /* NovelSearchViewModel.swift */; };
-		AE1DE0462099AD32007910A5 /* NovelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0322099AD32007910A5 /* NovelViewController.swift */; };
-		AE1DE0472099AD32007910A5 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0332099AD32007910A5 /* BookmarkViewController.swift */; };
-		AE1DE0482099AD32007910A5 /* NovelContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0342099AD32007910A5 /* NovelContentViewController.swift */; };
-		AE1DE0492099AD32007910A5 /* SectionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0352099AD32007910A5 /* SectionListViewController.swift */; };
-		AE1DE04A2099AD32007910A5 /* NavigationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0362099AD32007910A5 /* NavigationMap.swift */; };
 		AE1DE0782099BE0A007910A5 /* FullBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE04D2099BE09007910A5 /* FullBoard.swift */; };
 		AE1DE0792099BE0A007910A5 /* BaseBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE04E2099BE09007910A5 /* BaseBoard.swift */; };
 		AE1DE07A2099BE0A007910A5 /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE04F2099BE09007910A5 /* GameService.swift */; };
@@ -322,26 +302,6 @@
 		AE1AC81420D25FBC0002F779 /* CaptureSessionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureSessionCoordinator.swift; sourceTree = "<group>"; };
 		AE1AC81520D25FBC0002F779 /* AssetWriterCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetWriterCoordinator.swift; sourceTree = "<group>"; };
 		AE1DE01B2099ACBE007910A5 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
-		AE1DE01F2099AD32007910A5 /* NovelInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelInfo.swift; sourceTree = "<group>"; };
-		AE1DE0202099AD32007910A5 /* SectionTableInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTableInfo.swift; sourceTree = "<group>"; };
-		AE1DE0212099AD32007910A5 /* SectionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionInfo.swift; sourceTree = "<group>"; };
-		AE1DE0232099AD32007910A5 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		AE1DE0242099AD32007910A5 /* ToModelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToModelExtension.swift; sourceTree = "<group>"; };
-		AE1DE0252099AD32007910A5 /* NovelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelConfig.swift; sourceTree = "<group>"; };
-		AE1DE0262099AD32007910A5 /* Routers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routers.swift; sourceTree = "<group>"; };
-		AE1DE0282099AD32007910A5 /* LoadMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadMoreCell.swift; sourceTree = "<group>"; };
-		AE1DE0292099AD32007910A5 /* NovelTbCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelTbCell.swift; sourceTree = "<group>"; };
-		AE1DE02A2099AD32007910A5 /* NovelContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelContentCell.swift; sourceTree = "<group>"; };
-		AE1DE02C2099AD32007910A5 /* SectionListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionListViewModel.swift; sourceTree = "<group>"; };
-		AE1DE02D2099AD32007910A5 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		AE1DE02E2099AD32007910A5 /* NovelContentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelContentViewModel.swift; sourceTree = "<group>"; };
-		AE1DE02F2099AD32007910A5 /* BookMarkViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMarkViewModel.swift; sourceTree = "<group>"; };
-		AE1DE0302099AD32007910A5 /* NovelSearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelSearchViewModel.swift; sourceTree = "<group>"; };
-		AE1DE0322099AD32007910A5 /* NovelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelViewController.swift; sourceTree = "<group>"; };
-		AE1DE0332099AD32007910A5 /* BookmarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
-		AE1DE0342099AD32007910A5 /* NovelContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelContentViewController.swift; sourceTree = "<group>"; };
-		AE1DE0352099AD32007910A5 /* SectionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionListViewController.swift; sourceTree = "<group>"; };
-		AE1DE0362099AD32007910A5 /* NavigationMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationMap.swift; sourceTree = "<group>"; };
 		AE1DE04D2099BE09007910A5 /* FullBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullBoard.swift; sourceTree = "<group>"; };
 		AE1DE04E2099BE09007910A5 /* BaseBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBoard.swift; sourceTree = "<group>"; };
 		AE1DE04F2099BE09007910A5 /* GameService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
@@ -793,77 +753,9 @@
 			children = (
 				AEEE485C215CC601003C9943 /* PointLock */,
 				AE1DE04B2099BDDF007910A5 /* LinkGame */,
-				AE1DE01D2099ACFF007910A5 /* Novel */,
 				AE1DE01B2099ACBE007910A5 /* ProjectViewController.swift */,
 			);
 			path = Project;
-			sourceTree = "<group>";
-		};
-		AE1DE01D2099ACFF007910A5 /* Novel */ = {
-			isa = PBXGroup;
-			children = (
-				AE1DE0272099AD32007910A5 /* Cell */,
-				AE1DE01E2099AD32007910A5 /* Model */,
-				AE1DE0362099AD32007910A5 /* NavigationMap.swift */,
-				AE1DE0252099AD32007910A5 /* NovelConfig.swift */,
-				AE1DE0262099AD32007910A5 /* Routers.swift */,
-				AE1DE0222099AD32007910A5 /* Service */,
-				AE1DE0312099AD32007910A5 /* View */,
-				AE1DE02B2099AD32007910A5 /* ViewModel */,
-			);
-			path = Novel;
-			sourceTree = "<group>";
-		};
-		AE1DE01E2099AD32007910A5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				AE1DE01F2099AD32007910A5 /* NovelInfo.swift */,
-				AE1DE0202099AD32007910A5 /* SectionTableInfo.swift */,
-				AE1DE0212099AD32007910A5 /* SectionInfo.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		AE1DE0222099AD32007910A5 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				AE1DE0232099AD32007910A5 /* APIManager.swift */,
-				AE1DE0242099AD32007910A5 /* ToModelExtension.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		AE1DE0272099AD32007910A5 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				AE1DE0282099AD32007910A5 /* LoadMoreCell.swift */,
-				AE1DE0292099AD32007910A5 /* NovelTbCell.swift */,
-				AE1DE02A2099AD32007910A5 /* NovelContentCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		AE1DE02B2099AD32007910A5 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				AE1DE02C2099AD32007910A5 /* SectionListViewModel.swift */,
-				AE1DE02D2099AD32007910A5 /* BaseViewModel.swift */,
-				AE1DE02E2099AD32007910A5 /* NovelContentViewModel.swift */,
-				AE1DE02F2099AD32007910A5 /* BookMarkViewModel.swift */,
-				AE1DE0302099AD32007910A5 /* NovelSearchViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		AE1DE0312099AD32007910A5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				AE1DE0322099AD32007910A5 /* NovelViewController.swift */,
-				AE1DE0332099AD32007910A5 /* BookmarkViewController.swift */,
-				AE1DE0342099AD32007910A5 /* NovelContentViewController.swift */,
-				AE1DE0352099AD32007910A5 /* SectionListViewController.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		AE1DE04B2099BDDF007910A5 /* LinkGame */ = {
@@ -2000,7 +1892,6 @@
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
-				"${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework",
 				"${BUILT_PRODUCTS_DIR}/ViewChaos/ViewChaos.framework",
 				"${BUILT_PRODUCTS_DIR}/WSProgressHUD/WSProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/netfox/netfox.framework",
@@ -2031,7 +1922,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLNavigator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewChaos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WSProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/netfox.framework",
@@ -2049,7 +1939,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEEB5C6421914B5F006E1CC3 /* ffmpegTool.m in Sources */,
-				AE1DE0402099AD32007910A5 /* NovelContentCell.swift in Sources */,
 				AE1DE09B2099BE0A007910A5 /* ImageTool.swift in Sources */,
 				AEEE485E215CC61B003C9943 /* PointLockViewController.swift in Sources */,
 				AE7278A9207F5A28005D9D6D /* SoundRecordViewController.swift in Sources */,
@@ -2071,7 +1960,6 @@
 				AE1AC80E20D25F5A0002F779 /* ShadowVideoPlayControlView.swift in Sources */,
 				AE6691D620F49B3A00D019D4 /* UIImage+Palette.m in Sources */,
 				AE9F32821F690F5200339BB8 /* GrandCue.swift in Sources */,
-				AE1DE03C2099AD32007910A5 /* NovelConfig.swift in Sources */,
 				AE95A0D420BBD2AE00C5AED6 /* VolumeView.swift in Sources */,
 				AE3AF04D1F773DEB00AF182A /* GradientLayerViewController.swift in Sources */,
 				AE3AF04F1F77404900AF182A /* ReplicatorViewController.swift in Sources */,
@@ -2080,13 +1968,9 @@
 				AE6691D920F49B3A00D019D4 /* PaletteTarget.m in Sources */,
 				AE1DE0962099BE0A007910A5 /* PieceImage.swift in Sources */,
 				AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */,
-				AE1DE0472099AD32007910A5 /* BookmarkViewController.swift in Sources */,
 				AE0F708B1FBEB94100C8135C /* TouchViewController.swift in Sources */,
-				AE1DE0462099AD32007910A5 /* NovelViewController.swift in Sources */,
-				AE1DE04A2099AD32007910A5 /* NavigationMap.swift in Sources */,
 				AEADFD4921115BBE00E6B58D /* UIButton+Extension.swift in Sources */,
 				AEDF8C4D209AF61F00EED6D1 /* VideoListViewController.swift in Sources */,
-				AE1DE0392099AD32007910A5 /* SectionInfo.swift in Sources */,
 				AEA9F835206A2A62000E7748 /* HttpClient.swift in Sources */,
 				AE5A88701FF3768100748F6A /* ThreadViewController.swift in Sources */,
 				AEBA80E720BFCAF800F6A323 /* GifViewController.swift in Sources */,
@@ -2103,33 +1987,26 @@
 				AEDCE5BE20DBA15900A50536 /* BarSlider.swift in Sources */,
 				AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */,
 				AE6691D420F49B3A00D019D4 /* Palette.m in Sources */,
-				AE1DE0452099AD32007910A5 /* NovelSearchViewModel.swift in Sources */,
 				AEBE709920A5356500B2E897 /* MapViewController.swift in Sources */,
 				AEEE4860215CC631003C9943 /* LockView.swift in Sources */,
 				AE5AD7EC206111AC00289798 /* RippleViewController.swift in Sources */,
 				AE955C3520A2D39A0009EFFE /* VideoPlayViewController.swift in Sources */,
-				AE1DE03B2099AD32007910A5 /* ToModelExtension.swift in Sources */,
 				AEDD2C9D2085D1D700CD1FDE /* TextLayoutViewController.swift in Sources */,
 				AEBE40401FC803A60087D7ED /* CityChooseViewController.swift in Sources */,
 				AE0F70881FBE864300C8135C /* GrandSlider.swift in Sources */,
-				AE1DE03A2099AD32007910A5 /* APIManager.swift in Sources */,
 				AEBE403D1FC803620087D7ED /* LibraryViewController.swift in Sources */,
 				AE1DE09A2099BE0A007910A5 /* Constants.swift in Sources */,
 				AE3AF0581F7744D500AF182A /* ScrollMenuViewController.swift in Sources */,
 				AE5A887E1FF39C4800748F6A /* FilterViewController.swift in Sources */,
 				AEDC54132012EC4100BB4E34 /* ConstraintArrayDSL.swift in Sources */,
 				AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */,
-				AE1DE0482099AD32007910A5 /* NovelContentViewController.swift in Sources */,
-				AE1DE0382099AD32007910A5 /* SectionTableInfo.swift in Sources */,
 				AE6691D320F49B3A00D019D4 /* PaletteColorUtils.m in Sources */,
 				AE3AF0551F77448A00AF182A /* LayoutViewController.swift in Sources */,
-				AE1DE0492099AD32007910A5 /* SectionListViewController.swift in Sources */,
 				AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */,
 				AE6691D520F49B3A00D019D4 /* PaletteSwatch.m in Sources */,
 				AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */,
 				AE1DE0982099BE0A007910A5 /* LinkLine.swift in Sources */,
 				AE394B522065F72100CE3BD9 /* SQLiteViewController.swift in Sources */,
-				AE1DE03D2099AD32007910A5 /* Routers.swift in Sources */,
 				AE4EA75C218072580061FA84 /* opencvViewController.swift in Sources */,
 				AE3F46F620AC0BF9007BA637 /* UINavigationController+Extension.swift in Sources */,
 				AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */,
@@ -2163,12 +2040,10 @@
 				AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */,
 				AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */,
 				AE1AC80F20D25F5A0002F779 /* ShadowAudioPlayerView.swift in Sources */,
-				AE1DE03E2099AD32007910A5 /* LoadMoreCell.swift in Sources */,
 				AE9F32861F690F5200339BB8 /* GrandType.swift in Sources */,
 				AEADFD4C2111601100E6B58D /* DemoViewController.swift in Sources */,
 				AE1DE0992099BE0A007910A5 /* LinkPoint.swift in Sources */,
 				AE6691D820F49B3A00D019D4 /* PriorityBoxArray.m in Sources */,
-				AE1DE0442099AD32007910A5 /* BookMarkViewModel.swift in Sources */,
 				AE5A88631FF36F9500748F6A /* GridView.swift in Sources */,
 				AE5A88681FF3709000748F6A /* JSViewController.swift in Sources */,
 				AEDD2CA02085E62500CD1FDE /* AlertViewController.swift in Sources */,
@@ -2186,7 +2061,6 @@
 				AE2584A120A2F5FE00764AF0 /* UIScrollView+Extension.swift in Sources */,
 				AEDC54142012EC4100BB4E34 /* ConstraintArray+Extensions.swift in Sources */,
 				AE6691D720F49B3A00D019D4 /* PaletteColorModel.m in Sources */,
-				AE1DE0422099AD32007910A5 /* BaseViewModel.swift in Sources */,
 				AE9F32A31F69144C00339BB8 /* ResultInfo.swift in Sources */,
 				AE1AC81820D25FBC0002F779 /* AssetWriterCoordinator.swift in Sources */,
 				AE5A88851FF49CD300748F6A /* 3DViewController.swift in Sources */,
@@ -2206,22 +2080,18 @@
 				AE4DA61B213E68B300FCC7FD /* ShadowDataManager.swift in Sources */,
 				AEADFD472110031B00E6B58D /* FormTableViewController.swift in Sources */,
 				AE83BD7B1FE2134E001882D1 /* TwoSideViewController.swift in Sources */,
-				AE1DE0412099AD32007910A5 /* SectionListViewModel.swift in Sources */,
 				AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */,
 				AE69C5A9222533D1004DC8AE /* OpenCVImageRecognitionViewController.swift in Sources */,
 				AE83BD741FDE876F001882D1 /* BallViewController.swift in Sources */,
 				AE5A88761FF37C2200748F6A /* Apply.swift in Sources */,
 				AE4DA61D213E762500FCC7FD /* ShadowDownloader.swift in Sources */,
 				AE5A886D1FF3746C00748F6A /* BasicViewController.swift in Sources */,
-				AE1DE03F2099AD32007910A5 /* NovelTbCell.swift in Sources */,
 				AE0F70301FBA90A500C8135C /* APIInfo.swift in Sources */,
 				AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */,
 				AE1AC75020CF6FB40002F779 /* UICollectView+Extension.swift in Sources */,
 				AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */,
 				AE4EA75A218071C30061FA84 /* opencvTool.mm in Sources */,
-				AE1DE0372099AD32007910A5 /* NovelInfo.swift in Sources */,
 				AE3F46EC20AC0290007BA637 /* HintView.swift in Sources */,
-				AE1DE0432099AD32007910A5 /* NovelContentViewModel.swift in Sources */,
 				AE3F46F420AC0B2B007BA637 /* UIImageView+Extension.swift in Sources */,
 				AE6691B320EDF39F00D019D4 /* WebViewController.swift in Sources */,
 				AE4DA62121425B8800FCC7FD /* ShadowVideoPlayView.swift in Sources */,
