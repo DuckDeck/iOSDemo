@@ -356,8 +356,8 @@ extension TakePhotoViewController:UIScrollViewDelegate {
             return
         }
         // add output
-        let output = AVCaptureStillImageOutput()
-        output.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
+        let output = AVCapturePhotoOutput()
+        //output.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
         if session.canAddOutput(output) {
             session.addOutput(output)
         } else {

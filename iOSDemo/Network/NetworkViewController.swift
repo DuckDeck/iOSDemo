@@ -46,7 +46,8 @@ extension NetworkViewController:UITableViewDelegate,UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
-            navigationController?.pushViewController(HttpRecordViewController(), animated: true)
+            //navigationController?.pushViewController(HttpRecordViewController(), animated: true)
+            break
         case 1:
              navigationController?.pushViewController(JSViewController(), animated: true)
         case 2:

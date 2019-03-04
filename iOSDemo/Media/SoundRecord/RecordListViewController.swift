@@ -248,7 +248,7 @@ extension RecordListViewController:UITableViewDataSource,UITableViewDelegate{
                 self?.deleteAudio(url: url)
             }
             else{
-               let dict =  TransformMP3.transformCAF(toMP3: url.path)
+               let _ =  TransformMP3.transformCAF(toMP3: url.path)
 
             }
             

@@ -50,20 +50,20 @@
 
     float rf,gf,bf;
     
-    rf = (float)_red /255.0f, gf =  (float)_green / 255, bf = (float)_blue / 255;
+    (void)(rf = (float)_red /255.0f), (void)(gf =  (float)_green / 255), bf = (float)_blue / 255;
     float max,min;
     max = MAX(rf, gf) > bf?MAX(rf, gf):bf;
     min = MIN(rf, gf) < bf?MIN(rf, gf):bf;
     float deltaMaxMin = max - min;
     
     float l = (max+min)/2.0;
-    float h,s;
+    float h = 0.0,s;
     
     if(max == min){
         h = s = 0.0F;
     }else{
         if (max == rf){
-//            h = (gf - bf)/deltaMaxMin % 6.0F;
+            //h = (gf - bf)/deltaMaxMin % 6.0F;
         }else{
             if (max == gf){
                 h = (bf - rf)/deltaMaxMin + 2.0F;

@@ -13,7 +13,6 @@
 		AE0F702E1FBA90A500C8135C /* RequestDataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F702A1FBA90A500C8135C /* RequestDataInfo.swift */; };
 		AE0F702F1FBA90A500C8135C /* RequestTimelineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F702B1FBA90A500C8135C /* RequestTimelineInfo.swift */; };
 		AE0F70301FBA90A500C8135C /* APIInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F702C1FBA90A500C8135C /* APIInfo.swift */; };
-		AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70311FBA918E00C8135C /* HttpRecordViewController.swift */; };
 		AE0F70371FBA9ACF00C8135C /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70361FBA9ACF00C8135C /* NetworkViewController.swift */; };
 		AE0F70861FBE861A00C8135C /* SliderDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70851FBE861A00C8135C /* SliderDemoViewController.swift */; };
 		AE0F70881FBE864300C8135C /* GrandSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70871FBE864200C8135C /* GrandSlider.swift */; };
@@ -274,7 +273,6 @@
 		AE0F702A1FBA90A500C8135C /* RequestDataInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDataInfo.swift; sourceTree = "<group>"; };
 		AE0F702B1FBA90A500C8135C /* RequestTimelineInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTimelineInfo.swift; sourceTree = "<group>"; };
 		AE0F702C1FBA90A500C8135C /* APIInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIInfo.swift; sourceTree = "<group>"; };
-		AE0F70311FBA918E00C8135C /* HttpRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRecordViewController.swift; sourceTree = "<group>"; };
 		AE0F70361FBA9ACF00C8135C /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
 		AE0F70851FBE861A00C8135C /* SliderDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderDemoViewController.swift; sourceTree = "<group>"; };
 		AE0F70871FBE864200C8135C /* GrandSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandSlider.swift; sourceTree = "<group>"; };
@@ -982,7 +980,6 @@
 		AE5A88651FF3705600748F6A /* HttpRecord */ = {
 			isa = PBXGroup;
 			children = (
-				AE0F70311FBA918E00C8135C /* HttpRecordViewController.swift */,
 			);
 			path = HttpRecord;
 			sourceTree = "<group>";
@@ -2023,7 +2020,6 @@
 				AE3F46F220AC06A3007BA637 /* Toast.swift in Sources */,
 				AE1DE0782099BE0A007910A5 /* FullBoard.swift in Sources */,
 				AE1AC81020D25F5A0002F779 /* ShadowVideoControlView.swift in Sources */,
-				AE0F70321FBA918E00C8135C /* HttpRecordViewController.swift in Sources */,
 				AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */,
 				AE1AC80F20D25F5A0002F779 /* ShadowAudioPlayerView.swift in Sources */,
 				AE9F32861F690F5200339BB8 /* GrandType.swift in Sources */,
@@ -2158,7 +2154,7 @@
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
@@ -2216,7 +2212,7 @@
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
@@ -2256,6 +2252,7 @@
 			baseConfigurationReference = 35FB199CD271C8888EE6FEA4 /* Pods-iOSDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
@@ -2296,6 +2293,7 @@
 			baseConfigurationReference = 28B60C39949FCFA9633560E3 /* Pods-iOSDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;

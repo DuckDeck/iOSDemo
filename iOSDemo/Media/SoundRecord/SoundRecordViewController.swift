@@ -216,7 +216,7 @@ class SoundRecordViewController: UIViewController {
         self.soundFileURL = documentDirectory.appendingPathComponent(currentFileName)
      
         if FileManager.default.fileExists(atPath: soundFileURL.absoluteString){
-            print("soundfile url:  '\(soundFileURL)' exists")
+            print("soundfile url:  '\(soundFileURL.absoluteString)' exists")
         }
         let recordSettings:[String:Any] = [AVFormatIDKey : NSNumber(value: kAudioFormatLinearPCM),
                                            AVSampleRateKey : NSNumber(value: 11025.0),
