@@ -40,7 +40,7 @@ class HttpRecordViewController: UIViewController {
         //            let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true) as [String]
         //            try! record.startRecording(atPath: paths[0], for: URLSessionConfiguration.default)
         //            //try! record.startRecording(atPath: paths[0], for: Alamofire.URLSessionConfiguration)
-        //            //Alamofire.URLSessionConfiguration can not abtainf
+        //            //Alamofire.URLSessionConfiguration can not abtain
         //        }
         
         requestInfo = RequestInfo()

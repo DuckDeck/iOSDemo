@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		710169C7FA45F8C13052BF93 /* Pods_iOSDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51738191F790645B96247B2 /* Pods_iOSDemo.framework */; };
 		AE00722520906B770093B478 /* GCD.m in Sources */ = {isa = PBXBuildFile; fileRef = AE00722420906B770093B478 /* GCD.m */; };
-		AE0F70241FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70231FBA8F6000C8135C /* SWHttpTrafficRecorder.m */; };
 		AE0F702D1FBA90A500C8135C /* RequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70291FBA90A500C8135C /* RequestInfo.swift */; };
 		AE0F702E1FBA90A500C8135C /* RequestDataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F702A1FBA90A500C8135C /* RequestDataInfo.swift */; };
 		AE0F702F1FBA90A500C8135C /* RequestTimelineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F702B1FBA90A500C8135C /* RequestTimelineInfo.swift */; };
@@ -271,8 +270,6 @@
 		AE00722320906B770093B478 /* GCD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		AE00722420906B770093B478 /* GCD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCD.m; sourceTree = "<group>"; };
 		AE00CB931F95FF1500AE2190 /* MJRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MJRefresh.framework; path = Carthage/Build/iOS/MJRefresh.framework; sourceTree = "<group>"; };
-		AE0F70221FBA8F6000C8135C /* SWHttpTrafficRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWHttpTrafficRecorder.h; sourceTree = "<group>"; };
-		AE0F70231FBA8F6000C8135C /* SWHttpTrafficRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWHttpTrafficRecorder.m; sourceTree = "<group>"; };
 		AE0F70291FBA90A500C8135C /* RequestInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestInfo.swift; sourceTree = "<group>"; };
 		AE0F702A1FBA90A500C8135C /* RequestDataInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDataInfo.swift; sourceTree = "<group>"; };
 		AE0F702B1FBA90A500C8135C /* RequestTimelineInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTimelineInfo.swift; sourceTree = "<group>"; };
@@ -604,21 +601,11 @@
 			path = Thread;
 			sourceTree = "<group>";
 		};
-		AE0F70211FBA8F6000C8135C /* SWHttpTrafficRecorder */ = {
-			isa = PBXGroup;
-			children = (
-				AE0F70221FBA8F6000C8135C /* SWHttpTrafficRecorder.h */,
-				AE0F70231FBA8F6000C8135C /* SWHttpTrafficRecorder.m */,
-			);
-			path = SWHttpTrafficRecorder;
-			sourceTree = "<group>";
-		};
 		AE0F70271FBA900200C8135C /* Http */ = {
 			isa = PBXGroup;
 			children = (
 				AE0F70331FBA924F00C8135C /* HttpManager */,
 				AE0F70281FBA906A00C8135C /* RequestInfo */,
-				AE0F70211FBA8F6000C8135C /* SWHttpTrafficRecorder */,
 			);
 			path = Http;
 			sourceTree = "<group>";
@@ -2015,7 +2002,6 @@
 				AE394B4F2065F6FE00CE3BD9 /* DataViewController.swift in Sources */,
 				AE9F32851F690F5200339BB8 /* GrandModel.swift in Sources */,
 				AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */,
-				AE0F70241FBA8F6000C8135C /* SWHttpTrafficRecorder.m in Sources */,
 				AE69C5AE22263537004DC8AE /* OpenCVHandle.mm in Sources */,
 				AEADFD2A2105B40E00E6B58D /* JXLayoutButton.m in Sources */,
 				AE83BD711FDE72BF001882D1 /* ImageRotationViewController.swift in Sources */,
@@ -2275,7 +2261,6 @@
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/framework",
 				);
@@ -2288,7 +2273,7 @@
 					"$(PROJECT_DIR)/ffmpeg_ios/include",
 				);
 				INFOPLIST_FILE = iOSDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2329,7 +2314,7 @@
 					"$(PROJECT_DIR)/ffmpeg_ios/include",
 				);
 				INFOPLIST_FILE = iOSDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
