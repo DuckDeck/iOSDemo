@@ -14,7 +14,7 @@ class SoundRecordViewController: UIViewController {
     
     let btnRecord = UIButton()
     let btnStop = UIButton()
-    let btnPlay = UIButton()
+    let btnPlay = ProgressButton()
     let btnSave = UIButton()
     let vAni = RippleAnimtaionView(frame: CGRect(x: ScreenWidth / 2 - 30, y: ScreenHeight - 100, width: 60, height: 60)) //这个色后面再改改
     let lblTimer = UILabel()
@@ -77,22 +77,25 @@ class SoundRecordViewController: UIViewController {
         btnRecord.setImage(#imageLiteral(resourceName: "btn_recording_audio"), for: .normal)
         btnRecord.setImage(#imageLiteral(resourceName: "btn_pause_recording_audio"), for: .selected)
         btnRecord.addTo(view: view).snp.makeConstraints { (m) in
-            m.bottom.equalTo(-40)
+            m.bottom.equalTo(-100)
             m.centerX.equalTo(view)
-            m.width.height.equalTo(60)
+            m.width.height.equalTo(80)
         }
         btnRecord.addTarget(self, action: #selector(startRecord), for: .touchUpInside)
         
 
         btnStop.setTitleColor(UIColor.lightGray, for: .disabled)
         btnStop.isEnabled = false
-        btnStop.title(title: "停止录音").color(color: UIColor.purple).setFont(font: 14).addTo(view: view).snp.makeConstraints { (m) in
+        btnStop.title(title: "停止录音").color(color: UIColor.purple).setFont(font: 16).addTo(view: view).snp.makeConstraints { (m) in
             m.centerX.equalTo(view)
-            m.bottom.equalTo(-7)
+            m.top.equalTo(btnRecord.snp.bottom).offset(20)
         }
         
         btnStop.addTarget(self, action: #selector(stopRecord), for: .touchUpInside)
         
+        btnPlay.tintColor = UIColor.blue
+        btnPlay.bgTintColor = UIColor.lightGray
+        btnPlay.lineWidth = 2
         btnPlay.isEnabled = false
         btnPlay.setImage(#imageLiteral(resourceName: "btn_play_small"), for: .normal)
         btnPlay.setImage(#imageLiteral(resourceName: "btn_play_small_disable"), for: .disabled)
@@ -103,7 +106,7 @@ class SoundRecordViewController: UIViewController {
         }
         btnPlay.addTarget(self, action: #selector(playRecord), for: .touchUpInside)
         
-        btnSave.title(title: "保存到媒体").color(color: UIColor.purple).setFont(font: 14).addTo(view: view).snp.makeConstraints { (m) in
+        btnSave.title(title: "保存到媒体").color(color: UIColor.purple).setFont(font: 16).addTo(view: view).snp.makeConstraints { (m) in
             m.centerY.equalTo(btnRecord)
             m.centerX.equalTo(ScreenWidth * 0.20)
         }
@@ -112,7 +115,7 @@ class SoundRecordViewController: UIViewController {
        
         
         lblTimer.text(text: "00:00").color(color: UIColor.red).addTo(view: view).snp.makeConstraints { (m) in
-            m.bottom.equalTo(-130)
+            m.bottom.equalTo(btnRecord.snp.top).offset(-20)
             m.centerX.equalTo(view)
         }
         
@@ -290,6 +293,7 @@ class SoundRecordViewController: UIViewController {
                 player.prepareToPlay()
                 player.volume = 1.0
                 player.play()
+                
             }
             catch{
                 player = nil
@@ -490,6 +494,7 @@ extension SoundRecordViewController:AVAudioRecorderDelegate{
         Log(message: "finished recording \(flag)")
         btnStop.isEnabled = false
         btnPlay.isEnabled = true
+        btnPlay.maxValue = recordTime.totalSeconds
         btnRecord.isSelected = false
         timer.invalidate()
         UIAlertController.title(title: "录音器", message: "录音已经结束").action(title: "保存", handle: {(action:UIAlertAction) in

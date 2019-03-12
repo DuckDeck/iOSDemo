@@ -49,9 +49,10 @@ class RecordListViewController: UIViewController {
         btnPlay.addTo(view: view).snp.makeConstraints { (m) in
             m.bottom.equalTo(-20)
             m.centerX.equalTo(ScreenWidth * 0.5)
-            m.width.height.equalTo(50)
+            
         }
 //        btnPlay.layer.cornerRadius = 15
+        btnPlay.isEnabled = false
         btnPlay.backgroundColor = UIColor.clear
         btnPlay.addTarget(self, action: #selector(playRecord), for: .touchUpInside)
         
@@ -69,7 +70,6 @@ class RecordListViewController: UIViewController {
        let cell = tb.cellForRow(at: currentSelectIndex!) as! AudioFileCell
         let ratio = player.currentTime / Double(cell.totalTime)
         cell.progressBar.value = Float(ratio)
-        
         btnPlay.value = ratio
     }
     
@@ -86,7 +86,9 @@ class RecordListViewController: UIViewController {
                 
             })
             tb.emptyReload()
-            
+            if arrFiles?.count ?? 0 > 0{
+                btnPlay.isEnabled = true
+            }
         } catch {
             print("could not get contents of directory at \(documentsDirectory)")
             print(error.localizedDescription)
@@ -113,6 +115,7 @@ class RecordListViewController: UIViewController {
             arrFiles?.removeAll()
             tb.emptyReload()
             GrandCue.toast("已经全部删除")
+            btnPlay.isEnabled = false
         }
     }
     
@@ -219,7 +222,7 @@ class RecordListViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.listRecordings()
-           self.tb.emptyReload()
+            self.tb.emptyReload()
         }
     }
 }
