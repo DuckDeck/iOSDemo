@@ -33,6 +33,7 @@ pod "AMapLocation"
 pod "Gifu"
 pod "Eureka"
 pod "netfox"
+pod "Nantes"
 end
 
 

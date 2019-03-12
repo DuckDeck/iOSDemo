@@ -18,7 +18,8 @@
 #import "ConcurrentProcessor.h"
 #import "Lock.h"
 @interface Father : NSObject
-@property (nonatomic,copy) NSString* p1;
+@property (nonatomic,copy) NSString* name;
+@property (nonatomic,copy) NSString* address;
 @end
 @implementation Father
 
@@ -44,6 +45,13 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
       
+        
+        NSLog(@"%zu",class_getInstanceSize([NSObject class]));
+        
+        Father* f = [Father new];
+         NSLog(@"%zu",sizeof(f));
+        
+        
         
         dispatch_queue_t q = dispatch_get_main_queue();
         dispatch_async(q, ^{
