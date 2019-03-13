@@ -101,6 +101,7 @@ class GridViewController: UIViewController {
     func addImg()  {
         let subview = UIImageView()
         subview.setImg(url: "http://d.5857.com/snhbqx_170628/001.jpg", completed: nil)
+        subview.contentMode = .scaleAspectFit
         arr.append(subview)
         viewContainer.arrViews = arr
     }

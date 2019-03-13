@@ -79,6 +79,8 @@
 		AE2584A120A2F5FE00764AF0 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2584A020A2F5FE00764AF0 /* UIScrollView+Extension.swift */; };
 		AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
 		AE3795222238E417009292DE /* AboutKVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3795212238E417009292DE /* AboutKVC.m */; };
+		AE3795252238E886009292DE /* MitoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3795242238E886009292DE /* MitoViewController.swift */; };
+		AE3795272238EB10009292DE /* SlideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3795262238EB10009292DE /* SlideMenuView.swift */; };
 		AE394B4F2065F6FE00CE3BD9 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B4E2065F6FE00CE3BD9 /* DataViewController.swift */; };
 		AE394B522065F72100CE3BD9 /* SQLiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B512065F72100CE3BD9 /* SQLiteViewController.swift */; };
 		AE3961EA1FD13D2400BF4CE9 /* GandAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3961E91FD13D2400BF4CE9 /* GandAlert.swift */; };
@@ -340,6 +342,8 @@
 		AE2C8C741FA30BB100000A1D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		AE3795202238E417009292DE /* AboutKVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutKVC.h; sourceTree = "<group>"; };
 		AE3795212238E417009292DE /* AboutKVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutKVC.m; sourceTree = "<group>"; };
+		AE3795242238E886009292DE /* MitoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MitoViewController.swift; sourceTree = "<group>"; };
+		AE3795262238EB10009292DE /* SlideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuView.swift; sourceTree = "<group>"; };
 		AE394B4E2065F6FE00CE3BD9 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		AE394B512065F72100CE3BD9 /* SQLiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteViewController.swift; sourceTree = "<group>"; };
 		AE3961E91FD13D2400BF4CE9 /* GandAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GandAlert.swift; sourceTree = "<group>"; };
@@ -739,6 +743,7 @@
 		AE1DE01A2099ACA9007910A5 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				AE3795232238E86B009292DE /* Mito */,
 				AEEE485C215CC601003C9943 /* PointLock */,
 				AE1DE04B2099BDDF007910A5 /* LinkGame */,
 				AE1DE01B2099ACBE007910A5 /* ProjectViewController.swift */,
@@ -837,6 +842,14 @@
 				AE1DE0752099BE09007910A5 /* ImageTool.swift */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		AE3795232238E86B009292DE /* Mito */ = {
+			isa = PBXGroup;
+			children = (
+				AE3795242238E886009292DE /* MitoViewController.swift */,
+			);
+			path = Mito;
 			sourceTree = "<group>";
 		};
 		AE394B502065F70A00CE3BD9 /* SQLite */ = {
@@ -976,6 +989,7 @@
 				AE3F46F720AC0D1B007BA637 /* TimerButton.swift */,
 				AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */,
 				AEDCE5BD20DBA15900A50536 /* BarSlider.swift */,
+				AE3795262238EB10009292DE /* SlideMenuView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1952,6 +1966,7 @@
 				AE3AF04F1F77404900AF182A /* ReplicatorViewController.swift in Sources */,
 				AE0F70961FBEB9CA00C8135C /* Line.swift in Sources */,
 				AEF0977D2064EFFF0021E4ED /* LogTool.swift in Sources */,
+				AE3795272238EB10009292DE /* SlideMenuView.swift in Sources */,
 				AE6691D920F49B3A00D019D4 /* PaletteTarget.m in Sources */,
 				AE1DE0962099BE0A007910A5 /* PieceImage.swift in Sources */,
 				AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */,
@@ -2040,6 +2055,7 @@
 				AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */,
 				AEDF8C4B209AF61B00EED6D1 /* CVFileManager.swift in Sources */,
 				AE1DE09D2099BE0A007910A5 /* LinkGameViewController.swift in Sources */,
+				AE3795252238E886009292DE /* MitoViewController.swift in Sources */,
 				AE0F702E1FBA90A500C8135C /* RequestDataInfo.swift in Sources */,
 				AE1AC81120D25F5A0002F779 /* ShadowPlayer.swift in Sources */,
 				AE4DA61F213E833D00FCC7FD /* ShadowRangeManager.swift in Sources */,
@@ -2287,7 +2303,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/iOSDemo/bridge.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7s";
@@ -2329,7 +2345,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/iOSDemo/bridge.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7s";

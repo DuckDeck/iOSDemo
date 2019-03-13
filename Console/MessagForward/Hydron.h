@@ -15,9 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
+
 
 //因为没有这个方法XCode就会报错，所以可以用categary来实现
 @interface Hydron(helper)
 -(NSString*)hydronId;
 @end
+NS_ASSUME_NONNULL_END

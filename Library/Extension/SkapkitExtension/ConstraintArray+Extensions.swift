@@ -3,33 +3,33 @@ import SnapKit
 
 public extension Array {
 
-    @available(*, deprecated:3.0, message:"Use newer snp.* syntax.")
-    public func snp_prepareConstraints(_ closure: (_ make: ConstraintMaker) -> Void) -> [Constraint] {
+    @available(*, deprecated, message:"Use newer snp.* syntax.")
+    func snp_prepareConstraints(_ closure: (_ make: ConstraintMaker) -> Void) -> [Constraint] {
         return self.snp.prepareConstraints(closure)
     }
     
-    @available(*, deprecated:3.0, message:"Use newer snp.* syntax.")
-    public func snp_makeConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
+    @available(*, deprecated, message:"Use newer snp.* syntax.")
+    func snp_makeConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
         self.snp.makeConstraints(closure)
     }
     
-    @available(*, deprecated:3.0, message:"Use newer snp.* syntax.")
-    public func snp_remakeConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
+    @available(*, deprecated, message:"Use newer snp.* syntax.")
+    func snp_remakeConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
         self.snp.remakeConstraints(closure)
     }
     
-    @available(*, deprecated:3.0, message:"Use newer snp.* syntax.")
-    public func snp_updateConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
+    @available(*, deprecated, message:"Use newer snp.* syntax.")
+    func snp_updateConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
         self.snp.updateConstraints(closure)
     }
     
-    @available(*, deprecated:3.0, message:"Use newer snp.* syntax.")
-    public func snp_removeConstraints() {
+    @available(*, deprecated, message:"Use newer snp.* syntax.")
+    func snp_removeConstraints() {
         self.snp.removeConstraints()
     }
     
-    @available(*, deprecated:3.0, message:"Use newer snp.* syntax.")
-    public func snp_distributeViewsAlong(axisType: NSLayoutConstraint.Axis,
+    @available(*, deprecated, message:"Use newer snp.* syntax.")
+    func snp_distributeViewsAlong(axisType: NSLayoutConstraint.Axis,
                                          fixedSpacing: CGFloat,
                                          leadSpacing: CGFloat = 0,
                                          tailSpacing: CGFloat = 0) {
