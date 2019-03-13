@@ -17,6 +17,7 @@
 #import "AspectProxy.h"
 #import "ConcurrentProcessor.h"
 #import "Lock.h"
+#import "AboutKVC.h"
 @interface Father : NSObject
 @property (nonatomic,copy) NSString* name;
 @property (nonatomic,copy) NSString* address;
@@ -40,11 +41,18 @@
 }
 
 @end
+
+
+
+
+
 int main(int argc, const char * argv[]) {
     
     @autoreleasepool {
         // insert code here...
       
+        People* people1 = [People new];
+        [people1 setValue:nil forKey:@"age"];
         
         NSLog(@"%zu",class_getInstanceSize([NSObject class]));
         

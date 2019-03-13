@@ -78,6 +78,7 @@
 		AE1DE09D2099BE0A007910A5 /* LinkGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0772099BE09007910A5 /* LinkGameViewController.swift */; };
 		AE2584A120A2F5FE00764AF0 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2584A020A2F5FE00764AF0 /* UIScrollView+Extension.swift */; };
 		AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
+		AE3795222238E417009292DE /* AboutKVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3795212238E417009292DE /* AboutKVC.m */; };
 		AE394B4F2065F6FE00CE3BD9 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B4E2065F6FE00CE3BD9 /* DataViewController.swift */; };
 		AE394B522065F72100CE3BD9 /* SQLiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B512065F72100CE3BD9 /* SQLiteViewController.swift */; };
 		AE3961EA1FD13D2400BF4CE9 /* GandAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3961E91FD13D2400BF4CE9 /* GandAlert.swift */; };
@@ -337,6 +338,8 @@
 		AE1DE0772099BE09007910A5 /* LinkGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkGameViewController.swift; sourceTree = "<group>"; };
 		AE2584A020A2F5FE00764AF0 /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
 		AE2C8C741FA30BB100000A1D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		AE3795202238E417009292DE /* AboutKVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutKVC.h; sourceTree = "<group>"; };
+		AE3795212238E417009292DE /* AboutKVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutKVC.m; sourceTree = "<group>"; };
 		AE394B4E2065F6FE00CE3BD9 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		AE394B512065F72100CE3BD9 /* SQLiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteViewController.swift; sourceTree = "<group>"; };
 		AE3961E91FD13D2400BF4CE9 /* GandAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GandAlert.swift; sourceTree = "<group>"; };
@@ -682,6 +685,8 @@
 				AE1344DC20906937009A210D /* object_setClass.m */,
 				F6C59D4D219B045200825BBA /* Runspector.h */,
 				F6C59D4E219B045200825BBA /* Runspector.m */,
+				AE3795202238E417009292DE /* AboutKVC.h */,
+				AE3795212238E417009292DE /* AboutKVC.m */,
 			);
 			path = Runtime;
 			sourceTree = "<group>";
@@ -1714,7 +1719,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Stan Hu";
 				TargetAttributes = {
 					AE9F31D11F69070E00339BB8 = {
@@ -1737,7 +1742,7 @@
 			};
 			buildConfigurationList = AE9F31CD1F69070E00339BB8 /* Build configuration list for PBXProject "iOSDemo" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -2096,6 +2101,7 @@
 				AE00722520906B770093B478 /* GCD.m in Sources */,
 				AEA07F151F710D7E00FC9770 /* main.m in Sources */,
 				AEB6F566219BC708005CA2BE /* AspectProxy.m in Sources */,
+				AE3795222238E417009292DE /* AboutKVC.m in Sources */,
 				F6C59D4C219AF68100825BBA /* SelDemo.m in Sources */,
 				AE44D5CB21B511E900D3560E /* Lock.m in Sources */,
 				AEB6F55C21997777005CA2BE /* HydronForward.m in Sources */,
@@ -2140,6 +2146,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -2198,6 +2205,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
