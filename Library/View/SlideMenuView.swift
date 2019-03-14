@@ -15,7 +15,7 @@ class SlideMenuView: UIView {
     
     var menu = [String:UIImage](){
         didSet{
-            
+            setMenu()
         }
     }
     
@@ -28,10 +28,23 @@ class SlideMenuView: UIView {
         
         addSubview(vMenu)
         vMenu.snp.makeConstraints { (m) in
-            m.left.equalTo(self.snp.right)
+            m.left.equalTo(UIScreen.main.bounds.size.width)
             m.top.bottom.equalTo(0)
             m.width.equalTo(0.6 * UIScreen.main.bounds.size.width)
         }
+        
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(collapse))
+        swipe.direction = .right
+        self.addGestureRecognizer(swipe)
+        
+        let vBlank = UIView()
+        vBlank.addTo(view: self).snp.makeConstraints { (m) in
+            m.left.top.bottom.equalTo(0)
+            m.width.equalTo(0.4 * UIScreen.main.bounds.size.width)
+        }
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(collapse))
+        vBlank.addGestureRecognizer(tap)
     }
     
     func setMenu()  {
@@ -42,7 +55,7 @@ class SlideMenuView: UIView {
             btn.setImage(item.value, for: .normal)
             vMenu.addSubview(btn)
             btn.snp.makeConstraints { (m) in
-                m.left.equalTo(10)
+                m.left.equalTo(100)
                 m.top.equalTo(previousBtn == nil ? 10 : previousBtn!.snp.bottom)
                 m.height.equalTo(20)
             }
@@ -59,7 +72,7 @@ class SlideMenuView: UIView {
     }
     
     func expand() {
-        UIView.animate(withDuration: 1, animations: {
+        UIView.animate(withDuration: 0.6, animations: {
             self.vMenu.snp.updateConstraints { (m) in
                 m.left.equalTo(UIScreen.main.bounds.size.width * 0.4)
             }
@@ -67,10 +80,10 @@ class SlideMenuView: UIView {
         })
     }
     
-    func collapse(){
-        UIView.animate(withDuration: 1, animations: {
+    @objc func collapse(){
+        UIView.animate(withDuration: 0.6, animations: {
             self.vMenu.snp.updateConstraints { (m) in
-                m.left.equalTo(self.snp.right)
+                m.left.equalTo(UIScreen.main.bounds.size.width)
             }
             self.layoutIfNeeded()
         })
