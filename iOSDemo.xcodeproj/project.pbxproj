@@ -81,6 +81,7 @@
 		AE3795222238E417009292DE /* AboutKVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3795212238E417009292DE /* AboutKVC.m */; };
 		AE3795252238E886009292DE /* MitoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3795242238E886009292DE /* MitoViewController.swift */; };
 		AE3795272238EB10009292DE /* SlideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3795262238EB10009292DE /* SlideMenuView.swift */; };
+		AE379529223A2C71009292DE /* ServerData.json in Resources */ = {isa = PBXBuildFile; fileRef = AE379528223A2C71009292DE /* ServerData.json */; };
 		AE394B4F2065F6FE00CE3BD9 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B4E2065F6FE00CE3BD9 /* DataViewController.swift */; };
 		AE394B522065F72100CE3BD9 /* SQLiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE394B512065F72100CE3BD9 /* SQLiteViewController.swift */; };
 		AE3961EA1FD13D2400BF4CE9 /* GandAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3961E91FD13D2400BF4CE9 /* GandAlert.swift */; };
@@ -344,6 +345,7 @@
 		AE3795212238E417009292DE /* AboutKVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutKVC.m; sourceTree = "<group>"; };
 		AE3795242238E886009292DE /* MitoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MitoViewController.swift; sourceTree = "<group>"; };
 		AE3795262238EB10009292DE /* SlideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuView.swift; sourceTree = "<group>"; };
+		AE379528223A2C71009292DE /* ServerData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ServerData.json; sourceTree = "<group>"; };
 		AE394B4E2065F6FE00CE3BD9 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		AE394B512065F72100CE3BD9 /* SQLiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteViewController.swift; sourceTree = "<group>"; };
 		AE3961E91FD13D2400BF4CE9 /* GandAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GandAlert.swift; sourceTree = "<group>"; };
@@ -847,6 +849,7 @@
 		AE3795232238E86B009292DE /* Mito */ = {
 			isa = PBXGroup;
 			children = (
+				AE379528223A2C71009292DE /* ServerData.json */,
 				AE3795242238E886009292DE /* MitoViewController.swift */,
 			);
 			path = Mito;
@@ -1787,6 +1790,7 @@
 				AE1DE0852099BE0A007910A5 /* p_13.png in Resources */,
 				AE1DE0812099BE0A007910A5 /* p_20.png in Resources */,
 				AE1DE0822099BE0A007910A5 /* selected.png in Resources */,
+				AE379529223A2C71009292DE /* ServerData.json in Resources */,
 				AE5A886A1FF370B400748F6A /* question.html in Resources */,
 				AE1DE07C2099BE0A007910A5 /* p_9.png in Resources */,
 				AE1DE0932099BE0A007910A5 /* start.png in Resources */,
