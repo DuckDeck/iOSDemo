@@ -14,6 +14,7 @@ class MitoViewController: UIViewController {
     fileprivate let viewModel = ProfileViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "多种 Cell 类型的表"
         tb.estimatedRowHeight = 50
         tb.dataSource = viewModel
         tb.rowHeight = UITableView.automaticDimension
@@ -288,6 +289,8 @@ extension ProfileViewModel:UITableViewDataSource{
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return items[section].sectionTitle
     }
+
+    
 }
 
 

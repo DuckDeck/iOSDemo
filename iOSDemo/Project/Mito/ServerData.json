@@ -2,21 +2,21 @@
     "data": {
         "id": 1,
         "fullName": "Tom Sawyer",
-        "pictureUrl": "tom",
+        "pictureUrl": "a6",
         "email": "tomSawyer@gmail.com",
         "about": "I like travelling along Missisipi!",
         "friends": [
                     {
                     "name": "Huckleberry Finn",
-                    "pictureUrl": "finn"
+                    "pictureUrl": "a3"
                     },
                     {
                     "name": "Becky Thatcher",
-                    "pictureUrl": "becky"
+                    "pictureUrl": "a4"
                     },
                     {
                     "name": "Celeste Holm",
-                    "pictureUrl": "holm"
+                    "pictureUrl": "a5"
                     }
                     ],
         "profileAttributes": [
