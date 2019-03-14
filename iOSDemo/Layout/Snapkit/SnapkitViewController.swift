@@ -31,7 +31,7 @@ class SnapkitViewController: UIViewController,UITextViewDelegate {
         lbl.snp.makeConstraints {
             $0.left.equalTo(10)
             //$0.height.equalTo(15)
-            $0.top.equalTo(77)
+            $0.top.equalTo(100)
         }
         
         view.addSubview(lbl1)
