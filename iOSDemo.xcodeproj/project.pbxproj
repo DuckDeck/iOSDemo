@@ -169,6 +169,7 @@
 		AE83BD791FE21325001882D1 /* TwoSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD781FE21325001882D1 /* TwoSideView.swift */; };
 		AE83BD7B1FE2134E001882D1 /* TwoSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD7A1FE2134E001882D1 /* TwoSideViewController.swift */; };
 		AE901193223A405B0020D400 /* CellTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE901192223A405B0020D400 /* CellTypeViewController.swift */; };
+		AE901195223B42450020D400 /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE901194223B42450020D400 /* ImageSet.swift */; };
 		AE955C3520A2D39A0009EFFE /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE955C3420A2D39A0009EFFE /* VideoPlayViewController.swift */; };
 		AE95A0D420BBD2AE00C5AED6 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95A0D120BBD2AE00C5AED6 /* VolumeView.swift */; };
 		AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D51F69070E00339BB8 /* AppDelegate.swift */; };
@@ -449,6 +450,7 @@
 		AE83BD781FE21325001882D1 /* TwoSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoSideView.swift; sourceTree = "<group>"; };
 		AE83BD7A1FE2134E001882D1 /* TwoSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoSideViewController.swift; sourceTree = "<group>"; };
 		AE901192223A405B0020D400 /* CellTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTypeViewController.swift; sourceTree = "<group>"; };
+		AE901194223B42450020D400 /* ImageSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSet.swift; sourceTree = "<group>"; };
 		AE955C3420A2D39A0009EFFE /* VideoPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayViewController.swift; sourceTree = "<group>"; };
 		AE95A0D120BBD2AE00C5AED6 /* VolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -852,6 +854,7 @@
 			isa = PBXGroup;
 			children = (
 				AE3795242238E886009292DE /* MitoViewController.swift */,
+				AE901194223B42450020D400 /* ImageSet.swift */,
 			);
 			path = Mito;
 			sourceTree = "<group>";
@@ -2019,6 +2022,7 @@
 				AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */,
 				AE6691D320F49B3A00D019D4 /* PaletteColorUtils.m in Sources */,
 				AE3AF0551F77448A00AF182A /* LayoutViewController.swift in Sources */,
+				AE901195223B42450020D400 /* ImageSet.swift in Sources */,
 				AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */,
 				AE6691D520F49B3A00D019D4 /* PaletteSwatch.m in Sources */,
 				AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */,

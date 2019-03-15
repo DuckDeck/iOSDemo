@@ -72,7 +72,7 @@ class SlideMenuView: UIView {
     }
     
     func expand() {
-        UIView.animate(withDuration: 0.6, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.vMenu.snp.updateConstraints { (m) in
                 m.left.equalTo(UIScreen.main.bounds.size.width * 0.4)
             }
@@ -81,7 +81,7 @@ class SlideMenuView: UIView {
     }
     
     @objc func collapse(){
-        UIView.animate(withDuration: 0.6, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.vMenu.snp.updateConstraints { (m) in
                 m.left.equalTo(UIScreen.main.bounds.size.width)
             }
