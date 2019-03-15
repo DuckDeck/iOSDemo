@@ -170,6 +170,7 @@
 		AE83BD7B1FE2134E001882D1 /* TwoSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD7A1FE2134E001882D1 /* TwoSideViewController.swift */; };
 		AE901193223A405B0020D400 /* CellTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE901192223A405B0020D400 /* CellTypeViewController.swift */; };
 		AE901195223B42450020D400 /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE901194223B42450020D400 /* ImageSet.swift */; };
+		AE901198223B49CE0020D400 /* Resolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE901197223B49CE0020D400 /* Resolution.swift */; };
 		AE955C3520A2D39A0009EFFE /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE955C3420A2D39A0009EFFE /* VideoPlayViewController.swift */; };
 		AE95A0D420BBD2AE00C5AED6 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95A0D120BBD2AE00C5AED6 /* VolumeView.swift */; };
 		AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D51F69070E00339BB8 /* AppDelegate.swift */; };
@@ -451,6 +452,7 @@
 		AE83BD7A1FE2134E001882D1 /* TwoSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoSideViewController.swift; sourceTree = "<group>"; };
 		AE901192223A405B0020D400 /* CellTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTypeViewController.swift; sourceTree = "<group>"; };
 		AE901194223B42450020D400 /* ImageSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSet.swift; sourceTree = "<group>"; };
+		AE901197223B49CE0020D400 /* Resolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolution.swift; sourceTree = "<group>"; };
 		AE955C3420A2D39A0009EFFE /* VideoPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayViewController.swift; sourceTree = "<group>"; };
 		AE95A0D120BBD2AE00C5AED6 /* VolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -853,8 +855,8 @@
 		AE3795232238E86B009292DE /* Mito */ = {
 			isa = PBXGroup;
 			children = (
+				AE901196223B49B80020D400 /* Model */,
 				AE3795242238E886009292DE /* MitoViewController.swift */,
-				AE901194223B42450020D400 /* ImageSet.swift */,
 			);
 			path = Mito;
 			sourceTree = "<group>";
@@ -1244,6 +1246,15 @@
 				AE901192223A405B0020D400 /* CellTypeViewController.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		AE901196223B49B80020D400 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE901194223B42450020D400 /* ImageSet.swift */,
+				AE901197223B49CE0020D400 /* Resolution.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		AE955C3320A2D38E0009EFFE /* VideoPlay */ = {
@@ -2000,6 +2011,7 @@
 				AE0F709C1FBEB9CE00C8135C /* Trace.swift in Sources */,
 				AE1DE0792099BE0A007910A5 /* BaseBoard.swift in Sources */,
 				AE0F702D1FBA90A500C8135C /* RequestInfo.swift in Sources */,
+				AE901198223B49CE0020D400 /* Resolution.swift in Sources */,
 				AE0F70371FBA9ACF00C8135C /* NetworkViewController.swift in Sources */,
 				AE3961EA1FD13D2400BF4CE9 /* GandAlert.swift in Sources */,
 				AE0F70971FBEB9CA00C8135C /* DrawView.swift in Sources */,
