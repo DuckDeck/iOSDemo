@@ -20,7 +20,7 @@ class ImageSet {
     var title = ""
     var mainTag = ""
     var tags = [String]()
-    var resolution = Resolution()
+    var resolution:Resolution!
     var resolutionStr:String = ""
     var theme = ""
     var mainImage = ""
