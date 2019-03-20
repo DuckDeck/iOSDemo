@@ -42,6 +42,7 @@ PODS:
   - RxSwift (4.4.1):
     - RxAtomic (~> 4.4)
   - Shimmer (1.0.2)
+  - SkeletonView (1.4.2)
   - SnapKit (4.2.0)
   - SwiftyJSON (4.2.0)
   - TZImagePickerController (3.1.9)
@@ -71,6 +72,7 @@ DEPENDENCIES:
   - RxCocoa
   - RxDataSources
   - RxSwift
+  - SkeletonView
   - SnapKit
   - SwiftyJSON
   - TZImagePickerController
@@ -105,6 +107,7 @@ SPEC REPOS:
     - RxDataSources
     - RxSwift
     - Shimmer
+    - SkeletonView
     - SnapKit
     - SwiftyJSON
     - TZImagePickerController
@@ -138,12 +141,13 @@ SPEC CHECKSUMS:
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
+  SkeletonView: c2523c3c8c6510e273e49a3bf364a434744c3914
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   TZImagePickerController: c3f7c505d23281e21e98df6dbeae372946caa28f
   ViewChaos: 04994fba914627016e618d0525654111e2a1813c
   WSProgressHUD: a0902809c8af112fb34b004fdc75c16eb85167a3
 
-PODFILE CHECKSUM: c6f17ac7aea96958634d134686fc8f9d72f59437
+PODFILE CHECKSUM: a8525d2b69f0c0c905c01cb7d97e0a3d95a951db
 
 COCOAPODS: 1.6.0.beta.2

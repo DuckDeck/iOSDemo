@@ -34,6 +34,7 @@ pod "Gifu"
 pod "Eureka"
 pod "netfox"
 pod "Nantes"
+pod "SkeletonView"
 end
 
 
