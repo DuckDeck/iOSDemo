@@ -10,12 +10,29 @@ import UIKit
 
 class FlowLayout: UICollectionViewLayout {
  
-    var columnCount = 3
+    var columnCount = 2
     var columnMargin = 5
     var arrColsHeight:[Double]!
    
     var colWidth = 0.0
     var heightBlock:((_ index:IndexPath)->Double)?
+    
+    fileprivate override init() {
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    convenience init(columnCount:Int ,columnMargin:Int,heightBlock:@escaping ((_ index:IndexPath)->Double)) {
+        self.init()
+        self.columnCount = columnCount
+        self.columnMargin = columnMargin
+        self.heightBlock = heightBlock
+    }
+    
     override func prepare() {
         super.prepare()
         colWidth = Double((collectionView!.frame.size.width - CGFloat(columnCount + 1) * columnMargin) / CGFloat(columnCount))
@@ -49,7 +66,7 @@ class FlowLayout: UICollectionViewLayout {
         var height:Double  = 0
         assert(heightBlock != nil,"heightBlock can not be nil")
         if let hb = heightBlock{
-            height = hb(indexPath)
+            height = hb(indexPath) //这里的问题就是不能用自动计算高度了
         }
         attr.frame = CGRect(x: x, y: y, width: colWidth, height: height)
         arrColsHeight![shortCol] = shortest + columnMargin + height

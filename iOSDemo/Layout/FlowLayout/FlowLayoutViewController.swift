@@ -15,14 +15,14 @@ class FlowLayoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let layout = FlowLayout()
-        layout.heightBlock =  {(index:IndexPath) in
+        let layout = FlowLayout(columnCount: 3, columnMargin: 8) { (index) -> Double in
             let i = Double(arc4random() % 100 )
             if i < 20{
                 return i + 20
             }
             return i
         }
+
         vCol = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         vCol.backgroundColor = UIColor.white
         vCol.delegate = self
@@ -37,7 +37,7 @@ class FlowLayoutViewController: UIViewController {
 
 extension FlowLayoutViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return 60
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
