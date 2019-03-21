@@ -12,6 +12,7 @@ class MitoViewController: UIViewController {
     
     let vMenu = SlideMenuView()
     var isExpand = false
+    let vTb = UICollectionView()
     override func viewDidLoad() {
         super.viewDidLoad()
         

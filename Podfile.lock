@@ -8,6 +8,7 @@ PODS:
   - Differentiator (3.1.0)
   - Eureka (4.3.1)
   - FBRetainCycleDetector (0.1.4)
+  - FFRouter (1.1.1)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -55,6 +56,7 @@ DEPENDENCIES:
   - AMap3DMap (= 6.5.0)
   - AMapLocation
   - Eureka
+  - FFRouter
   - FMDB
   - Gifu
   - GrandMenu
@@ -88,6 +90,7 @@ SPEC REPOS:
     - Differentiator
     - Eureka
     - FBRetainCycleDetector
+    - FFRouter
     - FMDB
     - Gifu
     - GrandMenu
@@ -122,6 +125,7 @@ SPEC CHECKSUMS:
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
+  FFRouter: dfda137b8f6817ca92dc9a1151727449548abfd3
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Gifu: 7bcb6427457d85e0b4dff5a84ec5947ac19a93ea
   GrandMenu: f00aa63e307933dd51662f8f5db37cd0700665e7
@@ -148,6 +152,6 @@ SPEC CHECKSUMS:
   ViewChaos: 04994fba914627016e618d0525654111e2a1813c
   WSProgressHUD: a0902809c8af112fb34b004fdc75c16eb85167a3
 
-PODFILE CHECKSUM: a8525d2b69f0c0c905c01cb7d97e0a3d95a951db
+PODFILE CHECKSUM: ed5e41180aa0541278f6bd90a3f298d49cf2ff37
 
 COCOAPODS: 1.6.0.beta.2

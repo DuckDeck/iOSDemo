@@ -35,6 +35,7 @@ pod "Eureka"
 pod "netfox"
 pod "Nantes"
 pod "SkeletonView"
+pod "FFRouter"
 end
 
 
