@@ -10,21 +10,41 @@ import UIKit
 
 class FlowLayoutViewController: UIViewController {
 
+    var vCol:UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let layout = FlowLayout()
+        layout.heightBlock =  {(index:IndexPath) in
+            let i = Double(arc4random() % 100 )
+            if i < 20{
+                return i + 20
+            }
+            return i
+        }
+        vCol = UICollectionView(frame: view.frame, collectionViewLayout: layout)
+        vCol.backgroundColor = UIColor.white
+        vCol.delegate = self
+        vCol.dataSource = self
+        vCol.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        view.addSubview(vCol)
     }
     
 
-    /*
-    // MARK: - Navigation
+   
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension FlowLayoutViewController:UICollectionViewDelegate,UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 100
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        cell.backgroundColor = UIColor.random
+        return cell
+    }
+    
+    
 }

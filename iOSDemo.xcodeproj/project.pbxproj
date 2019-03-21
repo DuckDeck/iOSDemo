@@ -172,6 +172,7 @@
 		AE901195223B42450020D400 /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE901194223B42450020D400 /* ImageSet.swift */; };
 		AE901198223B49CE0020D400 /* Resolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE901197223B49CE0020D400 /* Resolution.swift */; };
 		AE9011F722432AC00020D400 /* FlowLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9011F622432AC00020D400 /* FlowLayoutViewController.swift */; };
+		AE9011F922432D320020D400 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9011F822432D320020D400 /* FlowLayout.swift */; };
 		AE955C3520A2D39A0009EFFE /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE955C3420A2D39A0009EFFE /* VideoPlayViewController.swift */; };
 		AE95A0D420BBD2AE00C5AED6 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95A0D120BBD2AE00C5AED6 /* VolumeView.swift */; };
 		AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D51F69070E00339BB8 /* AppDelegate.swift */; };
@@ -455,6 +456,7 @@
 		AE901194223B42450020D400 /* ImageSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSet.swift; sourceTree = "<group>"; };
 		AE901197223B49CE0020D400 /* Resolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolution.swift; sourceTree = "<group>"; };
 		AE9011F622432AC00020D400 /* FlowLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayoutViewController.swift; sourceTree = "<group>"; };
+		AE9011F822432D320020D400 /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		AE955C3420A2D39A0009EFFE /* VideoPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayViewController.swift; sourceTree = "<group>"; };
 		AE95A0D120BBD2AE00C5AED6 /* VolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1003,6 +1005,7 @@
 				AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */,
 				AEDCE5BD20DBA15900A50536 /* BarSlider.swift */,
 				AE3795262238EB10009292DE /* SlideMenuView.swift */,
+				AE9011F822432D320020D400 /* FlowLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2044,6 +2047,7 @@
 				AE0F70881FBE864300C8135C /* GrandSlider.swift in Sources */,
 				AEBE403D1FC803620087D7ED /* LibraryViewController.swift in Sources */,
 				AE1DE09A2099BE0A007910A5 /* Constants.swift in Sources */,
+				AE9011F922432D320020D400 /* FlowLayout.swift in Sources */,
 				AE3AF0581F7744D500AF182A /* ScrollMenuViewController.swift in Sources */,
 				AE5A887E1FF39C4800748F6A /* FilterViewController.swift in Sources */,
 				AEDC54132012EC4100BB4E34 /* ConstraintArrayDSL.swift in Sources */,
