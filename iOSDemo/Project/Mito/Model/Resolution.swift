@@ -14,6 +14,10 @@ struct Resolution {
     var device = ""
     var resolutionCode = ""
     
+    var ratio:Double{
+        return Double(pixelX) / Double(pixelY)
+    }
+    
     init() {
         
     }

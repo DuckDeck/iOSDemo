@@ -9,5 +9,5 @@
 import UIKit
 
 class BaseModel {
-    var cellHeight = 0
+    var cellHeight:CGFloat = 0
 }

@@ -15,7 +15,7 @@ let EssentialImage = "http://www.5857.com/list-37"
 
 
 
-class ImageSet {
+class ImageSet:BaseModel {
     var url = ""
     var category = ""
     var title = ""
@@ -81,6 +81,7 @@ class ImageSet {
                 img.url = ul.css("div > a")[0]["href"] ?? ""
                 img.resolution = Resolution(resolution: ul.css("div > span > a")[0].text ?? "")
                 img.theme = ul.css("div > span")[1].text ?? ""
+                img.cellHeight = (ScreenWidth / 2 - 10) / CGFloat(img.resolution.ratio) + 60.0
                 arrImageSets.append(img)
             }
             result.data = arrImageSets
