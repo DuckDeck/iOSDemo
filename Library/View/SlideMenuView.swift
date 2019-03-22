@@ -22,6 +22,8 @@ class SlideMenuView: UIView {
     init() {
         super.init(frame: UIScreen.main.bounds)
         
+        alpha = 0
+        
         backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.3)
         
         vMenu.backgroundColor = UIColor.white
@@ -72,12 +74,14 @@ class SlideMenuView: UIView {
     }
     
     func expand() {
+         self.alpha = 1
         UIView.animate(withDuration: 0.5, animations: {
             self.vMenu.snp.updateConstraints { (m) in
                 m.left.equalTo(UIScreen.main.bounds.size.width * 0.4)
             }
             self.layoutIfNeeded()
-        })
+        }) 
+        
     }
     
     @objc func collapse(){
@@ -86,7 +90,11 @@ class SlideMenuView: UIView {
                 m.left.equalTo(UIScreen.main.bounds.size.width)
             }
             self.layoutIfNeeded()
-        })
+        }) { (finish) in
+            if finish{
+                 self.alpha = 0
+            }
+        }
     }
     
 }

@@ -173,6 +173,7 @@
 		AE901198223B49CE0020D400 /* Resolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE901197223B49CE0020D400 /* Resolution.swift */; };
 		AE9011F722432AC00020D400 /* FlowLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9011F622432AC00020D400 /* FlowLayoutViewController.swift */; };
 		AE9011F922432D320020D400 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9011F822432D320020D400 /* FlowLayout.swift */; };
+		AE9011FB22437E450020D400 /* MitoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9011FA22437E450020D400 /* MitoListViewController.swift */; };
 		AE955C3520A2D39A0009EFFE /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE955C3420A2D39A0009EFFE /* VideoPlayViewController.swift */; };
 		AE95A0D420BBD2AE00C5AED6 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95A0D120BBD2AE00C5AED6 /* VolumeView.swift */; };
 		AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D51F69070E00339BB8 /* AppDelegate.swift */; };
@@ -457,6 +458,7 @@
 		AE901197223B49CE0020D400 /* Resolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolution.swift; sourceTree = "<group>"; };
 		AE9011F622432AC00020D400 /* FlowLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayoutViewController.swift; sourceTree = "<group>"; };
 		AE9011F822432D320020D400 /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
+		AE9011FA22437E450020D400 /* MitoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MitoListViewController.swift; sourceTree = "<group>"; };
 		AE955C3420A2D39A0009EFFE /* VideoPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayViewController.swift; sourceTree = "<group>"; };
 		AE95A0D120BBD2AE00C5AED6 /* VolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -861,6 +863,7 @@
 			children = (
 				AE901196223B49B80020D400 /* Model */,
 				AE3795242238E886009292DE /* MitoViewController.swift */,
+				AE9011FA22437E450020D400 /* MitoListViewController.swift */,
 			);
 			path = Mito;
 			sourceTree = "<group>";
@@ -1994,6 +1997,7 @@
 				AE9F32831F690F5200339BB8 /* GrandModel+Convert.swift in Sources */,
 				AEDF8C49209AF5F700EED6D1 /* VideoRecordViewController.swift in Sources */,
 				AE4DA625214667A200FCC7FD /* ShadowAudioPlayerBack.swift in Sources */,
+				AE9011FB22437E450020D400 /* MitoListViewController.swift in Sources */,
 				AE1AC81720D25FBC0002F779 /* CaptureSessionCoordinator.swift in Sources */,
 				AE0F70861FBE861A00C8135C /* SliderDemoViewController.swift in Sources */,
 				AEBE404D1FC806E40087D7ED /* CityDB.swift in Sources */,
