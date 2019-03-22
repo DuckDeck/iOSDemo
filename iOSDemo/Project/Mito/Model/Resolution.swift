@@ -21,7 +21,7 @@ struct Resolution {
     init(resolution:String) {
         var res = resolution.split("x")
         if (resolution.contains("x")){
-            res = resolution.split("×") // it's rediculous, because x and × is not the same
+            res = resolution.split("x") // it's rediculous, because x and × is not the same
         }
         if (res.count == 1)
         {

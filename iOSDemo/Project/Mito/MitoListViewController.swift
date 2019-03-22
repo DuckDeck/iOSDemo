@@ -33,7 +33,12 @@ class MitoListViewController: UIViewController {
     }
     
     @objc func headerRefresh() {
-        
+        ImageSet.getImageSet(type: 0, cat: "全部", resolution: Resolution(), theme: "全部", index: 1) { (res) in
+            if !handleResult(result: res){
+                return
+            }
+            print(res)
+        }
     }
     
     @objc func footerRefresh() {
@@ -53,5 +58,10 @@ extension MitoListViewController:UICollectionViewDelegate,UICollectionViewDataSo
         return cell
     }
     
+    
+}
+
+
+class ImageSetCell: UICollectionViewCell {
     
 }

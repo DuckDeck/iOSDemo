@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kanna
 let PCImage = "http://www.5857.com/list-9"
 let PadImage = "http://www.5857.com/list-10"
 let PhoneImage = "http://www.5857.com/list-11"
@@ -30,7 +31,7 @@ class ImageSet {
     var isCollected = false
     var hashId = 0
     
-    static func getImageSet(type:Int,cat:String,resolution:Resolution, theme:String, index:Int,size:Int,complated:((_ result:ResultInfo)->Void)){
+    static func getImageSet(type:Int,cat:String,resolution:Resolution, theme:String, index:Int,completed:@escaping ((_ result:ResultInfo)->Void)){
         var baseUrl = PCImage
         switch type {
         case 1:
@@ -42,7 +43,49 @@ class ImageSet {
         default:
             break
         }
-        let url = "\(baseUrl)-\(ImageSet.themeToUrlPara(str: theme))-\(ImageSet.catToUrlPara(str: cat))-0-"
+        var url = "\(baseUrl)-\(ImageSet.themeToUrlPara(str: theme))-\(ImageSet.catToUrlPara(str: cat))-0-\(resolution.toUrlPara())-0-\(index).html"
+        if type == 1{
+            url = "\(baseUrl)-\(ImageSet.themeToUrlPara(str: theme))-\(ImageSet.catToUrlPara(str: cat))-\(resolution.toUrlPara())-0-0-\(index).html"
+        }
+        if type == 2{
+            url = "\(baseUrl)-\(ImageSet.themeToUrlPara(str: theme))-\(ImageSet.catToUrlPara(str: cat))-0-0-\(resolution.toUrlPara())-\(index).html"
+        }
+        Log(message: url)
+        HttpClient.get(url).completion { (data, err) in
+            var result = ResultInfo()
+            if err != nil{
+                result.code = -1
+                result.message = err!.localizedDescription
+                completed(result)
+                return
+            }
+            guard let doc = try? HTML(html: data!, encoding: .utf8) else{
+                result.code = 10
+                result.message = "解析HTML错误"
+                completed(result)
+                return
+            }
+            let uls = doc.xpath("//ul[@class='clearfix']")
+            if uls.count <= 0{
+                result.data = [ImageSet]()
+                completed(result)
+                return
+            }
+            var arrImageSets = [ImageSet]()
+            let lis = uls.first!.css("li")
+            for ul in lis{
+                let img = ImageSet()
+                img.category = ul.css("div > em > a")[0].text ?? ""
+                img.mainImage = ul.css("div > a > img")[0]["src"] ?? ""
+                img.title = ul.css("div > a > span")[0].text ?? ""
+                img.url = ul.css("div > a")[0]["href"] ?? ""
+                img.resolution = Resolution(resolution: ul.css("div > span > a")[0].text ?? "")
+                img.theme = ul.css("div > span")[1].text ?? ""
+                arrImageSets.append(img)
+            }
+            result.data = arrImageSets
+            completed(result)
+        }
     }
     
     static func catToUrlPara(str:String)->Int{
