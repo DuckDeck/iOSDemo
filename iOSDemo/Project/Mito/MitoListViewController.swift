@@ -7,21 +7,17 @@
 //
 
 import UIKit
-
+import MJRefresh
 class MitoListViewController: UIViewController {
     
     
     var vCol: UICollectionView!
-    
-    
+    var cat = 0 //图片类型
+    var arrImageSets = [ImageSet]()
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout = FlowLayout(columnCount: 3, columnMargin: 8) { (index) -> Double in
-            let i = Double(arc4random() % 100 )
-            if i < 20{
-                return i + 20
-            }
-            return i
+           return 100
         }
         
         vCol = UICollectionView(frame: view.frame, collectionViewLayout: layout)
@@ -29,10 +25,20 @@ class MitoListViewController: UIViewController {
         vCol.delegate = self
         vCol.dataSource = self
         vCol.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        vCol.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(headerRefresh))
+        vCol.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(footerRefresh))
         view.addSubview(vCol)
+
+        vCol.mj_header.beginRefreshing()
+    }
+    
+    @objc func headerRefresh() {
         
     }
     
+    @objc func footerRefresh() {
+        
+    }
 
 
 }
