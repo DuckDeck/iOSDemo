@@ -81,7 +81,7 @@ class ImageSet:BaseModel {
                 img.url = ul.css("div > a")[0]["href"] ?? ""
                 img.resolution = Resolution(resolution: ul.css("div > span > a")[0].text ?? "")
                 img.theme = ul.css("div > span")[1].text ?? ""
-                img.cellHeight = (ScreenWidth / 2 - 10) / CGFloat(img.resolution.ratio) + 60.0
+                img.cellHeight = (ScreenWidth / 2 - 10) / CGFloat(img.resolution.ratio) + 70.0
                 arrImageSets.append(img)
             }
             result.data = arrImageSets
@@ -138,6 +138,41 @@ class ImageSet:BaseModel {
          case "灰色": return 3395
         default:
             return 0
+        }
+    }
+}
+
+extension String{
+    func toColor() -> UIColor {
+        switch self {
+            case "红色": return UIColor.red
+             case "橙色": return UIColor.orange
+             case "黄色": return UIColor.yellow
+             case "绿色": return UIColor.green
+             case "紫色": return UIColor.purple
+             case "粉色": return UIColor.red
+             case "青色": return UIColor.cyan
+             case "蓝色": return UIColor.blue
+             case "棕色": return UIColor.brown
+            case "白色": return UIColor.white
+            case "银色": return UIColor.silver
+            case "灰色": return UIColor.gray
+        default:
+            return UIColor.white
+        }
+    }
+}
+
+
+extension UIColor{
+    static var pink:UIColor{
+        get{
+            return UIColor.init(red: 1, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1)
+        }
+    }
+    static var silver:UIColor{
+        get{
+            return UIColor.init(red: 192.0/255.0, green: 192.0/255.0, blue: 192.0/255.0, alpha: 1)
         }
     }
 }

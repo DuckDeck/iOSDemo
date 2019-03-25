@@ -79,6 +79,7 @@ class ImageSetCell: UICollectionViewCell {
             }
             let sour = ImageResource(downloadURL: URL(string: i.mainImage)!)
             img.kf.setImage(with: sour)
+            img.layer.borderColor = i.theme.toColor().cgColor
             lblTitle.text = i.title
             lblResolution.text = i.resolution.toString()
             lblTheme.text = i.theme
@@ -89,6 +90,8 @@ class ImageSetCell: UICollectionViewCell {
         super.init(frame: frame)
         
         img.contentMode = .scaleAspectFill
+        img.clipsToBounds = true
+        img.layer.borderWidth = 1
         img.addTo(view: contentView).snp.makeConstraints { (m) in
             m.left.top.equalTo(5)
             m.right.equalTo(-5)
@@ -99,19 +102,19 @@ class ImageSetCell: UICollectionViewCell {
             m.left.equalTo(5)
             m.right.equalTo(-5)
             m.top.equalTo(img.snp.bottom).offset(10)
+            m.height.equalTo(15)
         }
         
-        lblResolution.addTo(view: contentView).snp.makeConstraints { (m) in
+        lblResolution.color(color: UIColor.darkGray).setFont(font: 13).addTo(view: contentView).snp.makeConstraints { (m) in
             m.left.equalTo(lblTitle)
-            m.top.equalTo(lblTitle.snp.bottom).offset(5)
-            m.width.equalTo(120)
+            m.top.equalTo(lblTitle.snp.bottom).offset(10)
             m.bottom.equalTo(-5)
         }
         
-        lblTheme.addTo(view: contentView).snp.makeConstraints { (m) in
+        lblTheme.color(color: UIColor.darkGray).setFont(font: 13).addTo(view: contentView).snp.makeConstraints { (m) in
             m.right.equalTo(lblTitle)
-            m.top.equalTo(lblTitle.snp.bottom).offset(5)
-            m.width.equalTo(60)
+            m.top.equalTo(lblTitle.snp.bottom).offset(10)
+            
         }
     }
     
