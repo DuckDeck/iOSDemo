@@ -89,6 +89,39 @@ class ImageSet:BaseModel {
         }
     }
     
+    func getImageSetList(url:String,completed:@escaping ((_ result:ResultInfo)->Void))  {
+        HttpClient.get(url).completion { (data, err) in
+            var result = ResultInfo()
+            if err != nil{
+                result.code = -1
+                result.message = err!.localizedDescription
+                completed(result)
+                return
+            }
+            guard let doc = try? HTML(html: data!, encoding: .utf8) else{
+                result.code = 10
+                result.message = "解析HTML错误"
+                completed(result)
+                return
+            }
+            guard let oneImage = doc.xpath("//div[@class='img-boc']").first else{
+                result.data = [ImageSet]()
+                completed(result)
+                return
+            }
+            let imgs = oneImage.css("div >a")
+            var arrImgs = [String]()
+            for img in imgs{
+                let url = img.css("img").first!["src"]!
+                arrImgs.append(url)
+            }
+            result.data = arrImgs
+            completed(result)
+            
+            
+        }
+    }
+    
     static func catToUrlPara(str:String)->Int{
         switch str {
             case "全部": return 0

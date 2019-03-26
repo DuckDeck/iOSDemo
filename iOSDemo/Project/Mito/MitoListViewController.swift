@@ -15,6 +15,7 @@ class MitoListViewController: UIViewController {
     var vCol: UICollectionView!
     var cat = 0 //图片类型
     var arrImageSets = [ImageSet]()
+    var index = 1
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout = FlowLayout(columnCount: 2, columnMargin: 8) { [weak self] (index) -> Double in
@@ -34,18 +35,38 @@ class MitoListViewController: UIViewController {
     }
     
     @objc func headerRefresh() {
-        ImageSet.getImageSet(type: 0, cat: "全部", resolution: Resolution(), theme: "全部", index: 1) { (res) in
-            self.vCol.mj_header.endRefreshing()
-            if !handleResult(result: res){
-                return
-            }
-            self.arrImageSets = res.data! as! [ImageSet]
-            self.vCol.reloadData()
-        }
+        index = 1
+        loadData()
     }
     
     @objc func footerRefresh() {
-        
+        index += 1
+        loadData()
+    }
+    
+    func loadData() {
+        ImageSet.getImageSet(type: 0, cat: "全部", resolution: Resolution(), theme: "全部", index: index) { (res) in
+            self.vCol.mj_header.endRefreshing()
+            
+            if !handleResult(result: res){
+                return
+            }
+            if self.index == 1{
+                self.arrImageSets = res.data! as! [ImageSet]
+            }
+            else{
+                let imgs = res.data! as! [ImageSet]
+                if imgs.count <= 0{
+                    self.vCol.mj_footer.endRefreshingWithNoMoreData()
+                }
+                else{
+                    self.arrImageSets += res.data! as! [ImageSet]
+                    self.vCol.mj_footer.endRefreshing()
+                }
+            }
+            
+            self.vCol.reloadData()
+        }
     }
 
 
@@ -61,6 +82,12 @@ extension MitoListViewController:UICollectionViewDelegate,UICollectionViewDataSo
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = arrImageSets[indexPath.row]
+        let vc = ImageSetListViewController()
+        vc.imageSet = item
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
 
@@ -95,7 +122,7 @@ class ImageSetCell: UICollectionViewCell {
         img.addTo(view: contentView).snp.makeConstraints { (m) in
             m.left.top.equalTo(5)
             m.right.equalTo(-5)
-            m.height.greaterThanOrEqualTo(ScreenWidth / 3)
+            m.height.greaterThanOrEqualTo(ScreenWidth / 3.5)
         }
         
         lblTitle.lineNum(num: 0).addTo(view: contentView).snp.makeConstraints { (m) in
