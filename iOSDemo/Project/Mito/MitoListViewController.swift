@@ -65,7 +65,7 @@ class MitoListViewController: UIViewController {
                 }
             }
             
-            self.vCol.reloadData()
+           // self.vCol.reloadData()
         }
     }
 

@@ -89,7 +89,7 @@ class ImageSet:BaseModel {
         }
     }
     
-    func getImageSetList(url:String,completed:@escaping ((_ result:ResultInfo)->Void))  {
+    static func getImageSetList(url:String,completed:@escaping ((_ result:ResultInfo)->Void))  {
         HttpClient.get(url).completion { (data, err) in
             var result = ResultInfo()
             if err != nil{
@@ -104,7 +104,7 @@ class ImageSet:BaseModel {
                 completed(result)
                 return
             }
-            guard let oneImage = doc.xpath("//div[@class='img-boc']").first else{
+            guard let oneImage = doc.xpath("//div[@class='img-box']").first else{
                 result.data = [ImageSet]()
                 completed(result)
                 return
