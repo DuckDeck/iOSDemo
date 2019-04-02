@@ -138,6 +138,7 @@
 		AE5A88851FF49CD300748F6A /* 3DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5A88841FF49CD300748F6A /* 3DViewController.swift */; };
 		AE5AD7EC206111AC00289798 /* RippleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5AD7EB206111AC00289798 /* RippleViewController.swift */; };
 		AE5AD7EE206111D600289798 /* RippleAnimtaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5AD7ED206111D600289798 /* RippleAnimtaionView.swift */; };
+		AE5AD8BF225355D100BD7EE9 /* ImageBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5AD8BE225355D100BD7EE9 /* ImageBrowserViewController.swift */; };
 		AE5CE7DB208B133C001DB437 /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CE7DA208B133C001DB437 /* RecordListViewController.swift */; };
 		AE5CE7DD208B2DBD001DB437 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CE7DC208B2DBD001DB437 /* UITableView+Extension.swift */; };
 		AE6691B320EDF39F00D019D4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6691B220EDF39F00D019D4 /* WebViewController.swift */; };
@@ -414,6 +415,7 @@
 		AE5A88841FF49CD300748F6A /* 3DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3DViewController.swift; sourceTree = "<group>"; };
 		AE5AD7EB206111AC00289798 /* RippleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleViewController.swift; sourceTree = "<group>"; };
 		AE5AD7ED206111D600289798 /* RippleAnimtaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleAnimtaionView.swift; sourceTree = "<group>"; };
+		AE5AD8BE225355D100BD7EE9 /* ImageBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBrowserViewController.swift; sourceTree = "<group>"; };
 		AE5CE7DA208B133C001DB437 /* RecordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewController.swift; sourceTree = "<group>"; };
 		AE5CE7DC208B2DBD001DB437 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		AE6691B220EDF39F00D019D4 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -1012,6 +1014,7 @@
 				AEDCE5BD20DBA15900A50536 /* BarSlider.swift */,
 				AE3795262238EB10009292DE /* SlideMenuView.swift */,
 				AE9011F822432D320020D400 /* FlowLayout.swift */,
+				AE5AD8BE225355D100BD7EE9 /* ImageBrowserViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2079,6 +2082,7 @@
 				AEADFD2A2105B40E00E6B58D /* JXLayoutButton.m in Sources */,
 				AE83BD711FDE72BF001882D1 /* ImageRotationViewController.swift in Sources */,
 				AE3F46EE20AC0300007BA637 /* UIColor+Extension.swift in Sources */,
+				AE5AD8BF225355D100BD7EE9 /* ImageBrowserViewController.swift in Sources */,
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
 				AE5A88721FF37AA800748F6A /* Semaphore.swift in Sources */,
 				AE3AF04B1F773D6200AF182A /* AnimationVIew.swift in Sources */,

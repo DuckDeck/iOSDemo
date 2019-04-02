@@ -16,6 +16,7 @@ class ImageSetListViewController: UIViewController {
     var arrImages = [String]()
     let btnDownload = UIButton()
     let btnCollect = UIButton(type: .custom)
+    let vImageBroswer = ImageBrowserViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +53,8 @@ class ImageSetListViewController: UIViewController {
         
         
         initData()
+        
+        
         
     }
     
@@ -92,6 +95,7 @@ class ImageSetListViewController: UIViewController {
                 return
             }
             self.arrImages = result.data! as! [String]
+            self.vImageBroswer.arrImages = self.arrImages
             self.tb.reloadData()
         }
     }
@@ -112,6 +116,10 @@ extension ImageSetListViewController:UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        vImageBroswer.currentIndex = indexPath.row
+        present(vImageBroswer, animated: true, completion: nil)
+    }
     
 }
 
