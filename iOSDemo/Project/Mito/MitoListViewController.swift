@@ -47,7 +47,7 @@ class MitoListViewController: UIViewController {
     func loadData() {
         ImageSet.getImageSet(type: 0, cat: "全部", resolution: Resolution(), theme: "全部", index: index) { (res) in
             self.vCol.mj_header.endRefreshing()
-            
+
             if !handleResult(result: res){
                 return
             }
@@ -65,11 +65,24 @@ class MitoListViewController: UIViewController {
                 }
             }
             
-           // self.vCol.reloadData()
+             self.vCol.reloadData() //神了，怎么加载不出来了，卡了什么也干不了
         }
+
+//        let imgSet = ImageSet()
+//        imgSet.mainImage = "http://222.186.12.239:10010/qizmmei_20190329/001.jpg"
+//        imgSet.resolution = Resolution(resolution: "192081200")
+//        arrImageSets.append(imgSet)
+//        vCol.reloadData()
     }
 
-
+//
+//    func reload() {
+//        print(arrImageSets)
+//        DispatchQueue.main.async {
+//            self.vCol.reloadData()
+//        }
+//    }
+    
 }
 extension MitoListViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

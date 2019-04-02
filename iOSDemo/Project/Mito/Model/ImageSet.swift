@@ -33,15 +33,28 @@ class ImageSet:BaseModel {
     
     static func getImageSet(type:Int,cat:String,resolution:Resolution, theme:String, index:Int,completed:@escaping ((_ result:ResultInfo)->Void)){
         var baseUrl = PCImage
+        var res = resolution
+        if resolution.isEmpty{
+            res = Resolution.StandardComputorResolution
+        }
         switch type {
-        case 1:
-            baseUrl = PadImage
-        case 2:
-            baseUrl = PhoneImage
-        case 3:
-            baseUrl = EssentialImage
-        default:
-            break
+            case 1:
+                baseUrl = PadImage
+                if resolution.isEmpty{
+                    res = Resolution.StandardPadResolution
+                }
+            case 2:
+                baseUrl = PhoneImage
+                if resolution.isEmpty{
+                    res = Resolution.StandardPhoneResolution
+                }
+            case 3:
+                baseUrl = EssentialImage
+                if resolution.isEmpty{
+                    res = Resolution.StandardComputorResolution
+                }
+            default:
+                break
         }
         var url = "\(baseUrl)-\(ImageSet.themeToUrlPara(str: theme))-\(ImageSet.catToUrlPara(str: cat))-0-\(resolution.toUrlPara())-0-\(index).html"
         if type == 1{
@@ -80,10 +93,15 @@ class ImageSet:BaseModel {
                 img.title = ul.css("div > a > span")[0].text ?? ""
                 img.url = ul.css("div > a")[0]["href"] ?? ""
                 img.resolution = Resolution(resolution: ul.css("div > span > a")[0].text ?? "")
+                if img.resolution.isEmpty{
+                    img.resolution = res
+                }
                 img.theme = ul.css("div > span")[1].text ?? ""
                 img.cellHeight = (ScreenWidth / 2 - 10) / CGFloat(img.resolution.ratio) + 70.0
+
                 arrImageSets.append(img)
             }
+
             result.data = arrImageSets
             completed(result)
         }

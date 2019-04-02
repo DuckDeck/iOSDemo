@@ -22,6 +22,14 @@ struct Resolution {
         
     }
     
+    var isEmpty:Bool{
+        return pixelX == 0 || pixelY == 0
+    }
+    
+    static let StandardComputorResolution = Resolution(resolution: "1920x1080")
+    static let StandardPhoneResolution = Resolution(resolution: "1080x1920")
+    static let StandardPadResolution = Resolution(resolution: "2048x1536")
+    
     init(resolution:String) {
         var res = resolution.split("x")
         if (resolution.contains("x")){
