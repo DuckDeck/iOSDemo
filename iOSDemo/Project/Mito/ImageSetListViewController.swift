@@ -42,11 +42,10 @@ class ImageSetListViewController: UIViewController {
         btnDownload.layer.borderColor = UIColor.orange.cgColor
         btnDownload.layer.borderWidth = 2
         btnDownload.backgroundColor = UIColor.orange
-        btnDownload.imageView?.contentMode = .scaleAspectFill
-        btnDownload.setImage(UIImage(named: "download-arrow"), for: .normal)
+        btnDownload.setTitle("下载", for: .normal)
         btnDownload.addTarget(self, action: #selector(download), for: .touchUpInside)
         btnDownload.addTo(view: view).snp.makeConstraints { (m) in
-            m.right.equalTo(-50)
+            m.right.equalTo(-40)
             m.bottom.equalTo(-50)
             m.width.height.equalTo(60)
         }
@@ -109,8 +108,7 @@ extension ImageSetListViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! ImageSetInfoCell
         let url = arrImages[indexPath.row]
-        let sour = ImageResource(downloadURL: URL(string: url)!)
-        cell.img.kf.setImage(with: sour)
+        cell.img.setImg(url: url)
         return cell
     }
     
@@ -127,7 +125,8 @@ class ImageSetInfoCell: UITableViewCell {
         img.contentMode = .scaleAspectFill
         img.clipsToBounds = true
         img.addTo(view: contentView).snp.makeConstraints { (m) in
-            m.edges.equalTo(4)
+            m.left.top.equalTo(4)
+            m.bottom.right.equalTo(-4)
         }
         
         

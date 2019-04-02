@@ -9,20 +9,40 @@
 import Foundation
 import Kingfisher
 extension UIImageView{
-    func setImg(url:String?,completed:((_ img:UIImage)->Void)?,placeHolder:String="img_defect")  {
+    
+    func setImg(url:String?){
+        setImg(url: url, completed: nil, placeHolder: nil)
+    }
+    
+    func setImg(url:String?,  completed:((_ img:UIImage)->Void)?,placeHolder:String?,errorHolder:String="file_not_exist")  {
         if(url==nil||url!.count==0){
-            self.image = UIImage(named: placeHolder)
+            self.image = UIImage(named: errorHolder)
             return
+        }
+
+        let act = UIActivityIndicatorView()
+        addSubview(act)
+        act.color = Color.gray
+        act.startAnimating()
+        act.snp.makeConstraints { (m) in
+            m.center.equalTo(self)
+            m.width.height.equalTo(20)
         }
         
         if url!.hasPrefix("http"){
-            
-          
             let res = ImageResource(downloadURL: URL(string: url!)!)
-            let place = UIImage(named: placeHolder)
-            kf.setImage(with: res, placeholder: place, options: nil, progressBlock: nil) { (img, err, cacheType, url) in
-                if let i = img{
-                    completed?(i)
+            var place:UIImage? = nil
+            if let p = placeHolder{
+                place = UIImage(named: p)
+            }
+            kf.setImage(with: res, placeholder:place, options: [.transition(.fade(1))], progressBlock: nil) { (res) in
+                act.stopAnimating()
+                act.removeFromSuperview()
+                switch res{
+                case .success(let img):
+                    completed?(img.image)
+                case .failure( _):
+                    self.image = UIImage(named: errorHolder)
                 }
             }
         }
@@ -32,51 +52,7 @@ extension UIImageView{
     }
 
     
-    //Kingfisher 目前实现不了
-    //    func setImageAnimation(url:String?)  {
-    //        if(url==nil||url!.length==0){
-    //            self.image = UIImage(named: "public_img_picture_not_exist")
-    //            return
-    //        }
-    //        let httpUrl = url!
-    //        var isCached = false //没有缓存
-    //        if SDImageCache.shared().diskImageExists(withKey: httpUrl as String){
-    //            isCached = true //已经缓存
-    //        }
-    //        if !isCached{
-    //            for view in self.subviews{
-    //                if view is UIImageView{
-    //                    view.alpha = 0
-    //                }
-    //            }
-    //        }
-    //        sd_setImage(with: URL(string: httpUrl), placeholderImage: UIImage(named: "public_img_picture_not_exist"), options: [SDWebImageOptions.avoidAutoSetImage,SDWebImageOptions.delayPlaceholder], progress: { (a, b) -> Void in
-    //            //   progress!.progress = Float(a) / Float(b) //这里根本就没有调用
-    //        }, completed: { (img, error, cacheType, url) -> Void in
-    //            if error != nil{
-    //                self.image = UIImage(named: "public_img_picture_not_exist")
-    //                for view in self.subviews{
-    //                    view.alpha = 1
-    //                }
-    //                return
-    //            }
-    //            self.image = img
-    //            if !isCached{
-    //                self.alpha = 0
-    //                for view in self.subviews{
-    //                    view.alpha = 0
-    //                }
-    //                UIView.animate(withDuration: 1, animations: { () -> Void in
-    //                    self.alpha = 1
-    //                    for view in self.subviews{
-    //                        view.alpha = 1
-    //                    }
-    //                })
-    //            }
-    //
-    //        })
-    //
-    //    }
+  
     
 }
 

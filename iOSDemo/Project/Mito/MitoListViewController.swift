@@ -117,8 +117,8 @@ class ImageSetCell: UICollectionViewCell {
                 return
                 
             }
-            let sour = ImageResource(downloadURL: URL(string: i.mainImage)!)
-            img.kf.setImage(with: sour)
+        
+            img.setImg(url: i.mainImage)
             img.layer.borderColor = i.theme.toColor().cgColor
             lblTitle.text = i.title
             lblResolution.text = i.resolution.toString()
