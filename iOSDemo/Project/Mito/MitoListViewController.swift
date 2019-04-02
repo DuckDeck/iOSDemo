@@ -13,7 +13,7 @@ class MitoListViewController: UIViewController {
     
     
     var vCol: UICollectionView!
-    var cat = 0 //图片类型
+    var cat = "" //图片类型
     var arrImageSets = [ImageSet]()
     var index = 1
     override func viewDidLoad() {
@@ -45,7 +45,7 @@ class MitoListViewController: UIViewController {
     }
     
     func loadData() {
-        ImageSet.getImageSet(type: 0, cat: "全部", resolution: Resolution(), theme: "全部", index: index) { (res) in
+        ImageSet.getImageSet(type: 0, cat: cat, resolution: Resolution(), theme: "全部", index: index) { (res) in
             self.vCol.mj_header.endRefreshing()
 
             if !handleResult(result: res){

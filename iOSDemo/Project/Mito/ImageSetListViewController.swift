@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import Photos
 class ImageSetListViewController: UIViewController {
 
     let tb = UITableView()
@@ -61,8 +62,29 @@ class ImageSetListViewController: UIViewController {
     
     @objc func download()  {
         UIAlertController.init(title: "下载图片", message: "你要下载全部图片吗", preferredStyle: .alert).action(title: "取消", handle: nil).action(title: "确定", handle: {(action:UIAlertAction) in
-            
+            self.savaPhoto()
         }).show()
+    }
+    
+    func savaPhoto() {
+       let count = arrImages.count
+        var current = 0
+        let downLoader = ImageDownloader.default
+        for item in arrImages{
+            downLoader.downloadImage(with: URL(string: item)!, options: nil, progressBlock: nil) { (res) in
+                switch res{
+                case .success(let img):
+                    img.image.saveToAlbum()
+                    current += 1
+                    if(current == count){
+                        Toast.showToast(msg: "图片全部下载完")
+                    }
+                case .failure(let error):
+                    Toast.showToast(msg: error.failureReason!)
+                }
+            }
+        }
+       
     }
     
     func initData() {
@@ -86,7 +108,6 @@ extension ImageSetListViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! ImageSetInfoCell
-        
         let url = arrImages[indexPath.row]
         let sour = ImageResource(downloadURL: URL(string: url)!)
         cell.img.kf.setImage(with: sour)

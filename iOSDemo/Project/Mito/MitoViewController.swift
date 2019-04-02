@@ -40,6 +40,7 @@ class MitoViewController: UIViewController {
        
         for item in arrMenu{
             let vc = MitoListViewController()
+            vc.cat = item
             arrControllers.append(vc)
         }
         
