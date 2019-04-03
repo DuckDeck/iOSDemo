@@ -68,7 +68,11 @@ class MitoViewController: UIViewController {
         view.addSubview(grandMenuTable!)
      
         
-        let menu = ["全部":UIImage(named: "a3")!]
+        let menu = ["电脑壁纸":UIImage(named: "computer")!,
+                    "手机壁纸":UIImage(named: "phone")!,
+                    "平板壁纸":UIImage(named: "tablet")!,
+                    "精选一图":UIImage(named: "a3")!,
+                    "我的收藏":UIImage(named: "star_full")!]
         vMenu.menu = menu
         view.addSubview(vMenu)
         

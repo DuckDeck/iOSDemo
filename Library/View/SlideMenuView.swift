@@ -31,7 +31,7 @@ class SlideMenuView: UIView {
         img.addTo(view: vMenu).snp.makeConstraints { (m) in
             m.top.equalTo(NavigationBarHeight)
             m.left.right.equalTo(0)
-            m.height.equalTo(0.6 * UIScreen.main.bounds.size.width)
+            m.height.equalTo(0.5 * UIScreen.main.bounds.size.width)
         }
         img.image = UIImage(named: "3")
         
@@ -40,7 +40,7 @@ class SlideMenuView: UIView {
         vMenu.snp.makeConstraints { (m) in
             m.left.equalTo(UIScreen.main.bounds.size.width)
             m.top.bottom.equalTo(0)
-            m.width.equalTo(0.6 * UIScreen.main.bounds.size.width)
+            m.width.equalTo(0.5 * UIScreen.main.bounds.size.width)
         }
         
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(collapse))
@@ -60,14 +60,25 @@ class SlideMenuView: UIView {
     func setMenu()  {
         var previousBtn:UIButton?
         for item in menu {
-            let btn = UIButton()
+            let btn = JXLayoutButton()
             btn.setTitle(item.key, for: .normal)
             btn.setImage(item.value, for: .normal)
+            btn.imageSize = CGSize(width: 20, height: 20)
+            btn.layoutStyle = .leftImageRightTitle
+            btn.midSpacing = 5
+            btn.setTitleColor(UIColor.black, for: .normal)
+            btn.addTarget(self, action: #selector(clickMenu), for: .touchUpInside)
             vMenu.addSubview(btn)
             btn.snp.makeConstraints { (m) in
-                m.left.equalTo(100)
-                m.top.equalTo(previousBtn == nil ? 400 : previousBtn!.snp.bottom)
-                m.height.equalTo(20)
+                m.right.equalTo(-30)
+                if previousBtn == nil{
+                     m.top.equalTo(360)
+                }
+                else{
+                     m.top.equalTo(previousBtn!.snp.bottom).offset(10)
+                }
+                m.height.equalTo(25)
+                m.width.equalTo(60)
             }
             previousBtn = btn
         }
@@ -75,6 +86,10 @@ class SlideMenuView: UIView {
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
+    }
+    
+    @objc func clickMenu()  {
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -85,7 +100,7 @@ class SlideMenuView: UIView {
          self.alpha = 1
         UIView.animate(withDuration: 0.5, animations: {
             self.vMenu.snp.updateConstraints { (m) in
-                m.left.equalTo(UIScreen.main.bounds.size.width * 0.4)
+                m.left.equalTo(UIScreen.main.bounds.size.width * 0.5)
             }
             self.layoutIfNeeded()
         }) 
