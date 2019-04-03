@@ -139,6 +139,8 @@
 		AE5AD7EC206111AC00289798 /* RippleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5AD7EB206111AC00289798 /* RippleViewController.swift */; };
 		AE5AD7EE206111D600289798 /* RippleAnimtaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5AD7ED206111D600289798 /* RippleAnimtaionView.swift */; };
 		AE5AD8BF225355D100BD7EE9 /* ImageBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5AD8BE225355D100BD7EE9 /* ImageBrowserViewController.swift */; };
+		AE5AD8C12254A1A200BD7EE9 /* CollectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5AD8C02254A1A200BD7EE9 /* CollectedViewController.swift */; };
+		AE5AD8C32254A22A00BD7EE9 /* MitoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5AD8C22254A22A00BD7EE9 /* MitoConfig.swift */; };
 		AE5CE7DB208B133C001DB437 /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CE7DA208B133C001DB437 /* RecordListViewController.swift */; };
 		AE5CE7DD208B2DBD001DB437 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CE7DC208B2DBD001DB437 /* UITableView+Extension.swift */; };
 		AE6691B320EDF39F00D019D4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6691B220EDF39F00D019D4 /* WebViewController.swift */; };
@@ -416,6 +418,8 @@
 		AE5AD7EB206111AC00289798 /* RippleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleViewController.swift; sourceTree = "<group>"; };
 		AE5AD7ED206111D600289798 /* RippleAnimtaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleAnimtaionView.swift; sourceTree = "<group>"; };
 		AE5AD8BE225355D100BD7EE9 /* ImageBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBrowserViewController.swift; sourceTree = "<group>"; };
+		AE5AD8C02254A1A200BD7EE9 /* CollectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedViewController.swift; sourceTree = "<group>"; };
+		AE5AD8C22254A22A00BD7EE9 /* MitoConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MitoConfig.swift; sourceTree = "<group>"; };
 		AE5CE7DA208B133C001DB437 /* RecordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewController.swift; sourceTree = "<group>"; };
 		AE5CE7DC208B2DBD001DB437 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		AE6691B220EDF39F00D019D4 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -866,9 +870,11 @@
 			isa = PBXGroup;
 			children = (
 				AE901196223B49B80020D400 /* Model */,
+				AE5AD8C22254A22A00BD7EE9 /* MitoConfig.swift */,
 				AE3795242238E886009292DE /* MitoViewController.swift */,
 				AE9011FA22437E450020D400 /* MitoListViewController.swift */,
 				AE9011FC2248BCCA0020D400 /* ImageSetListViewController.swift */,
+				AE5AD8C02254A1A200BD7EE9 /* CollectedViewController.swift */,
 			);
 			path = Mito;
 			sourceTree = "<group>";
@@ -2104,6 +2110,7 @@
 				AE1AC80F20D25F5A0002F779 /* ShadowAudioPlayerView.swift in Sources */,
 				AE9F32861F690F5200339BB8 /* GrandType.swift in Sources */,
 				AEADFD4C2111601100E6B58D /* DemoViewController.swift in Sources */,
+				AE5AD8C32254A22A00BD7EE9 /* MitoConfig.swift in Sources */,
 				AE1DE0992099BE0A007910A5 /* LinkPoint.swift in Sources */,
 				AE6691D820F49B3A00D019D4 /* PriorityBoxArray.m in Sources */,
 				AE5A88631FF36F9500748F6A /* GridView.swift in Sources */,
@@ -2145,6 +2152,7 @@
 				AE83BD7B1FE2134E001882D1 /* TwoSideViewController.swift in Sources */,
 				AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */,
 				AE69C5A9222533D1004DC8AE /* OpenCVImageRecognitionViewController.swift in Sources */,
+				AE5AD8C12254A1A200BD7EE9 /* CollectedViewController.swift in Sources */,
 				AE901193223A405B0020D400 /* CellTypeViewController.swift in Sources */,
 				AE83BD741FDE876F001882D1 /* BallViewController.swift in Sources */,
 				AE5A88761FF37C2200748F6A /* Apply.swift in Sources */,

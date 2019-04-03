@@ -15,7 +15,9 @@ let EssentialImage = "http://www.5857.com/list-37"
 
 
 
-class ImageSet:BaseModel {
+class ImageSet:BaseModel,NSCoding {
+   
+    
     var url = ""
     var category = ""
     var title = ""
@@ -30,6 +32,29 @@ class ImageSet:BaseModel {
     var imgBelongCat = 0
     var isCollected = false
     var hashId = 0
+    
+    override init() {
+        super.init()
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(url, forKey: "url")
+        aCoder.encode(resolutionStr, forKey: "resolutionStr")
+        aCoder.encode(title, forKey: "title")
+        aCoder.encode(theme, forKey: "theme")
+        aCoder.encode(mainImage, forKey: "mainImage")
+        aCoder.encode(cellHeight, forKey: "cellHeight")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init()
+        url = aDecoder.decodeObject(forKey: "url") as! String
+        resolutionStr = aDecoder.decodeObject(forKey: "resolutionStr") as! String
+        title = aDecoder.decodeObject(forKey: "title") as! String
+        theme = aDecoder.decodeObject(forKey: "theme") as! String
+        mainImage = aDecoder.decodeObject(forKey: "mainImage") as! String
+        cellHeight = CGFloat(aDecoder.decodeFloat(forKey: "cellHeight"))
+    }
     
     static func getImageSet(type:Int,cat:String,resolution:Resolution, theme:String, index:Int,completed:@escaping ((_ result:ResultInfo)->Void)){
         var baseUrl = PCImage

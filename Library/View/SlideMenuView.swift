@@ -13,11 +13,13 @@ class SlideMenuView: UIView {
 
     let vMenu = UIView()
     let img = UIImageView()
-    var menu = [String:UIImage](){
+    var menu = [(String,UIImage)](){
         didSet{
             setMenu()
         }
     }
+    
+    var clickMenu:((_ index:Int,_ title:String) -> Void)?
     
     init() {
         super.init(frame: UIScreen.main.bounds)
@@ -31,7 +33,7 @@ class SlideMenuView: UIView {
         img.addTo(view: vMenu).snp.makeConstraints { (m) in
             m.top.equalTo(NavigationBarHeight)
             m.left.right.equalTo(0)
-            m.height.equalTo(0.5 * UIScreen.main.bounds.size.width)
+            m.height.equalTo(0.6 * UIScreen.main.bounds.size.width)
         }
         img.image = UIImage(named: "3")
         
@@ -40,7 +42,7 @@ class SlideMenuView: UIView {
         vMenu.snp.makeConstraints { (m) in
             m.left.equalTo(UIScreen.main.bounds.size.width)
             m.top.bottom.equalTo(0)
-            m.width.equalTo(0.5 * UIScreen.main.bounds.size.width)
+            m.width.equalTo(0.6 * UIScreen.main.bounds.size.width)
         }
         
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(collapse))
@@ -59,26 +61,28 @@ class SlideMenuView: UIView {
     
     func setMenu()  {
         var previousBtn:UIButton?
-        for item in menu {
+        for i in 0..<menu.count {
             let btn = JXLayoutButton()
-            btn.setTitle(item.key, for: .normal)
-            btn.setImage(item.value, for: .normal)
-            btn.imageSize = CGSize(width: 20, height: 20)
+            btn.setTitle(menu[i].0, for: .normal)
+            btn.setImage(menu[i].1, for: .normal)
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: 26)
+            btn.imageSize = CGSize(width: 26, height: 26)
             btn.layoutStyle = .leftImageRightTitle
             btn.midSpacing = 5
+            btn.tag = i
             btn.setTitleColor(UIColor.black, for: .normal)
-            btn.addTarget(self, action: #selector(clickMenu), for: .touchUpInside)
+            btn.addTarget(self, action: #selector(clickMenu(sender:)), for: .touchUpInside)
             vMenu.addSubview(btn)
             btn.snp.makeConstraints { (m) in
-                m.right.equalTo(-30)
+                m.right.equalTo(-50)
                 if previousBtn == nil{
-                     m.top.equalTo(360)
+                     m.top.equalTo(320)
                 }
                 else{
-                     m.top.equalTo(previousBtn!.snp.bottom).offset(10)
+                     m.top.equalTo(previousBtn!.snp.bottom).offset(40)
                 }
                 m.height.equalTo(25)
-                m.width.equalTo(60)
+                m.width.equalTo(100)
             }
             previousBtn = btn
         }
@@ -88,8 +92,9 @@ class SlideMenuView: UIView {
         super.init(frame: frame)
     }
     
-    @objc func clickMenu()  {
-        
+    @objc func clickMenu(sender:JXLayoutButton)  {
+        let index = sender.tag
+        clickMenu?(index,menu[index].0)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -100,7 +105,7 @@ class SlideMenuView: UIView {
          self.alpha = 1
         UIView.animate(withDuration: 0.5, animations: {
             self.vMenu.snp.updateConstraints { (m) in
-                m.left.equalTo(UIScreen.main.bounds.size.width * 0.5)
+                m.left.equalTo(UIScreen.main.bounds.size.width * 0.4)
             }
             self.layoutIfNeeded()
         }) 
