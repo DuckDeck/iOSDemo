@@ -43,6 +43,26 @@ class ImageBrowserViewController: UIViewController {
         }
         
         
+        btnDownload.setTitle("下载", for: .normal)
+        btnDownload.setTitleColor(UIColor.white, for: .normal)
+        btnDownload.addTarget(self, action: #selector(download), for: .touchUpInside)
+        view.addSubview(btnDownload)
+        
+        btnDownload.snp.makeConstraints { (m) in
+            m.left.equalTo(20)
+            m.bottom.equalTo(-50)
+        }
+        
+    }
+    
+    
+    @objc func download()  {
+        guard let cell = vc.visibleCells.first as? ImageBrowserCell else{
+            return
+        }
+        
+        cell.img.image?.saveToAlbum()
+        Toast.showToast(msg: "成功保存到相册")
     }
     
     override func viewWillAppear(_ animated: Bool) {

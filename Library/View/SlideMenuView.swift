@@ -12,7 +12,7 @@ import UIKit
 class SlideMenuView: UIView {
 
     let vMenu = UIView()
-    
+    let img = UIImageView()
     var menu = [String:UIImage](){
         didSet{
             setMenu()
@@ -27,6 +27,14 @@ class SlideMenuView: UIView {
         backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.3)
         
         vMenu.backgroundColor = UIColor.white
+        
+        img.addTo(view: vMenu).snp.makeConstraints { (m) in
+            m.top.equalTo(NavigationBarHeight)
+            m.left.right.equalTo(0)
+            m.height.equalTo(0.6 * UIScreen.main.bounds.size.width)
+        }
+        img.image = UIImage(named: "3")
+        
         
         addSubview(vMenu)
         vMenu.snp.makeConstraints { (m) in
@@ -58,7 +66,7 @@ class SlideMenuView: UIView {
             vMenu.addSubview(btn)
             btn.snp.makeConstraints { (m) in
                 m.left.equalTo(100)
-                m.top.equalTo(previousBtn == nil ? 10 : previousBtn!.snp.bottom)
+                m.top.equalTo(previousBtn == nil ? 400 : previousBtn!.snp.bottom)
                 m.height.equalTo(20)
             }
             previousBtn = btn

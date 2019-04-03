@@ -70,7 +70,7 @@ class MitoViewController: UIViewController {
         
         let menu = ["全部":UIImage(named: "a3")!]
         vMenu.menu = menu
-         view.addSubview(vMenu)
+        view.addSubview(vMenu)
         
     }
     
