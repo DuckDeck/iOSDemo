@@ -97,6 +97,10 @@ class MitoViewController: UIViewController {
                 vc.channel = index
             }
         }
+        if index == 4{
+            let vc = CollectedViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
         
     }
 }

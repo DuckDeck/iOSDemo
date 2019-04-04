@@ -11,7 +11,7 @@ import UIKit
 class CollectedViewController: UIViewController {
 
     let arrImages = MitoConfig.CollectedMito.Value!
-     var vCol: UICollectionView!
+    var vCol: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +25,7 @@ class CollectedViewController: UIViewController {
         vCol.delegate = self
         vCol.dataSource = self
         vCol.register(ImageSetCell.self, forCellWithReuseIdentifier: "Cell")
+     
         view.addSubview(vCol)
         
     }

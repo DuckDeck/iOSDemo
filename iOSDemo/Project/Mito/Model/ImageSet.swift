@@ -15,7 +15,7 @@ let EssentialImage = "http://www.5857.com/list-37"
 
 
 
-class ImageSet:BaseModel,NSCoding {
+class ImageSet:NSObject, NSCoding {
    
     
     var url = ""
@@ -32,7 +32,7 @@ class ImageSet:BaseModel,NSCoding {
     var imgBelongCat = 0
     var isCollected = false
     var hashId = 0
-    
+    var cellHeight:CGFloat = 0
     override init() {
         super.init()
     }

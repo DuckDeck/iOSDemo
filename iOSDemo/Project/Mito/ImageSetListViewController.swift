@@ -21,7 +21,12 @@ class ImageSetListViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = imageSet!.title
-        btnCollect.setImage(UIImage(named: "star_hollow"), for: .normal)
+        
+        
+        let img = MitoConfig.isContain(imageSet: imageSet!) ? UIImage(named: "star_full") : UIImage(named: "star_hollow")
+        
+        
+        btnCollect.setImage(img, for: .normal)
         btnCollect.frame = CGRect(x: 0, y: 0, w: 34, h: 34)
         btnCollect.widthAnchor.constraint(equalToConstant: 35).isActive = true
         btnCollect.heightAnchor.constraint(equalToConstant: 35).isActive = true
@@ -59,7 +64,16 @@ class ImageSetListViewController: UIViewController {
     }
     
     @objc func collect()  {
-        
+        if MitoConfig.isContain(imageSet: imageSet!){
+            MitoConfig.remove(imageSet: imageSet!)
+            btnCollect.setImage(UIImage(named: "star_hollow"), for: .normal)
+            Toast.showToast(msg: "取消收藏")
+        }
+        else{
+            MitoConfig.collect(imageSet: imageSet!)
+            btnCollect.setImage(UIImage(named: "star_full"), for: .normal)
+            Toast.showToast(msg: "成功收藏")
+        }
     }
     
     @objc func download()  {
