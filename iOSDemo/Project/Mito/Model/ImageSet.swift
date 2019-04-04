@@ -32,7 +32,7 @@ class ImageSet:NSObject, NSCoding {
     var imgBelongCat = 0
     var isCollected = false
     var hashId = 0
-    var cellHeight:CGFloat = 0
+    var cellHeight:Float = 0
     override init() {
         super.init()
     }
@@ -53,7 +53,7 @@ class ImageSet:NSObject, NSCoding {
         title = aDecoder.decodeObject(forKey: "title") as! String
         theme = aDecoder.decodeObject(forKey: "theme") as! String
         mainImage = aDecoder.decodeObject(forKey: "mainImage") as! String
-        cellHeight = CGFloat(aDecoder.decodeFloat(forKey: "cellHeight"))
+        cellHeight = aDecoder.decodeFloat(forKey: "cellHeight")
     }
     
     static func getImageSet(type:Int,cat:String,resolution:Resolution, theme:String, index:Int,completed:@escaping ((_ result:ResultInfo)->Void)){
@@ -122,7 +122,7 @@ class ImageSet:NSObject, NSCoding {
                     img.resolution = res
                 }
                 img.theme = ul.css("div > span")[1].text ?? ""
-                img.cellHeight = (ScreenWidth / 2 - 10) / CGFloat(img.resolution.ratio) + 70.0
+                img.cellHeight = Float(ScreenWidth / 2 - 10) / Float(img.resolution.ratio) + 70.0
 
                 arrImageSets.append(img)
             }
