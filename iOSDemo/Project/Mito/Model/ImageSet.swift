@@ -121,6 +121,7 @@ class ImageSet:NSObject, NSCoding {
                 if img.resolution.isEmpty{
                     img.resolution = res
                 }
+                img.resolutionStr = img.resolution.toString()
                 img.theme = ul.css("div > span")[1].text ?? ""
                 img.cellHeight = Float(ScreenWidth / 2 - 10) / Float(img.resolution.ratio) + 70.0
 
@@ -147,19 +148,33 @@ class ImageSet:NSObject, NSCoding {
                 completed(result)
                 return
             }
-            guard let oneImage = doc.xpath("//div[@class='img-box']").first else{
-                result.data = [ImageSet]()
+            if url.contain(subStr: "pic"){ //精选一图
+                guard let oneImage = doc.xpath("//a[@class='photo-a']").first else{
+                    result.data = [ImageSet]()
+                    completed(result)
+                    return
+                }
+                let imgSrc = oneImage.css("img").first!["src"]!
+                result.data = [imgSrc]
                 completed(result)
-                return
+                
             }
-            let imgs = oneImage.css("div >a")
-            var arrImgs = [String]()
-            for img in imgs{
-                let url = img.css("img").first!["src"]!
-                arrImgs.append(url)
+            else{
+                guard let oneImage = doc.xpath("//div[@class='img-box']").first else{
+                    result.data = [ImageSet]()
+                    completed(result)
+                    return
+                }
+                let imgs = oneImage.css("div >a")
+                var arrImgs = [String]()
+                for img in imgs{
+                    let url = img.css("img").first!["src"]!
+                    arrImgs.append(url)
+                }
+                result.data = arrImgs
+                completed(result)
             }
-            result.data = arrImgs
-            completed(result)
+           
             
             
         }

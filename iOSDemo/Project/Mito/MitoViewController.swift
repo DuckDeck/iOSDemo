@@ -101,7 +101,10 @@ class MitoViewController: UIViewController {
             let vc = CollectedViewController()
             navigationController?.pushViewController(vc, animated: true)
         }
-        
+        if index == 5{
+            let vc = AboutMitoViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 

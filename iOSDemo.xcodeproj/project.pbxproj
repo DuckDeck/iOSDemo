@@ -212,6 +212,7 @@
 		AEB6F569219C206E005CA2BE /* ConcurrentProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F568219C206E005CA2BE /* ConcurrentProcessor.m */; };
 		AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
 		AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
+		AEB7D08F225B216D008C899E /* AboutMitoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D08E225B216D008C899E /* AboutMitoViewController.swift */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
 		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
@@ -524,6 +525,7 @@
 		AEB771FD1F6A8089008C4365 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Base.swift"; sourceTree = "<group>"; };
 		AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
+		AEB7D08E225B216D008C899E /* AboutMitoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMitoViewController.swift; sourceTree = "<group>"; };
 		AEBA80D420BD50B300F6A323 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		AEBA80D520BD50B300F6A323 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
 		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
@@ -765,6 +767,7 @@
 		AE1DE01A2099ACA9007910A5 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				AEB7D090225B2606008C899E /* FiveStroke */,
 				AE3795232238E86B009292DE /* Mito */,
 				AEEE485C215CC601003C9943 /* PointLock */,
 				AE1DE04B2099BDDF007910A5 /* LinkGame */,
@@ -875,6 +878,7 @@
 				AE9011FA22437E450020D400 /* MitoListViewController.swift */,
 				AE9011FC2248BCCA0020D400 /* ImageSetListViewController.swift */,
 				AE5AD8C02254A1A200BD7EE9 /* CollectedViewController.swift */,
+				AEB7D08E225B216D008C899E /* AboutMitoViewController.swift */,
 			);
 			path = Mito;
 			sourceTree = "<group>";
@@ -1553,6 +1557,13 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		AEB7D090225B2606008C899E /* FiveStroke */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FiveStroke;
+			sourceTree = "<group>";
+		};
 		AEBA80D320BD509500F6A323 /* Lame */ = {
 			isa = PBXGroup;
 			children = (
@@ -2100,6 +2111,7 @@
 				AE5A887B1FF39A3A00748F6A /* ImageTransformViewController.swift in Sources */,
 				AEBE40421FC804820087D7ED /* AddressInfo.swift in Sources */,
 				AE5A88741FF37BED00748F6A /* Group.swift in Sources */,
+				AEB7D08F225B216D008C899E /* AboutMitoViewController.swift in Sources */,
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
 				AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */,
 				AE3F46F820AC0D1B007BA637 /* TimerButton.swift in Sources */,

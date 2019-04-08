@@ -135,7 +135,7 @@ class ImageSetCell: UICollectionViewCell {
             img.setImg(url: i.mainImage)
             img.layer.borderColor = i.theme.toColor().cgColor
             lblTitle.text = i.title
-            lblResolution.text = i.resolution.toString()
+            lblResolution.text = i.resolutionStr
             lblTheme.text = i.theme
         }
     }
