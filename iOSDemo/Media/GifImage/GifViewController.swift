@@ -51,6 +51,8 @@ class GifViewController: BaseViewController {
         arrFile.append(URL(string: "http://wx4.sinaimg.cn/mw690/92e8647aly1frt8ri5yobg205k086b29.gif")!)
         arrFile.append(URL(string: "http://wx3.sinaimg.cn/mw690/92e8647aly1frt8ssryj4g207w0e0hdz.gif")!)
         arrFile.append(URL(string: "http://wx2.sinaimg.cn/mw690/92e8647aly1frt8r5uoeyg20f006ou0x.gif")!)
+        //arrFile.append(URL(string: "https://www.52wubi.com/wbbmcx/tp/灰.gif".urlEncoded())!)
+
         vc.reloadData()
     }
 }

@@ -213,6 +213,8 @@
 		AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
 		AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
 		AEB7D08F225B216D008C899E /* AboutMitoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D08E225B216D008C899E /* AboutMitoViewController.swift */; };
+		AEB7D092225B2B82008C899E /* FiveStrokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D091225B2B82008C899E /* FiveStrokeViewController.swift */; };
+		AEB7D094225B2BA9008C899E /* FiveStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D093225B2BA9008C899E /* FiveStroke.swift */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
 		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
@@ -526,6 +528,8 @@
 		AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Base.swift"; sourceTree = "<group>"; };
 		AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		AEB7D08E225B216D008C899E /* AboutMitoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMitoViewController.swift; sourceTree = "<group>"; };
+		AEB7D091225B2B82008C899E /* FiveStrokeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveStrokeViewController.swift; sourceTree = "<group>"; };
+		AEB7D093225B2BA9008C899E /* FiveStroke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveStroke.swift; sourceTree = "<group>"; };
 		AEBA80D420BD50B300F6A323 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		AEBA80D520BD50B300F6A323 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
 		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
@@ -1560,6 +1564,8 @@
 		AEB7D090225B2606008C899E /* FiveStroke */ = {
 			isa = PBXGroup;
 			children = (
+				AEB7D091225B2B82008C899E /* FiveStrokeViewController.swift */,
+				AEB7D093225B2BA9008C899E /* FiveStroke.swift */,
 			);
 			path = FiveStroke;
 			sourceTree = "<group>";
@@ -2165,6 +2171,7 @@
 				AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */,
 				AE69C5A9222533D1004DC8AE /* OpenCVImageRecognitionViewController.swift in Sources */,
 				AE5AD8C12254A1A200BD7EE9 /* CollectedViewController.swift in Sources */,
+				AEB7D094225B2BA9008C899E /* FiveStroke.swift in Sources */,
 				AE901193223A405B0020D400 /* CellTypeViewController.swift in Sources */,
 				AE83BD741FDE876F001882D1 /* BallViewController.swift in Sources */,
 				AE5A88761FF37C2200748F6A /* Apply.swift in Sources */,
@@ -2180,6 +2187,7 @@
 				AE6691B320EDF39F00D019D4 /* WebViewController.swift in Sources */,
 				AE4DA62121425B8800FCC7FD /* ShadowVideoPlayView.swift in Sources */,
 				AE6691DD20F49BD600D019D4 /* PaletteViewController.swift in Sources */,
+				AEB7D092225B2B82008C899E /* FiveStrokeViewController.swift in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
 				AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */,
 				AEBE404E1FC806E40087D7ED /* DBTool.swift in Sources */,
@@ -2359,6 +2367,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
@@ -2400,6 +2409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
