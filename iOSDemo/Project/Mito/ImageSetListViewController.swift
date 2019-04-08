@@ -104,6 +104,7 @@ class ImageSetListViewController: UIViewController {
     }
     
     func initData() {
+        Toast.showLoading()
         ImageSet.getImageSetList(url: imageSet!.url) { (result) in
             if !handleResult(result: result){
                 return

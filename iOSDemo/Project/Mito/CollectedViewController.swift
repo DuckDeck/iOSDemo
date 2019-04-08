@@ -15,7 +15,7 @@ class CollectedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = "我的收藏"
         let layout = FlowLayout(columnCount: 2, columnMargin: 8) { [weak self] (index) -> Double in
             return Double(self!.arrImages[index.row].cellHeight)
         }
