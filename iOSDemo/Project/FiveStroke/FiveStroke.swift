@@ -9,12 +9,12 @@
 import UIKit
 import GrandStore
 import SwiftyJSON
-class FiveStroke: GrandModel {
+@objcMembers class FiveStroke: GrandModel { //好像GrandModel的自动保存已经失效？一定要加上@objcMembers才行
     var text = ""
     var spell = ""
     var code = ""
     var imgDecodeUrl = ""
-    
+
     static let FiveStrokeLog = GrandStore(name: "FiveStrokeLog", defaultValue: [FiveStroke]())
     
     static func getFiveStroke(key:String,completed:@escaping ((_ result:ResultInfo)->Void)){

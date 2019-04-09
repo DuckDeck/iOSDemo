@@ -22,6 +22,7 @@ class FiveStrokeViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        print("viewDidDisappear for five stroke")
         FiveStroke.FiveStrokeLog.Value! = arrFiveStrokes
     }
     
@@ -179,7 +180,6 @@ class strokeCell: UITableViewCell {
             m.right.equalTo(-5)
             m.centerY.equalTo(contentView)
             m.height.equalTo(40)
-            m.width.equalTo(200)
         }
         
     }
