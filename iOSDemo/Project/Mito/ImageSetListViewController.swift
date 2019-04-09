@@ -37,6 +37,9 @@ class ImageSetListViewController: UIViewController {
         tb.tableFooterView = UIView()
         tb.dataSource = self
         tb.delegate = self
+        if imageSet!.resolution == nil{
+            imageSet!.resolution = Resolution(resolution: imageSet!.resolutionStr)
+        }
         tb.rowHeight = ScreenWidth / CGFloat(imageSet!.resolution.ratio) 
         tb.register(ImageSetInfoCell.self, forCellReuseIdentifier: "ImageCell")
         view.addSubview(tb)

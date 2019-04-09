@@ -14,10 +14,7 @@ let PhoneImage = "http://www.5857.com/list-11"
 let EssentialImage = "http://www.5857.com/list-37"
 
 
-
 class ImageSet:NSObject, NSCoding {
-   
-    
     var url = ""
     var category = ""
     var title = ""
