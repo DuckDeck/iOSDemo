@@ -64,6 +64,7 @@ class FiveStrokeViewController: UIViewController,UITextFieldDelegate {
             m.left.equalTo(txtSearch.snp.right).offset(5)
         }
         
+        tb.delegate = self
         tb.dataSource = self
         tb.tableFooterView = UIView()
         tb.rowHeight = 50
@@ -115,7 +116,7 @@ class FiveStrokeViewController: UIViewController,UITextFieldDelegate {
 
 }
 
-extension FiveStrokeViewController:UITableViewDataSource{
+extension FiveStrokeViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if arrFiveStrokes == nil{
             return 0
@@ -130,6 +131,21 @@ extension FiveStrokeViewController:UITableViewDataSource{
     }
     
     
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "删除"
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            arrFiveStrokes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            FiveStroke.FiveStrokeLog.Value! = arrFiveStrokes
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 }
 
 
