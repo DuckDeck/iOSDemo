@@ -33,7 +33,7 @@ class DynamicMitoViewController: UIViewController {
             arrControllers.append(vc)
         }
         
-        grandMenu = GrandMenu(frame: CGRect(x: 0, y: 0, w: 222, h: 40), titles: arrMenu)
+        grandMenu = GrandMenu(frame: CGRect(x: 0, y: 0, w: 300, h: 40), titles: arrMenu)
         grandMenu?.backgroundColor = UIColor.clear
         grandMenu?.selectMenu = {[weak self] (item:GrandMenuItem, index:Int) in
             self?.grandMenuTable?.contentViewCurrentIndex = index

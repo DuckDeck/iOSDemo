@@ -78,6 +78,7 @@ class ShadowVideoPlayerView: UIView {
         super.init(frame: frame)
     }
     //与url初始化
+    //需要一个config来设置外观
     convenience init(frame: CGRect,url:URL)  {
         self.init(frame: frame)
         self.url = url
@@ -86,8 +87,6 @@ class ShadowVideoPlayerView: UIView {
         player.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange(notif:)), name: UIDevice.orientationDidChangeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive(notif:)), name: UIApplication.willResignActiveNotification, object: nil)
-        
-
     }
   
     
@@ -105,7 +104,7 @@ class ShadowVideoPlayerView: UIView {
         //添加标题
         lblTitle.backgroundColor = UIColor.clear
         lblTitle.font = UIFont.systemFont(ofSize: 15)
-        lblTitle.textAlignment = .left
+        lblTitle.textAlignment = .center
         lblTitle.textColor = UIColor.white
         lblTitle.numberOfLines = 2
         addSubview(lblTitle)
