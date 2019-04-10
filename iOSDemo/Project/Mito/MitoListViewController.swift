@@ -130,8 +130,18 @@ extension MitoListViewController:UICollectionViewDelegate,UICollectionViewDataSo
         }
         else{
             let item = arrImageSets[indexPath.row]
-            let vc = MitoPlayViewController()
-            navigationController?.pushViewController(vc, animated: true)
+            Toast.showLoading(txt: "获取视频链接中...")
+            ImageSet.getVideoLink(url: item.url) { (res) in
+                if !handleResult(result: res){
+                    return
+                }
+                item.videoLink = res.data! as! String
+                let vc = MitoPlayViewController()
+                vc.item = item
+                self.navigationController?.present(vc, animated: true, completion: nil)
+                
+            }
+           
         }
        
     }

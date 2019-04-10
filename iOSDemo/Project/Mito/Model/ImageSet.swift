@@ -34,6 +34,7 @@ class ImageSet:NSObject, NSCoding {
     var size = 0.0     //文件大小
     var sizeStr = ""     //文件大小
     var duration = 0   //时长
+    var videoLink = ""
     override init() {
         super.init()
     }
@@ -49,6 +50,7 @@ class ImageSet:NSObject, NSCoding {
         aCoder.encode(size, forKey: "size")
         aCoder.encode(sizeStr, forKey: "sizeStr")
         aCoder.encode(duration, forKey: "duration")
+        aCoder.encode(videoLink, forKey: "videoLink")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -63,6 +65,7 @@ class ImageSet:NSObject, NSCoding {
         size = aDecoder.decodeDouble(forKey: "size")
         sizeStr = aDecoder.decodeObject(forKey: "sizeStr") as! String
         duration = Int(aDecoder.decodeInt64(forKey: "duration"))
+        videoLink = aDecoder.decodeObject(forKey: "videoLink") as! String
     }
     
     static func getImageSet(type:Int,cat:String,resolution:Resolution, theme:String, index:Int,completed:@escaping ((_ result:ResultInfo)->Void)){
@@ -283,6 +286,32 @@ class ImageSet:NSObject, NSCoding {
             }
             
             result.data = arrImageSets
+            completed(result)
+        }
+    }
+    
+    static func getVideoLink(url:String,completed:@escaping ((_ result:ResultInfo)->Void)){
+        HttpClient.get(url).completion { (data, err) in
+            var result = ResultInfo()
+            if err != nil{
+                result.code = -1
+                result.message = err!.localizedDescription
+                completed(result)
+                return
+            }
+            guard let doc = try? HTML(html: data!, encoding: .utf8) else{
+                result.code = 10
+                result.message = "解析HTML错误"
+                completed(result)
+                return
+            }
+            guard let link = doc.xpath("//video[@class='js-media shipinbofan']").first!["src"] else{
+                result.code = 11
+                result.message = "没有找到视频"
+                completed(result)
+                return
+            }
+            result.data = link
             completed(result)
         }
     }
