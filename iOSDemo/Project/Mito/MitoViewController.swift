@@ -46,7 +46,7 @@ class MitoViewController: UIViewController {
             arrControllers.append(vc)
         }
         
-        grandMenu = GrandMenu(frame: CGRect(x: 0, y: 0, w: 222, h: 40), titles: arrMenu)
+        grandMenu = GrandMenu(frame: CGRect(x: 0, y: 0, w: 260, h: 40), titles: arrMenu)
         grandMenu?.backgroundColor = UIColor.clear
         grandMenu?.selectMenu = {[weak self] (item:GrandMenuItem, index:Int) in
              self?.grandMenuTable?.contentViewCurrentIndex = index
@@ -75,7 +75,7 @@ class MitoViewController: UIViewController {
                     ("手机壁纸",UIImage(named: "phone")!),
                     ("精选一图",UIImage(named: "a3")!),
                     ("热门壁纸",UIImage(named: "a4")!),
-                    ("动态壁纸",UIImage(named: "a4")!),
+                    ("动态壁纸",UIImage(named: "a5")!),
                     ("我的收藏",UIImage(named: "star_full")!),
                     ("关于美图",UIImage(named: "a11")!)]
         vMenu.menu = menu

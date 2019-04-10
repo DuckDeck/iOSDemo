@@ -273,7 +273,7 @@ class ImageSet:NSObject, NSCoding {
                 img.title = ul.css("div > a > span")[0].text ?? ""
                 img.url = ul.css("div > a")[0]["href"] ?? ""
                 img.resolution = Resolution(resolution: "362x606")
-                
+                img.imageType = 1
                 img.resolutionStr = img.resolution.toString()
                 
                 img.cellHeight = Float(ScreenWidth / 2 - 10) / Float(img.resolution.ratio) + 70.0

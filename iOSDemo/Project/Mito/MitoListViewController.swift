@@ -122,10 +122,18 @@ extension MitoListViewController:UICollectionViewDelegate,UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = arrImageSets[indexPath.row]
-        let vc = ImageSetListViewController()
-        vc.imageSet = item
-        navigationController?.pushViewController(vc, animated: true)
+        if imgType == 0{
+            let item = arrImageSets[indexPath.row]
+            let vc = ImageSetListViewController()
+            vc.imageSet = item
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        else{
+            let item = arrImageSets[indexPath.row]
+            let vc = MitoPlayViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+       
     }
     
 }
