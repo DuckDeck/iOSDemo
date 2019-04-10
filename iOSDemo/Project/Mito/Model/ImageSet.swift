@@ -30,6 +30,10 @@ class ImageSet:NSObject, NSCoding {
     var isCollected = false
     var hashId = 0
     var cellHeight:Float = 0
+    var imageType = 0  //0 普通壁纸  1动态壁纸
+    var size = 0.0     //文件大小
+    var sizeStr = ""     //文件大小
+    var duration = 0   //时长
     override init() {
         super.init()
     }
@@ -41,6 +45,10 @@ class ImageSet:NSObject, NSCoding {
         aCoder.encode(theme, forKey: "theme")
         aCoder.encode(mainImage, forKey: "mainImage")
         aCoder.encode(cellHeight, forKey: "cellHeight")
+        aCoder.encode(imageType, forKey: "imageType")
+        aCoder.encode(size, forKey: "size")
+        aCoder.encode(sizeStr, forKey: "sizeStr")
+        aCoder.encode(duration, forKey: "duration")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,6 +59,10 @@ class ImageSet:NSObject, NSCoding {
         theme = aDecoder.decodeObject(forKey: "theme") as! String
         mainImage = aDecoder.decodeObject(forKey: "mainImage") as! String
         cellHeight = aDecoder.decodeFloat(forKey: "cellHeight")
+        imageType = Int(aDecoder.decodeInt64(forKey: "imageType"))
+        size = aDecoder.decodeDouble(forKey: "size")
+        sizeStr = aDecoder.decodeObject(forKey: "sizeStr") as! String
+        duration = Int(aDecoder.decodeInt64(forKey: "duration"))
     }
     
     static func getImageSet(type:Int,cat:String,resolution:Resolution, theme:String, index:Int,completed:@escaping ((_ result:ResultInfo)->Void)){
@@ -177,6 +189,104 @@ class ImageSet:NSObject, NSCoding {
         }
     }
     
+    
+    static func getHotImageSet(index:Int,completed:@escaping ((_ result:ResultInfo)->Void)){
+        
+        let url = "http://www.5857.com/html/hotlist-\(index).html"
+      
+        Log(message: url)
+        HttpClient.get(url).completion { (data, err) in
+            var result = ResultInfo()
+            if err != nil{
+                result.code = -1
+                result.message = err!.localizedDescription
+                completed(result)
+                return
+            }
+            guard let doc = try? HTML(html: data!, encoding: .utf8) else{
+                result.code = 10
+                result.message = "解析HTML错误"
+                completed(result)
+                return
+            }
+            let uls = doc.xpath("//ul[@class='clearfix']")
+            if uls.count <= 0{
+                result.data = [ImageSet]()
+                completed(result)
+                return
+            }
+            var arrImageSets = [ImageSet]()
+            let lis = uls.first!.css("li")
+            for ul in lis{
+                let img = ImageSet()
+                img.category = ul.css("div > em > a")[0].text ?? ""
+                img.mainImage = ul.css("div > a > img")[0]["src"] ?? ""
+                img.title = ul.css("div > a > span")[0].text ?? ""
+                img.url = ul.css("div > a")[0]["href"] ?? ""
+                img.resolution = Resolution(resolution: ul.css("div > span > a")[0].text ?? "")
+                if img.resolution.isEmpty{
+                    img.resolution = Resolution.StandardPhoneResolution
+                }
+                img.resolutionStr = img.resolution.toString()
+                img.theme = ul.css("div > span")[1].text ?? ""
+                img.cellHeight = Float(ScreenWidth / 2 - 10) / Float(img.resolution.ratio) + 70.0
+                
+                arrImageSets.append(img)
+            }
+            
+            result.data = arrImageSets
+            completed(result)
+        }
+    }
+    
+    
+    static func getDynamicImage(cat:String,index:Int,completed:@escaping ((_ result:ResultInfo)->Void)){
+        let url = "http://www.5857.com/list-42-0-\(ImageSet.dynamicCatToPara(str: cat))-0-0-0-\(index).html"
+        Log(message: url)
+        HttpClient.get(url).completion { (data, err) in
+            var result = ResultInfo()
+            if err != nil{
+                result.code = -1
+                result.message = err!.localizedDescription
+                completed(result)
+                return
+            }
+            guard let doc = try? HTML(html: data!, encoding: .utf8) else{
+                result.code = 10
+                result.message = "解析HTML错误"
+                completed(result)
+                return
+            }
+            let uls = doc.xpath("//ul[@class='clearfix']")
+            if uls.count <= 0{
+                result.data = [ImageSet]()
+                completed(result)
+                return
+            }
+            var arrImageSets = [ImageSet]()
+            let lis = uls.first!.css("li")
+            for ul in lis{
+                let img = ImageSet()
+                let infoDiv = ul.xpath("//div[@class='listbott']").first!
+                img.category = infoDiv.css("span > a")[0].text ?? ""
+                img.mainImage = ul.css("div > a > img")[0]["src"] ?? ""
+                img.title = ul.css("div > a > span")[0].text ?? ""
+                img.url = ul.css("div > a")[0]["href"] ?? ""
+                img.resolution = Resolution(resolution: "362x606")
+                
+                img.resolutionStr = img.resolution.toString()
+                
+                img.cellHeight = Float(ScreenWidth / 2 - 10) / Float(img.resolution.ratio) + 70.0
+                img.duration = infoDiv.css("em")[0].text?.toInt() ?? 0
+                img.sizeStr = infoDiv.css("span")[0].text ?? ""
+                arrImageSets.append(img)
+            }
+            
+            result.data = arrImageSets
+            completed(result)
+        }
+    }
+    
     static func catToUrlPara(str:String)->Int{
         switch str {
             case "全部": return 0
@@ -224,6 +334,24 @@ class ImageSet:NSObject, NSCoding {
          case "黑色": return 3393
          case "银色": return 3394
          case "灰色": return 3395
+        default:
+            return 0
+        }
+    }
+    
+    static func dynamicCatToPara(str:String)->Int{
+        switch str {
+        case "全部": return 0
+        case "娱乐明星": return 3456
+        case "网络红人": return 3457
+        case "歌曲舞蹈": return 3458
+        case "影视大全": return 3459
+        case "动漫卡通": return 3460
+        case "游戏天地": return 3461
+        case "动物萌宠": return 3462
+        case "风景名胜": return 3462
+        case "天生尤物": return 3464
+        case "其他视频": return 3465
         default:
             return 0
         }

@@ -191,11 +191,11 @@ class strokeCell: UITableViewCell {
             m.centerY.equalTo(contentView)
         }
         imgFive.clipsToBounds = true
-        imgFive.contentMode = .scaleAspectFill
+        imgFive.contentMode = .scaleAspectFit
         imgFive.addTo(view: contentView).snp.makeConstraints { (m) in
             m.right.equalTo(-5)
             m.centerY.equalTo(contentView)
-            m.height.equalTo(40)
+            m.height.equalTo(34)
         }
         
     }

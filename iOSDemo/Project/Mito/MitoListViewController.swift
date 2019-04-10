@@ -10,8 +10,7 @@ import UIKit
 import MJRefresh
 import Kingfisher
 class MitoListViewController: UIViewController {
-    
-    
+    var imgType = 0
     var vCol: UICollectionView!
     var cat = "" //图片类型
     var _channel = 0
@@ -59,43 +58,56 @@ class MitoListViewController: UIViewController {
     }
     
     func loadData() {
-        ImageSet.getImageSet(type: channel, cat: cat, resolution: Resolution(), theme: "全部", index: index) { (res) in
-            self.vCol.mj_header.endRefreshing()
-
-            if !handleResult(result: res){
-                return
-            }
-            if self.index == 1{
-                self.arrImageSets = res.data! as! [ImageSet]
-            }
-            else{
-                let imgs = res.data! as! [ImageSet]
-                if imgs.count <= 0{
-                    self.vCol.mj_footer.endRefreshingWithNoMoreData()
+        if imgType == 0{
+            ImageSet.getImageSet(type: channel, cat: cat, resolution: Resolution(), theme: "全部", index: index) { (res) in
+                self.vCol.mj_header.endRefreshing()
+                if !handleResult(result: res){
+                    return
+                }
+                if self.index == 1{
+                    self.arrImageSets = res.data! as! [ImageSet]
                 }
                 else{
-                    self.arrImageSets += res.data! as! [ImageSet]
-                    self.vCol.mj_footer.endRefreshing()
+                    let imgs = res.data! as! [ImageSet]
+                    if imgs.count <= 0{
+                        self.vCol.mj_footer.endRefreshingWithNoMoreData()
+                    }
+                    else{
+                        self.arrImageSets += res.data! as! [ImageSet]
+                        self.vCol.mj_footer.endRefreshing()
+                    }
                 }
+                
+                self.vCol.reloadData()
             }
-            
-             self.vCol.reloadData() //神了，怎么加载不出来了，卡了什么也干不了
         }
-
-//        let imgSet = ImageSet()
-//        imgSet.mainImage = "http://222.186.12.239:10010/qizmmei_20190329/001.jpg"
-//        imgSet.resolution = Resolution(resolution: "192081200")
-//        arrImageSets.append(imgSet)
-//        vCol.reloadData()
+        else{
+            ImageSet.getDynamicImage(cat: cat, index: index) { (res) in
+                self.vCol.mj_header.endRefreshing()
+                if !handleResult(result: res){
+                    return
+                }
+                if self.index == 1{
+                    self.arrImageSets = res.data! as! [ImageSet]
+                }
+                else{
+                    let imgs = res.data! as! [ImageSet]
+                    if imgs.count <= 0{
+                        self.vCol.mj_footer.endRefreshingWithNoMoreData()
+                    }
+                    else{
+                        self.arrImageSets += res.data! as! [ImageSet]
+                        self.vCol.mj_footer.endRefreshing()
+                    }
+                }
+                
+                self.vCol.reloadData()
+            }
+        }
+        
     }
 
-//
-//    func reload() {
-//        print(arrImageSets)
-//        DispatchQueue.main.async {
-//            self.vCol.reloadData()
-//        }
-//    }
+
     
 }
 extension MitoListViewController:UICollectionViewDelegate,UICollectionViewDataSource{
@@ -122,6 +134,7 @@ extension MitoListViewController:UICollectionViewDelegate,UICollectionViewDataSo
 class ImageSetCell: UICollectionViewCell {
     let img = UIImageView()
     let lblTitle = UILabel()
+    let lblTag = UILabel()
     let lblResolution = UILabel()
     let lblTheme = UILabel()
     
@@ -131,12 +144,12 @@ class ImageSetCell: UICollectionViewCell {
                 return
                 
             }
-        
             img.setImg(url: i.mainImage)
             img.layer.borderColor = i.theme.toColor().cgColor
             lblTitle.text = i.title
             lblResolution.text = i.resolutionStr
             lblTheme.text = i.theme
+            lblTag.text = i.category
         }
     }
     
@@ -159,16 +172,24 @@ class ImageSetCell: UICollectionViewCell {
             m.height.equalTo(15)
         }
         
-        lblResolution.color(color: UIColor.darkGray).setFont(font: 13).addTo(view: contentView).snp.makeConstraints { (m) in
+        lblTag.color(color: UIColor.darkGray).setFont(font: 13).addTo(view: contentView).snp.makeConstraints { (m) in
             m.left.equalTo(lblTitle)
             m.top.equalTo(lblTitle.snp.bottom).offset(10)
             m.bottom.equalTo(-5)
+            m.height.equalTo(20)
+        }
+        
+        lblResolution.color(color: UIColor.darkGray).setFont(font: 13).addTo(view: contentView).snp.makeConstraints { (m) in
+            m.centerX.equalTo(contentView)
+            m.top.equalTo(lblTitle.snp.bottom).offset(10)
+            m.bottom.equalTo(-5)
+            m.height.equalTo(20)
         }
         
         lblTheme.color(color: UIColor.darkGray).setFont(font: 13).addTo(view: contentView).snp.makeConstraints { (m) in
             m.right.equalTo(lblTitle)
             m.top.equalTo(lblTitle.snp.bottom).offset(10)
-            
+            m.height.equalTo(20)
         }
     }
     

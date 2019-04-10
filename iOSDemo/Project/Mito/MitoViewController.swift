@@ -18,7 +18,7 @@ class MitoViewController: UIViewController {
     
     let arrMenu = ["全部","美女","性感","明星","风光","卡通","创意","汽车","游戏","建筑","影视","植物","动物",
                    "节庆","可爱","静物","体育","日历","唯美","其它","系统","动漫","非主流","小清新"]
-    let channels = ["电脑壁纸","手机壁纸","平板壁纸","精选一图","我的收藏"]
+    //let channels = ["电脑壁纸","手机壁纸","平板壁纸","精选一图","精选一图","我的收藏"]
     
     var currentDisplayTaskPageIndex = 0
     var arrControllers = [MitoListViewController]()
@@ -74,6 +74,8 @@ class MitoViewController: UIViewController {
                     ("平板壁纸",UIImage(named: "tablet")!),
                     ("手机壁纸",UIImage(named: "phone")!),
                     ("精选一图",UIImage(named: "a3")!),
+                    ("热门壁纸",UIImage(named: "a4")!),
+                    ("动态壁纸",UIImage(named: "a4")!),
                     ("我的收藏",UIImage(named: "star_full")!),
                     ("关于美图",UIImage(named: "a11")!)]
         vMenu.menu = menu
@@ -97,11 +99,20 @@ class MitoViewController: UIViewController {
                 vc.channel = index
             }
         }
+        
         if index == 4{
-            let vc = CollectedViewController()
+            let vc = HotMitoViewController()
             navigationController?.pushViewController(vc, animated: true)
         }
         if index == 5{
+            let vc = DynamicMitoViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        if index == 6{
+            let vc = CollectedViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        if index == 7{
             let vc = AboutMitoViewController()
             navigationController?.pushViewController(vc, animated: true)
         }
