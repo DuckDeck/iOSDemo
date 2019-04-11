@@ -158,6 +158,7 @@ class ShadowVideoControlView: UIView {
         layoutIfNeeded()
     }
     
+    
     @objc func handleTap(ges:UIGestureRecognizer)  {
         let point = ges.location(in: slider)
         let currentValue = point.x / slider.frame.size.width * CGFloat(slider.maximumValue)

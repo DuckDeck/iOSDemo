@@ -35,6 +35,10 @@ class AboutMitoViewController: UIViewController {
     
     @objc func clearCache(){
         KingfisherManager.shared.cache.clearDiskCache()
+        let files = try! FileManager.default.contentsOfDirectory(atPath: NSTemporaryDirectory())
+        for file in files{
+            try? FileManager.default.removeItem(at: URL(fileURLWithPath: file))
+        }
         Toast.showToast(msg: "成功清空缓存")
     }
  

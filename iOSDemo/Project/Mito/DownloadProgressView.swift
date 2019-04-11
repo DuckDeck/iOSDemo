@@ -36,7 +36,7 @@ class DownloadProgressView: UIView {
         super.init(frame: frame)
         backgroundColor = UIColor.clear
         lblPercent.text = "开始下载"
-        lblPercent.color(color: UIColor.blue).addTo(view: self).snp.makeConstraints { (m) in
+        lblPercent.color(color: bgTintColor).setFont(font: 13).addTo(view: self).snp.makeConstraints { (m) in
             m.center.equalTo(self)
         }
     }
@@ -71,7 +71,11 @@ class DownloadProgressView: UIView {
         context.addArc(center: CGPoint(x: rect.size.width / 2, y: rect.size.height / 2), radius: newRect.size.width / 2, startAngle: -CGFloat(Double.pi / 2), endAngle: CGFloat(Double.pi * 2 * value / (maxValue - minValue)) - CGFloat(Double.pi / 2), clockwise: false)
         context.setStrokeColor(tintColor.cgColor)
         context.strokePath()
+        //绘制圆
         
+        context.setFillColor(UIColor.init(gray: 0.5, alpha: 0.5).cgColor)
+        context.fillEllipse(in: newRect)
+        //绘制里面的填充部分
     }
 
 }
@@ -91,12 +95,29 @@ extension DownloadProgressView:URLSessionDownloadDelegate{
         DispatchQueue.main.async {
             self.lblPercent.text = "下载完成"
         }
-        
         _ = delay(time: 0.5) {
-            self.removeFromSuperview()
+            DispatchQueue.main.async {
+                self.removeFromSuperview()
+            }
         }
         //这里下载后会自动删除，需要自己动手弄出去
-        print(location.absoluteString)
+        let tmp = NSTemporaryDirectory()
+        let file = URL(fileURLWithPath: tmp).appendingPathComponent(downloadTask.response!.suggestedFilename!)
+        do{
+            try FileManager.default.moveItem(at: location, to: file)
+            
+        }
+        catch{
+            Toast.showToast(msg: error.localizedDescription)
+            return
+        }
+        if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(file.path){
+            UISaveVideoAtPathToSavedPhotosAlbum(file.path, self, nil, nil)
+            try? FileManager.default.removeItem(at: file)
+            DispatchQueue.main.async {
+                Toast.showToast(msg:"成功保存到相册")
+            }
+        }
     }
     
 

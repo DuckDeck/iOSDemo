@@ -34,7 +34,6 @@ class ShadowVideoPlayerView: UIView {
         get{
             return AVPlayerLayer.self
         }
-        
     }
     
     
@@ -78,7 +77,7 @@ class ShadowVideoPlayerView: UIView {
         super.init(frame: frame)
     }
     //与url初始化
-    //需要一个config来设置外观
+    //需要一个config来设置外观,目前还没有想好怎么设计
     convenience init(frame: CGRect,url:URL)  {
         self.init(frame: frame)
         self.url = url
@@ -94,10 +93,11 @@ class ShadowVideoPlayerView: UIView {
         player.replaceWithUrl(url: url)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+
     
     func setupPlayerUI() {
         self.vActivity.startAnimating()
