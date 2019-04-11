@@ -51,12 +51,12 @@ class MitoViewController: UIViewController {
         grandMenu?.selectMenu = {[weak self] (item:GrandMenuItem, index:Int) in
              self?.grandMenuTable?.contentViewCurrentIndex = index
         }
-        grandMenu?.itemColor = UIColor.lightGray
+        grandMenu?.itemColor = UIColor.black
         grandMenu?.itemSeletedColor = UIColor.blue
         grandMenu?.itemFont = 16
         grandMenu?.itemSelectedFont = 17
         grandMenu?.averageManu = false
-        grandMenu?.sliderColor = UIColor.white
+        grandMenu?.sliderColor = UIColor.blue
         grandMenu?.sliderBarLeftRightOffset = 8
         grandMenu?.sliderBarHeight = 2
         navigationItem.titleView = grandMenu

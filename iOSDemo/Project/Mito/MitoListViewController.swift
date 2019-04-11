@@ -165,9 +165,16 @@ class ImageSetCell: UICollectionViewCell {
             img.setImg(url: i.mainImage)
             img.layer.borderColor = i.theme.toColor().cgColor
             lblTitle.text = i.title
-            lblResolution.text = i.resolutionStr
-            lblTheme.text = i.theme
-            lblTag.text = i.category
+            if i.imageType == 0{
+                lblResolution.text = i.resolutionStr
+                lblTheme.text = i.theme
+                lblTag.text = i.category
+            }
+            else{
+                lblResolution.text = i.sizeStr
+                lblTag.text = i.durationStr
+                lblTheme.text = i.category
+            }
         }
     }
     
@@ -198,7 +205,7 @@ class ImageSetCell: UICollectionViewCell {
         }
         
         lblResolution.color(color: UIColor.darkGray).setFont(font: 13).addTo(view: contentView).snp.makeConstraints { (m) in
-            m.centerX.equalTo(contentView)
+            m.centerX.equalTo(contentView).offset(-10)
             m.top.equalTo(lblTitle.snp.bottom).offset(10)
             m.bottom.equalTo(-5)
             m.height.equalTo(20)

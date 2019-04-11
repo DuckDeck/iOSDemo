@@ -34,6 +34,7 @@ class ImageSet:NSObject, NSCoding {
     var size = 0.0     //文件大小
     var sizeStr = ""     //文件大小
     var duration = 0   //时长
+    var durationStr = ""   //时长
     var videoLink = ""
     override init() {
         super.init()
@@ -51,6 +52,7 @@ class ImageSet:NSObject, NSCoding {
         aCoder.encode(sizeStr, forKey: "sizeStr")
         aCoder.encode(duration, forKey: "duration")
         aCoder.encode(videoLink, forKey: "videoLink")
+        aCoder.encode(durationStr, forKey: "durationStr")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -66,6 +68,7 @@ class ImageSet:NSObject, NSCoding {
         sizeStr = aDecoder.decodeObject(forKey: "sizeStr") as! String
         duration = Int(aDecoder.decodeInt64(forKey: "duration"))
         videoLink = aDecoder.decodeObject(forKey: "videoLink") as! String
+        durationStr =  aDecoder.decodeObject(forKey: "durationStr") as! String
     }
     
     static func getImageSet(type:Int,cat:String,resolution:Resolution, theme:String, index:Int,completed:@escaping ((_ result:ResultInfo)->Void)){
@@ -270,8 +273,8 @@ class ImageSet:NSObject, NSCoding {
             let lis = uls.first!.css("li")
             for ul in lis{
                 let img = ImageSet()
-                let infoDiv = ul.xpath("//div[@class='listbott']").first!
-                img.category = infoDiv.css("span > a")[0].text ?? ""
+//                let infoDiv = ul.xpath("//div[@class='listbott']").first!
+                img.category = ul.css("div > span > a")[0].text ?? ""
                 img.mainImage = ul.css("div > a > img")[0]["src"] ?? ""
                 img.title = ul.css("div > a > span")[0].text ?? ""
                 img.url = ul.css("div > a")[0]["href"] ?? ""
@@ -280,8 +283,9 @@ class ImageSet:NSObject, NSCoding {
                 img.resolutionStr = img.resolution.toString()
                 
                 img.cellHeight = Float(ScreenWidth / 2 - 10) / Float(img.resolution.ratio) + 70.0
-                img.duration = infoDiv.css("em")[0].text?.toInt() ?? 0
-                img.sizeStr = infoDiv.css("span")[0].text ?? ""
+                img.durationStr = ul.css("div > em")[0].text ?? ""
+                print(img.durationStr)
+                img.sizeStr = ul.css("div > span")[0].text ?? ""
                 arrImageSets.append(img)
             }
             

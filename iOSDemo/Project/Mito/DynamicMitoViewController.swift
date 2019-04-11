@@ -25,7 +25,7 @@ class DynamicMitoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = UIColor.white
         for item in arrMenu{
             let vc = MitoListViewController()
             vc.cat = item
@@ -39,11 +39,11 @@ class DynamicMitoViewController: UIViewController {
             self?.grandMenuTable?.contentViewCurrentIndex = index
         }
         grandMenu?.itemColor = UIColor.black
-        grandMenu?.itemSeletedColor = UIColor.green
+        grandMenu?.itemSeletedColor = UIColor.blue
         grandMenu?.itemFont = 16
         grandMenu?.itemSelectedFont = 17
         grandMenu?.averageManu = false
-        grandMenu?.sliderColor = UIColor.white
+        grandMenu?.sliderColor = UIColor.blue
         grandMenu?.sliderBarLeftRightOffset = 8
         grandMenu?.sliderBarHeight = 2
         navigationItem.titleView = grandMenu
