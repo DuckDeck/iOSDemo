@@ -35,7 +35,7 @@ class MitoListViewController: UIViewController {
            return Double(self!.arrImageSets[index.row].cellHeight)
         }
         
-        vCol = UICollectionView(frame: view.frame, collectionViewLayout: layout)
+        vCol = UICollectionView(frame: view.frame, collectionViewLayout: layout) //issue 下面的内容出了屏外了
         vCol.backgroundColor = UIColor.white
         vCol.delegate = self
         vCol.dataSource = self

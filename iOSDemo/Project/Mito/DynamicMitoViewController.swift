@@ -38,8 +38,8 @@ class DynamicMitoViewController: UIViewController {
         grandMenu?.selectMenu = {[weak self] (item:GrandMenuItem, index:Int) in
             self?.grandMenuTable?.contentViewCurrentIndex = index
         }
-        grandMenu?.itemColor = UIColor.lightGray
-        grandMenu?.itemSeletedColor = UIColor.blue
+        grandMenu?.itemColor = UIColor.black
+        grandMenu?.itemSeletedColor = UIColor.green
         grandMenu?.itemFont = 16
         grandMenu?.itemSelectedFont = 17
         grandMenu?.averageManu = false

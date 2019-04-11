@@ -76,7 +76,7 @@ class SlideMenuView: UIView {
             btn.snp.makeConstraints { (m) in
                 m.right.equalTo(-50)
                 if previousBtn == nil{
-                     m.top.equalTo(360)
+                     m.top.equalTo(340)
                 }
                 else{
                      m.top.equalTo(previousBtn!.snp.bottom).offset(30)
