@@ -17,7 +17,8 @@ class MitoPlayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black
-        player = ShadowVideoPlayerView(frame: CGRect(x: 0, y: 80, width: ScreenWidth, height: ScreenHeight - 140 - iPhoneBottomBarHeight), url: URL(string: item!.videoLink)!)
+        let config = [ShadowUIConfig.HideFullScreenButton:true]
+        player = ShadowVideoPlayerView(frame: CGRect(x: 0, y: 80, width: ScreenWidth, height: ScreenHeight - 140 - iPhoneBottomBarHeight), url: URL(string: item!.videoLink)!,config: config)
         player.title = item!.title
         view.addSubview(player)
        
@@ -36,7 +37,6 @@ class MitoPlayViewController: UIViewController {
 
     @objc func close(){
         player.stop()
-        
         dismiss(animated: true, completion: nil)
     }
     
@@ -44,7 +44,6 @@ class MitoPlayViewController: UIViewController {
         //下载要研究下
         let vProgress = DownloadProgressView(frame: CGRect(x: ScreenWidth - 100, y: ScreenHeight - 150, width: 60, height: 60))
         UIApplication.shared.keyWindow?.addSubview(vProgress)
-        //vProgress.downloadUrl = item!.videoLink
         vProgress.startDownloadWithUrl(url: item!.videoLink)
     }
     

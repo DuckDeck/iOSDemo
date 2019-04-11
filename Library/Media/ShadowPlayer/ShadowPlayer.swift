@@ -16,6 +16,10 @@ enum PlayerStatus:Int{
     case Failed = 0,GetInfo, ReadyToPlay,Unknown,Buffering,Playing,Paused, Stopped,Finished
 }
 
+enum ShadowUIConfig {
+    case HideFullScreenButton
+}
+
 protocol ShadowPlayDelegate:class {
     func bufferProcess(current:Float,duration:Float)
     func playStateChange(status:PlayerStatus,info:MediaInfo?)
@@ -289,7 +293,7 @@ class ShadowPlayer:NSObject {
         }
         else if key == "playbackLikelyToKeepUp"{
             print("缓冲达到可播放")
-            //status = .ReadyToPlay
+            status = .ReadyToPlay
         }
         else if key == "rate"{
             if change![NSKeyValueChangeKey.newKey] as! Int == 0{

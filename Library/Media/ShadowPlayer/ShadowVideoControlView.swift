@@ -17,6 +17,7 @@ protocol ShadowVideoControlViewDelegate:class {
 
 class ShadowVideoControlView: UIView {
     let btnLarge = UIButton(type: UIButton.ButtonType.custom)
+    var config:[ShadowUIConfig:Any]!
     var value:Float{
         set{
             slider.value = newValue
@@ -74,8 +75,9 @@ class ShadowVideoControlView: UIView {
     
     var padding = 8
     
-    override init(frame: CGRect) {
+    init(frame: CGRect,config:[ShadowUIConfig:Any] = [ShadowUIConfig:Any]()) {
         super.init(frame: frame)
+        self.config = config
         initUI()
     }
     
@@ -147,11 +149,21 @@ class ShadowVideoControlView: UIView {
             m.centerY.equalTo(lblTime)
             m.width.equalTo(50)
         }
+        
+        var needHideBtnLarge = false
+        
+        if config.keys.contains(ShadowUIConfig.HideFullScreenButton){
+            if let item = config[ShadowUIConfig.HideFullScreenButton] as? Bool{
+                needHideBtnLarge = item
+            }
+        }
+        
         btnLarge.snp.makeConstraints { (m) in
             m.centerY.equalTo(lblTime)
-            m.width.height.equalTo(30)
+            m.width.height.equalTo(needHideBtnLarge ? 0 : 30)
             m.right.equalTo(-padding)
         }
+        
         sliderBuffer.snp.makeConstraints { (m) in
             m.edges.equalTo(slider)
         }

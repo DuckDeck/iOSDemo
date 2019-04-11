@@ -382,7 +382,7 @@ class ImageSet:NSObject, NSCoding {
         case "动漫卡通": return 3460
         case "游戏天地": return 3461
         case "动物萌宠": return 3462
-        case "风景名胜": return 3462
+        case "风景名胜": return 3463
         case "天生尤物": return 3464
         case "其他视频": return 3465
         default:

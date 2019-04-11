@@ -423,6 +423,14 @@ extension URL{
         }
     }
     
+    var isFlod:Bool{
+        get{
+            var i = ObjCBool.init(false)
+            FileManager.default.fileExists(atPath: self.absoluteString, isDirectory: &i)
+            return i.boolValue
+        }
+    }
+    
     func changeSchema(targetSchema:String) -> URL? {
         var com = URLComponents(url: self, resolvingAgainstBaseURL: false)
         com?.scheme = targetSchema

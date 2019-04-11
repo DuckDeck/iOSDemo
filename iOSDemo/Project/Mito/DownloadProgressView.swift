@@ -9,7 +9,8 @@
 import UIKit
 
 class DownloadProgressView: UIView {
- 
+    let config = URLSessionConfiguration.background(withIdentifier: "download_video")
+    var session : URLSession!
     let lblPercent = UILabel()
     
     var downloadUrl :String?
@@ -35,7 +36,6 @@ class DownloadProgressView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.clear
-        lblPercent.text = "开始下载"
         lblPercent.color(color: bgTintColor).setFont(font: 13).addTo(view: self).snp.makeConstraints { (m) in
             m.center.equalTo(self)
         }
@@ -54,10 +54,12 @@ class DownloadProgressView: UIView {
     
     func startDownloadWithUrl(url:String)  {
         downloadUrl = url
-        let config = URLSessionConfiguration.background(withIdentifier: "download_video")
-        let session = URLSession(configuration: config, delegate: self, delegateQueue: OperationQueue())
+        lblPercent.text = "准备下载"
+        session = URLSession(configuration: config, delegate: self, delegateQueue: OperationQueue())
         let task = session.downloadTask(with: URLRequest(url: URL(string: downloadUrl!)!))
         task.resume()
+        
+        
     }
     
     override func draw(_ rect: CGRect) {
@@ -78,6 +80,12 @@ class DownloadProgressView: UIView {
         //绘制里面的填充部分
     }
 
+    
+    
+    deinit {
+        print("DownloadProgressView deinit")
+    }
+
 }
 
 extension DownloadProgressView:URLSessionDownloadDelegate{
@@ -92,33 +100,32 @@ extension DownloadProgressView:URLSessionDownloadDelegate{
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        DispatchQueue.main.async {
-            self.lblPercent.text = "下载完成"
-        }
-        _ = delay(time: 0.5) {
-            DispatchQueue.main.async {
-                self.removeFromSuperview()
-            }
-        }
-        //这里下载后会自动删除，需要自己动手弄出去
+        session.finishTasksAndInvalidate()
         let tmp = NSTemporaryDirectory()
         let file = URL(fileURLWithPath: tmp).appendingPathComponent(downloadTask.response!.suggestedFilename!)
         do{
             try FileManager.default.moveItem(at: location, to: file)
-            
         }
         catch{
-            Toast.showToast(msg: error.localizedDescription)
+            print(error.localizedDescription)
             return
         }
+        
         if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(file.path){
             UISaveVideoAtPathToSavedPhotosAlbum(file.path, self, nil, nil)
-            try? FileManager.default.removeItem(at: file)
-            DispatchQueue.main.async {
-                Toast.showToast(msg:"成功保存到相册")
-            }
+            //try? FileManager.default.removeItem(at: file)
+            //Issue，当保存，不能马上调用这行代码删除文件，不然就会促成 到相册失败
         }
+        
+        //Issue点，获取到location只能在当前线程操作，如果用DispatchQueue.main在主纯种里操作，那么当前纯种已经把文件删除了导致失败
+        DispatchQueue.main.async {
+            _ = delay(time: 0.5) {
+                Toast.showToast(msg:"成功保存到相册")
+                self.removeFromSuperview()
+            }
+            //这里下载后会自动删除，需要自己动手弄出去
+        }
+       
     }
     
-
 }

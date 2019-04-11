@@ -35,6 +35,12 @@ class ShadowVideoPlayerView: UIView {
             return AVPlayerLayer.self
         }
     }
+    var config:[ShadowUIConfig:Any]!
+    
+    
+    
+   
+    
     
     
     var player:ShadowPlayer!
@@ -69,8 +75,8 @@ class ShadowVideoPlayerView: UIView {
             return lblTitle.text ?? ""
         }
     }
-    let vPlay = ShadowVideoPlayControlView(frame: CGRect())
-    let vControl = ShadowVideoControlView(frame:CGRect())
+    var vPlay : ShadowVideoPlayControlView!
+    var vControl : ShadowVideoControlView!
     
     
     fileprivate override init(frame: CGRect) {
@@ -78,9 +84,14 @@ class ShadowVideoPlayerView: UIView {
     }
     //与url初始化
     //需要一个config来设置外观,目前还没有想好怎么设计
-    convenience init(frame: CGRect,url:URL)  {
+    convenience init(frame: CGRect,url:URL,config:[ShadowUIConfig:Any] = [ShadowUIConfig:Any]())  {
         self.init(frame: frame)
         self.url = url
+        self.config = config
+        
+        vControl = ShadowVideoControlView(frame: CGRect(), config: self.config)
+        vPlay = ShadowVideoPlayControlView(frame: CGRect())
+        
         setupPlayerUI()
         player = ShadowPlayer(url: url, playerLayer: playerLayer)
         player.delegate = self
@@ -145,6 +156,9 @@ class ShadowVideoPlayerView: UIView {
             m.left.right.bottom.equalTo(0)
             m.height.equalTo(44)
         }
+        
+        
+        
         layoutIfNeeded()
         //添加加载视图
         vActivity.hidesWhenStopped = true
@@ -490,7 +504,7 @@ extension ShadowVideoPlayerView{
 extension ShadowVideoPlayerView:ShadowPlayDelegate{
     func bufferProcess(current: Float,duration:Float) {
         print(current)
-        vControl.bufferValue = current
+        vControl.bufferValue = current / duration
     }
     
     func playStateChange(status: PlayerStatus, info:MediaInfo?) {
@@ -517,6 +531,10 @@ extension ShadowVideoPlayerView:ShadowPlayDelegate{
             setSubViewsIsHide(isHide: false)
             ShadowVideoPlayerView.count = 0
             pause()
+            vPlay.btnImage.isSelected = false
+        case .Paused:
+            //pause()
+           setSubViewsIsHide(isHide: false)
             vPlay.btnImage.isSelected = false
         default:
             break
