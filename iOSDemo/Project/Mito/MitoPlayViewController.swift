@@ -31,7 +31,7 @@ class MitoPlayViewController: UIViewController {
             m.left.equalTo(20)
             m.bottom.equalTo(-40)
         }
-        btnDownload.addTarget(self, action: #selector(close), for: .touchUpInside)
+        btnDownload.addTarget(self, action: #selector(download), for: .touchUpInside)
     }
 
     @objc func close(){
@@ -42,7 +42,10 @@ class MitoPlayViewController: UIViewController {
     
     @objc func download(){
         //下载要研究下
-        
+        let vProgress = DownloadProgressView(frame: CGRect(x: ScreenWidth - 100, y: ScreenHeight - 150, width: 60, height: 60))
+        UIApplication.shared.keyWindow?.addSubview(vProgress)
+        //vProgress.downloadUrl = item!.videoLink
+        vProgress.startDownloadWithUrl(url: item!.videoLink)
     }
     
 }

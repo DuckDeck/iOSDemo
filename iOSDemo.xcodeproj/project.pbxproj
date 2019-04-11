@@ -218,6 +218,7 @@
 		AEB7D09A225DCCD8008C899E /* HotMitoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D099225DCCD8008C899E /* HotMitoViewController.swift */; };
 		AEB7D09C225DD45B008C899E /* DynamicMitoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D09B225DD45B008C899E /* DynamicMitoViewController.swift */; };
 		AEB7D09E225DEB04008C899E /* MitoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D09D225DEB04008C899E /* MitoPlayViewController.swift */; };
+		AEB7D0A0225ED716008C899E /* DownloadProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D09F225ED716008C899E /* DownloadProgressView.swift */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
 		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
@@ -536,6 +537,7 @@
 		AEB7D099225DCCD8008C899E /* HotMitoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotMitoViewController.swift; sourceTree = "<group>"; };
 		AEB7D09B225DD45B008C899E /* DynamicMitoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicMitoViewController.swift; sourceTree = "<group>"; };
 		AEB7D09D225DEB04008C899E /* MitoPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MitoPlayViewController.swift; sourceTree = "<group>"; };
+		AEB7D09F225ED716008C899E /* DownloadProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgressView.swift; sourceTree = "<group>"; };
 		AEBA80D420BD50B300F6A323 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		AEBA80D520BD50B300F6A323 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
 		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
@@ -892,6 +894,7 @@
 				AEB7D09B225DD45B008C899E /* DynamicMitoViewController.swift */,
 				AE5AD8C02254A1A200BD7EE9 /* CollectedViewController.swift */,
 				AEB7D08E225B216D008C899E /* AboutMitoViewController.swift */,
+				AEB7D09F225ED716008C899E /* DownloadProgressView.swift */,
 			);
 			path = Mito;
 			sourceTree = "<group>";
@@ -2048,6 +2051,7 @@
 				AE7BBCE4207B498B005DBE0C /* WatermarkViewController.swift in Sources */,
 				AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */,
 				AEBE40521FC80A5C0087D7ED /* CityChooseViewController+Delegate.swift in Sources */,
+				AEB7D0A0225ED716008C899E /* DownloadProgressView.swift in Sources */,
 				AE1AC80E20D25F5A0002F779 /* ShadowVideoPlayControlView.swift in Sources */,
 				AE6691D620F49B3A00D019D4 /* UIImage+Palette.m in Sources */,
 				AE9F32821F690F5200339BB8 /* GrandCue.swift in Sources */,
