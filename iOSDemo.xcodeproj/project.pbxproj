@@ -220,6 +220,7 @@
 		AEB7D09E225DEB04008C899E /* MitoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D09D225DEB04008C899E /* MitoPlayViewController.swift */; };
 		AEB7D0A0225ED716008C899E /* DownloadProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D09F225ED716008C899E /* DownloadProgressView.swift */; };
 		AEB7D0A222602760008C899E /* MitoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D0A122602760008C899E /* MitoSearchViewController.swift */; };
+		AEB7D0A422603766008C899E /* FlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D0A322603766008C899E /* FlowView.swift */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
 		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
@@ -540,6 +541,7 @@
 		AEB7D09D225DEB04008C899E /* MitoPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MitoPlayViewController.swift; sourceTree = "<group>"; };
 		AEB7D09F225ED716008C899E /* DownloadProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgressView.swift; sourceTree = "<group>"; };
 		AEB7D0A122602760008C899E /* MitoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MitoSearchViewController.swift; sourceTree = "<group>"; };
+		AEB7D0A322603766008C899E /* FlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowView.swift; sourceTree = "<group>"; };
 		AEBA80D420BD50B300F6A323 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		AEBA80D520BD50B300F6A323 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
 		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
@@ -1037,6 +1039,7 @@
 				AEADFD282105B40D00E6B58D /* JXLayoutButton.h */,
 				AEADFD292105B40E00E6B58D /* JXLayoutButton.m */,
 				AE5A88621FF36F9500748F6A /* GridView.swift */,
+				AEB7D0A322603766008C899E /* FlowView.swift */,
 				AE3F46EB20AC0290007BA637 /* HintView.swift */,
 				AE3F46F720AC0D1B007BA637 /* TimerButton.swift */,
 				AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */,
@@ -2083,6 +2086,7 @@
 				AE0F702D1FBA90A500C8135C /* RequestInfo.swift in Sources */,
 				AE901198223B49CE0020D400 /* Resolution.swift in Sources */,
 				AE0F70371FBA9ACF00C8135C /* NetworkViewController.swift in Sources */,
+				AEB7D0A422603766008C899E /* FlowView.swift in Sources */,
 				AE3961EA1FD13D2400BF4CE9 /* GandAlert.swift in Sources */,
 				AE0F70971FBEB9CA00C8135C /* DrawView.swift in Sources */,
 				AEBE709020A4449100B2E897 /* TakePhotoViewController.swift in Sources */,

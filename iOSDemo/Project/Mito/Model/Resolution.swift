@@ -31,14 +31,18 @@ struct Resolution {
     static let StandardPadResolution = Resolution(resolution: "2048x1536")
     
     init(resolution:String) {
-        var res = resolution.split("x")
-        if (resolution.contains("x")){
-            res = resolution.split("x") // it's rediculous, because x and × is not the same
+        var reso = resolution
+        if reso.contain(subStr: "("){
+            reso = reso.split("(").first!
+        }
+        
+        var res = reso.split("x")
+        if (reso.contains("×")){
+            res = resolution.split("×") // it's rediculous, because x and × is not the same
         }
         if (res.count == 1)
         {
             pixelX = res[0].toInt() ?? 0
-            
         }
         else if (res.count == 2) {
             pixelX = res[0].toInt() ?? 0

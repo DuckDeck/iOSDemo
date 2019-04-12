@@ -202,7 +202,6 @@ class ImageSet:NSObject, NSCoding {
         }
     }
     
-    
     static func getHotImageSet(index:Int,completed:@escaping ((_ result:ResultInfo)->Void)){
         
         let url = "http://www.5857.com/html/hotlist-\(index).html"
@@ -252,6 +251,53 @@ class ImageSet:NSObject, NSCoding {
         }
     }
     
+    static func searchMito(key:String,index:Int,completed:@escaping ((_ result:ResultInfo)->Void)){     
+        let url = "http://www.5857.com/index.php?m=search&c=index&a=init&typeid=3&q=\(key)&page=\(index)".urlEncoded()
+        Log(message: url)
+        HttpClient.get(url).completion { (data, err) in
+            var result = ResultInfo()
+            if err != nil{
+                result.code = -1
+                result.message = err!.localizedDescription
+                completed(result)
+                return
+            }
+            guard let doc = try? HTML(html: data!, encoding: .utf8) else{
+                result.code = 10
+                result.message = "解析HTML错误"
+                completed(result)
+                return
+            }
+            let uls = doc.xpath("//ul[@class='clearfix']")
+            if uls.count <= 0{
+                result.data = [ImageSet]()
+                completed(result)
+                return
+            }
+            
+            var arrImageSets = [ImageSet]()
+            let lis = uls.first!.css("li")
+            for ul in lis{
+                let img = ImageSet()
+                img.category = ul.css("div > em > a")[0].text ?? ""
+                img.mainImage = ul.css("div > a > img")[0]["src"] ?? ""
+                img.title = ul.css("div > a > span")[0].text ?? ""
+                img.url = ul.css("div > a")[0]["href"] ?? ""
+                img.resolution = Resolution(resolution: ul.css("div > span > a")[0].text ?? "")
+                if img.resolution.isEmpty{
+                   img.resolution = Resolution.StandardPhoneResolution
+                }
+                img.resolutionStr = img.resolution.toString()
+                img.theme = ul.css("div > span")[1].text ?? ""
+                img.cellHeight = Float(ScreenWidth / 2 - 10) / Float(img.resolution.ratio) + 70.0
+                
+                arrImageSets.append(img)
+            }
+            
+            result.data = arrImageSets
+            completed(result)
+        }
+    }
     
     static func getDynamicImage(cat:String,index:Int,completed:@escaping ((_ result:ResultInfo)->Void)){
         let url = "http://www.5857.com/list-42-0-\(ImageSet.dynamicCatToPara(str: cat))-0-0-0-\(index).html"

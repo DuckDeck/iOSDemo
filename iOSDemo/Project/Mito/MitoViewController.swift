@@ -8,6 +8,12 @@
 
 import UIKit
 import GrandMenu
+
+//doto 1: 空白页面
+//doto 2: resolution 分类
+//kingfish可能因为某种原来导致显示404
+
+
 class MitoViewController: UIViewController {
     
     let vMenu = SlideMenuView()

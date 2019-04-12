@@ -8,6 +8,8 @@
 
 import UIKit
 import MJRefresh
+
+
 class MitoSearchViewController: UIViewController,UITextFieldDelegate {
 
     var vCol: UICollectionView!
@@ -17,12 +19,12 @@ class MitoSearchViewController: UIViewController,UITextFieldDelegate {
     let txtSearch = UITextField()
     let btnSearch = UIButton()
     var key = "美女"
-    
+    let vHotSearch = GridView()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = "壁纸搜索"
-        
+        view.backgroundColor = UIColor.white
         
         
         txtSearch.returnKeyType = .search
@@ -54,7 +56,7 @@ class MitoSearchViewController: UIViewController,UITextFieldDelegate {
             return Double(height)
         }
         
-        vCol = UICollectionView(frame: view.frame, collectionViewLayout: layout)
+        vCol = UICollectionView(frame: CGRect(), collectionViewLayout: layout)
         vCol.backgroundColor = UIColor.white
         vCol.delegate = self
         vCol.dataSource = self
@@ -62,20 +64,62 @@ class MitoSearchViewController: UIViewController,UITextFieldDelegate {
         vCol.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(headerRefresh))
         vCol.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(footerRefresh))
         view.addSubview(vCol)
-        
+        vCol.snp.makeConstraints { (m) in
+            m.left.right.bottom.equalTo(0)
+            m.top.equalTo(txtSearch.snp.bottom)
+        }
         vCol.isHidden = true
         
         
+        vHotSearch.cellSize = CGSize(width: 140, height: 25)
+        vHotSearch.padding = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
+        vHotSearch.horizontalSpace = 20
+        vHotSearch.verticalSpace = 10
+        vHotSearch.addTo(view: view).snp.makeConstraints { (m) in
+            m.left.equalTo(0)
+            m.width.greaterThanOrEqualTo(ScreenWidth)
+            m.height.greaterThanOrEqualTo(ScreenHeight - 300)
+            m.top.equalTo(txtSearch.snp.bottom)
+        }
         
         
+        
+        if MitoConfig.HotSearchMito.Value!.count > 0{
+            vHotSearch.isHidden = false
+            
+            let hotKeys =  MitoConfig.HotSearchMito.Value!
+            var arrHotkeyButton = [UIButton]()
+            for item in hotKeys{
+                let cor = UIColor.random
+                let btn = UIButton().title(title: item).color(color: cor).borderColor(color: cor).borderWidth(width: 1).cornerRadius(radius: 12)
+                btn.addTarget(self, action: #selector(hotKeySearch(sender:)), for: .touchUpInside)
+                arrHotkeyButton.append(btn)
+            }
+            vHotSearch.arrViews = arrHotkeyButton
+        }
+        else{
+             vHotSearch.isHidden = true
+        }
+        
+    }
+    
+    @objc func hotKeySearch(sender:UIButton)  {
+        txtSearch.text = sender.title(for: .normal)
+        searchKey()
     }
     
     @objc func searchKey(){
         txtSearch.resignFirstResponder()
         if txtSearch.text!.isEmpty{
-            Toast.showToast(msg: "请输入文字")
-            return
+            key = "美女"
         }
+        else{
+            key = txtSearch.text!
+        }
+        vCol.isHidden = false
+        vHotSearch.isHidden = true
+        vCol.mj_header.beginRefreshing()
+        
     }
     
     @objc func headerRefresh() {
@@ -88,11 +132,15 @@ class MitoSearchViewController: UIViewController,UITextFieldDelegate {
         loadData()
     }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchKey()
+        return true
+    }
+    
     func loadData() {
-        
-        ImageSet.getHotImageSet(index: index) { (res) in
+        ImageSet.searchMito(key: key, index: index) { (res) in
             self.vCol.mj_header.endRefreshing()
-            
             if !handleResult(result: res){
                 return
             }
@@ -108,10 +156,10 @@ class MitoSearchViewController: UIViewController,UITextFieldDelegate {
                     self.arrImageSets += res.data! as! [ImageSet]
                     self.vCol.mj_footer.endRefreshing()
                 }
-            }
-            
+            }            
             self.vCol.reloadData()
         }
+
     }
 
 }
