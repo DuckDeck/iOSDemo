@@ -293,7 +293,13 @@ class ImageSet:NSObject, NSCoding {
                 
                 arrImageSets.append(img)
             }
-            
+            let mitoCount = doc.xpath("//a[@class='a1']")
+            if mitoCount.count <= 0{
+                result.count = arrImageSets.count
+            }
+            else{
+                //result.count = mitoCount.first!.text
+            }
             result.data = arrImageSets
             completed(result)
         }

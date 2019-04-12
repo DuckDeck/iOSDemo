@@ -10,6 +10,14 @@
 import Foundation
 import GrandTime
 import AVKit
+
+//ForwardFilter从最前面开始,出现数字后一直到没有数字为止
+//BackwordFilter从最后面开始,出现数字后一直到没有数字为止
+//AllFilter获取所的数字
+public enum FilterToInt{
+    case ForwardFilter,BackwordFilter,AllFilter
+}
+
 extension NSObject{
     func addDispose()  {
         
@@ -169,6 +177,42 @@ extension String{
         } else {
             return nil
         }
+    }
+    
+    public func filteToInt(filter:FilterToInt)->Int?{
+        let enu = self.enumerated()
+        var tmp = ""
+       
+        //用正则更好,也不一定
+        for item in enu{
+            if item.element.isNumber{
+                tmp.append(item.element)
+            }
+            else{
+                if tmp.last != nil && tmp.last! != "|"{
+                    tmp.append("|")
+                }
+            }
+            
+        }
+        let numFragment = tmp.split("|")
+        if numFragment.count <= 0{
+            return nil
+        }
+        if numFragment.count == 1{
+            return numFragment[0].toInt()
+        }
+        switch filter {
+            case .ForwardFilter:
+                return numFragment.first?.toInt()
+            
+            case .BackwordFilter:
+                return numFragment.last?.toInt()
+            
+            case .AllFilter:
+                return numFragment.joined().toInt()
+        }
+       
     }
     
     func pregReplace(pattern: String, with: String,

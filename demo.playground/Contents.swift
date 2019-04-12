@@ -161,6 +161,12 @@ struct regex {
 let sss = regex("[\\u4e00-\\u9fa5]")
 let ssss = sss.match(input: "aaa")
 print(ssss?.range(at: 0))
+
+let testNum = regex("\\d+\\.?\\d*")
+let numss = "ffff12313"
+let res = testNum.match(input: numss)
+print(res?.range(at: 0))
+
 //let reg = regex("/\\w+.php")
 //let r = reg.match("afsdf/adfasdf.php")
 //print(r!.rangeAtIndex(0))
