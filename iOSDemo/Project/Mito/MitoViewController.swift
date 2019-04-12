@@ -76,6 +76,7 @@ class MitoViewController: UIViewController {
                     ("精选一图",UIImage(named: "a3")!),
                     ("热门壁纸",UIImage(named: "a4")!),
                     ("动态壁纸",UIImage(named: "a5")!),
+                    ("壁纸搜索",UIImage(named: "check")!),
                     ("我的收藏",UIImage(named: "star_full")!),
                     ("关于美图",UIImage(named: "a11")!)]
         vMenu.menu = menu
@@ -109,10 +110,14 @@ class MitoViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
         if index == 6{
-            let vc = CollectedViewController()
+            let vc = MitoSearchViewController()
             navigationController?.pushViewController(vc, animated: true)
         }
         if index == 7{
+            let vc = CollectedViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        if index == 8{
             let vc = AboutMitoViewController()
             navigationController?.pushViewController(vc, animated: true)
         }

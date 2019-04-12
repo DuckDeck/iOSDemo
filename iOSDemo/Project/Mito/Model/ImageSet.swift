@@ -118,12 +118,19 @@ class ImageSet:NSObject, NSCoding {
                 completed(result)
                 return
             }
+            let hotSearch =  doc.xpath("//div[@class='search-key']").first!.css("a")
+            var arrHot = [String]()
+            for item in hotSearch{
+                arrHot.append(item.text!)
+            }
+            MitoConfig.HotSearchMito.Value = arrHot
             let uls = doc.xpath("//ul[@class='clearfix']")
             if uls.count <= 0{
                 result.data = [ImageSet]()
                 completed(result)
                 return
             }
+           
             var arrImageSets = [ImageSet]()
             let lis = uls.first!.css("li")
             for ul in lis{
