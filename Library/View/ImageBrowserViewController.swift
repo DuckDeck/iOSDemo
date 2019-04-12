@@ -122,10 +122,6 @@ class ImageBrowserCell: UICollectionViewCell,UIScrollViewDelegate {
             m.height.equalTo(ScreenHeight - 60)
         }
         
-        
-        
-        
-        
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

@@ -161,7 +161,7 @@ class ShadowVideoControlView: UIView {
         btnLarge.snp.makeConstraints { (m) in
             m.centerY.equalTo(lblTime)
             m.width.height.equalTo(needHideBtnLarge ? 0 : 30)
-            m.right.equalTo(-padding)
+            m.right.equalTo( needHideBtnLarge ? 0 : -padding)
         }
         
         sliderBuffer.snp.makeConstraints { (m) in
