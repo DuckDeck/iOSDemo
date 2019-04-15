@@ -16,7 +16,7 @@ class ResolutionFilterView: UIView {
     var selectBlock:((_ res:Resolution)->Void)?
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        self.tag = 111
         backgroundColor = UIColor(gray: 0.5, alpha: 0.5)
         
         vMain.bgColor(color: UIColor.white).addTo(view: self).snp.makeConstraints { (m) in
@@ -31,7 +31,8 @@ class ResolutionFilterView: UIView {
             m.top.equalTo(10)
         }
         
-        tbResolution.rowHeight = 20
+        tbResolution.separatorStyle = .none
+        tbResolution.rowHeight = 30
         tbResolution.tableFooterView = UIView()
         tbResolution.dataSource = self
         tbResolution.delegate = self
@@ -43,6 +44,7 @@ class ResolutionFilterView: UIView {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapToRemove(ges:)))
         self.isUserInteractionEnabled = true
+        tap.delegate = self
         self.addGestureRecognizer(tap)
     }
     
@@ -56,7 +58,7 @@ class ResolutionFilterView: UIView {
     
 }
 
-extension ResolutionFilterView:UITableViewDataSource,UITableViewDelegate{
+extension ResolutionFilterView:UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrFilters.count
     }
@@ -64,6 +66,8 @@ extension ResolutionFilterView:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = arrFilters[indexPath.row].toString()
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 25)
+        cell.textLabel?.textAlignment = .center
         return cell
     }
     
@@ -71,6 +75,12 @@ extension ResolutionFilterView:UITableViewDataSource,UITableViewDelegate{
         selectBlock?(arrFilters[indexPath.row])
     }
     
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view?.tag == 111{
+            return true
+        }
+        return false
+    }
 }
 
 

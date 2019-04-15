@@ -14,7 +14,20 @@ class MitoListViewController: UIViewController {
     var vCol: UICollectionView!
     var cat = "" //图片类型
     var _channel = 0
-    var currentResolution = Resolution()
+    var _currentResolution = Resolution()
+    var currentResolution:Resolution{
+        set{
+            if _currentResolution != newValue{
+                _currentResolution = newValue
+                if vCol != nil{
+                    vCol.mj_header.beginRefreshing()
+                }
+            }
+        }
+        get{
+            return  _currentResolution
+        }
+    }
     var channel :Int{
         set{
             if _channel != newValue{

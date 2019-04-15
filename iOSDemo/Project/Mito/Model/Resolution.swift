@@ -8,11 +8,15 @@
 
 import UIKit
 
-struct Resolution {
+struct Resolution:Equatable {
     var pixelX = 0
     var pixelY = 0
     var device = ""
     var resolutionCode = ""
+    
+    static func ==(lhs:Resolution,rhs:Resolution)->Bool{
+        return lhs.pixelX == rhs.pixelX && lhs.pixelY == rhs.pixelY
+    }
     
     static let ComputorResolutions = [Resolution(resolution: "3840x1200"),
                                         Resolution(resolution: "3200x2400"),
