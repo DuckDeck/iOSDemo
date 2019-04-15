@@ -149,7 +149,18 @@ class ImageSet:NSObject, NSCoding {
 
                 arrImageSets.append(img)
             }
-
+            let mitoCount = doc.xpath("//a[@class='a1']")
+            if mitoCount.count <= 0{
+                result.count = arrImageSets.count
+            }
+            else{
+                if let count = mitoCount.first!.text?.filteToInt(filter: .ForwardFilter){
+                    result.count = count
+                }
+                else{
+                    result.count = arrImageSets.count
+                }
+            }
             result.data = arrImageSets
             completed(result)
         }
@@ -245,7 +256,18 @@ class ImageSet:NSObject, NSCoding {
                 
                 arrImageSets.append(img)
             }
-            
+            let mitoCount = doc.xpath("//a[@class='a1']")
+            if mitoCount.count <= 0{
+                result.count = arrImageSets.count
+            }
+            else{
+                if let count = mitoCount.first!.text?.filteToInt(filter: .ForwardFilter){
+                    result.count = count
+                }
+                else{
+                    result.count = arrImageSets.count
+                }
+            }
             result.data = arrImageSets
             completed(result)
         }
@@ -290,7 +312,6 @@ class ImageSet:NSObject, NSCoding {
                 img.resolutionStr = img.resolution.toString()
                 img.theme = ul.css("div > span")[1].text ?? ""
                 img.cellHeight = Float(ScreenWidth / 2 - 10) / Float(img.resolution.ratio) + 70.0
-                
                 arrImageSets.append(img)
             }
             let mitoCount = doc.xpath("//a[@class='a1']")
@@ -298,7 +319,12 @@ class ImageSet:NSObject, NSCoding {
                 result.count = arrImageSets.count
             }
             else{
-                //result.count = mitoCount.first!.text
+                if let count = mitoCount.first!.text?.filteToInt(filter: .ForwardFilter){
+                    result.count = count
+                }
+                else{
+                    result.count = arrImageSets.count
+                }
             }
             result.data = arrImageSets
             completed(result)
@@ -347,7 +373,18 @@ class ImageSet:NSObject, NSCoding {
                 img.sizeStr = ul.css("div > span")[0].text ?? ""
                 arrImageSets.append(img)
             }
-            
+            let mitoCount = doc.xpath("//a[@class='a1']")
+            if mitoCount.count <= 0{
+                result.count = arrImageSets.count
+            }
+            else{
+                if let count = mitoCount.first!.text?.filteToInt(filter: .ForwardFilter){
+                    result.count = count
+                }
+                else{
+                    result.count = arrImageSets.count
+                }
+            }
             result.data = arrImageSets
             completed(result)
         }
@@ -472,15 +509,3 @@ extension String{
 }
 
 
-extension UIColor{
-    static var pink:UIColor{
-        get{
-            return UIColor.init(red: 1, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1)
-        }
-    }
-    static var silver:UIColor{
-        get{
-            return UIColor.init(red: 192.0/255.0, green: 192.0/255.0, blue: 192.0/255.0, alpha: 1)
-        }
-    }
-}

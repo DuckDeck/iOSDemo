@@ -82,3 +82,17 @@ extension UIColor{
     }
 
 }
+
+
+extension UIColor{
+    static var pink:UIColor{
+        get{
+            return UIColor.init(red: 1, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1)
+        }
+    }
+    static var silver:UIColor{
+        get{
+            return UIColor.init(red: 192.0/255.0, green: 192.0/255.0, blue: 192.0/255.0, alpha: 1)
+        }
+    }
+}

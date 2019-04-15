@@ -8,76 +8,72 @@
 
 import UIKit
 //todo 完成FlowView
+
+//protocol FlowViewDataSource{
+//    func numOfCells(flowView:FlowView) -> Int
+//    func cellFor(flowView:FlowView,index:Int)->UIView
+//    func itemWidth(flowView:FlowView,index:Int)->Float
+//}
+
 class FlowView: UIView {
 
-    var cellPadding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     var padding:UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     var horizontalSpace:CGFloat = 0
     var verticalSpace:CGFloat = 0
     var showLast = true
     var maxWidth = ScreenWidth
+    var itemHeight:CGFloat = 20
+    var fetchViewBlock : ((_ index:Int)->(UIView,Float,Bool))?
     
-    
-    
-//    var arrViews:[UIView]?{
-//        didSet{
-//            if let views = arrViews{
-//                for sub in self.subviews{
-//                    sub.removeFromSuperview()
-//                }
-//                var x = CGFloat(padding.left)
-//                var y = CGFloat(padding.top)
-//                let count = showLast ? views.count : views.count - 1
-//                if count <= 0{
-//                    return
-//                }
-//                var isSwitch = false
-//                var isNewRow = false
-//                var right:CGFloat = 0
-//                for i in 0..<count{
-//                    addSubview(views[i])
-//                    views[i].snp.makeConstraints({ (m) in
-//                        m.left.equalTo(x)
-//                        m.top.equalTo(y)
-//                        m.size.equalTo(cellSize)
-//                    })
-//
-//                    if x + horizontalSpace + cellSize.width * 2  + padding.right <= maxWidth{
-//                        x = x + horizontalSpace + cellSize.width
-//                        isNewRow = false
-//                    }
-//                    else{
-//                        isSwitch = true
-//                        isNewRow = true
-//                        x = CGFloat(padding.left)
-//                        y = y + verticalSpace + cellSize.height
-//                    }
-//                    Log(message: "x: \(x)")
-//                    Log(message: "right: \(right)")
-//                    if !isSwitch{
-//                        right = x - horizontalSpace +  padding.right
-//                    }
-//                }
-//                if right <= maxWidth{
-//                    right = maxWidth
-//                }
-//                self.snp.updateConstraints({ (m) in
-//                    m.width.greaterThanOrEqualTo(right)
-//                    var b:CGFloat = 0
-//                    if isNewRow{
-//                        b = y - verticalSpace + padding.bottom
-//                    }
-//                    else{
-//                        b = y + padding.bottom + cellSize.height
-//                    }
-//                    m.height.greaterThanOrEqualTo(b)
-//                })
-//            }
-//        }
-//    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+    }
+    
+    func loadView() {
+        guard let blc = fetchViewBlock else {
+            return
+        }
+        for sub in self.subviews{
+            sub.removeFromSuperview()
+        }
+        var x = CGFloat(padding.left)
+        var y = CGFloat(padding.top)
+        var i = 0
+        while true {
+            let item = blc(i)
+            if item.2{
+                break
+            }
+            addSubview(item.0)
+            
+            // 查看看能不能安置
+            print(item.1)
+            let tmpWidth = x + CGFloat(item.1) + horizontalSpace + padding.right
+            if tmpWidth > maxWidth{  //如果不行
+                y = y + itemHeight + verticalSpace
+                x = CGFloat(padding.left)
+                item.0.snp.makeConstraints({ (m) in  //先安置好
+                    m.left.equalTo(x)
+                    m.top.equalTo(y)
+                    m.width.equalTo(item.1)
+                    m.height.equalTo(itemHeight)
+                })
+                x = x + CGFloat(item.1) + horizontalSpace
+            }
+            else{
+                item.0.snp.makeConstraints({ (m) in  //先安置好
+                    m.left.equalTo(x)
+                    m.top.equalTo(y)
+                    m.width.equalTo(item.1)
+                    m.height.equalTo(itemHeight)
+                })
+                
+                 x = x + CGFloat(item.1) + horizontalSpace
+            }
+            i = i + 1
+        }
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
