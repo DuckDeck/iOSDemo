@@ -91,15 +91,22 @@ extension ImageBrowserViewController:UICollectionViewDelegate,UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageBrowserCell", for: indexPath) as! ImageBrowserCell
         let img = arrImages![indexPath.row]
         cell.img.setImg(url: img)
+        cell.tapBlock = {[weak self](view:UIView) in
+            self?.dismiss(animated: true, completion: nil)
+        }
         return cell
     }
     
-    
+    //func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //这里我就用关闭了,没有用
+        //dismiss(animated: true, completion: nil)
+    //}
 }
 
 class ImageBrowserCell: UICollectionViewCell,UIScrollViewDelegate {
     let sc = UIScrollView()
     let img = UIImageView()
+    var tapBlock:((_ view:UIView)->Void)?
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -116,12 +123,38 @@ class ImageBrowserCell: UICollectionViewCell,UIScrollViewDelegate {
         sc.maximumZoomScale = 3
         sc.addSubview(img)
         img.contentMode = .scaleAspectFit
+        img.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imgTap(ges:)))
+        tap.numberOfTapsRequired = 1
+        tap.numberOfTouchesRequired = 1
+        img.addGestureRecognizer(tap)
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(imgDoubleTap(ges:)))
+        doubleTap.numberOfTapsRequired = 2
+        doubleTap.numberOfTouchesRequired = 1
+        img.addGestureRecognizer(tap)
+        tap.require(toFail: doubleTap) //Issue 只能识别单击手势，双击不能识别
+        
         img.snp.makeConstraints { (m) in
             m.center.equalTo(sc)
             m.width.equalTo(ScreenWidth - 30)
             m.height.equalTo(ScreenHeight - 60)
         }
         
+    }
+    
+    @objc func imgTap(ges:UIGestureRecognizer)  {
+        if let view = ges.view{
+            tapBlock?(view)
+        }
+    }
+    
+    @objc func imgDoubleTap(ges:UIGestureRecognizer)  {
+        if sc.zoomScale > 1.5{
+            sc.zoomScale = 1
+        }
+        else{
+            sc.zoomScale = 3
+        }
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

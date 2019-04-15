@@ -202,7 +202,10 @@ class ImageSet:NSObject, NSCoding {
                 var arrImgs = [String]()
                 for img in imgs{
                     let url = img.css("img").first!["src"]!
-                    arrImgs.append(url)
+                    if !url.contain(subStr: "wechatpc")
+                    {
+                         arrImgs.append(url)
+                    }
                 }
                 result.data = arrImgs
                 completed(result)
