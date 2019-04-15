@@ -221,6 +221,7 @@
 		AEB7D0A0225ED716008C899E /* DownloadProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D09F225ED716008C899E /* DownloadProgressView.swift */; };
 		AEB7D0A222602760008C899E /* MitoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D0A122602760008C899E /* MitoSearchViewController.swift */; };
 		AEB7D0A422603766008C899E /* FlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D0A322603766008C899E /* FlowView.swift */; };
+		AEB7D0A62264666B008C899E /* ResolutionFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D0A52264666B008C899E /* ResolutionFilterView.swift */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
 		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
@@ -542,6 +543,7 @@
 		AEB7D09F225ED716008C899E /* DownloadProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgressView.swift; sourceTree = "<group>"; };
 		AEB7D0A122602760008C899E /* MitoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MitoSearchViewController.swift; sourceTree = "<group>"; };
 		AEB7D0A322603766008C899E /* FlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowView.swift; sourceTree = "<group>"; };
+		AEB7D0A52264666B008C899E /* ResolutionFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionFilterView.swift; sourceTree = "<group>"; };
 		AEBA80D420BD50B300F6A323 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		AEBA80D520BD50B300F6A323 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
 		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
@@ -900,6 +902,7 @@
 				AE5AD8C02254A1A200BD7EE9 /* CollectedViewController.swift */,
 				AEB7D08E225B216D008C899E /* AboutMitoViewController.swift */,
 				AEB7D09F225ED716008C899E /* DownloadProgressView.swift */,
+				AEB7D0A52264666B008C899E /* ResolutionFilterView.swift */,
 			);
 			path = Mito;
 			sourceTree = "<group>";
@@ -2189,6 +2192,7 @@
 				AE0F708E1FBEB96E00C8135C /* TouchTestViewController.swift in Sources */,
 				AE1DE07A2099BE0A007910A5 /* GameService.swift in Sources */,
 				AE4DA61B213E68B300FCC7FD /* ShadowDataManager.swift in Sources */,
+				AEB7D0A62264666B008C899E /* ResolutionFilterView.swift in Sources */,
 				AEADFD472110031B00E6B58D /* FormTableViewController.swift in Sources */,
 				AE83BD7B1FE2134E001882D1 /* TwoSideViewController.swift in Sources */,
 				AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */,

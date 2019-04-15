@@ -14,7 +14,7 @@ struct ResultInfo {
     var message = ""
     var data:Any?
     var count = 0
-    
+    var content:[String:Any]?
     init() {
         
     }

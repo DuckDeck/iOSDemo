@@ -14,6 +14,7 @@ class MitoListViewController: UIViewController {
     var vCol: UICollectionView!
     var cat = "" //图片类型
     var _channel = 0
+    var currentResolution = Resolution()
     var channel :Int{
         set{
             if _channel != newValue{
@@ -34,7 +35,6 @@ class MitoListViewController: UIViewController {
         let layout = FlowLayout(columnCount: 2, columnMargin: 8) { [weak self] (index) -> Double in
            return Double(self!.arrImageSets[index.row].cellHeight)
         }
-        
         vCol = UICollectionView(frame: view.frame, collectionViewLayout: layout) //issue 下面的内容出了屏外了
         vCol.backgroundColor = UIColor.white
         vCol.delegate = self
@@ -43,8 +43,9 @@ class MitoListViewController: UIViewController {
         vCol.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(headerRefresh))
         vCol.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(footerRefresh))
         view.addSubview(vCol)
-
         vCol.mj_header.beginRefreshing()
+        
+        
     }
     
     @objc func headerRefresh() {
@@ -59,7 +60,7 @@ class MitoListViewController: UIViewController {
     
     func loadData() {
         if imgType == 0{
-            ImageSet.getImageSet(type: channel, cat: cat, resolution: Resolution(), theme: "全部", index: index) { (res) in
+            ImageSet.getImageSet(type: channel, cat: cat, resolution: currentResolution, theme: "全部", index: index) { (res) in
                 self.vCol.mj_header.endRefreshing()
                 if !handleResult(result: res){
                     return

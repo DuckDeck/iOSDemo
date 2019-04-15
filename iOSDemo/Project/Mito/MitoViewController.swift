@@ -18,10 +18,10 @@ class MitoViewController: UIViewController {
     
     let vMenu = SlideMenuView()
     var isExpand = false
-    
+    var channel = 0
     var grandMenu:GrandMenu?
     var grandMenuTable:GrandMenuTable?
-    
+    var btnFilter = UIButton(frame: CGRect(x: ScreenWidth - 100, y: ScreenHeight - 150, width: 60, height: 60))
     let arrMenu = ["全部","美女","性感","明星","风光","卡通","创意","汽车","游戏","建筑","影视","植物","动物",
                    "节庆","可爱","静物","体育","日历","唯美","其它","系统","动漫","非主流","小清新"]
     //let channels = ["电脑壁纸","手机壁纸","平板壁纸","精选一图","精选一图","我的收藏"]
@@ -91,6 +91,34 @@ class MitoViewController: UIViewController {
         }
         view.addSubview(vMenu)
         
+        btnFilter.setImage(UIImage(named: "filter"), for: .normal)
+        btnFilter.layer.cornerRadius = 30
+        btnFilter.layer.borderColor = UIColor.blue.cgColor
+        btnFilter.layer.borderWidth = 2
+        btnFilter.backgroundColor = UIColor.orange
+        btnFilter.addTarget(self, action: #selector(changeResolution), for: .touchUpInside)
+        view.addSubview(btnFilter)
+        
+        
+        
+    }
+    
+    @objc func changeResolution() {
+        let vResolution = ResolutionFilterView(frame: UIScreen.main.bounds)
+        switch channel {
+        case 0,3:
+            vResolution.arrFilters = Resolution.ComputorResolutions
+        case 1:
+            vResolution.arrFilters = Resolution.PadResolutions
+        case 2:
+            vResolution.arrFilters = Resolution.PhoneResolutions
+        default:
+            break
+        }
+        vResolution.selectBlock = {(res:Resolution) in
+            vResolution.removeFromSuperview()
+        }
+        UIApplication.shared.keyWindow?.addSubview(vResolution)
     }
     
     @objc func openMenu()  {
@@ -102,6 +130,7 @@ class MitoViewController: UIViewController {
     func changeCat(index:Int) {
         vMenu.collapse()
         if index <= 3{
+            channel = index
             for vc in arrControllers{
                 vc.channel = index
             }
