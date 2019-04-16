@@ -21,7 +21,7 @@ class MitoViewController: UIViewController {
     var channel = 0
     var grandMenu:GrandMenu?
     var grandMenuTable:GrandMenuTable?
-    var btnFilter = UIButton(frame: CGRect(x: 70, y: ScreenHeight - 140, width: 60, height: 60))
+    var btnFilter = UIButton(frame: CGRect(x: 40, y: ScreenHeight - 100, width: 60, height: 60))
     let arrMenu = ["全部","美女","性感","明星","风光","卡通","创意","汽车","游戏","建筑","影视","植物","动物",
                    "节庆","可爱","静物","体育","日历","唯美","其它","系统","动漫","非主流","小清新"]
     //let channels = ["电脑壁纸","手机壁纸","平板壁纸","精选一图","精选一图","我的收藏"]
