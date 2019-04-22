@@ -137,8 +137,14 @@ class ImageSet:NSObject, NSCoding {
                 let img = ImageSet()
                 img.category = ul.css("div > em > a")[0].text ?? ""
                 img.mainImage = ul.css("div > a > img")[0]["src"] ?? ""
+                if img.mainImage.hasPrefix("//"){
+                    img.mainImage = "http:" + img.mainImage
+                }
                 img.title = ul.css("div > a > span")[0].text ?? ""
                 img.url = ul.css("div > a")[0]["href"] ?? ""
+                if img.url.hasPrefix("//"){
+                    img.url = "http:" + img.url
+                }
                 img.resolution = Resolution(resolution: ul.css("div > span > a")[0].text ?? "")
                 if img.resolution.isEmpty{
                     img.resolution = res
@@ -247,8 +253,14 @@ class ImageSet:NSObject, NSCoding {
                 let img = ImageSet()
                 img.category = ul.css("div > em > a")[0].text ?? ""
                 img.mainImage = ul.css("div > a > img")[0]["src"] ?? ""
+                if img.mainImage.hasPrefix("//"){
+                    img.mainImage = "http:" + img.mainImage
+                }
                 img.title = ul.css("div > a > span")[0].text ?? ""
                 img.url = ul.css("div > a")[0]["href"] ?? ""
+                if img.url.hasPrefix("//"){
+                    img.url = "http:" + img.url
+                }
                 img.resolution = Resolution(resolution: ul.css("div > span > a")[0].text ?? "")
                 if img.resolution.isEmpty{
                     img.resolution = Resolution.StandardPhoneResolution
@@ -306,8 +318,14 @@ class ImageSet:NSObject, NSCoding {
                 let img = ImageSet()
                 img.category = ul.css("div > em > a")[0].text ?? ""
                 img.mainImage = ul.css("div > a > img")[0]["src"] ?? ""
+                if img.mainImage.hasPrefix("//"){
+                    img.mainImage = "http:" + img.mainImage
+                }
                 img.title = ul.css("div > a > span")[0].text ?? ""
                 img.url = ul.css("div > a")[0]["href"] ?? ""
+                if img.url.hasPrefix("//"){
+                    img.url = "http:" + img.url
+                }
                 img.resolution = Resolution(resolution: ul.css("div > span > a")[0].text ?? "")
                 if img.resolution.isEmpty{
                    img.resolution = Resolution.StandardPhoneResolution
@@ -364,8 +382,14 @@ class ImageSet:NSObject, NSCoding {
 //                let infoDiv = ul.xpath("//div[@class='listbott']").first!
                 img.category = ul.css("div > span > a")[0].text ?? ""
                 img.mainImage = ul.css("div > a > img")[0]["src"] ?? ""
+                if img.mainImage.hasPrefix("//"){
+                    img.mainImage = "http:" + img.mainImage
+                }
                 img.title = ul.css("div > a > span")[0].text ?? ""
                 img.url = ul.css("div > a")[0]["href"] ?? ""
+                if img.url.hasPrefix("//"){
+                    img.url = "http:" + img.url
+                }
                 img.resolution = Resolution(resolution: "362x606")
                 img.imageType = 1
                 img.resolutionStr = img.resolution.toString()
