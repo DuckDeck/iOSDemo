@@ -207,10 +207,13 @@ class ImageSet:NSObject, NSCoding {
                 let imgs = oneImage.css("div >a")
                 var arrImgs = [String]()
                 for img in imgs{
-                    let url = img.css("img").first!["src"]!
+                    var url = img.css("img").first!["src"]!
                     if !url.contain(subStr: "wechatpc")
                     {
-                         arrImgs.append(url)
+                        if url.hasPrefix("//"){
+                            url = "http:" + url
+                        }
+                        arrImgs.append(url)
                     }
                 }
                 result.data = arrImgs
@@ -438,7 +441,7 @@ class ImageSet:NSObject, NSCoding {
                 completed(result)
                 return
             }
-            result.data = link
+            result.data = link.hasPrefix("//") ?  "http:" + link : link
             completed(result)
         }
     }
