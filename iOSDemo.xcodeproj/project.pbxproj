@@ -242,7 +242,6 @@
 		AED97B47215A1E2500B124E7 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED97B46215A1E2500B124E7 /* BaseModel.swift */; };
 		AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC540E2012EC0000BB4E34 /* GridViewController.swift */; };
 		AEDC54132012EC4100BB4E34 /* ConstraintArrayDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */; };
-		AEDC54142012EC4100BB4E34 /* ConstraintArray+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54122012EC4100BB4E34 /* ConstraintArray+Extensions.swift */; };
 		AEDCE5BE20DBA15900A50536 /* BarSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDCE5BD20DBA15900A50536 /* BarSlider.swift */; };
 		AEDD2C9D2085D1D700CD1FDE /* TextLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD2C9C2085D1D700CD1FDE /* TextLayoutViewController.swift */; };
 		AEDD2CA02085E62500CD1FDE /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD2C9F2085E62500CD1FDE /* AlertViewController.swift */; };
@@ -569,7 +568,6 @@
 		AED97B46215A1E2500B124E7 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		AEDC540E2012EC0000BB4E34 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintArrayDSL.swift; sourceTree = "<group>"; };
-		AEDC54122012EC4100BB4E34 /* ConstraintArray+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintArray+Extensions.swift"; sourceTree = "<group>"; };
 		AEDCE5BD20DBA15900A50536 /* BarSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarSlider.swift; sourceTree = "<group>"; };
 		AEDD2C9C2085D1D700CD1FDE /* TextLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLayoutViewController.swift; sourceTree = "<group>"; };
 		AEDD2C9F2085E62500CD1FDE /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
@@ -1656,7 +1654,6 @@
 		AEDC54102012EC3600BB4E34 /* SkapkitExtension */ = {
 			isa = PBXGroup;
 			children = (
-				AEDC54122012EC4100BB4E34 /* ConstraintArray+Extensions.swift */,
 				AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */,
 			);
 			path = SkapkitExtension;
@@ -2173,7 +2170,6 @@
 				AE1AC81120D25F5A0002F779 /* ShadowPlayer.swift in Sources */,
 				AE4DA61F213E833D00FCC7FD /* ShadowRangeManager.swift in Sources */,
 				AE2584A120A2F5FE00764AF0 /* UIScrollView+Extension.swift in Sources */,
-				AEDC54142012EC4100BB4E34 /* ConstraintArray+Extensions.swift in Sources */,
 				AE6691D720F49B3A00D019D4 /* PaletteColorModel.m in Sources */,
 				AE9F32A31F69144C00339BB8 /* ResultInfo.swift in Sources */,
 				AE1AC81820D25FBC0002F779 /* AssetWriterCoordinator.swift in Sources */,

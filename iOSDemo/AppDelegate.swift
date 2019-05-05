@@ -23,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         AMapServices.shared().apiKey = "168eb4f17d4999c78757b84b7012a0cf"
         
-        let s = "dd1311sf13地地1fff123123123".filteToInt(filter: .ForwardFilter)
-        print(s)
         
         return true
     }
