@@ -12,7 +12,7 @@ class Apply {
 
     static var i = 0
     static func TestGCDApply(){
-        let globalQ = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default)
+        
         DispatchQueue.concurrentPerform(iterations: 10) { (index) in
             printTest()
         }

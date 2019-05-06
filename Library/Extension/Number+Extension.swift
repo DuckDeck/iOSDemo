@@ -85,15 +85,13 @@ extension Int{
     /// EZSE: Converts integer value to a 0..<Int range. Useful in for loops.
     public var range: CountableRange<Int> { return 0..<self }
     
-    /// EZSE: Returns number of digits in the integer.
+    /// EZSE: Returns number of digits in the integer. //多少位
     public var digits: Int {
         if self == 0 {
             return 1
-        } else if Int(fabs(Double(self))) <= LONG_MAX {
-            return Int(log10(fabs(Double(self)))) + 1
-        } else {
-            return -1; //out of bound
         }
+        return Int(log10(fabs(Double(self)))) + 1
+       
     }
     
     /// EZSE: The digits of an integer represented in an array(from most significant to least).
