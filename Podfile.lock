@@ -1,12 +1,12 @@
 PODS:
-  - Alamofire (4.8.1)
+  - Alamofire (4.8.2)
   - AMap3DMap (6.5.0):
     - AMapFoundation (~> 1.5)
   - AMapFoundation (1.5.6)
-  - AMapLocation (2.6.1):
+  - AMapLocation (2.6.2):
     - AMapFoundation (~> 1.4)
   - Differentiator (3.1.0)
-  - Eureka (4.3.1)
+  - Eureka (5.0.0)
   - FBRetainCycleDetector (0.1.4)
   - FFRouter (1.1.1)
   - FMDB (2.7.5):
@@ -16,37 +16,36 @@ PODS:
   - GrandMenu (1.2.0)
   - GrandStore (1.1.0)
   - GrandTime (1.4.0)
-  - IQKeyboardManagerSwift (6.2.0)
-  - Kanna (4.0.3)
-  - Kingfisher (5.2.0)
-  - MJRefresh (3.1.15.7)
+  - IQKeyboardManagerSwift (6.3.0)
+  - Kanna (5.0.0)
+  - Kingfisher (5.4.0)
+  - LFLiveKit (2.6)
+  - MJRefresh (3.2.0)
   - MLeaksFinder (1.0.0):
     - FBRetainCycleDetector
-  - Moya (12.0.1):
-    - Moya/Core (= 12.0.1)
-  - Moya/Core (12.0.1):
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
-    - Result (~> 4.0)
-  - Moya/RxSwift (12.0.1):
+    - Result (~> 4.1)
+  - Moya/RxSwift (13.0.1):
     - Moya/Core
     - RxSwift (~> 4.0)
-  - Nantes (0.0.5)
+  - Nantes (0.0.7)
   - netfox (1.15.0)
   - Result (4.1.0)
-  - RxAtomic (4.4.1)
-  - RxCocoa (4.4.1):
-    - RxSwift (~> 4.0)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
   - RxDataSources (3.1.0):
     - Differentiator (~> 3.0)
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-  - RxSwift (4.4.1):
-    - RxAtomic (~> 4.4)
+  - RxSwift (4.5.0)
   - Shimmer (1.0.2)
-  - SkeletonView (1.4.2)
-  - SnapKit (4.2.0)
-  - SwiftyJSON (4.2.0)
-  - TZImagePickerController (3.1.9)
+  - SkeletonView (1.5)
+  - SnapKit (5.0.0)
+  - SwiftyJSON (5.0.0)
+  - TZImagePickerController (3.2.0)
   - ViewChaos (1.5.1)
   - WSProgressHUD (1.1.3):
     - Shimmer
@@ -65,6 +64,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Kanna
   - Kingfisher
+  - LFLiveKit
   - MJRefresh
   - MLeaksFinder
   - Moya
@@ -99,13 +99,13 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - Kanna
     - Kingfisher
+    - LFLiveKit
     - MJRefresh
     - MLeaksFinder
     - Moya
     - Nantes
     - netfox
     - Result
-    - RxAtomic
     - RxCocoa
     - RxDataSources
     - RxSwift
@@ -118,12 +118,12 @@ SPEC REPOS:
     - WSProgressHUD
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AMap3DMap: cbe10cc4302ac3f2817ef4221e1259d7e18d1c2f
   AMapFoundation: 20fce2a12cd152e1092afdd04379cdac21932185
-  AMapLocation: cf024b53dc03663efb4ea4bcce27d4cce58bb97a
+  AMapLocation: 89a7e4eb6040d32ba73c77a4966ecc66e46aa7c3
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  Eureka: 28ea296f06710f6745266b71f17862048941a32d
+  Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   FFRouter: dfda137b8f6817ca92dc9a1151727449548abfd3
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
@@ -131,27 +131,27 @@ SPEC CHECKSUMS:
   GrandMenu: f00aa63e307933dd51662f8f5db37cd0700665e7
   GrandStore: 577b6bd733611d054a4463dcf32d418806367985
   GrandTime: 69143fc82e14bc2c22afd8d3cc6fffb65e4cb871
-  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
-  Kanna: 0ebbdd0e7e3308f0aafbd569e79c8cadc5eb877c
-  Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
-  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
+  Kanna: a32875df62975f8f4b871e933b4ea1a5c3b8be0f
+  Kingfisher: 9c8f2cc6710334e06f32ba2b45e77707d5e2f0c9
+  LFLiveKit: 2219563721f8aa0f188effc3395a06e2d53b23f2
+  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
-  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
-  Nantes: fb89e915acbba6b45a2a80a180dad068abe952a5
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Nantes: 85db7af961c30e5116ffa6ac3f74f790b5f23d90
   netfox: 6ddcca687ad0a58550054fea481cb487461b5e0c
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
-  RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
-  SkeletonView: c2523c3c8c6510e273e49a3bf364a434744c3914
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
-  TZImagePickerController: c3f7c505d23281e21e98df6dbeae372946caa28f
+  SkeletonView: 6cbb80f82f8bdee3f9093e2fa03b84819b4bd826
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  TZImagePickerController: 7850b158d025065b162a1a963d445040b828abc9
   ViewChaos: 04994fba914627016e618d0525654111e2a1813c
   WSProgressHUD: a0902809c8af112fb34b004fdc75c16eb85167a3
 
-PODFILE CHECKSUM: ed5e41180aa0541278f6bd90a3f298d49cf2ff37
+PODFILE CHECKSUM: 6b48816631d65f7320d7a1d9f4259feb5422849d
 
 COCOAPODS: 1.6.0.beta.2

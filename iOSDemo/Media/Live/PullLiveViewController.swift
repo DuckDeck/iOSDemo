@@ -28,16 +28,16 @@ class PullLiveViewController: UIViewController {
         player = IJKFFMoviePlayerController(contentURLString: url, with: self.option!)
         
        
-        let vDisplay = UIView(frame: CGRect(x: 0, y: NavigationBarHeight, w: ScreenWidth, h: ScreenHeight - NavigationBarHeight))
-        vDisplay.backgroundColor = UIColor.black
-        view.addSubview(vDisplay)
+       
         
-        player!.view.frame = vDisplay.bounds
+        player!.view.frame = CGRect(x: 0, y: NavigationBarHeight, w: ScreenWidth, h: ScreenWidth + 100)
+        //player!.view.backgroundColor = UIColor.white
         player!.view.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth,UIView.AutoresizingMask.flexibleHeight]
-        vDisplay.insertSubview(player!.view, at: 1)
+        
         player?.shouldAutoplay = true
         view.autoresizesSubviews = true
-        player?.scalingMode = .aspectFill
+        player?.scalingMode = .aspectFit
+        view.addSubview(player!.view)
     }
     
     func setPlayerOption(){
@@ -46,20 +46,20 @@ class PullLiveViewController: UIViewController {
         }
         
         //硬解码
-        option.setPlayerOptionIntValue(0, forKey: "videotoolbox")
-        //
-        option.setPlayerOptionIntValue(512, forKey: "vol")
-        option.setPlayerOptionIntValue(30, forKey: "max-fps")
-        option.setPlayerOptionIntValue(0, forKey: "framedrop")
-        option.setPlayerOptionIntValue(960, forKey: "videotoolbox-max-frame-width")
-        option.setFormatOptionIntValue(0, forKey: "auto_convert")
-        option.setFormatOptionIntValue(1, forKey: "reconnect")
-        option.setFormatOptionIntValue(30 * 1000 * 1000, forKey: "timeout")
-        //option.setPlayerOptionIntValue(29.97, forKey: "r") ???
-        
-        option.setFormatOptionValue("tcp", forKey: "rtsp_transport")
-        option.setFormatOptionIntValue(1024 * 16, forKey: "probesize")
-        option.setFormatOptionIntValue(50000, forKey: "analyzeduration")
+        option.setPlayerOptionIntValue(1, forKey: "videotoolbox")
+//        //
+//        option.setPlayerOptionIntValue(512, forKey: "vol")
+//        option.setPlayerOptionIntValue(30, forKey: "max-fps")
+//        option.setPlayerOptionIntValue(0, forKey: "framedrop")
+//        option.setPlayerOptionIntValue(960, forKey: "videotoolbox-max-frame-width")
+//        option.setFormatOptionIntValue(0, forKey: "auto_convert")
+//        option.setFormatOptionIntValue(1, forKey: "reconnect")
+//        option.setFormatOptionIntValue(30 * 1000 * 1000, forKey: "timeout")
+//        //option.setPlayerOptionIntValue(29.97, forKey: "r") ???
+//
+//        option.setFormatOptionValue("tcp", forKey: "rtsp_transport")
+//        option.setFormatOptionIntValue(1024 * 16, forKey: "probesize")
+//        option.setFormatOptionIntValue(50000, forKey: "analyzeduration")
        
         self.option = option
     }
