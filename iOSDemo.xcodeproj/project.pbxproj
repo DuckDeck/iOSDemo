@@ -261,6 +261,19 @@
 		AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CF1F77952B00D9A09F /* Resnet50.mlmodel */; };
 		AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF589D81F77ABB800D9A09F /* CoreML.framework */; };
 		AEF589DD1F77D03A00D9A09F /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = AEF589DC1F77D03A00D9A09F /* readme.md */; };
+		AEF5E8E322818E240071B38A /* PushLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF5E8E222818E240071B38A /* PushLiveViewController.swift */; };
+		AEF5E8E522818E590071B38A /* PullLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF5E8E422818E590071B38A /* PullLiveViewController.swift */; };
+		AEF5E8EF2282AEC70071B38A /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8EE2282AEC70071B38A /* IJKMediaFramework.framework */; };
+		AEF5E8F12282AF4D0071B38A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8F02282AF4D0071B38A /* QuartzCore.framework */; };
+		AEF5E8F32282AF540071B38A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8F22282AF540071B38A /* OpenGLES.framework */; };
+		AEF5E8F52282B7CA0071B38A /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8F42282B7CA0071B38A /* VideoToolbox.framework */; };
+		AEF5E8F72282B7D40071B38A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8F62282B7D30071B38A /* MobileCoreServices.framework */; };
+		AEF5E8F92282B7DE0071B38A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8F82282B7DE0071B38A /* MediaPlayer.framework */; };
+		AEF5E8FB2282B7EF0071B38A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8FA2282B7EF0071B38A /* CoreGraphics.framework */; };
+		AEF5E8FD2282B8060071B38A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8FC2282B8060071B38A /* AVFoundation.framework */; };
+		AEF5E8FF2282B80E0071B38A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8FE2282B80E0071B38A /* AudioToolbox.framework */; };
+		AEF5E9012282B8190071B38A /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E9002282B8190071B38A /* libbz2.tbd */; };
+		AEF5E9032282B8210071B38A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E9022282B8210071B38A /* libz.tbd */; };
 		F6C59D4C219AF68100825BBA /* SelDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4B219AF68100825BBA /* SelDemo.m */; };
 		F6C59D4F219B045200825BBA /* Runspector.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4E219B045200825BBA /* Runspector.m */; };
 /* End PBXBuildFile section */
@@ -590,6 +603,19 @@
 		AEF589D11F779BC700D9A09F /* ImagePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImagePicker.framework; path = Carthage/Build/iOS/ImagePicker.framework; sourceTree = "<group>"; };
 		AEF589D81F77ABB800D9A09F /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
 		AEF589DC1F77D03A00D9A09F /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		AEF5E8E222818E240071B38A /* PushLiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushLiveViewController.swift; sourceTree = "<group>"; };
+		AEF5E8E422818E590071B38A /* PullLiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullLiveViewController.swift; sourceTree = "<group>"; };
+		AEF5E8EE2282AEC70071B38A /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IJKMediaFramework.framework; path = framework/IJKMediaFramework.framework; sourceTree = "<group>"; };
+		AEF5E8F02282AF4D0071B38A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AEF5E8F22282AF540071B38A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		AEF5E8F42282B7CA0071B38A /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		AEF5E8F62282B7D30071B38A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		AEF5E8F82282B7DE0071B38A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		AEF5E8FA2282B7EF0071B38A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AEF5E8FC2282B8060071B38A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AEF5E8FE2282B80E0071B38A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AEF5E9002282B8190071B38A /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		AEF5E9022282B8210071B38A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		C51738191F790645B96247B2 /* Pods_iOSDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C59D4A219AF68100825BBA /* SelDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelDemo.h; sourceTree = "<group>"; };
 		F6C59D4B219AF68100825BBA /* SelDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelDemo.m; sourceTree = "<group>"; };
@@ -602,6 +628,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEF5E9032282B8210071B38A /* libz.tbd in Frameworks */,
+				AEF5E9012282B8190071B38A /* libbz2.tbd in Frameworks */,
+				AEF5E8FF2282B80E0071B38A /* AudioToolbox.framework in Frameworks */,
+				AEF5E8FD2282B8060071B38A /* AVFoundation.framework in Frameworks */,
+				AEF5E8FB2282B7EF0071B38A /* CoreGraphics.framework in Frameworks */,
+				AEF5E8F92282B7DE0071B38A /* MediaPlayer.framework in Frameworks */,
+				AEF5E8F72282B7D40071B38A /* MobileCoreServices.framework in Frameworks */,
+				AEF5E8F52282B7CA0071B38A /* VideoToolbox.framework in Frameworks */,
+				AEF5E8F32282AF540071B38A /* OpenGLES.framework in Frameworks */,
+				AEF5E8F12282AF4D0071B38A /* QuartzCore.framework in Frameworks */,
+				AEF5E8EF2282AEC70071B38A /* IJKMediaFramework.framework in Frameworks */,
 				AE4EA74921806B150061FA84 /* opencv2.framework in Frameworks */,
 				AE4EA75321806C3F0061FA84 /* CoreVideo.framework in Frameworks */,
 				AE4EA75121806C390061FA84 /* CoreMedia.framework in Frameworks */,
@@ -1009,6 +1046,7 @@
 		AE5752911F76930000F6AAC5 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				AEF5E8E122818E020071B38A /* Live */,
 				AE5752921F76931C00F6AAC5 /* MediaViewController.swift */,
 				AE4EA75421806E510061FA84 /* opencv */,
 				AEADFD3F210EBCC700E6B58D /* CompressImage */,
@@ -1373,6 +1411,17 @@
 		AE9F321B1F690DBF00339BB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEF5E9022282B8210071B38A /* libz.tbd */,
+				AEF5E9002282B8190071B38A /* libbz2.tbd */,
+				AEF5E8FE2282B80E0071B38A /* AudioToolbox.framework */,
+				AEF5E8FC2282B8060071B38A /* AVFoundation.framework */,
+				AEF5E8FA2282B7EF0071B38A /* CoreGraphics.framework */,
+				AEF5E8F82282B7DE0071B38A /* MediaPlayer.framework */,
+				AEF5E8F62282B7D30071B38A /* MobileCoreServices.framework */,
+				AEF5E8F42282B7CA0071B38A /* VideoToolbox.framework */,
+				AEF5E8F22282AF540071B38A /* OpenGLES.framework */,
+				AEF5E8F02282AF4D0071B38A /* QuartzCore.framework */,
+				AEF5E8EE2282AEC70071B38A /* IJKMediaFramework.framework */,
 				AE4EA75221806C3F0061FA84 /* CoreVideo.framework */,
 				AE4EA75021806C390061FA84 /* CoreMedia.framework */,
 				AE4EA74E21806C2A0061FA84 /* Accelerate.framework */,
@@ -1752,6 +1801,15 @@
 			path = ImageRecognition;
 			sourceTree = "<group>";
 		};
+		AEF5E8E122818E020071B38A /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				AEF5E8E222818E240071B38A /* PushLiveViewController.swift */,
+				AEF5E8E422818E590071B38A /* PullLiveViewController.swift */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
 		E69A95549E702E1CA0B857E9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2079,6 +2137,7 @@
 				AEBA80E720BFCAF800F6A323 /* GifViewController.swift in Sources */,
 				AEB7D09C225DD45B008C899E /* DynamicMitoViewController.swift in Sources */,
 				AE0F709A1FBEB9CA00C8135C /* CrossLine.swift in Sources */,
+				AEF5E8E522818E590071B38A /* PullLiveViewController.swift in Sources */,
 				AE5CE7DB208B133C001DB437 /* RecordListViewController.swift in Sources */,
 				AEF097812065EE650021E4ED /* LogInfo.swift in Sources */,
 				AE0F709C1FBEB9CE00C8135C /* Trace.swift in Sources */,
@@ -2169,6 +2228,7 @@
 				AE0F702E1FBA90A500C8135C /* RequestDataInfo.swift in Sources */,
 				AE1AC81120D25F5A0002F779 /* ShadowPlayer.swift in Sources */,
 				AE4DA61F213E833D00FCC7FD /* ShadowRangeManager.swift in Sources */,
+				AEF5E8E322818E240071B38A /* PushLiveViewController.swift in Sources */,
 				AE2584A120A2F5FE00764AF0 /* UIScrollView+Extension.swift in Sources */,
 				AE6691D720F49B3A00D019D4 /* PaletteColorModel.m in Sources */,
 				AE9F32A31F69144C00339BB8 /* ResultInfo.swift in Sources */,

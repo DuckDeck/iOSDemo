@@ -383,3 +383,7 @@ tb.rx.itemSelected.subscribe(onNext: { (index) in
 
 需要下载
 MLMODEL文件
+
+
+/Users/stanhu/Library/Developer/Xcode/DerivedData/IJKMediaPlayer-gyogwfyxvtsipqbgefvgguukgxzi/Build/Products
+lipo -create Release-iphoneos/IJKMediaFramework.framework/IJKMediaFramework Release-iphonesimulator/IJKMediaFramework.framework/IJKMediaFramework -output IJKMediaFramework

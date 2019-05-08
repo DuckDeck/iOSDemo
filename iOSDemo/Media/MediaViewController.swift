@@ -11,7 +11,8 @@ import SnapKit
 
 class MediaViewController: UIViewController {
 
-    var arrData = ["CaptureVideo","Play Music","Add Watermark","Record Audio","Record Video","Take Photo","Gif","Palette","Compress Image","opencv"]
+    var arrData = ["CaptureVideo","Play Music","Add Watermark","Record Audio","Record Video","Take Photo",
+                   "Gif","Palette","Compress Image","Push Live","Pull Live","opencv"]
     var tbMenu = UITableView()
     
     override func loadView() {
@@ -95,6 +96,10 @@ extension MediaViewController:UITableViewDelegate,UITableViewDataSource{
         case 8:
             navigationController?.pushViewController(CompressImageViewController(), animated: true)
         case 9:
+            navigationController?.pushViewController(PushLiveViewController(), animated: true)
+        case 10:
+            navigationController?.pushViewController(PullLiveViewController(), animated: true)
+        case 11:
             navigationController?.pushViewController(opencvViewController(), animated: true)
         default:
             break
