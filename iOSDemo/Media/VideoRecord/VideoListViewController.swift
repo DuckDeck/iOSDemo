@@ -20,6 +20,11 @@ class VideoListViewController: UIViewController {
     }
     
     func initView()  {
+        
+        
+        authAudio()
+        authVideo()
+        
         let btnRecord = UIBarButtonItem(title: "录视频", style: .plain, target: self, action: #selector(recordVideo))
         let btnNetwork = UIBarButtonItem(title: "网络视频", style: .plain, target: self, action: #selector(showNetworkVideo))
         navigationItem.rightBarButtonItems = [btnNetwork,btnRecord]
@@ -63,26 +68,6 @@ class VideoListViewController: UIViewController {
     }
     
     @objc func recordVideo() {
-        
-        if !Auth.isAuthCamera(){
-            Auth.authCamera { (result) in
-                if !result{
-                    Auth.showEventAccessDeniedAlert(view: self, authTpye: .Camera)
-                }
-            }
-            return
-        }
-        
-        if !Auth.isAuthMicrophone(){
-            Auth.authMicrophone { (result) in
-                if !result{
-                    Auth.showEventAccessDeniedAlert(view: self, authTpye: .Audio)
-                }
-            }
-            return
-        }
-        
-        
         let vc = VideoRecordViewController()
         vc.uploadVideoBlock = {(url:URL) in
             let m = VideoModel(url: url, coverImg: Tool.thumbnailImageForVideo(url: url), fileName: url.lastPathComponent)
@@ -91,6 +76,49 @@ class VideoListViewController: UIViewController {
         }
         present(VideoRecordViewController(), animated: true) {
             print("123")
+        }
+    }
+    
+    
+    
+    func authVideo() {
+        let status = Auth.isAuthCamera()
+        switch status {
+        case .denied , .restricted:
+            Auth.showEventAccessDeniedAlert(view: self, authTpye: .Video)
+        case .notDetermined:
+            Auth.authCamera { (res) in
+                if(res){
+                    
+                }
+                else{
+                    Toast.showToast(msg: "摄像头授权失败")
+                }
+            }
+            
+        default:
+            break
+        }
+    }
+    
+    func authAudio() {
+        let status = Auth.isAuthMicrophone()
+        
+        switch status {
+        case .denied , .restricted:
+            Auth.showEventAccessDeniedAlert(view: self, authTpye: .Audio)
+        case .notDetermined:
+            Auth.authMicrophone { (res) in
+                if(res){
+                    
+                }
+                else{
+                    Toast.showToast(msg: "麦克风授权失败")
+                }
+            }
+            
+        default:
+            break
         }
     }
 }

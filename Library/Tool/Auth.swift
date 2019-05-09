@@ -61,8 +61,8 @@ class Auth:NSObject {
         return false
     }
     
-    @objc static func isAuthCamera() -> Bool{
-        return AVCaptureDevice.authorizationStatus(for: .video) == .authorized
+    @objc static func isAuthCamera() -> AVAuthorizationStatus{
+        return AVCaptureDevice.authorizationStatus(for: .video) 
     }
     
     @objc static func authCamera(grandBLock:@escaping ((_ isGrant:Bool)->Void)){
@@ -84,8 +84,8 @@ class Auth:NSObject {
         
     }
     
-    @objc static func isAuthMicrophone()->Bool{
-        return AVCaptureDevice.authorizationStatus(for: .audio) == .authorized
+    @objc static func isAuthMicrophone()->AVAuthorizationStatus{
+        return AVCaptureDevice.authorizationStatus(for: .audio)
     }
     
     @objc static func authMicrophone(grandBLock:@escaping ((_ isGrant:Bool)->Void)){
