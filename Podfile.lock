@@ -33,6 +33,7 @@ PODS:
     - RxSwift (~> 4.0)
   - Nantes (0.0.7)
   - netfox (1.15.0)
+  - OCBarrage (1.0.5)
   - Result (4.1.0)
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
@@ -71,6 +72,7 @@ DEPENDENCIES:
   - Moya/RxSwift
   - Nantes
   - netfox
+  - OCBarrage
   - RxCocoa
   - RxDataSources
   - RxSwift
@@ -105,6 +107,7 @@ SPEC REPOS:
     - Moya
     - Nantes
     - netfox
+    - OCBarrage
     - Result
     - RxCocoa
     - RxDataSources
@@ -140,6 +143,7 @@ SPEC CHECKSUMS:
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   Nantes: 85db7af961c30e5116ffa6ac3f74f790b5f23d90
   netfox: 6ddcca687ad0a58550054fea481cb487461b5e0c
+  OCBarrage: 5ee1a922afacb2c04739621ccda71872185e2e59
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
@@ -152,6 +156,6 @@ SPEC CHECKSUMS:
   ViewChaos: 04994fba914627016e618d0525654111e2a1813c
   WSProgressHUD: a0902809c8af112fb34b004fdc75c16eb85167a3
 
-PODFILE CHECKSUM: 6b48816631d65f7320d7a1d9f4259feb5422849d
+PODFILE CHECKSUM: ba948d6a89b73c83075b641578317122c1c196b1
 
 COCOAPODS: 1.6.0.beta.2

@@ -95,6 +95,7 @@
 		AE3AF0551F77448A00AF182A /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0541F77448A00AF182A /* LayoutViewController.swift */; };
 		AE3AF0581F7744D500AF182A /* ScrollMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0571F7744D500AF182A /* ScrollMenuViewController.swift */; };
 		AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */; };
+		AE3D542E22854BC500C06805 /* HeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3D542D22854BC500C06805 /* HeartView.swift */; };
 		AE3F46EC20AC0290007BA637 /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46EB20AC0290007BA637 /* HintView.swift */; };
 		AE3F46EE20AC0300007BA637 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46ED20AC0300007BA637 /* UIColor+Extension.swift */; };
 		AE3F46F020AC058A007BA637 /* Number+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46EF20AC058A007BA637 /* Number+Extension.swift */; };
@@ -393,6 +394,7 @@
 		AE3AF0541F77448A00AF182A /* LayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutViewController.swift; sourceTree = "<group>"; };
 		AE3AF0571F7744D500AF182A /* ScrollMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMenuViewController.swift; sourceTree = "<group>"; };
 		AE3AF0591F7744F000AF182A /* ScrollMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMenuView.swift; sourceTree = "<group>"; };
+		AE3D542D22854BC500C06805 /* HeartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartView.swift; sourceTree = "<group>"; };
 		AE3F46EB20AC0290007BA637 /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
 		AE3F46ED20AC0300007BA637 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		AE3F46EF20AC058A007BA637 /* Number+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Extension.swift"; sourceTree = "<group>"; };
@@ -1809,6 +1811,7 @@
 				AEF5E8E222818E240071B38A /* PushLiveViewController.swift */,
 				AEF5E8E422818E590071B38A /* PullLiveViewController.swift */,
 				AEF5E905228418190071B38A /* LivePreview.swift */,
+				AE3D542D22854BC500C06805 /* HeartView.swift */,
 			);
 			path = Live;
 			sourceTree = "<group>";
@@ -2039,6 +2042,7 @@
 				"${BUILT_PRODUCTS_DIR}/MLeaksFinder/MLeaksFinder.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Nantes/Nantes.framework",
+				"${BUILT_PRODUCTS_DIR}/OCBarrage/OCBarrage.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
@@ -2072,6 +2076,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLeaksFinder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nantes.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OCBarrage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
@@ -2230,6 +2235,7 @@
 				AE3795252238E886009292DE /* MitoViewController.swift in Sources */,
 				AE0F702E1FBA90A500C8135C /* RequestDataInfo.swift in Sources */,
 				AE1AC81120D25F5A0002F779 /* ShadowPlayer.swift in Sources */,
+				AE3D542E22854BC500C06805 /* HeartView.swift in Sources */,
 				AE4DA61F213E833D00FCC7FD /* ShadowRangeManager.swift in Sources */,
 				AEF5E8E322818E240071B38A /* PushLiveViewController.swift in Sources */,
 				AE2584A120A2F5FE00764AF0 /* UIScrollView+Extension.swift in Sources */,

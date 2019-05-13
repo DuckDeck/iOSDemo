@@ -37,6 +37,7 @@ pod "Nantes"
 pod "SkeletonView"
 pod "FFRouter"
 pod "LFLiveKit"
+pod "OCBarrage"
 end
 
 
