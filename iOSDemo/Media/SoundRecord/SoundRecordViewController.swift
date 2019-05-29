@@ -88,7 +88,7 @@ class SoundRecordViewController: UIViewController {
         btnStop.isEnabled = false
         btnStop.title(title: "停止录音").color(color: UIColor.purple).setFont(font: 16).addTo(view: view).snp.makeConstraints { (m) in
             m.centerX.equalTo(view)
-            m.top.equalTo(btnRecord.snp.bottom).offset(20)
+            m.top.equalTo(btnRecord.snp.bottom).offset(30)
         }
         
         btnStop.addTarget(self, action: #selector(stopRecord), for: .touchUpInside)
@@ -196,7 +196,6 @@ class SoundRecordViewController: UIViewController {
         do{
             
             try session.setCategory(AVAudioSession.Category.playAndRecord, mode: AVAudioSession.Mode.default, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
-            
         }
         catch{
             Log(message: "could not set session category")

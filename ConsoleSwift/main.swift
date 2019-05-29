@@ -227,3 +227,20 @@ txt.enumerateSubstrings(in: t!, options: String.EnumerationOptions.bySentences) 
 }
 
 
+
+
+class A {
+    let s = 0
+}
+
+class B:A{
+    let d:Int
+    init(f:Int) {
+        self.d = f
+        super.init()
+        run()
+    }
+    func run() {
+        
+    }
+}
