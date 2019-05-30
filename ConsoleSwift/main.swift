@@ -225,22 +225,3 @@ let t = txt.toRange(NSRange(location: 0, length: sss))
 txt.enumerateSubstrings(in: t!, options: String.EnumerationOptions.bySentences) { (str, r1, r2, stop) in
     print("sentence\(str)")
 }
-
-
-
-
-class A {
-    let s = 0
-}
-
-class B:A{
-    let d:Int
-    init(f:Int) {
-        self.d = f
-        super.init()
-        run()
-    }
-    func run() {
-        
-    }
-}
