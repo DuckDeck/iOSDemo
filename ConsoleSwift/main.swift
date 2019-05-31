@@ -203,13 +203,6 @@ print(testdict1.hashValue == testdict.hashValue)
 let txt = "知识小集是由几位志同道合的伙伴组成。你了解这个团队吗？我们在一起相处了 1 年多的时光！我想说：“我们是最棒的！”"
 let sss = txt.count
 
-
-//txt.enumerateSubstrings(in: ss, options: String.EnumerationOptions.bySentences) { (str, _, _, _) in
-//
-//}
-
-
-
 extension String {
     func toRange(_ range: NSRange) -> Range<String.Index>? {
         guard let from16 = utf16.index(utf16.startIndex, offsetBy: range.location, limitedBy: utf16.endIndex) else { return nil }
