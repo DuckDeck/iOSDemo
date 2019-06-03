@@ -109,7 +109,7 @@ class CaptureSessionCoordinator:NSObject {
     
     func setupCaptureSession()->AVCaptureSession {
         let captureSession = AVCaptureSession()
-        configCamera()
+        configCamera(session:captureSession)
         if !addDefaultCameraInputToCaptureSession(captureSession: captureSession){
             print("failed to add camera input to capture session")
         }
@@ -120,9 +120,79 @@ class CaptureSessionCoordinator:NSObject {
         return captureSession
     }
     
-    func configCamera() {
+    func configCamera(session:AVCaptureSession) {
         if captureSession.canSetSessionPreset(cameraModel.preset){
             captureSession.sessionPreset = cameraModel.preset
+        }
+        guard let device = CaptureSessionCoordinator.getCaptureDeviceFromPosition(position: cameraModel.position) else {
+            return
+        }
+        _ = CaptureSessionCoordinator.setCameraFrameRateAndResolution(frameRate: cameraModel.frameRate, resolutionHeight: cameraModel.resolutionHeight, session: session, position: cameraModel.position, videoFormat: cameraModel.videoFormat)
+        
+        if device.hasTorch{
+            do{
+                try device.lockForConfiguration()
+                if device.isTorchModeSupported(cameraModel.torchMode){
+                    device.torchMode = cameraModel.torchMode
+                    device.addObserver(self, forKeyPath: "torchMode", options: [NSKeyValueObservingOptions.new,NSKeyValueObservingOptions.old], context: nil)
+                }
+                else{
+                    print("The device not support the current torch mode \(cameraModel.torchMode)")
+                }
+                device.unlockForConfiguration()
+            }
+            catch{
+                 print(error.localizedDescription)
+            }
+        }
+        
+        if device.isFocusModeSupported(cameraModel.focusMode){
+            let autoFocusPoint = CGPoint(x: 0.5,y: 0.5)
+            device.focusPointOfInterest = autoFocusPoint
+            device.focusMode = cameraModel.focusMode
+        }
+        else{
+            print("The device not support focus mode \(cameraModel.focusMode)")
+        }
+        
+        
+        if device.isExposureModeSupported(cameraModel.exposureMode){
+            let exposurePoint = CGPoint(x: 0.5,y: 0.5)
+            device.exposurePointOfInterest = exposurePoint
+            device.exposureMode = cameraModel.exposureMode
+        }
+        else{
+            print("The device not support exposure mode \(cameraModel.exposureMode)")
+        }
+        
+        if device.hasFlash{
+            if #available(iOS 10.0, *){
+                let outputs = session.outputs
+                for output in outputs{
+                    if output is AVCapturePhotoOutput{
+                        let photoOutput = output as! AVCapturePhotoOutput
+                        let flashSupported = photoOutput.supportedFlashModes.contains(cameraModel.flashMode)
+                        if flashSupported{
+                            let photoSettings = photoOutput.photoSettingsForSceneMonitoring
+                            photoSettings?.flashMode = AVCaptureDevice.FlashMode.auto
+                        }
+                        else{
+                            print("The device not support current flash mode \(cameraModel.flashMode)")
+                        }
+                    }
+                }
+            }
+            else{
+                if device.isFlashModeSupported(cameraModel.flashMode){
+                    device.flashMode = cameraModel.flashMode
+                }
+                else{
+                    print("The device not support current flash mode \(cameraModel.flashMode)")
+                }
+            }
+        }
+        else{
+            print("The device not support flash")
         }
         
         
@@ -131,10 +201,58 @@ class CaptureSessionCoordinator:NSObject {
     
     
     
-//    func setCameraFrameRateAndResolution(frameRate:Int,resolutionHeight:CGFloat,withSession:AVCaptureSession,) -> <#return type#> {
-//        <#function body#>
-//    }
+    static func setCameraFrameRateAndResolution(frameRate:Int,resolutionHeight:Int,session:AVCaptureSession,position:AVCaptureDevice.Position,videoFormat:OSType) -> Bool {
+        guard let device = getCaptureDeviceFromPosition(position: position) else {
+            return false
+        }
+        var isSuccess = false
+        for vformat in device.formats{
+            let description = vformat.formatDescription
+            let maxRate = vformat.videoSupportedFrameRateRanges.first!.maxFrameRate
+            if maxRate >= Float64(frameRate) && CMFormatDescriptionGetMediaType(description) == videoFormat{
+                do{
+                    try device.lockForConfiguration()
+                    let dims = CMVideoFormatDescriptionGetDimensions(description)
+                    if dims.height == resolutionHeight && dims.width == getResolutionWidthByHeight(height: resolutionHeight){
+                        session.beginConfiguration()
+                        device.activeFormat = vformat
+                        device.activeVideoMinFrameDuration = CMTime(seconds: 1, preferredTimescale: CMTimeScale(frameRate))
+                        device.activeVideoMaxFrameDuration = CMTime(seconds: 1, preferredTimescale: CMTimeScale(frameRate))
+                        device.unlockForConfiguration()
+                        session.commitConfiguration()
+                        isSuccess = true
+                    }
+                }
+                catch{
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        return isSuccess
+    }
     
+    static func getResolutionWidthByHeight(height:Int)->Int{
+        switch height {
+        case 2160:
+           return 3840
+        case 1080:
+            return 1920
+        case 720:
+            return 1280
+        case 480:
+            return 640
+        case 3840:
+            return 2160
+        case 1920:
+            return 1080
+        case 1280:
+            return 720
+        case 640:
+            return 480
+        default:
+            return -1
+        }
+    }
     
     static func getCaptureDeviceFromPosition(position:AVCaptureDevice.Position)->AVCaptureDevice?{
         let devices:[AVCaptureDevice]!
@@ -154,19 +272,20 @@ class CaptureSessionCoordinator:NSObject {
     }
     
     func addDefaultCameraInputToCaptureSession(captureSession:AVCaptureSession) -> Bool {
-        if let device = AVCaptureDevice.default(for: AVMediaType.video){
-            do{
-                let cameraDeviceInput = try AVCaptureDeviceInput(device: device)
-                return self.addInput(input: cameraDeviceInput, captureSession: captureSession)
-            }
-            catch{
-                print(error.localizedDescription)
-                return false
-            }
-        }
-        else{
+     
+        guard let device = CaptureSessionCoordinator.getCaptureDeviceFromPosition(position: cameraModel.position) else  {
             return false
         }
+        
+        do{
+            let cameraDeviceInput = try AVCaptureDeviceInput(device: device)
+            return self.addInput(input: cameraDeviceInput, captureSession: captureSession)
+        }
+        catch{
+            print(error.localizedDescription)
+            return false
+        }
+    
     }
 
     func addDefaultMicInputToCaptureSession(captureSession:AVCaptureSession) -> Bool {
