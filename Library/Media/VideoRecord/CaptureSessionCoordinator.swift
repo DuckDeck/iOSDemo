@@ -16,7 +16,7 @@ protocol CaptureSessionCoordinatorDelegate :class{
 class CaptureSessionCoordinator:NSObject {
     
     var captureSession:AVCaptureSession!
-    var cameraDevice:AVCaptureDevice!
+    var deviceInput:AVCaptureDeviceInput!
     var delegateCallbackQueue:DispatchQueue!
     weak var delegate:CaptureSessionCoordinatorDelegate?
     var sessionQueue:DispatchQueue!
@@ -40,26 +40,21 @@ class CaptureSessionCoordinator:NSObject {
     func setFlash(turn:Bool)  {
         isFlashingOn = !isFlashingOn
         do{
-            if cameraDevice == nil{
-                guard let c = AVCaptureDevice.default(for: .video)   else {
-                    return
-                }
-                cameraDevice = c
-            }
-            try cameraDevice.lockForConfiguration()
+           
+            try self.deviceInput.device.lockForConfiguration()
             if isFlashingOn{
-                if cameraDevice.isFlashModeSupported(.on){
-                    cameraDevice.flashMode = .on
-                    cameraDevice.torchMode = .on
+                if self.deviceInput.device.isFlashModeSupported(.on){
+                    self.deviceInput.device.flashMode = .on
+                    self.deviceInput.device.torchMode = .on
                 }
             }
             else{
-                if cameraDevice.isFlashModeSupported(.off){
-                    cameraDevice.flashMode = .off
-                    cameraDevice.torchMode = .off
+                if self.deviceInput.device.isFlashModeSupported(.off){
+                    self.deviceInput.device.flashMode = .off
+                    self.deviceInput.device.torchMode = .off
                 }
             }
-            cameraDevice.unlockForConfiguration()
+            self.deviceInput.device.unlockForConfiguration()
         }
         catch{
             print(error.localizedDescription)
@@ -68,7 +63,101 @@ class CaptureSessionCoordinator:NSObject {
    
     
     func switchCamera(){
-        let newPosition = cameraDevice.position == AVCaptureDevice.Position.back ? AVCaptureDevice.Position.front : AVCaptureDevice.Position.back
+        let newPosition = deviceInput.device.position == AVCaptureDevice.Position.back ? AVCaptureDevice.Position.front : AVCaptureDevice.Position.back
+        cameraModel.position = newPosition
+        
+        setCameraPosition(position: newPosition, session: self.captureSession, input: self.deviceInput, videoFormat: cameraModel.videoFormat, resolutionHeight: cameraModel.resolutionHeight, frameRate: cameraModel.frameRate)
+    }
+    
+    func getMaxFrameRateByCurrentResolution()->Int {
+        return CaptureSessionCoordinator.getMaxFrameRateByCurrentResolutionWithResolutionHeight(resolutionHeight: cameraModel.resolutionHeight, position: cameraModel.position, videoFormat: cameraModel.videoFormat)
+        
+    }
+    
+    static func getMaxFrameRateByCurrentResolutionWithResolutionHeight(resolutionHeight:Int,position:AVCaptureDevice.Position,videoFormat:OSType)->Int{
+        var maxFrameRate = 0
+        guard let captureDevice = getCaptureDeviceFromPosition(position: position) else{
+            return -1
+        }
+        for format in captureDevice.formats{
+            let desc = format.formatDescription
+            let dims = CMVideoFormatDescriptionGetDimensions(desc)
+            if CMFormatDescriptionGetMediaType(desc) == videoFormat && dims.height == resolutionHeight && dims.width == getResolutionWidthByHeight(height: resolutionHeight){
+                let maxRate = Int(format.videoSupportedFrameRateRanges.first!.maxFrameRate)
+                if maxRate > maxFrameRate{
+                    maxFrameRate = maxRate
+                }
+            }
+        }
+        return maxFrameRate
+    }
+    
+    func setCameraPosition(position:AVCaptureDevice.Position,session:AVCaptureSession,input:AVCaptureDeviceInput,videoFormat:OSType,resolutionHeight:Int,frameRate:Int) {
+        session.beginConfiguration()
+        session.removeInput(input)
+        
+        guard let device = CaptureSessionCoordinator.getCaptureDeviceFromPosition(position: position) else {
+            return
+        }
+        
+        var newInput:AVCaptureDeviceInput!
+        
+        do{
+            newInput = try AVCaptureDeviceInput(device: device)
+        }
+        catch{
+            print(error.localizedDescription)
+            return
+        }
+        session.sessionPreset = AVCaptureSession.Preset.low
+        if session.canAddInput(newInput){
+            session.addInput(newInput)
+        }
+        else{
+            print("add new input fail")
+        }
+        let maxResolutionHeight = getMaxSupportResolutionByPreset()
+        if resolutionHeight > maxResolutionHeight{
+            cameraModel.resolutionHeight = maxResolutionHeight
+        }
+        
+        let maxFrameRate = getMaxFrameRateByCurrentResolution()
+        if frameRate > maxFrameRate{
+            
+            cameraModel.frameRate = maxFrameRate
+        }
+        
+        let isSuccess = CaptureSessionCoordinator.setCameraFrameRateAndResolution(frameRate: frameRate, resolutionHeight: resolutionHeight, session: session, position: position, videoFormat: videoFormat)
+        
+        if !isSuccess{
+            print("Set resolution and frame fail")
+        }
+    
+        session.commitConfiguration()
+        
+        
+        
+        
+    }
+    
+    
+    func getMaxSupportResolutionByPreset() -> Int {
+        if captureSession.canSetSessionPreset(.hd4K3840x2160){
+            return 2160
+        }
+        else if captureSession.canSetSessionPreset(.hd1920x1080){
+            return 1080
+        }
+        else if captureSession.canSetSessionPreset(.hd1280x720){
+            return 720
+        }
+        else if captureSession.canSetSessionPreset(.vga640x480){
+            return 480
+        }
+        else if captureSession.canSetSessionPreset(.cif352x288){
+            return 288
+        }
+        return -1
         
     }
     
@@ -195,6 +284,20 @@ class CaptureSessionCoordinator:NSObject {
             print("The device not support flash")
         }
         
+        if device.isWhiteBalanceModeSupported(cameraModel.whiteBlackMode){
+            device.whiteBalanceMode = cameraModel.whiteBlackMode
+        }
+        else{
+             print("The device not support current whiteBlackmode \(cameraModel.exposureMode)")
+        }
+        
+        if cameraModel.isEnableVideoStabilization{
+            //h目前不写
+        }
+        
+        previewLayer?.videoGravity = cameraModel.videoGravity
+        
+        
         
     }
     
@@ -271,6 +374,8 @@ class CaptureSessionCoordinator:NSObject {
         return nil
     }
     
+   
+    
     func addDefaultCameraInputToCaptureSession(captureSession:AVCaptureSession) -> Bool {
      
         guard let device = CaptureSessionCoordinator.getCaptureDeviceFromPosition(position: cameraModel.position) else  {
@@ -279,6 +384,7 @@ class CaptureSessionCoordinator:NSObject {
         
         do{
             let cameraDeviceInput = try AVCaptureDeviceInput(device: device)
+            self.deviceInput = cameraDeviceInput
             return self.addInput(input: cameraDeviceInput, captureSession: captureSession)
         }
         catch{

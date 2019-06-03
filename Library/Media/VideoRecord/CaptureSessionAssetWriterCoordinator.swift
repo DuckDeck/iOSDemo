@@ -75,6 +75,7 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
         videoDataOutput = AVCaptureVideoDataOutput()
         videoDataOutput.videoSettings = nil
         videoDataOutput.alwaysDiscardsLateVideoFrames = false
+        videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey:NSNumber(value: cameraModel.videoFormat)] as [String : Any]
         videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
         audioDataOutput = AVCaptureAudioDataOutput()
         audioDataOutput.setSampleBufferDelegate(self, queue: audioDataOutputQueue)
