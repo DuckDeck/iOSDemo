@@ -22,10 +22,13 @@ class CaptureSessionCoordinator:NSObject {
     var sessionQueue:DispatchQueue!
     var _previewLayer:AVCaptureVideoPreviewLayer?
     var isFlashingOn = false
+    var cameraModel:CameraModel
     override init() {
+        cameraModel = CameraModel(preset: AVCaptureSession.Preset.hd1280x720, frameRate: 30, resolutionHeight: 720, videoFormat: kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange, torchMode: .off, focusMode: .autoFocus, exposureMode: .autoExpose, flashMode: .off, whiteBlackMode: .autoWhiteBalance, position: .back, videoGravity: .resizeAspect, videoOrientation: .portrait, isEnableVideoStabilization: true)
         super.init()
         sessionQueue = DispatchQueue(label: "stanhu.recorvideo")
         captureSession = setupCaptureSession()
+        
     }
     
     var isRunning:Bool{
@@ -64,6 +67,11 @@ class CaptureSessionCoordinator:NSObject {
     }
    
     
+    func switchCamera(){
+        let newPosition = cameraDevice.position == AVCaptureDevice.Position.back ? AVCaptureDevice.Position.front : AVCaptureDevice.Position.back
+        
+    }
+    
     func setDelegate(delegate:CaptureSessionCoordinatorDelegate,callbackQueue:DispatchQueue) -> Void {
         objc_sync_enter(self)
         self.delegate = delegate
@@ -101,7 +109,7 @@ class CaptureSessionCoordinator:NSObject {
     
     func setupCaptureSession()->AVCaptureSession {
         let captureSession = AVCaptureSession()
-        setReslution(captureSession: captureSession)
+        configCamera()
         if !addDefaultCameraInputToCaptureSession(captureSession: captureSession){
             print("failed to add camera input to capture session")
         }
@@ -112,9 +120,30 @@ class CaptureSessionCoordinator:NSObject {
         return captureSession
     }
     
-    func setReslution(captureSession:AVCaptureSession) {
-        if captureSession.canSetSessionPreset(AVCaptureSession.Preset.hd1280x720){
-            captureSession.sessionPreset = AVCaptureSession.Preset.hd1280x720
+    func configCamera() {
+        if captureSession.canSetSessionPreset(cameraModel.preset){
+            captureSession.sessionPreset = cameraModel.preset
+        }
+        
+        
+    }
+    
+    
+    
+    
+//    func setCameraFrameRateAndResolution(frameRate:Int,resolutionHeight:CGFloat,withSession:AVCaptureSession,) -> <#return type#> {
+//        <#function body#>
+//    }
+    
+    
+    static func getCaptureDeviceFromPosition(position:AVCaptureDevice.Position)->AVCaptureDevice{
+        let devices:[AVCaptureDevice]?
+        if #available(iOS 10.0, *) {
+            let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: .video, position: position)
+            devices = deviceDiscoverySession.devices
+        }
+        else{
+            devices = AVCaptureDevice.devices(for: .video)
         }
     }
     

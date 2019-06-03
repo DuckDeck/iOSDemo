@@ -37,7 +37,6 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
     }
     
     convenience init(filePath:String) {
-        
         self.init()
         self.filePath = filePath
     }

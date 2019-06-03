@@ -176,7 +176,7 @@ class VideoRecordViewController: UIViewController {
         }
         
         btnFlash.addTarget(self, action: #selector(switchFlash), for: .touchUpInside)
-        btnFlash.setImage(#imageLiteral(resourceName: "btn_flash_on"), for: .selected)
+        btnFlash.setImage(UIImage(named: "btn_flash_on"), for: .selected)
         btnFlash.setImage(#imageLiteral(resourceName: "btn_flash_off"), for: .normal)
         btnFlash.addTo(view: vRecordStatus).snp.makeConstraints { (m) in
             m.right.equalTo(-20)

@@ -104,6 +104,7 @@
 		AE3F46F620AC0BF9007BA637 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46F520AC0BF9007BA637 /* UINavigationController+Extension.swift */; };
 		AE3F46F820AC0D1B007BA637 /* TimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46F720AC0D1B007BA637 /* TimerButton.swift */; };
 		AE44D5CB21B511E900D3560E /* Lock.m in Sources */ = {isa = PBXBuildFile; fileRef = AE44D5CA21B511E900D3560E /* Lock.m */; };
+		AE49B7BD22A4F46A00478FF3 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49B7BC22A4F46A00478FF3 /* CameraModel.swift */; };
 		AE4DA61B213E68B300FCC7FD /* ShadowDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61A213E68B300FCC7FD /* ShadowDataManager.swift */; };
 		AE4DA61D213E762500FCC7FD /* ShadowDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61C213E762500FCC7FD /* ShadowDownloader.swift */; };
 		AE4DA61F213E833D00FCC7FD /* ShadowRangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61E213E833D00FCC7FD /* ShadowRangeManager.swift */; };
@@ -406,6 +407,7 @@
 		AE436FB52181A9F600EFB7DE /* ffmpegTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ffmpegTool.m; sourceTree = "<group>"; };
 		AE44D5C921B511E900D3560E /* Lock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lock.h; sourceTree = "<group>"; };
 		AE44D5CA21B511E900D3560E /* Lock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Lock.m; sourceTree = "<group>"; };
+		AE49B7BC22A4F46A00478FF3 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		AE4DA61A213E68B300FCC7FD /* ShadowDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDataManager.swift; sourceTree = "<group>"; };
 		AE4DA61C213E762500FCC7FD /* ShadowDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDownloader.swift; sourceTree = "<group>"; };
 		AE4DA61E213E833D00FCC7FD /* ShadowRangeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowRangeManager.swift; sourceTree = "<group>"; };
@@ -817,6 +819,7 @@
 				AE1AC81520D25FBC0002F779 /* AssetWriterCoordinator.swift */,
 				AE1AC81320D25FBC0002F779 /* CaptureSessionAssetWriterCoordinator.swift */,
 				AE1AC81420D25FBC0002F779 /* CaptureSessionCoordinator.swift */,
+				AE49B7BC22A4F46A00478FF3 /* CameraModel.swift */,
 			);
 			path = VideoRecord;
 			sourceTree = "<group>";
@@ -2189,6 +2192,7 @@
 				AE3AF0441F773B0000AF182A /* AnimationViewController.swift in Sources */,
 				AE1DE09C2099BE0A007910A5 /* GameView.swift in Sources */,
 				AE394B4F2065F6FE00CE3BD9 /* DataViewController.swift in Sources */,
+				AE49B7BD22A4F46A00478FF3 /* CameraModel.swift in Sources */,
 				AE9F32851F690F5200339BB8 /* GrandModel.swift in Sources */,
 				AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */,
 				AE69C5AE22263537004DC8AE /* OpenCVHandle.mm in Sources */,
