@@ -136,8 +136,8 @@ class CaptureSessionCoordinator:NSObject {
 //    }
     
     
-    static func getCaptureDeviceFromPosition(position:AVCaptureDevice.Position)->AVCaptureDevice{
-        let devices:[AVCaptureDevice]?
+    static func getCaptureDeviceFromPosition(position:AVCaptureDevice.Position)->AVCaptureDevice?{
+        let devices:[AVCaptureDevice]!
         if #available(iOS 10.0, *) {
             let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: .video, position: position)
             devices = deviceDiscoverySession.devices
@@ -145,6 +145,12 @@ class CaptureSessionCoordinator:NSObject {
         else{
             devices = AVCaptureDevice.devices(for: .video)
         }
+        for dev in devices{
+            if position == dev.position{
+                return dev
+            }
+        }
+        return nil
     }
     
     func addDefaultCameraInputToCaptureSession(captureSession:AVCaptureSession) -> Bool {
