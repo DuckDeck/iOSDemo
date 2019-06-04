@@ -19,6 +19,7 @@ class VideoRecordViewController: UIViewController {
     let vRecordStatus = TouchView()
     let btnRecord = UIButton()
     let btnFlash = UIButton()
+    let btnSwitchCamera = UIButton()
     let sliderProgress = UISlider()
     let lblTime = UILabel()
     let vBlink = UIView()
@@ -175,6 +176,13 @@ class VideoRecordViewController: UIViewController {
             m.top.equalTo(25)
         }
         
+        btnSwitchCamera.addTarget(self, action: #selector(switchCamera), for: .touchUpInside)
+        btnSwitchCamera.setImage(UIImage(named: "camra_preview"), for: .normal)
+        btnSwitchCamera.addTo(view: vRecordStatus).snp.makeConstraints { (m) in
+            m.right.equalTo(-60)
+            m.centerY.equalTo(btnBack)
+        }
+        
         btnFlash.addTarget(self, action: #selector(switchFlash), for: .touchUpInside)
         btnFlash.setImage(UIImage(named: "btn_flash_on"), for: .selected)
         btnFlash.setImage(#imageLiteral(resourceName: "btn_flash_off"), for: .normal)
@@ -286,6 +294,10 @@ class VideoRecordViewController: UIViewController {
         btnFlash.isSelected = isFlashOn
     }
     
+    @objc func switchCamera(){
+        captureSessionCoordinator.switchCamera()
+    }
+    
     @objc func tick()  {
         recordTime =  recordTime.add(TimeSpan.fromTicks(300))
         sliderProgress.value = Float(recordTime.seconds)
@@ -386,6 +398,14 @@ extension VideoRecordViewController:CaptureSessionCoordinatorDelegate{
         isRecording = false
         tmpVideoFile = outputFileUrl
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touchPoint = touches.first!.location(in: view)
+        print(touchPoint)
+        
+        captureSessionCoordinator.focusAtPoint(point: touchPoint)
+    }
+    
 }
 
 class TouchView: UIView {

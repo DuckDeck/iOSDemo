@@ -24,7 +24,7 @@ class CaptureSessionCoordinator:NSObject {
     var isFlashingOn = false
     var cameraModel:CameraModel
     override init() {
-        cameraModel = CameraModel(preset: AVCaptureSession.Preset.hd1280x720, frameRate: 30, resolutionHeight: 720, videoFormat: kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange, torchMode: .off, focusMode: .autoFocus, exposureMode: .autoExpose, flashMode: .off, whiteBlackMode: .autoWhiteBalance, position: .back, videoGravity: .resizeAspect, videoOrientation: .portrait, isEnableVideoStabilization: true)
+        cameraModel = CameraModel(preset: AVCaptureSession.Preset.hd1280x720, frameRate: 30, resolutionHeight: 720, videoFormat: kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange, torchMode: .off, focusMode: .continuousAutoFocus, exposureMode: .continuousAutoExposure, flashMode: .off, whiteBlackMode: .continuousAutoWhiteBalance, position: .back, videoGravity: .resizeAspect, videoOrientation: .portrait, isEnableVideoStabilization: true)
         super.init()
         sessionQueue = DispatchQueue(label: "stanhu.recorvideo")
         captureSession = setupCaptureSession()
@@ -73,6 +73,8 @@ class CaptureSessionCoordinator:NSObject {
         return CaptureSessionCoordinator.getMaxFrameRateByCurrentResolutionWithResolutionHeight(resolutionHeight: cameraModel.resolutionHeight, position: cameraModel.position, videoFormat: cameraModel.videoFormat)
         
     }
+    
+    
     
     static func getMaxFrameRateByCurrentResolutionWithResolutionHeight(resolutionHeight:Int,position:AVCaptureDevice.Position,videoFormat:OSType)->Int{
         var maxFrameRate = 0
@@ -126,7 +128,7 @@ class CaptureSessionCoordinator:NSObject {
             
             cameraModel.frameRate = maxFrameRate
         }
-        
+        deviceInput = newInput
         let isSuccess = CaptureSessionCoordinator.setCameraFrameRateAndResolution(frameRate: frameRate, resolutionHeight: resolutionHeight, session: session, position: position, videoFormat: videoFormat)
         
         if !isSuccess{
@@ -246,8 +248,8 @@ class CaptureSessionCoordinator:NSObject {
             catch{
                 print(error.localizedDescription)
             }
-            
-            
+
+
         }
         else{
             print("The device not support focus mode \(cameraModel.focusMode)")
@@ -265,7 +267,7 @@ class CaptureSessionCoordinator:NSObject {
             catch{
                 print(error.localizedDescription)
             }
-          
+
         }
         else{
             print("The device not support exposure mode \(cameraModel.exposureMode)")
@@ -302,7 +304,15 @@ class CaptureSessionCoordinator:NSObject {
         }
         
         if device.isWhiteBalanceModeSupported(cameraModel.whiteBlackMode){
-            device.whiteBalanceMode = cameraModel.whiteBlackMode
+            do{
+                try device.lockForConfiguration()
+                device.whiteBalanceMode = cameraModel.whiteBlackMode
+                device.unlockForConfiguration()
+            }
+            catch{
+                print(error.localizedDescription)
+            }
+            
         }
         else{
              print("The device not support current whiteBlackmode \(cameraModel.exposureMode)")
@@ -319,6 +329,47 @@ class CaptureSessionCoordinator:NSObject {
     }
     
     
+    func focusAtPoint(point:CGPoint) {
+        if deviceInput.device.isFocusPointOfInterestSupported{
+            let convertedFocusPoint = convertToPointOfInterestFromViewCoordinates(viewCoordinates: point, captureVideoPreviewLayer: previewLayer!)
+            autoFocusAtFocus(point: convertedFocusPoint)
+        }
+        else{
+            print("Current device not suppert focus")
+        }
+    }
+    
+    func autoFocusAtFocus(point:CGPoint) {
+        let device = deviceInput.device
+        if device.isFocusPointOfInterestSupported && device.isFocusModeSupported(AVCaptureDevice.FocusMode.autoFocus){
+            do{
+                try device.lockForConfiguration()
+                device.exposurePointOfInterest = point
+                device.exposureMode = .continuousAutoExposure
+                device.focusPointOfInterest = point
+                device.focusMode = .autoFocus
+                device.unlockForConfiguration()
+            }
+            catch{
+                print("lock device fail\(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func convertToPointOfInterestFromViewCoordinates(viewCoordinates:CGPoint,captureVideoPreviewLayer:AVCaptureVideoPreviewLayer) -> CGPoint {
+        var pointOfInterest = CGPoint(x: 0.5, y: 0.5)
+        let frameSize = captureVideoPreviewLayer.frame.size
+        var coor = viewCoordinates
+        if captureVideoPreviewLayer.connection!.isVideoMirrored{
+            coor.x = frameSize.width - viewCoordinates.x
+        }
+        pointOfInterest = captureVideoPreviewLayer.captureDevicePointConverted(fromLayerPoint: coor)
+        return pointOfInterest
+    }
+    
+//    func manualConvertFocusPoint(point:CGPoint,frameSize:CGSize,captureVideoPreviewLayer:AVCaptureVideoPreviewLayer) -> <#return type#> {
+//        <#function body#>
+//    }
     
     
     static func setCameraFrameRateAndResolution(frameRate:Int,resolutionHeight:Int,session:AVCaptureSession,position:AVCaptureDevice.Position,videoFormat:OSType) -> Bool {
@@ -426,6 +477,7 @@ class CaptureSessionCoordinator:NSObject {
             return false
         }
     }
+    
     
     func startRunning()  {
         sessionQueue.sync {
