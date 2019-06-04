@@ -210,8 +210,8 @@ class CaptureSessionCoordinator:NSObject {
     }
     
     func configCamera(session:AVCaptureSession) {
-        if captureSession.canSetSessionPreset(cameraModel.preset){
-            captureSession.sessionPreset = cameraModel.preset
+        if session.canSetSessionPreset(cameraModel.preset){
+            session.sessionPreset = cameraModel.preset
         }
         guard let device = CaptureSessionCoordinator.getCaptureDeviceFromPosition(position: cameraModel.position) else {
             return
@@ -237,8 +237,17 @@ class CaptureSessionCoordinator:NSObject {
         
         if device.isFocusModeSupported(cameraModel.focusMode){
             let autoFocusPoint = CGPoint(x: 0.5,y: 0.5)
-            device.focusPointOfInterest = autoFocusPoint
-            device.focusMode = cameraModel.focusMode
+            do{
+                try device.lockForConfiguration()
+                device.focusPointOfInterest = autoFocusPoint
+                device.focusMode = cameraModel.focusMode
+                device.unlockForConfiguration()
+            }
+            catch{
+                print(error.localizedDescription)
+            }
+            
+            
         }
         else{
             print("The device not support focus mode \(cameraModel.focusMode)")
@@ -247,8 +256,16 @@ class CaptureSessionCoordinator:NSObject {
         
         if device.isExposureModeSupported(cameraModel.exposureMode){
             let exposurePoint = CGPoint(x: 0.5,y: 0.5)
-            device.exposurePointOfInterest = exposurePoint
-            device.exposureMode = cameraModel.exposureMode
+            do{
+                try device.lockForConfiguration()
+                device.exposurePointOfInterest = exposurePoint
+                device.exposureMode = cameraModel.exposureMode
+                device.unlockForConfiguration()
+            }
+            catch{
+                print(error.localizedDescription)
+            }
+          
         }
         else{
             print("The device not support exposure mode \(cameraModel.exposureMode)")
@@ -528,5 +545,16 @@ class CaptureSessionCoordinator:NSObject {
                 }
             }
         }
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+    }
+    
+    deinit {
+        guard let device = CaptureSessionCoordinator.getCaptureDeviceFromPosition(position: cameraModel.position) else {
+            return
+        }
+        device.removeObserver(self, forKeyPath: "torchMode")
     }
 }
