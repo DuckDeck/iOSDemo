@@ -36,6 +36,7 @@ class VideoRecordViewController: UIViewController {
     var uploadVideoBlock:((_ url:URL)->Void)?
     var oldConstriants:[NSLayoutConstraint]!
     var motion:CMMotionManager!
+    var viewFocus:FocusFrameView!
     var orientation : UIDeviceOrientation{
         set{
             if _orientation != newValue{
@@ -103,6 +104,9 @@ class VideoRecordViewController: UIViewController {
         previewLayer.frame = view.bounds
         view.layer.insertSublayer(previewLayer, at: 0)
         captureSessionCoordinator.startRunning()
+        
+        viewFocus = FocusFrameView(frame: CGRect(x: 0, y: 0, w: 200, h: 200))
+        
          startMotion()
     }
     
@@ -404,6 +408,9 @@ extension VideoRecordViewController:CaptureSessionCoordinatorDelegate{
         print(touchPoint)
         
         captureSessionCoordinator.focusAtPoint(point: touchPoint)
+        viewFocus.startToFocus(point: touchPoint, view: view)
+        
+        
     }
     
 }
