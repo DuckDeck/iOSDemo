@@ -105,7 +105,7 @@ class VideoRecordViewController: UIViewController {
         view.layer.insertSublayer(previewLayer, at: 0)
         captureSessionCoordinator.startRunning()
         
-        viewFocus = FocusFrameView(frame: CGRect(x: 0, y: 0, w: 200, h: 200))
+        viewFocus = FocusFrameView(frame: CGRect(x: 0, y: 0, w: 100, h: 100))
         
          startMotion()
     }

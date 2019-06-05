@@ -12,7 +12,7 @@ class FocusFrameView:UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
     
-        layer.borderWidth = 3
+        layer.borderWidth = 2
         layer.borderColor = UIColor.blue.cgColor
         
     }
@@ -26,12 +26,13 @@ class FocusFrameView:UIView {
         view.addSubview(self)
         self.center = point
         let scaleAn = CABasicAnimation(keyPath: "transform.scale")
-        scaleAn.fromValue = 1
-        scaleAn.toValue = 0.5
+        scaleAn.isRemovedOnCompletion = false
+        scaleAn.fromValue = 2
+        scaleAn.toValue = 1
         scaleAn.setValue("scale", forKey: "name")
-        layer.add(scaleAn, forKey: nil)
         scaleAn.delegate = self
-        scaleAn.setValue(layer, forKey: "layer")
+        layer.add(scaleAn, forKey: nil)
+        
         //再来个闪
         
     }
@@ -49,14 +50,14 @@ extension FocusFrameView:CAAnimationDelegate{
                 removeFromSuperview()
             }
             else{
-                let layer = anim.value(forKey: "layer") as? CALayer
-                anim.setValue(nil, forKey: "layer")
+              
                 let fade = CABasicAnimation(keyPath: "opacity")
                 fade.fromValue = 1
                 fade.toValue = 0
-                fade.repeatCount = 3
+                fade.repeatCount = 2
+                fade.delegate = self
                 fade.setValue("fade", forKey: "name")
-                layer?.add(fade, forKey: nil)//结束后来一个动画
+                layer.add(fade, forKey: nil)//结束后来一个动画
             }
             
            
