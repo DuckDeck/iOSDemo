@@ -50,7 +50,6 @@ extension FocusFrameView:CAAnimationDelegate{
                 removeFromSuperview()
             }
             else{
-              
                 let fade = CABasicAnimation(keyPath: "opacity")
                 fade.fromValue = 1
                 fade.toValue = 0
@@ -59,10 +58,6 @@ extension FocusFrameView:CAAnimationDelegate{
                 fade.setValue("fade", forKey: "name")
                 layer.add(fade, forKey: nil)//结束后来一个动画
             }
-            
-           
-           
-        
         }
         else{
             print("动画没有完成调用")

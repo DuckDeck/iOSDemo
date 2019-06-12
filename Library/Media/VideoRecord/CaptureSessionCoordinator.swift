@@ -372,6 +372,36 @@ class CaptureSessionCoordinator:NSObject {
 //    }
     
     
+    func setExposure(exposureValue:Float,device:AVCaptureDevice) {
+        do{
+           try device.lockForConfiguration()
+            device.setExposureTargetBias(exposureValue, completionHandler: nil)
+            device.unlockForConfiguration()
+        }
+        catch{
+            print(error.localizedDescription)
+        }
+    }
+    
+    
+    //手电q筒模式，还不知道有啥用
+    func setTorchState(isOpen:Bool,device:AVCaptureDevice)  {
+        if device.hasTorch{
+            do{
+                try device.lockForConfiguration()
+                device.torchMode = isOpen ? AVCaptureDevice.TorchMode.on : AVCaptureDevice.TorchMode.off
+                device.unlockForConfiguration()
+            }
+            catch{
+                print(error.localizedDescription)
+            }
+        }
+        else{
+            print("The device not support Torch")
+        }
+    }
+    
+    
     static func setCameraFrameRateAndResolution(frameRate:Int,resolutionHeight:Int,session:AVCaptureSession,position:AVCaptureDevice.Position,videoFormat:OSType) -> Bool {
         guard let device = getCaptureDeviceFromPosition(position: position) else {
             return false
