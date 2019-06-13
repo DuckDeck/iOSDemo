@@ -13,9 +13,11 @@ class ThreadViewController: UIViewController {
     var pNormalLock:pthread_mutex_t! = nil
     var pRecursiveLock:pthread_mutex_t! = nil
     var recursiveLock:NSRecursiveLock! = nil
+    var cond:NSCondition!
+    var data:Data?
     static var  recursiveCount = 0
      var arrData = ["测试信号量","os_unfair_lock","Pthread_mutex_normal","Pthread_mutex_recursive","semaphore_asnyc_to_sync","semaphore_to_lock_thread"
-    ,"semaphore_to_limit_max_concurrent","NSLock"]
+    ,"semaphore_to_limit_max_concurrent","NSLock","NSCondition","NSConditionLock"]
 //    let btn = UIButton().then {
 //        $0.setTitle("按钮", for: .normal)
 //        $0.color(color: UIColor.red).bgColor(color: UIColor.gray).completed()
@@ -102,6 +104,10 @@ extension ThreadViewController:UITableViewDelegate,UITableViewDataSource{
             semaphoreTest3()
         case 7:
             useNSLock()
+        case 8:
+            useNSCondition()
+        case 9:
+            useNSConditionLock()
         default:
             break
         }
@@ -271,5 +277,61 @@ extension ThreadViewController{
         }
         recursiveLock.unlock()
         print("finish\(ThreadViewController.recursiveCount)")
+    }
+}
+// test NSCondition
+extension ThreadViewController{
+    func useNSCondition() {
+        cond = NSCondition()
+        data = nil
+        ns_produter()
+        for _ in 0 ..< 10{
+            DispatchQueue.global().async {
+                self.ns_consumer()
+            }
+            DispatchQueue.global().async {
+                self.ns_produter()
+            }
+        }
+    }
+    
+    func ns_consumer() {
+        cond.lock()
+        while data == nil {
+            cond.wait()
+        }
+        print("data is finish")
+        cond.unlock()
+    }
+    
+    func ns_produter(){
+        cond.lock()
+        data = Data()
+        print("preparing data....")
+        sleep(1)
+        cond.signal()
+        cond.unlock()
+    }
+}
+//test NSConditionLock
+extension ThreadViewController{
+    func useNSConditionLock(){
+        let condLock = NSConditionLock(condition: 1)
+        condLock.lock(whenCondition: 1)
+        processCode(flag: 1) {
+            condLock.unlock(withCondition: 2)
+        }
+        condLock.lock(whenCondition: 2)
+        processCode(flag: 2) {
+            condLock.unlock(withCondition: 3)
+        }
+        condLock.lock(whenCondition: 3)
+        processCode(flag: 3) {
+            condLock.unlock(withCondition: 3)
+        }
+        condLock.lock(whenCondition: 4)
+        processCode(flag: 4) {
+            condLock.unlock()
+        }
     }
 }
