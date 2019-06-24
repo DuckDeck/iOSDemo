@@ -136,10 +136,7 @@ class CaptureSessionCoordinator:NSObject {
         }
     
         session.commitConfiguration()
-        
-        
-        
-        
+            
     }
     
     
@@ -207,7 +204,6 @@ class CaptureSessionCoordinator:NSObject {
         if !addDefaultMicInputToCaptureSession(captureSession: captureSession){
              print("failed to add mic input to capture session")
         }
-        
         return captureSession
     }
     

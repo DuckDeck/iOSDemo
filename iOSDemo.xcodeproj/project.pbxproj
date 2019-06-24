@@ -225,6 +225,8 @@
 		AEB7D0A222602760008C899E /* MitoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D0A122602760008C899E /* MitoSearchViewController.swift */; };
 		AEB7D0A422603766008C899E /* FlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D0A322603766008C899E /* FlowView.swift */; };
 		AEB7D0A62264666B008C899E /* ResolutionFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D0A52264666B008C899E /* ResolutionFilterView.swift */; };
+		AEB9571622C0B1C700C71372 /* ShadowCameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9571522C0B1C700C71372 /* ShadowCameraModel.swift */; };
+		AEB9571822C0B2B800C71372 /* ShadowCameraHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9571722C0B2B800C71372 /* ShadowCameraHandle.swift */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
 		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
@@ -563,6 +565,8 @@
 		AEB7D0A122602760008C899E /* MitoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MitoSearchViewController.swift; sourceTree = "<group>"; };
 		AEB7D0A322603766008C899E /* FlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowView.swift; sourceTree = "<group>"; };
 		AEB7D0A52264666B008C899E /* ResolutionFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionFilterView.swift; sourceTree = "<group>"; };
+		AEB9571522C0B1C700C71372 /* ShadowCameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowCameraModel.swift; sourceTree = "<group>"; };
+		AEB9571722C0B2B800C71372 /* ShadowCameraHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowCameraHandle.swift; sourceTree = "<group>"; };
 		AEBA80D420BD50B300F6A323 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		AEBA80D520BD50B300F6A323 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
 		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
@@ -791,6 +795,7 @@
 		AE1AC80420D25F3B0002F779 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				AEB9571422C0B1B400C71372 /* ShadowCamera */,
 				AE1AC81220D25F800002F779 /* VideoRecord */,
 				AE1AC80520D25F4A0002F779 /* ShadowPlayer */,
 			);
@@ -1648,6 +1653,15 @@
 			path = FiveStroke;
 			sourceTree = "<group>";
 		};
+		AEB9571422C0B1B400C71372 /* ShadowCamera */ = {
+			isa = PBXGroup;
+			children = (
+				AEB9571522C0B1C700C71372 /* ShadowCameraModel.swift */,
+				AEB9571722C0B2B800C71372 /* ShadowCameraHandle.swift */,
+			);
+			path = ShadowCamera;
+			sourceTree = "<group>";
+		};
 		AEBA80D320BD509500F6A323 /* Lame */ = {
 			isa = PBXGroup;
 			children = (
@@ -2160,6 +2174,7 @@
 				AE901198223B49CE0020D400 /* Resolution.swift in Sources */,
 				AE0F70371FBA9ACF00C8135C /* NetworkViewController.swift in Sources */,
 				AEB7D0A422603766008C899E /* FlowView.swift in Sources */,
+				AEB9571822C0B2B800C71372 /* ShadowCameraHandle.swift in Sources */,
 				AE3961EA1FD13D2400BF4CE9 /* GandAlert.swift in Sources */,
 				AE0F70971FBEB9CA00C8135C /* DrawView.swift in Sources */,
 				AEBE709020A4449100B2E897 /* TakePhotoViewController.swift in Sources */,
@@ -2233,6 +2248,7 @@
 				AE5A88681FF3709000748F6A /* JSViewController.swift in Sources */,
 				AEDD2CA02085E62500CD1FDE /* AlertViewController.swift in Sources */,
 				AEADFD2721056EF200E6B58D /* ShareViewController.swift in Sources */,
+				AEB9571622C0B1C700C71372 /* ShadowCameraModel.swift in Sources */,
 				AE5CE7DD208B2DBD001DB437 /* UITableView+Extension.swift in Sources */,
 				AE3A42F0201B00F900FF8AB2 /* StackViewController.swift in Sources */,
 				AE1AC80D20D25F5A0002F779 /* ShadowVideoPlayerViewController.swift in Sources */,

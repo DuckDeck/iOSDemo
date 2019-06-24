@@ -88,7 +88,7 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
     
     func setCompressionSettings() {
         videoCompressionSettings = videoDataOutput.recommendedVideoSettingsForAssetWriter(writingTo: AVFileType.mov)
-        audioCompressionSettings = audioDataOutput.recommendedAudioSettingsForAssetWriter(writingTo: AVFileType.mov) as! [String : Any]
+        audioCompressionSettings = audioDataOutput.recommendedAudioSettingsForAssetWriter(writingTo: AVFileType.mov) as? [String : Any]
     }
     
     func setupVideoPipelineWithInputFormatDescription(inputFormatDescription:CMFormatDescription) {

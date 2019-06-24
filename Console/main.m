@@ -112,17 +112,17 @@ int main(int argc, const char * argv[]) {
         
         [[Lock new] ticketTest];
         */
-        
-        
-        Father* p = [Father alloc];
-        
-        p.address = @"ShenZhen";
-         NSLog(@"没有init的情况下看 address是啥%@",p.address);
-        Father* p1 = [p init]; //没有做任何事情
-        Father* p2 = [p init];
-        
-        NSLog(@"%@---%@",p1,p2);
-        NSLog(@"%@",p.address);
+                
+                
+                Father* p = [Father alloc];
+                
+                p.address = @"ShenZhen";
+                 NSLog(@"没有init的情况下看 address是啥%@",p.address);
+                Father* p1 = [p init]; //没有做任何事情
+                Father* p2 = [p init];
+                
+                NSLog(@"%@---%@",p1,p2);
+                NSLog(@"%@",p.address);
         
        
     }
