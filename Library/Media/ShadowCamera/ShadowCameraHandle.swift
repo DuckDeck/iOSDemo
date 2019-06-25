@@ -24,6 +24,8 @@ class ShadowCameraHandle: NSObject {
     var realTimeResolutionWidth = 1080
     var realTimeResolutionHeight = 1920
     
+    var count = 0
+    var lastTime:Float = 0
     
     
     
@@ -229,7 +231,33 @@ class ShadowCameraHandle: NSObject {
     }
     
     //proced
+    func setTorchState(isOpen:Bool)  {
+        setTorchState(isOpen: isOpen, device: input.device)
+    }
     
+    func adjustVideoOrientationByScreenOrientation(orientation:UIDeviceOrientation)  {
+        adjustVideoOrientationByScreenOrientation(orientation: orientation, previewFrame: cameraModel.previewView.frame, previewLayer: videoPreviewLayer, videoOutput: videoDataOutput)
+    }
+    
+    func setVideoGravity(videoGravity:AVLayerVideoGravity)   {
+        setVideoGravity(gravity: videoGravity, previewLayer: videoPreviewLayer, session: session)
+    }
+    
+    func setWhiteBlanceValueByTemperature(temperature:Float) {
+        setWhiteBlanceValueByTemperature(temperature: temperature, device: input.device)
+    }
+    
+    func setWhiteBlanceValueByTint(tint:Float) {
+        setWhiteBlanceValueByTint(tint: tint, device: input.device)
+    }
+    
+    var RealTimeResolutionWidth:Int{
+        return realTimeResolutionWidth
+    }
+    
+    var RealTimeResolutionHeight:Int{
+        return realTimeResolutionHeight
+    }
     
     func setFocusPoint(point:CGPoint){
         if input.device.isFocusPointOfInterestSupported{
@@ -280,6 +308,113 @@ class ShadowCameraHandle: NSObject {
         }
     }
     
+    func setTorchState(isOpen:Bool,device:AVCaptureDevice)  {
+        if device.hasTorch{
+            do{
+                try device.lockForConfiguration()
+                device.torchMode = isOpen ? AVCaptureDevice.TorchMode.on : AVCaptureDevice.TorchMode.off
+                device.unlockForConfiguration()
+            }
+            catch{
+                print(error.localizedDescription)
+            }
+        }
+        else{
+            print("The device not support torch!")
+        }
+    }
+    
+    func adjustVideoOrientationByScreenOrientation(orientation:UIDeviceOrientation,previewFrame:CGRect,previewLayer:AVCaptureVideoPreviewLayer,videoOutput:AVCaptureVideoDataOutput){
+        previewLayer.frame = previewFrame
+        switch orientation {
+        case .portrait:
+            adjustAVOutputDataOrientation(orientation: .portrait, videoOutput: videoOutput)
+        case .portraitUpsideDown:
+            adjustAVOutputDataOrientation(orientation: .portraitUpsideDown, videoOutput: videoOutput)
+        case .landscapeLeft:
+            previewLayer.connection?.videoOrientation = .landscapeLeft
+            adjustAVOutputDataOrientation(orientation: .landscapeLeft, videoOutput: videoOutput)
+        case .landscapeRight:
+            previewLayer.connection?.videoOrientation = .landscapeRight
+            adjustAVOutputDataOrientation(orientation: .landscapeRight, videoOutput: videoOutput)
+        default:
+            break
+        }
+    }
+    
+    func adjustAVOutputDataOrientation(orientation:AVCaptureVideoOrientation,videoOutput:AVCaptureVideoDataOutput)  {
+        for connection in videoOutput.connections{
+            for port in connection.inputPorts{
+                if port.mediaType == AVMediaType.video{
+                    if connection.isVideoOrientationSupported{
+                        connection.videoOrientation = orientation
+                    }
+                }
+            }
+        }
+    }
+    
+    func setVideoGravity(gravity:AVLayerVideoGravity,previewLayer:AVCaptureVideoPreviewLayer,session:AVCaptureSession)  {
+        session.beginConfiguration()
+        previewLayer.videoGravity = gravity
+        session.commitConfiguration()
+    }
+    
+    func setWhiteBlanceValueByTemperature(temperature:Float,device:AVCaptureDevice)  {
+        if device.isWhiteBalanceModeSupported(AVCaptureDevice.WhiteBalanceMode.locked){
+            do{
+                try device.lockForConfiguration()
+                let currentGains = device.deviceWhiteBalanceGains
+                let currentTint = device.temperatureAndTintValues(for: currentGains).tint
+                let tmpAndTintValues = AVCaptureDevice.WhiteBalanceTemperatureAndTintValues(temperature: temperature, tint: currentTint)
+                var deviceGains = device.deviceWhiteBalanceGains(for: tmpAndTintValues)
+                let maxWhiteBalanceGain = device.maxWhiteBalanceGain
+                deviceGains = clampGains(gains: deviceGains, minValue: 1, maxValue: maxWhiteBalanceGain)
+                device.setWhiteBalanceModeLocked(with: deviceGains, completionHandler: nil)
+                device.unlockForConfiguration()
+                
+            }
+            catch{
+                print(error.localizedDescription)
+            }
+        }
+        else{
+            print("device do not support sWhiteBalanceMode")
+        }
+    }
+    
+    func setWhiteBlanceValueByTint(tint:Float,device:AVCaptureDevice) {
+        if device.isWhiteBalanceModeSupported(AVCaptureDevice.WhiteBalanceMode.locked){
+            do{
+                try device.lockForConfiguration()
+                let maxWhiteBalanceGain = device.maxWhiteBalanceGain
+                var currentGains = device.deviceWhiteBalanceGains
+                currentGains = clampGains(gains: currentGains, minValue: 1, maxValue: maxWhiteBalanceGain)
+                let currentTemperature = device.temperatureAndTintValues(for: currentGains).temperature
+                let tmpAndTintValues = AVCaptureDevice.WhiteBalanceTemperatureAndTintValues(temperature: currentTemperature, tint: tint)
+                var deviceGains = device.deviceWhiteBalanceGains(for: tmpAndTintValues)
+                deviceGains = clampGains(gains: deviceGains, minValue: 1, maxValue: maxWhiteBalanceGain)
+                device.setWhiteBalanceModeLocked(with: deviceGains, completionHandler: nil)
+                device.unlockForConfiguration()
+                
+            }
+            catch{
+                print(error.localizedDescription)
+            }
+        }
+        else{
+            print("device do not support sWhiteBalanceMode")
+        }
+    }
+    
+    func clampGains(gains:AVCaptureDevice.WhiteBalanceGains,minValue:Float,maxValue:Float) -> AVCaptureDevice.WhiteBalanceGains {
+        var tmpGains = gains
+        tmpGains.blueGain = max(min(tmpGains.blueGain, maxValue), minValue)
+        tmpGains.redGain = max(min(tmpGains.redGain, maxValue), minValue)
+        tmpGains.greenGain = max(min(tmpGains.greenGain, maxValue), minValue)
+        return tmpGains
+    }
+    
     func setCameraPosition(position:AVCaptureDevice.Position,session:AVCaptureSession,input:AVCaptureDeviceInput,videoFormat:OSType,resolutionHeight:Int,frameRate:Int) {
         session.beginConfiguration()
         session.removeInput(input)
@@ -325,7 +460,36 @@ class ShadowCameraHandle: NSObject {
     }
     
     func adjustVideoStabilizationWithOutput(output:AVCaptureVideoDataOutput)  {
-        
+        let devices:[AVCaptureDevice]!
+        if #available(iOS 10.0, *) {
+            let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: .video, position: cameraModel.position)
+            devices = deviceDiscoverySession.devices
+        }
+        else{
+            devices = AVCaptureDevice.devices(for: .video)
+        }
+        for device in devices{
+            if device.hasMediaType(.video){
+                if device.activeFormat.isVideoStabilizationModeSupported(.auto){
+                    for connection in output.connections{
+                        for port in connection.inputPorts{
+                            if port.mediaType == .video{
+                                if connection.isVideoStabilizationSupported{
+                                    connection.preferredVideoStabilizationMode = .standard
+                                    print("activeVideoStabilizationMode = \(connection.activeVideoStabilizationMode)")
+                                }
+                                else{
+                                     print("connection don't support video stabilization")
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    print("device don't support video stablization")
+                }
+            }
+        }
     }
     
     func getMaxFrameRateByCurrentResolution()->Int {
@@ -369,6 +533,20 @@ class ShadowCameraHandle: NSObject {
             }
         }
         return maxResolutionHeight
+    }
+    
+    func calculatorCaptureFPS() {
+        let hostClockRef = CMClockGetHostTimeClock()
+        let hostTime = CMClockGetTime(hostClockRef)
+        let nowTime = CMTimeGetSeconds(hostTime)
+        if nowTime - lastTime >= 1{
+            capptureVideoFPS = count
+            lastTime = Float(nowTime)
+            count = 0
+        }
+        else{
+            count += 1
+        }
     }
     
     static func getCaptureDeviceFromPosition(position:AVCaptureDevice.Position)->AVCaptureDevice?{
@@ -458,11 +636,46 @@ class ShadowCameraHandle: NSObject {
         }
         return maxFrameRate
     }
+    
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "torchMode"{
+            //没什么要处理的
+        }
+    }
+    
+    deinit {
+        removeObserver(self, forKeyPath: "torchMode")
+    }
 }
 
 
 extension ShadowCameraHandle:AVCaptureVideoDataOutputSampleBufferDelegate{
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        if !CMSampleBufferDataIsReady(sampleBuffer){
+            print("sample buffer is not ready. Skipping sample")
+            return
+        }
+        if output is AVCaptureVideoDataOutput{
+            calculatorCaptureFPS()
+            let pix = CMSampleBufferGetImageBuffer(sampleBuffer)
+            realTimeResolutionWidth = CVPixelBufferGetWidth(pix!)
+            realTimeResolutionHeight = CVPixelBufferGetHeight(pix!)
+        }
+        else if output is AVCaptureAudioDataOutput{
+            
+        }
+        delegate?.captureOutput(output: output, didOutput: sampleBuffer, from: connection)
+    }
+    
     func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
+        if output is AVCaptureVideoDataOutput{
+            print("Error: Drop video frame")
+        }
+        else{
+             print("Error: Drop audio frame")
+        }
+        delegate?.captureOutput(output: output, didDrop: sampleBuffer, from: connection)
     }
 }
