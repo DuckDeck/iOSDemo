@@ -227,6 +227,7 @@
 		AEB7D0A62264666B008C899E /* ResolutionFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D0A52264666B008C899E /* ResolutionFilterView.swift */; };
 		AEB9571622C0B1C700C71372 /* ShadowCameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9571522C0B1C700C71372 /* ShadowCameraModel.swift */; };
 		AEB9571822C0B2B800C71372 /* ShadowCameraHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9571722C0B2B800C71372 /* ShadowCameraHandle.swift */; };
+		AEB9571A22C49A2400C71372 /* ShadowEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9571922C49A2400C71372 /* ShadowEncoder.swift */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
 		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
@@ -567,6 +568,7 @@
 		AEB7D0A52264666B008C899E /* ResolutionFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionFilterView.swift; sourceTree = "<group>"; };
 		AEB9571522C0B1C700C71372 /* ShadowCameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowCameraModel.swift; sourceTree = "<group>"; };
 		AEB9571722C0B2B800C71372 /* ShadowCameraHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowCameraHandle.swift; sourceTree = "<group>"; };
+		AEB9571922C49A2400C71372 /* ShadowEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowEncoder.swift; sourceTree = "<group>"; };
 		AEBA80D420BD50B300F6A323 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		AEBA80D520BD50B300F6A323 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
 		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
@@ -1658,6 +1660,7 @@
 			children = (
 				AEB9571522C0B1C700C71372 /* ShadowCameraModel.swift */,
 				AEB9571722C0B2B800C71372 /* ShadowCameraHandle.swift */,
+				AEB9571922C49A2400C71372 /* ShadowEncoder.swift */,
 			);
 			path = ShadowCamera;
 			sourceTree = "<group>";
@@ -2226,6 +2229,7 @@
 				AEBE405E1FC81FE80087D7ED /* CityTableViewCell.swift in Sources */,
 				AE83BD791FE21325001882D1 /* TwoSideView.swift in Sources */,
 				AE0F70991FBEB9CA00C8135C /* SettingViewController.swift in Sources */,
+				AEB9571A22C49A2400C71372 /* ShadowEncoder.swift in Sources */,
 				AE5A887B1FF39A3A00748F6A /* ImageTransformViewController.swift in Sources */,
 				AEBE40421FC804820087D7ED /* AddressInfo.swift in Sources */,
 				AE5A88741FF37BED00748F6A /* Group.swift in Sources */,
