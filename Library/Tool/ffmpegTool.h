@@ -13,7 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ffmpegTool : NSObject
-
++(void)initProject;
 @end
 
 NS_ASSUME_NONNULL_END

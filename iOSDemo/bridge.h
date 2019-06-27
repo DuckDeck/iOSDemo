@@ -17,4 +17,5 @@
 #import "JXLayoutButton.h"
 #import "opencvTool.h"
 #import "OpenCVHandle.h"
+#import "ffmpegTool.h"
 #endif /* bridge_h */

@@ -9,5 +9,7 @@
 #import "ffmpegTool.h"
 
 @implementation ffmpegTool
-
++(void)initProject{
+    av_register_all();
+}
 @end
