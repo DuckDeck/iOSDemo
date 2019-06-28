@@ -14,6 +14,7 @@ enum ShadowEncoderType:Int {
     case H264,H265
 }
 //这里用swift写太麻烦了
+/*
 class ShadowEncoder: NSObject {
     
     static let g_capture_base_time:UInt32 = 0
@@ -130,3 +131,4 @@ class ShadowEncoder: NSObject {
     
     
 }
+*/
