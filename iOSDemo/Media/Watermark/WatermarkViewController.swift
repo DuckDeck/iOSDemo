@@ -20,7 +20,7 @@ class WatermarkViewController: UIViewController,TZImagePickerControllerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-       
+        navigationItem.title = "添加水印"
         imagePickerController = TZImagePickerController(maxImagesCount: 3, delegate: self)
         imagePickerController.didFinishPickingPhotosHandle = {[weak self](images,assert,isSelectOriginalPhoto) in
             if let one = images?.first{
@@ -34,7 +34,7 @@ class WatermarkViewController: UIViewController,TZImagePickerControllerDelegate 
         
         btnAddWatermark.title(title: "添加水印").color(color: UIColor.red).bgColor(color: UIColor.lightGray).addTo(view: view).snp.makeConstraints { (m) in
             m.centerX.equalTo(ScreenWidth / 4)
-            m.top.equalTo(80)
+            m.top.equalTo(100)
             m.width.equalTo(100)
             m.height.equalTo(25)
         }
@@ -43,7 +43,7 @@ class WatermarkViewController: UIViewController,TZImagePickerControllerDelegate 
         
         btnAddImageWatermark.title(title: "添加图片水印").color(color: UIColor.red).bgColor(color: UIColor.lightGray).addTo(view: view).snp.makeConstraints { (m) in
            m.centerX.equalTo(ScreenWidth * 0.75)
-            m.top.equalTo(80)
+            m.top.equalTo(100)
             m.width.equalTo(120)
             m.height.equalTo(25)
         }

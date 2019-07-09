@@ -71,7 +71,7 @@ struct ParseAudioDataInfo {
  2.You could get the audio / video infomation by `AVPacket`.
  @param handler get some parse information.
  */
-- (void)startParseWithCompletionHandler:(void (^)(BOOL isVideoFrame, BOOL isFinish, struct XDXParseVideoDataInfo *videoInfo, struct XDXParseAudioDataInfo *audioInfo))handler;
+- (void)startParseWithCompletionHandler:(void (^)(BOOL isVideoFrame, BOOL isFinish, struct ParseVideoDataInfo *videoInfo, struct ParseAudioDataInfo *audioInfo))handler;
 - (void)startParseGetAVPackeWithCompletionHandler:(void (^)(BOOL isVideoFrame, BOOL isFinish, AVPacket packet))handler;
 
 

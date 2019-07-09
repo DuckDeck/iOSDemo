@@ -230,6 +230,8 @@
 		AEB9571A22C49A2400C71372 /* ShadowEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9571922C49A2400C71372 /* ShadowEncoder.swift */; };
 		AEB9571C22C9DE6200C71372 /* Fundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9571B22C9DE6200C71372 /* Fundation.swift */; };
 		AEB9572322D482A500C71372 /* AVParseHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = AEB9572222D482A500C71372 /* AVParseHandler.mm */; };
+		AEB9572A22D48A4700C71372 /* FFmpegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9572922D48A4700C71372 /* FFmpegViewController.swift */; };
+		AEB9572C22D48BF600C71372 /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AEB9572B22D48BEC00C71372 /* test.mp4 */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
 		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
@@ -575,6 +577,8 @@
 		AEB9572122D482A500C71372 /* AVParseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVParseHandler.h; sourceTree = "<group>"; };
 		AEB9572222D482A500C71372 /* AVParseHandler.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AVParseHandler.mm; sourceTree = "<group>"; };
 		AEB9572422D4833600C71372 /* log4cplus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = log4cplus.h; sourceTree = "<group>"; };
+		AEB9572922D48A4700C71372 /* FFmpegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFmpegViewController.swift; sourceTree = "<group>"; };
+		AEB9572B22D48BEC00C71372 /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		AEBA80D420BD50B300F6A323 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		AEBA80D520BD50B300F6A323 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
 		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
@@ -1071,6 +1075,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5752921F76931C00F6AAC5 /* MediaViewController.swift */,
+				AEB9572822D48A2700C71372 /* FFmpeg */,
 				AEF5E8E122818E020071B38A /* Live */,
 				AE4EA75421806E510061FA84 /* opencv */,
 				AEADFD3F210EBCC700E6B58D /* CompressImage */,
@@ -1386,7 +1391,7 @@
 		AE9F31C91F69070E00339BB8 = {
 			isa = PBXGroup;
 			children = (
-				AEF4A45E1F6FCAEF00EE4001 /* Image */,
+				AEF4A45E1F6FCAEF00EE4001 /* Resource */,
 				AE9F32311F690F1B00339BB8 /* Library */,
 				AE9F31D41F69070E00339BB8 /* iOSDemo */,
 				AEA07F131F710D7E00FC9770 /* Console */,
@@ -1682,6 +1687,14 @@
 			path = FFMpeg;
 			sourceTree = "<group>";
 		};
+		AEB9572822D48A2700C71372 /* FFmpeg */ = {
+			isa = PBXGroup;
+			children = (
+				AEB9572922D48A4700C71372 /* FFmpegViewController.swift */,
+			);
+			path = FFmpeg;
+			sourceTree = "<group>";
+		};
 		AEBA80D320BD509500F6A323 /* Lame */ = {
 			isa = PBXGroup;
 			children = (
@@ -1814,14 +1827,15 @@
 			path = ConsoleSwift;
 			sourceTree = "<group>";
 		};
-		AEF4A45E1F6FCAEF00EE4001 /* Image */ = {
+		AEF4A45E1F6FCAEF00EE4001 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				AEB9572B22D48BEC00C71372 /* test.mp4 */,
 				AEBA80E820BFD24100F6A323 /* gif0.gif */,
 				AEF4A45F1F6FCAF800EE4001 /* novel1.gif */,
 				AEF4A4611F6FCB5B00EE4001 /* novel2.gif */,
 			);
-			path = Image;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		AEF589C91F7793BF00D9A09F /* AI */ = {
@@ -1976,6 +1990,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEB9572C22D48BF600C71372 /* test.mp4 in Resources */,
 				AE1DE0902099BE0A007910A5 /* p_2.png in Resources */,
 				AEBE40501FC8075C0087D7ED /* city.json in Resources */,
 				AE1DE0872099BE0A007910A5 /* p_12.png in Resources */,
@@ -2191,6 +2206,7 @@
 				AEF097812065EE650021E4ED /* LogInfo.swift in Sources */,
 				AE0F709C1FBEB9CE00C8135C /* Trace.swift in Sources */,
 				AE1DE0792099BE0A007910A5 /* BaseBoard.swift in Sources */,
+				AEB9572A22D48A4700C71372 /* FFmpegViewController.swift in Sources */,
 				AE0F702D1FBA90A500C8135C /* RequestInfo.swift in Sources */,
 				AE901198223B49CE0020D400 /* Resolution.swift in Sources */,
 				AE0F70371FBA9ACF00C8135C /* NetworkViewController.swift in Sources */,
