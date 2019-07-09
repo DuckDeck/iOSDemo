@@ -228,6 +228,7 @@
 		AEB9571622C0B1C700C71372 /* ShadowCameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9571522C0B1C700C71372 /* ShadowCameraModel.swift */; };
 		AEB9571822C0B2B800C71372 /* ShadowCameraHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9571722C0B2B800C71372 /* ShadowCameraHandle.swift */; };
 		AEB9571A22C49A2400C71372 /* ShadowEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9571922C49A2400C71372 /* ShadowEncoder.swift */; };
+		AEB9571C22C9DE6200C71372 /* Fundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9571B22C9DE6200C71372 /* Fundation.swift */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
 		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
@@ -569,6 +570,7 @@
 		AEB9571522C0B1C700C71372 /* ShadowCameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowCameraModel.swift; sourceTree = "<group>"; };
 		AEB9571722C0B2B800C71372 /* ShadowCameraHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowCameraHandle.swift; sourceTree = "<group>"; };
 		AEB9571922C49A2400C71372 /* ShadowEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowEncoder.swift; sourceTree = "<group>"; };
+		AEB9571B22C9DE6200C71372 /* Fundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fundation.swift; sourceTree = "<group>"; };
 		AEBA80D420BD50B300F6A323 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		AEBA80D520BD50B300F6A323 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
 		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
@@ -1792,6 +1794,7 @@
 			children = (
 				AE1344D720906858009A210D /* iOS开发技巧 */,
 				AEF362A62058CB1F001A490D /* main.swift */,
+				AEB9571B22C9DE6200C71372 /* Fundation.swift */,
 			);
 			path = ConsoleSwift;
 			sourceTree = "<group>";
@@ -2350,6 +2353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEB9571C22C9DE6200C71372 /* Fundation.swift in Sources */,
 				AE7BBCE6207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift in Sources */,
 				AEA9F83C206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift in Sources */,
 				AEA9F83A206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift in Sources */,
