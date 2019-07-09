@@ -229,6 +229,7 @@
 		AEB9571822C0B2B800C71372 /* ShadowCameraHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9571722C0B2B800C71372 /* ShadowCameraHandle.swift */; };
 		AEB9571A22C49A2400C71372 /* ShadowEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9571922C49A2400C71372 /* ShadowEncoder.swift */; };
 		AEB9571C22C9DE6200C71372 /* Fundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9571B22C9DE6200C71372 /* Fundation.swift */; };
+		AEB9572322D482A500C71372 /* AVParseHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = AEB9572222D482A500C71372 /* AVParseHandler.mm */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
 		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
@@ -571,6 +572,9 @@
 		AEB9571722C0B2B800C71372 /* ShadowCameraHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowCameraHandle.swift; sourceTree = "<group>"; };
 		AEB9571922C49A2400C71372 /* ShadowEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowEncoder.swift; sourceTree = "<group>"; };
 		AEB9571B22C9DE6200C71372 /* Fundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fundation.swift; sourceTree = "<group>"; };
+		AEB9572122D482A500C71372 /* AVParseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVParseHandler.h; sourceTree = "<group>"; };
+		AEB9572222D482A500C71372 /* AVParseHandler.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AVParseHandler.mm; sourceTree = "<group>"; };
+		AEB9572422D4833600C71372 /* log4cplus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = log4cplus.h; sourceTree = "<group>"; };
 		AEBA80D420BD50B300F6A323 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		AEBA80D520BD50B300F6A323 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
 		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
@@ -799,6 +803,7 @@
 		AE1AC80420D25F3B0002F779 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				AEB9572022D4829400C71372 /* FFMpeg */,
 				AEB9571422C0B1B400C71372 /* ShadowCamera */,
 				AE1AC81220D25F800002F779 /* VideoRecord */,
 				AE1AC80520D25F4A0002F779 /* ShadowPlayer */,
@@ -1644,6 +1649,7 @@
 				AE4EA759218071C30061FA84 /* opencvTool.mm */,
 				AE436FB42181A9F600EFB7DE /* ffmpegTool.h */,
 				AE436FB52181A9F600EFB7DE /* ffmpegTool.m */,
+				AEB9572422D4833600C71372 /* log4cplus.h */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1665,6 +1671,15 @@
 				AEB9571922C49A2400C71372 /* ShadowEncoder.swift */,
 			);
 			path = ShadowCamera;
+			sourceTree = "<group>";
+		};
+		AEB9572022D4829400C71372 /* FFMpeg */ = {
+			isa = PBXGroup;
+			children = (
+				AEB9572122D482A500C71372 /* AVParseHandler.h */,
+				AEB9572222D482A500C71372 /* AVParseHandler.mm */,
+			);
+			path = FFMpeg;
 			sourceTree = "<group>";
 		};
 		AEBA80D320BD509500F6A323 /* Lame */ = {
@@ -2191,6 +2206,7 @@
 				AEEE4860215CC631003C9943 /* LockView.swift in Sources */,
 				AE5AD7EC206111AC00289798 /* RippleViewController.swift in Sources */,
 				AE955C3520A2D39A0009EFFE /* VideoPlayViewController.swift in Sources */,
+				AEB9572322D482A500C71372 /* AVParseHandler.mm in Sources */,
 				AEDD2C9D2085D1D700CD1FDE /* TextLayoutViewController.swift in Sources */,
 				AEBE40401FC803A60087D7ED /* CityChooseViewController.swift in Sources */,
 				AE0F70881FBE864300C8135C /* GrandSlider.swift in Sources */,
