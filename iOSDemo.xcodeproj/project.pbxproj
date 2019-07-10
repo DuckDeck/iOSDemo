@@ -232,6 +232,7 @@
 		AEB9572322D482A500C71372 /* AVParseHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = AEB9572222D482A500C71372 /* AVParseHandler.mm */; };
 		AEB9572A22D48A4700C71372 /* FFmpegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9572922D48A4700C71372 /* FFmpegViewController.swift */; };
 		AEB9572C22D48BF600C71372 /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AEB9572B22D48BEC00C71372 /* test.mp4 */; };
+		AEB9572F22D6131C00C71372 /* VideoDecoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = AEB9572E22D6131C00C71372 /* VideoDecoder.mm */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
 		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
@@ -579,6 +580,8 @@
 		AEB9572422D4833600C71372 /* log4cplus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = log4cplus.h; sourceTree = "<group>"; };
 		AEB9572922D48A4700C71372 /* FFmpegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFmpegViewController.swift; sourceTree = "<group>"; };
 		AEB9572B22D48BEC00C71372 /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
+		AEB9572D22D6131C00C71372 /* VideoDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoDecoder.h; sourceTree = "<group>"; };
+		AEB9572E22D6131C00C71372 /* VideoDecoder.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoDecoder.mm; sourceTree = "<group>"; };
 		AEBA80D420BD50B300F6A323 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		AEBA80D520BD50B300F6A323 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
 		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
@@ -1683,6 +1686,8 @@
 			children = (
 				AEB9572122D482A500C71372 /* AVParseHandler.h */,
 				AEB9572222D482A500C71372 /* AVParseHandler.mm */,
+				AEB9572D22D6131C00C71372 /* VideoDecoder.h */,
+				AEB9572E22D6131C00C71372 /* VideoDecoder.mm */,
 			);
 			path = FFMpeg;
 			sourceTree = "<group>";
@@ -2346,6 +2351,7 @@
 				AEB7D092225B2B82008C899E /* FiveStrokeViewController.swift in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
 				AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */,
+				AEB9572F22D6131C00C71372 /* VideoDecoder.mm in Sources */,
 				AEBE404E1FC806E40087D7ED /* DBTool.swift in Sources */,
 				AEB7D09A225DCCD8008C899E /* HotMitoViewController.swift in Sources */,
 				AE69C5AB22253518004DC8AE /* OpenCVBaseViewController.swift in Sources */,
