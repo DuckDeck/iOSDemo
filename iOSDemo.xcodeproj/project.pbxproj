@@ -233,6 +233,8 @@
 		AEB9572A22D48A4700C71372 /* FFmpegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9572922D48A4700C71372 /* FFmpegViewController.swift */; };
 		AEB9572C22D48BF600C71372 /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AEB9572B22D48BEC00C71372 /* test.mp4 */; };
 		AEB9572F22D6131C00C71372 /* VideoDecoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = AEB9572E22D6131C00C71372 /* VideoDecoder.mm */; };
+		AEB9573222D885DE00C71372 /* PreviewView.mm in Sources */ = {isa = PBXBuildFile; fileRef = AEB9573122D885DE00C71372 /* PreviewView.mm */; };
+		AEB9573522D888F500C71372 /* SortFrameHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB9573422D888F500C71372 /* SortFrameHandler.m */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
 		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
@@ -582,6 +584,10 @@
 		AEB9572B22D48BEC00C71372 /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		AEB9572D22D6131C00C71372 /* VideoDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoDecoder.h; sourceTree = "<group>"; };
 		AEB9572E22D6131C00C71372 /* VideoDecoder.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoDecoder.mm; sourceTree = "<group>"; };
+		AEB9573022D885DE00C71372 /* PreviewView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreviewView.h; sourceTree = "<group>"; };
+		AEB9573122D885DE00C71372 /* PreviewView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PreviewView.mm; sourceTree = "<group>"; };
+		AEB9573322D888F500C71372 /* SortFrameHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SortFrameHandler.h; sourceTree = "<group>"; };
+		AEB9573422D888F500C71372 /* SortFrameHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SortFrameHandler.m; sourceTree = "<group>"; };
 		AEBA80D420BD50B300F6A323 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		AEBA80D520BD50B300F6A323 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
 		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
@@ -1688,6 +1694,10 @@
 				AEB9572222D482A500C71372 /* AVParseHandler.mm */,
 				AEB9572D22D6131C00C71372 /* VideoDecoder.h */,
 				AEB9572E22D6131C00C71372 /* VideoDecoder.mm */,
+				AEB9573022D885DE00C71372 /* PreviewView.h */,
+				AEB9573122D885DE00C71372 /* PreviewView.mm */,
+				AEB9573322D888F500C71372 /* SortFrameHandler.h */,
+				AEB9573422D888F500C71372 /* SortFrameHandler.m */,
 			);
 			path = FFMpeg;
 			sourceTree = "<group>";
@@ -2174,6 +2184,7 @@
 				AE9011FB22437E450020D400 /* MitoListViewController.swift in Sources */,
 				AE1AC81720D25FBC0002F779 /* CaptureSessionCoordinator.swift in Sources */,
 				AE0F70861FBE861A00C8135C /* SliderDemoViewController.swift in Sources */,
+				AEB9573522D888F500C71372 /* SortFrameHandler.m in Sources */,
 				AEBE404D1FC806E40087D7ED /* CityDB.swift in Sources */,
 				AEB7D0A222602760008C899E /* MitoSearchViewController.swift in Sources */,
 				AEADFD41210EBCE100E6B58D /* CompressImageViewController.swift in Sources */,
@@ -2251,6 +2262,7 @@
 				AE3F46F620AC0BF9007BA637 /* UINavigationController+Extension.swift in Sources */,
 				AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */,
 				AE3AF0441F773B0000AF182A /* AnimationViewController.swift in Sources */,
+				AEB9573222D885DE00C71372 /* PreviewView.mm in Sources */,
 				AE1DE09C2099BE0A007910A5 /* GameView.swift in Sources */,
 				AE394B4F2065F6FE00CE3BD9 /* DataViewController.swift in Sources */,
 				AE49B7BD22A4F46A00478FF3 /* CameraModel.swift in Sources */,

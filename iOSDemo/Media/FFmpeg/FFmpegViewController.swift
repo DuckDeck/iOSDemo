@@ -9,7 +9,10 @@
 import UIKit
 
 class FFmpegViewController: UIViewController {
-
+    var preview:PreviewView?
+    var btnStart = UIButton()
+    var isH265File = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white

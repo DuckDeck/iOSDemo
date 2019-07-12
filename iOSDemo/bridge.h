@@ -19,4 +19,6 @@
 #import "OpenCVHandle.h"
 #import "ffmpegTool.h"
 #import "AVParseHandler.h"
+#import "PreviewView.h"
+#import "VideoDecoder.h"
 #endif /* bridge_h */
