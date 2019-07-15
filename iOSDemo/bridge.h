@@ -21,4 +21,5 @@
 #import "AVParseHandler.h"
 #import "PreviewView.h"
 #import "VideoDecoder.h"
+#import "SortFrameHandler.h"
 #endif /* bridge_h */

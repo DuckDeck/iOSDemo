@@ -235,6 +235,7 @@
 		AEB9572F22D6131C00C71372 /* VideoDecoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = AEB9572E22D6131C00C71372 /* VideoDecoder.mm */; };
 		AEB9573222D885DE00C71372 /* PreviewView.mm in Sources */ = {isa = PBXBuildFile; fileRef = AEB9573122D885DE00C71372 /* PreviewView.mm */; };
 		AEB9573522D888F500C71372 /* SortFrameHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB9573422D888F500C71372 /* SortFrameHandler.m */; };
+		AEB9573822DC4CC000C71372 /* FFmpegVideoDecoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = AEB9573722DC4CC000C71372 /* FFmpegVideoDecoder.mm */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
 		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
@@ -588,6 +589,8 @@
 		AEB9573122D885DE00C71372 /* PreviewView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PreviewView.mm; sourceTree = "<group>"; };
 		AEB9573322D888F500C71372 /* SortFrameHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SortFrameHandler.h; sourceTree = "<group>"; };
 		AEB9573422D888F500C71372 /* SortFrameHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SortFrameHandler.m; sourceTree = "<group>"; };
+		AEB9573622DC4CC000C71372 /* FFmpegVideoDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFmpegVideoDecoder.h; sourceTree = "<group>"; };
+		AEB9573722DC4CC000C71372 /* FFmpegVideoDecoder.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FFmpegVideoDecoder.mm; sourceTree = "<group>"; };
 		AEBA80D420BD50B300F6A323 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		AEBA80D520BD50B300F6A323 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
 		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
@@ -1698,6 +1701,8 @@
 				AEB9573122D885DE00C71372 /* PreviewView.mm */,
 				AEB9573322D888F500C71372 /* SortFrameHandler.h */,
 				AEB9573422D888F500C71372 /* SortFrameHandler.m */,
+				AEB9573622DC4CC000C71372 /* FFmpegVideoDecoder.h */,
+				AEB9573722DC4CC000C71372 /* FFmpegVideoDecoder.mm */,
 			);
 			path = FFMpeg;
 			sourceTree = "<group>";
@@ -2332,6 +2337,7 @@
 				AE1AC81620D25FBC0002F779 /* CaptureSessionAssetWriterCoordinator.swift in Sources */,
 				AEADFD44211001BE00E6B58D /* MemeryLeakTestViewController.swift in Sources */,
 				AE0F702F1FBA90A500C8135C /* RequestTimelineInfo.swift in Sources */,
+				AEB9573822DC4CC000C71372 /* FFmpegVideoDecoder.mm in Sources */,
 				AE5A88781FF38F9F00748F6A /* UIImage+Base.swift in Sources */,
 				AE0F709D1FBEBA5C00C8135C /* Foundation+Extension.swift in Sources */,
 				AE0F708E1FBEB96E00C8135C /* TouchTestViewController.swift in Sources */,
