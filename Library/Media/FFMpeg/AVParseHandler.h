@@ -19,7 +19,7 @@ extern "C" {
 #include "libswscale/swscale.h"
 #include "libswresample/swresample.h"
 #include "libavutil/opt.h"
-    
+
 #ifdef __cplusplus
 };
 #endif
@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef enum : NSUInteger {
     XDXH264EncodeFormat,
     XDXH265EncodeFormat,
-} XDXVideoEncodeFormat;
+} VideoEncodeFormat;
 
 struct ParseVideoDataInfo {
     uint8_t                 *data;
@@ -41,7 +41,7 @@ struct ParseVideoDataInfo {
     int                     videoRotate;
     int                     fps;
     CMSampleTimingInfo      timingInfo;
-    XDXVideoEncodeFormat    videoFormat;
+    VideoEncodeFormat    videoFormat;
 };
 
 struct ParseAudioDataInfo {

@@ -13,6 +13,7 @@ class FFmpegViewController: UIViewController {
     var btnStart = UIButton()
     var isH265File = false
     var sortHandler:SortFrameHandler?
+    static var lastpts = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -25,8 +26,8 @@ class FFmpegViewController: UIViewController {
         sortHandler = SortFrameHandler()
         sortHandler?.delegate = self
         
-        _ = UIBarButtonItem(title: "开始", style: .plain, target: self, action: #selector(playVideo))
-        
+        let btnPlay = UIBarButtonItem(title: "开始", style: .plain, target: self, action: #selector(playVideo))
+        navigationItem.rightBarButtonItem = btnPlay
         
         
       
@@ -61,15 +62,40 @@ class FFmpegViewController: UIViewController {
     func startDecodeByFFmpegWithIsH265Data()  {
         let path = Bundle.main.path(forResource: "test", ofType: "mp4")
         let handle = AVParseHandler(path: path!)
-    
+        let decoder = FFmpegVideoDecoder(formatContext: handle.getFormatContext(), videoStreamIndex: handle.getVideoStreamIndex())
+        decoder.delegate = self
+        handle.startParseGetAVPacke { (isVideoFrame, isFinish, packet) in
+            if isFinish{
+                decoder.stop()
+            }
+            if isVideoFrame{
+                decoder.startDecodeVideoData(with: packet)
+            }
+        }
     }
 }
 
-extension FFmpegViewController:SortFrameHandlerDelegate,VideoDecoderDelegate{
+extension FFmpegViewController:SortFrameHandlerDelegate,VideoDecoderDelegate,FFmpegVideoDecoderDelegate{
     func getSortedVideoNode(_ videoDataRef: CMSampleBuffer) {
+       
         
+        let pts = Int(CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(videoDataRef)) * 1000)
+        print("Test margin \(pts - FFmpegViewController.lastpts)")
+        FFmpegViewController.lastpts = pts
+        preview?.display(CMSampleBufferGetImageBuffer(videoDataRef)!)
+        
+      
     }
     func getVideoDecodeDataCallback(_ sampleBuffer: CMSampleBuffer, isFirstFrame: Bool) {
+        let pix = CMSampleBufferGetImageBuffer(sampleBuffer)
+        preview?.display(pix!)
         
+    }
+    
+    func getDecodeVideoData(byFFmpeg sampleBuffer: CMSampleBuffer?) {
+        if let sam = sampleBuffer{
+            let pix = CMSampleBufferGetImageBuffer(sam)
+            preview?.display(pix!)
+        }
     }
 }

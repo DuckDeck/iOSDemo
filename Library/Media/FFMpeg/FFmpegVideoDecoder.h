@@ -6,7 +6,7 @@
 //  Copyright © 2019 Stan Hu. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 // FFmpeg Header File
 #ifdef __cplusplus
@@ -19,7 +19,7 @@ extern "C" {
 #include "libswscale/swscale.h"
 #include "libswresample/swresample.h"
 #include "libavutil/opt.h"
-    
+#include "libavutil/hwcontext.h"
 #ifdef __cplusplus
 };
 #endif
@@ -28,13 +28,17 @@ extern "C" {
 @protocol FFmpegVideoDecoderDelegate <NSObject>
 
 @optional
-- (void)getDecodeVideoDataByFFmpeg:(CMSampleBufferRef)sampleBuffer;
+- (void)getDecodeVideoDataByFFmpeg:(CMSampleBufferRef _Nullable )sampleBuffer;
 
 @end
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FFmpegVideoDecoder : NSObject
+@property (weak, nonatomic) id<FFmpegVideoDecoderDelegate> delegate;
 
+- (instancetype)initWithFormatContext:(AVFormatContext *)formatContext videoStreamIndex:(int)videoStreamIndex;
+- (void)startDecodeVideoDataWithAVPacket:(AVPacket)packet;
+- (void)stopDecoder;
 @end
 
 NS_ASSUME_NONNULL_END

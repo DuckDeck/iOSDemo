@@ -22,4 +22,5 @@
 #import "PreviewView.h"
 #import "VideoDecoder.h"
 #import "SortFrameHandler.h"
+#import "FFmpegVideoDecoder.h"
 #endif /* bridge_h */
