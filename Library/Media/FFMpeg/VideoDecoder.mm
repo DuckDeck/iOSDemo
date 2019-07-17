@@ -178,7 +178,7 @@ static void VideoDecoderCallback(void *decompressionOutputRefCon, void *sourceFr
     pthread_mutex_lock(&lock);
     
     OSStatus status;
-    if (videoInfo->videoFormat == XDXH264EncodeFormat) {
+    if (videoInfo->videoFormat == H264EncodeFormat) {
         const uint8_t *const parameterSetPointers[2] = {decoderInfo.sps, decoderInfo.f_pps};
         const size_t parameterSetSizes[2] = {static_cast<size_t>(decoderInfo.sps_size), static_cast<size_t>(decoderInfo.f_pps_size)};
         status = CMVideoFormatDescriptionCreateFromH264ParameterSets(kCFAllocatorDefault,
@@ -187,7 +187,7 @@ static void VideoDecoderCallback(void *decompressionOutputRefCon, void *sourceFr
                                                                      parameterSetSizes,
                                                                      4,
                                                                      videoDescRef);
-    }else if (videoInfo->videoFormat == XDXH265EncodeFormat) {
+    }else if (videoInfo->videoFormat == H265EncodeFormat) {
         if (decoderInfo.r_pps_size == 0) {
             const uint8_t *const parameterSetPointers[3] = {decoderInfo.vps, decoderInfo.sps, decoderInfo.f_pps};
             const size_t parameterSetSizes[3] = {static_cast<size_t>(decoderInfo.vps_size), static_cast<size_t>(decoderInfo.sps_size), static_cast<size_t>(decoderInfo.f_pps_size)};
@@ -341,7 +341,7 @@ static void VideoDecoderCallback(void *decompressionOutputRefCon, void *sourceFr
     memcpy(*originDataRef, newData, size);
 }
 
-- (void)getNALUInfoWithVideoFormat:(XDXVideoEncodeFormat)videoFormat extraData:(uint8_t *)extraData extraDataSize:(int)extraDataSize decoderInfo:(XDXDecoderInfo *)decoderInfo {
+- (void)getNALUInfoWithVideoFormat:(VideoEncodeFormat)videoFormat extraData:(uint8_t *)extraData extraDataSize:(int)extraDataSize decoderInfo:(XDXDecoderInfo *)decoderInfo {
     
     uint8_t *data = extraData;
     int      size = extraDataSize;
@@ -355,14 +355,14 @@ static void VideoDecoderCallback(void *decompressionOutputRefCon, void *sourceFr
     for (int i = 0; i < size; i ++) {
         if (i >= 3) {
             if (data[i] == 0x01 && data[i - 1] == 0x00 && data[i - 2] == 0x00 && data[i - 3] == 0x00) {
-                if (videoFormat == XDXH264EncodeFormat) {
+                if (videoFormat == H264EncodeFormat) {
                     if (startCodeSPSIndex == 0) {
                         startCodeSPSIndex = i;
                     }
                     if (i > startCodeSPSIndex) {
                         startCodeFPPSIndex = i;
                     }
-                }else if (videoFormat == XDXH265EncodeFormat) {
+                }else if (videoFormat == H265EncodeFormat) {
                     if (startCodeVPSIndex == 0) {
                         startCodeVPSIndex = i;
                         continue;
@@ -386,7 +386,7 @@ static void VideoDecoderCallback(void *decompressionOutputRefCon, void *sourceFr
     int spsSize = startCodeFPPSIndex - startCodeSPSIndex - 4;
     decoderInfo->sps_size = spsSize;
     
-    if (videoFormat == XDXH264EncodeFormat) {
+    if (videoFormat == H264EncodeFormat) {
         int f_ppsSize = size - (startCodeFPPSIndex + 1);
         decoderInfo->f_pps_size = f_ppsSize;
         

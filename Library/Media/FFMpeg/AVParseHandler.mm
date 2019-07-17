@@ -357,10 +357,10 @@ static int GetAVStreamFPSTimeBase(AVStream *st) {
                 static char filter_name[32];
                 if (formatContext->streams[videoStreamIndex]->codecpar->codec_id == AV_CODEC_ID_H264) {
                     strncpy(filter_name, "h264_mp4toannexb", 32);
-                    videoInfo.videoFormat = XDXH264EncodeFormat;
+                    videoInfo.videoFormat = H264EncodeFormat;
                 } else if (formatContext->streams[videoStreamIndex]->codecpar->codec_id == AV_CODEC_ID_HEVC) {
                     strncpy(filter_name, "hevc_mp4toannexb", 32);
-                    videoInfo.videoFormat = XDXH265EncodeFormat;
+                    videoInfo.videoFormat = H265EncodeFormat;
                 } else {
                     break;
                 }

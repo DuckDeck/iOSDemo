@@ -34,7 +34,7 @@ class FFmpegViewController: UIViewController {
     }
     
     @objc func playVideo() {
-        var isUseFFmpeg = false
+        var isUseFFmpeg = true
         if isUseFFmpeg{
             startDecodeByFFmpegWithIsH265Data()
         }

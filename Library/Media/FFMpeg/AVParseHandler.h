@@ -27,8 +27,8 @@ extern "C" {
 NS_ASSUME_NONNULL_BEGIN
 
 typedef enum : NSUInteger {
-    XDXH264EncodeFormat,
-    XDXH265EncodeFormat,
+    H264EncodeFormat,
+    H265EncodeFormat,
 } VideoEncodeFormat;
 
 struct ParseVideoDataInfo {

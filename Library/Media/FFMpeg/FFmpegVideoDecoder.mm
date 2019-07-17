@@ -7,7 +7,7 @@
 //
 
 #import "FFmpegVideoDecoder.h"
-
+#import <VideoToolbox/VideoToolbox.h>
 #include "log4cplus.h"
 
 #define kModuleName "XDXParseHandler"
@@ -31,7 +31,7 @@
 #pragma mark - C Function
 AVBufferRef *hw_device_ctx = NULL;
 static int InitHardwareDecoder(AVCodecContext *ctx, const enum AVHWDeviceType type) {
-    int err = av_hwdevice_ctx_create(&hw_device_ctx, type, NULL, NULL, 0);
+    int err = av_hwdevice_ctx_create(&hw_device_ctx, type, NULL, NULL, 0); //目前这里报12错误，还不知道为什么  type 是AV_HWDEVICE_TYPE_VIDEOTOOLBOX
     if (err < 0) {
         log4cplus_error("XDXParseParse", "Failed to create specified HW device.\n");
         return err;
