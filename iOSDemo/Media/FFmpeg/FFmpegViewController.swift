@@ -9,93 +9,61 @@
 import UIKit
 
 class FFmpegViewController: UIViewController {
-    var preview:PreviewView?
-    var btnStart = UIButton()
-    var isH265File = false
-    var sortHandler:SortFrameHandler?
-    static var lastpts = 0
+    var arrData = ["VideoBox硬解码","音频解码"]
+    var tbMenu = UITableView()
+    
+    override func loadView() {
+        super.loadView()
+        print("New ViewController LoadView")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        tbMenu.dataSource = self
+        tbMenu.delegate = self
+        tbMenu.dataSource = self
+        tbMenu.delegate = self
+        tbMenu.tableFooterView = UIView()
+        view.addSubview(tbMenu)
+        tbMenu.snp.makeConstraints { (m) in
+            m.edges.equalTo(0)
+        }
         
-        
-        
-        preview = PreviewView(frame: view.frame)
-        view.addSubview(preview!)
-        
-        sortHandler = SortFrameHandler()
-        sortHandler?.delegate = self
-        
-        let btnPlay = UIBarButtonItem(title: "开始", style: .plain, target: self, action: #selector(playVideo))
-        navigationItem.rightBarButtonItem = btnPlay
-        
-        
-      
+        print("New ViewController viewDidLoad")
     }
     
-    @objc func playVideo() {
-        var isUseFFmpeg = true
-        if isUseFFmpeg{
-            startDecodeByFFmpegWithIsH265Data()
-        }
-        else{
-            startDecodeByVTSessionWithIsH265Data()
-        }
-    }
     
-    func startDecodeByVTSessionWithIsH265Data()  {
-        let path = Bundle.main.path(forResource: "test", ofType: "mp4")
-        let handle = AVParseHandler(path: path!)
-        let decoder = VideoDecoder()
-        decoder.delegate = self
-        
-        handle.startParse { (isVideoFrame, isFinish, videoInfo,  parseInfo) in
-            if isFinish{
-                decoder.stop()
-            }
-            if isVideoFrame{
-                decoder.startDecodeVideoData(videoInfo)
-            }
-        }
-    }
-
-    func startDecodeByFFmpegWithIsH265Data()  {
-        let path = Bundle.main.path(forResource: "test", ofType: "mp4")
-        let handle = AVParseHandler(path: path!)
-        let decoder = FFmpegVideoDecoder(formatContext: handle.getFormatContext(), videoStreamIndex: handle.getVideoStreamIndex())
-        decoder.delegate = self
-        handle.startParseGetAVPacke { (isVideoFrame, isFinish, packet) in
-            if isFinish{
-                decoder.stop()
-            }
-            if isVideoFrame{
-                decoder.startDecodeVideoData(with: packet)
-            }
-        }
-    }
+   
 }
 
-extension FFmpegViewController:SortFrameHandlerDelegate,VideoDecoderDelegate,FFmpegVideoDecoderDelegate{
-    func getSortedVideoNode(_ videoDataRef: CMSampleBuffer) {
-       
-        
-        let pts = Int(CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(videoDataRef)) * 1000)
-        print("Test margin \(pts - FFmpegViewController.lastpts)")
-        FFmpegViewController.lastpts = pts
-        preview?.display(CMSampleBufferGetImageBuffer(videoDataRef)!)
-        
-      
-    }
-    func getVideoDecodeDataCallback(_ sampleBuffer: CMSampleBuffer, isFirstFrame: Bool) {
-        let pix = CMSampleBufferGetImageBuffer(sampleBuffer)
-        preview?.display(pix!)
-        
+extension FFmpegViewController:UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrData.count
     }
     
-    func getDecodeVideoData(byFFmpeg sampleBuffer: CMSampleBuffer?) {
-        if let sam = sampleBuffer{
-            let pix = CMSampleBufferGetImageBuffer(sam)
-            preview?.display(pix!)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        if cell == nil{
+            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        }
+        cell?.textLabel?.text = arrData[indexPath.row]
+        return cell!
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.row {
+        case 0:
+            navigationController?.pushViewController(VideoBoxDecodeVideoViewController(), animated: true)
+        case 1:
+            break
+        case 2:
+            break
+        case 3:
+           break
+       
+        default:
+            break
         }
     }
 }

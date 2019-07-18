@@ -23,4 +23,5 @@
 #import "VideoDecoder.h"
 #import "SortFrameHandler.h"
 #import "FFmpegVideoDecoder.h"
+#import "AudioQueueCaptureManager.h"
 #endif /* bridge_h */

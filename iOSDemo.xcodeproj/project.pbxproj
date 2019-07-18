@@ -238,6 +238,9 @@
 		AEB9573822DC4CC000C71372 /* FFmpegVideoDecoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = AEB9573722DC4CC000C71372 /* FFmpegVideoDecoder.mm */; };
 		AEB9573B22E0427100C71372 /* AudioDecoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = AEB9573A22E0427100C71372 /* AudioDecoder.mm */; };
 		AEB9573E22E0435600C71372 /* AudioFileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB9573D22E0435600C71372 /* AudioFileHandler.m */; };
+		AEB9574222E04A3700C71372 /* AudioQueueCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB9574122E04A3700C71372 /* AudioQueueCaptureManager.m */; };
+		AEB9574422E0632200C71372 /* VideoBoxDecodeVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9574322E0632200C71372 /* VideoBoxDecodeVideoViewController.swift */; };
+		AEB9574622E0649900C71372 /* AudioDecoderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB9574522E0649900C71372 /* AudioDecoderViewController.swift */; };
 		AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80D520BD50B300F6A323 /* TransformMP3.m */; };
 		AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA80D720BD50B300F6A323 /* libmp3lame.a */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
@@ -598,6 +601,10 @@
 		AEB9573C22E0435600C71372 /* AudioFileHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioFileHandler.h; sourceTree = "<group>"; };
 		AEB9573D22E0435600C71372 /* AudioFileHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioFileHandler.m; sourceTree = "<group>"; };
 		AEB9573F22E043A900C71372 /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		AEB9574022E04A3700C71372 /* AudioQueueCaptureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioQueueCaptureManager.h; sourceTree = "<group>"; };
+		AEB9574122E04A3700C71372 /* AudioQueueCaptureManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioQueueCaptureManager.m; sourceTree = "<group>"; };
+		AEB9574322E0632200C71372 /* VideoBoxDecodeVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoBoxDecodeVideoViewController.swift; sourceTree = "<group>"; };
+		AEB9574522E0649900C71372 /* AudioDecoderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDecoderViewController.swift; sourceTree = "<group>"; };
 		AEBA80D420BD50B300F6A323 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		AEBA80D520BD50B300F6A323 /* TransformMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformMP3.m; sourceTree = "<group>"; };
 		AEBA80D620BD50B300F6A323 /* TransformMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformMP3.h; sourceTree = "<group>"; };
@@ -1715,6 +1722,8 @@
 				AEB9573A22E0427100C71372 /* AudioDecoder.mm */,
 				AEB9573C22E0435600C71372 /* AudioFileHandler.h */,
 				AEB9573D22E0435600C71372 /* AudioFileHandler.m */,
+				AEB9574022E04A3700C71372 /* AudioQueueCaptureManager.h */,
+				AEB9574122E04A3700C71372 /* AudioQueueCaptureManager.m */,
 			);
 			path = FFMpeg;
 			sourceTree = "<group>";
@@ -1723,6 +1732,8 @@
 			isa = PBXGroup;
 			children = (
 				AEB9572922D48A4700C71372 /* FFmpegViewController.swift */,
+				AEB9574322E0632200C71372 /* VideoBoxDecodeVideoViewController.swift */,
+				AEB9574522E0649900C71372 /* AudioDecoderViewController.swift */,
 			);
 			path = FFmpeg;
 			sourceTree = "<group>";
@@ -2225,6 +2236,7 @@
 				AE3795272238EB10009292DE /* SlideMenuView.swift in Sources */,
 				AE6691D920F49B3A00D019D4 /* PaletteTarget.m in Sources */,
 				AE1DE0962099BE0A007910A5 /* PieceImage.swift in Sources */,
+				AEB9574222E04A3700C71372 /* AudioQueueCaptureManager.m in Sources */,
 				AEF589D01F7795D200D9A09F /* Resnet50.mlmodel in Sources */,
 				AE0F708B1FBEB94100C8135C /* TouchViewController.swift in Sources */,
 				AEADFD4921115BBE00E6B58D /* UIButton+Extension.swift in Sources */,
@@ -2269,6 +2281,7 @@
 				AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */,
 				AE6691D320F49B3A00D019D4 /* PaletteColorUtils.m in Sources */,
 				AE3AF0551F77448A00AF182A /* LayoutViewController.swift in Sources */,
+				AEB9574422E0632200C71372 /* VideoBoxDecodeVideoViewController.swift in Sources */,
 				AE901195223B42450020D400 /* ImageSet.swift in Sources */,
 				AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */,
 				AE6691D520F49B3A00D019D4 /* PaletteSwatch.m in Sources */,
@@ -2290,6 +2303,7 @@
 				AEADFD2A2105B40E00E6B58D /* JXLayoutButton.m in Sources */,
 				AE83BD711FDE72BF001882D1 /* ImageRotationViewController.swift in Sources */,
 				AE3F46EE20AC0300007BA637 /* UIColor+Extension.swift in Sources */,
+				AEB9574622E0649900C71372 /* AudioDecoderViewController.swift in Sources */,
 				AE5AD8BF225355D100BD7EE9 /* ImageBrowserViewController.swift in Sources */,
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
 				AE5A88721FF37AA800748F6A /* Semaphore.swift in Sources */,
