@@ -56,7 +56,8 @@ extension FFmpegViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             navigationController?.pushViewController(VideoBoxDecodeVideoViewController(), animated: true)
         case 1:
-            break
+            navigationController?.pushViewController(AudioDecoderViewController(), animated: true)
+
         case 2:
             break
         case 3:
