@@ -175,7 +175,7 @@ static int GetAVStreamFPSTimeBase(AVStream *st) {
         }
         return NULL;
     }
-    
+    //可以找到stream
     if (avformat_find_stream_info(formatContext, NULL) < 0) {
         avformat_close_input(&formatContext);
         return NULL;
@@ -381,7 +381,7 @@ static int GetAVStreamFPSTimeBase(AVStream *st) {
                 }
                 av_bitstream_filter_filter(self->m_bitFilterContext, formatContext->streams[videoStreamIndex]->codec, NULL, &new_packet.data, &new_packet.size, packet.data, packet.size, 0);
                 
-                log4cplus_info(kModuleName, "%s: extra data : %s , size : %d",__func__,formatContext->streams[videoStreamIndex]->codec->extradata,formatContext->streams[videoStreamIndex]->codec->extradata_size);
+                log4cplus_info(kModuleName, "%s: extra data : %s , size : %d",__func__,formatContext->streams[videoStreamIndex]->codecpar->extradata,formatContext->streams[videoStreamIndex]->codecpar->extradata_size);
                 
                 CMSampleTimingInfo timingInfo;
                 CMTime presentationTimeStamp     = kCMTimeInvalid;
@@ -391,13 +391,13 @@ static int GetAVStreamFPSTimeBase(AVStream *st) {
                 
                 videoInfo.data          = video_data;
                 videoInfo.dataSize      = video_size;
-                videoInfo.extraDataSize = formatContext->streams[videoStreamIndex]->codec->extradata_size;
+                videoInfo.extraDataSize = formatContext->streams[videoStreamIndex]->codecpar->extradata_size;
                 videoInfo.extraData     = (uint8_t *)malloc(videoInfo.extraDataSize);
                 videoInfo.timingInfo    = timingInfo;
                 videoInfo.pts           = packet.pts * av_q2d(formatContext->streams[videoStreamIndex]->time_base);
                 videoInfo.fps           = fps;
                 
-                memcpy(videoInfo.extraData, formatContext->streams[videoStreamIndex]->codec->extradata, videoInfo.extraDataSize);
+                memcpy(videoInfo.extraData, formatContext->streams[videoStreamIndex]->codecpar->extradata, videoInfo.extraDataSize);
                 av_free(new_packet.data);
                 
                 // send videoInfo
