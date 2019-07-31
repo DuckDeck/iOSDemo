@@ -7,11 +7,15 @@
 //
 
 import UIKit
-
+import CallKit
 class DemoViewController: BaseViewController {
 
     let btnLargeTouch = UIButton()
     let btnLargeTouch2 = TouchIncreaseButton()
+    
+    let ca = CXCallObserver.init()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -39,6 +43,8 @@ class DemoViewController: BaseViewController {
         let width = NSLayoutConstraint(item: btnLargeTouch2, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
         let height = NSLayoutConstraint(item: btnLargeTouch2, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
         NSLayoutConstraint.activate([cenX,cenY,width,height])
+        
+        ca.setDelegate(self, queue: DispatchQueue.global())
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -47,11 +53,35 @@ class DemoViewController: BaseViewController {
     
     @objc func testTouch() {
         Log(message: "这里也可以点到我")
+        UIApplication.shared.open(URL(string: "tel:17665262225")!, options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly:false], completionHandler: nil)
     }
     
     @objc func testTouch2() {
         Log(message: "这里也可以点到我的另一个")
+        
+        
     }
+    
+    
+}
+
+extension DemoViewController:CXCallObserverDelegate{
+    func callObserver(_ callObserver: CXCallObserver, callChanged call: CXCall) {
+        if call.hasConnected{
+            print("hasConnected")
+        }
+        if call.hasEnded{
+            print("hasEnded")
+        }
+        if call.isOnHold{
+            print("isOnHold")
+        }
+        if call.isOutgoing{
+            print("isOutgoing")
+        }
+    }
+    
+    
 }
 
 

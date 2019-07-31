@@ -18,6 +18,7 @@
 #import "ConcurrentProcessor.h"
 #import "Lock.h"
 #import "AboutKVC.h"
+#import "CategoryDemo.h"
 @interface Father : NSObject
 @property (nonatomic,copy) NSString* name;
 @property (nonatomic,copy) NSString* address;
@@ -68,16 +69,18 @@ int main(int argc, const char * argv[]) {
         
         GCD* gcd = [GCD new];
         [gcd testGCDGroup];
-       //不知道这个是干什么的
+        //不知道这个是干什么的
         
         //测试消息转发
-        Hydron* h1 = [[Hydron alloc] init];
-        NSString* result = [h1 hydronId];
-        NSLog(@"%@",result);
+        //Hydron* h1 = [[Hydron alloc] init];
+        //NSString* result = [h1 hydronId];
+        //NSLog(@"%@",result);
         
         
         
-        [CFDemo test];
+        //test CFBridge
+        //[CFDemo test];
+        
         //[SelDemo testSel];
         //[SelDemo testSelDynamic];
         //[SelDemo testSelString];
@@ -113,17 +116,20 @@ int main(int argc, const char * argv[]) {
         [[Lock new] ticketTest];
         */
                 
-                
-                Father* p = [Father alloc];
-                
-                p.address = @"ShenZhen";
-                 NSLog(@"没有init的情况下看 address是啥%@",p.address);
-                Father* p1 = [p init]; //没有做任何事情
-                Father* p2 = [p init];
-                
-                NSLog(@"%@---%@",p1,p2);
-                NSLog(@"%@",p.address);
         
+        /* test allc and init
+        Father* p = [Father alloc];
+        
+        p.address = @"ShenZhen";
+         NSLog(@"没有init的情况下看 address是啥%@",p.address);
+        Father* p1 = [p init]; //没有做任何事情
+        Father* p2 = [p init];
+        
+        NSLog(@"%@---%@",p1,p2);
+        NSLog(@"%@",p.address);
+        */
+        
+        [CategoryDemo cls_method1];
        
     }
     return 0;

@@ -163,6 +163,7 @@
 		AE69C5A9222533D1004DC8AE /* OpenCVImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69C5A8222533D1004DC8AE /* OpenCVImageRecognitionViewController.swift */; };
 		AE69C5AB22253518004DC8AE /* OpenCVBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69C5AA22253518004DC8AE /* OpenCVBaseViewController.swift */; };
 		AE69C5AE22263537004DC8AE /* OpenCVHandle.mm in Sources */ = {isa = PBXBuildFile; fileRef = AE69C5AD22263537004DC8AE /* OpenCVHandle.mm */; };
+		AE6A83AB22E832EE004D3F43 /* CategoryDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6A83AA22E832EE004D3F43 /* CategoryDemo.m */; };
 		AE7278A9207F5A28005D9D6D /* SoundRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7278A8207F5A28005D9D6D /* SoundRecordViewController.swift */; };
 		AE7BBCE4207B498B005DBE0C /* WatermarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BBCE3207B498B005DBE0C /* WatermarkViewController.swift */; };
 		AE7BBCE6207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BBCE5207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift */; };
@@ -502,6 +503,8 @@
 		AE69C5AA22253518004DC8AE /* OpenCVBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCVBaseViewController.swift; sourceTree = "<group>"; };
 		AE69C5AC22263537004DC8AE /* OpenCVHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVHandle.h; sourceTree = "<group>"; };
 		AE69C5AD22263537004DC8AE /* OpenCVHandle.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVHandle.mm; sourceTree = "<group>"; };
+		AE6A83A922E832EE004D3F43 /* CategoryDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryDemo.h; sourceTree = "<group>"; };
+		AE6A83AA22E832EE004D3F43 /* CategoryDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryDemo.m; sourceTree = "<group>"; };
 		AE7278A8207F5A28005D9D6D /* SoundRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRecordViewController.swift; sourceTree = "<group>"; };
 		AE7BBCE3207B498B005DBE0C /* WatermarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkViewController.swift; sourceTree = "<group>"; };
 		AE7BBCE5207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift"; sourceTree = "<group>"; };
@@ -956,6 +959,8 @@
 				F6C59D4E219B045200825BBA /* Runspector.m */,
 				AE3795202238E417009292DE /* AboutKVC.h */,
 				AE3795212238E417009292DE /* AboutKVC.m */,
+				AE6A83A922E832EE004D3F43 /* CategoryDemo.h */,
+				AE6A83AA22E832EE004D3F43 /* CategoryDemo.m */,
 			);
 			path = Runtime;
 			sourceTree = "<group>";
@@ -2790,6 +2795,7 @@
 				AEB6F560219AB52C005CA2BE /* CFDemo.m in Sources */,
 				AE1344DD20906937009A210D /* object_setClass.m in Sources */,
 				F6C59D4F219B045200825BBA /* Runspector.m in Sources */,
+				AE6A83AB22E832EE004D3F43 /* CategoryDemo.m in Sources */,
 				AE3AF0521F7743D500AF182A /* MsgSend.m in Sources */,
 				AEB6F563219BC5FA005CA2BE /* Invoke.m in Sources */,
 			);
