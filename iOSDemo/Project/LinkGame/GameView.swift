@@ -111,11 +111,13 @@ class GameView: UIView {
                 selectedPiece = piece
                 AudioServicesPlaySystemSound(soundIdGu)
                 setNeedsDisplay()
-            }
+ }
             else{
                 AudioServicesPlaySystemSound(soundIdDis)
                 //handleSuccess(line!, prevPiece: selectedPiece!, currPiece: piece!, pieces: pieces)
                 handleSuccess(line: line!, prevPiece: selectedPiece!, currPiece: piece!)
+                
+                
             }
         }
     }

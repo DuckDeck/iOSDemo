@@ -8,10 +8,11 @@
 
 import UIKit
 import SnapKit
+import CallKit
 class ViewController: UIViewController {
     var arrData = ["Basic","Media","Animation&Graphic","Layout","AI","Network","Touch","Library","Sensor","Data","Webview","Project"]
     var tbMenu = UITableView()
-    
+    let ca = CXCallObserver.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,8 @@ class ViewController: UIViewController {
         
         let btnRight = UIBarButtonItem(title: "清空缓存", style: .plain, target: self, action: #selector(clearCache))
         navigationItem.rightBarButtonItem = btnRight
+        
+          ca.setDelegate(self, queue: DispatchQueue.global())
     }
     
     @objc func clearCache() {
@@ -109,4 +112,23 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
         }
     }
 
+}
+
+extension ViewController:CXCallObserverDelegate{
+    func callObserver(_ callObserver: CXCallObserver, callChanged call: CXCall) {
+        if call.hasConnected{
+            print("hasConnected")
+        }
+        if call.hasEnded{
+            print("hasEnded")
+        }
+        if call.isOnHold{
+            print("isOnHold")
+        }
+        if call.isOutgoing{
+            print("isOutgoing")
+        }
+    }
+    
+    
 }
