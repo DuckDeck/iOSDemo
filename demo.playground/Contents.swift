@@ -2,42 +2,8 @@
 
 import UIKit
 
-/*
- extension Array{
  
- mutating func mergeWithUnique(array:[Element],condition:((_ item:Element)->Int))  {
- let a = self.map(condition)
- let b = array.map(condition)
- var c = [Int]()
- for s in b{
- if !a.contains(s){
- c.append(s)
- }
- }
- for s in array{
- if c.contains(condition(s)){
- self.append(s)
- }
- } //这样应该行了
- }
- 
- 
- }
- 
- var s = [1,2,3,4,5]
- var d = [2,3,5,6]
- s.mergeWithUnique(array: d) { (item) -> Int in
- return item
- }
- print(s)
- 
- 
- let lbl = UILabel(frame: CGRect(x: 0, y: 0, width: 400, height: 30))
- lbl.text = "1"
- lbl.sizeToFit()
- print(lbl.frame)
- */
-/*
+
  struct regexTool {
  let regex:NSRegularExpression?
  init(_ pattern:String){
@@ -100,7 +66,7 @@ import UIKit
  sliderUpload.maximumValue = 100
  sliderUpload.isUserInteractionEnabled = false
  sliderUpload.value = 1
- */
+
 //
 /*
  roundf(3.3216 * 100) / 100
@@ -120,6 +86,8 @@ import UIKit
  RunLoop.current.run()
  print(123123)
  */
+
+/*
 let s = "123123"
 let cf = s as CFString
 print(cf)
@@ -167,6 +135,8 @@ let numss = "ffff12313"
 let res = testNum.match(input: numss)
 print(res?.range(at: 0))
 
+ */
+ 
 //let reg = regex("/\\w+.php")
 //let r = reg.match("afsdf/adfasdf.php")
 //print(r!.rangeAtIndex(0))
@@ -204,3 +174,6 @@ let paraStyle = NSMutableParagraphStyle()
 paraStyle.lineSpacing = 3
 leaveWord.addAttributes([NSAttributedString.Key.paragraphStyle:paraStyle], range: NSMakeRange(0, leaveWord.length))
 let size = leaveWord.size()
+
+
+

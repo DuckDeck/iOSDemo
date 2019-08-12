@@ -37,6 +37,7 @@
 		AE1AC81620D25FBC0002F779 /* CaptureSessionAssetWriterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC81320D25FBC0002F779 /* CaptureSessionAssetWriterCoordinator.swift */; };
 		AE1AC81720D25FBC0002F779 /* CaptureSessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC81420D25FBC0002F779 /* CaptureSessionCoordinator.swift */; };
 		AE1AC81820D25FBC0002F779 /* AssetWriterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC81520D25FBC0002F779 /* AssetWriterCoordinator.swift */; };
+		AE1DC07E2301527300B8576C /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DC07D2301527300B8576C /* Regex.swift */; };
 		AE1DE01C2099ACBE007910A5 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE01B2099ACBE007910A5 /* ProjectViewController.swift */; };
 		AE1DE0782099BE0A007910A5 /* FullBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE04D2099BE09007910A5 /* FullBoard.swift */; };
 		AE1DE0792099BE0A007910A5 /* BaseBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE04E2099BE09007910A5 /* BaseBoard.swift */; };
@@ -362,6 +363,7 @@
 		AE1AC81320D25FBC0002F779 /* CaptureSessionAssetWriterCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureSessionAssetWriterCoordinator.swift; sourceTree = "<group>"; };
 		AE1AC81420D25FBC0002F779 /* CaptureSessionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureSessionCoordinator.swift; sourceTree = "<group>"; };
 		AE1AC81520D25FBC0002F779 /* AssetWriterCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetWriterCoordinator.swift; sourceTree = "<group>"; };
+		AE1DC07D2301527300B8576C /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		AE1DE01B2099ACBE007910A5 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
 		AE1DE04D2099BE09007910A5 /* FullBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullBoard.swift; sourceTree = "<group>"; };
 		AE1DE04E2099BE09007910A5 /* BaseBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBoard.swift; sourceTree = "<group>"; };
@@ -2233,6 +2235,7 @@
 				AE1344D720906858009A210D /* iOS开发技巧 */,
 				AEF362A62058CB1F001A490D /* main.swift */,
 				AEB9571B22C9DE6200C71372 /* Fundation.swift */,
+				AE1DC07D2301527300B8576C /* Regex.swift */,
 			);
 			path = ConsoleSwift;
 			sourceTree = "<group>";
@@ -2808,6 +2811,7 @@
 				AEB9571C22C9DE6200C71372 /* Fundation.swift in Sources */,
 				AE7BBCE6207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift in Sources */,
 				AEA9F83C206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift in Sources */,
+				AE1DC07E2301527300B8576C /* Regex.swift in Sources */,
 				AEA9F83A206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift in Sources */,
 				AEA9F838206CD82F000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift in Sources */,
 				AEF362A72058CB1F001A490D /* main.swift in Sources */,

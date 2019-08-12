@@ -280,6 +280,21 @@ extension Array{
         }
     }
     
+    mutating func mergeWithUnique(array:[Element],condition:((_ item:Element)->Int))  {
+        let a = self.map(condition)
+        let b = array.map(condition)
+        var c = [Int]()
+        for s in b{
+            if !a.contains(s){
+                c.append(s)
+            }
+        }
+        for s in array{
+            if c.contains(condition(s)){
+                self.append(s)
+            }
+        }
+    }
     
     mutating func removeAtIndexs(indexs:[Int])  {
         if indexs.count <= 0{

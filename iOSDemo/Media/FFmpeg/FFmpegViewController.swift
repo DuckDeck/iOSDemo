@@ -9,7 +9,7 @@
 import UIKit
 
 class FFmpegViewController: UIViewController {
-    var arrData = ["VideoBox硬解码","音频解编码"]
+    var arrData = ["VideoBox硬解码","Audio Queue 音频解编码"]
     var tbMenu = UITableView()
     
     override func loadView() {
