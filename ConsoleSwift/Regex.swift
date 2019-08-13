@@ -39,3 +39,15 @@ infix operator =~
 func =~(lhs:String,rhs:String) -> Bool{ //正则判断
     return regexTool(rhs).match(input: lhs)
 }
+
+
+class RegexTest {
+    func testRegex1() {
+        let res =  "😄🇮🇳" =~ "[\\ud83c\\udc00-\\ud83c\\udfff]|[\\ud83d\\udc00-\\ud83d\\udfff]|[\\u2600-\\u27ff]"
+        print("😄🇮🇳 =~ [\\ud83c\\udc00-\\ud83c\\udfff]|[\\ud83d\\udc00-\\ud83d\\udfff]|[\\u2600-\\u27ff] 结果是\(res)")
+    }
+    func testRegex2() {
+        let res =  "😄🇮🇳" =~ "[\\ud83c\\udc00-\\ud83c\\udfff]|[\\ud83d\\udc00-\\ud83d\\udfff]|[\\u2600-\\u27ff]"
+        print("😄🇮🇳 =~ [\\ud83c\\udc00-\\ud83c\\udfff]|[\\ud83d\\udc00-\\ud83d\\udfff]|[\\u2600-\\u27ff] 结果是\(res)")
+    }
+}

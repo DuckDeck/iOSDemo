@@ -41,7 +41,7 @@ import UIKit
  
  "😄😄😄😄dsfasdf" =~ "[\\ud83c\\udc00-\\ud83c\\udfff]|[\\ud83d\\udc00-\\ud83d\\udfff]|[\\u2600-\\u27ff]"
  "=dsfasdf" =~ "[\\ud83c\\udc00-\\ud83c\\udfff]|[\\ud83d\\udc00-\\ud83d\\udfff]|[\\u2600-\\u27ff]"
- 
+
  let s = "😤😄😄😄😄😄adfadfasfd".pregReplace(pattern: "[\\ud83c\\udc00-\\ud83c\\udfff]|[\\ud83d\\udc00-\\ud83d\\udfff]|[\\u2600-\\u27ff]", with: "")
  print(s)
  let REGEX_CELLPHONE = "^(0|86|17951)?1[0-9]{10}$"
