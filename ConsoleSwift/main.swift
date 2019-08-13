@@ -222,3 +222,8 @@ txt.enumerateSubstrings(in: t!, options: String.EnumerationOptions.bySentences) 
 
 
 
+RegexTest.testRegex1()
+RegexTest.testRegex2()
+RegexTest.testRegex3()
+RegexTest.testRegex4()
+RegexTest.testRegex5()

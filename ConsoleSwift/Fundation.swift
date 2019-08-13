@@ -6,6 +6,6 @@
 //  Copyright © 2019 Stan Hu. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 
