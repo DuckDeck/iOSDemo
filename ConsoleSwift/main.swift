@@ -227,3 +227,6 @@ RegexTest.testRegex2()
 RegexTest.testRegex3()
 RegexTest.testRegex4()
 RegexTest.testRegex5()
+
+//ThreadTest.ThreadName1()
+ThreadTest.ThreadName2()
