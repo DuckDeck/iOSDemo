@@ -48,7 +48,7 @@ class ThreadTest {
                 log()
             }
         }
-//        dispatchMain()
+        dispatchMain()
         //加上dispatchMain main thread: false 就变成false了 后面代码也不会执行了
         print(123123)
     }

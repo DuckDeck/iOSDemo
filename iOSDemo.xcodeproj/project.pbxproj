@@ -184,6 +184,7 @@
 		AE9011FD2248BCCA0020D400 /* ImageSetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9011FC2248BCCA0020D400 /* ImageSetListViewController.swift */; };
 		AE955C3520A2D39A0009EFFE /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE955C3420A2D39A0009EFFE /* VideoPlayViewController.swift */; };
 		AE95A0D420BBD2AE00C5AED6 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95A0D120BBD2AE00C5AED6 /* VolumeView.swift */; };
+		AE9776A42303E24400C2FA6A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = AE9776A32303E24400C2FA6A /* main.c */; };
 		AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D51F69070E00339BB8 /* AppDelegate.swift */; };
 		AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D71F69070E00339BB8 /* ViewController.swift */; };
 		AE9F31DD1F69070E00339BB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9F31DC1F69070E00339BB8 /* Assets.xcassets */; };
@@ -310,6 +311,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		AE97769F2303E24400C2FA6A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		AEA07F101F710D7E00FC9770 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -527,6 +537,8 @@
 		AE9011FC2248BCCA0020D400 /* ImageSetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSetListViewController.swift; sourceTree = "<group>"; };
 		AE955C3420A2D39A0009EFFE /* VideoPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayViewController.swift; sourceTree = "<group>"; };
 		AE95A0D120BBD2AE00C5AED6 /* VolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
+		AE9776A12303E24400C2FA6A /* ConsoleC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ConsoleC; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE9776A32303E24400C2FA6A /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9F31D51F69070E00339BB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE9F31D71F69070E00339BB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -808,6 +820,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AE97769E2303E24400C2FA6A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AE9F31CF1F69070E00339BB8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1559,6 +1578,14 @@
 			path = VideoPlay;
 			sourceTree = "<group>";
 		};
+		AE9776A22303E24400C2FA6A /* ConsoleC */ = {
+			isa = PBXGroup;
+			children = (
+				AE9776A32303E24400C2FA6A /* main.c */,
+			);
+			path = ConsoleC;
+			sourceTree = "<group>";
+		};
 		AE9F31C91F69070E00339BB8 = {
 			isa = PBXGroup;
 			children = (
@@ -1569,6 +1596,7 @@
 				AE9F31D41F69070E00339BB8 /* iOSDemo */,
 				AEA07F131F710D7E00FC9770 /* Console */,
 				AEF362A52058CB1F001A490D /* ConsoleSwift */,
+				AE9776A22303E24400C2FA6A /* ConsoleC */,
 				AE9F31D31F69070E00339BB8 /* Products */,
 				AE9F321B1F690DBF00339BB8 /* Frameworks */,
 				E69A95549E702E1CA0B857E9 /* Pods */,
@@ -1581,6 +1609,7 @@
 				AE9F31D21F69070E00339BB8 /* iOSDemo.app */,
 				AEA07F121F710D7E00FC9770 /* Console */,
 				AEF362A42058CB1F001A490D /* ConsoleSwift */,
+				AE9776A12303E24400C2FA6A /* ConsoleC */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2296,6 +2325,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AE9776A02303E24400C2FA6A /* ConsoleC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE9776A72303E24400C2FA6A /* Build configuration list for PBXNativeTarget "ConsoleC" */;
+			buildPhases = (
+				AE97769D2303E24400C2FA6A /* Sources */,
+				AE97769E2303E24400C2FA6A /* Frameworks */,
+				AE97769F2303E24400C2FA6A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ConsoleC;
+			productName = ConsoleC;
+			productReference = AE9776A12303E24400C2FA6A /* ConsoleC */;
+			productType = "com.apple.product-type.tool";
+		};
 		AE9F31D11F69070E00339BB8 /* iOSDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE9F31E41F69070E00339BB8 /* Build configuration list for PBXNativeTarget "iOSDemo" */;
@@ -2356,10 +2402,16 @@
 		AE9F31CA1F69070E00339BB8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Original;
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Stan Hu";
 				TargetAttributes = {
+					AE9776A02303E24400C2FA6A = {
+						CreatedOnToolsVersion = 10.3;
+						DevelopmentTeam = 3YCGH6CCXA;
+						ProvisioningStyle = Automatic;
+					};
 					AE9F31D11F69070E00339BB8 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 3YCGH6CCXA;
@@ -2394,6 +2446,7 @@
 				AE9F31D11F69070E00339BB8 /* iOSDemo */,
 				AEA07F111F710D7E00FC9770 /* Console */,
 				AEF362A32058CB1F001A490D /* ConsoleSwift */,
+				AE9776A02303E24400C2FA6A /* ConsoleC */,
 			);
 		};
 /* End PBXProject section */
@@ -2567,6 +2620,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AE97769D2303E24400C2FA6A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE9776A42303E24400C2FA6A /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AE9F31CE1F69070E00339BB8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2832,6 +2893,45 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AE9776A52303E24400C2FA6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3YCGH6CCXA;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AE9776A62303E24400C2FA6A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3YCGH6CCXA;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		AE9F31E21F69070E00339BB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3087,6 +3187,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AE9776A72303E24400C2FA6A /* Build configuration list for PBXNativeTarget "ConsoleC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE9776A52303E24400C2FA6A /* Debug */,
+				AE9776A62303E24400C2FA6A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AE9F31CD1F69070E00339BB8 /* Build configuration list for PBXProject "iOSDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
