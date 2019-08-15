@@ -185,6 +185,8 @@
 		AE955C3520A2D39A0009EFFE /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE955C3420A2D39A0009EFFE /* VideoPlayViewController.swift */; };
 		AE95A0D420BBD2AE00C5AED6 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95A0D120BBD2AE00C5AED6 /* VolumeView.swift */; };
 		AE9776A42303E24400C2FA6A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = AE9776A32303E24400C2FA6A /* main.c */; };
+		AE9776AA2303F2B600C2FA6A /* a.c in Sources */ = {isa = PBXBuildFile; fileRef = AE9776A92303F2B600C2FA6A /* a.c */; };
+		AE9776AC2303F2DC00C2FA6A /* b.c in Sources */ = {isa = PBXBuildFile; fileRef = AE9776AB2303F2DC00C2FA6A /* b.c */; };
 		AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D51F69070E00339BB8 /* AppDelegate.swift */; };
 		AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D71F69070E00339BB8 /* ViewController.swift */; };
 		AE9F31DD1F69070E00339BB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9F31DC1F69070E00339BB8 /* Assets.xcassets */; };
@@ -539,6 +541,8 @@
 		AE95A0D120BBD2AE00C5AED6 /* VolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
 		AE9776A12303E24400C2FA6A /* ConsoleC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ConsoleC; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9776A32303E24400C2FA6A /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		AE9776A92303F2B600C2FA6A /* a.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = a.c; sourceTree = "<group>"; };
+		AE9776AB2303F2DC00C2FA6A /* b.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = b.c; sourceTree = "<group>"; };
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9F31D51F69070E00339BB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE9F31D71F69070E00339BB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -1582,6 +1586,8 @@
 			isa = PBXGroup;
 			children = (
 				AE9776A32303E24400C2FA6A /* main.c */,
+				AE9776A92303F2B600C2FA6A /* a.c */,
+				AE9776AB2303F2DC00C2FA6A /* b.c */,
 			);
 			path = ConsoleC;
 			sourceTree = "<group>";
@@ -2624,7 +2630,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9776AC2303F2DC00C2FA6A /* b.c in Sources */,
 				AE9776A42303E24400C2FA6A /* main.c in Sources */,
+				AE9776AA2303F2B600C2FA6A /* a.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

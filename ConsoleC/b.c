@@ -7,3 +7,7 @@
 //
 
 #include <stdio.h>
+int global_var = 1;
+void func(int a){
+    global_var = a;
+}
