@@ -7,7 +7,7 @@ import UIKit
 //
 
 
-
+String(-20)
 
 
 let leaveWord = NSMutableAttributedString(string:  "留言: 民地地 asdlfk 地 进kasjdfk  al;sjf；lasd要工划顶起黑苹果机加工工要 工地工)")
@@ -17,4 +17,13 @@ leaveWord.addAttributes([NSAttributedString.Key.paragraphStyle:paraStyle], range
 let size = leaveWord.size()
 
 
+var zzz = [2,3,4,5,6,8]
+for z in zzz {
+    if z % 2 == 0{
+        zzz.removeAll { (item) -> Bool in
+            return item == z
+        }
+    }
+}
 
+print(zzz)

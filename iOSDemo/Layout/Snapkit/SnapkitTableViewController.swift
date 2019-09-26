@@ -12,6 +12,8 @@ class SnapkitTableViewController: UIViewController {
 
     let tb = UITableView()
     var arr = [Model1]()
+    let vHead = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "CELL 高度"
@@ -20,7 +22,10 @@ class SnapkitTableViewController: UIViewController {
         tb.snp.makeConstraints { (m) in
             m.edges.equalTo(view)
         }
-     
+        
+        vHead.backgroundColor = UIColor.yellow
+        vHead.frame = CGRect(x: 0, y: 0, w: ScreenWidth, h: 300)
+        
         tb.dataSource = self
         tb.delegate = self
         tb.register(SnapCell.self, forCellReuseIdentifier: "cell")
@@ -28,7 +33,8 @@ class SnapkitTableViewController: UIViewController {
         tb.tableFooterView = UIView()
         tb.separatorInset = UIEdgeInsets()
         tb.layoutMargins = UIEdgeInsets()
-//        tb.separatorStyle = .none
+        tb.tableHeaderView = vHead
+        //        tb.separatorStyle = .none
         //tb.rowHeight = UITableViewAutomaticDimension
         
 //        let barBtn = UIBarButtonItem(title: "add", style: .plain, target: self, action: #selector(addContent))
@@ -37,6 +43,8 @@ class SnapkitTableViewController: UIViewController {
 //    func addContent() {
 //
 //    }
+    
+    
 
     func createModel() {
         var m = Model1()
