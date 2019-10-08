@@ -27,3 +27,13 @@ for z in zzz {
 }
 
 print(zzz)
+
+
+
+let format = NumberFormatter()
+format.numberStyle = .decimal
+//format.maximumFractionDigits = 2
+format.minimumFractionDigits = 2
+var moneyStr = format.string(from: NSNumber(value: 100100.0/100.0))!
+
+

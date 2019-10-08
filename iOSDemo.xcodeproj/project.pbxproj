@@ -156,9 +156,9 @@
 		AE6691D720F49B3A00D019D4 /* PaletteColorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6691CE20F49B3A00D019D4 /* PaletteColorModel.m */; };
 		AE6691D820F49B3A00D019D4 /* PriorityBoxArray.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6691CF20F49B3A00D019D4 /* PriorityBoxArray.m */; };
 		AE6691D920F49B3A00D019D4 /* PaletteTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6691D020F49B3A00D019D4 /* PaletteTarget.m */; };
-		AE6691DA20F49B3A00D019D4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE6691D220F49B3A00D019D4 /* Info.plist */; };
 		AE6691DD20F49BD600D019D4 /* PaletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6691DC20F49BD600D019D4 /* PaletteViewController.swift */; };
 		AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */; };
+		AE6897FA234C6E7F001D0DF4 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = AE6897F9234C6E7F001D0DF4 /* UIImage+OpenCV.mm */; };
 		AE69C5A3222526AD004DC8AE /* lbpcascade_frontalface.xml in Resources */ = {isa = PBXBuildFile; fileRef = AE69C5A1222526AD004DC8AE /* lbpcascade_frontalface.xml */; };
 		AE69C5A4222526AD004DC8AE /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = AE69C5A2222526AD004DC8AE /* haarcascade_eye_tree_eyeglasses.xml */; };
 		AE69C5A9222533D1004DC8AE /* OpenCVImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69C5A8222533D1004DC8AE /* OpenCVImageRecognitionViewController.swift */; };
@@ -212,6 +212,7 @@
 		AEADFD472110031B00E6B58D /* FormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD462110031B00E6B58D /* FormTableViewController.swift */; };
 		AEADFD4921115BBE00E6B58D /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD4821115BBE00E6B58D /* UIButton+Extension.swift */; };
 		AEADFD4C2111601100E6B58D /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD4B2111601100E6B58D /* DemoViewController.swift */; };
+		AEB05083233C8FBA00BBFFB2 /* PorcessVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB05082233C8FBA00BBFFB2 /* PorcessVideoViewController.swift */; };
 		AEB6F55921997748005CA2BE /* Hydron.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55721997748005CA2BE /* Hydron.m */; };
 		AEB6F55C21997777005CA2BE /* HydronForward.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55B21997777005CA2BE /* HydronForward.m */; };
 		AEB6F560219AB52C005CA2BE /* CFDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55F219AB52C005CA2BE /* CFDemo.m */; };
@@ -508,9 +509,11 @@
 		AE6691CF20F49B3A00D019D4 /* PriorityBoxArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriorityBoxArray.m; sourceTree = "<group>"; };
 		AE6691D020F49B3A00D019D4 /* PaletteTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaletteTarget.m; sourceTree = "<group>"; };
 		AE6691D120F49B3A00D019D4 /* UIImage+Palette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Palette.h"; sourceTree = "<group>"; };
-		AE6691D220F49B3A00D019D4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE6691DC20F49BD600D019D4 /* PaletteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteViewController.swift; sourceTree = "<group>"; };
 		AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterViewController.swift; sourceTree = "<group>"; };
+		AE6897F8234C6E7F001D0DF4 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		AE6897F9234C6E7F001D0DF4 /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		AE6897FB234C73F6001D0DF4 /* iOSDemo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOSDemo.pch; sourceTree = "<group>"; };
 		AE69C5A1222526AD004DC8AE /* lbpcascade_frontalface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = lbpcascade_frontalface.xml; sourceTree = "<group>"; };
 		AE69C5A2222526AD004DC8AE /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
 		AE69C5A8222533D1004DC8AE /* OpenCVImageRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCVImageRecognitionViewController.swift; sourceTree = "<group>"; };
@@ -584,6 +587,8 @@
 		AEADFD462110031B00E6B58D /* FormTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTableViewController.swift; sourceTree = "<group>"; };
 		AEADFD4821115BBE00E6B58D /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		AEADFD4B2111601100E6B58D /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		AEB05081233C8AC700BBFFB2 /* cxk.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cxk.mp4; sourceTree = "<group>"; };
+		AEB05082233C8FBA00BBFFB2 /* PorcessVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorcessVideoViewController.swift; sourceTree = "<group>"; };
 		AEB6F55721997748005CA2BE /* Hydron.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hydron.m; sourceTree = "<group>"; };
 		AEB6F55821997748005CA2BE /* Hydron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hydron.h; sourceTree = "<group>"; };
 		AEB6F55A21997777005CA2BE /* HydronForward.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HydronForward.h; sourceTree = "<group>"; };
@@ -1252,6 +1257,7 @@
 			isa = PBXGroup;
 			children = (
 				AE4EA75B218072580061FA84 /* opencvViewController.swift */,
+				AEB05082233C8FBA00BBFFB2 /* PorcessVideoViewController.swift */,
 			);
 			path = opencv;
 			sourceTree = "<group>";
@@ -1416,7 +1422,6 @@
 			children = (
 				AE6691C120F49B3A00D019D4 /* iOSPalette.h */,
 				AE6691C220F49B3A00D019D4 /* Source */,
-				AE6691D220F49B3A00D019D4 /* Info.plist */,
 			);
 			path = Palette;
 			sourceTree = "<group>";
@@ -1641,6 +1646,7 @@
 				AE9F31DE1F69070E00339BB8 /* LaunchScreen.storyboard */,
 				AE9F31E11F69070E00339BB8 /* Info.plist */,
 				AEA07F031F7102B900FC9770 /* bridge.h */,
+				AE6897FB234C73F6001D0DF4 /* iOSDemo.pch */,
 			);
 			path = iOSDemo;
 			sourceTree = "<group>";
@@ -1755,6 +1761,8 @@
 				AE1AC74F20CF6FB40002F779 /* UICollectView+Extension.swift */,
 				AEADFD4821115BBE00E6B58D /* UIButton+Extension.swift */,
 				AE4DA62C214B9BB900FCC7FD /* UIViewController+Extension.swift */,
+				AE6897F8234C6E7F001D0DF4 /* UIImage+OpenCV.h */,
+				AE6897F9234C6E7F001D0DF4 /* UIImage+OpenCV.mm */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2278,6 +2286,7 @@
 		AEF4A45E1F6FCAEF00EE4001 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				AEB05081233C8AC700BBFFB2 /* cxk.mp4 */,
 				AEB9572B22D48BEC00C71372 /* test.mp4 */,
 				AEBA80E820BFD24100F6A323 /* gif0.gif */,
 				AEF4A45F1F6FCAF800EE4001 /* novel1.gif */,
@@ -2486,7 +2495,6 @@
 				AE1DE0892099BE0A007910A5 /* p_17.png in Resources */,
 				AE1DE0952099BE0A007910A5 /* gu.mp3 in Resources */,
 				AEF4A4621F6FCB5B00EE4001 /* novel2.gif in Resources */,
-				AE6691DA20F49B3A00D019D4 /* Info.plist in Resources */,
 				AE1DE0832099BE0A007910A5 /* p_10.png in Resources */,
 				AE1DE07D2099BE0A007910A5 /* bubble.jpg in Resources */,
 				AE1DE0862099BE0A007910A5 /* start_down.png in Resources */,
@@ -2681,6 +2689,7 @@
 				AEADFD4921115BBE00E6B58D /* UIButton+Extension.swift in Sources */,
 				AEDF8C4D209AF61F00EED6D1 /* VideoListViewController.swift in Sources */,
 				AEA9F835206A2A62000E7748 /* HttpClient.swift in Sources */,
+				AEB05083233C8FBA00BBFFB2 /* PorcessVideoViewController.swift in Sources */,
 				AE5A88701FF3768100748F6A /* ThreadViewController.swift in Sources */,
 				AEBA80E720BFCAF800F6A323 /* GifViewController.swift in Sources */,
 				AEB7D09C225DD45B008C899E /* DynamicMitoViewController.swift in Sources */,
@@ -2689,6 +2698,7 @@
 				AE5CE7DB208B133C001DB437 /* RecordListViewController.swift in Sources */,
 				AEF097812065EE650021E4ED /* LogInfo.swift in Sources */,
 				AEB9573E22E0435600C71372 /* AudioFileHandler.m in Sources */,
+				AE6897FA234C6E7F001D0DF4 /* UIImage+OpenCV.mm in Sources */,
 				AE0F709C1FBEB9CE00C8135C /* Trace.swift in Sources */,
 				AE1DE0792099BE0A007910A5 /* BaseBoard.swift in Sources */,
 				AEB9572A22D48A4700C71372 /* FFmpegViewController.swift in Sources */,
@@ -2949,7 +2959,7 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -3008,7 +3018,7 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;

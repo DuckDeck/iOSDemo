@@ -12,7 +12,7 @@ import SnapKit
 class MediaViewController: UIViewController {
 
     var arrData = ["CaptureVideo","Play Music","Add Watermark","Record Audio","Record Video","Take Photo",
-                   "Gif","Palette","Compress Image","Push Live","Pull Live","opencv","ffmpeg"]
+                   "Gif","Palette","Compress Image","Push Live","Pull Live","OpenCV Test","ffmpeg"]
     var tbMenu = UITableView()
     
     override func loadView() {

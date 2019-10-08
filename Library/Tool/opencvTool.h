@@ -5,7 +5,12 @@
 //  Created by Stan Hu on 2018/10/24.
 //  Copyright © 2018 Stan Hu. All rights reserved.
 //
-
+#ifdef __cplusplus
+#import <opencv2/opencv.hpp>
+#import <opencv2/imgcodecs/ios.h>
+#import <opencv2/video/video.hpp>
+#import <opencv2/highgui/highgui_c.h>
+#endif
 #import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
 

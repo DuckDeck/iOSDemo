@@ -5,10 +5,9 @@
 //  Created by Stan Hu on 2018/10/24.
 //  Copyright © 2018 Stan Hu. All rights reserved.
 //
-#import <opencv2/opencv.hpp>
-#import <opencv2/imgcodecs/ios.h>
-#import "opencvTool.h"
 
+#import "opencvTool.h"
+using namespace cv;
 @interface opencvTool ()
 
 @end
@@ -24,6 +23,8 @@
     cv::threshold(gray, bin, 0, 255, cv::THRESH_BINARY | cv::THRESH_OTSU);
     UIImage *binImg = MatToUIImage(bin);
     return binImg;
+    
+   
 }
 
 + (UIImage *)imageWithColor:(UIColor *)rectColor size:(CGSize)size rectArray:(NSArray *)rectArray{
