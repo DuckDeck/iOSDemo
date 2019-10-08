@@ -9,69 +9,62 @@
 import UIKit
 import AVFoundation
 class opencvViewController: UIViewController {
-
-    let session = AVCaptureSession()
-    var previewImage : UIImage?
-    let imgView = UIImageView()
+    var arrData = ["OpenCVDemo","视频处理"]
+    var tbMenu = UITableView()
+    
+    override func loadView() {
+        super.loadView()
+        print("New ViewController LoadView")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imgView.addTo(view: view).snp.makeConstraints { (m) in
-            m.edges.equalTo(view)
-        }
-        startLiveVideo()
-        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(setPreviewImage), userInfo: nil, repeats: true)
-        
-    }
-    
-    func startLiveVideo()  {
-        session.sessionPreset = AVCaptureSession.Preset.photo
-        guard let captureDevice = AVCaptureDevice.default(for: AVMediaType.video) else{
-            return
+        view.backgroundColor = UIColor.white
+        tbMenu.dataSource = self
+        tbMenu.delegate = self
+        tbMenu.dataSource = self
+        tbMenu.delegate = self
+        tbMenu.tableFooterView = UIView()
+        view.addSubview(tbMenu)
+        tbMenu.snp.makeConstraints { (m) in
+            m.edges.equalTo(0)
         }
         
-        let deviceInput = try! AVCaptureDeviceInput(device: captureDevice)
-        let deviceOutput = AVCaptureVideoDataOutput()
-        deviceOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String:kCVPixelFormatType_32BGRA]
-        deviceOutput.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .default))
-        session.addInput(deviceInput)
-        session.addOutput(deviceOutput)
-        session.startRunning()
+        print("New ViewController viewDidLoad")
     }
     
-    func updatePreviewImage(sampleBuffer:CMSampleBuffer)  {
-        guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else{
-            return
-        }
-        let ciimage = CIImage(cvImageBuffer: imageBuffer)
-        previewImage = convertCIImageToUIImage(cimage: ciimage)
-    }
-
-    func convertCIImageToUIImage(cimage:CIImage) -> UIImage? {
-        let context = CIContext(options: nil)
-        guard let cgImage = context.createCGImage(cimage, from: cimage.extent) else{
-            return nil
-        }
-        let image = UIImage(cgImage: cgImage, scale: 1, orientation: UIImage.Orientation.right)
-        return image
-    }
     
-    @objc func setPreviewImage()  {
-        if previewImage == nil{
-            return
-        }
-        let image = opencvTool.getBinaryImage(previewImage!)
-        imgView.image = image
-    }
+   
 }
 
-extension opencvViewController:AVCaptureVideoDataOutputSampleBufferDelegate{
-    func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
+extension opencvViewController:UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrData.count
     }
     
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        connection.videoOrientation = AVCaptureVideoOrientation.portrait
-        updatePreviewImage(sampleBuffer: sampleBuffer)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        if cell == nil{
+            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        }
+        cell?.textLabel?.text = arrData[indexPath.row]
+        return cell!
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.row {
+        case 0:
+            navigationController?.pushViewController(OpenCVDemoViewController(), animated: true)
+        case 1:
+            navigationController?.pushViewController(PorcessVideoViewController(), animated: true)
+
+        case 2:
+            break
+        case 3:
+           break
+       
+        default:
+            break
+        }
     }
 }

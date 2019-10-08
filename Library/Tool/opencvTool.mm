@@ -23,7 +23,28 @@ using namespace cv;
     cv::threshold(gray, bin, 0, 255, cv::THRESH_BINARY | cv::THRESH_OTSU);
     UIImage *binImg = MatToUIImage(bin);
     return binImg;
-    
+}
+
++(void)getVideoImage:(NSString *)path image:(imageFrame) imageFrame{
+    VideoCapture  cap ;
+    double fps = 24;
+    int frame_num = 0;
+//    NSString* path = [[ mainBundle] pathForResource:@"cxk" ofType:@"mp4"];
+    if(cap.open(std::string(path.UTF8String))){
+        NSLog(@"Open");
+        fps = cap.get(CV_CAP_PROP_FPS);
+        frame_num = cap.get(CAP_PROP_FRAME_COUNT);
+        Mat frame;
+        while(cap.read(frame)){
+            NSLog(@"process frame");
+            UIImage *binImg = MatToUIImage(frame);
+            imageFrame(binImg);
+        }
+        cap.release();
+    }
+    else{
+        NSLog(@"failed to open");
+    }
    
 }
 

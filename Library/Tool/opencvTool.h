@@ -14,11 +14,14 @@
 #import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
 
+
+typedef  void (^imageFrame)(UIImage *);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface opencvTool : NSObject
 +(UIImage *)getBinaryImage:(UIImage *)image;
-
++(void)getVideoImage:(NSString *)path image:(imageFrame) imageFrame;
 /**
  生成一张用矩形框标记目标的图片
  

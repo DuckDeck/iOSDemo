@@ -159,6 +159,8 @@
 		AE6691DD20F49BD600D019D4 /* PaletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6691DC20F49BD600D019D4 /* PaletteViewController.swift */; };
 		AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE67CDF61FC2B7C100AE4CD6 /* EmitterViewController.swift */; };
 		AE6897FA234C6E7F001D0DF4 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = AE6897F9234C6E7F001D0DF4 /* UIImage+OpenCV.mm */; };
+		AE6897FD234C7A1D001D0DF4 /* OpenCVDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6897FC234C7A1D001D0DF4 /* OpenCVDemoViewController.swift */; };
+		AE6897FE234C7C39001D0DF4 /* cxk.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AEB05081233C8AC700BBFFB2 /* cxk.mp4 */; };
 		AE69C5A3222526AD004DC8AE /* lbpcascade_frontalface.xml in Resources */ = {isa = PBXBuildFile; fileRef = AE69C5A1222526AD004DC8AE /* lbpcascade_frontalface.xml */; };
 		AE69C5A4222526AD004DC8AE /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = AE69C5A2222526AD004DC8AE /* haarcascade_eye_tree_eyeglasses.xml */; };
 		AE69C5A9222533D1004DC8AE /* OpenCVImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69C5A8222533D1004DC8AE /* OpenCVImageRecognitionViewController.swift */; };
@@ -514,6 +516,7 @@
 		AE6897F8234C6E7F001D0DF4 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
 		AE6897F9234C6E7F001D0DF4 /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
 		AE6897FB234C73F6001D0DF4 /* iOSDemo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOSDemo.pch; sourceTree = "<group>"; };
+		AE6897FC234C7A1D001D0DF4 /* OpenCVDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCVDemoViewController.swift; sourceTree = "<group>"; };
 		AE69C5A1222526AD004DC8AE /* lbpcascade_frontalface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = lbpcascade_frontalface.xml; sourceTree = "<group>"; };
 		AE69C5A2222526AD004DC8AE /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
 		AE69C5A8222533D1004DC8AE /* OpenCVImageRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCVImageRecognitionViewController.swift; sourceTree = "<group>"; };
@@ -1258,6 +1261,7 @@
 			children = (
 				AE4EA75B218072580061FA84 /* opencvViewController.swift */,
 				AEB05082233C8FBA00BBFFB2 /* PorcessVideoViewController.swift */,
+				AE6897FC234C7A1D001D0DF4 /* OpenCVDemoViewController.swift */,
 			);
 			path = opencv;
 			sourceTree = "<group>";
@@ -2471,6 +2475,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE6897FE234C7C39001D0DF4 /* cxk.mp4 in Resources */,
 				AEB9572C22D48BF600C71372 /* test.mp4 in Resources */,
 				AE1DE0902099BE0A007910A5 /* p_2.png in Resources */,
 				AEBE40501FC8075C0087D7ED /* city.json in Resources */,
@@ -2661,6 +2666,7 @@
 				AE0F70861FBE861A00C8135C /* SliderDemoViewController.swift in Sources */,
 				AEB9573522D888F500C71372 /* SortFrameHandler.m in Sources */,
 				AEBE404D1FC806E40087D7ED /* CityDB.swift in Sources */,
+				AE6897FD234C7A1D001D0DF4 /* OpenCVDemoViewController.swift in Sources */,
 				AEB7D0A222602760008C899E /* MitoSearchViewController.swift in Sources */,
 				AEADFD41210EBCE100E6B58D /* CompressImageViewController.swift in Sources */,
 				AEBE40561FC80A930087D7ED /* CitySearchResultView.swift in Sources */,
