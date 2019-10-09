@@ -13,7 +13,8 @@ using namespace cv;
 @end
 
 @implementation opencvTool
-
+static VideoCapture  cap;
+static NSString* currentPath;
 +(UIImage*)getBinaryImage:(UIImage *)image{
     cv::Mat mat;
     UIImageToMat(image, mat);
@@ -25,27 +26,36 @@ using namespace cv;
     return binImg;
 }
 
-+(void)getVideoImage:(NSString *)path image:(imageFrame) imageFrame{
-    VideoCapture  cap ;
-    double fps = 24;
-    int frame_num = 0;
-//    NSString* path = [[ mainBundle] pathForResource:@"cxk" ofType:@"mp4"];
-    if(cap.open(std::string(path.UTF8String))){
-        NSLog(@"Open");
-        fps = cap.get(CV_CAP_PROP_FPS);
-        frame_num = cap.get(CAP_PROP_FRAME_COUNT);
-        Mat frame;
-        while(cap.read(frame)){
-            NSLog(@"process frame");
-            UIImage *binImg = MatToUIImage(frame);
-            imageFrame(binImg);
++(NSArray *)getVideoImage:(NSString *)path{
+    
+    if (![path isEqualToString:currentPath] && !cap.isOpened()){
+        currentPath = path;
+        cap.open(std::string(path.UTF8String));
+    }
+    if (cap.isOpened()){
+        Mat originFrame, frame;
+        if(cap.read(frame)){
+            frame.copyTo(originFrame);
+            cvtColor(frame, frame, CV_RGB2GRAY);
+            GaussianBlur(frame, frame, cv::Size(5,5), 0);
+            adaptiveThreshold(frame, frame, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 5, 2);
+            GaussianBlur(frame, frame, cv::Size(5,5), 0);
+            threshold(frame, frame, 200, 255, THRESH_BINARY);
+            bitwise_not(frame, frame);
+            Mat ken = getStructuringElement(MORPH_RECT, cv::Size(3,3));
+            morphologyEx(frame, frame, MORPH_OPEN, ken);
+            ken.release();
+            bitwise_not(frame, frame);
+            GaussianBlur(frame, frame, cv::Size(5,5), 0);
+            
+            return @[MatToUIImage(originFrame),MatToUIImage(frame)];
         }
-        cap.release();
+        else{
+            cap.release();
+        }
+       
     }
-    else{
-        NSLog(@"failed to open");
-    }
-   
+    return NULL;
 }
 
 + (UIImage *)imageWithColor:(UIColor *)rectColor size:(CGSize)size rectArray:(NSArray *)rectArray{
