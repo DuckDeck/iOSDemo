@@ -71,5 +71,5 @@ fastlane/test_output
 *.DS_Store
 framework
 ffmpeg_ios
-.mp4
+*.mp4
 
