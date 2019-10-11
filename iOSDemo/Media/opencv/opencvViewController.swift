@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 class opencvViewController: UIViewController {
-    var arrData = ["OpenCVDemo","视频处理"]
+    var arrData = ["OpenCVDemo","视频处理蔡徐坤"]
     var tbMenu = UITableView()
     
     override func loadView() {
