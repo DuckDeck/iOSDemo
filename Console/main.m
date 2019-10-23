@@ -128,9 +128,18 @@ int main(int argc, const char * argv[]) {
         NSLog(@"%@---%@",p1,p2);
         NSLog(@"%@",p.address);
         */
-        
-        [CategoryDemo cls_method1];
        
+        /*
+        [CategoryDemo cls_method1];
+       */
+        
+        
+        
+        
+        
+        
+        
+        
     }
     return 0;
 }

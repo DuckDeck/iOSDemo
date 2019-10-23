@@ -9,7 +9,9 @@
 #import "MessageSend.h"
 
 @implementation MessageSend
-
+-(void)test{
+    NSLog(@"show test");
+}
 @end
 
 @implementation Person

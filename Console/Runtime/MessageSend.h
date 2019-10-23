@@ -11,11 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MessageSend : NSObject
-
+-(void)test;
 @end
 
 NS_ASSUME_NONNULL_END
 
 @interface Person : NSObject
-@property (nonatomic, strong) name;
+@property (nonatomic, strong) NSString* _Nullable name;
 @end
