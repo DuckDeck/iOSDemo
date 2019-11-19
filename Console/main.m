@@ -19,6 +19,7 @@
 #import "Lock.h"
 #import "AboutKVC.h"
 #import "CategoryDemo.h"
+#import "Block/BlockChain.h"
 @interface Father : NSObject
 @property (nonatomic,copy) NSString* name;
 @property (nonatomic,copy) NSString* address;
@@ -136,9 +137,14 @@ int main(int argc, const char * argv[]) {
         
         
         
+        //Block 相关
         
-        
-        
+        BlockChain* chain = [BlockChain new];
+        [[chain chain1] chain2];
+     
+        chain.chain1.chain2; //因为这些方法没有参数，所以可以用.语法，就相当于get方法，其实就是属性了。如果加了参数不能这么写了
+        chain.chain1.chain3(@"这下调用了chain3的block");
+        //chain3本身不能传入参数，但是它返回一个block，而这个block是可以传参数的，所以可以直接用()传参数
         
     }
     return 0;

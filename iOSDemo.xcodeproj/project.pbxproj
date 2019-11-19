@@ -286,6 +286,7 @@
 		AEDF8C4B209AF61B00EED6D1 /* CVFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF8C4A209AF61A00EED6D1 /* CVFileManager.swift */; };
 		AEDF8C4D209AF61F00EED6D1 /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF8C4C209AF61F00EED6D1 /* VideoListViewController.swift */; };
 		AEEB5C6421914B5F006E1CC3 /* ffmpegTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AE436FB52181A9F600EFB7DE /* ffmpegTool.m */; };
+		AEEB7F0D2383886700904FDD /* BlockChain.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEB7F0C2383886700904FDD /* BlockChain.m */; };
 		AEEE485E215CC61B003C9943 /* PointLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE485D215CC61B003C9943 /* PointLockViewController.swift */; };
 		AEEE4860215CC631003C9943 /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE485F215CC631003C9943 /* LockView.swift */; };
 		AEF0977D2064EFFF0021E4ED /* LogTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF0977C2064EFFF0021E4ED /* LogTool.swift */; };
@@ -797,6 +798,8 @@
 		AEDF8C48209AF5F700EED6D1 /* VideoRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRecordViewController.swift; sourceTree = "<group>"; };
 		AEDF8C4A209AF61A00EED6D1 /* CVFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVFileManager.swift; sourceTree = "<group>"; };
 		AEDF8C4C209AF61F00EED6D1 /* VideoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
+		AEEB7F0B2383886700904FDD /* BlockChain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockChain.h; sourceTree = "<group>"; };
+		AEEB7F0C2383886700904FDD /* BlockChain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockChain.m; sourceTree = "<group>"; };
 		AEEE485D215CC61B003C9943 /* PointLockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointLockViewController.swift; sourceTree = "<group>"; };
 		AEEE485F215CC631003C9943 /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 		AEF0977C2064EFFF0021E4ED /* LogTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTool.swift; sourceTree = "<group>"; };
@@ -983,6 +986,8 @@
 			isa = PBXGroup;
 			children = (
 				AE1344D9209068C7009A210D /* block相关.m */,
+				AEEB7F0B2383886700904FDD /* BlockChain.h */,
+				AEEB7F0C2383886700904FDD /* BlockChain.m */,
 			);
 			path = Block;
 			sourceTree = "<group>";
@@ -2882,6 +2887,7 @@
 				AE3795222238E417009292DE /* AboutKVC.m in Sources */,
 				F6C59D4C219AF68100825BBA /* SelDemo.m in Sources */,
 				AE44D5CB21B511E900D3560E /* Lock.m in Sources */,
+				AEEB7F0D2383886700904FDD /* BlockChain.m in Sources */,
 				AEB6F55C21997777005CA2BE /* HydronForward.m in Sources */,
 				AE82B1CD200F3A55004D0ECE /* Test.m in Sources */,
 				AEB6F569219C206E005CA2BE /* ConcurrentProcessor.m in Sources */,
