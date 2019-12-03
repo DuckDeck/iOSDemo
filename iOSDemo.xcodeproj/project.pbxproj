@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		710169C7FA45F8C13052BF93 /* Pods_iOSDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51738191F790645B96247B2 /* Pods_iOSDemo.framework */; };
+		AE00644E23960A3000B7C9E4 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = AE00644C23960A3000B7C9E4 /* fishhook.c */; };
+		AE00644F23960A5100B7C9E4 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = AE00644C23960A3000B7C9E4 /* fishhook.c */; };
 		AE00722520906B770093B478 /* GCD.m in Sources */ = {isa = PBXBuildFile; fileRef = AE00722420906B770093B478 /* GCD.m */; };
 		AE0F702D1FBA90A500C8135C /* RequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70291FBA90A500C8135C /* RequestInfo.swift */; };
 		AE0F702E1FBA90A500C8135C /* RequestDataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F702A1FBA90A500C8135C /* RequestDataInfo.swift */; };
@@ -350,6 +352,8 @@
 /* Begin PBXFileReference section */
 		28B60C39949FCFA9633560E3 /* Pods-iOSDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDemo/Pods-iOSDemo.release.xcconfig"; sourceTree = "<group>"; };
 		35FB199CD271C8888EE6FEA4 /* Pods-iOSDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDemo/Pods-iOSDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		AE00644C23960A3000B7C9E4 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		AE00644D23960A3000B7C9E4 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
 		AE00722320906B770093B478 /* GCD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
 		AE00722420906B770093B478 /* GCD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCD.m; sourceTree = "<group>"; };
 		AE00CB931F95FF1500AE2190 /* MJRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MJRefresh.framework; path = Carthage/Build/iOS/MJRefresh.framework; sourceTree = "<group>"; };
@@ -898,6 +902,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE00644B23960A2900B7C9E4 /* FishHook */ = {
+			isa = PBXGroup;
+			children = (
+				AE00644C23960A3000B7C9E4 /* fishhook.c */,
+				AE00644D23960A3000B7C9E4 /* fishhook.h */,
+			);
+			path = FishHook;
+			sourceTree = "<group>";
+		};
 		AE00722220906B5C0093B478 /* Thread */ = {
 			isa = PBXGroup;
 			children = (
@@ -1713,6 +1726,7 @@
 		AE9F32311F690F1B00339BB8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				AE00644B23960A2900B7C9E4 /* FishHook */,
 				AE6691C020F49B3A00D019D4 /* Palette */,
 				AE1AC80420D25F3B0002F779 /* Media */,
 				AEBA80D320BD509500F6A323 /* Lame */,
@@ -2769,6 +2783,7 @@
 				AE83BD711FDE72BF001882D1 /* ImageRotationViewController.swift in Sources */,
 				AE3F46EE20AC0300007BA637 /* UIColor+Extension.swift in Sources */,
 				AEB9574622E0649900C71372 /* AudioDecoderViewController.swift in Sources */,
+				AE00644F23960A5100B7C9E4 /* fishhook.c in Sources */,
 				AE5AD8BF225355D100BD7EE9 /* ImageBrowserViewController.swift in Sources */,
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
 				AE5A88721FF37AA800748F6A /* Semaphore.swift in Sources */,
@@ -2885,6 +2900,7 @@
 				AE111ED7235EAB4300AB869F /* MessageSend.m in Sources */,
 				AEB6F566219BC708005CA2BE /* AspectProxy.m in Sources */,
 				AE3795222238E417009292DE /* AboutKVC.m in Sources */,
+				AE00644E23960A3000B7C9E4 /* fishhook.c in Sources */,
 				F6C59D4C219AF68100825BBA /* SelDemo.m in Sources */,
 				AE44D5CB21B511E900D3560E /* Lock.m in Sources */,
 				AEEB7F0D2383886700904FDD /* BlockChain.m in Sources */,

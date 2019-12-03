@@ -20,6 +20,7 @@
 #import "AboutKVC.h"
 #import "CategoryDemo.h"
 #import "Block/BlockChain.h"
+#import "fishhook.h"
 @interface Father : NSObject
 @property (nonatomic,copy) NSString* name;
 @property (nonatomic,copy) NSString* address;
@@ -45,6 +46,11 @@
 @end
 
 
+static void (*sys_nslog)(NSString *format, ...);
+void myNSLog(NSString *format, ...){
+    format = [format stringByAppendingString:@"\n fishhook 起作用了"];
+    sys_nslog(format);
+}
 
 
 
@@ -138,13 +144,29 @@ int main(int argc, const char * argv[]) {
         
         
         //Block 相关
-        
+        /*
         BlockChain* chain = [BlockChain new];
         [[chain chain1] chain2];
      
         chain.chain1.chain2; //因为这些方法没有参数，所以可以用.语法，就相当于get方法，其实就是属性了。如果加了参数不能这么写了
         chain.chain1.chain3(@"这下调用了chain3的block");
         //chain3本身不能传入参数，但是它返回一个block，而这个block是可以传参数的，所以可以直接用()传参数
+        */
+        
+        
+        
+        
+        
+        
+        //fishhook
+        struct rebinding nslog;
+        nslog.name = "NSLog";
+        nslog.replacement = myNSLog;  //函数的名称就是函数的指针
+        nslog.replaced = (void *)&sys_nslog; //拿到函数的指针地址以修改其指向的内容
+        struct rebinding rebs[1] = {nslog};
+        rebind_symbols(rebs, 1);
+        
+        NSLog(@"123123");
         
     }
     return 0;
