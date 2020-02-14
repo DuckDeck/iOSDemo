@@ -1,5 +1,10 @@
 # iOSDemo
 
+使用代理clone 
+
+git config --global http.https://github.com.proxy socks5://127.0.0.1:1086
+git config --global https.https://github.com.proxy socks5://127.0.0.1:1086
+
 更新swift 4.2支持
 
 因为我添加了FFMpeg和Opencv所以这个项目现在跑不起来。需要去
