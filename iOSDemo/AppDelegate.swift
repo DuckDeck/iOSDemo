@@ -22,10 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NFX.sharedInstance().start()
         IQKeyboardManager.shared.enable = true
         AMapServices.shared().apiKey = "168eb4f17d4999c78757b84b7012a0cf"
-        ffmpegTool.initProject()
-        
-        
-      
         
         return true
     }
