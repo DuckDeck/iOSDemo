@@ -8,7 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
-import netfox
+//import netfox
 //import KTVHTTPCache
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootNavigationController = UINavigationController(rootViewController: mainViewController)
         window?.rootViewController = rootNavigationController
         window?.makeKeyAndVisible()
-        NFX.sharedInstance().start()
+//        NFX.sharedInstance().start()
         IQKeyboardManager.shared.enable = true
         AMapServices.shared().apiKey = "168eb4f17d4999c78757b84b7012a0cf"
         if #available(iOS 13.0, *) {
