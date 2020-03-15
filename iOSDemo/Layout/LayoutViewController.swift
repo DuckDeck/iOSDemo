@@ -66,6 +66,4 @@ extension LayoutViewController:UITableViewDelegate,UITableViewDataSource{
             break
         }
     }
-  
-
 }
