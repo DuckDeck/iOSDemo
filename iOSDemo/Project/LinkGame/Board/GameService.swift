@@ -23,7 +23,7 @@ class GameService {
     func hasPieces() -> Bool{
         for i in 0..<pieces!.count{
             for j in 0..<pieces![i].count{
-                var a = pieces![i]
+                let a = pieces![i]
                 let b = a[j]
                 if b != nil{
                     return true

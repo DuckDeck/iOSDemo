@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -257,6 +257,7 @@
 		AEDF8C49209AF5F700EED6D1 /* VideoRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF8C48209AF5F700EED6D1 /* VideoRecordViewController.swift */; };
 		AEDF8C4B209AF61B00EED6D1 /* CVFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF8C4A209AF61A00EED6D1 /* CVFileManager.swift */; };
 		AEDF8C4D209AF61F00EED6D1 /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF8C4C209AF61F00EED6D1 /* VideoListViewController.swift */; };
+		AEE3130B241F772400C32768 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AEE3130A241F772400C32768 /* SnapKit */; };
 		AEEB7F0D2383886700904FDD /* BlockChain.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEB7F0C2383886700904FDD /* BlockChain.m */; };
 		AEEE485E215CC61B003C9943 /* PointLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE485D215CC61B003C9943 /* PointLockViewController.swift */; };
 		AEEE4860215CC631003C9943 /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE485F215CC631003C9943 /* LockView.swift */; };
@@ -669,6 +670,7 @@
 				AEF5E8F92282B7DE0071B38A /* MediaPlayer.framework in Frameworks */,
 				AEF5E8F72282B7D40071B38A /* MobileCoreServices.framework in Frameworks */,
 				AEF5E8F52282B7CA0071B38A /* VideoToolbox.framework in Frameworks */,
+				AEE3130B241F772400C32768 /* SnapKit in Frameworks */,
 				AEF5E8F32282AF540071B38A /* OpenGLES.framework in Frameworks */,
 				AEF5E8F12282AF4D0071B38A /* QuartzCore.framework in Frameworks */,
 				AE4EA75321806C3F0061FA84 /* CoreVideo.framework in Frameworks */,
@@ -1888,6 +1890,9 @@
 			dependencies = (
 			);
 			name = iOSDemo;
+			packageProductDependencies = (
+				AEE3130A241F772400C32768 /* SnapKit */,
+			);
 			productName = iOSDemo;
 			productReference = AE9F31D21F69070E00339BB8 /* iOSDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -1969,6 +1974,9 @@
 				Base,
 			);
 			mainGroup = AE9F31C91F69070E00339BB8;
+			packageReferences = (
+				AEE31309241F772400C32768 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = AE9F31D31F69070E00339BB8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2528,7 +2536,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -2558,7 +2567,10 @@
 				);
 				INFOPLIST_FILE = iOSDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Lame",
@@ -2602,7 +2614,10 @@
 				);
 				INFOPLIST_FILE = iOSDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Lame",
@@ -2725,6 +2740,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AEE31309241F772400C32768 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AEE3130A241F772400C32768 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEE31309241F772400C32768 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AE9F31CA1F69070E00339BB8 /* Project object */;
 }

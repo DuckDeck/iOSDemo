@@ -12,7 +12,6 @@ target 'iOSDemo' do
 pod "SwiftyJSON"
 pod "Alamofire"
 pod "IQKeyboardManagerSwift"
-pod "SnapKit"
 pod "WSProgressHUD"
 pod "MJRefresh"
 pod "GrandStore"

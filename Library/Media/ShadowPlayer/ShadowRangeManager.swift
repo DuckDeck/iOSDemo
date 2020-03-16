@@ -34,7 +34,7 @@ class ShadowRangeManager {
         }
         else{
               //先处理loadingRequest和本地缓存有交集的部分
-            var cachedInfoArray = [ShadowRangeInfo]()
+            let cachedInfoArray = [ShadowRangeInfo]()
             for (_,value) in cachedRangeArray!.enumerated(){
                 let intersectionRange = NSIntersectionRange(value, requestRange)
                 if intersectionRange.length > 0{
