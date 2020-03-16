@@ -281,6 +281,12 @@
 		AEF5E8FF2282B80E0071B38A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8FE2282B80E0071B38A /* AudioToolbox.framework */; };
 		AEF5E9012282B8190071B38A /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E9002282B8190071B38A /* libbz2.tbd */; };
 		AEF5E9032282B8210071B38A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E9022282B8210071B38A /* libz.tbd */; };
+		F64890A1241FB6EF00D4CBA0 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = F64890A0241FB6EF00D4CBA0 /* SwiftyJSON */; };
+		F64890A4241FB7BE00D4CBA0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F64890A3241FB7BE00D4CBA0 /* Alamofire */; };
+		F64890A7241FB90D00D4CBA0 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F64890A6241FB90D00D4CBA0 /* IQKeyboardManagerSwift */; };
+		F64890AA241FBD2500D4CBA0 /* Kanna in Frameworks */ = {isa = PBXBuildFile; productRef = F64890A9241FBD2500D4CBA0 /* Kanna */; };
+		F64890AD241FC36200D4CBA0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F64890AC241FC36200D4CBA0 /* Kingfisher */; };
+		F64890B0241FC7FB00D4CBA0 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = F64890AF241FC7FB00D4CBA0 /* SkeletonView */; };
 		F6C59D4C219AF68100825BBA /* SelDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4B219AF68100825BBA /* SelDemo.m */; };
 		F6C59D4F219B045200825BBA /* Runspector.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4E219B045200825BBA /* Runspector.m */; };
 /* End PBXBuildFile section */
@@ -316,8 +322,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		28B60C39949FCFA9633560E3 /* Pods-iOSDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDemo/Pods-iOSDemo.release.xcconfig"; sourceTree = "<group>"; };
-		35FB199CD271C8888EE6FEA4 /* Pods-iOSDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDemo/Pods-iOSDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AE00644C23960A3000B7C9E4 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
 		AE00644D23960A3000B7C9E4 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
 		AE00722320906B770093B478 /* GCD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
@@ -666,8 +670,11 @@
 				AEF5E9012282B8190071B38A /* libbz2.tbd in Frameworks */,
 				AEF5E8FF2282B80E0071B38A /* AudioToolbox.framework in Frameworks */,
 				AEF5E8FD2282B8060071B38A /* AVFoundation.framework in Frameworks */,
+				F64890A4241FB7BE00D4CBA0 /* Alamofire in Frameworks */,
+				F64890AA241FBD2500D4CBA0 /* Kanna in Frameworks */,
 				AEF5E8FB2282B7EF0071B38A /* CoreGraphics.framework in Frameworks */,
 				AEF5E8F92282B7DE0071B38A /* MediaPlayer.framework in Frameworks */,
+				F64890AD241FC36200D4CBA0 /* Kingfisher in Frameworks */,
 				AEF5E8F72282B7D40071B38A /* MobileCoreServices.framework in Frameworks */,
 				AEF5E8F52282B7CA0071B38A /* VideoToolbox.framework in Frameworks */,
 				AEE3130B241F772400C32768 /* SnapKit in Frameworks */,
@@ -675,7 +682,10 @@
 				AEF5E8F12282AF4D0071B38A /* QuartzCore.framework in Frameworks */,
 				AE4EA75321806C3F0061FA84 /* CoreVideo.framework in Frameworks */,
 				AE4EA75121806C390061FA84 /* CoreMedia.framework in Frameworks */,
+				F64890A7241FB90D00D4CBA0 /* IQKeyboardManagerSwift in Frameworks */,
 				AE4EA74F21806C2A0061FA84 /* Accelerate.framework in Frameworks */,
+				F64890A1241FB6EF00D4CBA0 /* SwiftyJSON in Frameworks */,
+				F64890B0241FC7FB00D4CBA0 /* SkeletonView in Frameworks */,
 				AE4EA74D21806C1E0061FA84 /* CoreImage.framework in Frameworks */,
 				AE4EA74B21806C160061FA84 /* libc++.tbd in Frameworks */,
 				AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */,
@@ -1409,7 +1419,6 @@
 				AE9776A22303E24400C2FA6A /* ConsoleC */,
 				AE9F31D31F69070E00339BB8 /* Products */,
 				AE9F321B1F690DBF00339BB8 /* Frameworks */,
-				E69A95549E702E1CA0B857E9 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1845,15 +1854,6 @@
 			path = ImageRecognition;
 			sourceTree = "<group>";
 		};
-		E69A95549E702E1CA0B857E9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				35FB199CD271C8888EE6FEA4 /* Pods-iOSDemo.debug.xcconfig */,
-				28B60C39949FCFA9633560E3 /* Pods-iOSDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1878,12 +1878,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE9F31E41F69070E00339BB8 /* Build configuration list for PBXNativeTarget "iOSDemo" */;
 			buildPhases = (
-				9C4A10EEF6394B4CB5BBE52B /* [CP] Check Pods Manifest.lock */,
 				AE9F31CE1F69070E00339BB8 /* Sources */,
 				AE9F31CF1F69070E00339BB8 /* Frameworks */,
 				AE9F31D01F69070E00339BB8 /* Resources */,
-				D64EDA57BB3E1ADE1D6AFD30 /* [CP] Embed Pods Frameworks */,
-				221D967DEB1699335E69762F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1892,6 +1889,12 @@
 			name = iOSDemo;
 			packageProductDependencies = (
 				AEE3130A241F772400C32768 /* SnapKit */,
+				F64890A0241FB6EF00D4CBA0 /* SwiftyJSON */,
+				F64890A3241FB7BE00D4CBA0 /* Alamofire */,
+				F64890A6241FB90D00D4CBA0 /* IQKeyboardManagerSwift */,
+				F64890A9241FBD2500D4CBA0 /* Kanna */,
+				F64890AC241FC36200D4CBA0 /* Kingfisher */,
+				F64890AF241FC7FB00D4CBA0 /* SkeletonView */,
 			);
 			productName = iOSDemo;
 			productReference = AE9F31D21F69070E00339BB8 /* iOSDemo.app */;
@@ -1976,6 +1979,12 @@
 			mainGroup = AE9F31C91F69070E00339BB8;
 			packageReferences = (
 				AEE31309241F772400C32768 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F648909F241FB6EF00D4CBA0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				F64890A2241FB7BE00D4CBA0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				F64890A5241FB90D00D4CBA0 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				F64890A8241FBD2500D4CBA0 /* XCRemoteSwiftPackageReference "Kanna" */,
+				F64890AB241FC36200D4CBA0 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F64890AE241FC7FB00D4CBA0 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = AE9F31D31F69070E00339BB8 /* Products */;
 			projectDirPath = "";
@@ -2039,97 +2048,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		221D967DEB1699335E69762F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-resources.sh",
-				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMap.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9C4A10EEF6394B4CB5BBE52B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-iOSDemo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D64EDA57BB3E1ADE1D6AFD30 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
-				"${BUILT_PRODUCTS_DIR}/Gifu/Gifu.framework",
-				"${BUILT_PRODUCTS_DIR}/GrandMenu/GrandMenu.framework",
-				"${BUILT_PRODUCTS_DIR}/GrandStore/GrandStore.framework",
-				"${BUILT_PRODUCTS_DIR}/GrandTime/GrandTime.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/Nantes/Nantes.framework",
-				"${BUILT_PRODUCTS_DIR}/Shimmer/Shimmer.framework",
-				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
-				"${BUILT_PRODUCTS_DIR}/ViewChaos/ViewChaos.framework",
-				"${BUILT_PRODUCTS_DIR}/WSProgressHUD/WSProgressHUD.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gifu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrandMenu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrandStore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrandTime.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nantes.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Shimmer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewChaos.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WSProgressHUD.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AE97769D2303E24400C2FA6A /* Sources */ = {
@@ -2544,7 +2462,6 @@
 		};
 		AE9F31E51F69070E00339BB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 35FB199CD271C8888EE6FEA4 /* Pods-iOSDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
@@ -2590,7 +2507,6 @@
 		};
 		AE9F31E61F69070E00339BB8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28B60C39949FCFA9633560E3 /* Pods-iOSDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
@@ -2750,6 +2666,54 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		F648909F241FB6EF00D4CBA0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		F64890A2241FB7BE00D4CBA0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.4;
+			};
+		};
+		F64890A5241FB90D00D4CBA0 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.5;
+			};
+		};
+		F64890A8241FBD2500D4CBA0 /* XCRemoteSwiftPackageReference "Kanna" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tid-kijyun/Kanna";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		F64890AB241FC36200D4CBA0 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.13.2;
+			};
+		};
+		F64890AE241FC7FB00D4CBA0 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2757,6 +2721,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AEE31309241F772400C32768 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		F64890A0241FB6EF00D4CBA0 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F648909F241FB6EF00D4CBA0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		F64890A3241FB7BE00D4CBA0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F64890A2241FB7BE00D4CBA0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		F64890A6241FB90D00D4CBA0 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F64890A5241FB90D00D4CBA0 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		F64890A9241FBD2500D4CBA0 /* Kanna */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F64890A8241FBD2500D4CBA0 /* XCRemoteSwiftPackageReference "Kanna" */;
+			productName = Kanna;
+		};
+		F64890AC241FC36200D4CBA0 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F64890AB241FC36200D4CBA0 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		F64890AF241FC7FB00D4CBA0 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F64890AE241FC7FB00D4CBA0 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

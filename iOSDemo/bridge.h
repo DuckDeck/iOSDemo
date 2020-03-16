@@ -9,9 +9,6 @@
 #ifndef bridge_h
 #define bridge_h
 
-#import <AMapFoundationKit/AMapFoundationKit.h>
-#import <MAMapKit/MAMapKit.h>
-#import <AMapLocationKit/AMapLocationKit.h>
 #import "TransformMP3.h"
 #import "iOSPalette.h"
 #import "JXLayoutButton.h"

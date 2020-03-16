@@ -55,3 +55,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+
+//pod "SwiftyJSON"
+//pod "Alamofire"
+//pod "IQKeyboardManagerSwift"
+//pod "WSProgressHUD" not have
+//pod "MJRefresh"
+//pod "GrandStore"
+//pod "GrandTime"
+//pod "GrandMenu"
+//pod "FMDB"
+//#pod "MLeaksFinder"
+//pod "ViewChaos"
+//pod "Kanna"
+//pod "Kingfisher"
+//pod "TZImagePickerController" #iOS8 and later
+//pod "AMap3DMap", "6.5.0"
+//pod "AMapLocation"
+//pod "Gifu"
+//#pod "netfox"
+//pod "Nantes"
+//pod "SkeletonView"
