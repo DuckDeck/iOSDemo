@@ -8,7 +8,6 @@
 
 import UIKit
 import WebKit
-import TZImagePickerController
 //这里用js打开相册和摄像头
 class HandleJSViewController: BaseViewController {
     var web:WKWebView!

@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import WSProgressHUD
+import KRProgressHUD
 class Toast{
     static var isShowing = false
     
     static func showToast(msg:String) {
-        WSProgressHUD.dismiss()
+        KRProgressHUD.dismiss()
         isShowing = false
         GrandCue.toast(msg)
     }
@@ -21,7 +21,7 @@ class Toast{
     }
     
     static func showLoading(txt:String = "加载中..."){
-        WSProgressHUD.show(withStatus: txt, maskType: .clear)
+        KRProgressHUD.showMessage(txt)
         isShowing = true
     }
     
@@ -30,7 +30,7 @@ class Toast{
     //    }
     
     static func dismissLoading() {
-        WSProgressHUD.dismiss()
+        KRProgressHUD.dismiss()
         isShowing = false
     }
 }

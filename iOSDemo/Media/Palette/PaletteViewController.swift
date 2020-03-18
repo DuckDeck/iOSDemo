@@ -8,7 +8,7 @@
 //
 
 import UIKit
-import TZImagePickerController
+
 class PaletteViewController: UIViewController,TZImagePickerControllerDelegate {
     var imagePickerController:TZImagePickerController!
     let img = UIImageView()

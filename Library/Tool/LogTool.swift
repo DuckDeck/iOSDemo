@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FMDB
+
 import GrandTime
 //IMEI and IDFA, latitude,longtitude , city,  version ,phone,  do not need store in the sqlite ,it update in the realtime
 // logId AUTOINCREMENT

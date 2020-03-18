@@ -12,4 +12,7 @@
 #import "TransformMP3.h"
 #import "iOSPalette.h"
 #import "JXLayoutButton.h"
+#import "FMDB.h"
+#import "MJRefresh.h"
+#import "TZImagePickerController.h"
 #endif /* bridge_h */

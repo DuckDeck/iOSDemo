@@ -6,7 +6,6 @@
 //  Copyright © 2017 Dafy. All rights reserved.
 //
 
-import FMDB
 
 class DBTool {
 

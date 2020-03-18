@@ -8,6 +8,7 @@
 
 import UIKit
 // 后面加选择地点再更新地址功能
+/*
 class MapViewController: UIViewController {
     var mapView: MAMapView!
     var locationManager = AMapLocationManager()
@@ -143,3 +144,4 @@ extension MapViewController:AMapLocationManagerDelegate,MAMapViewDelegate{
     }
     
 }
+*/

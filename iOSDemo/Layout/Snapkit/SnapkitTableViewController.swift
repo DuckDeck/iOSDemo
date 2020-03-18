@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import GrandModel
 class SnapkitTableViewController: UIViewController {
 
     let tb = UITableView()
@@ -212,4 +213,5 @@ class Model1: GrandModel {
     var img = ""
     var imgs : [String]?
     var isShow = false
+    var cellHeight:Float?
 }

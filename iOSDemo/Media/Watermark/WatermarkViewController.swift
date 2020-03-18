@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TZImagePickerController
 class WatermarkViewController: UIViewController,TZImagePickerControllerDelegate {
 
     let txtWatermark = UITextField()

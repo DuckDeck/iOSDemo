@@ -11,6 +11,51 @@
         }
       },
       {
+        "package": "Gifu",
+        "repositoryURL": "https://github.com/kaishin/Gifu",
+        "state": {
+          "branch": null,
+          "revision": "b6fc594b30d0949a788338c54b07c26ae40c3444",
+          "version": "3.2.2"
+        }
+      },
+      {
+        "package": "GrandMenu",
+        "repositoryURL": "https://github.com/DuckDeck/GrandMenu",
+        "state": {
+          "branch": null,
+          "revision": "5f2f47ece601c3b7d250aae1b786e3ce8eb6bc1a",
+          "version": "2.0.0"
+        }
+      },
+      {
+        "package": "GrandModel",
+        "repositoryURL": "https://github.com/DuckDeck/GrandModel",
+        "state": {
+          "branch": null,
+          "revision": "0e3344f84df10cdec4459b6c8bcfec8c302784d5",
+          "version": "2.0.2"
+        }
+      },
+      {
+        "package": "GrandStore",
+        "repositoryURL": "https://github.com/DuckDeck/GrandStore",
+        "state": {
+          "branch": null,
+          "revision": "41c79ba8e6cf63953fd46c78a8b892a8c86382e9",
+          "version": "2.0.0"
+        }
+      },
+      {
+        "package": "GrandTime",
+        "repositoryURL": "https://github.com/DuckDeck/GrandTime",
+        "state": {
+          "branch": null,
+          "revision": "17d09d446773036e24bc6a9227a8c2d111cffa8a",
+          "version": "2.0.0"
+        }
+      },
+      {
         "package": "IQKeyboardManagerSwift",
         "repositoryURL": "https://github.com/hackiftekhar/IQKeyboardManager",
         "state": {
@@ -35,6 +80,24 @@
           "branch": null,
           "revision": "56075f629bc3915e1bfa876d175df67e1a7cbe3c",
           "version": "5.13.2"
+        }
+      },
+      {
+        "package": "KRActivityIndicatorView",
+        "repositoryURL": "https://github.com/krimpedance/KRActivityIndicatorView.git",
+        "state": {
+          "branch": null,
+          "revision": "0d9f485bc706b1b36509be3a75cbc0727dcc0088",
+          "version": "3.0.4"
+        }
+      },
+      {
+        "package": "KRProgressHUD",
+        "repositoryURL": "https://github.com/krimpedance/KRProgressHUD",
+        "state": {
+          "branch": null,
+          "revision": "95d52f1ab31c1367a7eff988c7b049c05d696750",
+          "version": "3.4.4"
         }
       },
       {

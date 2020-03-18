@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import WSProgressHUD
+import KRProgressHUD
 class GrandCue: NSObject {
     fileprivate static let sharedInstance = GrandCue()
     class var sharedToast:GrandCue {
@@ -28,13 +28,13 @@ class GrandCue: NSObject {
     }
 
     static func showLoading() {
-        WSProgressHUD.show(withStatus: "加载中", maskType: .clear)
+        KRProgressHUD.showMessage("加载中")
     }
     static func showLoading(msg:String) {
-        WSProgressHUD.show(withStatus: msg, maskType: .clear)
+        KRProgressHUD.showMessage(msg)
     }
     static func dismissLoading() {
-        WSProgressHUD.dismiss()
+        KRProgressHUD.dismiss()
     }
     fileprivate func showToast(_ msg:String,verticalScale:Float = 0.8){
         if lbl == nil{

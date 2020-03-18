@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TZImagePickerController
 class CompressImageViewController: UIViewController,TZImagePickerControllerDelegate {
 
     let imgOrigin = UIImageView()

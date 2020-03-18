@@ -8,7 +8,6 @@
 
 import UIKit
 import SnapKit
-import TZImagePickerController
 import CoreML
 import Vision
 @available(iOS 11.0, *)

@@ -9,6 +9,7 @@
 import UIKit
 import GrandStore
 import SwiftyJSON
+import GrandModel
 @objcMembers class FiveStroke: GrandModel { //好像GrandModel的自动保存已经失效？一定要加上@objcMembers才行
     var text = ""
     var spell = ""

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MJRefresh
 import Kingfisher
 class MitoListViewController: UIViewController {
     var imgType = 0
@@ -20,7 +19,7 @@ class MitoListViewController: UIViewController {
             if _currentResolution != newValue{
                 _currentResolution = newValue
                 if vCol != nil{
-                    vCol.mj_header.beginRefreshing()
+                    vCol.mj_header?.beginRefreshing()
                 }
             }
         }
@@ -33,7 +32,7 @@ class MitoListViewController: UIViewController {
             if _channel != newValue{
                 _channel = newValue
                 if vCol != nil{
-                    vCol.mj_header.beginRefreshing()
+                    vCol.mj_header?.beginRefreshing()
                 }
             }
         }
@@ -56,7 +55,7 @@ class MitoListViewController: UIViewController {
         vCol.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(headerRefresh))
         vCol.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(footerRefresh))
         view.addSubview(vCol)
-        vCol.mj_header.beginRefreshing()
+        vCol.mj_header?.beginRefreshing()
         
         
     }
@@ -74,7 +73,7 @@ class MitoListViewController: UIViewController {
     func loadData() {
         if imgType == 0{
             ImageSet.getImageSet(type: channel, cat: cat, resolution: currentResolution, theme: "全部", index: index) { (res) in
-                self.vCol.mj_header.endRefreshing()
+                self.vCol.mj_header?.endRefreshing()
                 if !handleResult(result: res){
                     return
                 }
@@ -84,11 +83,11 @@ class MitoListViewController: UIViewController {
                 else{
                     let imgs = res.data! as! [ImageSet]
                     if imgs.count <= 0{
-                        self.vCol.mj_footer.endRefreshingWithNoMoreData()
+                        self.vCol.mj_footer?.endRefreshingWithNoMoreData()
                     }
                     else{
                         self.arrImageSets += res.data! as! [ImageSet]
-                        self.vCol.mj_footer.endRefreshing()
+                        self.vCol.mj_footer?.endRefreshing()
                     }
                 }
                 
@@ -97,7 +96,7 @@ class MitoListViewController: UIViewController {
         }
         else{
             ImageSet.getDynamicImage(cat: cat, index: index) { (res) in
-                self.vCol.mj_header.endRefreshing()
+                self.vCol.mj_header?.endRefreshing()
                 if !handleResult(result: res){
                     return
                 }
@@ -107,11 +106,11 @@ class MitoListViewController: UIViewController {
                 else{
                     let imgs = res.data! as! [ImageSet]
                     if imgs.count <= 0{
-                        self.vCol.mj_footer.endRefreshingWithNoMoreData()
+                        self.vCol.mj_footer?.endRefreshingWithNoMoreData()
                     }
                     else{
                         self.arrImageSets += res.data! as! [ImageSet]
-                        self.vCol.mj_footer.endRefreshing()
+                        self.vCol.mj_footer?.endRefreshing()
                     }
                 }
                 

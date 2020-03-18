@@ -11,7 +11,6 @@ let Sql_Add_City = "REPLACE INTO %@ (cityId , cityName , cityPinyin, cityFirstLe
 let Sql_Select_All_City = "select * from %@"
 let Sql_Select_First_CityPinyin = "select cityFirstLetterPinyin from %@ group by cityFirstLetterPinyin"
 
-import FMDB
 
 class CityDB: DBTool {
     static let sharedInstance = CityDB()

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MJRefresh
+
 class HotMitoViewController: UIViewController {
 
      var vCol: UICollectionView!
@@ -34,7 +34,7 @@ class HotMitoViewController: UIViewController {
         vCol.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(footerRefresh))
         view.addSubview(vCol)
         
-        vCol.mj_header.beginRefreshing()
+        vCol.mj_header?.beginRefreshing()
         
     }
 
@@ -51,7 +51,7 @@ class HotMitoViewController: UIViewController {
     func loadData() {
         
         ImageSet.getHotImageSet(index: index) { (res) in
-            self.vCol.mj_header.endRefreshing()
+            self.vCol.mj_header?.endRefreshing()
             
             if !handleResult(result: res){
                 return
@@ -62,11 +62,11 @@ class HotMitoViewController: UIViewController {
             else{
                 let imgs = res.data! as! [ImageSet]
                 if imgs.count <= 0{
-                    self.vCol.mj_footer.endRefreshingWithNoMoreData()
+                    self.vCol.mj_footer?.endRefreshingWithNoMoreData()
                 }
                 else{
                     self.arrImageSets += res.data! as! [ImageSet]
-                    self.vCol.mj_footer.endRefreshing()
+                    self.vCol.mj_footer?.endRefreshing()
                 }
             }
             

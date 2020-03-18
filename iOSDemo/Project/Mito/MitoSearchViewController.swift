@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import MJRefresh
-
 
 class MitoSearchViewController: UIViewController,UITextFieldDelegate {
 
@@ -118,7 +116,7 @@ class MitoSearchViewController: UIViewController,UITextFieldDelegate {
         }
         vCol.isHidden = false
         vHotSearch.isHidden = true
-        vCol.mj_header.beginRefreshing()
+        vCol.mj_header?.beginRefreshing()
         
     }
     
@@ -140,7 +138,7 @@ class MitoSearchViewController: UIViewController,UITextFieldDelegate {
     
     func loadData() {
         ImageSet.searchMito(key: key, index: index) { (res) in
-            self.vCol.mj_header.endRefreshing()
+            self.vCol.mj_header?.endRefreshing()
             if !handleResult(result: res){
                 return
             }
@@ -150,11 +148,11 @@ class MitoSearchViewController: UIViewController,UITextFieldDelegate {
             else{
                 let imgs = res.data! as! [ImageSet]
                 if imgs.count <= 0{
-                    self.vCol.mj_footer.endRefreshingWithNoMoreData()
+                    self.vCol.mj_footer?.endRefreshingWithNoMoreData()
                 }
                 else{
                     self.arrImageSets += res.data! as! [ImageSet]
-                    self.vCol.mj_footer.endRefreshing()
+                    self.vCol.mj_footer?.endRefreshing()
                 }
             }            
             self.vCol.reloadData()
