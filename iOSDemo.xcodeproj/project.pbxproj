@@ -192,112 +192,42 @@
 		AEA680562420C522009748E4 /* GrandModel in Frameworks */ = {isa = PBXBuildFile; productRef = AEA680552420C522009748E4 /* GrandModel */; };
 		AEA6805A2420D454009748E4 /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = AEA680592420D454009748E4 /* Gifu */; };
 		AEA680AB2420D6B7009748E4 /* TZImageCropManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA6808E2420D6B7009748E4 /* TZImageCropManager.m */; };
-		AEA680AC2420D6B7009748E4 /* TZImageCropManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA6808E2420D6B7009748E4 /* TZImageCropManager.m */; };
-		AEA680AD2420D6B7009748E4 /* TZImageCropManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA6808E2420D6B7009748E4 /* TZImageCropManager.m */; };
 		AEA680AE2420D6B7009748E4 /* TZAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680902420D6B7009748E4 /* TZAssetCell.m */; };
-		AEA680AF2420D6B7009748E4 /* TZAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680902420D6B7009748E4 /* TZAssetCell.m */; };
-		AEA680B02420D6B7009748E4 /* TZAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680902420D6B7009748E4 /* TZAssetCell.m */; };
 		AEA680B12420D6B7009748E4 /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680912420D6B7009748E4 /* TZVideoPlayerController.m */; };
-		AEA680B22420D6B7009748E4 /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680912420D6B7009748E4 /* TZVideoPlayerController.m */; };
-		AEA680B32420D6B7009748E4 /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680912420D6B7009748E4 /* TZVideoPlayerController.m */; };
 		AEA680B42420D6B7009748E4 /* TZAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680922420D6B7009748E4 /* TZAssetModel.m */; };
-		AEA680B52420D6B7009748E4 /* TZAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680922420D6B7009748E4 /* TZAssetModel.m */; };
-		AEA680B62420D6B7009748E4 /* TZAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680922420D6B7009748E4 /* TZAssetModel.m */; };
 		AEA680B72420D6B7009748E4 /* NSBundle+TZImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680932420D6B7009748E4 /* NSBundle+TZImagePicker.m */; };
-		AEA680B82420D6B7009748E4 /* NSBundle+TZImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680932420D6B7009748E4 /* NSBundle+TZImagePicker.m */; };
-		AEA680B92420D6B7009748E4 /* NSBundle+TZImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680932420D6B7009748E4 /* NSBundle+TZImagePicker.m */; };
 		AEA680BA2420D6B7009748E4 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680962420D6B7009748E4 /* UIView+Layout.m */; };
-		AEA680BB2420D6B7009748E4 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680962420D6B7009748E4 /* UIView+Layout.m */; };
-		AEA680BC2420D6B7009748E4 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680962420D6B7009748E4 /* UIView+Layout.m */; };
 		AEA680BD2420D6B7009748E4 /* TZPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680972420D6B7009748E4 /* TZPhotoPreviewController.m */; };
-		AEA680BE2420D6B7009748E4 /* TZPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680972420D6B7009748E4 /* TZPhotoPreviewController.m */; };
-		AEA680BF2420D6B7009748E4 /* TZPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680972420D6B7009748E4 /* TZPhotoPreviewController.m */; };
 		AEA680C02420D6B7009748E4 /* TZImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AEA680982420D6B7009748E4 /* TZImagePickerController.bundle */; };
 		AEA680C12420D6B7009748E4 /* TZProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680992420D6B7009748E4 /* TZProgressView.m */; };
-		AEA680C22420D6B7009748E4 /* TZProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680992420D6B7009748E4 /* TZProgressView.m */; };
-		AEA680C32420D6B7009748E4 /* TZProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680992420D6B7009748E4 /* TZProgressView.m */; };
 		AEA680C42420D6B7009748E4 /* TZImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA6809D2420D6B7009748E4 /* TZImageManager.m */; };
-		AEA680C52420D6B7009748E4 /* TZImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA6809D2420D6B7009748E4 /* TZImageManager.m */; };
-		AEA680C62420D6B7009748E4 /* TZImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA6809D2420D6B7009748E4 /* TZImageManager.m */; };
 		AEA680C72420D6B7009748E4 /* TZPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA6809F2420D6B7009748E4 /* TZPhotoPickerController.m */; };
-		AEA680C82420D6B7009748E4 /* TZPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA6809F2420D6B7009748E4 /* TZPhotoPickerController.m */; };
-		AEA680C92420D6B7009748E4 /* TZPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA6809F2420D6B7009748E4 /* TZPhotoPickerController.m */; };
 		AEA680CA2420D6B7009748E4 /* TZPhotoPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680A02420D6B7009748E4 /* TZPhotoPreviewCell.m */; };
-		AEA680CB2420D6B7009748E4 /* TZPhotoPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680A02420D6B7009748E4 /* TZPhotoPreviewCell.m */; };
-		AEA680CC2420D6B7009748E4 /* TZPhotoPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680A02420D6B7009748E4 /* TZPhotoPreviewCell.m */; };
 		AEA680CD2420D6B7009748E4 /* TZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680A62420D6B7009748E4 /* TZImagePickerController.m */; };
-		AEA680CE2420D6B7009748E4 /* TZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680A62420D6B7009748E4 /* TZImagePickerController.m */; };
-		AEA680CF2420D6B7009748E4 /* TZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680A62420D6B7009748E4 /* TZImagePickerController.m */; };
 		AEA680D02420D6B7009748E4 /* TZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680A72420D6B7009748E4 /* TZLocationManager.m */; };
-		AEA680D12420D6B7009748E4 /* TZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680A72420D6B7009748E4 /* TZLocationManager.m */; };
-		AEA680D22420D6B7009748E4 /* TZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680A72420D6B7009748E4 /* TZLocationManager.m */; };
 		AEA680D32420D6B7009748E4 /* TZGifPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680A82420D6B7009748E4 /* TZGifPhotoPreviewController.m */; };
-		AEA680D42420D6B7009748E4 /* TZGifPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680A82420D6B7009748E4 /* TZGifPhotoPreviewController.m */; };
-		AEA680D52420D6B7009748E4 /* TZGifPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680A82420D6B7009748E4 /* TZGifPhotoPreviewController.m */; };
 		AEA680D62420D6B7009748E4 /* TZImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680A92420D6B7009748E4 /* TZImageRequestOperation.m */; };
-		AEA680D72420D6B7009748E4 /* TZImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680A92420D6B7009748E4 /* TZImageRequestOperation.m */; };
-		AEA680D82420D6B7009748E4 /* TZImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680A92420D6B7009748E4 /* TZImageRequestOperation.m */; };
 		AEA6810A2420D908009748E4 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680DA2420D908009748E4 /* UIScrollView+MJRefresh.m */; };
-		AEA6810B2420D908009748E4 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680DA2420D908009748E4 /* UIScrollView+MJRefresh.m */; };
-		AEA6810C2420D908009748E4 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680DA2420D908009748E4 /* UIScrollView+MJRefresh.m */; };
 		AEA6810D2420D908009748E4 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680DB2420D908009748E4 /* MJRefreshConst.m */; };
-		AEA6810E2420D908009748E4 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680DB2420D908009748E4 /* MJRefreshConst.m */; };
-		AEA6810F2420D908009748E4 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680DB2420D908009748E4 /* MJRefreshConst.m */; };
 		AEA681102420D908009748E4 /* MJRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680DC2420D908009748E4 /* MJRefreshConfig.m */; };
-		AEA681112420D908009748E4 /* MJRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680DC2420D908009748E4 /* MJRefreshConfig.m */; };
-		AEA681122420D908009748E4 /* MJRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680DC2420D908009748E4 /* MJRefreshConfig.m */; };
 		AEA681132420D908009748E4 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AEA680E02420D908009748E4 /* MJRefresh.bundle */; };
 		AEA681142420D908009748E4 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680E22420D908009748E4 /* UIScrollView+MJExtension.m */; };
-		AEA681152420D908009748E4 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680E22420D908009748E4 /* UIScrollView+MJExtension.m */; };
-		AEA681162420D908009748E4 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680E22420D908009748E4 /* UIScrollView+MJExtension.m */; };
 		AEA681172420D908009748E4 /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680E62420D908009748E4 /* NSBundle+MJRefresh.m */; };
-		AEA681182420D908009748E4 /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680E62420D908009748E4 /* NSBundle+MJRefresh.m */; };
-		AEA681192420D908009748E4 /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680E62420D908009748E4 /* NSBundle+MJRefresh.m */; };
 		AEA6811A2420D908009748E4 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680E72420D908009748E4 /* UIView+MJExtension.m */; };
-		AEA6811B2420D908009748E4 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680E72420D908009748E4 /* UIView+MJExtension.m */; };
-		AEA6811C2420D908009748E4 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680E72420D908009748E4 /* UIView+MJExtension.m */; };
 		AEA6811D2420D908009748E4 /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680EE2420D908009748E4 /* MJRefreshBackGifFooter.m */; };
-		AEA6811E2420D908009748E4 /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680EE2420D908009748E4 /* MJRefreshBackGifFooter.m */; };
-		AEA6811F2420D908009748E4 /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680EE2420D908009748E4 /* MJRefreshBackGifFooter.m */; };
 		AEA681202420D908009748E4 /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680EF2420D908009748E4 /* MJRefreshBackStateFooter.m */; };
-		AEA681212420D908009748E4 /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680EF2420D908009748E4 /* MJRefreshBackStateFooter.m */; };
-		AEA681222420D908009748E4 /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680EF2420D908009748E4 /* MJRefreshBackStateFooter.m */; };
 		AEA681232420D908009748E4 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680F02420D908009748E4 /* MJRefreshBackNormalFooter.m */; };
-		AEA681242420D908009748E4 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680F02420D908009748E4 /* MJRefreshBackNormalFooter.m */; };
-		AEA681252420D908009748E4 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680F02420D908009748E4 /* MJRefreshBackNormalFooter.m */; };
 		AEA681262420D908009748E4 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680F52420D908009748E4 /* MJRefreshAutoStateFooter.m */; };
-		AEA681272420D908009748E4 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680F52420D908009748E4 /* MJRefreshAutoStateFooter.m */; };
-		AEA681282420D908009748E4 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680F52420D908009748E4 /* MJRefreshAutoStateFooter.m */; };
 		AEA681292420D908009748E4 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680F62420D908009748E4 /* MJRefreshAutoGifFooter.m */; };
-		AEA6812A2420D908009748E4 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680F62420D908009748E4 /* MJRefreshAutoGifFooter.m */; };
-		AEA6812B2420D908009748E4 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680F62420D908009748E4 /* MJRefreshAutoGifFooter.m */; };
 		AEA6812C2420D908009748E4 /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680F72420D908009748E4 /* MJRefreshAutoNormalFooter.m */; };
-		AEA6812D2420D908009748E4 /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680F72420D908009748E4 /* MJRefreshAutoNormalFooter.m */; };
-		AEA6812E2420D908009748E4 /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680F72420D908009748E4 /* MJRefreshAutoNormalFooter.m */; };
 		AEA6812F2420D908009748E4 /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680F92420D908009748E4 /* MJRefreshNormalHeader.m */; };
-		AEA681302420D908009748E4 /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680F92420D908009748E4 /* MJRefreshNormalHeader.m */; };
-		AEA681312420D908009748E4 /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680F92420D908009748E4 /* MJRefreshNormalHeader.m */; };
 		AEA681322420D908009748E4 /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680FD2420D908009748E4 /* MJRefreshStateHeader.m */; };
-		AEA681332420D908009748E4 /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680FD2420D908009748E4 /* MJRefreshStateHeader.m */; };
-		AEA681342420D908009748E4 /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680FD2420D908009748E4 /* MJRefreshStateHeader.m */; };
 		AEA681352420D908009748E4 /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680FE2420D908009748E4 /* MJRefreshGifHeader.m */; };
-		AEA681362420D908009748E4 /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680FE2420D908009748E4 /* MJRefreshGifHeader.m */; };
-		AEA681372420D908009748E4 /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA680FE2420D908009748E4 /* MJRefreshGifHeader.m */; };
 		AEA681382420D908009748E4 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681002420D908009748E4 /* MJRefreshFooter.m */; };
-		AEA681392420D908009748E4 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681002420D908009748E4 /* MJRefreshFooter.m */; };
-		AEA6813A2420D908009748E4 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681002420D908009748E4 /* MJRefreshFooter.m */; };
 		AEA6813B2420D908009748E4 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681022420D908009748E4 /* MJRefreshHeader.m */; };
-		AEA6813C2420D908009748E4 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681022420D908009748E4 /* MJRefreshHeader.m */; };
-		AEA6813D2420D908009748E4 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681022420D908009748E4 /* MJRefreshHeader.m */; };
 		AEA6813E2420D908009748E4 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681042420D908009748E4 /* MJRefreshBackFooter.m */; };
-		AEA6813F2420D908009748E4 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681042420D908009748E4 /* MJRefreshBackFooter.m */; };
-		AEA681402420D908009748E4 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681042420D908009748E4 /* MJRefreshBackFooter.m */; };
 		AEA681412420D908009748E4 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681052420D908009748E4 /* MJRefreshAutoFooter.m */; };
-		AEA681422420D908009748E4 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681052420D908009748E4 /* MJRefreshAutoFooter.m */; };
-		AEA681432420D908009748E4 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681052420D908009748E4 /* MJRefreshAutoFooter.m */; };
 		AEA681442420D908009748E4 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681072420D908009748E4 /* MJRefreshComponent.m */; };
-		AEA681452420D908009748E4 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681072420D908009748E4 /* MJRefreshComponent.m */; };
-		AEA681462420D908009748E4 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681072420D908009748E4 /* MJRefreshComponent.m */; };
 		AEA681542421B39D009748E4 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681492421B39D009748E4 /* FMDatabaseQueue.m */; };
 		AEA681552421B39D009748E4 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681492421B39D009748E4 /* FMDatabaseQueue.m */; };
 		AEA681562421B39D009748E4 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681492421B39D009748E4 /* FMDatabaseQueue.m */; };
@@ -314,6 +244,7 @@
 		AEA681612421B39D009748E4 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681522421B39D009748E4 /* FMResultSet.m */; };
 		AEA681622421B39D009748E4 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681522421B39D009748E4 /* FMResultSet.m */; };
 		AEA6817C2421C487009748E4 /* KRProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = AEA6817B2421C487009748E4 /* KRProgressHUD */; };
+		AEA681AB24234BAF009748E4 /* GrandView in Frameworks */ = {isa = PBXBuildFile; productRef = AEA681AA24234BAF009748E4 /* GrandView */; };
 		AEA9F835206A2A62000E7748 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9F834206A2A62000E7748 /* HttpClient.swift */; };
 		AEA9F838206CD82F000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9F837206CD82F000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift */; };
 		AEA9F83A206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9F839206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift */; };
@@ -876,6 +807,7 @@
 				F64890AD241FC36200D4CBA0 /* Kingfisher in Frameworks */,
 				AEF5E8F72282B7D40071B38A /* MobileCoreServices.framework in Frameworks */,
 				AEF5E8F52282B7CA0071B38A /* VideoToolbox.framework in Frameworks */,
+				AEA681AB24234BAF009748E4 /* GrandView in Frameworks */,
 				AEE3130B241F772400C32768 /* SnapKit in Frameworks */,
 				AEF5E8F32282AF540071B38A /* OpenGLES.framework in Frameworks */,
 				AEF5E8F12282AF4D0071B38A /* QuartzCore.framework in Frameworks */,
@@ -2217,6 +2149,7 @@
 				AEA680552420C522009748E4 /* GrandModel */,
 				AEA680592420D454009748E4 /* Gifu */,
 				AEA6817B2421C487009748E4 /* KRProgressHUD */,
+				AEA681AA24234BAF009748E4 /* GrandView */,
 			);
 			productName = iOSDemo;
 			productReference = AE9F31D21F69070E00339BB8 /* iOSDemo.app */;
@@ -2274,9 +2207,7 @@
 					};
 					AE9F31D11F69070E00339BB8 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = BR2B2RL47T;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
 					};
 					AEA07F111F710D7E00FC9770 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -2313,6 +2244,7 @@
 				AEA680542420C522009748E4 /* XCRemoteSwiftPackageReference "GrandModel" */,
 				AEA680582420D454009748E4 /* XCRemoteSwiftPackageReference "Gifu" */,
 				AEA6817A2421C487009748E4 /* XCRemoteSwiftPackageReference "KRProgressHUD" */,
+				AEA681A924234BAF009748E4 /* XCRemoteSwiftPackageReference "GrandView" */,
 			);
 			productRefGroup = AE9F31D31F69070E00339BB8 /* Products */;
 			projectDirPath = "";
@@ -2618,65 +2550,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEA680C82420D6B7009748E4 /* TZPhotoPickerController.m in Sources */,
-				AEA680B52420D6B7009748E4 /* TZAssetModel.m in Sources */,
-				AEA680CB2420D6B7009748E4 /* TZPhotoPreviewCell.m in Sources */,
-				AEA681182420D908009748E4 /* NSBundle+MJRefresh.m in Sources */,
 				AEB6F55921997748005CA2BE /* Hydron.m in Sources */,
 				AE00722520906B770093B478 /* GCD.m in Sources */,
-				AEA680AF2420D6B7009748E4 /* TZAssetCell.m in Sources */,
-				AEA6811E2420D908009748E4 /* MJRefreshBackGifFooter.m in Sources */,
-				AEA681362420D908009748E4 /* MJRefreshGifHeader.m in Sources */,
 				AEA07F151F710D7E00FC9770 /* main.m in Sources */,
-				AEA681332420D908009748E4 /* MJRefreshStateHeader.m in Sources */,
-				AEA680CE2420D6B7009748E4 /* TZImagePickerController.m in Sources */,
-				AEA680D12420D6B7009748E4 /* TZLocationManager.m in Sources */,
-				AEA680B22420D6B7009748E4 /* TZVideoPlayerController.m in Sources */,
 				AE111ED7235EAB4300AB869F /* MessageSend.m in Sources */,
-				AEA6811B2420D908009748E4 /* UIView+MJExtension.m in Sources */,
-				AEA681212420D908009748E4 /* MJRefreshBackStateFooter.m in Sources */,
 				AEA681552421B39D009748E4 /* FMDatabaseQueue.m in Sources */,
-				AEA681452420D908009748E4 /* MJRefreshComponent.m in Sources */,
 				AEB6F566219BC708005CA2BE /* AspectProxy.m in Sources */,
 				AE3795222238E417009292DE /* AboutKVC.m in Sources */,
-				AEA681272420D908009748E4 /* MJRefreshAutoStateFooter.m in Sources */,
-				AEA680C22420D6B7009748E4 /* TZProgressView.m in Sources */,
-				AEA680B82420D6B7009748E4 /* NSBundle+TZImagePicker.m in Sources */,
-				AEA680D72420D6B7009748E4 /* TZImageRequestOperation.m in Sources */,
 				AE00644E23960A3000B7C9E4 /* fishhook.c in Sources */,
 				F6C59D4C219AF68100825BBA /* SelDemo.m in Sources */,
-				AEA680C52420D6B7009748E4 /* TZImageManager.m in Sources */,
 				AE44D5CB21B511E900D3560E /* Lock.m in Sources */,
 				AEEB7F0D2383886700904FDD /* BlockChain.m in Sources */,
-				AEA6812D2420D908009748E4 /* MJRefreshAutoNormalFooter.m in Sources */,
-				AEA681242420D908009748E4 /* MJRefreshBackNormalFooter.m in Sources */,
 				AEB6F55C21997777005CA2BE /* HydronForward.m in Sources */,
 				AE82B1CD200F3A55004D0ECE /* Test.m in Sources */,
-				AEA680BE2420D6B7009748E4 /* TZPhotoPreviewController.m in Sources */,
-				AEA680AC2420D6B7009748E4 /* TZImageCropManager.m in Sources */,
-				AEA680D42420D6B7009748E4 /* TZGifPhotoPreviewController.m in Sources */,
 				AEA6815B2421B39D009748E4 /* FMDatabase.m in Sources */,
 				AEB6F569219C206E005CA2BE /* ConcurrentProcessor.m in Sources */,
-				AEA681152420D908009748E4 /* UIScrollView+MJExtension.m in Sources */,
-				AEA680BB2420D6B7009748E4 /* UIView+Layout.m in Sources */,
-				AEA6812A2420D908009748E4 /* MJRefreshAutoGifFooter.m in Sources */,
-				AEA681112420D908009748E4 /* MJRefreshConfig.m in Sources */,
 				AE1344DA209068C7009A210D /* block相关.m in Sources */,
-				AEA681392420D908009748E4 /* MJRefreshFooter.m in Sources */,
 				AEB6F560219AB52C005CA2BE /* CFDemo.m in Sources */,
-				AEA6810E2420D908009748E4 /* MJRefreshConst.m in Sources */,
 				AE1344DD20906937009A210D /* object_setClass.m in Sources */,
-				AEA681302420D908009748E4 /* MJRefreshNormalHeader.m in Sources */,
 				F6C59D4F219B045200825BBA /* Runspector.m in Sources */,
-				AEA6813F2420D908009748E4 /* MJRefreshBackFooter.m in Sources */,
-				AEA6813C2420D908009748E4 /* MJRefreshHeader.m in Sources */,
-				AEA6810B2420D908009748E4 /* UIScrollView+MJRefresh.m in Sources */,
 				AE6A83AB22E832EE004D3F43 /* CategoryDemo.m in Sources */,
 				AEA681612421B39D009748E4 /* FMResultSet.m in Sources */,
 				AEA681582421B39D009748E4 /* FMDatabaseAdditions.m in Sources */,
 				AEA6815E2421B39D009748E4 /* FMDatabasePool.m in Sources */,
 				AE3AF0521F7743D500AF182A /* MsgSend.m in Sources */,
-				AEA681422420D908009748E4 /* MJRefreshAutoFooter.m in Sources */,
 				AEB6F563219BC5FA005CA2BE /* Invoke.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2685,52 +2582,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEA680B92420D6B7009748E4 /* NSBundle+TZImagePicker.m in Sources */,
-				AEA681432420D908009748E4 /* MJRefreshAutoFooter.m in Sources */,
-				AEA6812B2420D908009748E4 /* MJRefreshAutoGifFooter.m in Sources */,
 				AEA6815F2421B39D009748E4 /* FMDatabasePool.m in Sources */,
 				AEA6815C2421B39D009748E4 /* FMDatabase.m in Sources */,
-				AEA680BF2420D6B7009748E4 /* TZPhotoPreviewController.m in Sources */,
-				AEA680C32420D6B7009748E4 /* TZProgressView.m in Sources */,
-				AEA6811C2420D908009748E4 /* UIView+MJExtension.m in Sources */,
-				AEA681282420D908009748E4 /* MJRefreshAutoStateFooter.m in Sources */,
 				AEA681592421B39D009748E4 /* FMDatabaseAdditions.m in Sources */,
 				AEA681622421B39D009748E4 /* FMResultSet.m in Sources */,
-				AEA680CC2420D6B7009748E4 /* TZPhotoPreviewCell.m in Sources */,
 				AEB9571C22C9DE6200C71372 /* Fundation.swift in Sources */,
-				AEA681122420D908009748E4 /* MJRefreshConfig.m in Sources */,
-				AEA680D52420D6B7009748E4 /* TZGifPhotoPreviewController.m in Sources */,
-				AEA680B62420D6B7009748E4 /* TZAssetModel.m in Sources */,
-				AEA681252420D908009748E4 /* MJRefreshBackNormalFooter.m in Sources */,
 				AE7BBCE6207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift in Sources */,
-				AEA6813A2420D908009748E4 /* MJRefreshFooter.m in Sources */,
-				AEA681342420D908009748E4 /* MJRefreshStateHeader.m in Sources */,
-				AEA6811F2420D908009748E4 /* MJRefreshBackGifFooter.m in Sources */,
-				AEA6810F2420D908009748E4 /* MJRefreshConst.m in Sources */,
-				AEA681192420D908009748E4 /* NSBundle+MJRefresh.m in Sources */,
 				AEA9F83C206DE8A6000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇三：让Model实现自动映射--将字典转化成Model).swift in Sources */,
-				AEA681372420D908009748E4 /* MJRefreshGifHeader.m in Sources */,
-				AEA680D22420D6B7009748E4 /* TZLocationManager.m in Sources */,
-				AEA680C62420D6B7009748E4 /* TZImageManager.m in Sources */,
-				AEA680C92420D6B7009748E4 /* TZPhotoPickerController.m in Sources */,
-				AEA681162420D908009748E4 /* UIScrollView+MJExtension.m in Sources */,
-				AEA680BC2420D6B7009748E4 /* UIView+Layout.m in Sources */,
 				AE1DC07E2301527300B8576C /* Regex.swift in Sources */,
-				AEA6812E2420D908009748E4 /* MJRefreshAutoNormalFooter.m in Sources */,
-				AEA680B32420D6B7009748E4 /* TZVideoPlayerController.m in Sources */,
 				AEA9F83A206CEF1E000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇二：让Model实现自动归档.swift in Sources */,
-				AEA680B02420D6B7009748E4 /* TZAssetCell.m in Sources */,
-				AEA680D82420D6B7009748E4 /* TZImageRequestOperation.m in Sources */,
-				AEA681462420D908009748E4 /* MJRefreshComponent.m in Sources */,
-				AEA6810C2420D908009748E4 /* UIScrollView+MJRefresh.m in Sources */,
 				AEA9F838206CD82F000E7748 /* iOS开发技巧系列---打造强大的BaseModel(篇一：让Model自我描述).swift in Sources */,
-				AEA681222420D908009748E4 /* MJRefreshBackStateFooter.m in Sources */,
-				AEA6813D2420D908009748E4 /* MJRefreshHeader.m in Sources */,
-				AEA681312420D908009748E4 /* MJRefreshNormalHeader.m in Sources */,
-				AEA680CF2420D6B7009748E4 /* TZImagePickerController.m in Sources */,
 				AEF362A72058CB1F001A490D /* main.swift in Sources */,
-				AEA681402420D908009748E4 /* MJRefreshBackFooter.m in Sources */,
-				AEA680AD2420D6B7009748E4 /* TZImageCropManager.m in Sources */,
 				AEA681562421B39D009748E4 /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2907,10 +2769,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BR2B2RL47T;
+				DEVELOPMENT_TEAM = 3YCGH6CCXA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2936,9 +2798,11 @@
 					"$(PROJECT_DIR)/ffmpeg_ios/lib",
 					"$(PROJECT_DIR)/fat-x264/lib",
 				);
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = StanHu.iOSDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/iOSDemo/bridge.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
@@ -2952,10 +2816,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BR2B2RL47T;
+				DEVELOPMENT_TEAM = 3YCGH6CCXA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -3132,6 +2996,14 @@
 				minimumVersion = 3.4.4;
 			};
 		};
+		AEA681A924234BAF009748E4 /* XCRemoteSwiftPackageReference "GrandView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DuckDeck/GrandView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		AEE31309241F772400C32768 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -3226,6 +3098,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AEA6817A2421C487009748E4 /* XCRemoteSwiftPackageReference "KRProgressHUD" */;
 			productName = KRProgressHUD;
+		};
+		AEA681AA24234BAF009748E4 /* GrandView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEA681A924234BAF009748E4 /* XCRemoteSwiftPackageReference "GrandView" */;
+			productName = GrandView;
 		};
 		AEE3130A241F772400C32768 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

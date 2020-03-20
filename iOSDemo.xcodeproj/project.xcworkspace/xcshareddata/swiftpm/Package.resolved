@@ -56,6 +56,15 @@
         }
       },
       {
+        "package": "GrandView",
+        "repositoryURL": "https://github.com/DuckDeck/GrandView",
+        "state": {
+          "branch": null,
+          "revision": "021a7523289dd03d5a0305c0c27961aa8016203c",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "IQKeyboardManagerSwift",
         "repositoryURL": "https://github.com/hackiftekhar/IQKeyboardManager",
         "state": {
