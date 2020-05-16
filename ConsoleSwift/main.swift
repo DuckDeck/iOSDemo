@@ -180,7 +180,7 @@ for (index,value) in test.enumerated(){//这样就有了index
 */
 //“想要寻找一个指定元素的位置” 这个index真没有
 
-
+/*
 let k = (1..<20).map{$0*$0}.filter{$0%2==0}
 print(k)
 
@@ -246,4 +246,131 @@ class Delegate<Input,Output>{
 }
 
 
+*/
 
+enum VendingMachineType {
+    case InvalidGoods//!< 商品无效
+    case StockInsufficient//!< 库存不足
+    case CoinInsufficient(coinNeeded:Int,caseDes:String)
+}
+
+let enumArray = [VendingMachineType.CoinInsufficient(coinNeeded: 4, caseDes: "自动售货机，硬币不足，请补充"),
+                 .InvalidGoods,
+                 .StockInsufficient,
+                 .CoinInsufficient(coinNeeded: 6, caseDes: "自动售货机，硬币不足，超过限额")]
+for patternCase in enumArray {
+    switch patternCase {
+    case .CoinInsufficient(coinNeeded: let x, caseDes: let y) where x > 5:
+        print("这个是过了5个的")
+        print(x,y)
+    case let .CoinInsufficient(coinNeeded: x, caseDes: y):
+        print(x,y)
+    case .InvalidGoods:
+        print("商品无效")
+    default:
+        print("未匹配到")
+    }
+}
+
+enum SomeEnum { case left, right,top,down}
+let array : Array<SomeEnum?> = [.left,nil,.right,.top,.down]
+
+
+
+array.forEach { (item) in
+    switch item {
+    case .left?:
+        print("左")
+    case SomeEnum.right?:
+        print("右")
+    case .down?:
+        print("下")
+    case .top?:
+        print("上")
+    default:
+        print("没有值")
+    }
+}
+
+array.forEach { (item) in
+    switch item {
+    case .some(let x):
+        print("对可选项item进行解包得到:\(x)")//!< left,right,top,down
+    case .none:
+        print("没有值") //nil
+    }
+}
+let point = (9,14)
+switch point {
+case (9,14):
+    print("表达式模式使用`~=`精准匹配::(\(point.0),\(point.1))")
+    fallthrough //我以为是不执行后面的，没想到是要继续执行
+case (5..<10,0...20):
+    print("表达式模式使用`~=`范围匹配:(\(point.0),\(point.1))")
+default:
+    print("未匹配")
+}
+
+
+
+
+func ~= (pattern: String, value: Int) -> Bool {
+    return pattern == "\(value)"
+}
+
+switch point {
+case ("9","14")://若不重载则会报错
+    print("表达式模式使用`~=`精准匹配:(\(point.0),\(point.1))")
+   
+case (5..<10,0...20):
+    print("表达式模式使用`~=`范围匹配:(\(point.0),\(point.1))")
+default:
+    print("未匹配")
+}
+class Cat {
+    func hairColor() -> String {
+        return "五颜六色"
+    }
+}
+class WhiteCat: Cat {
+    override func hairColor() -> String {
+        return "白色"
+    }
+}
+class BlackCat: Cat {
+    override func hairColor() -> String {
+        return "黑色"
+    }
+}
+
+var things : [Any] = [0, 0.0, 42, 3.14159, "hello", (3.0, 5.0),
+                      WhiteCat(),{ (name: String) -> String in "Hello, \(name)" } ]
+for thing in things {
+    switch thing {
+    case 0 as Int:
+        print("`as`模式匹配两部分，pattern:表达式模式(`0`)，type:匹配类型(`Int`),匹配结果：0")
+    case (0) as Double:
+        print("`as`模式匹配两部分，pattern:表达式模式(`0`)，type:匹配类型(`Double`),匹配结果：0.0")
+    case is Double:
+        print("`is`模式匹配`Double`类型的值，值类型与`is`右侧类型及子类相同时，执行此句")
+    case let someInt as Int:
+        print("`as`模式匹配两部分，pattern:值绑定模式(`let someInt`)，type:匹配类型(`Int`),匹配结果：\(someInt)")
+    case _ as Int:
+        print("`as`模式匹配两部分，pattern:通配符模式(`_`)，type:匹配类型(`Int`),匹配结果被忽略")
+    case let someDouble as Double where someDouble > 0:
+        print("`as`模式匹配两部分，pattern:值绑定模式(`let someDouble`)，type:匹配类型(`Double`),匹配结果：\(someDouble)")
+    case let someString as String:
+        print("`as`模式匹配两部分，pattern:值绑定模式(`let someString`)，type:匹配类型(`String`),匹配结果：\(someString)")
+    case let (x, y) as (Double, Double):
+        print("`as`模式匹配两部分，pattern:元组模式(`let (x, y) `)，type:匹配类型(元组`(Double, Double)`),匹配结果：\((x, y))")
+        fallthrough
+    case (2.0...4.0, 3.0...6.0) as (Double, Double):
+        print("`as`模式匹配两部分，pattern:表达式模式(`(2.0...4.0, 3.0...6.0) `)，type:匹配类型(元组`(Double, Double)`))")
+    case let cat as WhiteCat:
+        print("`as`模式匹配两部分，pattern:值绑定模式(`let cat`)，type:匹配类型(对象`WhiteCat`),匹配结果：\(cat)")
+    case let sayHelloFunc as (String) -> String:
+        print("`as`模式匹配两部分，pattern:值绑定模式(`let sayHelloFunc`)，type:匹配类型(函数`(String) -> String`),匹配结果：\(sayHelloFunc("QiShare"))")
+    default:
+        print("其他结果，未匹配到")
+    }
+}
