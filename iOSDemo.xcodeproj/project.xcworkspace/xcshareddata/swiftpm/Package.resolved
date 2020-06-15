@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/Alamofire/Alamofire",
         "state": {
           "branch": null,
-          "revision": "11928850d7273a8cd41bb766f2fc93b4d724b79b",
-          "version": "5.0.4"
+          "revision": "2777659076fda38bd4e487739ee331c7a65b5924",
+          "version": "5.2.1"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/DuckDeck/GrandMenu",
         "state": {
           "branch": null,
-          "revision": "5f2f47ece601c3b7d250aae1b786e3ce8eb6bc1a",
-          "version": "2.0.0"
+          "revision": "2e948e2b8e78d61c0f3fec0c2623d32cd7e93b0a",
+          "version": "2.0.1"
         }
       },
       {
@@ -78,8 +78,8 @@
         "repositoryURL": "https://github.com/tid-kijyun/Kanna",
         "state": {
           "branch": null,
-          "revision": "9b8f73f8c8e145dc496565bbf878a709793e7ba3",
-          "version": "5.0.0"
+          "revision": "609367a2cd84827a33383cf7923cb4fe8f69ee0a",
+          "version": "5.2.2"
         }
       },
       {
@@ -87,8 +87,8 @@
         "repositoryURL": "https://github.com/onevcat/Kingfisher",
         "state": {
           "branch": null,
-          "revision": "56075f629bc3915e1bfa876d175df67e1a7cbe3c",
-          "version": "5.13.2"
+          "revision": "910d808ade2a576e1a292ceb458a6fa43f67f594",
+          "version": "5.14.0"
         }
       },
       {
@@ -96,8 +96,8 @@
         "repositoryURL": "https://github.com/krimpedance/KRActivityIndicatorView.git",
         "state": {
           "branch": null,
-          "revision": "0d9f485bc706b1b36509be3a75cbc0727dcc0088",
-          "version": "3.0.4"
+          "revision": "0a0ae6bc05647f414a7bfc53ffeaf6248aad29dd",
+          "version": "3.0.5"
         }
       },
       {
@@ -105,17 +105,8 @@
         "repositoryURL": "https://github.com/krimpedance/KRProgressHUD",
         "state": {
           "branch": null,
-          "revision": "95d52f1ab31c1367a7eff988c7b049c05d696750",
-          "version": "3.4.4"
-        }
-      },
-      {
-        "package": "SkeletonView",
-        "repositoryURL": "https://github.com/Juanpe/SkeletonView",
-        "state": {
-          "branch": null,
-          "revision": "0d5c0a228b2dfbc240912e9f09b2c66b5d3fd136",
-          "version": "1.8.6"
+          "revision": "05be7ebafca7e4068e14e9381ec56ab6201ee857",
+          "version": "3.4.5"
         }
       },
       {
