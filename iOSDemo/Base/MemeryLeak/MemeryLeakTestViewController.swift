@@ -45,6 +45,14 @@ class MemeryLeakTestViewController: UIViewController {
         //情况4 相互引用
         
         //情况5 句柄等资源没有回收
+        
+        
+        //看看子view不能回收的情况
+        //测试得知viewcontroller已经回收，但是子view还是没有回收ß
+        let v = subLeakView(frame: CGRect(x: 10, y: 100, w: 100, h: 100))
+        view.addSubview(v)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,7 +67,42 @@ class MemeryLeakTestViewController: UIViewController {
     }
     
     deinit {
+        //调用这个方法的时侯，viewController本身还没有变成nil
         Log(message: "\(type(of:self))已经被回收了")
+        if view == nil {
+           Log(message: "view已经变成nil了")
+        }
     }
     
+}
+
+
+class subLeakView: UIView {
+    let lblNum = UILabel()
+    var num = 1
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+       addSubview(lblNum)
+       lblNum.snp.makeConstraints { (m) in
+           m.left.equalTo(10)
+           m.top.equalTo(110)
+           m.width.equalTo(80)
+           m.height.equalTo(40)
+       }
+        let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MemeryLeakTestViewController.tick), userInfo: nil, repeats: true)
+        timer.fire()
+    }
+    @objc func tick()  {
+          num += 1
+          lblNum.text = "\(num)"
+          Log(message: num)
+      }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    deinit {
+           Log(message: "\(type(of:self))已经被回收了")
+       }
+       
 }
