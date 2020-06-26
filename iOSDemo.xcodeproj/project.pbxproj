@@ -103,6 +103,15 @@
 		AE3F46F820AC0D1B007BA637 /* TimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46F720AC0D1B007BA637 /* TimerButton.swift */; };
 		AE44D5CB21B511E900D3560E /* Lock.m in Sources */ = {isa = PBXBuildFile; fileRef = AE44D5CA21B511E900D3560E /* Lock.m */; };
 		AE49B7BD22A4F46A00478FF3 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49B7BC22A4F46A00478FF3 /* CameraModel.swift */; };
+		AE4D497424A1F176003D1565 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D497324A1F176003D1565 /* MAMapKit.framework */; };
+		AE4D497624A1F1A0003D1565 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D497524A1F1A0003D1565 /* AMapFoundationKit.framework */; };
+		AE4D497824A1F834003D1565 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D497724A1F833003D1565 /* AMapLocationKit.framework */; };
+		AE4D497A24A1F8EE003D1565 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D497924A1F8EE003D1565 /* SystemConfiguration.framework */; };
+		AE4D497C24A1F8F8003D1565 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D497B24A1F8F8003D1565 /* CoreTelephony.framework */; };
+		AE4D497E24A1F900003D1565 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D497D24A1F900003D1565 /* Security.framework */; };
+		AE4D498024A1F984003D1565 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D497F24A1F984003D1565 /* GLKit.framework */; };
+		AE4D498224A1F9C9003D1565 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D498124A1F9C9003D1565 /* ExternalAccessory.framework */; };
+		AE4D498924A1FE83003D1565 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AE4D498824A1FE82003D1565 /* AMap.bundle */; };
 		AE4DA61B213E68B300FCC7FD /* ShadowDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61A213E68B300FCC7FD /* ShadowDataManager.swift */; };
 		AE4DA61D213E762500FCC7FD /* ShadowDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61C213E762500FCC7FD /* ShadowDownloader.swift */; };
 		AE4DA61F213E833D00FCC7FD /* ShadowRangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61E213E833D00FCC7FD /* ShadowRangeManager.swift */; };
@@ -478,6 +487,17 @@
 		AE44D5C921B511E900D3560E /* Lock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lock.h; sourceTree = "<group>"; };
 		AE44D5CA21B511E900D3560E /* Lock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Lock.m; sourceTree = "<group>"; };
 		AE49B7BC22A4F46A00478FF3 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		AE4D497324A1F176003D1565 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = Library/Map/MAMapKit.framework; sourceTree = "<group>"; };
+		AE4D497524A1F1A0003D1565 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapFoundationKit.framework; path = Library/Map/AMapFoundationKit.framework; sourceTree = "<group>"; };
+		AE4D497724A1F833003D1565 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapLocationKit.framework; path = Library/Map/AMapLocationKit.framework; sourceTree = "<group>"; };
+		AE4D497924A1F8EE003D1565 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AE4D497B24A1F8F8003D1565 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		AE4D497D24A1F900003D1565 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AE4D497F24A1F984003D1565 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		AE4D498124A1F9C9003D1565 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		AE4D498324A1FC94003D1565 /* Map */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Map; sourceTree = "<group>"; };
+		AE4D498824A1FE82003D1565 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = Library/Map/AMap.bundle; sourceTree = "<group>"; };
+		AE4D498A24A1FF77003D1565 /* iOSDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSDemo.entitlements; sourceTree = "<group>"; };
 		AE4DA61A213E68B300FCC7FD /* ShadowDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDataManager.swift; sourceTree = "<group>"; };
 		AE4DA61C213E762500FCC7FD /* ShadowDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDownloader.swift; sourceTree = "<group>"; };
 		AE4DA61E213E833D00FCC7FD /* ShadowRangeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowRangeManager.swift; sourceTree = "<group>"; };
@@ -806,6 +826,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE4D498224A1F9C9003D1565 /* ExternalAccessory.framework in Frameworks */,
+				AE4D498024A1F984003D1565 /* GLKit.framework in Frameworks */,
+				AE4D497E24A1F900003D1565 /* Security.framework in Frameworks */,
+				AE4D497C24A1F8F8003D1565 /* CoreTelephony.framework in Frameworks */,
+				AE4D497A24A1F8EE003D1565 /* SystemConfiguration.framework in Frameworks */,
+				AE4D497824A1F834003D1565 /* AMapLocationKit.framework in Frameworks */,
+				AE4D497624A1F1A0003D1565 /* AMapFoundationKit.framework in Frameworks */,
+				AE4D497424A1F176003D1565 /* MAMapKit.framework in Frameworks */,
 				AEB957DD22E5589900C71372 /* libiconv.tbd in Frameworks */,
 				AECA9D33248B79A6008CC21B /* GrandView in Frameworks */,
 				AEF5E9032282B8210071B38A /* libz.tbd in Frameworks */,
@@ -1536,6 +1564,7 @@
 		AE9F31C91F69070E00339BB8 = {
 			isa = PBXGroup;
 			children = (
+				AE4D498824A1FE82003D1565 /* AMap.bundle */,
 				AEF4A45E1F6FCAEF00EE4001 /* Resource */,
 				AE9F32311F690F1B00339BB8 /* Library */,
 				AE9F31D41F69070E00339BB8 /* iOSDemo */,
@@ -1563,6 +1592,7 @@
 		AE9F31D41F69070E00339BB8 /* iOSDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AE4D498A24A1FF77003D1565 /* iOSDemo.entitlements */,
 				AE6691B120EDF37D00D019D4 /* Webview */,
 				AE1DE01A2099ACA9007910A5 /* Project */,
 				AEF097822065F6D60021E4ED /* Data */,
@@ -1589,6 +1619,14 @@
 		AE9F321B1F690DBF00339BB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE4D498124A1F9C9003D1565 /* ExternalAccessory.framework */,
+				AE4D497F24A1F984003D1565 /* GLKit.framework */,
+				AE4D497D24A1F900003D1565 /* Security.framework */,
+				AE4D497B24A1F8F8003D1565 /* CoreTelephony.framework */,
+				AE4D497924A1F8EE003D1565 /* SystemConfiguration.framework */,
+				AE4D497724A1F833003D1565 /* AMapLocationKit.framework */,
+				AE4D497524A1F1A0003D1565 /* AMapFoundationKit.framework */,
+				AE4D497324A1F176003D1565 /* MAMapKit.framework */,
 				AEB957DC22E5589900C71372 /* libiconv.tbd */,
 				AEF5E9022282B8210071B38A /* libz.tbd */,
 				AEF5E9002282B8190071B38A /* libbz2.tbd */,
@@ -1631,6 +1669,7 @@
 		AE9F32311F690F1B00339BB8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				AE4D498324A1FC94003D1565 /* Map */,
 				AEA681472421B39D009748E4 /* fmdb */,
 				AEA680D92420D908009748E4 /* MJRefresh */,
 				AEA6808B2420D6B7009748E4 /* TZImagePickerController */,
@@ -2324,6 +2363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE4D498924A1FE83003D1565 /* AMap.bundle in Resources */,
 				AE6897FE234C7C39001D0DF4 /* cxk.mp4 in Resources */,
 				AEB9572C22D48BF600C71372 /* test.mp4 in Resources */,
 				AE1DE0902099BE0A007910A5 /* p_2.png in Resources */,
@@ -2858,6 +2898,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_ENTITLEMENTS = iOSDemo/iOSDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -2866,6 +2907,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/framework",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Map",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -2905,6 +2947,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_ENTITLEMENTS = iOSDemo/iOSDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -2914,6 +2957,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/framework",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Map",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;

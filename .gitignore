@@ -72,4 +72,4 @@ fastlane/test_output
 framework
 ffmpeg_ios
 *.mp4
-
+MAMapKit.framework

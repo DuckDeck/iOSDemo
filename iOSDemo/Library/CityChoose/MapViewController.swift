@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import MAMapKit
+import AMapFoundationKit
+import AMapLocationKit
 // 后面加选择地点再更新地址功能
-/*
+
 class MapViewController: UIViewController {
+    
     var mapView: MAMapView!
     var locationManager = AMapLocationManager()
     var lblAddress = UILabel()
@@ -124,6 +128,10 @@ class MapViewController: UIViewController {
 
 extension MapViewController:AMapLocationManagerDelegate,MAMapViewDelegate{
     
+    func mapViewRequireLocationAuth(_ locationManager: CLLocationManager!) {
+        locationManager.requestAlwaysAuthorization()
+    }
+    
     func amapLocationManager(_ manager: AMapLocationManager!, didFailWithError error: Error!) {
         let error = error as NSError
         NSLog("appdelegate --- didFailWithError:{\(error.code) - \(error.localizedDescription)}; 请检查是否开启定位功能")
@@ -144,4 +152,4 @@ extension MapViewController:AMapLocationManagerDelegate,MAMapViewDelegate{
     }
     
 }
-*/
+
