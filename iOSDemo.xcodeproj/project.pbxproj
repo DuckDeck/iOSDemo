@@ -112,6 +112,7 @@
 		AE4D498024A1F984003D1565 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D497F24A1F984003D1565 /* GLKit.framework */; };
 		AE4D498224A1F9C9003D1565 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D498124A1F9C9003D1565 /* ExternalAccessory.framework */; };
 		AE4D498924A1FE83003D1565 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AE4D498824A1FE82003D1565 /* AMap.bundle */; };
+		AE4D4A2724A9DD09003D1565 /* ViewChaos in Frameworks */ = {isa = PBXBuildFile; productRef = AE4D4A2624A9DD09003D1565 /* ViewChaos */; };
 		AE4DA61B213E68B300FCC7FD /* ShadowDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61A213E68B300FCC7FD /* ShadowDataManager.swift */; };
 		AE4DA61D213E762500FCC7FD /* ShadowDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61C213E762500FCC7FD /* ShadowDownloader.swift */; };
 		AE4DA61F213E833D00FCC7FD /* ShadowRangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61E213E833D00FCC7FD /* ShadowRangeManager.swift */; };
@@ -308,7 +309,6 @@
 		AECA9D2A248B7143008CC21B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D29248B7143008CC21B /* Kingfisher */; };
 		AECA9D2D248B7779008CC21B /* GrandMenu in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D2C248B7779008CC21B /* GrandMenu */; };
 		AECA9D30248B7827008CC21B /* GrandStore in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D2F248B7827008CC21B /* GrandStore */; };
-		AECA9D33248B79A6008CC21B /* GrandView in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D32248B79A6008CC21B /* GrandView */; };
 		AECA9D36248B7A04008CC21B /* GrandTime in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D35248B7A04008CC21B /* GrandTime */; };
 		AECA9D39248B7ADE008CC21B /* GrandModel in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D38248B7ADE008CC21B /* GrandModel */; };
 		AECA9D3C248B915D008CC21B /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D3B248B915D008CC21B /* Gifu */; };
@@ -831,11 +831,11 @@
 				AE4D497E24A1F900003D1565 /* Security.framework in Frameworks */,
 				AE4D497C24A1F8F8003D1565 /* CoreTelephony.framework in Frameworks */,
 				AE4D497A24A1F8EE003D1565 /* SystemConfiguration.framework in Frameworks */,
+				AE4D4A2724A9DD09003D1565 /* ViewChaos in Frameworks */,
 				AE4D497824A1F834003D1565 /* AMapLocationKit.framework in Frameworks */,
 				AE4D497624A1F1A0003D1565 /* AMapFoundationKit.framework in Frameworks */,
 				AE4D497424A1F176003D1565 /* MAMapKit.framework in Frameworks */,
 				AEB957DD22E5589900C71372 /* libiconv.tbd in Frameworks */,
-				AECA9D33248B79A6008CC21B /* GrandView in Frameworks */,
 				AEF5E9032282B8210071B38A /* libz.tbd in Frameworks */,
 				AEF5E9012282B8190071B38A /* libbz2.tbd in Frameworks */,
 				AECA9D2D248B7779008CC21B /* GrandMenu in Frameworks */,
@@ -2222,11 +2222,11 @@
 				AECA9D29248B7143008CC21B /* Kingfisher */,
 				AECA9D2C248B7779008CC21B /* GrandMenu */,
 				AECA9D2F248B7827008CC21B /* GrandStore */,
-				AECA9D32248B79A6008CC21B /* GrandView */,
 				AECA9D35248B7A04008CC21B /* GrandTime */,
 				AECA9D38248B7ADE008CC21B /* GrandModel */,
 				AECA9D3B248B915D008CC21B /* Gifu */,
 				AECA9D40248B97FA008CC21B /* KRProgressHUD */,
+				AE4D4A2624A9DD09003D1565 /* ViewChaos */,
 			);
 			productName = iOSDemo;
 			productReference = AE9F31D21F69070E00339BB8 /* iOSDemo.app */;
@@ -2339,11 +2339,11 @@
 				AECA9D28248B7143008CC21B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				AECA9D2B248B7779008CC21B /* XCRemoteSwiftPackageReference "GrandMenu" */,
 				AECA9D2E248B7827008CC21B /* XCRemoteSwiftPackageReference "GrandStore" */,
-				AECA9D31248B79A5008CC21B /* XCRemoteSwiftPackageReference "GrandView" */,
 				AECA9D34248B7A04008CC21B /* XCRemoteSwiftPackageReference "GrandTime" */,
 				AECA9D37248B7ADE008CC21B /* XCRemoteSwiftPackageReference "GrandModel" */,
 				AECA9D3A248B915D008CC21B /* XCRemoteSwiftPackageReference "Gifu" */,
 				AECA9D3F248B97FA008CC21B /* XCRemoteSwiftPackageReference "KRProgressHUD" */,
+				AE4D4A2524A9DD09003D1565 /* XCRemoteSwiftPackageReference "ViewChaos" */,
 			);
 			productRefGroup = AE9F31D31F69070E00339BB8 /* Products */;
 			projectDirPath = "";
@@ -3155,6 +3155,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AE4D4A2524A9DD09003D1565 /* XCRemoteSwiftPackageReference "ViewChaos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DuckDeck/ViewChaos";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
 		AECA9D19248B476C008CC21B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -3219,14 +3227,6 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		AECA9D31248B79A5008CC21B /* XCRemoteSwiftPackageReference "GrandView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/DuckDeck/GrandView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		AECA9D34248B7A04008CC21B /* XCRemoteSwiftPackageReference "GrandTime" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/DuckDeck/GrandTime";
@@ -3262,6 +3262,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AE4D4A2624A9DD09003D1565 /* ViewChaos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE4D4A2524A9DD09003D1565 /* XCRemoteSwiftPackageReference "ViewChaos" */;
+			productName = ViewChaos;
+		};
 		AECA9D1A248B476C008CC21B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AECA9D19248B476C008CC21B /* XCRemoteSwiftPackageReference "Alamofire" */;
@@ -3301,11 +3306,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AECA9D2E248B7827008CC21B /* XCRemoteSwiftPackageReference "GrandStore" */;
 			productName = GrandStore;
-		};
-		AECA9D32248B79A6008CC21B /* GrandView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AECA9D31248B79A5008CC21B /* XCRemoteSwiftPackageReference "GrandView" */;
-			productName = GrandView;
 		};
 		AECA9D35248B7A04008CC21B /* GrandTime */ = {
 			isa = XCSwiftPackageProductDependency;
