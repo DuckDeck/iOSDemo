@@ -36,4 +36,9 @@ class ShadowVideoPlayControlView: UIView {
         state = btnImage.isSelected
         playBlock?(self,state)
     }
+    
+    deinit {
+            Log(message: "\(type(of:self))已经被回收了")
+    }
+    
 }

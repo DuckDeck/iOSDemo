@@ -122,31 +122,17 @@ class ShadowVideoControlView: UIView {
         btnLarge.addTarget(self, action: #selector(hanleFullScreen(sender:)), for: .touchUpInside)
         addSubview(btnLarge)
        
-        
-        
-        addConstraintsForSubviews()
-      
         NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
+    override func layoutSubviews() {
+        addConstraintsForSubviews()
     }
     
     func addConstraintsForSubviews() {
         lblTime.snp.makeConstraints { (m) in
             m.left.equalTo(0)
-            m.bottom.equalTo(-padding)
-            m.width.equalTo(50)
-        }
-        slider.snp.makeConstraints { (m) in
-            m.left.equalTo(lblTime.snp.right).offset(padding)
-            m.right.equalTo(lblTotalTime.snp.left).offset(-padding)
-            m.centerY.equalTo(lblTime)
-            m.height.equalTo(20)
-//            if ScreenWidth < ScreenWidth{
-//                m.width.equalTo(ScreenWidth - padding * 3 - 50 - 50 - 30)
-//            }
-        }
-        lblTotalTime.snp.makeConstraints { (m) in
-            m.right.equalTo(btnLarge.snp.left).offset(-padding)
-            m.centerY.equalTo(lblTime)
+            m.centerY.equalTo(self)
             m.width.equalTo(50)
         }
         
@@ -163,6 +149,24 @@ class ShadowVideoControlView: UIView {
             m.width.height.equalTo(needHideBtnLarge ? 0 : 30)
             m.right.equalTo( needHideBtnLarge ? 0 : -padding)
         }
+        
+        lblTotalTime.snp.makeConstraints { (m) in
+               m.right.equalTo(btnLarge.snp.left).offset(-padding)
+               m.centerY.equalTo(lblTime)
+               m.width.equalTo(50)
+           }
+        
+        slider.snp.makeConstraints { (m) in
+            m.left.equalTo(lblTime.snp.right).offset(padding)
+            m.right.equalTo(lblTotalTime.snp.left).offset(-padding)
+            m.centerY.equalTo(lblTime)
+            m.height.equalTo(20)
+//            if ScreenWidth < ScreenWidth{
+//                m.width.equalTo(ScreenWidth - padding * 3 - 50 - 50 - 30)
+//            }
+        }
+       
+
         
         sliderBuffer.snp.makeConstraints { (m) in
             m.edges.equalTo(slider)
@@ -192,11 +196,13 @@ class ShadowVideoControlView: UIView {
     }
     
     @objc func deviceOrientationDidChange() {
-        addConstraintsForSubviews()
+        layoutIfNeeded()
     }
     
     deinit {
         
+        Log(message: "\(type(of:self))已经被回收了")
+           
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 }

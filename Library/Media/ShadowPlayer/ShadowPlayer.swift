@@ -24,6 +24,7 @@ protocol ShadowPlayDelegate:class {
     func bufferProcess(current:Float,duration:Float)
     func playStateChange(status:PlayerStatus,info:MediaInfo?)
     func playProcess(current:Float,duration:Float)
+    func loadMediaFail(error:NSError)
 }
 
 struct MediaInfo {
@@ -209,10 +210,11 @@ class ShadowPlayer:NSObject {
                   
                 }
             case .failed:
-               // weakself?.showErrorInfo(info: error?.localizedDescription ?? "视频出现错误，请检查后重新播放")
+                if error != nil{
+                    weakself?.delegate?.loadMediaFail(error: error!)
+                }
                 print(error?.localizedDescription ?? "")
             case .unknown:
-                // weakself?.showErrorInfo(info: "未知视频格式，请检查后重新播放")
                 print(error?.localizedDescription ?? "")
             default:
                 break
@@ -276,7 +278,8 @@ class ShadowPlayer:NSObject {
                 print("缓冲达到可播放")
             case .failed:
                 status = .Failed
-                print("status出现fail")
+                let err = NSError(domain: "视频加载失败", code: -1, userInfo: nil)
+                delegate?.loadMediaFail(error: err)
             }
         }
         else if key == "loadedTimeRanges"{ //监听播放器的下载进度

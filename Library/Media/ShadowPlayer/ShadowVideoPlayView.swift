@@ -92,25 +92,12 @@ class ShadowVideoPlayerView: UIView {
         vControl = ShadowVideoControlView(frame: CGRect(), config: self.config)
         vPlay = ShadowVideoPlayControlView(frame: CGRect())
         
-        setupPlayerUI()
+        
         player = ShadowPlayer(url: url, playerLayer: playerLayer)
         player.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange(notif:)), name: UIDevice.orientationDidChangeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive(notif:)), name: UIApplication.willResignActiveNotification, object: nil)
-    }
-  
-    
-    func replaceWithUrl(url:URL){
-        player.replaceWithUrl(url: url)
-    }
-    
-    internal required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-
-    
-    func setupPlayerUI() {
+        
         self.vActivity.startAnimating()
         //添加标题
         lblTitle.backgroundColor = UIColor.clear
@@ -119,17 +106,11 @@ class ShadowVideoPlayerView: UIView {
         lblTitle.textColor = UIColor.white
         lblTitle.numberOfLines = 2
         addSubview(lblTitle)
-        lblTitle.snp.makeConstraints { (m) in
-            m.left.equalTo(0)
-            m.top.equalTo(10)
-            m.right.equalTo(-30)
-            m.width.equalTo(self)
-        }
-        //添加点击事件
+        
+        //添加播放和暂停按钮
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapAction(ges:)))
         tap.delegate = self
         addGestureRecognizer(tap)
-        //添加播放和暂停按钮
         vPlay.backgroundColor = UIColor.clear
         vPlay.playBlock = {[weak self](view:ShadowVideoPlayControlView,state:Bool) in
             ShadowVideoPlayerView.count = 0
@@ -140,52 +121,29 @@ class ShadowVideoPlayerView: UIView {
                 self?.pause()
             }
         }
-        addSubview(vPlay)
-        vPlay.snp.makeConstraints { (m) in
-            m.edges.equalTo(self)
-        }
         vPlay.isHidden = true
+        
+        addSubview(vPlay)
         //添加控制视图
+        vControl.currentTime = "00:00"
+        vControl.totalTime = "00:00"
         vControl.delegate = self
         vControl.backgroundColor = UIColor.clear
         if let ges = self.vPlay.btnImage.gestureRecognizers?.first{
             vControl.tapGesture?.require(toFail: ges)
         }
         addSubview(vControl)
-        vControl.snp.makeConstraints { (m) in
-            m.left.right.bottom.equalTo(0)
-            m.height.equalTo(44)
-        }
-        
-        
-        
-        layoutIfNeeded()
         //添加加载视图
         vActivity.hidesWhenStopped = true
         addSubview(vActivity)
-        vActivity.snp.makeConstraints { (m) in
-            m.width.height.equalTo(80)
-            m.center.equalTo(self)
-        }
-        //初始化时间
-        vControl.currentTime = "00:00"
-        vControl.totalTime = "00:00"
         
+        //添加查看视频信息按键
         btnVideoInfo.setImage(#imageLiteral(resourceName: "info"), for: .normal)
         addSubview(btnVideoInfo)
-        btnVideoInfo.snp.makeConstraints { (m) in
-            m.right.equalTo(-10)
-            m.top.equalTo(10)
-            m.width.height.equalTo(20)
-        }
         btnVideoInfo.addTarget(self, action: #selector(showVideoInfo), for: .touchUpInside)
-        
-        
         vScInfo.backgroundColor = UIColor(gray: 0.3, alpha: 0.5)
         addSubview(vScInfo)
-        vScInfo.snp.makeConstraints { (m) in
-            m.edges.equalTo(self)
-        }
+
         let tapInfo = UITapGestureRecognizer(target: self, action: #selector(handleTapInfo(ges:)))
         vScInfo.addGestureRecognizer(tapInfo)
         vScInfo.isHidden = true
@@ -216,27 +174,84 @@ class ShadowVideoPlayerView: UIView {
                 m.bottom.equalTo(-10)
             }
         }
+        
         vErrorVideo.isHidden = true
         vErrorVideo.backgroundColor = UIColor(gray: 0.3, alpha: 0.5)
         addSubview(vErrorVideo)
         let tapError = UITapGestureRecognizer(target: self, action: #selector(handleTapError(ges:)))
         vErrorVideo.addGestureRecognizer(tapError)
-        vErrorVideo.snp.makeConstraints { (m) in
-            m.edges.equalTo(self)
-        }
+
         let imgError = UIImageView(image: #imageLiteral(resourceName: "icon_error"))
         vErrorVideo.addSubview(imgError)
+        lblError.textColor = UIColor.white
+        lblError.font = UIFont.systemFont(ofSize: 18)
+        lblError.textAlignment = .center
+        lblError.numberOfLines = 0
+        lblError.textAlignment = .left
+        vErrorVideo.addSubview(lblError)
         imgError.snp.makeConstraints { (m) in
             m.center.equalTo(self)
         }
         
-        lblError.textColor = UIColor.white
-        lblError.font = UIFont.systemFont(ofSize: 18)
-        lblError.textAlignment = .center
-        vErrorVideo.addSubview(lblError)
         lblError.snp.makeConstraints { (m) in
             m.centerX.equalTo(self)
+            m.width.equalTo(ScreenWidth - 100)
             m.top.equalTo(imgError.snp.bottom).offset(4)
+        }
+
+
+    }
+  
+    override func layoutSubviews() {
+        setupPlayerUI()
+    }
+    
+    func replaceWithUrl(url:URL){
+        player.replaceWithUrl(url: url)
+    }
+    
+    internal required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
+    func setupPlayerUI() {
+        if lblTitle.superview == nil{
+            return
+        }
+        lblTitle.snp.makeConstraints { (m) in
+            m.left.equalTo(0)
+            m.top.equalTo(10)
+            m.right.equalTo(-30)
+        }
+        //添加点击事件
+       
+        vPlay.snp.makeConstraints { (m) in
+            m.edges.equalTo(self)
+        }
+        vControl.snp.makeConstraints { (m) in
+            m.left.right.bottom.equalTo(0)
+            m.height.equalTo(44)
+        }
+        
+        vActivity.snp.makeConstraints { (m) in
+            m.width.height.equalTo(80)
+            m.center.equalTo(self)
+        }
+        //初始化时间
+        
+        btnVideoInfo.snp.makeConstraints { (m) in
+            m.right.equalTo(-10)
+            m.top.equalTo(10)
+            m.width.height.equalTo(20)
+        }
+        vScInfo.snp.makeConstraints { (m) in
+            m.edges.equalTo(self)
+        }
+        
+        vErrorVideo.snp.makeConstraints { (m) in
+            m.edges.equalTo(self)
         }
     }
     
@@ -406,7 +421,7 @@ class ShadowVideoPlayerView: UIView {
     }
     
     deinit {
-        print("deinit the ShadowVideoPlayView")
+        Log(message: "\(type(of:self))已经被回收了")
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIApplication.willResignActiveNotification, object: nil)
     }
@@ -439,6 +454,9 @@ extension ShadowVideoPlayerView:UIGestureRecognizerDelegate,ShadowVideoControlVi
         }
         else if ori == .landscapeLeft || ori == .landscapeRight{
             interfaceOrientation(orientation: .portrait)
+        }
+        else{
+            interfaceOrientation(orientation: .landscapeRight)
         }
     }
  
@@ -554,6 +572,11 @@ extension ShadowVideoPlayerView:ShadowPlayDelegate{
         ShadowVideoPlayerView.count += 1
     }
     
-    
+    func loadMediaFail(error: NSError) {
+        DispatchQueue.main.async {
+            self.showErrorInfo(info: error.localizedDescription)
+
+        }
+    }
 }
 

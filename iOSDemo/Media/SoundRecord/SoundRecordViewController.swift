@@ -63,6 +63,8 @@ class SoundRecordViewController: UIViewController {
     }
     
     func initView() {
+        let btnNetAudio = UIBarButtonItem(title: "网络音频", style: .plain, target: self, action: #selector(gotoRecordList))
+        
         let btnNav = UIBarButtonItem(title: "已有录音", style: .plain, target: self, action: #selector(gotoRecordList))
         navigationItem.rightBarButtonItem = btnNav
         
@@ -123,6 +125,10 @@ class SoundRecordViewController: UIViewController {
    
     @objc func gotoRecordList() {
         navigationController?.pushViewController(RecordListViewController(), animated: true)
+    }
+    
+    @objc func gotoNetAudio(){
+        
     }
     
     @objc func startRecord()  {

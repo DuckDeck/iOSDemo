@@ -20,6 +20,7 @@ class ShadowVideoPlayerViewController: UIViewController {
     var player : ShadowVideoPlayerView! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.black
         assert(navigationController == nil, "你不能Navigation到这个页面")
         assert(url != nil, "videl url can not be nil")
         player = ShadowVideoPlayerView(frame: CGRect(), url: url!)

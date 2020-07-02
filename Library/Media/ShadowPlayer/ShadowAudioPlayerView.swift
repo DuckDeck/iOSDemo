@@ -226,6 +226,9 @@ extension ShadowAudioPlayerView:ShadowPlayDelegate{
         lblPlayTime.text = convertTime(second: Double(current))
     }
     
+    func loadMediaFail(error: NSError) {
+        
+    }
     
     
 }
