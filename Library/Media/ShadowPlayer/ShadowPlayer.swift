@@ -240,6 +240,9 @@ class ShadowPlayer:NSObject {
         weak var weakself = self
         playbackTimerObserver = player.addPeriodicTimeObserver(forInterval: CMTimeMake(value: 1, timescale: 1), queue: nil, using: { (time) in
             //ISSUE 当在滑动的时侯，又会反馈带动这里滑动，所以会出现一跳一跳的情况。
+            if weakself == nil{
+                return
+            }
             if weakself!.isSeeking{
                 return
             }

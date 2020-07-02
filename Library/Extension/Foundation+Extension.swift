@@ -318,6 +318,17 @@ extension Array{
         }
     }
     
+    mutating func insertItems(array:[Element],index:Int){
+        if index < 0 || index >= self.count{
+            return
+        }
+        var i = index
+        for item in array{
+            insert(item, at: i)
+            i += 1
+        }
+    }
+    
     mutating func removeAtIndexs(indexs:[Int])  {
         if indexs.count <= 0{
             return
