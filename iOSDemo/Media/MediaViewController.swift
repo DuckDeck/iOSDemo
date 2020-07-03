@@ -11,7 +11,7 @@ import SnapKit
 
 class MediaViewController: UIViewController {
 
-    var arrData = ["CaptureVideo","Play Music","Add Watermark","Record Audio","Record Video","Take Photo",
+    var arrData = ["CaptureVideo","Add Watermark","Record Audio","Record Video","Take Photo",
                    "Gif","Palette","Compress Image",]
     var tbMenu = UITableView()
     
@@ -80,20 +80,18 @@ extension MediaViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             navigationController?.pushViewController(CaptureVideoViewController(), animated: true)
         case 1:
-            navigationController?.pushViewController(MusicListViewController(), animated: true)
-        case 2:
             navigationController?.pushViewController(WatermarkViewController(), animated: true)
-        case 3:
+        case 2:
             navigationController?.pushViewController(SoundRecordViewController(), animated: true)
-        case 4:
+        case 3:
             navigationController?.pushViewController(VideoListViewController(), animated: true)
-        case 5:
+        case 4:
             present(TakePhotoViewController(), animated: true, completion: nil)
-        case 6:
+        case 5:
             navigationController?.pushViewController(GifViewController(), animated: true)
-        case 7:
+        case 6:
             navigationController?.pushViewController(PaletteViewController(), animated: true)
-        case 8:
+        case 7:
             navigationController?.pushViewController(CompressImageViewController(), animated: true)
         default:
             break

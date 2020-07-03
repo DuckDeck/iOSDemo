@@ -62,6 +62,7 @@ class VideoListViewController: UIViewController {
         //http://download.3g.joy.cn/video/236/60236937/1451280942752_hd.mp4
         let url = URL(string: "https://lovelive.ink:19996/file/1593673763cxh.mp4")
         let vc = ShadowVideoPlayerViewController()
+        vc.modalPresentationStyle = .fullScreen
         vc.url = url
         
         present(vc, animated: true, completion: nil)
@@ -74,6 +75,7 @@ class VideoListViewController: UIViewController {
             self.arrFile.insert(m, at: 0)
             self.vc.reloadData()
         }
+        vc.modalPresentationStyle = .fullScreen
         present(VideoRecordViewController(), animated: true) {
             print("123")
         }
@@ -149,7 +151,10 @@ extension VideoListViewController:UICollectionViewDelegate,UICollectionViewDataS
         let url = arrFile[indexPath.row].url
         let vc = VideoPlayViewController()
         vc.url = url!
-        
+        vc.modalPresentationStyle = .fullScreen
+        vc.deleteBlock = {(url:URL) in
+            self.initData()
+        }
         //搞一个错误的视频
 //        let str = url!.absoluteString.replacingOccurrencesOfString(".", withString: "_")
 //        let newUrl = URL(string: str)

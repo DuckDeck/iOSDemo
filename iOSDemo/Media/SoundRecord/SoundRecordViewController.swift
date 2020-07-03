@@ -19,12 +19,12 @@ class SoundRecordViewController: UIViewController {
     let vAni = RippleAnimtaionView(frame: CGRect(x: ScreenWidth / 2 - 30, y: ScreenHeight - 100, width: 60, height: 60)) //这个色后面再改改
     let lblTimer = UILabel()
     var timer:GrandTimer!
-    
+    let vPlayNetAudio = UIView()
     
     var recorder: AVAudioRecorder!
     var player: AVAudioPlayer!
     var soundFileURL: URL!
-    
+    var audioPlayView:ShadowAudioPlayerView?
 
     
     private var vWave: VolumeView!
@@ -63,10 +63,10 @@ class SoundRecordViewController: UIViewController {
     }
     
     func initView() {
-        let btnNetAudio = UIBarButtonItem(title: "网络音频", style: .plain, target: self, action: #selector(gotoRecordList))
+        let btnNetAudio = UIBarButtonItem(title: "网络音频", style: .plain, target: self, action: #selector(gotoNetAudio))
         
         let btnNav = UIBarButtonItem(title: "已有录音", style: .plain, target: self, action: #selector(gotoRecordList))
-        navigationItem.rightBarButtonItem = btnNav
+        navigationItem.rightBarButtonItems = [btnNetAudio,btnNav]
         
         vWave = VolumeView(frame: CGRect(x: 0, y: 400, w: ScreenWidth, h: 100), type: .bar)
         vWave.barGap = 8
@@ -121,6 +121,17 @@ class SoundRecordViewController: UIViewController {
             m.centerX.equalTo(view)
         }
         
+        vPlayNetAudio.backgroundColor = UIColor(gray: 0.5, alpha: 0.3)
+        vPlayNetAudio.isHidden = true
+        view.addSubview(vPlayNetAudio)
+        vPlayNetAudio.snp.makeConstraints { (m) in
+            m.edges.equalTo(view)
+        }
+        
+        vPlayNetAudio.isUserInteractionEnabled = true
+        vPlayNetAudio.addTapGesture { (ges) in
+            self.removeNetAudio()
+        }
     }
    
     @objc func gotoRecordList() {
@@ -128,7 +139,18 @@ class SoundRecordViewController: UIViewController {
     }
     
     @objc func gotoNetAudio(){
-        
+        let url = "https://lovelive.ink:19996/file/1593677674plants.mp3"
+        let playAudio = ShadowAudioPlayerView(frame: CGRect(x: 10, y: 300, w: ScreenWidth - 20, h: 50), url: URL(string: url)!)
+        self.audioPlayView = playAudio
+        vPlayNetAudio.addSubview(playAudio)
+        audioPlayView?.backgroundColor = UIColor.white
+        vPlayNetAudio.isHidden = false
+    }
+    func removeNetAudio() {
+        audioPlayView?.player.stop()
+        audioPlayView?.removeFromSuperview()
+        audioPlayView = nil
+        vPlayNetAudio.isHidden = true
     }
     
     @objc func startRecord()  {

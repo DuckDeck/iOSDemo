@@ -17,6 +17,8 @@ class VideoPlayViewController: BaseViewController {
     var shadowPlayer:ShadowVideoPlayerView!
     let btnDelete = UIButton()
     let btnCompress = UIButton()
+    var deleteBlock:((_ url:URL)->Void)?
+    var compressBlock:((_ url:URL)->Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -134,10 +136,13 @@ class VideoPlayViewController: BaseViewController {
         shadowPlayer?.stop()
         let newFileName = url.absoluteString.split(".").first! + "compress.mp4"
         Toast.showLoading()
-        compressVideo(inputUrl: url, outputUrl: URL(string: newFileName)!) { (export) in
+        let newUrl = URL(string: newFileName)!
+        compressVideo(inputUrl: url, outputUrl: newUrl) { (export) in
             DispatchQueue.main.async {
                 Toast.showToast(msg: "压缩完成")
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true) {
+                    self.compressBlock?(newUrl)
+                }
             }
         }
         
@@ -148,7 +153,9 @@ class VideoPlayViewController: BaseViewController {
         UIAlertController.title(title: "删除该视频", message: nil).action(title: "取消", handle: nil).action(title: "确定", handle:{ (action:UIAlertAction) in
             self.shadowPlayer.stop()
             CVFileManager.removeFile(url: self.url)
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true) {
+                self.deleteBlock?(self.url)
+            }
         }).showAlert(viewController: self)
     }
 

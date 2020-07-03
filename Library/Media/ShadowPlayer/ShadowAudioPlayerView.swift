@@ -138,7 +138,7 @@ class ShadowAudioPlayerView: UIView {
     }
     
     deinit {
-        if player != nil{
+        if player != nil {
             player.stop()
             player = nil
         }

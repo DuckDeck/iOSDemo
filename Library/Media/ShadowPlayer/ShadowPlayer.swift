@@ -354,6 +354,9 @@ class ShadowPlayer:NSObject {
     }
     
     func stop() {
+        if item == nil{
+            return
+        }
         item.removeObserver(self, forKeyPath: "status")
         player.removeTimeObserver(playbackTimerObserver)
         item.removeObserver(self, forKeyPath: "loadedTimeRanges")

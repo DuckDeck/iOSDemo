@@ -25,7 +25,6 @@
 		AE111ED7235EAB4300AB869F /* MessageSend.m in Sources */ = {isa = PBXBuildFile; fileRef = AE111ED6235EAB4300AB869F /* MessageSend.m */; };
 		AE1344DA209068C7009A210D /* block相关.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344D9209068C7009A210D /* block相关.m */; };
 		AE1344DD20906937009A210D /* object_setClass.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344DC20906937009A210D /* object_setClass.m */; };
-		AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE161F711F98910800B3293F /* MusicListViewController.swift */; };
 		AE1AC75020CF6FB40002F779 /* UICollectView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC74F20CF6FB40002F779 /* UICollectView+Extension.swift */; };
 		AE1AC80D20D25F5A0002F779 /* ShadowVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC80720D25F5A0002F779 /* ShadowVideoPlayerViewController.swift */; };
 		AE1AC80E20D25F5A0002F779 /* ShadowVideoPlayControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC80820D25F5A0002F779 /* ShadowVideoPlayControlView.swift */; };
@@ -406,7 +405,6 @@
 		AE111ED6235EAB4300AB869F /* MessageSend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageSend.m; sourceTree = "<group>"; };
 		AE1344D9209068C7009A210D /* block相关.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "block相关.m"; sourceTree = "<group>"; };
 		AE1344DC20906937009A210D /* object_setClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = object_setClass.m; sourceTree = "<group>"; };
-		AE161F711F98910800B3293F /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
 		AE1AC74F20CF6FB40002F779 /* UICollectView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectView+Extension.swift"; sourceTree = "<group>"; };
 		AE1AC80720D25F5A0002F779 /* ShadowVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowVideoPlayerViewController.swift; sourceTree = "<group>"; };
 		AE1AC80820D25F5A0002F779 /* ShadowVideoPlayControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowVideoPlayControlView.swift; sourceTree = "<group>"; };
@@ -983,14 +981,6 @@
 			path = Runtime;
 			sourceTree = "<group>";
 		};
-		AE161F701F988CFB00B3293F /* MusicPlay */ = {
-			isa = PBXGroup;
-			children = (
-				AE161F711F98910800B3293F /* MusicListViewController.swift */,
-			);
-			path = MusicPlay;
-			sourceTree = "<group>";
-		};
 		AE1AC80420D25F3B0002F779 /* Media */ = {
 			isa = PBXGroup;
 			children = (
@@ -1260,7 +1250,6 @@
 				AEDF8C47209AF5E000EED6D1 /* VideoRecord */,
 				AE7278A7207F5A08005D9D6D /* SoundRecord */,
 				AE7BBCE2207B496D005DBE0C /* Watermark */,
-				AE161F701F988CFB00B3293F /* MusicPlay */,
 				AE5752941F76933800F6AAC5 /* CaptureVideo */,
 			);
 			path = Media;
@@ -2631,7 +2620,6 @@
 				AE1AC75020CF6FB40002F779 /* UICollectView+Extension.swift in Sources */,
 				AEA681542421B39D009748E4 /* FMDatabaseQueue.m in Sources */,
 				AEA680CA2420D6B7009748E4 /* TZPhotoPreviewCell.m in Sources */,
-				AE161F721F98910800B3293F /* MusicListViewController.swift in Sources */,
 				AEA680AE2420D6B7009748E4 /* TZAssetCell.m in Sources */,
 				AE3F46EC20AC0290007BA637 /* HintView.swift in Sources */,
 				AE3F46F420AC0B2B007BA637 /* UIImageView+Extension.swift in Sources */,
