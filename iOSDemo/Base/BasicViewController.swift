@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 class BasicViewController: UIViewController {
 
-    var arrData = ["Demo","Thread","MemeryLeak"]
+    var arrData = ["Demo","Thread","MemeryLeak","离屏渲染"]
     var tbMenu = UITableView()
       
     override func viewDidLoad() {
@@ -49,6 +49,9 @@ extension BasicViewController:UITableViewDelegate,UITableViewDataSource{
             navigationController?.pushViewController(ThreadViewController(), animated: true)
         case 2:
             navigationController?.pushViewController(MemeryLeakTestViewController(), animated: true)
+        case 3:
+            navigationController?.pushViewController(OffSreenRenderViewController(), animated: true)
+
         default:
             break
         }

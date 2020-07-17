@@ -86,6 +86,7 @@ class TouchIncreaseButton: UIButton {
         return hitTestBounds
     }
     
+    
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         let rect = hitTestBounds(minimumHitTestWidth: btnWidth, minimumHitTestHeight: btnHeight)
         return rect.contains(point)

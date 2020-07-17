@@ -319,7 +319,7 @@ extension Array{
     }
     
     mutating func insertItems(array:[Element],index:Int){
-        if index < 0 || index >= self.count{
+        if index < 0 || index > self.count{
             return
         }
         var i = index

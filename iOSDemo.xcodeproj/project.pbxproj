@@ -330,6 +330,7 @@
 		AEF362A72058CB1F001A490D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF362A62058CB1F001A490D /* main.swift */; };
 		AEF4A4601F6FCAF800EE4001 /* novel1.gif in Resources */ = {isa = PBXBuildFile; fileRef = AEF4A45F1F6FCAF800EE4001 /* novel1.gif */; };
 		AEF4A4621F6FCB5B00EE4001 /* novel2.gif in Resources */ = {isa = PBXBuildFile; fileRef = AEF4A4611F6FCB5B00EE4001 /* novel2.gif */; };
+		AEF5779724B6F75B00E68BDC /* OffSreenRenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF5779624B6F75B00E68BDC /* OffSreenRenderViewController.swift */; };
 		AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CA1F7793D300D9A09F /* AIViewController.swift */; };
 		AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF589CD1F77945800D9A09F /* ImageRecognitionViewController.swift */; };
 		AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF589D81F77ABB800D9A09F /* CoreML.framework */; };
@@ -780,6 +781,7 @@
 		AEF4A4421F6F74C100EE4001 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
 		AEF4A45F1F6FCAF800EE4001 /* novel1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = novel1.gif; sourceTree = "<group>"; };
 		AEF4A4611F6FCB5B00EE4001 /* novel2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = novel2.gif; sourceTree = "<group>"; };
+		AEF5779624B6F75B00E68BDC /* OffSreenRenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffSreenRenderViewController.swift; sourceTree = "<group>"; };
 		AEF589CA1F7793D300D9A09F /* AIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIViewController.swift; sourceTree = "<group>"; };
 		AEF589CD1F77945800D9A09F /* ImageRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognitionViewController.swift; sourceTree = "<group>"; };
 		AEF589D11F779BC700D9A09F /* ImagePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImagePicker.framework; path = Carthage/Build/iOS/ImagePicker.framework; sourceTree = "<group>"; };
@@ -1301,6 +1303,7 @@
 		AE5A886B1FF373A000748F6A /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				AEF5779524B6F74700E68BDC /* Render */,
 				AEADFD4A21115FF600E6B58D /* Demo */,
 				AEADFD42211001BE00E6B58D /* MemeryLeak */,
 				AE5A886E1FF3767800748F6A /* Thread */,
@@ -2132,6 +2135,14 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		AEF5779524B6F74700E68BDC /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				AEF5779624B6F75B00E68BDC /* OffSreenRenderViewController.swift */,
+			);
+			path = Render;
+			sourceTree = "<group>";
+		};
 		AEF589C91F7793BF00D9A09F /* AI */ = {
 			isa = PBXGroup;
 			children = (
@@ -2437,6 +2448,7 @@
 				AEBE404D1FC806E40087D7ED /* CityDB.swift in Sources */,
 				AEB7D0A222602760008C899E /* MitoSearchViewController.swift in Sources */,
 				AEA6815D2421B39D009748E4 /* FMDatabasePool.m in Sources */,
+				AEF5779724B6F75B00E68BDC /* OffSreenRenderViewController.swift in Sources */,
 				AEADFD41210EBCE100E6B58D /* CompressImageViewController.swift in Sources */,
 				AEBE40561FC80A930087D7ED /* CitySearchResultView.swift in Sources */,
 				AE5A88831FF4913D00748F6A /* BaseViewController.swift in Sources */,

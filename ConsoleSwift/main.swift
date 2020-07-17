@@ -14,6 +14,25 @@ let sss = [1,2,3,4,5,1,2,1,2]
 for a in sss{
     print(a)
 }
+
+
+class One{
+    func name() {
+        print("One")
+    }
+}
+class Two: One {
+    override func name() {
+        print("Two")
+    }
+}
+
+let t = Two()
+t.name()
+let tt = t as One
+tt.name()
+
+
 /*
 protocol DictionaryValue{
     var value:Any{ get }

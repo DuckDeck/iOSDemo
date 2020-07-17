@@ -30,7 +30,7 @@ class ShadowVideoPlayerViewController: UIViewController {
         view.addSubview(player)
         player.snp.makeConstraints { (m) in
             m.left.right.equalTo(0)
-            m.top.equalTo(50)
+            m.top.equalTo(80)
             m.bottom.equalTo(-50)
         }
         
