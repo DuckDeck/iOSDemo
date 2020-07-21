@@ -68,8 +68,5 @@ class CVFileManager {
        try? PHPhotoLibrary.shared().performChangesAndWait {
            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: fileUrl)
         }
-
     }
-    
-    
 }
