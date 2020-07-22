@@ -23,9 +23,7 @@ class BasicViewController: UIViewController {
         tbMenu.snp.makeConstraints { (m) in
             m.edges.equalTo(0)
         }
-        
     }
-
 }
 extension BasicViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
