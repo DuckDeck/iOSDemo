@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
-
+#import "RerangeBinaryViewController.h"
 @interface ViewController ()
 @property (nonatomic,strong) NSThread *thread;
 @property (nonatomic) NSRunLoop *runloop;
+@property (nonatomic) UITableView* tb;
+@property (nonatomic,strong) NSArray* arr;
 @end
 
 @implementation ViewController
@@ -21,10 +23,40 @@
     self.view.backgroundColor = [UIColor blueColor];
     
    // [self test1];
+    self.arr = @[@"二进制重排"];
+    self.tb = [UITableView new];
+    self.tb.frame = CGRectMake(0, 64, UIScreen.mainScreen.bounds.size.width, UIScreen.mainScreen.bounds.size.height);
+    [self.view addSubview:self.tb];
+    self.tb.dataSource = self;
+    self.tb.delegate = self;
+    self.tb.tableFooterView = [UIView new];
     
-    
-    
-    
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.arr.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+    }
+    cell.textLabel.text = self.arr[indexPath.row];
+    return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.row) {
+        case 0:
+            [self.navigationController pushViewController:[RerangeBinaryViewController new] animated:YES];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -46,6 +78,8 @@
 -(void)test{
     NSLog(@"4--------");
 
+    
+    
 }
 
 -(void)test1{

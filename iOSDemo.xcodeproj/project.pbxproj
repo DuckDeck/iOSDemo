@@ -187,6 +187,8 @@
 		AE9776A42303E24400C2FA6A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = AE9776A32303E24400C2FA6A /* main.c */; };
 		AE9776AA2303F2B600C2FA6A /* a.c in Sources */ = {isa = PBXBuildFile; fileRef = AE9776A92303F2B600C2FA6A /* a.c */; };
 		AE9776AC2303F2DC00C2FA6A /* b.c in Sources */ = {isa = PBXBuildFile; fileRef = AE9776AB2303F2DC00C2FA6A /* b.c */; };
+		AE9A230924D304F500543A55 /* RerangeBinaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9A230824D304F500543A55 /* RerangeBinaryViewController.m */; };
+		AE9A230C24D3107600543A55 /* SystemStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9A230B24D3107600543A55 /* SystemStatusViewController.m */; };
 		AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D51F69070E00339BB8 /* AppDelegate.swift */; };
 		AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31D71F69070E00339BB8 /* ViewController.swift */; };
 		AE9F31DD1F69070E00339BB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9F31DC1F69070E00339BB8 /* Assets.xcassets */; };
@@ -583,6 +585,10 @@
 		AE9776A32303E24400C2FA6A /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		AE9776A92303F2B600C2FA6A /* a.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = a.c; sourceTree = "<group>"; };
 		AE9776AB2303F2DC00C2FA6A /* b.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = b.c; sourceTree = "<group>"; };
+		AE9A230724D304F500543A55 /* RerangeBinaryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RerangeBinaryViewController.h; sourceTree = "<group>"; };
+		AE9A230824D304F500543A55 /* RerangeBinaryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RerangeBinaryViewController.m; sourceTree = "<group>"; };
+		AE9A230A24D3107600543A55 /* SystemStatusViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemStatusViewController.h; sourceTree = "<group>"; };
+		AE9A230B24D3107600543A55 /* SystemStatusViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SystemStatusViewController.m; sourceTree = "<group>"; };
 		AE9F31D21F69070E00339BB8 /* iOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9F31D51F69070E00339BB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE9F31D71F69070E00339BB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -1553,6 +1559,17 @@
 			path = ConsoleC;
 			sourceTree = "<group>";
 		};
+		AE9A230624D304E700543A55 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				AE9A230724D304F500543A55 /* RerangeBinaryViewController.h */,
+				AE9A230824D304F500543A55 /* RerangeBinaryViewController.m */,
+				AE9A230A24D3107600543A55 /* SystemStatusViewController.h */,
+				AE9A230B24D3107600543A55 /* SystemStatusViewController.m */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
 		AE9F31C91F69070E00339BB8 = {
 			isa = PBXGroup;
 			children = (
@@ -2166,6 +2183,7 @@
 		F6F30907246A7C4E0025EF5D /* iOSDemoOC */ = {
 			isa = PBXGroup;
 			children = (
+				AE9A230624D304E700543A55 /* Basic */,
 				F6F30908246A7C4E0025EF5D /* AppDelegate.h */,
 				F6F30909246A7C4E0025EF5D /* AppDelegate.m */,
 				F6F3090B246A7C4E0025EF5D /* SceneDelegate.h */,
@@ -2709,10 +2727,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9A230924D304F500543A55 /* RerangeBinaryViewController.m in Sources */,
 				F6F30910246A7C4E0025EF5D /* ViewController.m in Sources */,
 				F6F3090A246A7C4E0025EF5D /* AppDelegate.m in Sources */,
 				F6F3091B246A7C4F0025EF5D /* main.m in Sources */,
 				F6F3090D246A7C4E0025EF5D /* SceneDelegate.m in Sources */,
+				AE9A230C24D3107600543A55 /* SystemStatusViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3061,12 +3081,15 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = iOSDemoOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				ORDER_FILE = "$(SRCROOT)/iOSDemoOC/binary.order";
+				OTHER_CFLAGS = "-fsanitize-coverage=trace-pc-guard";
 				PRODUCT_BUNDLE_IDENTIFIER = shadowedge.iOSDemoOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3086,11 +3109,14 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = iOSDemoOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MTL_FAST_MATH = YES;
+				ORDER_FILE = "$(SRCROOT)/iOSDemoOC/binary.order";
+				OTHER_CFLAGS = "-fsanitize-coverage=trace-pc-guard";
 				PRODUCT_BUNDLE_IDENTIFIER = shadowedge.iOSDemoOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
