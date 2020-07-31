@@ -8,6 +8,18 @@
 
 #import "ViewController.h"
 #import "RerangeBinaryViewController.h"
+
+
+@interface Person : NSObject
+@property (nonatomic,strong) NSString* name;
+@end
+@implementation Person
+
+
+
+@end
+
+
 @interface ViewController ()
 @property (nonatomic,strong) NSThread *thread;
 @property (nonatomic) NSRunLoop *runloop;
@@ -15,12 +27,45 @@
 @property (nonatomic,strong) NSArray* arr;
 @end
 
+
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor blueColor];
+    
+    
+    NSLog(@"任务1");
+               dispatch_queue_t queue = dispatch_queue_create("myQueue", DISPATCH_QUEUE_SERIAL);
+               dispatch_queue_t queue2 = dispatch_queue_create("myQueue2", DISPATCH_QUEUE_CONCURRENT);
+               dispatch_async(queue, ^{
+                   NSLog(@"任务2");
+                   dispatch_sync(queue2, ^{
+                       NSLog(@"任务3");
+                   });
+                   NSLog(@"任务4");
+               });
+               NSLog(@"任务5");
+    
+    
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+   __block int a = 0;
+    while (a < 5) {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            a++;
+            dispatch_semaphore_signal(semaphore);
+        });
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    }
+    NSLog(@"a的值是：%d",a);
+
+  
+    
+    
+    
+    Person* p = [Person new];
+    [p addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
+    
+    [p setValue:@"张" forKey:@"name"];
     
    // [self test1];
     self.arr = @[@"二进制重排"];
@@ -33,6 +78,10 @@
     
 }
 
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    NSLog(@"kvc trigger kvo");
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.arr.count;
