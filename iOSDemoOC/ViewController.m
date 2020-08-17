@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "RerangeBinaryViewController.h"
-
+#import <objc/runtime.h>
 
 @interface Person : NSObject
 @property (nonatomic,strong) NSString* name;
@@ -63,6 +63,18 @@
     
     
     Person* p = [Person new];
+    p.name = @"我是无微不至";
+    {
+        Person* p2 = [Person new];
+        objc_setAssociatedObject(p,@"test",p2,OBJC_ASSOCIATION_RETAIN);
+        //使用  OBJC_ASSOCIATION_ASSIGN 关联的是这个指针，出了作用域这个变量就没了，所以在外面再用就会出错。 其实因为使用OBJC_ASSOCIATION_ASSIGN并没有对p2 引用 计数加1，所以出了作用域这个变量就没了
+        //使用 OBJC_ASSOCIATION_COPY 因为没有实现copywithzone会报错
+        //使用 OBJC_ASSOCIATION_RETAIN 这样这个变量引用计算就加1了，外面还可以访问
+    }
+    
+    
+    NSLog(@"%@",objc_getAssociatedObject(p, @"test"));
+    
     [p addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
     
     [p setValue:@"张" forKey:@"name"];

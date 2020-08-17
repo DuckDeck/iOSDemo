@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import <objc/runtime.h>
 @interface AppDelegate ()
 
 @end
@@ -17,6 +17,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+//     //! 创建一个信号量，保证同步操作
+//       dispatch_semaphore_t dispatchSemaphore = dispatch_semaphore_create(0); //! Dispatch Semaphore保证同步
+//        //! 创建一个观察者
+//        CFRunLoopObserverContext context = {0,(__bridge void*)self,NULL,NULL};
+//     CFRunLoopObserverRef   runLoopObserver = CFRunLoopObserverCreate(kCFAllocatorDefault,
+//                                                  kCFRunLoopAllActivities,
+//                                                  YES,
+//                                                  0,
+//                                                  &runLoopObserverCallBack,
+//                                                  &context);
+
+    size_t t =  class_getInstanceSize([NSObject class]);
+    
     return YES;
 }
 

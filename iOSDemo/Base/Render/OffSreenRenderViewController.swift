@@ -12,6 +12,8 @@ class OffSreenRenderViewController: UIViewController {
 
     let v = UIImageView()
     let b = UIButton()
+    let c = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -27,9 +29,7 @@ class OffSreenRenderViewController: UIViewController {
         v.clipsToBounds = true
         v.layer.cornerRadius = 100
         
-        //目前还没有离屏渲染
-        
-        //目前还是没有，因为iOS9的优化
+       
         
         view.addSubview(b)
         b.snp.makeConstraints { (m) in
@@ -41,7 +41,26 @@ class OffSreenRenderViewController: UIViewController {
         b.layer.cornerRadius = 40
         b.clipsToBounds = true
         b.layer.masksToBounds = true
-        //好像也没有离屏渲染
+        
+        // 搞错了，上面两个都有了离屏渲染
+        
+        c.layer.borderWidth = 1
+        c.backgroundColor = UIColor.red
+        c.addTo(view: view).snp.makeConstraints { (m) in
+            m.left.equalTo(100)
+            m.top.equalTo(450)
+            m.width.height.equalTo(200)
+        }
+        
+        let d = UIView()
+        d.backgroundColor = UIColor.blue
+        d.addTo(view: c).snp.makeConstraints { (m) in
+            m.left.equalTo(100)
+            m.top.equalTo(0)
+            m.width.height.equalTo(200)
+        }
+        
+        
     }
     
 

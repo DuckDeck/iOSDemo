@@ -19,6 +19,48 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self test1];
+    
+    
+   CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(CFAllocatorGetDefault(), kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
+       NSLog(@"%@",observer);
+       switch (activity) {
+           case kCFRunLoopEntry:
+               NSLog(@"RunLoop进入");
+               break;
+            case kCFRunLoopBeforeTimers:
+                NSLog(@"RunLoop将要处理Timer事件");
+               break;
+              case kCFRunLoopBeforeSources:
+                NSLog(@"RunLoop将要处理Source");
+               break;
+               case kCFRunLoopBeforeWaiting:
+                NSLog(@"RunLoop将要休息了");
+           case kCFRunLoopAfterWaiting:
+               NSLog(@"RunLoop将要醒来了");
+               break;
+           case kCFRunLoopExit:
+                 NSLog(@"RunLoop退出");
+                 break;
+                     
+           default:
+               break;
+       }
+   });
+    
+//    CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, kCFRunLoopDefaultMode);
+//    CFRelease(observer);
+    //上面是的主线程的，我们看看其他子线程的
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, kCFRunLoopDefaultMode);
+        //如果只写上面这些是不行的，因为该线程没有启动runloop,所以任务事件也没有发生，就算调用run启动runloop也不会有任务回调，需要添加事件再调用 run 方法才行，
+        [self performSelector:@selector(test1) withObject:nil afterDelay:2];
+        [[NSRunLoop currentRunLoop] run]; //直接调用 run 并不会运行，因为里面没有modeitems，需要添加modeitems也就是任务才会执行
+        
+        CFRelease(observer);
+        //最后runloop退出
+    });
+    
     // Do any additional setup after loading the view.
 }
 
