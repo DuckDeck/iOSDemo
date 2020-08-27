@@ -12,13 +12,33 @@
 
 @interface Person : NSObject
 @property (nonatomic,strong) NSString* name;
+-(NSString *)getName;
 @end
 @implementation Person
 
-
+- (NSString *)getName{
+    return @"superstar";
+}
 
 @end
 
+@interface Man : Person
+
+@end
+@implementation Man
+
+- (id)init
+   {
+       self = [super init];
+       if (self) {
+           NSLog(@"%@", NSStringFromClass([self class]));
+           NSLog(@"%@", NSStringFromClass([super class]));
+       }
+       return self;
+   }
+
+
+@end
 
 @interface ViewController ()
 @property (nonatomic,strong) NSThread *thread;
@@ -32,6 +52,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    Person *pe;
+    
+    NSLog(@"Pe 是不是nil: %@",pe);
+    
+    NSString* name = [pe getName];
+    
+    NSLog(@"在p是nil的情况下获取name : %@",name);
+    
+    NSLog(@"Pe 的大小是 %lu", sizeof(pe));
+     
+    pe = [Person new];
+    NSLog(@"Pe在实例化后的大小是 %lu", sizeof(pe));
+    
+    Man* m = [Man new];
+    
+    
+    
     
     
     NSLog(@"任务1");

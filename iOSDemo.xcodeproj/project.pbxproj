@@ -74,6 +74,7 @@
 		AE1DE09B2099BE0A007910A5 /* ImageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0752099BE09007910A5 /* ImageTool.swift */; };
 		AE1DE09C2099BE0A007910A5 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0762099BE09007910A5 /* GameView.swift */; };
 		AE1DE09D2099BE0A007910A5 /* LinkGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1DE0772099BE09007910A5 /* LinkGameViewController.swift */; };
+		AE204B2024F5F889002D0841 /* NotifcationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE204B1F24F5F889002D0841 /* NotifcationViewController.swift */; };
 		AE2584A120A2F5FE00764AF0 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2584A020A2F5FE00764AF0 /* UIScrollView+Extension.swift */; };
 		AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C8C741FA30BB100000A1D /* Auth.swift */; };
 		AE3795222238E417009292DE /* AboutKVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3795212238E417009292DE /* AboutKVC.m */; };
@@ -457,6 +458,7 @@
 		AE1DE0752099BE09007910A5 /* ImageTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTool.swift; sourceTree = "<group>"; };
 		AE1DE0762099BE09007910A5 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		AE1DE0772099BE09007910A5 /* LinkGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkGameViewController.swift; sourceTree = "<group>"; };
+		AE204B1F24F5F889002D0841 /* NotifcationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifcationViewController.swift; sourceTree = "<group>"; };
 		AE2584A020A2F5FE00764AF0 /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
 		AE2C8C741FA30BB100000A1D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		AE3795202238E417009292DE /* AboutKVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutKVC.h; sourceTree = "<group>"; };
@@ -1134,6 +1136,14 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		AE204B1E24F5F87C002D0841 /* Notifcation */ = {
+			isa = PBXGroup;
+			children = (
+				AE204B1F24F5F889002D0841 /* NotifcationViewController.swift */,
+			);
+			path = Notifcation;
+			sourceTree = "<group>";
+		};
 		AE3795232238E86B009292DE /* Mito */ = {
 			isa = PBXGroup;
 			children = (
@@ -1309,6 +1319,7 @@
 		AE5A886B1FF373A000748F6A /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				AE204B1E24F5F87C002D0841 /* Notifcation */,
 				AEF5779524B6F74700E68BDC /* Render */,
 				AEADFD4A21115FF600E6B58D /* Demo */,
 				AEADFD42211001BE00E6B58D /* MemeryLeak */,
@@ -2557,6 +2568,7 @@
 				AE00644F23960A5100B7C9E4 /* fishhook.c in Sources */,
 				AEA6811D2420D908009748E4 /* MJRefreshBackGifFooter.m in Sources */,
 				AE5AD8BF225355D100BD7EE9 /* ImageBrowserViewController.swift in Sources */,
+				AE204B2024F5F889002D0841 /* NotifcationViewController.swift in Sources */,
 				AEA680BD2420D6B7009748E4 /* TZPhotoPreviewController.m in Sources */,
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
 				AE5A88721FF37AA800748F6A /* Semaphore.swift in Sources */,
