@@ -89,7 +89,11 @@ class NotifcationViewController: UIViewController {
     @objc func receiveNotif(notif:Notification)  {
         print("abc")
     }
-//    deinit {
-//        NotificationCenter.default.removeObserver(self)
-//    }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("Touch Begin")
+    }
 }

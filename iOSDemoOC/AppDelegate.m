@@ -31,9 +31,33 @@
 
     size_t t =  class_getInstanceSize([NSObject class]);
     
+    [self doSomeThingForFlag:1 finish:^{
+        
+    }];
+    
+    [self doSomeThingForFlag:2 finish:^{
+        
+    }];
+    
+    [self doSomeThingForFlag:3 finish:^{
+        
+    }];
+    
+    [self doSomeThingForFlag:4 finish:^{
+        
+    }];
     return YES;
 }
 
+
+- (void)doSomeThingForFlag:(NSInteger)flag finish:(void(^)(void))finish {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"do:%ld",(long)flag);
+        sleep(2+arc4random_uniform(4));
+        NSLog(@"finish:%ld",flag);
+        if (finish) finish();
+    });
+}
 
 #pragma mark - UISceneSession lifecycle
 

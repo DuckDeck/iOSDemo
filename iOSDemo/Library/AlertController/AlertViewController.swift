@@ -38,10 +38,7 @@ class AlertViewController: UIViewController {
         attrStr.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSMakeRange(11, 2))
         let alert = UIAlertController.title(attrTitle: nil, attrMessage: attrStr).action(title: "取消",handle: nil, color:UIColor.gray).action(title: "购买", handle: {(action:UIAlertAction) in
             self.timer.pause()
-        })
-      
-        
-     
+        })     
         alert.show()
     }
     

@@ -1260,7 +1260,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5752921F76931C00F6AAC5 /* MediaViewController.swift */,
-				AEADFD3F210EBCC700E6B58D /* CompressImage */,
+				AEADFD3F210EBCC700E6B58D /* ImageProcess */,
 				AE6691DB20F49BC400D019D4 /* Palette */,
 				AEBA80E520BFCAED00F6A323 /* GifImage */,
 				AEBE708E20A4448200B2E897 /* TakePhoto */,
@@ -1935,12 +1935,12 @@
 			path = Share;
 			sourceTree = "<group>";
 		};
-		AEADFD3F210EBCC700E6B58D /* CompressImage */ = {
+		AEADFD3F210EBCC700E6B58D /* ImageProcess */ = {
 			isa = PBXGroup;
 			children = (
 				AEADFD40210EBCE100E6B58D /* CompressImageViewController.swift */,
 			);
-			path = CompressImage;
+			path = ImageProcess;
 			sourceTree = "<group>";
 		};
 		AEADFD42211001BE00E6B58D /* MemeryLeak */ = {
