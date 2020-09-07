@@ -262,6 +262,10 @@
 		AEADFD44211001BE00E6B58D /* MemeryLeakTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD43211001BE00E6B58D /* MemeryLeakTestViewController.swift */; };
 		AEADFD4921115BBE00E6B58D /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD4821115BBE00E6B58D /* UIButton+Extension.swift */; };
 		AEADFD4C2111601100E6B58D /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD4B2111601100E6B58D /* DemoViewController.swift */; };
+		AEB1F46E25065A9A0069A9FB /* AlgoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F46D25065A9A0069A9FB /* AlgoViewController.swift */; };
+		AEB1F47125065BAA0069A9FB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F47025065BAA0069A9FB /* SearchViewController.swift */; };
+		AEB1F473250660DE0069A9FB /* BinarySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F472250660DE0069A9FB /* BinarySearchViewController.swift */; };
+		AEB1F475250667110069A9FB /* SearchDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F474250667110069A9FB /* SearchDemoViewController.swift */; };
 		AEB6F55921997748005CA2BE /* Hydron.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55721997748005CA2BE /* Hydron.m */; };
 		AEB6F55C21997777005CA2BE /* HydronForward.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55B21997777005CA2BE /* HydronForward.m */; };
 		AEB6F560219AB52C005CA2BE /* CFDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55F219AB52C005CA2BE /* CFDemo.m */; };
@@ -712,6 +716,10 @@
 		AEADFD4821115BBE00E6B58D /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		AEADFD4B2111601100E6B58D /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		AEB05081233C8AC700BBFFB2 /* cxk.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cxk.mp4; sourceTree = "<group>"; };
+		AEB1F46D25065A9A0069A9FB /* AlgoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgoViewController.swift; sourceTree = "<group>"; };
+		AEB1F47025065BAA0069A9FB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AEB1F472250660DE0069A9FB /* BinarySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchViewController.swift; sourceTree = "<group>"; };
+		AEB1F474250667110069A9FB /* SearchDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDemoViewController.swift; sourceTree = "<group>"; };
 		AEB6F55721997748005CA2BE /* Hydron.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hydron.m; sourceTree = "<group>"; };
 		AEB6F55821997748005CA2BE /* Hydron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hydron.h; sourceTree = "<group>"; };
 		AEB6F55A21997777005CA2BE /* HydronForward.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HydronForward.h; sourceTree = "<group>"; };
@@ -1613,6 +1621,7 @@
 			isa = PBXGroup;
 			children = (
 				AE4D498A24A1FF77003D1565 /* iOSDemo.entitlements */,
+				AEB1F46C25065A630069A9FB /* Algo */,
 				AE6691B120EDF37D00D019D4 /* Webview */,
 				AE1DE01A2099ACA9007910A5 /* Project */,
 				AEF097822065F6D60021E4ED /* Data */,
@@ -1957,6 +1966,25 @@
 				AEADFD4B2111601100E6B58D /* DemoViewController.swift */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		AEB1F46C25065A630069A9FB /* Algo */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F46F25065B990069A9FB /* Search */,
+				AEB1F46D25065A9A0069A9FB /* AlgoViewController.swift */,
+			);
+			path = Algo;
+			sourceTree = "<group>";
+		};
+		AEB1F46F25065B990069A9FB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F47025065BAA0069A9FB /* SearchViewController.swift */,
+				AEB1F472250660DE0069A9FB /* BinarySearchViewController.swift */,
+				AEB1F474250667110069A9FB /* SearchDemoViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		AEB6F55621997729005CA2BE /* MessagForward */ = {
@@ -2510,6 +2538,7 @@
 				AEDF8C4D209AF61F00EED6D1 /* VideoListViewController.swift in Sources */,
 				AEA9F835206A2A62000E7748 /* HttpClient.swift in Sources */,
 				AE5A88701FF3768100748F6A /* ThreadViewController.swift in Sources */,
+				AEB1F473250660DE0069A9FB /* BinarySearchViewController.swift in Sources */,
 				AEA680BA2420D6B7009748E4 /* UIView+Layout.m in Sources */,
 				AEBA80E720BFCAF800F6A323 /* GifViewController.swift in Sources */,
 				AEB7D09C225DD45B008C899E /* DynamicMitoViewController.swift in Sources */,
@@ -2517,6 +2546,7 @@
 				AE5CE7DB208B133C001DB437 /* RecordListViewController.swift in Sources */,
 				AEF097812065EE650021E4ED /* LogInfo.swift in Sources */,
 				AE0F709C1FBEB9CE00C8135C /* Trace.swift in Sources */,
+				AEB1F46E25065A9A0069A9FB /* AlgoViewController.swift in Sources */,
 				AE1DE0792099BE0A007910A5 /* BaseBoard.swift in Sources */,
 				AE901198223B49CE0020D400 /* Resolution.swift in Sources */,
 				AE0F70371FBA9ACF00C8135C /* NetworkViewController.swift in Sources */,
@@ -2600,6 +2630,7 @@
 				AEA681232420D908009748E4 /* MJRefreshBackNormalFooter.m in Sources */,
 				AEA38C9F22A666E9000499DA /* FocusFrameView.swift in Sources */,
 				AEA681602421B39D009748E4 /* FMResultSet.m in Sources */,
+				AEB1F475250667110069A9FB /* SearchDemoViewController.swift in Sources */,
 				AE5AD8C32254A22A00BD7EE9 /* MitoConfig.swift in Sources */,
 				AE1DE0992099BE0A007910A5 /* LinkPoint.swift in Sources */,
 				AE6691D820F49B3A00D019D4 /* PriorityBoxArray.m in Sources */,
@@ -2672,6 +2703,7 @@
 				AEB7D092225B2B82008C899E /* FiveStrokeViewController.swift in Sources */,
 				AE9F329F1F6911F300339BB8 /* Config.swift in Sources */,
 				AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */,
+				AEB1F47125065BAA0069A9FB /* SearchViewController.swift in Sources */,
 				AEBE404E1FC806E40087D7ED /* DBTool.swift in Sources */,
 				AEB7D09A225DCCD8008C899E /* HotMitoViewController.swift in Sources */,
 				AE4DA6232142803800FCC7FD /* ShadowPlayBack.swift in Sources */,

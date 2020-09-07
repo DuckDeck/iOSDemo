@@ -38,6 +38,7 @@
    }
 
 
+
 @end
 
 @interface ViewController ()
@@ -67,7 +68,9 @@
     NSLog(@"Pe在实例化后的大小是 %lu", sizeof(pe));
     
     Man* m = [Man new];
-    
+    Class cls = NSClassFromString(@"Man");
+    NSLog(@"%@", cls); // ⬅️ 这里打一个断点
+    m = nil;
     
     
     

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import CallKit
 class ViewController: UIViewController {
-    var arrData = ["Basic","Media","Animation&Graphic","Layout","AI","Network","Touch","Library","Sensor","Data","Webview","Project"]
+    var arrData = ["Basic","Media","Animation&Graphic","Layout","AI","Network","Touch","Library","Sensor","Data","Webview","Project","Algo"]
     var tbMenu = UITableView()
     let ca = CXCallObserver.init()
     
@@ -106,7 +106,7 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
         case 11:
             navigationController?.pushViewController(ProjectViewController(), animated: true)
         case 12:
-            break
+            navigationController?.pushViewController(AlgoViewController(), animated: true)
         default:
             break
         }

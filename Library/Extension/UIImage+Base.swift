@@ -446,4 +446,25 @@ extension UIImage{
         return UIImage(cgImage:downsampledImage)
         
     }
+    
+    ///解码图片
+    func decodeImage(scale:CGFloat) -> UIImage? {
+        //获取当前图片数据源
+        guard var imageRef = self.cgImage else{
+            return nil
+        }
+        //设置大小改变压缩图片
+        let width = imageRef.width * scale
+        let height = imageRef.height * scale
+        //创建颜色空间
+        guard let colorSpace = imageRef.colorSpace else{
+            return nil
+        }
+        let contextRef = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow:  Int(4 * width), space: colorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue)
+        contextRef?.draw(imageRef, in: CGRect(x: 0, y: 0, w: width, h: height))
+        imageRef = contextRef!.makeImage()!
+           
+        return UIImage(cgImage: imageRef, scale: self.scale, orientation: Orientation.up)
+                
+    }
 }
