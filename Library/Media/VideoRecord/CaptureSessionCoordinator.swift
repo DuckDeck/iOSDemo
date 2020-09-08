@@ -319,9 +319,7 @@ class CaptureSessionCoordinator:NSObject {
         }
         
         previewLayer?.videoGravity = cameraModel.videoGravity
-        
-        
-        
+                
     }
     
     

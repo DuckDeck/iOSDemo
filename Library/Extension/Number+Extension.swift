@@ -23,6 +23,14 @@ extension Int{
         return  t.format(format:format)
     }
     
+    func createRandomNums(max:Int)->[Int] {
+        var nums = [Int]()
+        for _ in 0..<self {
+            nums.append(Int(arc4random()) % max)
+        }
+        return nums
+    }
+    
     func toChinese() -> String {
         switch self {
         case 0:

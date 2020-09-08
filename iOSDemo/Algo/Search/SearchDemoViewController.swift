@@ -28,7 +28,8 @@ class SearchDemoViewController: UIViewController {
             
         }
         
-        
+        var k = 20.createRandomNums(max: 100)
+        k.sort()
         
         // Do any additional setup after loading the view.
     }
