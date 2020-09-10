@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftyMarkdown
 class SearchDemoViewController: UIViewController {
 
     let lblIntro = UILabel()
@@ -25,13 +25,23 @@ class SearchDemoViewController: UIViewController {
             m.left.equalTo(5)
             m.right.equalTo(-5)
             m.top.equalTo(10)
-            
         }
         
         var k = 20.createRandomNums(max: 100)
         k.sort()
+        let code = """
+        ```
+         var s = 100;
+        ```
+        """
+        lblCode.attributedText = SwiftyMarkdown(string: code).attributedString()
+        lblCode.addTo(view: view).snp.makeConstraints { (m) in
+            m.left.equalTo(10)
+            m.right.equalTo(10)
+            m.top.equalTo(lblIntro.snp.bottom).offset(20)
+        }
         
-        // Do any additional setup after loading the view.
+        
     }
     
 

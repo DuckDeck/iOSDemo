@@ -266,6 +266,7 @@
 		AEB1F47125065BAA0069A9FB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F47025065BAA0069A9FB /* SearchViewController.swift */; };
 		AEB1F473250660DE0069A9FB /* BinarySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F472250660DE0069A9FB /* BinarySearchViewController.swift */; };
 		AEB1F475250667110069A9FB /* SearchDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F474250667110069A9FB /* SearchDemoViewController.swift */; };
+		AEB1F478250A7CC40069A9FB /* SwiftyMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = AEB1F477250A7CC40069A9FB /* SwiftyMarkdown */; };
 		AEB6F55921997748005CA2BE /* Hydron.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55721997748005CA2BE /* Hydron.m */; };
 		AEB6F55C21997777005CA2BE /* HydronForward.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55B21997777005CA2BE /* HydronForward.m */; };
 		AEB6F560219AB52C005CA2BE /* CFDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55F219AB52C005CA2BE /* CFDemo.m */; };
@@ -881,6 +882,7 @@
 				AE4EA74B21806C160061FA84 /* libc++.tbd in Frameworks */,
 				AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */,
 				AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */,
+				AEB1F478250A7CC40069A9FB /* SwiftyMarkdown in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2284,6 +2286,7 @@
 				AECA9D3B248B915D008CC21B /* Gifu */,
 				AECA9D40248B97FA008CC21B /* KRProgressHUD */,
 				AE4D4A2624A9DD09003D1565 /* ViewChaos */,
+				AEB1F477250A7CC40069A9FB /* SwiftyMarkdown */,
 			);
 			productName = iOSDemo;
 			productReference = AE9F31D21F69070E00339BB8 /* iOSDemo.app */;
@@ -2399,6 +2402,7 @@
 				AECA9D3A248B915D008CC21B /* XCRemoteSwiftPackageReference "Gifu" */,
 				AECA9D3F248B97FA008CC21B /* XCRemoteSwiftPackageReference "KRProgressHUD" */,
 				AE4D4A2524A9DD09003D1565 /* XCRemoteSwiftPackageReference "ViewChaos" */,
+				AEB1F476250A7CC40069A9FB /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */,
 			);
 			productRefGroup = AE9F31D31F69070E00339BB8 /* Products */;
 			projectDirPath = "";
@@ -2980,7 +2984,7 @@
 					"$(PROJECT_DIR)/ffmpeg_ios/include",
 				);
 				INFOPLIST_FILE = iOSDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3030,7 +3034,7 @@
 					"$(PROJECT_DIR)/ffmpeg_ios/include",
 				);
 				INFOPLIST_FILE = iOSDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3235,6 +3239,14 @@
 				minimumVersion = 2.0.2;
 			};
 		};
+		AEB1F476250A7CC40069A9FB /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimonFairbairn/SwiftyMarkdown";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.2;
+			};
+		};
 		AECA9D19248B476C008CC21B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -3338,6 +3350,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AE4D4A2524A9DD09003D1565 /* XCRemoteSwiftPackageReference "ViewChaos" */;
 			productName = ViewChaos;
+		};
+		AEB1F477250A7CC40069A9FB /* SwiftyMarkdown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEB1F476250A7CC40069A9FB /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */;
+			productName = SwiftyMarkdown;
 		};
 		AECA9D1A248B476C008CC21B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
