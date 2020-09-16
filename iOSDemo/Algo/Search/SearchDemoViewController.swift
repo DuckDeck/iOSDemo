@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyMarkdown
 class SearchDemoViewController: UIViewController {
 
     let lblIntro = UILabel()
@@ -30,21 +29,50 @@ class SearchDemoViewController: UIViewController {
         var k = 20.createRandomNums(max: 100)
         k.sort()
         let code = """
+        ## Title
+        ### this is a title
+        `this is a code` i need see the code
         ```
-         var s = 100;
+           #!/usr/bin/env python3
+           print("Hello, World!");
         ```
         """
-        lblCode.attributedText = SwiftyMarkdown(string: code).attributedString()
-        lblCode.addTo(view: view).snp.makeConstraints { (m) in
+        let markdownParser = MarkdownParser()
+        
+        lblCode.attributedText = markdownParser.parse(code)
+        lblCode.lineNum(num: 0).addTo(view: view).snp.makeConstraints { (m) in
             m.left.equalTo(10)
             m.right.equalTo(10)
             m.top.equalTo(lblIntro.snp.bottom).offset(20)
         }
         
         
+        var nums = 30.createRandomNums(max: 100)
+        nums.sort()
+        let index = binarySearch(nums: nums, target: 20)
+        
     }
     
 
    
 
+}
+
+func binarySearch(nums:[Int],target:Int) -> Int {
+
+    var start = 0,end = nums.count - 1
+    var mid  = 0
+    while start <= end {
+       mid = start + (end - start) / 2
+        if nums[mid] == target {
+            return mid
+        }
+        else if nums[mid] > target {
+            end = mid
+        }
+        else{
+            start = mid
+        }
+    }
+    return mid
 }

@@ -12,10 +12,10 @@
 int main(int argc, char * argv[]) {
     NSString * appDelegateClassName;
     
-    @autoreleasepool {
+//    @autoreleasepool {
         // Setup code that might create autoreleased objects goes here.
         appDelegateClassName = NSStringFromClass([AppDelegate class]);
-    }
+//    }
     int i = UIApplicationMain(argc, argv, nil, appDelegateClassName);
     NSLog(@"main 会走到这里吗"); //不会跑起来
     return i;

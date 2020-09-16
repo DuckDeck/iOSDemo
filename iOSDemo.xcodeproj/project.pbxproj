@@ -266,7 +266,31 @@
 		AEB1F47125065BAA0069A9FB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F47025065BAA0069A9FB /* SearchViewController.swift */; };
 		AEB1F473250660DE0069A9FB /* BinarySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F472250660DE0069A9FB /* BinarySearchViewController.swift */; };
 		AEB1F475250667110069A9FB /* SearchDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F474250667110069A9FB /* SearchDemoViewController.swift */; };
-		AEB1F478250A7CC40069A9FB /* SwiftyMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = AEB1F477250A7CC40069A9FB /* SwiftyMarkdown */; };
+		AEB1F4B72511B1530069A9FB /* UIFont+Traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4802511B1530069A9FB /* UIFont+Traits.swift */; };
+		AEB1F4B82511B1530069A9FB /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4812511B1530069A9FB /* Typealias.swift */; };
+		AEB1F4B92511B1530069A9FB /* MarkdownCode+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4842511B1530069A9FB /* MarkdownCode+UIKit.swift */; };
+		AEB1F4BA2511B1530069A9FB /* MarkdownLink+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4862511B1530069A9FB /* MarkdownLink+UIKit.swift */; };
+		AEB1F4BB2511B1530069A9FB /* MarkdownHeader+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4882511B1530069A9FB /* MarkdownHeader+UIKit.swift */; };
+		AEB1F4BC2511B1530069A9FB /* MarkdownParser+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4892511B1530069A9FB /* MarkdownParser+UIKit.swift */; };
+		AEB1F4BD2511B1530069A9FB /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F48B2511B1530069A9FB /* MarkdownParser.swift */; };
+		AEB1F4BE2511B1530069A9FB /* String+UTF16.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F48D2511B1530069A9FB /* String+UTF16.swift */; };
+		AEB1F4BF2511B1530069A9FB /* MarkdownCodeEscaping.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4902511B1530069A9FB /* MarkdownCodeEscaping.swift */; };
+		AEB1F4C02511B1530069A9FB /* MarkdownEscaping.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4912511B1530069A9FB /* MarkdownEscaping.swift */; };
+		AEB1F4C12511B1530069A9FB /* MarkdownUnescaping.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4922511B1530069A9FB /* MarkdownUnescaping.swift */; };
+		AEB1F4C22511B1530069A9FB /* MarkdownQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4942511B1530069A9FB /* MarkdownQuote.swift */; };
+		AEB1F4C32511B1530069A9FB /* MarkdownCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4962511B1530069A9FB /* MarkdownCode.swift */; };
+		AEB1F4C42511B1530069A9FB /* MarkdownItalic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4982511B1530069A9FB /* MarkdownItalic.swift */; };
+		AEB1F4C52511B1530069A9FB /* MarkdownAutomaticLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F49A2511B1530069A9FB /* MarkdownAutomaticLink.swift */; };
+		AEB1F4C62511B1530069A9FB /* MarkdownLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F49B2511B1530069A9FB /* MarkdownLink.swift */; };
+		AEB1F4C72511B1530069A9FB /* MarkdownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F49D2511B1530069A9FB /* MarkdownList.swift */; };
+		AEB1F4C82511B1530069A9FB /* MarkdownBold.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F49F2511B1530069A9FB /* MarkdownBold.swift */; };
+		AEB1F4C92511B1530069A9FB /* MarkdownHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4A12511B1530069A9FB /* MarkdownHeader.swift */; };
+		AEB1F4CA2511B1530069A9FB /* MarkdownStrikethrough.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4A32511B1530069A9FB /* MarkdownStrikethrough.swift */; };
+		AEB1F4CB2511B1530069A9FB /* MarkdownCommonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4A52511B1530069A9FB /* MarkdownCommonElement.swift */; };
+		AEB1F4CC2511B1530069A9FB /* MarkdownLinkElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4A62511B1530069A9FB /* MarkdownLinkElement.swift */; };
+		AEB1F4CD2511B1530069A9FB /* MarkdownLevelElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4A72511B1530069A9FB /* MarkdownLevelElement.swift */; };
+		AEB1F4CE2511B1530069A9FB /* MarkdownElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4A82511B1530069A9FB /* MarkdownElement.swift */; };
+		AEB1F4CF2511B1530069A9FB /* MarkdownStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB1F4A92511B1530069A9FB /* MarkdownStyle.swift */; };
 		AEB6F55921997748005CA2BE /* Hydron.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55721997748005CA2BE /* Hydron.m */; };
 		AEB6F55C21997777005CA2BE /* HydronForward.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55B21997777005CA2BE /* HydronForward.m */; };
 		AEB6F560219AB52C005CA2BE /* CFDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB6F55F219AB52C005CA2BE /* CFDemo.m */; };
@@ -721,6 +745,31 @@
 		AEB1F47025065BAA0069A9FB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AEB1F472250660DE0069A9FB /* BinarySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchViewController.swift; sourceTree = "<group>"; };
 		AEB1F474250667110069A9FB /* SearchDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDemoViewController.swift; sourceTree = "<group>"; };
+		AEB1F4802511B1530069A9FB /* UIFont+Traits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Traits.swift"; sourceTree = "<group>"; };
+		AEB1F4812511B1530069A9FB /* Typealias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		AEB1F4842511B1530069A9FB /* MarkdownCode+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MarkdownCode+UIKit.swift"; sourceTree = "<group>"; };
+		AEB1F4862511B1530069A9FB /* MarkdownLink+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MarkdownLink+UIKit.swift"; sourceTree = "<group>"; };
+		AEB1F4882511B1530069A9FB /* MarkdownHeader+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MarkdownHeader+UIKit.swift"; sourceTree = "<group>"; };
+		AEB1F4892511B1530069A9FB /* MarkdownParser+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MarkdownParser+UIKit.swift"; sourceTree = "<group>"; };
+		AEB1F48B2511B1530069A9FB /* MarkdownParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownParser.swift; sourceTree = "<group>"; };
+		AEB1F48D2511B1530069A9FB /* String+UTF16.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+UTF16.swift"; sourceTree = "<group>"; };
+		AEB1F4902511B1530069A9FB /* MarkdownCodeEscaping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownCodeEscaping.swift; sourceTree = "<group>"; };
+		AEB1F4912511B1530069A9FB /* MarkdownEscaping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownEscaping.swift; sourceTree = "<group>"; };
+		AEB1F4922511B1530069A9FB /* MarkdownUnescaping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownUnescaping.swift; sourceTree = "<group>"; };
+		AEB1F4942511B1530069A9FB /* MarkdownQuote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownQuote.swift; sourceTree = "<group>"; };
+		AEB1F4962511B1530069A9FB /* MarkdownCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownCode.swift; sourceTree = "<group>"; };
+		AEB1F4982511B1530069A9FB /* MarkdownItalic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownItalic.swift; sourceTree = "<group>"; };
+		AEB1F49A2511B1530069A9FB /* MarkdownAutomaticLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownAutomaticLink.swift; sourceTree = "<group>"; };
+		AEB1F49B2511B1530069A9FB /* MarkdownLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownLink.swift; sourceTree = "<group>"; };
+		AEB1F49D2511B1530069A9FB /* MarkdownList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownList.swift; sourceTree = "<group>"; };
+		AEB1F49F2511B1530069A9FB /* MarkdownBold.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownBold.swift; sourceTree = "<group>"; };
+		AEB1F4A12511B1530069A9FB /* MarkdownHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHeader.swift; sourceTree = "<group>"; };
+		AEB1F4A32511B1530069A9FB /* MarkdownStrikethrough.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownStrikethrough.swift; sourceTree = "<group>"; };
+		AEB1F4A52511B1530069A9FB /* MarkdownCommonElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownCommonElement.swift; sourceTree = "<group>"; };
+		AEB1F4A62511B1530069A9FB /* MarkdownLinkElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownLinkElement.swift; sourceTree = "<group>"; };
+		AEB1F4A72511B1530069A9FB /* MarkdownLevelElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownLevelElement.swift; sourceTree = "<group>"; };
+		AEB1F4A82511B1530069A9FB /* MarkdownElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownElement.swift; sourceTree = "<group>"; };
+		AEB1F4A92511B1530069A9FB /* MarkdownStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownStyle.swift; sourceTree = "<group>"; };
 		AEB6F55721997748005CA2BE /* Hydron.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hydron.m; sourceTree = "<group>"; };
 		AEB6F55821997748005CA2BE /* Hydron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hydron.h; sourceTree = "<group>"; };
 		AEB6F55A21997777005CA2BE /* HydronForward.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HydronForward.h; sourceTree = "<group>"; };
@@ -882,7 +931,6 @@
 				AE4EA74B21806C160061FA84 /* libc++.tbd in Frameworks */,
 				AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */,
 				AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */,
-				AEB1F478250A7CC40069A9FB /* SwiftyMarkdown in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1700,6 +1748,7 @@
 		AE9F32311F690F1B00339BB8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				AEB1F4792511B1530069A9FB /* MarkdownKit */,
 				AE4D498324A1FC94003D1565 /* Map */,
 				AEA681472421B39D009748E4 /* fmdb */,
 				AEA680D92420D908009748E4 /* MJRefresh */,
@@ -1987,6 +2036,198 @@
 				AEB1F474250667110069A9FB /* SearchDemoViewController.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		AEB1F4792511B1530069A9FB /* MarkdownKit */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F47D2511B1530069A9FB /* Sources */,
+			);
+			path = MarkdownKit;
+			sourceTree = "<group>";
+		};
+		AEB1F47D2511B1530069A9FB /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F47E2511B1530069A9FB /* UIKit */,
+				AEB1F48A2511B1530069A9FB /* Common */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		AEB1F47E2511B1530069A9FB /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F47F2511B1530069A9FB /* Extensions */,
+				AEB1F4812511B1530069A9FB /* Typealias.swift */,
+				AEB1F4822511B1530069A9FB /* Elements */,
+				AEB1F4892511B1530069A9FB /* MarkdownParser+UIKit.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		AEB1F47F2511B1530069A9FB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F4802511B1530069A9FB /* UIFont+Traits.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AEB1F4822511B1530069A9FB /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F4832511B1530069A9FB /* Code */,
+				AEB1F4852511B1530069A9FB /* Link */,
+				AEB1F4872511B1530069A9FB /* Header */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		AEB1F4832511B1530069A9FB /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F4842511B1530069A9FB /* MarkdownCode+UIKit.swift */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
+		AEB1F4852511B1530069A9FB /* Link */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F4862511B1530069A9FB /* MarkdownLink+UIKit.swift */,
+			);
+			path = Link;
+			sourceTree = "<group>";
+		};
+		AEB1F4872511B1530069A9FB /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F4882511B1530069A9FB /* MarkdownHeader+UIKit.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		AEB1F48A2511B1530069A9FB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F48B2511B1530069A9FB /* MarkdownParser.swift */,
+				AEB1F48C2511B1530069A9FB /* Extensions */,
+				AEB1F48E2511B1530069A9FB /* Elements */,
+				AEB1F4A42511B1530069A9FB /* Protocols */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		AEB1F48C2511B1530069A9FB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F48D2511B1530069A9FB /* String+UTF16.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AEB1F48E2511B1530069A9FB /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F48F2511B1530069A9FB /* Escaping */,
+				AEB1F4932511B1530069A9FB /* Quote */,
+				AEB1F4952511B1530069A9FB /* Code */,
+				AEB1F4972511B1530069A9FB /* Italic */,
+				AEB1F4992511B1530069A9FB /* Link */,
+				AEB1F49C2511B1530069A9FB /* List */,
+				AEB1F49E2511B1530069A9FB /* Bold */,
+				AEB1F4A02511B1530069A9FB /* Header */,
+				AEB1F4A22511B1530069A9FB /* Strikethrough */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		AEB1F48F2511B1530069A9FB /* Escaping */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F4902511B1530069A9FB /* MarkdownCodeEscaping.swift */,
+				AEB1F4912511B1530069A9FB /* MarkdownEscaping.swift */,
+				AEB1F4922511B1530069A9FB /* MarkdownUnescaping.swift */,
+			);
+			path = Escaping;
+			sourceTree = "<group>";
+		};
+		AEB1F4932511B1530069A9FB /* Quote */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F4942511B1530069A9FB /* MarkdownQuote.swift */,
+			);
+			path = Quote;
+			sourceTree = "<group>";
+		};
+		AEB1F4952511B1530069A9FB /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F4962511B1530069A9FB /* MarkdownCode.swift */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
+		AEB1F4972511B1530069A9FB /* Italic */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F4982511B1530069A9FB /* MarkdownItalic.swift */,
+			);
+			path = Italic;
+			sourceTree = "<group>";
+		};
+		AEB1F4992511B1530069A9FB /* Link */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F49A2511B1530069A9FB /* MarkdownAutomaticLink.swift */,
+				AEB1F49B2511B1530069A9FB /* MarkdownLink.swift */,
+			);
+			path = Link;
+			sourceTree = "<group>";
+		};
+		AEB1F49C2511B1530069A9FB /* List */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F49D2511B1530069A9FB /* MarkdownList.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		AEB1F49E2511B1530069A9FB /* Bold */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F49F2511B1530069A9FB /* MarkdownBold.swift */,
+			);
+			path = Bold;
+			sourceTree = "<group>";
+		};
+		AEB1F4A02511B1530069A9FB /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F4A12511B1530069A9FB /* MarkdownHeader.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		AEB1F4A22511B1530069A9FB /* Strikethrough */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F4A32511B1530069A9FB /* MarkdownStrikethrough.swift */,
+			);
+			path = Strikethrough;
+			sourceTree = "<group>";
+		};
+		AEB1F4A42511B1530069A9FB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AEB1F4A52511B1530069A9FB /* MarkdownCommonElement.swift */,
+				AEB1F4A62511B1530069A9FB /* MarkdownLinkElement.swift */,
+				AEB1F4A72511B1530069A9FB /* MarkdownLevelElement.swift */,
+				AEB1F4A82511B1530069A9FB /* MarkdownElement.swift */,
+				AEB1F4A92511B1530069A9FB /* MarkdownStyle.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		AEB6F55621997729005CA2BE /* MessagForward */ = {
@@ -2286,7 +2527,6 @@
 				AECA9D3B248B915D008CC21B /* Gifu */,
 				AECA9D40248B97FA008CC21B /* KRProgressHUD */,
 				AE4D4A2624A9DD09003D1565 /* ViewChaos */,
-				AEB1F477250A7CC40069A9FB /* SwiftyMarkdown */,
 			);
 			productName = iOSDemo;
 			productReference = AE9F31D21F69070E00339BB8 /* iOSDemo.app */;
@@ -2402,7 +2642,6 @@
 				AECA9D3A248B915D008CC21B /* XCRemoteSwiftPackageReference "Gifu" */,
 				AECA9D3F248B97FA008CC21B /* XCRemoteSwiftPackageReference "KRProgressHUD" */,
 				AE4D4A2524A9DD09003D1565 /* XCRemoteSwiftPackageReference "ViewChaos" */,
-				AEB1F476250A7CC40069A9FB /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */,
 			);
 			productRefGroup = AE9F31D31F69070E00339BB8 /* Products */;
 			projectDirPath = "";
@@ -2499,6 +2738,7 @@
 				AEEE485E215CC61B003C9943 /* PointLockViewController.swift in Sources */,
 				AEA6810A2420D908009748E4 /* UIScrollView+MJRefresh.m in Sources */,
 				AE7278A9207F5A28005D9D6D /* SoundRecordViewController.swift in Sources */,
+				AEB1F4C72511B1530069A9FB /* MarkdownList.swift in Sources */,
 				AE4DA62D214B9BB900FCC7FD /* UIViewController+Extension.swift in Sources */,
 				AEDF8C49209AF5F700EED6D1 /* VideoRecordViewController.swift in Sources */,
 				AE4DA625214667A200FCC7FD /* ShadowAudioPlayerBack.swift in Sources */,
@@ -2516,6 +2756,7 @@
 				AE9011F722432AC00020D400 /* FlowLayoutViewController.swift in Sources */,
 				AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */,
 				AE1DE01C2099ACBE007910A5 /* ProjectViewController.swift in Sources */,
+				AEB1F4C12511B1530069A9FB /* MarkdownUnescaping.swift in Sources */,
 				AE7BBCE4207B498B005DBE0C /* WatermarkViewController.swift in Sources */,
 				AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */,
 				AEBE40521FC80A5C0087D7ED /* CityChooseViewController+Delegate.swift in Sources */,
@@ -2544,12 +2785,15 @@
 				AE5A88701FF3768100748F6A /* ThreadViewController.swift in Sources */,
 				AEB1F473250660DE0069A9FB /* BinarySearchViewController.swift in Sources */,
 				AEA680BA2420D6B7009748E4 /* UIView+Layout.m in Sources */,
+				AEB1F4BF2511B1530069A9FB /* MarkdownCodeEscaping.swift in Sources */,
 				AEBA80E720BFCAF800F6A323 /* GifViewController.swift in Sources */,
 				AEB7D09C225DD45B008C899E /* DynamicMitoViewController.swift in Sources */,
 				AE0F709A1FBEB9CA00C8135C /* CrossLine.swift in Sources */,
 				AE5CE7DB208B133C001DB437 /* RecordListViewController.swift in Sources */,
+				AEB1F4BE2511B1530069A9FB /* String+UTF16.swift in Sources */,
 				AEF097812065EE650021E4ED /* LogInfo.swift in Sources */,
 				AE0F709C1FBEB9CE00C8135C /* Trace.swift in Sources */,
+				AEB1F4CB2511B1530069A9FB /* MarkdownCommonElement.swift in Sources */,
 				AEB1F46E25065A9A0069A9FB /* AlgoViewController.swift in Sources */,
 				AE1DE0792099BE0A007910A5 /* BaseBoard.swift in Sources */,
 				AE901198223B49CE0020D400 /* Resolution.swift in Sources */,
@@ -2561,21 +2805,29 @@
 				AE0F70971FBEB9CA00C8135C /* DrawView.swift in Sources */,
 				AEBE709020A4449100B2E897 /* TakePhotoViewController.swift in Sources */,
 				AEDCE5BE20DBA15900A50536 /* BarSlider.swift in Sources */,
+				AEB1F4CC2511B1530069A9FB /* MarkdownLinkElement.swift in Sources */,
 				AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */,
 				AE6691D420F49B3A00D019D4 /* Palette.m in Sources */,
+				AEB1F4C02511B1530069A9FB /* MarkdownEscaping.swift in Sources */,
 				AEBE709920A5356500B2E897 /* MapViewController.swift in Sources */,
 				AEEE4860215CC631003C9943 /* LockView.swift in Sources */,
 				AE5AD7EC206111AC00289798 /* RippleViewController.swift in Sources */,
+				AEB1F4C52511B1530069A9FB /* MarkdownAutomaticLink.swift in Sources */,
 				AE955C3520A2D39A0009EFFE /* VideoPlayViewController.swift in Sources */,
+				AEB1F4CD2511B1530069A9FB /* MarkdownLevelElement.swift in Sources */,
 				AEDD2C9D2085D1D700CD1FDE /* TextLayoutViewController.swift in Sources */,
 				AEBE40401FC803A60087D7ED /* CityChooseViewController.swift in Sources */,
 				AE0F70881FBE864300C8135C /* GrandSlider.swift in Sources */,
+				AEB1F4C82511B1530069A9FB /* MarkdownBold.swift in Sources */,
 				AEBE403D1FC803620087D7ED /* LibraryViewController.swift in Sources */,
 				AE1DE09A2099BE0A007910A5 /* Constants.swift in Sources */,
+				AEB1F4B72511B1530069A9FB /* UIFont+Traits.swift in Sources */,
 				AE9011F922432D320020D400 /* FlowLayout.swift in Sources */,
+				AEB1F4CA2511B1530069A9FB /* MarkdownStrikethrough.swift in Sources */,
 				AEA681142420D908009748E4 /* UIScrollView+MJExtension.m in Sources */,
 				AE3AF0581F7744D500AF182A /* ScrollMenuViewController.swift in Sources */,
 				AE5A887E1FF39C4800748F6A /* FilterViewController.swift in Sources */,
+				AEB1F4BC2511B1530069A9FB /* MarkdownParser+UIKit.swift in Sources */,
 				AEA681572421B39D009748E4 /* FMDatabaseAdditions.m in Sources */,
 				AEDC54132012EC4100BB4E34 /* ConstraintArrayDSL.swift in Sources */,
 				AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */,
@@ -2583,6 +2835,7 @@
 				AE3AF0551F77448A00AF182A /* LayoutViewController.swift in Sources */,
 				AE901195223B42450020D400 /* ImageSet.swift in Sources */,
 				AEA681262420D908009748E4 /* MJRefreshAutoStateFooter.m in Sources */,
+				AEB1F4BD2511B1530069A9FB /* MarkdownParser.swift in Sources */,
 				AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */,
 				AE6691D520F49B3A00D019D4 /* PaletteSwatch.m in Sources */,
 				AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */,
@@ -2603,6 +2856,7 @@
 				AEA6811D2420D908009748E4 /* MJRefreshBackGifFooter.m in Sources */,
 				AE5AD8BF225355D100BD7EE9 /* ImageBrowserViewController.swift in Sources */,
 				AE204B2024F5F889002D0841 /* NotifcationViewController.swift in Sources */,
+				AEB1F4C62511B1530069A9FB /* MarkdownLink.swift in Sources */,
 				AEA680BD2420D6B7009748E4 /* TZPhotoPreviewController.m in Sources */,
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
 				AE5A88721FF37AA800748F6A /* Semaphore.swift in Sources */,
@@ -2612,6 +2866,8 @@
 				AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */,
 				AEBE405E1FC81FE80087D7ED /* CityTableViewCell.swift in Sources */,
 				AE83BD791FE21325001882D1 /* TwoSideView.swift in Sources */,
+				AEB1F4B82511B1530069A9FB /* Typealias.swift in Sources */,
+				AEB1F4CE2511B1530069A9FB /* MarkdownElement.swift in Sources */,
 				AEA680AB2420D6B7009748E4 /* TZImageCropManager.m in Sources */,
 				AE0F70991FBEB9CA00C8135C /* SettingViewController.swift in Sources */,
 				AEB9571A22C49A2400C71372 /* ShadowEncoder.swift in Sources */,
@@ -2624,6 +2880,7 @@
 				AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */,
 				AEA6812F2420D908009748E4 /* MJRefreshNormalHeader.m in Sources */,
 				AE3F46F820AC0D1B007BA637 /* TimerButton.swift in Sources */,
+				AEB1F4B92511B1530069A9FB /* MarkdownCode+UIKit.swift in Sources */,
 				AE3F46F220AC06A3007BA637 /* Toast.swift in Sources */,
 				AE1DE0782099BE0A007910A5 /* FullBoard.swift in Sources */,
 				AE1AC81020D25F5A0002F779 /* ShadowVideoControlView.swift in Sources */,
@@ -2636,10 +2893,13 @@
 				AEA681602421B39D009748E4 /* FMResultSet.m in Sources */,
 				AEB1F475250667110069A9FB /* SearchDemoViewController.swift in Sources */,
 				AE5AD8C32254A22A00BD7EE9 /* MitoConfig.swift in Sources */,
+				AEB1F4C92511B1530069A9FB /* MarkdownHeader.swift in Sources */,
 				AE1DE0992099BE0A007910A5 /* LinkPoint.swift in Sources */,
 				AE6691D820F49B3A00D019D4 /* PriorityBoxArray.m in Sources */,
+				AEB1F4CF2511B1530069A9FB /* MarkdownStyle.swift in Sources */,
 				AE5A88631FF36F9500748F6A /* GridView.swift in Sources */,
 				AE5A88681FF3709000748F6A /* JSViewController.swift in Sources */,
+				AEB1F4C32511B1530069A9FB /* MarkdownCode.swift in Sources */,
 				AEDD2CA02085E62500CD1FDE /* AlertViewController.swift in Sources */,
 				AEADFD2721056EF200E6B58D /* ShareViewController.swift in Sources */,
 				AEB9571622C0B1C700C71372 /* ShadowCameraModel.swift in Sources */,
@@ -2649,6 +2909,7 @@
 				AE1AC80D20D25F5A0002F779 /* ShadowVideoPlayerViewController.swift in Sources */,
 				AE5AD7EE206111D600289798 /* RippleAnimtaionView.swift in Sources */,
 				AE5752961F76934B00F6AAC5 /* CaptureVideoViewController.swift in Sources */,
+				AEB1F4C42511B1530069A9FB /* MarkdownItalic.swift in Sources */,
 				AEDF8C4B209AF61B00EED6D1 /* CVFileManager.swift in Sources */,
 				AEA6810D2420D908009748E4 /* MJRefreshConst.m in Sources */,
 				AEA680D32420D6B7009748E4 /* TZGifPhotoPreviewController.m in Sources */,
@@ -2674,6 +2935,7 @@
 				AEADFD44211001BE00E6B58D /* MemeryLeakTestViewController.swift in Sources */,
 				AE5A88781FF38F9F00748F6A /* UIImage+Base.swift in Sources */,
 				AEA6813E2420D908009748E4 /* MJRefreshBackFooter.m in Sources */,
+				AEB1F4BB2511B1530069A9FB /* MarkdownHeader+UIKit.swift in Sources */,
 				AE0F709D1FBEBA5C00C8135C /* Foundation+Extension.swift in Sources */,
 				AE0F708E1FBEB96E00C8135C /* TouchTestViewController.swift in Sources */,
 				AE1DE07A2099BE0A007910A5 /* GameService.swift in Sources */,
@@ -2696,6 +2958,7 @@
 				AEF589CE1F77945800D9A09F /* ImageRecognitionViewController.swift in Sources */,
 				AE1AC75020CF6FB40002F779 /* UICollectView+Extension.swift in Sources */,
 				AEA681542421B39D009748E4 /* FMDatabaseQueue.m in Sources */,
+				AEB1F4C22511B1530069A9FB /* MarkdownQuote.swift in Sources */,
 				AEA680CA2420D6B7009748E4 /* TZPhotoPreviewCell.m in Sources */,
 				AEA680AE2420D6B7009748E4 /* TZAssetCell.m in Sources */,
 				AE3F46EC20AC0290007BA637 /* HintView.swift in Sources */,
@@ -2715,6 +2978,7 @@
 				AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */,
 				AE3F46F020AC058A007BA637 /* Number+Extension.swift in Sources */,
 				AE9011FD2248BCCA0020D400 /* ImageSetListViewController.swift in Sources */,
+				AEB1F4BA2511B1530069A9FB /* MarkdownLink+UIKit.swift in Sources */,
 				AEA680D02420D6B7009748E4 /* TZLocationManager.m in Sources */,
 				AE5351202011876B00FC48A1 /* SnapkitViewController.swift in Sources */,
 			);
@@ -3239,14 +3503,6 @@
 				minimumVersion = 2.0.2;
 			};
 		};
-		AEB1F476250A7CC40069A9FB /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SimonFairbairn/SwiftyMarkdown";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.2;
-			};
-		};
 		AECA9D19248B476C008CC21B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -3350,11 +3606,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AE4D4A2524A9DD09003D1565 /* XCRemoteSwiftPackageReference "ViewChaos" */;
 			productName = ViewChaos;
-		};
-		AEB1F477250A7CC40069A9FB /* SwiftyMarkdown */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AEB1F476250A7CC40069A9FB /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */;
-			productName = SwiftyMarkdown;
 		};
 		AECA9D1A248B476C008CC21B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

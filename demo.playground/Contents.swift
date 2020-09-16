@@ -37,3 +37,82 @@ format.minimumFractionDigits = 2
 var moneyStr = format.string(from: NSNumber(value: 100100.0/100.0))!
 
 
+
+
+var a = 100
+
+func testa(p:UnsafeMutableRawPointer){
+    print("a = ", p.load(as: Int.self))
+    p.storeBytes(of: 50, as: Int.self)
+}
+
+testa(p: &a)
+
+print(a)
+
+var p1 = withUnsafeMutablePointer(to: &a) { $0 }
+p1.pointee = 200
+print(p1.pointee)
+
+let p2 = withUnsafePointer(to: &a){$0}
+print(p1)
+print(p2)
+
+var p3 = withUnsafeMutablePointer(to: &a){UnsafeMutableRawPointer($0)}
+print(p3.load(as: Int.self))
+p3.storeBytes(of: 111, as: Int.self)
+print(p3.load(as: Int.self))
+
+var p4 = withUnsafePointer(to: &a){UnsafeRawPointer($0)}
+print(p4.load(as: Int.self))
+
+print(p3)
+print(p4)
+
+//获取指针的指针
+var pp = withUnsafePointer(to: &p4){$0}
+print(pp.pointee)
+
+
+var p5 = malloc(16)
+p5?.storeBytes(of: 10, as: Int.self)
+p5?.storeBytes(of: 12, toByteOffset: 8, as: Int.self)
+
+print(p5?.load(as: Int.self) ?? 0)
+print(p5?.load(fromByteOffset: 8, as: Int.self) ?? 0)
+free(p5)
+
+print(Int.max)
+
+var p6 = UnsafeMutableRawPointer.allocate(byteCount: 16, alignment: 1)
+p6.storeBytes(of: 100, as: Int.self)
+
+var p7 = p6.advanced(by: 8)
+p7.storeBytes(of: 120, as: Int.self)
+
+print(p6.load(as: Int.self))
+print(p6.advanced(by: 8).load(as: Int.self))
+p6.deallocate()
+
+var p8 = UnsafeMutablePointer<Int>.allocate(capacity: 3)
+p8.initialize(to: 123)
+p8.initialize(repeating: 14, count: 2)
+
+var p9 = p8.successor()
+print(p9.pointee)
+p9.successor().initialize(to: 15)
+print(p9.successor().pointee)
+p8.deinitialize(count: 3)
+p8.deallocate()
+
+var p10 = UnsafeMutableRawPointer(p8)
+print(p10.load(as: Int.self))
+print(p8)
+print(p10)
+print(p8.pointee)
+
+var p11 = p10.assumingMemoryBound(to: Int.self)
+print(p11.pointee)
+print(p11)
+p11.pointee = 1221
+print(p8.pointee)
