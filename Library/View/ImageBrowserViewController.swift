@@ -114,7 +114,7 @@ class ImageBrowserCell: UICollectionViewCell,UIScrollViewDelegate {
         sc.snp.makeConstraints { (m) in
             m.left.right.equalTo(0)
             m.top.equalTo(20)
-            m.baseline.equalTo(-20)
+            m.lastBaseline.equalTo(-20)
         }
         sc.backgroundColor = UIColor.clear
         sc.isUserInteractionEnabled = true

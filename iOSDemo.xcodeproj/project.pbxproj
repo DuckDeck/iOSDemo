@@ -125,6 +125,7 @@
 		AE4EA74F21806C2A0061FA84 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4EA74E21806C2A0061FA84 /* Accelerate.framework */; };
 		AE4EA75121806C390061FA84 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4EA75021806C390061FA84 /* CoreMedia.framework */; };
 		AE4EA75321806C3F0061FA84 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4EA75221806C3F0061FA84 /* CoreVideo.framework */; };
+		AE52B6A1251B7E96008A96DA /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE52B6A0251B7E96008A96DA /* CoreServices.framework */; };
 		AE5351202011876B00FC48A1 /* SnapkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */; };
 		AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */; };
 		AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5752921F76931C00F6AAC5 /* MediaViewController.swift */; };
@@ -370,7 +371,6 @@
 		AEF5E8F12282AF4D0071B38A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8F02282AF4D0071B38A /* QuartzCore.framework */; };
 		AEF5E8F32282AF540071B38A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8F22282AF540071B38A /* OpenGLES.framework */; };
 		AEF5E8F52282B7CA0071B38A /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8F42282B7CA0071B38A /* VideoToolbox.framework */; };
-		AEF5E8F72282B7D40071B38A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8F62282B7D30071B38A /* MobileCoreServices.framework */; };
 		AEF5E8F92282B7DE0071B38A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8F82282B7DE0071B38A /* MediaPlayer.framework */; };
 		AEF5E8FB2282B7EF0071B38A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8FA2282B7EF0071B38A /* CoreGraphics.framework */; };
 		AEF5E8FD2282B8060071B38A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8FC2282B8060071B38A /* AVFoundation.framework */; };
@@ -542,6 +542,7 @@
 		AE4EA74E21806C2A0061FA84 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		AE4EA75021806C390061FA84 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		AE4EA75221806C3F0061FA84 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		AE52B6A0251B7E96008A96DA /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		AE53511F2011876B00FC48A1 /* SnapkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitViewController.swift; sourceTree = "<group>"; };
 		AE5351212011A1A000FC48A1 /* SnapkitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapkitTableViewController.swift; sourceTree = "<group>"; };
 		AE5752921F76931C00F6AAC5 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
@@ -912,7 +913,6 @@
 				AEF5E8FD2282B8060071B38A /* AVFoundation.framework in Frameworks */,
 				AEF5E8FB2282B7EF0071B38A /* CoreGraphics.framework in Frameworks */,
 				AEF5E8F92282B7DE0071B38A /* MediaPlayer.framework in Frameworks */,
-				AEF5E8F72282B7D40071B38A /* MobileCoreServices.framework in Frameworks */,
 				AECA9D27248B7075008CC21B /* Kanna in Frameworks */,
 				AECA9D30248B7827008CC21B /* GrandStore in Frameworks */,
 				AECA9D24248B5F06008CC21B /* IQKeyboardManagerSwift in Frameworks */,
@@ -930,6 +930,7 @@
 				AE4EA74D21806C1E0061FA84 /* CoreImage.framework in Frameworks */,
 				AE4EA74B21806C160061FA84 /* libc++.tbd in Frameworks */,
 				AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */,
+				AE52B6A1251B7E96008A96DA /* CoreServices.framework in Frameworks */,
 				AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1698,6 +1699,7 @@
 		AE9F321B1F690DBF00339BB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE52B6A0251B7E96008A96DA /* CoreServices.framework */,
 				AE4D498124A1F9C9003D1565 /* ExternalAccessory.framework */,
 				AE4D497F24A1F984003D1565 /* GLKit.framework */,
 				AE4D497D24A1F900003D1565 /* Security.framework */,
@@ -2591,7 +2593,7 @@
 			attributes = {
 				DefaultBuildSystemTypeForWorkspace = Original;
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Stan Hu";
 				TargetAttributes = {
 					AE9776A02303E24400C2FA6A = {
@@ -3137,6 +3139,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -3161,7 +3164,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -3196,6 +3199,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -3214,7 +3218,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -3248,7 +3252,7 @@
 					"$(PROJECT_DIR)/ffmpeg_ios/include",
 				);
 				INFOPLIST_FILE = iOSDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3268,7 +3272,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "arm64 armv7s";
+				VALID_ARCHS = "arm64 armv7s x86_64";
 			};
 			name = Debug;
 		};
@@ -3298,7 +3302,7 @@
 					"$(PROJECT_DIR)/ffmpeg_ios/include",
 				);
 				INFOPLIST_FILE = iOSDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

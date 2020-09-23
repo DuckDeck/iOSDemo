@@ -19,7 +19,7 @@ import GrandModel
     static let FiveStrokeLog = GrandStore(name: "FiveStrokeLog", defaultValue: [FiveStroke]())
     
     static func getFiveStroke(key:String,completed:@escaping ((_ result:ResultInfo)->Void)){
-        let url = "https://lovelive.ink:19996/five/\(key)"
+        let url = "httpconf://lovelive.ink:19996/five/\(key)"
         
         HttpClient.get(url.urlEncoded()).completion { (data, err) in
             var result = ResultInfo(rawData: data)

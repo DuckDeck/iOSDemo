@@ -116,3 +116,108 @@ print(p11.pointee)
 print(p11)
 p11.pointee = 1221
 print(p8.pointee)
+
+
+MemoryLayout<Int>.size
+MemoryLayout<Int>.alignment
+MemoryLayout<Int>.stride
+
+MemoryLayout<Int?>.size
+MemoryLayout<Int?>.alignment
+MemoryLayout<Int?>.stride
+
+MemoryLayout<Bool>.size
+MemoryLayout<Bool>.alignment
+MemoryLayout<Bool>.stride
+
+
+MemoryLayout<String>.size
+MemoryLayout<String>.alignment
+MemoryLayout<String>.stride
+
+MemoryLayout<String?>.size
+MemoryLayout<String?>.alignment
+MemoryLayout<String?>.stride
+
+MemoryLayout<Data>.size
+MemoryLayout<Data>.alignment
+MemoryLayout<Data>.stride
+
+MemoryLayout<UIColor>.size
+
+MemoryLayout<CGPoint>.size
+
+MemoryLayout<Double?>.size
+MemoryLayout<Double?>.alignment
+MemoryLayout<Double?>.stride
+
+
+struct Me{
+    let age:Int? = 33
+    let height:Double? = 180
+    let name:String? = "xiaowang"
+    let haveF:Bool = true
+}
+
+MemoryLayout<Me>.size
+MemoryLayout<Me>.alignment
+MemoryLayout<Me>.stride
+
+class MyClass{
+    func test()  {
+        var me = Me()
+        print(me)
+    }
+}
+
+let myClass = MyClass()
+myClass.test()
+
+class MeClass{
+    let age:Int? = 33
+   let height:Double? = 180
+   let name:String? = "xiaowang"
+   let haveF:Bool = true
+}
+MemoryLayout<MeClass>.size
+MemoryLayout<MeClass>.alignment
+MemoryLayout<MeClass>.stride
+
+func heapTest(){
+    let m = MyClass()
+    print(m)
+}
+
+
+class Cat{
+    var name = "Cat"
+    func bark() {
+        print("Maow")
+    }
+    
+    func headerPointOfClass() -> UnsafeMutableRawPointer {
+        return Unmanaged.passUnretained(self as AnyObject).toOpaque()
+    }
+}
+
+class Dog{
+    var name = "dog"
+    func bark()  {
+        print("wang wang")
+    }
+    func headerPointerOfClass() -> UnsafeMutableRawPointer{
+        return Unmanaged.passUnretained(self as AnyObject).toOpaque()
+    }
+    
+}
+
+func headTest(){
+    let cat = Cat()
+    let dog = Dog()
+    let catPointer = cat.headerPointOfClass()
+    let dogPointer = dog.headerPointerOfClass()
+    catPointer.advanced(by: 0).bindMemory(to: Dog.self, capacity: 1).initialize(to: dogPointer.assumingMemoryBound(to: Dog.self).pointee)
+    cat.bark()
+}
+
+headTest()

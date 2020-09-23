@@ -51,7 +51,7 @@ class GameView: UIView {
         ctx!.setLineWidth(10)
         ctx!.setLineJoin(CGLineJoin.round)
         ctx!.setLineCap(CGLineCap.round)
-        var pieces = self.gameService?.pieces
+        let pieces = self.gameService?.pieces
         if pieces != nil{
             for i in 0..<pieces!.count{
                 for j in 0..<pieces![i].count{
@@ -78,7 +78,7 @@ class GameView: UIView {
     }
     
     func drawLine(line:LinkLine, ctx:CGContext){
-        var points = line.arrPoints
+        let points = line.arrPoints
         let firstPoint = points.first!
         ctx.move(to: CGPoint(x: CGFloat(firstPoint.x), y: CGFloat(firstPoint.y)))
      
