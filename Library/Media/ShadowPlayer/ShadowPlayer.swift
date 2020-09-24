@@ -395,7 +395,7 @@ class ShadowPlayer:NSObject {
 
 extension ShadowPlayer{
     @objc func ShadowPlayerItemDidPlayToEndTimeNotification(notif:Notification)  {
-        item.seek(to: CMTime.zero)
+        item.seek(to: CMTime.zero, completionHandler: nil)
         self.player.pause()
         status = .Finished
         delegate?.playStateChange(status: status, info: nil)
