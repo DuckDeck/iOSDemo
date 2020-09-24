@@ -348,6 +348,22 @@ extension Array{
         }
     }
     
+    func isExistRepeatElement(condition:((_ item:Element)->Int)) -> Bool {
+        var m = [Int:Int]()
+        let res = self.map(condition)
+        for r in res {
+            if !m.keys.contains(r){
+                m[r] = 0
+            }
+            else{
+                m[r] = m[r]! + 1
+                return true
+            }
+        }
+        return false
+    }
+
+    
     func uniqueMerge(array:[Element],condition:((_ item:Element)->Int)) -> [Element] {
         let a = self.map(condition)
         let b = array.map(condition)

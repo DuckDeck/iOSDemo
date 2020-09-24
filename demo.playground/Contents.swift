@@ -116,3 +116,69 @@ print(p11.pointee)
 print(p11)
 p11.pointee = 1221
 print(p8.pointee)
+
+
+
+extension Array{
+    func isExistRepeatElement(condition:((_ item:Element)->Int)) -> Bool {
+        var m = [Int:Int]()
+        let res = self.map(condition)
+        for r in res {
+            if !m.keys.contains(r){
+                m[r] = 0
+            }
+            else{
+                m[r] = m[r]! + 1
+                return true
+            }
+        }
+        return false
+    }
+}
+
+
+struct arrayTest{
+   let id:Int
+   let name:String
+}
+
+let testArr = [arrayTest(id: 1, name: "123"),arrayTest(id: 1, name: "123"),arrayTest(id: 3, name: "123"),]
+
+let res = testArr.isExistRepeatElement { (i) -> Int in
+    return i.id
+}
+print(res)
+
+
+let arrInt = Array(0...100)
+arrInt.forEach { (s) in
+    print(s)
+}
+
+for a in 0..<10 {
+    print(a)
+}
+
+
+let calendar = Calendar.current
+let today = Date()
+let day = calendar.dateComponents([.day], from: today).day!
+print(day)
+if day < 25 {
+    let preMonth = Date(timeInterval: -24 * 3600 * 25, since: today)
+    let range = calendar .range(of: .day, in: .month, for: preMonth)
+    
+    for item in range!{
+        print(item)
+    }
+}
+
+func pre(x : Int){
+    print( (x - 1) % 12)
+}
+
+pre(x: 1)
+pre(x: 2)
+pre(x: 3)
+pre(x: 12)
+
