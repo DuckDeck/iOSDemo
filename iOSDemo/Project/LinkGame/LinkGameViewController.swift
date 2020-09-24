@@ -13,8 +13,8 @@ class LinkGameViewController: UIViewController {
     var leftTime:Int?
     var timer:Timer?
     var isPlaying = false
-    var lostAlert:UIAlertView?
-    var successAlert:UIAlertView?
+    var lostAlert:UIAlertController?
+    var successAlert:UIAlertController?
     var btnStart:UIButton?
     var lblTime:UILabel?
     var vMenu:UIView?
@@ -38,10 +38,17 @@ class LinkGameViewController: UIViewController {
         lblTime = UILabel(frame: CGRect(x: 178, y: 0, width: 135, height: 50))
         lblTime?.textColor = UIColor(red: 1, green: 1, blue: 9.0/15.0, alpha: 1)
         vMenu?.addSubview(lblTime!)
-        lostAlert = UIAlertView(title:"失败", message:"游戏失败,重新开始?", delegate:self, cancelButtonTitle:"取消")
-        lostAlert?.addButton(withTitle: "确定")
-        successAlert = UIAlertView(title: "胜利！", message: "游戏胜利！重新开始？", delegate: self, cancelButtonTitle: "取消")
-        successAlert?.addButton(withTitle: "确定")
+        
+        lostAlert = UIAlertController(title: "失败", message: "游戏失败,重新开始?", preferredStyle: .alert).action(title: "确定", handle: { [weak self](alert) in
+            self?.startGameClick(sender: self!.btnStart!)
+        })
+        
+        
+        successAlert = UIAlertController(title: "胜利！", message: "游戏胜利！重新开始？", preferredStyle: .alert).action(title: "确定", handle: { [weak self](alert) in
+            self?.startGameClick(sender: self!.btnStart!)
+        })
+
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -66,13 +73,7 @@ class LinkGameViewController: UIViewController {
             return
         }
     }
-    
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if buttonIndex == 1{
-            startGameClick(sender: btnStart!)
-        }
-    }
-    
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

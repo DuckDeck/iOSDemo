@@ -26,8 +26,8 @@ class BaseBoard: NSObject {
             pieces.append(arr)
         }
         // 返回非空的FKPiece集合, 该集合由子类实现的方法负责创建
-        var notNullPieces = self.createPieces(pieces: pieces)
-        var playImages = ImageTool.getPlayImages(size: notNullPieces!.count)
+        let notNullPieces = self.createPieces(pieces: pieces)
+        let playImages = ImageTool.getPlayImages(size: notNullPieces!.count)
         // 所有图片的宽、高都是相同的，随便取出一个方块的宽、高即可。
         let imageHeight = playImages[0].image.size.height
         let imageWidth = playImages[0].image.size.width

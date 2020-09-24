@@ -150,9 +150,9 @@ class LayerViewController: BaseViewController,CALayerDelegate {
 
 
     @objc func drop(gesture:UITapGestureRecognizer){
-        var layers = view.layer.sublayers
+        let layers = view.layer.sublayers
         layers![4].position = CGPoint(x: 200, y: 380)
-        var views = view.subviews
+        let views = view.subviews
         views[0].center = CGPoint(x: 100, y: 250)
     }
     

@@ -49,7 +49,7 @@ class SearchDemoViewController: UIViewController {
         
         var nums = 30.createRandomNums(max: 100)
         nums.sort()
-        let index = binarySearch(nums: nums, target: 20)
+        _ = binarySearch(nums: nums, target: 20)
         
     }
     

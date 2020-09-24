@@ -29,7 +29,7 @@ class ImageRecognitionViewController: UIViewController,TZImagePickerControllerDe
             return
         }
         
-        let resnetModel = Resnet50()
+        let resnetModel = try! Resnet50(configuration: MLModelConfiguration())
         let image = img.image!
        let vnCoreModel = try? VNCoreMLModel(for: resnetModel.model)
         if vnCoreModel == nil {

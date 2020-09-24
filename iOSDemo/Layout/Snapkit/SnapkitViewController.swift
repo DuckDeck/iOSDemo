@@ -44,7 +44,7 @@ class SnapkitViewController: UIViewController,UITextViewDelegate {
             m.top.equalTo(lbl.snp.bottom).offset(20)
         }
         
-        automaticallyAdjustsScrollViewInsets = false
+        sc.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.automatic
         view.addSubview(sc)
 
         sc.snp.makeConstraints { (m) in
