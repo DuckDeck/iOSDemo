@@ -46,6 +46,20 @@ class TextLayoutViewController: UIViewController {
         }
 
         vf.loadView()
+        
+        let limitView = GrowingTextView()
+        limitView.maxLength = 44
+        limitView.layer.borderWidth = 1
+        limitView.font = UIFont.systemFont(ofSize: 15)
+        limitView.layer.borderColor = UIColor.red.cgColor
+        limitView.trimWhiteSpaceWhenEndEditing = false
+        limitView.placeholder = "thisi要工腹胀 和"
+        view.addSubview(limitView)
+        limitView.snp.makeConstraints { (m) in
+            m.left.right.equalTo(0)
+            m.top.equalTo(500)
+            m.height.equalTo(40)
+        }
     }
 
 

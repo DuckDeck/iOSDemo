@@ -12,6 +12,7 @@
 		20A5D6C0251DD7DE00D80F54 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20A5D6BC251DD7DD00D80F54 /* AMap.bundle */; };
 		20A5D6C1251DD7DE00D80F54 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A5D6BD251DD7DD00D80F54 /* MAMapKit.framework */; };
 		20A5D6C9251DD87700D80F54 /* TableLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5D6C8251DD87700D80F54 /* TableLayoutViewController.swift */; };
+		20A5D6E6251E048200D80F54 /* LimitTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5D6E5251E048200D80F54 /* LimitTextView.swift */; };
 		AE00644E23960A3000B7C9E4 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = AE00644C23960A3000B7C9E4 /* fishhook.c */; };
 		AE00644F23960A5100B7C9E4 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = AE00644C23960A3000B7C9E4 /* fishhook.c */; };
 		AE00722520906B770093B478 /* GCD.m in Sources */ = {isa = PBXBuildFile; fileRef = AE00722420906B770093B478 /* GCD.m */; };
@@ -428,6 +429,7 @@
 		20A5D6BC251DD7DD00D80F54 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
 		20A5D6BD251DD7DD00D80F54 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		20A5D6C8251DD87700D80F54 /* TableLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLayoutViewController.swift; sourceTree = "<group>"; };
+		20A5D6E5251E048200D80F54 /* LimitTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitTextView.swift; sourceTree = "<group>"; };
 		AE00644C23960A3000B7C9E4 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
 		AE00644D23960A3000B7C9E4 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
 		AE00722320906B770093B478 /* GCD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
@@ -990,6 +992,13 @@
 			path = Table;
 			sourceTree = "<group>";
 		};
+		20A5D6E4251E045F00D80F54 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		AE00644B23960A2900B7C9E4 /* FishHook */ = {
 			isa = PBXGroup;
 			children = (
@@ -1387,6 +1396,7 @@
 				AE3795262238EB10009292DE /* SlideMenuView.swift */,
 				AE9011F822432D320020D400 /* FlowLayout.swift */,
 				AE5AD8BE225355D100BD7EE9 /* ImageBrowserViewController.swift */,
+				20A5D6E5251E048200D80F54 /* LimitTextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1703,6 +1713,7 @@
 		AE9F31D41F69070E00339BB8 /* iOSDemo */ = {
 			isa = PBXGroup;
 			children = (
+				20A5D6E4251E045F00D80F54 /* View */,
 				AE4D498A24A1FF77003D1565 /* iOSDemo.entitlements */,
 				AEB1F46C25065A630069A9FB /* Algo */,
 				AE6691B120EDF37D00D019D4 /* Webview */,
@@ -2795,6 +2806,7 @@
 				AE7BBCE4207B498B005DBE0C /* WatermarkViewController.swift in Sources */,
 				AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */,
 				AEBE40521FC80A5C0087D7ED /* CityChooseViewController+Delegate.swift in Sources */,
+				20A5D6E6251E048200D80F54 /* LimitTextView.swift in Sources */,
 				AEB7D0A0225ED716008C899E /* DownloadProgressView.swift in Sources */,
 				AE1AC80E20D25F5A0002F779 /* ShadowVideoPlayControlView.swift in Sources */,
 				AE6691D620F49B3A00D019D4 /* UIImage+Palette.m in Sources */,
