@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 class LayoutViewController: UIViewController {
 
-    var arrData = ["ScrollMenu","Snapkit","Grid","StackView","Text Layout","Form","Kind Of Cell Type","FlowLayout"]
+    var arrData = ["ScrollMenu","Snapkit","Grid","StackView","Text Layout","Form","Kind Of Cell Type","FlowLayout","TableLayout"]
     var tbMenu = UITableView()
     
  
@@ -62,6 +62,9 @@ extension LayoutViewController:UITableViewDelegate,UITableViewDataSource{
             navigationController?.pushViewController(CellTypeViewController(), animated: true)
         case 7:
             navigationController?.pushViewController(FlowLayoutViewController(), animated: true)
+        case 8:
+            navigationController?.pushViewController(TableLayoutViewController(), animated: true)
+
         default:
             break
         }

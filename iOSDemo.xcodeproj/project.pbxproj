@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20A5D6BE251DD7DE00D80F54 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A5D6BA251DD7DD00D80F54 /* AMapLocationKit.framework */; };
+		20A5D6BF251DD7DE00D80F54 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A5D6BB251DD7DD00D80F54 /* AMapFoundationKit.framework */; };
+		20A5D6C0251DD7DE00D80F54 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20A5D6BC251DD7DD00D80F54 /* AMap.bundle */; };
+		20A5D6C1251DD7DE00D80F54 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A5D6BD251DD7DD00D80F54 /* MAMapKit.framework */; };
+		20A5D6C9251DD87700D80F54 /* TableLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5D6C8251DD87700D80F54 /* TableLayoutViewController.swift */; };
 		AE00644E23960A3000B7C9E4 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = AE00644C23960A3000B7C9E4 /* fishhook.c */; };
 		AE00644F23960A5100B7C9E4 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = AE00644C23960A3000B7C9E4 /* fishhook.c */; };
 		AE00722520906B770093B478 /* GCD.m in Sources */ = {isa = PBXBuildFile; fileRef = AE00722420906B770093B478 /* GCD.m */; };
@@ -418,6 +423,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		20A5D6BA251DD7DD00D80F54 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
+		20A5D6BB251DD7DD00D80F54 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
+		20A5D6BC251DD7DD00D80F54 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
+		20A5D6BD251DD7DD00D80F54 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
+		20A5D6C8251DD87700D80F54 /* TableLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLayoutViewController.swift; sourceTree = "<group>"; };
 		AE00644C23960A3000B7C9E4 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
 		AE00644D23960A3000B7C9E4 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
 		AE00722320906B770093B478 /* GCD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
@@ -527,7 +537,6 @@
 		AE4D497D24A1F900003D1565 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AE4D497F24A1F984003D1565 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		AE4D498124A1F9C9003D1565 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
-		AE4D498324A1FC94003D1565 /* Map */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Map; sourceTree = "<group>"; };
 		AE4D498824A1FE82003D1565 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = Library/Map/AMap.bundle; sourceTree = "<group>"; };
 		AE4D498A24A1FF77003D1565 /* iOSDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSDemo.entitlements; sourceTree = "<group>"; };
 		AE4DA61A213E68B300FCC7FD /* ShadowDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDataManager.swift; sourceTree = "<group>"; };
@@ -914,13 +923,16 @@
 				AEF5E8F92282B7DE0071B38A /* MediaPlayer.framework in Frameworks */,
 				AECA9D27248B7075008CC21B /* Kanna in Frameworks */,
 				AECA9D30248B7827008CC21B /* GrandStore in Frameworks */,
+				20A5D6BE251DD7DE00D80F54 /* AMapLocationKit.framework in Frameworks */,
 				AECA9D24248B5F06008CC21B /* IQKeyboardManagerSwift in Frameworks */,
 				AECA9D1E248B59BF008CC21B /* SnapKit in Frameworks */,
 				AECA9D2A248B7143008CC21B /* Kingfisher in Frameworks */,
+				20A5D6BF251DD7DE00D80F54 /* AMapFoundationKit.framework in Frameworks */,
 				AECA9D36248B7A04008CC21B /* GrandTime in Frameworks */,
 				AEF5E8F52282B7CA0071B38A /* VideoToolbox.framework in Frameworks */,
 				AEF5E8F32282AF540071B38A /* OpenGLES.framework in Frameworks */,
 				AEF5E8F12282AF4D0071B38A /* QuartzCore.framework in Frameworks */,
+				20A5D6C1251DD7DE00D80F54 /* MAMapKit.framework in Frameworks */,
 				AE4EA75321806C3F0061FA84 /* CoreVideo.framework in Frameworks */,
 				AE4EA75121806C390061FA84 /* CoreMedia.framework in Frameworks */,
 				AECA9D3C248B915D008CC21B /* Gifu in Frameworks */,
@@ -959,6 +971,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20A5D6B9251DD7DD00D80F54 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				20A5D6BA251DD7DD00D80F54 /* AMapLocationKit.framework */,
+				20A5D6BB251DD7DD00D80F54 /* AMapFoundationKit.framework */,
+				20A5D6BC251DD7DD00D80F54 /* AMap.bundle */,
+				20A5D6BD251DD7DD00D80F54 /* MAMapKit.framework */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		20A5D6C7251DD86900D80F54 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				20A5D6C8251DD87700D80F54 /* TableLayoutViewController.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
 		AE00644B23960A2900B7C9E4 /* FishHook */ = {
 			isa = PBXGroup;
 			children = (
@@ -1285,6 +1316,7 @@
 		AE3AF0531F77447A00AF182A /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				20A5D6C7251DD86900D80F54 /* Table */,
 				AE9011F522432AAD0020D400 /* FlowLayout */,
 				AE901191223A40480020D400 /* List */,
 				AEDD2C9B2085D1C500CD1FDE /* TextLayout */,
@@ -1750,8 +1782,8 @@
 		AE9F32311F690F1B00339BB8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				20A5D6B9251DD7DD00D80F54 /* Map */,
 				AEB1F4792511B1530069A9FB /* MarkdownKit */,
-				AE4D498324A1FC94003D1565 /* Map */,
 				AEA681472421B39D009748E4 /* fmdb */,
 				AEA680D92420D908009748E4 /* MJRefresh */,
 				AEA6808B2420D6B7009748E4 /* TZImagePickerController */,
@@ -2663,6 +2695,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20A5D6C0251DD7DE00D80F54 /* AMap.bundle in Resources */,
 				AE4D498924A1FE83003D1565 /* AMap.bundle in Resources */,
 				AE6897FE234C7C39001D0DF4 /* cxk.mp4 in Resources */,
 				AEB9572C22D48BF600C71372 /* test.mp4 in Resources */,
@@ -2810,6 +2843,7 @@
 				AEB1F4CC2511B1530069A9FB /* MarkdownLinkElement.swift in Sources */,
 				AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */,
 				AE6691D420F49B3A00D019D4 /* Palette.m in Sources */,
+				20A5D6C9251DD87700D80F54 /* TableLayoutViewController.swift in Sources */,
 				AEB1F4C02511B1530069A9FB /* MarkdownEscaping.swift in Sources */,
 				AEBE709920A5356500B2E897 /* MapViewController.swift in Sources */,
 				AEEE4860215CC631003C9943 /* LockView.swift in Sources */,

@@ -5,8 +5,8 @@ import UIKit
  //Mirror 都可以对其进行探索。强大的运行时特性，也意味着额外的开销。Mirror 的文档明确告诉我们，
  //这个类型更多是用来在 Playground 和调试器中进行输出和观察用的。如果我们想要以高效的方式来处理字典转换问题，也许应该试试看其他思路
 //
-
-
+let z = "dasd dasd sdf".replacingOccurrences(of: " ", with: "")
+print(z)
 String(-20)
 
 
