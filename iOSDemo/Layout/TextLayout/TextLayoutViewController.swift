@@ -48,6 +48,7 @@ class TextLayoutViewController: UIViewController {
         vf.loadView()
         
         let limitView = GrowingTextView()
+        limitView.text = "132123123"
         limitView.maxLength = 44
         limitView.layer.borderWidth = 1
         limitView.font = UIFont.systemFont(ofSize: 15)
