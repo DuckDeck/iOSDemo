@@ -30,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             // Fallback on earlier versions
         }
+        
+        let fps = FPSLable(frame: CGRect(x: ScreenWidth / 2 - 50, y: 50, width: 100, height: 20))
+        UIApplication.shared.keyWindow?.addSubview(fps)
+        let monitor = CatonMonitor.init()
+        monitor.start()
         return true
     }
 

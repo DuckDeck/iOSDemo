@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2051B8842522D4130090B8C1 /* FPSTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2051B87E2522D3930090B8C1 /* FPSTool.swift */; };
+		2051B88B2522DA940090B8C1 /* CatoMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2051B88A2522DA940090B8C1 /* CatoMonitor.swift */; };
 		20A5D6BE251DD7DE00D80F54 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A5D6BA251DD7DD00D80F54 /* AMapLocationKit.framework */; };
 		20A5D6BF251DD7DE00D80F54 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A5D6BB251DD7DD00D80F54 /* AMapFoundationKit.framework */; };
 		20A5D6C0251DD7DE00D80F54 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20A5D6BC251DD7DD00D80F54 /* AMap.bundle */; };
 		20A5D6C1251DD7DE00D80F54 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A5D6BD251DD7DD00D80F54 /* MAMapKit.framework */; };
 		20A5D6C9251DD87700D80F54 /* TableLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5D6C8251DD87700D80F54 /* TableLayoutViewController.swift */; };
 		20A5D6E6251E048200D80F54 /* LimitTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5D6E5251E048200D80F54 /* LimitTextView.swift */; };
+		20ABA57D2521D0B8009B2659 /* GrandTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ABA57C2521D0B8009B2659 /* GrandTextView.swift */; };
 		AE00644E23960A3000B7C9E4 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = AE00644C23960A3000B7C9E4 /* fishhook.c */; };
 		AE00644F23960A5100B7C9E4 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = AE00644C23960A3000B7C9E4 /* fishhook.c */; };
 		AE00722520906B770093B478 /* GCD.m in Sources */ = {isa = PBXBuildFile; fileRef = AE00722420906B770093B478 /* GCD.m */; };
@@ -424,12 +427,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2051B87E2522D3930090B8C1 /* FPSTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSTool.swift; sourceTree = "<group>"; };
+		2051B88A2522DA940090B8C1 /* CatoMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatoMonitor.swift; sourceTree = "<group>"; };
 		20A5D6BA251DD7DD00D80F54 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
 		20A5D6BB251DD7DD00D80F54 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
 		20A5D6BC251DD7DD00D80F54 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
 		20A5D6BD251DD7DD00D80F54 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		20A5D6C8251DD87700D80F54 /* TableLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLayoutViewController.swift; sourceTree = "<group>"; };
 		20A5D6E5251E048200D80F54 /* LimitTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitTextView.swift; sourceTree = "<group>"; };
+		20ABA57C2521D0B8009B2659 /* GrandTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandTextView.swift; sourceTree = "<group>"; };
 		AE00644C23960A3000B7C9E4 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
 		AE00644D23960A3000B7C9E4 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
 		AE00722320906B770093B478 /* GCD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
@@ -1397,6 +1403,7 @@
 				AE9011F822432D320020D400 /* FlowLayout.swift */,
 				AE5AD8BE225355D100BD7EE9 /* ImageBrowserViewController.swift */,
 				20A5D6E5251E048200D80F54 /* LimitTextView.swift */,
+				20ABA57C2521D0B8009B2659 /* GrandTextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2311,6 +2318,8 @@
 				AEF0977C2064EFFF0021E4ED /* LogTool.swift */,
 				AEB9572422D4833600C71372 /* log4cplus.h */,
 				AEB9573F22E043A900C71372 /* Singleton.h */,
+				2051B87E2522D3930090B8C1 /* FPSTool.swift */,
+				2051B88A2522DA940090B8C1 /* CatoMonitor.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -2824,6 +2833,7 @@
 				AE6691D920F49B3A00D019D4 /* PaletteTarget.m in Sources */,
 				AEA681202420D908009748E4 /* MJRefreshBackStateFooter.m in Sources */,
 				AEA681102420D908009748E4 /* MJRefreshConfig.m in Sources */,
+				2051B88B2522DA940090B8C1 /* CatoMonitor.swift in Sources */,
 				AE1DE0962099BE0A007910A5 /* PieceImage.swift in Sources */,
 				AE0F708B1FBEB94100C8135C /* TouchViewController.swift in Sources */,
 				AEADFD4921115BBE00E6B58D /* UIButton+Extension.swift in Sources */,
@@ -2890,6 +2900,7 @@
 				AE1DE0982099BE0A007910A5 /* LinkLine.swift in Sources */,
 				AEB7D09E225DEB04008C899E /* MitoPlayViewController.swift in Sources */,
 				AE394B522065F72100CE3BD9 /* SQLiteViewController.swift in Sources */,
+				20ABA57D2521D0B8009B2659 /* GrandTextView.swift in Sources */,
 				AE3F46F620AC0BF9007BA637 /* UINavigationController+Extension.swift in Sources */,
 				AE5752931F76931C00F6AAC5 /* MediaViewController.swift in Sources */,
 				AE3AF0441F773B0000AF182A /* AnimationViewController.swift in Sources */,
@@ -2923,6 +2934,7 @@
 				AEBE40421FC804820087D7ED /* AddressInfo.swift in Sources */,
 				AE5A88741FF37BED00748F6A /* Group.swift in Sources */,
 				AEB7D08F225B216D008C899E /* AboutMitoViewController.swift in Sources */,
+				2051B8842522D4130090B8C1 /* FPSTool.swift in Sources */,
 				AEA680B42420D6B7009748E4 /* TZAssetModel.m in Sources */,
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
 				AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */,
