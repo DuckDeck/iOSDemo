@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import ViewChaos
+import os
 //import netfox
 //import KTVHTTPCache
 @UIApplicationMain
@@ -35,6 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.keyWindow?.addSubview(fps)
         let monitor = CatonMonitor.init()
         monitor.start()
+        
+        
+        
+        if #available(iOS 14.0, *) {
+            let logger = Logger(subsystem: "com.shadow.edge", category: "loggggg")
+            logger.log("testesetet")
+        } else {
+            
+        }
+        
+        
         return true
     }
 

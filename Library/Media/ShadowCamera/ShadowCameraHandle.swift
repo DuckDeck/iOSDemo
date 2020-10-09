@@ -98,30 +98,14 @@ class ShadowCameraHandle: NSObject {
         }
         
         if device.hasFlash{
-            if #available(iOS 10.0, *){
-                let outputs = session.outputs
-                for output in outputs{
-                    if output is AVCapturePhotoOutput{
-                        let photoOutput = output as! AVCapturePhotoOutput
-                        let flashSupported = photoOutput.supportedFlashModes.contains(cameraModel.flashMode)
-                        if flashSupported{
-                            let photoSettings = photoOutput.photoSettingsForSceneMonitoring
-                            photoSettings?.flashMode = AVCaptureDevice.FlashMode.auto
-                        }
-                        else{
-                            print("The device not support current flash mode \(cameraModel.flashMode)")
-                        }
-                    }
-                }
+      
+            if device.isFlashModeSupported(cameraModel.flashMode){
+                device.flashMode = cameraModel.flashMode
             }
             else{
-                if device.isFlashModeSupported(cameraModel.flashMode){
-                    device.flashMode = cameraModel.flashMode
-                }
-                else{
-                    print("The device not support current flash mode \(cameraModel.flashMode)")
-                }
+                print("The device not support current flash mode \(cameraModel.flashMode)")
             }
+            
         }
         else{
             print("The device not support flash")

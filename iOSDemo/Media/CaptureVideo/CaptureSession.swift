@@ -163,9 +163,9 @@ class CaptureSession: NSObject {
             // 是否支持全频色彩编码 YUV 一种色彩编码方式, 即YCbCr, 现在视频一般采用该颜色空间, 可以分离亮度跟色彩, 在不影响清晰度的情况下来压缩视频
             var supportFullYUVRange = false
             // 获取输出对象所支持的像素格式
-            let supportedPixelFormats = videoOutput.availableVideoPixelFormatTypes
+            let supportedPixelFormats = videoOutput.availableVideoCodecTypes
             for format in supportedPixelFormats{
-                if format == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange{
+                if format == .proRes422{
                     supportFullYUVRange = true
                 }
             }
