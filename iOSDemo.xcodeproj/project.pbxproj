@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		204BF89D253546B100EAEE54 /* ScanCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BF89C253546B100EAEE54 /* ScanCodeViewController.swift */; };
+		204BF8A925354C8100EAEE54 /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BF8A825354C8100EAEE54 /* ScanResultViewController.swift */; };
 		2051B8842522D4130090B8C1 /* FPSTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2051B87E2522D3930090B8C1 /* FPSTool.swift */; };
 		2051B88B2522DA940090B8C1 /* CatoMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2051B88A2522DA940090B8C1 /* CatoMonitor.swift */; };
 		20A5D6BE251DD7DE00D80F54 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A5D6BA251DD7DD00D80F54 /* AMapLocationKit.framework */; };
@@ -427,6 +429,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		204BF89C253546B100EAEE54 /* ScanCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCodeViewController.swift; sourceTree = "<group>"; };
+		204BF8A825354C8100EAEE54 /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
 		2051B87E2522D3930090B8C1 /* FPSTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSTool.swift; sourceTree = "<group>"; };
 		2051B88A2522DA940090B8C1 /* CatoMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatoMonitor.swift; sourceTree = "<group>"; };
 		20A5D6BA251DD7DD00D80F54 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
@@ -979,6 +983,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		204BF89B2535469600EAEE54 /* ScanCode */ = {
+			isa = PBXGroup;
+			children = (
+				204BF89C253546B100EAEE54 /* ScanCodeViewController.swift */,
+				204BF8A825354C8100EAEE54 /* ScanResultViewController.swift */,
+			);
+			path = ScanCode;
+			sourceTree = "<group>";
+		};
 		20A5D6B9251DD7DD00D80F54 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -2365,6 +2378,7 @@
 		AEBE403B1FC803420087D7ED /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				204BF89B2535469600EAEE54 /* ScanCode */,
 				AEADFD2521056EE800E6B58D /* Share */,
 				AEDD2C9E2085E61900CD1FDE /* AlertController */,
 				AEBE403E1FC8037A0087D7ED /* CityChoose */,
@@ -2791,6 +2805,7 @@
 			files = (
 				AE1DE09B2099BE0A007910A5 /* ImageTool.swift in Sources */,
 				AEEE485E215CC61B003C9943 /* PointLockViewController.swift in Sources */,
+				204BF89D253546B100EAEE54 /* ScanCodeViewController.swift in Sources */,
 				AEA6810A2420D908009748E4 /* UIScrollView+MJRefresh.m in Sources */,
 				AE7278A9207F5A28005D9D6D /* SoundRecordViewController.swift in Sources */,
 				AEB1F4C72511B1530069A9FB /* MarkdownList.swift in Sources */,
@@ -3024,6 +3039,7 @@
 				AE3F46EC20AC0290007BA637 /* HintView.swift in Sources */,
 				AE3F46F420AC0B2B007BA637 /* UIImageView+Extension.swift in Sources */,
 				AEA681442420D908009748E4 /* MJRefreshComponent.m in Sources */,
+				204BF8A925354C8100EAEE54 /* ScanResultViewController.swift in Sources */,
 				AE6691B320EDF39F00D019D4 /* WebViewController.swift in Sources */,
 				AE4DA62121425B8800FCC7FD /* ShadowVideoPlayView.swift in Sources */,
 				AE6691DD20F49BD600D019D4 /* PaletteViewController.swift in Sources */,
