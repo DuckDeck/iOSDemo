@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2045E7F72542BCBD003D79B3 /* UnLimitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2045E7F62542BCBD003D79B3 /* UnLimitTableViewController.swift */; };
 		204BF89D253546B100EAEE54 /* ScanCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BF89C253546B100EAEE54 /* ScanCodeViewController.swift */; };
 		204BF8A925354C8100EAEE54 /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BF8A825354C8100EAEE54 /* ScanResultViewController.swift */; };
 		2051B8842522D4130090B8C1 /* FPSTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2051B87E2522D3930090B8C1 /* FPSTool.swift */; };
@@ -429,6 +430,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2045E7F62542BCBD003D79B3 /* UnLimitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnLimitTableViewController.swift; sourceTree = "<group>"; };
 		204BF89C253546B100EAEE54 /* ScanCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCodeViewController.swift; sourceTree = "<group>"; };
 		204BF8A825354C8100EAEE54 /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
 		2051B87E2522D3930090B8C1 /* FPSTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSTool.swift; sourceTree = "<group>"; };
@@ -1007,6 +1009,7 @@
 			isa = PBXGroup;
 			children = (
 				20A5D6C8251DD87700D80F54 /* TableLayoutViewController.swift */,
+				2045E7F62542BCBD003D79B3 /* UnLimitTableViewController.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -2900,6 +2903,7 @@
 				AEA681142420D908009748E4 /* UIScrollView+MJExtension.m in Sources */,
 				AE3AF0581F7744D500AF182A /* ScrollMenuViewController.swift in Sources */,
 				AE5A887E1FF39C4800748F6A /* FilterViewController.swift in Sources */,
+				2045E7F72542BCBD003D79B3 /* UnLimitTableViewController.swift in Sources */,
 				AEB1F4BC2511B1530069A9FB /* MarkdownParser+UIKit.swift in Sources */,
 				AEA681572421B39D009748E4 /* FMDatabaseAdditions.m in Sources */,
 				AEDC54132012EC4100BB4E34 /* ConstraintArrayDSL.swift in Sources */,

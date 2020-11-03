@@ -45,8 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             
         }
-        
-        
+
         return true
     }
 

@@ -19,6 +19,7 @@ class CompressImageViewController: UIViewController,TZImagePickerControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        imgOrigin.contentMode = .scaleAspectFit
         imgOrigin.addTo(view: view).snp.makeConstraints { (m) in
             m.left.equalTo(10)
             m.top.equalTo(NavigationBarHeight + 10)
@@ -39,6 +40,7 @@ class CompressImageViewController: UIViewController,TZImagePickerControllerDeleg
         }
         btnChoose.addTarget(self, action: #selector(chooseImage), for: .touchUpInside)
         
+        imgCompress.contentMode = .scaleAspectFit
         imgCompress.addTo(view: view).snp.makeConstraints { (m) in
             m.left.equalTo(10)
             m.top.equalTo(lblOriginSize.snp.bottom).offset(10)
@@ -65,7 +67,8 @@ class CompressImageViewController: UIViewController,TZImagePickerControllerDeleg
         imagePickerController.didFinishPickingPhotosHandle = {[weak self](images,assert,isSelectOriginalPhoto) in
             if let one = images?.first{
                 self?.imgOrigin.image = one
-                self?.lblOriginSize.text = "\((one.jpegData(compressionQuality: 1)! as NSData).length) b"
+                //事实上对于iOS来说，获取图片文件大小是无法获取到真正的大小的，因为iOS不会让你直接获取文件，而是先读取出来再解压缩后生成Data数据，这个data数据和原先的文件没有任何关系了，所以只能设置一个文件大小上限
+                self?.lblOriginSize.text = one.getFileSize().1
             }
         }
         
@@ -79,7 +82,7 @@ class CompressImageViewController: UIViewController,TZImagePickerControllerDeleg
     
     @objc func compressImage(){
         if let img = imgOrigin.image{
-            if let d = img.compressWithMaxLength(maxLength: 35000){
+            if let d = img.compressWithMaxLength(maxLength: 100000){
                 let i = UIImage(data: d)!
                 imgCompress.image = i
                 lblCompressSize.text = "\((d as NSData).length) b"
