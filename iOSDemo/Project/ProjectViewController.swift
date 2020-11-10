@@ -46,8 +46,7 @@ extension ProjectViewController:UITableViewDelegate,UITableViewDataSource{
         case 1:
             navigationController?.pushViewController(PointLockViewController(), animated: true)
         case 2:
-//            navigationController?.pushViewController(MitoViewController(), animated: true)
-            Toast.showToast(msg: "此网站已经关了，无法再访问，所以不能再进了")
+            navigationController?.pushViewController(MitoViewController(), animated: true)
         case 3:
             navigationController?.pushViewController(FiveStrokeViewController(), animated: true)
         default:

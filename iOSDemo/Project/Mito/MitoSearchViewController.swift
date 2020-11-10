@@ -82,22 +82,7 @@ class MitoSearchViewController: UIViewController,UITextFieldDelegate {
         
         
         
-        if MitoConfig.HotSearchMito.Value!.count > 0{
-            vHotSearch.isHidden = false
-            
-            let hotKeys =  MitoConfig.HotSearchMito.Value!
-            var arrHotkeyButton = [UIButton]()
-            for item in hotKeys{
-                let cor = UIColor.random
-                let btn = UIButton().title(title: item).color(color: cor).borderColor(color: cor).borderWidth(width: 1).cornerRadius(radius: 12)
-                btn.addTarget(self, action: #selector(hotKeySearch(sender:)), for: .touchUpInside)
-                arrHotkeyButton.append(btn)
-            }
-            vHotSearch.arrViews = arrHotkeyButton
-        }
-        else{
-             vHotSearch.isHidden = true
-        }
+       
         
     }
     

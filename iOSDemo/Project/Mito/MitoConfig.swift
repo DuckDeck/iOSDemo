@@ -10,7 +10,7 @@ import UIKit
 import GrandStore
 class MitoConfig  {
     static let CollectedMito = GrandStore(name: "CollectedMito", defaultValue: [ImageSet]())
-    static let HotSearchMito = GrandStore(name: "HotSearchMito", defaultValue: [String]())
+   
     
     static func collect(imageSet:ImageSet){
         var items = CollectedMito.Value!

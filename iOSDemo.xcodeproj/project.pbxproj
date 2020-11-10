@@ -19,6 +19,7 @@
 		20A5D6C9251DD87700D80F54 /* TableLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5D6C8251DD87700D80F54 /* TableLayoutViewController.swift */; };
 		20A5D6E6251E048200D80F54 /* LimitTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5D6E5251E048200D80F54 /* LimitTextView.swift */; };
 		20ABA57D2521D0B8009B2659 /* GrandTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ABA57C2521D0B8009B2659 /* GrandTextView.swift */; };
+		20EF8A4C255949A3008CBD99 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 20EF8A4B255949A3008CBD99 /* SkeletonView */; };
 		AE00644E23960A3000B7C9E4 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = AE00644C23960A3000B7C9E4 /* fishhook.c */; };
 		AE00644F23960A5100B7C9E4 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = AE00644C23960A3000B7C9E4 /* fishhook.c */; };
 		AE00722520906B770093B478 /* GCD.m in Sources */ = {isa = PBXBuildFile; fileRef = AE00722420906B770093B478 /* GCD.m */; };
@@ -315,7 +316,6 @@
 		AEB7D08F225B216D008C899E /* AboutMitoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D08E225B216D008C899E /* AboutMitoViewController.swift */; };
 		AEB7D092225B2B82008C899E /* FiveStrokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D091225B2B82008C899E /* FiveStrokeViewController.swift */; };
 		AEB7D094225B2BA9008C899E /* FiveStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D093225B2BA9008C899E /* FiveStroke.swift */; };
-		AEB7D09A225DCCD8008C899E /* HotMitoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D099225DCCD8008C899E /* HotMitoViewController.swift */; };
 		AEB7D09C225DD45B008C899E /* DynamicMitoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D09B225DD45B008C899E /* DynamicMitoViewController.swift */; };
 		AEB7D09E225DEB04008C899E /* MitoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D09D225DEB04008C899E /* MitoPlayViewController.swift */; };
 		AEB7D0A0225ED716008C899E /* DownloadProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D09F225ED716008C899E /* DownloadProgressView.swift */; };
@@ -812,7 +812,6 @@
 		AEB7D08E225B216D008C899E /* AboutMitoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMitoViewController.swift; sourceTree = "<group>"; };
 		AEB7D091225B2B82008C899E /* FiveStrokeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveStrokeViewController.swift; sourceTree = "<group>"; };
 		AEB7D093225B2BA9008C899E /* FiveStroke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveStroke.swift; sourceTree = "<group>"; };
-		AEB7D099225DCCD8008C899E /* HotMitoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotMitoViewController.swift; sourceTree = "<group>"; };
 		AEB7D09B225DD45B008C899E /* DynamicMitoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicMitoViewController.swift; sourceTree = "<group>"; };
 		AEB7D09D225DEB04008C899E /* MitoPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MitoPlayViewController.swift; sourceTree = "<group>"; };
 		AEB7D09F225ED716008C899E /* DownloadProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgressView.swift; sourceTree = "<group>"; };
@@ -940,6 +939,7 @@
 				20A5D6BE251DD7DE00D80F54 /* AMapLocationKit.framework in Frameworks */,
 				AECA9D24248B5F06008CC21B /* IQKeyboardManagerSwift in Frameworks */,
 				AECA9D1E248B59BF008CC21B /* SnapKit in Frameworks */,
+				20EF8A4C255949A3008CBD99 /* SkeletonView in Frameworks */,
 				AECA9D2A248B7143008CC21B /* Kingfisher in Frameworks */,
 				20A5D6BF251DD7DE00D80F54 /* AMapFoundationKit.framework in Frameworks */,
 				AECA9D36248B7A04008CC21B /* GrandTime in Frameworks */,
@@ -1012,13 +1012,6 @@
 				2045E7F62542BCBD003D79B3 /* UnLimitTableViewController.swift */,
 			);
 			path = Table;
-			sourceTree = "<group>";
-		};
-		20A5D6E4251E045F00D80F54 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		AE00644B23960A2900B7C9E4 /* FishHook */ = {
@@ -1274,7 +1267,6 @@
 				AE9011FA22437E450020D400 /* MitoListViewController.swift */,
 				AE9011FC2248BCCA0020D400 /* ImageSetListViewController.swift */,
 				AEB7D09D225DEB04008C899E /* MitoPlayViewController.swift */,
-				AEB7D099225DCCD8008C899E /* HotMitoViewController.swift */,
 				AEB7D09B225DD45B008C899E /* DynamicMitoViewController.swift */,
 				AEB7D0A122602760008C899E /* MitoSearchViewController.swift */,
 				AE5AD8C02254A1A200BD7EE9 /* CollectedViewController.swift */,
@@ -1736,7 +1728,6 @@
 		AE9F31D41F69070E00339BB8 /* iOSDemo */ = {
 			isa = PBXGroup;
 			children = (
-				20A5D6E4251E045F00D80F54 /* View */,
 				AE4D498A24A1FF77003D1565 /* iOSDemo.entitlements */,
 				AEB1F46C25065A630069A9FB /* Algo */,
 				AE6691B120EDF37D00D019D4 /* Webview */,
@@ -2598,6 +2589,7 @@
 				AECA9D3B248B915D008CC21B /* Gifu */,
 				AECA9D40248B97FA008CC21B /* KRProgressHUD */,
 				AE4D4A2624A9DD09003D1565 /* ViewChaos */,
+				20EF8A4B255949A3008CBD99 /* SkeletonView */,
 			);
 			productName = iOSDemo;
 			productReference = AE9F31D21F69070E00339BB8 /* iOSDemo.app */;
@@ -2713,6 +2705,7 @@
 				AECA9D3A248B915D008CC21B /* XCRemoteSwiftPackageReference "Gifu" */,
 				AECA9D3F248B97FA008CC21B /* XCRemoteSwiftPackageReference "KRProgressHUD" */,
 				AE4D4A2524A9DD09003D1565 /* XCRemoteSwiftPackageReference "ViewChaos" */,
+				20EF8A4A255949A3008CBD99 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = AE9F31D31F69070E00339BB8 /* Products */;
 			projectDirPath = "";
@@ -3052,7 +3045,6 @@
 				AE67CDF71FC2B7C100AE4CD6 /* EmitterViewController.swift in Sources */,
 				AEB1F47125065BAA0069A9FB /* SearchViewController.swift in Sources */,
 				AEBE404E1FC806E40087D7ED /* DBTool.swift in Sources */,
-				AEB7D09A225DCCD8008C899E /* HotMitoViewController.swift in Sources */,
 				AE4DA6232142803800FCC7FD /* ShadowPlayBack.swift in Sources */,
 				AED97B47215A1E2500B124E7 /* BaseModel.swift in Sources */,
 				AE3AF0471F773B3300AF182A /* LayerAnimationViewController.swift in Sources */,
@@ -3569,6 +3561,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		20EF8A4A255949A3008CBD99 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.11.0;
+			};
+		};
 		AE4D4A2524A9DD09003D1565 /* XCRemoteSwiftPackageReference "ViewChaos" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/DuckDeck/ViewChaos";
@@ -3676,6 +3676,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		20EF8A4B255949A3008CBD99 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20EF8A4A255949A3008CBD99 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
 		AE4D4A2624A9DD09003D1565 /* ViewChaos */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AE4D4A2524A9DD09003D1565 /* XCRemoteSwiftPackageReference "ViewChaos" */;

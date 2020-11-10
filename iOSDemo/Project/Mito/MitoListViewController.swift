@@ -71,7 +71,7 @@ class MitoListViewController: UIViewController {
     }
     
     func loadData() {
-        if imgType == 0{
+      
             ImageSet.getImageSet(type: channel, cat: cat, resolution: currentResolution, theme: "全部", index: index) { (res) in
                 self.vCol.mj_header?.endRefreshing()
                 if !handleResult(result: res){
@@ -94,31 +94,9 @@ class MitoListViewController: UIViewController {
                 self.vCol.reloadData()
             }
         }
-        else{
-            ImageSet.getDynamicImage(cat: cat, index: index) { (res) in
-                self.vCol.mj_header?.endRefreshing()
-                if !handleResult(result: res){
-                    return
-                }
-                if self.index == 1{
-                    self.arrImageSets = res.data! as! [ImageSet]
-                }
-                else{
-                    let imgs = res.data! as! [ImageSet]
-                    if imgs.count <= 0{
-                        self.vCol.mj_footer?.endRefreshingWithNoMoreData()
-                    }
-                    else{
-                        self.arrImageSets += res.data! as! [ImageSet]
-                        self.vCol.mj_footer?.endRefreshing()
-                    }
-                }
-                
-                self.vCol.reloadData()
-            }
-        }
+
         
-    }
+    
 
 
     
@@ -142,18 +120,7 @@ extension MitoListViewController:UICollectionViewDelegate,UICollectionViewDataSo
             navigationController?.pushViewController(vc, animated: true)
         }
         else{
-            let item = arrImageSets[indexPath.row]
-            Toast.showLoading(txt: "获取视频链接中...")
-            ImageSet.getVideoLink(url: item.url) { (res) in
-                if !handleResult(result: res){
-                    return
-                }
-                item.videoLink = res.data! as! String
-                let vc = MitoPlayViewController()
-                vc.item = item
-                self.navigationController?.present(vc, animated: true, completion: nil)
-                
-            }
+           
            
         }
        
@@ -207,7 +174,7 @@ class ImageSetCell: UICollectionViewCell {
             m.left.equalTo(5)
             m.right.equalTo(-5)
             m.top.equalTo(img.snp.bottom).offset(10)
-            m.height.equalTo(15)
+            m.height.equalTo(30)
         }
         
         lblTag.color(color: UIColor.darkGray).setFont(font: 13).addTo(view: contentView).snp.makeConstraints { (m) in
