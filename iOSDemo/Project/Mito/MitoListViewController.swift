@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Kingfisher
+import SkeletonView
 class MitoListViewController: UIViewController {
     var imgType = 0
     var vCol: UICollectionView!
@@ -55,8 +55,7 @@ class MitoListViewController: UIViewController {
         vCol.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(headerRefresh))
         vCol.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(footerRefresh))
         view.addSubview(vCol)
-        vCol.mj_header?.beginRefreshing()
-        
+        loadData()
         
     }
     
@@ -101,17 +100,26 @@ class MitoListViewController: UIViewController {
 
     
 }
-extension MitoListViewController:UICollectionViewDelegate,UICollectionViewDataSource{
+extension MitoListViewController:UICollectionViewDelegate,SkeletonCollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrImageSets.count
     }
+    
+    
+
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier{
+        return "Cell"
+    }
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ImageSetCell
         cell.imgSet = arrImageSets[indexPath.row]
         return cell
     }
-    
+
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if imgType == 0{
             let item = arrImageSets[indexPath.row]
@@ -120,10 +128,10 @@ extension MitoListViewController:UICollectionViewDelegate,UICollectionViewDataSo
             navigationController?.pushViewController(vc, animated: true)
         }
         else{
-           
-           
+
+
         }
-       
+
     }
     
 }
