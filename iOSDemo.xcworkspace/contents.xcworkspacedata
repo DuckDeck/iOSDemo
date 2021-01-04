@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:ProjectPackage">
+   </FileRef>
+   <FileRef
+      location = "group:MediaPackage">
+   </FileRef>
+   <FileRef
+      location = "group:UIPackage">
+   </FileRef>
+   <FileRef
+      location = "group:CommonLibrary">
+   </FileRef>
+   <FileRef
+      location = "group:FoundationPackage">
+   </FileRef>
+   <FileRef
+      location = "container:iOSProject/iOSProject.xcodeproj">
+   </FileRef>
+</Workspace>
