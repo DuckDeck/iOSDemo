@@ -12,6 +12,8 @@
 		204BF8A925354C8100EAEE54 /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BF8A825354C8100EAEE54 /* ScanResultViewController.swift */; };
 		2051B8842522D4130090B8C1 /* FPSTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2051B87E2522D3930090B8C1 /* FPSTool.swift */; };
 		2051B88B2522DA940090B8C1 /* CatoMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2051B88A2522DA940090B8C1 /* CatoMonitor.swift */; };
+		209FACA6257F5ED40009E51E /* URLNavigator in Frameworks */ = {isa = PBXBuildFile; productRef = 209FACA5257F5ED40009E51E /* URLNavigator */; };
+		209FACA8257F5ED40009E51E /* URLMatcher in Frameworks */ = {isa = PBXBuildFile; productRef = 209FACA7257F5ED40009E51E /* URLMatcher */; };
 		20A5D6BE251DD7DE00D80F54 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A5D6BA251DD7DD00D80F54 /* AMapLocationKit.framework */; };
 		20A5D6BF251DD7DE00D80F54 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A5D6BB251DD7DD00D80F54 /* AMapFoundationKit.framework */; };
 		20A5D6C0251DD7DE00D80F54 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20A5D6BC251DD7DD00D80F54 /* AMap.bundle */; };
@@ -930,6 +932,7 @@
 				AECA9D41248B97FA008CC21B /* KRProgressHUD in Frameworks */,
 				AECA9D1B248B476C008CC21B /* Alamofire in Frameworks */,
 				AECA9D39248B7ADE008CC21B /* GrandModel in Frameworks */,
+				209FACA8257F5ED40009E51E /* URLMatcher in Frameworks */,
 				AEF5E8FF2282B80E0071B38A /* AudioToolbox.framework in Frameworks */,
 				AEF5E8FD2282B8060071B38A /* AVFoundation.framework in Frameworks */,
 				AEF5E8FB2282B7EF0071B38A /* CoreGraphics.framework in Frameworks */,
@@ -949,6 +952,7 @@
 				20A5D6C1251DD7DE00D80F54 /* MAMapKit.framework in Frameworks */,
 				AE4EA75321806C3F0061FA84 /* CoreVideo.framework in Frameworks */,
 				AE4EA75121806C390061FA84 /* CoreMedia.framework in Frameworks */,
+				209FACA6257F5ED40009E51E /* URLNavigator in Frameworks */,
 				AECA9D3C248B915D008CC21B /* Gifu in Frameworks */,
 				AECA9D21248B5AF5008CC21B /* SwiftyJSON in Frameworks */,
 				AE4EA74F21806C2A0061FA84 /* Accelerate.framework in Frameworks */,
@@ -2590,6 +2594,8 @@
 				AECA9D40248B97FA008CC21B /* KRProgressHUD */,
 				AE4D4A2624A9DD09003D1565 /* ViewChaos */,
 				20EF8A4B255949A3008CBD99 /* SkeletonView */,
+				209FACA5257F5ED40009E51E /* URLNavigator */,
+				209FACA7257F5ED40009E51E /* URLMatcher */,
 			);
 			productName = iOSDemo;
 			productReference = AE9F31D21F69070E00339BB8 /* iOSDemo.app */;
@@ -2706,6 +2712,7 @@
 				AECA9D3F248B97FA008CC21B /* XCRemoteSwiftPackageReference "KRProgressHUD" */,
 				AE4D4A2524A9DD09003D1565 /* XCRemoteSwiftPackageReference "ViewChaos" */,
 				20EF8A4A255949A3008CBD99 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				209FACA4257F5ED40009E51E /* XCRemoteSwiftPackageReference "URLNavigator" */,
 			);
 			productRefGroup = AE9F31D31F69070E00339BB8 /* Products */;
 			projectDirPath = "";
@@ -3561,6 +3568,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		209FACA4257F5ED40009E51E /* XCRemoteSwiftPackageReference "URLNavigator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/URLNavigator";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
 		20EF8A4A255949A3008CBD99 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Juanpe/SkeletonView";
@@ -3676,6 +3691,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		209FACA5257F5ED40009E51E /* URLNavigator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 209FACA4257F5ED40009E51E /* XCRemoteSwiftPackageReference "URLNavigator" */;
+			productName = URLNavigator;
+		};
+		209FACA7257F5ED40009E51E /* URLMatcher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 209FACA4257F5ED40009E51E /* XCRemoteSwiftPackageReference "URLNavigator" */;
+			productName = URLMatcher;
+		};
 		20EF8A4B255949A3008CBD99 /* SkeletonView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 20EF8A4A255949A3008CBD99 /* XCRemoteSwiftPackageReference "SkeletonView" */;

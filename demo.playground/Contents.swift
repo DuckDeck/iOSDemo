@@ -285,4 +285,35 @@ func headTest(){
     cat.bark()
 }
 
-headTest()
+//headTest()
+
+
+struct MirrorObject {
+   let intValue = 256
+   let uint8Value: UInt8 = 15
+   let boolValue = false
+   let stringValue = "test"
+}
+
+Mirror(reflecting: MirrorObject()).children.forEach { (child) in
+    print(child.label!,child.value)
+}
+
+struct Person:Decodable,Encodable{
+    let age:Int
+    let sex:Int
+    let name:String
+}
+
+let person1 = Person(age: 12, sex: 1, name: "老王")
+let encoder = JSONEncoder()
+encoder.outputFormatting = .prettyPrinted
+let p1Data = try encoder.encode(person1)
+String(data: p1Data, encoding: .utf8)
+let newP1 = try JSONDecoder().decode(Person.self, from: p1Data)
+print(newP1)
+print("最大最小值", Int.max, Int.min, Int64.max, Int64.min, Int8.max, Int8.min)
+print("大小端", 5.bigEndian, 5.littleEndian)
+print("位宽", 5.bitWidth, Int64.bitWidth, Int8.bitWidth)
+
+
