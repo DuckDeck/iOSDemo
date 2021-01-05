@@ -9,6 +9,15 @@
           "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
           "version": "5.0.1"
         }
+      },
+      {
+        "package": "ZLPhotoBrowser",
+        "repositoryURL": "https://github.com/longitachi/ZLPhotoBrowser",
+        "state": {
+          "branch": null,
+          "revision": "364601338da4932e0bd8240178118e55a3db2fcf",
+          "version": "4.1.2"
+        }
       }
     ]
   },

@@ -17,6 +17,7 @@
 		207EE17925A3039C0030ECDD /* UIPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE17825A3039C0030ECDD /* UIPackage */; };
 		207EE17B25A3039F0030ECDD /* ProjectPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE17A25A3039F0030ECDD /* ProjectPackage */; };
 		207EE18225A306FC0030ECDD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE18125A306FC0030ECDD /* SnapKit */; };
+		207EE1A625A43BE90030ECDD /* ZLPhotoBrowser in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1A525A43BE90030ECDD /* ZLPhotoBrowser */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 				207EE17B25A3039F0030ECDD /* ProjectPackage in Frameworks */,
 				207EE18225A306FC0030ECDD /* SnapKit in Frameworks */,
 				207EE17725A3039A0030ECDD /* MediaPackage in Frameworks */,
+				207EE1A625A43BE90030ECDD /* ZLPhotoBrowser in Frameworks */,
 				207EE17925A3039C0030ECDD /* UIPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +114,7 @@
 				207EE17825A3039C0030ECDD /* UIPackage */,
 				207EE17A25A3039F0030ECDD /* ProjectPackage */,
 				207EE18125A306FC0030ECDD /* SnapKit */,
+				207EE1A525A43BE90030ECDD /* ZLPhotoBrowser */,
 			);
 			productName = iOSProject;
 			productReference = 207EE15B25A3006D0030ECDD /* iOSProject.app */;
@@ -142,6 +145,7 @@
 			mainGroup = 207EE15225A3006D0030ECDD;
 			packageReferences = (
 				207EE18025A306FC0030ECDD /* XCRemoteSwiftPackageReference "SnapKit" */,
+				207EE1A425A43BE90030ECDD /* XCRemoteSwiftPackageReference "ZLPhotoBrowser" */,
 			);
 			productRefGroup = 207EE15C25A3006D0030ECDD /* Products */;
 			projectDirPath = "";
@@ -369,6 +373,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		207EE1A425A43BE90030ECDD /* XCRemoteSwiftPackageReference "ZLPhotoBrowser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/longitachi/ZLPhotoBrowser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -396,6 +408,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 207EE18025A306FC0030ECDD /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		207EE1A525A43BE90030ECDD /* ZLPhotoBrowser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207EE1A425A43BE90030ECDD /* XCRemoteSwiftPackageReference "ZLPhotoBrowser" */;
+			productName = ZLPhotoBrowser;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

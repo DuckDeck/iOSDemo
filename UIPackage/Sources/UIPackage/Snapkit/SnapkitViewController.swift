@@ -22,7 +22,6 @@ class SnapkitViewController: UIViewController,UITextViewDelegate {
     var str = "购买建议：梅花扳手使用频率很多。"
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "试验Snapkit"
         view.backgroundColor = UIColor.white
         //lbl.numberOfLines  = 0
         lbl.layer.borderWidth = 1
@@ -32,7 +31,7 @@ class SnapkitViewController: UIViewController,UITextViewDelegate {
         lbl.snp.makeConstraints {
             $0.left.equalTo(10)
             //$0.height.equalTo(15)
-            $0.top.equalTo(100)
+            $0.top.equalTo(10)
         }
         
         view.addSubview(lbl1)
