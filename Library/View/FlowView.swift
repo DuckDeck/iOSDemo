@@ -7,77 +7,95 @@
 //
 
 import UIKit
-//todo 完成FlowView
-
-//protocol FlowViewDataSource{
-//    func numOfCells(flowView:FlowView) -> Int
-//    func cellFor(flowView:FlowView,index:Int)->UIView
-//    func itemWidth(flowView:FlowView,index:Int)->Float
-//}
-
 class FlowView: UIView {
-
-    var padding:UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    var tmpView:UIView?
+    var padding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     var horizontalSpace:CGFloat = 0
     var verticalSpace:CGFloat = 0
-    var showLast = true
-    var maxWidth = ScreenWidth
-    var itemHeight:CGFloat = 20
-    var fetchViewBlock : ((_ index:Int)->(UIView,Float,Bool))?
+    var itemPadding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    var maxWidth = UIScreen.main.bounds.size.width
+    var itemBackground = UIColor.white
+    var itemClickBlock:((_ index:Int,_ name:String)->Void)?
+    var itemCornerRadius:CGFloat = 0
+    var itemFont = UIFont.systemFont(ofSize: 14)
+    var dataSourceBlock:((_ index:Int)->String)!
     
-    
+    var itemCount = 0
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        
     }
-    
-    func loadView() {
-        guard let blc = fetchViewBlock else {
+    public var flowHeight:CGFloat = 0
+    func reloadData() {
+        if dataSourceBlock == nil{
             return
         }
-        for sub in self.subviews{
-            sub.removeFromSuperview()
+        if itemCount == 0{
+            return
         }
-        var x = CGFloat(padding.left)
-        var y = CGFloat(padding.top)
-        var i = 0
-        while true {
-            let item = blc(i)
-            if item.2{
-                break
-            }
-            addSubview(item.0)
+        for item in self.subviews{
+            item.removeFromSuperview()
+        }
+        var x = padding.left
+        var y = padding.top
+        for index in 0..<itemCount{
+            let lbl = UILabel()
+            lbl.text = dataSourceBlock(index)
+            lbl.tag = index
+            lbl.backgroundColor = itemBackground
+            lbl.textAlignment = .center
+            lbl.sizeToFit()
+            lbl.font = itemFont
+            lbl.layer.cornerRadius = itemCornerRadius
+            lbl.clipsToBounds = true
+            lbl.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(itemTap(ges:)))
+            lbl.addGestureRecognizer(tap)
+            addSubview(lbl)
             
-            // 查看看能不能安置
-            print(item.1)
-            let tmpWidth = x + CGFloat(item.1) + horizontalSpace + padding.right
-            if tmpWidth > maxWidth{  //如果不行
-                y = y + itemHeight + verticalSpace
-                x = CGFloat(padding.left)
-                item.0.snp.makeConstraints({ (m) in  //先安置好
-                    m.left.equalTo(x)
-                    m.top.equalTo(y)
-                    m.width.equalTo(item.1)
-                    m.height.equalTo(itemHeight)
-                })
-                x = x + CGFloat(item.1) + horizontalSpace
+            if tmpView == nil {
+                
             }
             else{
-                item.0.snp.makeConstraints({ (m) in  //先安置好
-                    m.left.equalTo(x)
-                    m.top.equalTo(y)
-                    m.width.equalTo(item.1)
-                    m.height.equalTo(itemHeight)
-                })
-                
-                 x = x + CGFloat(item.1) + horizontalSpace
+                let tmpViewRight = tmpView!.frame.origin.x + tmpView!.frame.size.width
+                if lbl.frame.size.width + horizontalSpace + itemPadding.left + itemPadding.right + padding.right + tmpViewRight >= maxWidth{
+                    x = padding.left
+                    y = tmpView!.frame.origin.y + tmpView!.frame.size.height + verticalSpace
+                }
+                else{
+                    x = tmpViewRight + horizontalSpace
+                }
             }
-            i = i + 1
+            lbl.snp.makeConstraints { (m) in
+                m.left.equalTo(x)
+                m.top.equalTo(y)
+                m.width.equalTo(lbl.frame.size.width + itemPadding.left + itemPadding.right)
+                m.height.equalTo(lbl.frame.size.height + itemPadding.top + itemPadding.bottom)
+
+            }
+            tmpView = lbl
+            layoutIfNeeded()
+        }
+        var bottom:CGFloat = 0
+        if tmpView != nil{
+            bottom = tmpView!.frame.size.height + tmpView!.frame.origin.y + padding.bottom
+        }
+        self.snp.updateConstraints({ (m) in
+            m.width.greaterThanOrEqualTo(maxWidth)
+            m.height.greaterThanOrEqualTo(bottom)
+        })
+        flowHeight = bottom
+    }
+    
+    @objc func itemTap(ges:UITapGestureRecognizer)  {
+        if let lbl = ges.view as? UILabel{
+            itemClickBlock?(lbl.tag,lbl.text!)
         }
         
     }
-    
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
+

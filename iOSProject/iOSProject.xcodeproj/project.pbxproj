@@ -18,6 +18,17 @@
 		207EE17B25A3039F0030ECDD /* ProjectPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE17A25A3039F0030ECDD /* ProjectPackage */; };
 		207EE18225A306FC0030ECDD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE18125A306FC0030ECDD /* SnapKit */; };
 		207EE1A625A43BE90030ECDD /* ZLPhotoBrowser in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1A525A43BE90030ECDD /* ZLPhotoBrowser */; };
+		207EE1AA25A455650030ECDD /* GrandTime in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1A925A455650030ECDD /* GrandTime */; };
+		207EE1AE25A455850030ECDD /* GrandMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1AD25A455850030ECDD /* GrandMenu */; };
+		207EE1B225A455E30030ECDD /* ViewChaos in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1B125A455E30030ECDD /* ViewChaos */; };
+		207EE1B625A456090030ECDD /* GrandModel in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1B525A456090030ECDD /* GrandModel */; };
+		207EE1BA25A4562A0030ECDD /* GrandStore in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1B925A4562A0030ECDD /* GrandStore */; };
+		207EE1BE25A458150030ECDD /* KRProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1BD25A458150030ECDD /* KRProgressHUD */; };
+		207EE1C225A458600030ECDD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1C125A458600030ECDD /* Kingfisher */; };
+		207EE1C625A458C60030ECDD /* Kanna in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1C525A458C60030ECDD /* Kanna */; };
+		207EE1CA25A4590F0030ECDD /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1C925A4590F0030ECDD /* IQKeyboardManagerSwift */; };
+		207EE1CE25A459720030ECDD /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1CD25A459720030ECDD /* SwiftyJSON */; };
+		207EE1D225A459BA0030ECDD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1D125A459BA0030ECDD /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,12 +46,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				207EE17525A303970030ECDD /* FoundationPackage in Frameworks */,
+				207EE1B625A456090030ECDD /* GrandModel in Frameworks */,
+				207EE1C225A458600030ECDD /* Kingfisher in Frameworks */,
+				207EE1AE25A455850030ECDD /* GrandMenu in Frameworks */,
+				207EE1B225A455E30030ECDD /* ViewChaos in Frameworks */,
+				207EE1CE25A459720030ECDD /* SwiftyJSON in Frameworks */,
 				207EE17325A303950030ECDD /* CommonLibrary in Frameworks */,
 				207EE17B25A3039F0030ECDD /* ProjectPackage in Frameworks */,
 				207EE18225A306FC0030ECDD /* SnapKit in Frameworks */,
+				207EE1D225A459BA0030ECDD /* Alamofire in Frameworks */,
+				207EE1AA25A455650030ECDD /* GrandTime in Frameworks */,
+				207EE1CA25A4590F0030ECDD /* IQKeyboardManagerSwift in Frameworks */,
+				207EE1C625A458C60030ECDD /* Kanna in Frameworks */,
+				207EE1BE25A458150030ECDD /* KRProgressHUD in Frameworks */,
 				207EE17725A3039A0030ECDD /* MediaPackage in Frameworks */,
 				207EE1A625A43BE90030ECDD /* ZLPhotoBrowser in Frameworks */,
 				207EE17925A3039C0030ECDD /* UIPackage in Frameworks */,
+				207EE1BA25A4562A0030ECDD /* GrandStore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +137,17 @@
 				207EE17A25A3039F0030ECDD /* ProjectPackage */,
 				207EE18125A306FC0030ECDD /* SnapKit */,
 				207EE1A525A43BE90030ECDD /* ZLPhotoBrowser */,
+				207EE1A925A455650030ECDD /* GrandTime */,
+				207EE1AD25A455850030ECDD /* GrandMenu */,
+				207EE1B125A455E30030ECDD /* ViewChaos */,
+				207EE1B525A456090030ECDD /* GrandModel */,
+				207EE1B925A4562A0030ECDD /* GrandStore */,
+				207EE1BD25A458150030ECDD /* KRProgressHUD */,
+				207EE1C125A458600030ECDD /* Kingfisher */,
+				207EE1C525A458C60030ECDD /* Kanna */,
+				207EE1C925A4590F0030ECDD /* IQKeyboardManagerSwift */,
+				207EE1CD25A459720030ECDD /* SwiftyJSON */,
+				207EE1D125A459BA0030ECDD /* Alamofire */,
 			);
 			productName = iOSProject;
 			productReference = 207EE15B25A3006D0030ECDD /* iOSProject.app */;
@@ -146,6 +179,17 @@
 			packageReferences = (
 				207EE18025A306FC0030ECDD /* XCRemoteSwiftPackageReference "SnapKit" */,
 				207EE1A425A43BE90030ECDD /* XCRemoteSwiftPackageReference "ZLPhotoBrowser" */,
+				207EE1A825A455650030ECDD /* XCRemoteSwiftPackageReference "GrandTime" */,
+				207EE1AC25A455850030ECDD /* XCRemoteSwiftPackageReference "GrandMenu" */,
+				207EE1B025A455E30030ECDD /* XCRemoteSwiftPackageReference "ViewChaos" */,
+				207EE1B425A456090030ECDD /* XCRemoteSwiftPackageReference "GrandModel" */,
+				207EE1B825A4562A0030ECDD /* XCRemoteSwiftPackageReference "GrandStore" */,
+				207EE1BC25A458150030ECDD /* XCRemoteSwiftPackageReference "KRProgressHUD" */,
+				207EE1C025A458600030ECDD /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				207EE1C425A458C60030ECDD /* XCRemoteSwiftPackageReference "Kanna" */,
+				207EE1C825A4590F0030ECDD /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				207EE1CC25A459720030ECDD /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				207EE1D025A459BA0030ECDD /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 207EE15C25A3006D0030ECDD /* Products */;
 			projectDirPath = "";
@@ -381,6 +425,94 @@
 				minimumVersion = 4.1.2;
 			};
 		};
+		207EE1A825A455650030ECDD /* XCRemoteSwiftPackageReference "GrandTime" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DuckDeck/GrandTime";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		207EE1AC25A455850030ECDD /* XCRemoteSwiftPackageReference "GrandMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DuckDeck/GrandMenu";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.1;
+			};
+		};
+		207EE1B025A455E30030ECDD /* XCRemoteSwiftPackageReference "ViewChaos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DuckDeck/ViewChaos";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
+		207EE1B425A456090030ECDD /* XCRemoteSwiftPackageReference "GrandModel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DuckDeck/GrandModel";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
+		207EE1B825A4562A0030ECDD /* XCRemoteSwiftPackageReference "GrandStore" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DuckDeck/GrandStore";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		207EE1BC25A458150030ECDD /* XCRemoteSwiftPackageReference "KRProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krimpedance/KRProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.4.7;
+			};
+		};
+		207EE1C025A458600030ECDD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		207EE1C425A458C60030ECDD /* XCRemoteSwiftPackageReference "Kanna" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tid-kijyun/Kanna";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.4;
+			};
+		};
+		207EE1C825A4590F0030ECDD /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.6;
+			};
+		};
+		207EE1CC25A459720030ECDD /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		207EE1D025A459BA0030ECDD /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -413,6 +545,61 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 207EE1A425A43BE90030ECDD /* XCRemoteSwiftPackageReference "ZLPhotoBrowser" */;
 			productName = ZLPhotoBrowser;
+		};
+		207EE1A925A455650030ECDD /* GrandTime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207EE1A825A455650030ECDD /* XCRemoteSwiftPackageReference "GrandTime" */;
+			productName = GrandTime;
+		};
+		207EE1AD25A455850030ECDD /* GrandMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207EE1AC25A455850030ECDD /* XCRemoteSwiftPackageReference "GrandMenu" */;
+			productName = GrandMenu;
+		};
+		207EE1B125A455E30030ECDD /* ViewChaos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207EE1B025A455E30030ECDD /* XCRemoteSwiftPackageReference "ViewChaos" */;
+			productName = ViewChaos;
+		};
+		207EE1B525A456090030ECDD /* GrandModel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207EE1B425A456090030ECDD /* XCRemoteSwiftPackageReference "GrandModel" */;
+			productName = GrandModel;
+		};
+		207EE1B925A4562A0030ECDD /* GrandStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207EE1B825A4562A0030ECDD /* XCRemoteSwiftPackageReference "GrandStore" */;
+			productName = GrandStore;
+		};
+		207EE1BD25A458150030ECDD /* KRProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207EE1BC25A458150030ECDD /* XCRemoteSwiftPackageReference "KRProgressHUD" */;
+			productName = KRProgressHUD;
+		};
+		207EE1C125A458600030ECDD /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207EE1C025A458600030ECDD /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		207EE1C525A458C60030ECDD /* Kanna */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207EE1C425A458C60030ECDD /* XCRemoteSwiftPackageReference "Kanna" */;
+			productName = Kanna;
+		};
+		207EE1C925A4590F0030ECDD /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207EE1C825A4590F0030ECDD /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		207EE1CD25A459720030ECDD /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207EE1CC25A459720030ECDD /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		207EE1D125A459BA0030ECDD /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207EE1D025A459BA0030ECDD /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
