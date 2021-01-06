@@ -38,7 +38,7 @@ class ShadowVideoPlayerViewController: UIViewController {
         view.addSubview(btnClose)
         btnClose.snp.makeConstraints { (m) in
             m.left.equalTo(10)
-            m.top.equalTo(UIDevice.isNotchScreen ? 46 : 10)
+            m.top.equalTo(Device.isNotchScreen ? 46 : 10)
         }
         btnClose.addTarget(self, action: #selector(close), for: .touchUpInside)
         
