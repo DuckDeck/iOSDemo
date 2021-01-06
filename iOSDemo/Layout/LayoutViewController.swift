@@ -55,7 +55,7 @@ extension LayoutViewController:UITableViewDelegate,UITableViewDataSource{
         case 3:
             navigationController?.pushViewController(StackViewController(), animated: true)
         case 4:
-            navigationController?.pushViewController(TextLayoutViewController(), animated: true)
+            break
         case 5:
             break
         case 6:

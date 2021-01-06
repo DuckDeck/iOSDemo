@@ -7,6 +7,8 @@ let SystemVersion:Double = Double(UIDevice.current.systemVersion)!
 let APPVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
 let Scale = ScreenWidth / 320.0
 let lineHeight:CGFloat = ScreenWidth == 414 ? 0.38334 : 0.5
+let NotchHeight:CGFloat = 25
+let NavigationBarHeight:CGFloat = 64.0 + (Device.isNotchScreen ? NotchHeight : 0)
 
 func createInstanseFromString(className:String)->NSObject!{
     let classType: AnyClass! = NSClassFromString(className)

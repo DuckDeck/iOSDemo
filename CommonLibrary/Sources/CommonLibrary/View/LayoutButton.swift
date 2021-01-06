@@ -66,25 +66,25 @@ public class LayoutButton: UIButton {
     }
     
     func layoutHorizontal(leftView:UIView,rightView:UIView) {
-        let leftViewFrame = leftView.frame
-        let rightViewFrame = rightView.frame
+        var leftViewFrame = leftView.frame
+        var rightViewFrame = rightView.frame
         let totalWidth = leftViewFrame.width + midSpacing + rightViewFrame.width
         leftViewFrame.origin.x = (frame.width - totalWidth) / 2.0
         leftViewFrame.origin.y = (frame.height - leftViewFrame.height) / 2.0
         leftView.frame = leftViewFrame
-        rightViewFrame.origin.x = leftViewFrame.maxX + midSpaceing
+        rightViewFrame.origin.x = leftViewFrame.maxX + midSpacing
         rightViewFrame.origin.y = (frame.height - rightViewFrame.height) / 2.0
         rightView.frame = rightViewFrame
     }
     
     func layoutVertical(upView:UIView,downView:UIView)  {
-        let upViewFrame = upView.frame
-        let downViewFrame = downView.frame
+        var upViewFrame = upView.frame
+        var downViewFrame = downView.frame
         let totalHeight = upViewFrame.height + midSpacing + downViewFrame.height
         upViewFrame.origin.y = (frame.height - totalHeight) / 2.0
         upViewFrame.origin.x = (frame.width - upViewFrame.width) / 2
         upView.frame = upViewFrame
-        downViewFrame.origin.y = upViewFrame.maxY + midSpaceing
+        downViewFrame.origin.y = upViewFrame.maxY + midSpacing
         downViewFrame.origin.x = (frame.width - downViewFrame.width) / 2.0
         downView.frame = downViewFrame
     }

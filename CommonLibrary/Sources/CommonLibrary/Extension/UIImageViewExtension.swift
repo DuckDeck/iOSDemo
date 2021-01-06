@@ -5,7 +5,7 @@
 //  Created by shadowedge on 2021/1/6.
 //
 
-import Foundation
+import UIKit
 import Kingfisher
 extension UIImageView{
     
@@ -21,7 +21,8 @@ extension UIImageView{
 
         let act = UIActivityIndicatorView()
         addSubview(act)
-        act.color = Color.gray
+        
+        act.color = UIColor.gray
         act.startAnimating()
         act.snp.makeConstraints { (m) in
             m.center.equalTo(self)

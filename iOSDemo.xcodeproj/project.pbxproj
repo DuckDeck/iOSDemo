@@ -364,7 +364,6 @@
 		AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC540E2012EC0000BB4E34 /* GridViewController.swift */; };
 		AEDC54132012EC4100BB4E34 /* ConstraintArrayDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */; };
 		AEDCE5BE20DBA15900A50536 /* BarSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDCE5BD20DBA15900A50536 /* BarSlider.swift */; };
-		AEDD2C9D2085D1D700CD1FDE /* TextLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD2C9C2085D1D700CD1FDE /* TextLayoutViewController.swift */; };
 		AEDD2CA02085E62500CD1FDE /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD2C9F2085E62500CD1FDE /* AlertViewController.swift */; };
 		AEDF8C49209AF5F700EED6D1 /* VideoRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF8C48209AF5F700EED6D1 /* VideoRecordViewController.swift */; };
 		AEDF8C4B209AF61B00EED6D1 /* CVFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF8C4A209AF61A00EED6D1 /* CVFileManager.swift */; };
@@ -855,7 +854,6 @@
 		AEDC540E2012EC0000BB4E34 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintArrayDSL.swift; sourceTree = "<group>"; };
 		AEDCE5BD20DBA15900A50536 /* BarSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarSlider.swift; sourceTree = "<group>"; };
-		AEDD2C9C2085D1D700CD1FDE /* TextLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLayoutViewController.swift; sourceTree = "<group>"; };
 		AEDD2C9F2085E62500CD1FDE /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		AEDF8C48209AF5F700EED6D1 /* VideoRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRecordViewController.swift; sourceTree = "<group>"; };
 		AEDF8C4A209AF61A00EED6D1 /* CVFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVFileManager.swift; sourceTree = "<group>"; };
@@ -1346,7 +1344,6 @@
 				20A5D6C7251DD86900D80F54 /* Table */,
 				AE9011F522432AAD0020D400 /* FlowLayout */,
 				AE901191223A40480020D400 /* List */,
-				AEDD2C9B2085D1C500CD1FDE /* TextLayout */,
 				AE3A42EE201B00CC00FF8AB2 /* StackView */,
 				AEDC540D2012EBF900BB4E34 /* Grid */,
 				AE53511E2011875800FC48A1 /* Snapkit */,
@@ -2425,14 +2422,6 @@
 			path = SkapkitExtension;
 			sourceTree = "<group>";
 		};
-		AEDD2C9B2085D1C500CD1FDE /* TextLayout */ = {
-			isa = PBXGroup;
-			children = (
-				AEDD2C9C2085D1D700CD1FDE /* TextLayoutViewController.swift */,
-			);
-			path = TextLayout;
-			sourceTree = "<group>";
-		};
 		AEDD2C9E2085E61900CD1FDE /* AlertController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2891,7 +2880,6 @@
 				AEB1F4C52511B1530069A9FB /* MarkdownAutomaticLink.swift in Sources */,
 				AE955C3520A2D39A0009EFFE /* VideoPlayViewController.swift in Sources */,
 				AEB1F4CD2511B1530069A9FB /* MarkdownLevelElement.swift in Sources */,
-				AEDD2C9D2085D1D700CD1FDE /* TextLayoutViewController.swift in Sources */,
 				AEBE40401FC803A60087D7ED /* CityChooseViewController.swift in Sources */,
 				AE0F70881FBE864300C8135C /* GrandSlider.swift in Sources */,
 				AEB1F4C82511B1530069A9FB /* MarkdownBold.swift in Sources */,

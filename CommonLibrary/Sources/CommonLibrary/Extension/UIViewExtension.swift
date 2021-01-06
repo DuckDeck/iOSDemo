@@ -447,12 +447,18 @@ open class BlockTap: UITapGestureRecognizer {
 }
 public extension UIWindow{
 
-    
-      open  func currentViewController() -> UIViewController? {
-            var currentViewController = topMostController()
-            while currentViewController is UINavigationController && (currentViewController as! UINavigationController).topViewController != nil  {
-                currentViewController = (currentViewController as! UINavigationController).topViewController!
-            }
-            return currentViewController
+    open  func topMostController() -> UIViewController {
+         var topViewController = rootViewController!
+        while topViewController.presentedViewController != nil {
+            topViewController = topViewController.presentedViewController!
         }
+        return topViewController
+    }
+  open  func currentViewController() -> UIViewController? {
+        var currentViewController = topMostController()
+        while currentViewController is UINavigationController && (currentViewController as! UINavigationController).topViewController != nil  {
+            currentViewController = (currentViewController as! UINavigationController).topViewController!
+        }
+        return currentViewController
+    }
 }
