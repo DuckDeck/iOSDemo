@@ -62,12 +62,12 @@ class SlideMenuView: UIView {
     func setMenu()  {
         var previousBtn:UIButton?
         for i in 0..<menu.count {
-            let btn = JXLayoutButton()
+            let btn = LayoutButton()
             btn.setTitle(menu[i].0, for: .normal)
             btn.setImage(menu[i].1, for: .normal)
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 26)
             btn.imageSize = CGSize(width: 26, height: 26)
-            btn.layoutStyle = .leftImageRightTitle
+            btn.layoutStyle = .LeftImageRightTitle
             btn.midSpacing = 5
             btn.tag = i
             btn.setTitleColor(UIColor.black, for: .normal)
@@ -92,7 +92,7 @@ class SlideMenuView: UIView {
         super.init(frame: frame)
     }
     
-    @objc func clickMenu(sender:JXLayoutButton)  {
+    @objc func clickMenu(sender:LayoutButton)  {
         let index = sender.tag
         clickMenu?(index,menu[index].0)
     }
