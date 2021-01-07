@@ -4,11 +4,9 @@
 //
 //  Created by shadowedge on 2021/1/6.
 //
-
 import UIKit
-import SnapKit
-public extension UITableView{
-     func setEmptyView(view:UIView,offset:CGFloat)  {
+extension UICollectionView{
+    func setEmptyView(view:UIView,offset:CGFloat)  {
         view.isHidden = true
         view.tag = -10000
         view.addTo(view: self).snp.makeConstraints { (m) in
@@ -19,14 +17,16 @@ public extension UITableView{
         }
     }
     
-     func emptyReload()  {
+    func emptyReload()  {
         var section = 1
         var count = 0
-        if let numSection = dataSource!.numberOfSections?(in: self){
-            section = numSection
-        }
+    
+        
+        let numSection = dataSource!.numberOfSections!(in: self)
+         section = numSection
+        
         for i in 0..<section{
-            count += dataSource!.tableView(self, numberOfRowsInSection: i)
+            count += dataSource!.collectionView(self, numberOfItemsInSection: i)
         }
         self.reloadData()
         if count <= 0{
@@ -38,7 +38,7 @@ public extension UITableView{
         
     }
     
-     static func createEmptyView(size:CGSize,img:String,text:NSAttributedString)->UIView{
+    static func createEmptyView(size:CGSize,img:String,text:NSAttributedString)->UIView{
         let v = UIView(frame: CGRect(origin: CGPoint(), size: size))
         let image = UIImageView(image: UIImage(named: img))
         v.addSubview(image)
@@ -57,7 +57,7 @@ public extension UITableView{
         return v
     }
     
-     static func createEmptyView(size:CGSize,img:String,text:String,font:UIFont,color:UIColor)->UIView{
+    static func createEmptyView(size:CGSize,img:String,text:String,font:UIFont,color:UIColor)->UIView{
         let v = UIView(frame: CGRect(origin: CGPoint(), size: size))
         let image = UIImageView(image: UIImage(named: img))
         v.addSubview(image)
@@ -77,38 +77,5 @@ public extension UITableView{
         }
         return v
     }
-    
-    
-    
-     static func createEmptyView(size:CGSize,text:NSAttributedString)->UIView{
-        let v = UIView(frame: CGRect(origin: CGPoint(), size: size))
-        let lbl = UILabel()
-        lbl.attributedText = text
-        lbl.textAlignment = .center
-        v.addSubview(lbl)
-        lbl.snp.makeConstraints { (m) in
-            m.bottom.equalTo(0)
-            m.left.right.equalTo(0)
-        }
-        return v
-    }
-    
-     static func createEmptyView(size:CGSize,text:String,font:UIFont,color:UIColor)->UIView{
-        let v = UIView(frame: CGRect(origin: CGPoint(), size: size))
-        let lbl = UILabel()
-        lbl.text = text
-        lbl.font = font
-        lbl.textColor = color
-        lbl.textAlignment = .center
-        v.addSubview(lbl)
-        lbl.snp.makeConstraints { (m) in
-            m.bottom.equalTo(0)
-            m.left.right.equalTo(0)
-        }
-        return v
-    }
-    
 }
-
-
 
