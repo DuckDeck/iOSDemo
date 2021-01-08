@@ -8,17 +8,21 @@
 import SwiftUI
 import UIPackage
 import MediaPackage
+import FoundationPackage
 enum Tab{
-    case ui,media,project
+    case ui,media,project,foundation
 }
 struct ContentView: View {
-    @State private var selection: Tab = .ui
+    @State private var selection: Tab = .foundation
     @State private var selectTitle: String = "ui"
 
     var body: some View {
 
         NavigationView{
             TabView(selection: $selection){
+                FoundationPage().tabItem { Image(systemName: "number.circle")
+                    Text("Foundation")
+                }.tag(Tab.foundation)
                 UIPage().tabItem { Image(systemName: "tray")
                     Text("UI")
                 }.tag(Tab.ui)
@@ -34,6 +38,9 @@ struct ContentView: View {
                     self.selectTitle = "多媒体"
                 case .project:
                     self.selectTitle = "项目"
+                
+                case .foundation:
+                    self.selectTitle = "基础"
                 }
             })
         }

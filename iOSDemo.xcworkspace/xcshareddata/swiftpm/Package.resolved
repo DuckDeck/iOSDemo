@@ -29,6 +29,15 @@
         }
       },
       {
+        "package": "GrandRefresh",
+        "repositoryURL": "https://github.com/DuckDeck/GrandRefresh",
+        "state": {
+          "branch": null,
+          "revision": "84ff79b7526b25992c2567cc77c04d676a282013",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "GrandStore",
         "repositoryURL": "https://github.com/DuckDeck/GrandStore",
         "state": {

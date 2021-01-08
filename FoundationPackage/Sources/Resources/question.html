@@ -1,0 +1,254 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+    <title>问卷调查</title>
+    <style>
+        body{
+            color: #454444;
+            font-size: 0.45rem;
+        }
+    
+    div.qus1{
+        padding: 0.5rem 1rem;
+        padding-bottom: 0rem;
+    }
+    div.qus1 input{
+        width: 0.45rem;
+        height: 0.45rem;
+        vertical-align: middle;
+    }
+    div.qus1 label{
+        vertical-align: middle;
+    }
+    div.qusContent{
+        padding-left: 0.4rem;
+    }
+    div.qusContent div{
+        padding-top: 0.2rem;
+    }
+    textarea.wanjiaAdvise{
+        width: 6.3rem;
+        height: 1.6rem;
+        resize: none;
+        margin: 0.3rem 0.5rem;
+        border: 1px solid #c4c3c3;
+        padding: 0.2rem;
+        font-size: 0.4rem;
+    }
+    div.qusContentAge{
+        padding-left: 1.75rem;
+    }
+    div.qus2{
+        padding: 0.6rem 1.65rem;
+    }
+    div.qus2 input{
+        width: 0.45rem;
+        height: 0.45rem;
+        vertical-align: middle;
+    }
+    div.qus2 span{
+        vertical-align: middle;
+        
+    }
+    div.qus2 div{
+        margin-left: 1.16rem;
+        margin-top: 0.2rem;
+    }
+    div.qus3{
+        margin: 0.3rem 0rem;
+        padding: 0.3rem 0rem;
+        text-align: center;
+    }
+    div.qus3 button{
+        border-radius: 0.2rem;
+        background: #ff6634;
+        border: 0px;
+        width: 6rem;
+        height: 1rem;
+        color: white;
+        font-size: 0.5rem;
+    }
+        
+    </style>
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        
+        (function(win){
+         var docEl = win.document.documentElement;
+         var timer = '';
+         function changeRem(){
+         var width = docEl.getBoundingClientRect().width;
+         if (width > 750)//最大宽度，若果兼容到ipad的话把这个去掉就行
+         {
+         width = 750;
+         }
+         var fontS = width/10;//把设备宽度10等分 等同于用vw来做
+         docEl.style.fontSize = fontS + "px";
+         }
+         //页面尺寸发生改变的时候就再执行changeRem
+         win.addEventListener("resize",function(){
+                              clearTimeout(timer);
+                              timer = setTimeout(changeRem,30);
+                              },false);
+         //页面加载的时候，若果是调用缓存的话就再执行changeRem
+         win.addEventListener("pageshow",function(e){
+                              if (e.persisted)//缓存
+                              {
+                              clearTimeout(timer);
+                              timer = setTimeout(changeRem,30);
+                              }
+                              },false);
+         changeRem();
+         })(window)
+    </script>
+    <script >
+        function toastToiOS(message){
+            window.webkit.messageHandlers.showMobile.postMessage(message)
+        }
+        $(function(){
+          $('#sub').click(function (e) {
+                          e.preventDefault();
+                          alert('123123')
+                          if($("input[name='chanle']:checked").val() == undefined){
+                              console.log('chanle undefined')
+                              var data = {
+                                'action':'toast','data':'请先选择频道'
+                              }
+                            toastToiOS(data)
+                              return;
+                          }
+                          if($("input[name='howToKnow']:checked").val() == undefined){
+                          console.log('howToKnow undefined')
+                          var data = {
+                          'action':'toast','data':'请先选择怎样了解玩+APP'
+                          }
+                          toastToiOS(data)
+                          return;
+                          }
+                          if($("input[name='age']:checked").val() == undefined){
+                          console.log('age undefined')
+                          var data = {
+                          'action':'toast','data':'你没有选择出生年代'
+                          }
+                          toastToiOS(data)
+                          return;
+                          }
+                          if($("input[name='gender']:checked").val() == undefined){
+                          console.log('gender undefined')
+                          var data = {
+                          'action':'toast','data':'你没有选择性别'
+                          }
+                          toastToiOS(data)
+                          return;
+                          }
+                          if($("input[name='bussiness']:checked").val() == undefined){
+                          console.log('bussiness undefined')
+                          var data = {
+                          'action':'toast','data':'你没有选择行业'
+                          }
+                          toastToiOS(data)
+                          return;
+                          }
+                          
+                          if(!$('.wanjiaAdvise').val()){
+                          console.log('wanjiaAdvise text nil')
+                          var data = {
+                          'action':'toast','data':'意见不能为空'
+                          }
+                          toastToiOS(data)
+                          return;
+                          }
+                          
+                          var data = {'chanle':$("input[name='chanle']:checked+label").text(),
+                          'howToKnow':$("input[name='howToKnow']:checked+label").text(),
+                          'age':$("input[name='age']:checked+label").text(),
+                          'gender':$("input[name='gender']:checked+label").text(),
+                          'bussiness':$("input[name='bussiness']:checked+label").text(),
+                          'advise':$('.wanjiaAdvise').val()}
+                          $.post("url", data,
+                                 function (data, textStatus, jqXHR) {
+                                     if(true){
+                                         var data = {
+                                         'action':'nav','data':'toback'
+                                         }
+                                        toastToiOS(data)
+                                     }
+                                 else{
+                                         var data = {
+                                         'action':'toase','data':'提交失败，请重新再试'
+                                         }
+                                         toastToiOS(data)
+                                 }
+                                 },
+                                 "dataType"
+                                 );
+                          });
+          })
+          
+
+    </script>
+</head>
+<body>
+       <div class="qus1">
+           <div class="qusTitle" >1. 你喜欢玩+哪个频道</div>
+           <div class="qusContent">
+               <div><input type="radio" name="chanle" value="" id="chanle1"> <label for="chanle1">预定</label> </div>
+               <div><input type="radio" name="chanle" value="" id="chanle2" > <label for="chanle2">学院</label></div>
+               <div><input type="radio" name="chanle" value="" id="chanle3"> <label for="chanle3">玩+圈</label></div>
+           </div>
+       </div>
+     
+      <div class="qus1">
+           <div class="qusTitle" >2. 你是怎样了解玩+APP?</div>
+           <div class="qusContent">
+               <div><input type="radio" name="howToKnow" id="howToKnow1" value=""><label for="howToKnow1">朋友推荐后下载</label> </div>
+               <div><input type="radio" name="howToKnow" id="howToKnow2" value=""><label for="howToKnow2">网上获取后下载使用</label></div>
+               <div><input type="radio" name="howToKnow" id="howToKnow3" value=""><label for="howToKnow3">不知道怎么获取的</label></div>
+               <div><input type="radio" name="howToKnow" id="howToKnow4" value=""><label for="howToKnow4">其他</label></div>
+           </div>
+       </div>
+
+
+         <div class="qus1">
+             <div class="qusTitle" >5. 请你对玩+提出宝贵的意见</div>
+           <textarea class="wanjiaAdvise" ></textarea>
+        </div>
+
+         <div class="qus1">
+           <div class="qusTitle" >6. 你的出生年代</div>
+           <div class="qusContent qusContentAge">
+               <div><input type="radio" name="age" value="" id="age1" ><label for="age1">60后</label></div>
+               <div><input type="radio" name="age" value="" id="age2"><label for="age1">70后</label></div>
+               <div><input type="radio" name="age" value="" id="age3"><label for="age3">80后</label></div>
+           </div>
+       </div>
+
+         <div class="qus2">
+           <span>性别: </span>
+           <input type="radio" name="gender" id="gender1" value=""><label for="gender1">男</label>
+           <div><input type="radio" name="gender" id="gender2" value=""><label for="gender2">女</label></div>
+
+       </div>
+
+         <div class="qus2">
+           <span>行业: </span>
+           <input type="radio" name="bussiness" value="" id="bussiness1"><label or="bussiness1">互联网&IT</label>
+           <div><input type="radio" name="bussiness" value="" id="bussiness2"><label for="bussiness2">金融</label></div>
+           <div><input type="radio" name="bussiness" value="" id="bussiness3"><label for="bussiness3">房地产</label></div>
+           <div><input type="radio" name="bussiness" value="" id="bussiness4"><label for="bussiness4">制造</label></div>
+       </div>
+
+       <div class="qus3">
+           <button id='sub' type="">提交</button>
+       </div>
+
+</body>
+</html>

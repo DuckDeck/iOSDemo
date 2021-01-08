@@ -29,6 +29,7 @@
 		207EE1CA25A4590F0030ECDD /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1C925A4590F0030ECDD /* IQKeyboardManagerSwift */; };
 		207EE1CE25A459720030ECDD /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1CD25A459720030ECDD /* SwiftyJSON */; };
 		207EE1D225A459BA0030ECDD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1D125A459BA0030ECDD /* Alamofire */; };
+		207EE25525A841C10030ECDD /* GrandRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE25425A841C10030ECDD /* GrandRefresh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 				207EE1C225A458600030ECDD /* Kingfisher in Frameworks */,
 				207EE1AE25A455850030ECDD /* GrandMenu in Frameworks */,
 				207EE1B225A455E30030ECDD /* ViewChaos in Frameworks */,
+				207EE25525A841C10030ECDD /* GrandRefresh in Frameworks */,
 				207EE1CE25A459720030ECDD /* SwiftyJSON in Frameworks */,
 				207EE17325A303950030ECDD /* CommonLibrary in Frameworks */,
 				207EE17B25A3039F0030ECDD /* ProjectPackage in Frameworks */,
@@ -148,6 +150,7 @@
 				207EE1C925A4590F0030ECDD /* IQKeyboardManagerSwift */,
 				207EE1CD25A459720030ECDD /* SwiftyJSON */,
 				207EE1D125A459BA0030ECDD /* Alamofire */,
+				207EE25425A841C10030ECDD /* GrandRefresh */,
 			);
 			productName = iOSProject;
 			productReference = 207EE15B25A3006D0030ECDD /* iOSProject.app */;
@@ -190,6 +193,7 @@
 				207EE1C825A4590F0030ECDD /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				207EE1CC25A459720030ECDD /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				207EE1D025A459BA0030ECDD /* XCRemoteSwiftPackageReference "Alamofire" */,
+				207EE25325A841C10030ECDD /* XCRemoteSwiftPackageReference "GrandRefresh" */,
 			);
 			productRefGroup = 207EE15C25A3006D0030ECDD /* Products */;
 			projectDirPath = "";
@@ -513,6 +517,14 @@
 				minimumVersion = 5.4.1;
 			};
 		};
+		207EE25325A841C10030ECDD /* XCRemoteSwiftPackageReference "GrandRefresh" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DuckDeck/GrandRefresh";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -600,6 +612,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 207EE1D025A459BA0030ECDD /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		207EE25425A841C10030ECDD /* GrandRefresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207EE25325A841C10030ECDD /* XCRemoteSwiftPackageReference "GrandRefresh" */;
+			productName = GrandRefresh;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
