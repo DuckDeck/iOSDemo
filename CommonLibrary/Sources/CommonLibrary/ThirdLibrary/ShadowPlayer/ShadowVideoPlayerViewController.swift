@@ -8,9 +8,9 @@
 
 import UIKit
 //http://download.3g.joy.cn/video/236/60236937/1451280942752_hd.mp4
-class ShadowVideoPlayerViewController: UIViewController {
-    var url:URL?
-    var videoTitle:String?{
+public class ShadowVideoPlayerViewController: UIViewController {
+    public var url:URL?
+    public var videoTitle:String?{
         didSet{
             player.title = videoTitle ?? ""
         }
@@ -18,7 +18,7 @@ class ShadowVideoPlayerViewController: UIViewController {
     let btnClose = UIButton()
     
     var player : ShadowVideoPlayerView! = nil
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black
         assert(navigationController == nil, "你不能Navigation到这个页面")
@@ -46,7 +46,7 @@ class ShadowVideoPlayerViewController: UIViewController {
         
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         player.stop()
     }

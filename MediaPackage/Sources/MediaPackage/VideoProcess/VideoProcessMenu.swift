@@ -10,7 +10,7 @@ import SwiftUI
 public struct VideoProcessPage:View {
   public  var body: some View{
         List{
-            NavigationLink("播放视频",destination:CompressImageDemo().navigationBarTitle(Text("播放视频示例")))
+            NavigationLink("视频列表",destination:VideoListDemo().navigationBarTitle(Text("视频列表示例")))
         }.navigationBarTitle(Text("多媒体"))
     }
     

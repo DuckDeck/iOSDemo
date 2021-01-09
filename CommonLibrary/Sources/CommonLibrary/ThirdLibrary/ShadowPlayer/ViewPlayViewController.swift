@@ -9,15 +9,15 @@ import UIKit
 import AVKit
 public class VideoPlayViewController: BaseViewController {
 
-    var url:URL!
+    public var url:URL!
     var player:AVPlayer!
     let btnClose = UIButton()
     var dictDes = [String:String]()
     var shadowPlayer:ShadowVideoPlayerView!
     let btnDelete = UIButton()
     let btnCompress = UIButton()
-    var deleteBlock:((_ url:URL)->Void)?
-    var compressBlock:((_ url:URL)->Void)?
+    public var deleteBlock:((_ url:URL)->Void)?
+    public var compressBlock:((_ url:URL)->Void)?
     public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white

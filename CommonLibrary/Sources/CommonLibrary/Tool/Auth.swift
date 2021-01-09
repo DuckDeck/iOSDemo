@@ -9,12 +9,12 @@ import UIKit
 import Photos
 import AssetsLibrary
 import CoreLocation
-@objc enum AuthType:Int {
+@objc public enum AuthType:Int {
     case Camera = 0, Photo,Position,PushNotifcation,BackgroundAppRefresh,Video,Audio
 }
 
 public class Auth:NSObject {
-   @objc static  func showEventAccessDeniedAlert(view:UIViewController,authTpye:AuthType){
+   @objc static public  func showEventAccessDeniedAlert(view:UIViewController,authTpye:AuthType){
         var msg = ""
         switch authTpye{
             case .Camera: msg = "摄像头被禁用,请在设置里允许"
@@ -38,7 +38,7 @@ public class Auth:NSObject {
     
     }
     
-    @objc static func isAuthPhoto()->Bool{
+    @objc static public func isAuthPhoto()->Bool{
         if #available(iOS 9.0, *) {
             let library:PHAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
             return  library != PHAuthorizationStatus.denied && library != PHAuthorizationStatus.restricted
@@ -48,7 +48,7 @@ public class Auth:NSObject {
         }
     }
     
-    @objc static func isAuthLocation()->Bool{
+    @objc static public func isAuthLocation()->Bool{
         if CLLocationManager.locationServicesEnabled() &&
             (CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
                 CLLocationManager.authorizationStatus() == .notDetermined ||
@@ -60,11 +60,11 @@ public class Auth:NSObject {
         return false
     }
     
-    @objc static func isAuthCamera() -> AVAuthorizationStatus{
+    @objc static public func isAuthCamera() -> AVAuthorizationStatus{
         return AVCaptureDevice.authorizationStatus(for: .video)
     }
     
-    @objc static func authCamera(grandBLock:@escaping ((_ isGrant:Bool)->Void)){
+    @objc static public func authCamera(grandBLock:@escaping ((_ isGrant:Bool)->Void)){
      
         let res = AVCaptureDevice.authorizationStatus(for: .video)
         switch res {
@@ -83,11 +83,11 @@ public class Auth:NSObject {
         
     }
     
-    @objc static func isAuthMicrophone()->AVAuthorizationStatus{
+    @objc static public func isAuthMicrophone()->AVAuthorizationStatus{
         return AVCaptureDevice.authorizationStatus(for: .audio)
     }
     
-    @objc static func authMicrophone(grandBLock:@escaping ((_ isGrant:Bool)->Void)){
+    @objc static public func authMicrophone(grandBLock:@escaping ((_ isGrant:Bool)->Void)){
         let res = AVCaptureDevice.authorizationStatus(for: .audio)
         switch res {
         case .authorized:
