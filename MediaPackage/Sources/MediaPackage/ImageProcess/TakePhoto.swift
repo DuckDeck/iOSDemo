@@ -220,7 +220,7 @@ class TakePhotoViewController: UIViewController {
         focusAtPoint(point: point)
     }
     
-    func focusAtPoint(point:CGPoint)  {
+   public func focusAtPoint(point:CGPoint)  {
         let s = view.bounds.size
         let focusPoint = CGPoint(x: point.y / s.height, y: 1 - point.x / s.width)
         do {

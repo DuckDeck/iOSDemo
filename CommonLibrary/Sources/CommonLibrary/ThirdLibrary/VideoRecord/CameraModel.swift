@@ -8,7 +8,7 @@
 
 import UIKit
 import AVFoundation
-class CameraModel: NSObject {
+public class CameraModel: NSObject {
     var previewView:UIView?
     var preset:AVCaptureSession.Preset!
     var frameRate = 30

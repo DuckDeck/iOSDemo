@@ -8,11 +8,11 @@
 
 import UIKit
 import AVFoundation
-enum  RecordingStatus :Int{
+public enum  RecordingStatus :Int{
     case Idle = 0,StartingRecording,Recoding,StopingRecording
 }
 
-class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
+public class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
     var videoDataOutputQueue:DispatchQueue!
     var audioDataOutputQueue:DispatchQueue!
     var videoDataOutput:AVCaptureVideoDataOutput!
@@ -36,13 +36,13 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
         addDataOutputsToCaptureSession(captureSession: self.captureSession)
     }
     
-    convenience init(filePath:String) {
+    public convenience init(filePath:String) {
         self.init()
         self.filePath = filePath
     }
 
     
-    override func startRecording() {
+    public override func startRecording() {
         objc_sync_enter(self)
         if recordingStatus != .Idle{
             NSException(name: NSExceptionName.invalidArgumentException, reason: "Already recording", userInfo: nil).raise()
@@ -61,7 +61,7 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
         assetWriterCoordinator.prepareToRecord()
     }
     
-    override func stopRecording() {
+    override public func stopRecording() {
         objc_sync_enter(self)
         if recordingStatus != .Recoding{
             return
@@ -143,7 +143,7 @@ class CaptureSessionAssetWriterCoordinator:CaptureSessionCoordinator {
 }
 
 extension CaptureSessionAssetWriterCoordinator:AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureAudioDataOutputSampleBufferDelegate,AssetWriterCoordinatorDelegate{
-    func writerCoordinator(coordinator: AssetWriterCoordinator, error: Error?) {
+    public func writerCoordinator(coordinator: AssetWriterCoordinator, error: Error?) {
         objc_sync_enter(self)
         assetWriterCoordinator = nil
         transitionToRecordingStatus(newStatus: .Idle, error: error)
@@ -151,7 +151,7 @@ extension CaptureSessionAssetWriterCoordinator:AVCaptureVideoDataOutputSampleBuf
 
     }
     
-    func writerCoordinatorDidFinishPreparing(coordinator: AssetWriterCoordinator) {
+    public func writerCoordinatorDidFinishPreparing(coordinator: AssetWriterCoordinator) {
         objc_sync_enter(self)
         if recordingStatus != .StartingRecording{
             NSException(name: NSExceptionName.internalInconsistencyException, reason: "Expected to be in StartingRecording state", userInfo: nil).raise()
@@ -162,7 +162,7 @@ extension CaptureSessionAssetWriterCoordinator:AVCaptureVideoDataOutputSampleBuf
     }
 
     
-    func writerCoordinatorDidFinishRecording(coordinator: AssetWriterCoordinator) {
+    public func writerCoordinatorDidFinishRecording(coordinator: AssetWriterCoordinator) {
         objc_sync_enter(self)
         if recordingStatus != .StopingRecording{
             NSException(name: NSExceptionName.internalInconsistencyException, reason: "Expected to be in StartingRecording state", userInfo: nil).raise()
@@ -175,7 +175,7 @@ extension CaptureSessionAssetWriterCoordinator:AVCaptureVideoDataOutputSampleBuf
         objc_sync_exit(self)
     }
     
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+    public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard  let formatDescription = CMSampleBufferGetFormatDescription(sampleBuffer) else{
             return
         }

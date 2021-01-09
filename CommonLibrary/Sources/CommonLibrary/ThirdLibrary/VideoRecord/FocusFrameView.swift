@@ -8,8 +8,8 @@
 
 import UIKit
 
-class FocusFrameView:UIView {
-    override init(frame: CGRect) {
+public class FocusFrameView:UIView {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
     
         layer.borderWidth = 2
@@ -21,7 +21,7 @@ class FocusFrameView:UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func startToFocus(point:CGPoint,view:UIView) {
+    public func startToFocus(point:CGPoint,view:UIView) {
         
         view.addSubview(self)
         self.center = point
@@ -38,11 +38,11 @@ class FocusFrameView:UIView {
     }
 }
 extension FocusFrameView:CAAnimationDelegate{
-    func animationDidStart(_ anim: CAAnimation) {
+    public func animationDidStart(_ anim: CAAnimation) {
         print("动画开始调用")
     }
     
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if flag {
             print("动画完成调用")
             let name = anim.value(forKey: "name") as! String

@@ -8,7 +8,7 @@
 
 import UIKit
 import AVFoundation
-enum WriterStatus:Int{
+public enum WriterStatus:Int{
     case Idle = 0,
     PreparingToRecord,
     Recording,
@@ -17,12 +17,12 @@ enum WriterStatus:Int{
     Finished,
     Failed
 }
-protocol AssetWriterCoordinatorDelegate :class {
+public protocol AssetWriterCoordinatorDelegate :class {
     func writerCoordinatorDidFinishPreparing(coordinator:AssetWriterCoordinator)
     func writerCoordinator(coordinator:AssetWriterCoordinator,error:Error?)
     func writerCoordinatorDidFinishRecording(coordinator:AssetWriterCoordinator)
 }
-class AssetWriterCoordinator{
+public class AssetWriterCoordinator{
     weak var delegate:AssetWriterCoordinatorDelegate?
     var status = WriterStatus.Idle
     var writingQueue:DispatchQueue!

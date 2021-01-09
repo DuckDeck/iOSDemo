@@ -156,17 +156,17 @@ public extension String{
         return textSize
     }
 
-    public func split(_ separator: String) -> [String] {
+    func split(_ separator: String) -> [String] {
         return self.components(separatedBy: separator).filter {
             !$0.trimmed().isEmpty
         }
     }
     
-    public func trimmed() -> String {
+    func trimmed() -> String {
         return self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
-    public func toInt() -> Int? {
+    func toInt() -> Int? {
         if let num = NumberFormatter().number(from: self) {
             return num.intValue
         } else {
@@ -265,7 +265,7 @@ public extension String{
     }
 }
 
-extension NSMutableAttributedString{
+public extension NSMutableAttributedString{
     func addColor(color:UIColor,range:NSRange)  {
         self.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
     }
@@ -275,7 +275,7 @@ extension NSMutableAttributedString{
     }
 }
 
-extension Array{
+public extension Array{
     
     mutating func removeWith(condition:(_ item:Element)->Bool)  {
         var index = [Int]()
@@ -399,7 +399,7 @@ extension Array{
 
 }
 
-extension Dictionary{
+public extension Dictionary{
     mutating func merge(newDict:Dictionary){
         for (k,v) in newDict{
             self[k] = v
@@ -408,15 +408,15 @@ extension Dictionary{
 }
 
 
-protocol DictionaryValue{
+public protocol DictionaryValue{
     var value:Any{ get }
 }
 
-protocol JsonValue:DictionaryValue {
+public protocol JsonValue:DictionaryValue {
     var jsonValue:String{get }
 }
 
-extension DictionaryValue{
+public extension DictionaryValue{
     var value:Any{
         let mirror = Mirror(reflecting: self)
         var result = [String:Any]()
@@ -435,7 +435,7 @@ extension DictionaryValue{
     }
 }
 
-extension JsonValue{
+public extension JsonValue{
     var jsonValue:String{
         let data = try? JSONSerialization.data(withJSONObject: value as! [String:Any], options: [])
         let jsonStr = String(data: data!, encoding: String.Encoding.utf8)
@@ -443,23 +443,23 @@ extension JsonValue{
     }
 }
 
-extension Int:DictionaryValue{    var value: Any {        return self    }}
+extension Int:DictionaryValue{    public var value: Any {        return self    }}
 
-extension Float:DictionaryValue{    var value: Any {        return self    }}
+extension Float:DictionaryValue{    public var value: Any {        return self    }}
 
-extension String:DictionaryValue{    var value: Any {        return self    }}
+extension String:DictionaryValue{    public var value: Any {        return self    }}
 
-extension Bool:DictionaryValue{    var value: Any {        return self    }}
+extension Bool:DictionaryValue{    public var value: Any {        return self    }}
 
 extension Array:DictionaryValue{
-    var value : Any{
+    public var value : Any{
         //这里需要判断
         return map{($0 as! DictionaryValue).value}
     }
 }
 
 extension Dictionary:DictionaryValue{
-    var value : Any{
+    public var value : Any{
         var dict = [String:Any]()
         for (k,v) in self{
             dict[k as! String] = (v as! DictionaryValue).value
@@ -468,7 +468,7 @@ extension Dictionary:DictionaryValue{
     }
 }
 extension Array:JsonValue{
-    var jsonValue:String{
+    public var jsonValue:String{
         //这里需要判断
         let strs = map{($0 as! DictionaryValue).value}
         let data = try? JSONSerialization.data(withJSONObject: strs, options: [])
@@ -477,7 +477,7 @@ extension Array:JsonValue{
     }
 }
 extension Dictionary:JsonValue{
-    var jsonValue:String{
+    public var jsonValue:String{
         //for normal dict ,the key always be a stribg
         //so we can do
         var dict = [String:Any]()
@@ -490,19 +490,19 @@ extension Dictionary:JsonValue{
     }
 }
 
-extension CGSize{
+public extension CGSize{
     func ratioSize(scale:CGFloat) -> CGSize {
         return CGSize(width: scale * self.width, height: scale * self.height)
     }
 }
 
-extension CGRect {
+public extension CGRect {
     public init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
         self.init(x: x, y: y, width: w, height: h)
     }
 }
 
-extension URL{
+public extension URL{
     func getfileSize() -> CLongLong {
         let manager = FileManager.default
         if manager.fileExists(atPath: self.path) {
@@ -562,7 +562,7 @@ extension URL{
 }
 
 
-extension Sequence where Element:Hashable{
+public extension Sequence where Element:Hashable{
     
     //如果集合中所有元素都满足要求就返回true
     public func all(matching predicate:(Element)->Bool)->Bool{
@@ -582,7 +582,7 @@ extension Sequence where Element:Hashable{
         })
     }
 }
-extension UIColor{
+public extension UIColor{
     
     static func Hex(hexString : String) -> UIColor {
         let r, g, b: CGFloat
@@ -658,7 +658,7 @@ extension UIColor{
 }
 
 
-extension UIColor{
+public extension UIColor{
     static var pink:UIColor{
         get{
             return UIColor.init(red: 1, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1)

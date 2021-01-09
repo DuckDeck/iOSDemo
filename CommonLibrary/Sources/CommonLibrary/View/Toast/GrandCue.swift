@@ -15,11 +15,11 @@ public class GrandCue: NSObject {
     }
     var lbl:ToastLable?
     var window:UIWindow?
-    static func toast(_ msg:String){
+    static public func toast(_ msg:String){
         GrandCue.sharedToast.showToast(msg)
     }
     
-    static func toast(_ msg:String,verticalScale:Float){
+    static public func toast(_ msg:String,verticalScale:Float){
         GrandCue.sharedToast.showToast(msg,verticalScale:verticalScale)
     }
     
@@ -27,13 +27,13 @@ public class GrandCue: NSObject {
         self.showToast(msg,verticalScale:0.85)
     }
 
-    static func showLoading() {
+    static public func showLoading() {
         KRProgressHUD.showMessage("加载中")
     }
-    static func showLoading(msg:String) {
+    static public func showLoading(msg:String) {
         KRProgressHUD.showMessage(msg)
     }
-    static func dismissLoading() {
+    static public func dismissLoading() {
         KRProgressHUD.dismiss()
     }
     fileprivate func showToast(_ msg:String,verticalScale:Float = 0.8){

@@ -8,12 +8,12 @@
 
 import Foundation
 import AVFoundation
-protocol CaptureSessionCoordinatorDelegate :class{
+public protocol CaptureSessionCoordinatorDelegate :class{
     func coordinatorDidBeginRecording(coordinator:CaptureSessionCoordinator)->Void
     func coordinator(coordinator:CaptureSessionCoordinator,outputFileUrl:URL,error:Error?)->Void
 }
 
-class CaptureSessionCoordinator:NSObject {
+public class CaptureSessionCoordinator:NSObject {
     
     var captureSession:AVCaptureSession!
     var deviceInput:AVCaptureDeviceInput!
@@ -31,13 +31,13 @@ class CaptureSessionCoordinator:NSObject {
         
     }
     
-    var isRunning:Bool{
+    public var isRunning:Bool{
         get{
             return captureSession.isRunning
         }
     }
     
-    func setFlash(turn:Bool)  {
+   public func setFlash(turn:Bool)  {
         isFlashingOn = !isFlashingOn
         do{
            
@@ -62,7 +62,7 @@ class CaptureSessionCoordinator:NSObject {
     }
    
     
-    func switchCamera(){
+    public func switchCamera(){
         let newPosition = deviceInput.device.position == AVCaptureDevice.Position.back ? AVCaptureDevice.Position.front : AVCaptureDevice.Position.back
         cameraModel.position = newPosition
         
@@ -160,7 +160,7 @@ class CaptureSessionCoordinator:NSObject {
         
     }
     
-    func setDelegate(delegate:CaptureSessionCoordinatorDelegate,callbackQueue:DispatchQueue) -> Void {
+    public func setDelegate(delegate:CaptureSessionCoordinatorDelegate,callbackQueue:DispatchQueue) -> Void {
         objc_sync_enter(self)
         self.delegate = delegate
         if delegateCallbackQueue == nil{
@@ -307,7 +307,7 @@ class CaptureSessionCoordinator:NSObject {
     }
     
     
-    func focusAtPoint(point:CGPoint) {
+   public func focusAtPoint(point:CGPoint) {
         if deviceInput.device.isFocusPointOfInterestSupported{
             let convertedFocusPoint = convertToPointOfInterestFromViewCoordinates(viewCoordinates: point, captureVideoPreviewLayer: previewLayer!)
             autoFocusAtFocus(point: convertedFocusPoint)
@@ -487,28 +487,28 @@ class CaptureSessionCoordinator:NSObject {
     }
     
     
-    func startRunning()  {
+    public func startRunning()  {
         sessionQueue.sync {
             captureSession.startRunning()
         }
     }
     
-    func stopRunning()  {
+   public func stopRunning()  {
         sessionQueue.sync {
             self.stopRecording()
             captureSession.stopRunning()
         }
     }
     
-    func startRecording()  {
+   public func startRecording()  {
         //overwritten by subclass
     }
     
-    func stopRecording()  {
+   public func stopRecording()  {
         //overwritten by subclass
     }
     
-    var previewLayer:AVCaptureVideoPreviewLayer?{
+    public var previewLayer:AVCaptureVideoPreviewLayer?{
         get{
             if _previewLayer == nil && captureSession != nil{
                 _previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
@@ -607,7 +607,7 @@ class CaptureSessionCoordinator:NSObject {
         }
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
     }
     
