@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+public class BaseViewController: UIViewController {
 
     deinit {
          Log(message: "\(type(of:self))已经被回收了")

@@ -9,18 +9,18 @@
 import UIKit
 import KRProgressHUD
 public class Toast{
-    static var isShowing = false
+    public static var isShowing = false
     
-    static func showToast(msg:String) {
+    public static func showToast(msg:String) {
         KRProgressHUD.dismiss()
         isShowing = false
         GrandCue.toast(msg)
     }
-    static func showToast(msg:String,originy:Float) {
+    public static func showToast(msg:String,originy:Float) {
         GrandCue.toast(msg, verticalScale: originy)
     }
     
-    static func showLoading(txt:String = "加载中..."){
+    public static func showLoading(txt:String = "加载中..."){
         KRProgressHUD.showMessage(txt)
         isShowing = true
     }
@@ -29,7 +29,7 @@ public class Toast{
     //
     //    }
     
-    static func dismissLoading() {
+    public static func dismissLoading() {
         KRProgressHUD.dismiss()
         isShowing = false
     }
