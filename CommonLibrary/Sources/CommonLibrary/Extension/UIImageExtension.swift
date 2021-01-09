@@ -7,7 +7,7 @@
 
 import UIKit
 import Photos
-extension UIImage{
+public extension UIImage{
     static func captureView(view:UIView)->UIImage{
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)

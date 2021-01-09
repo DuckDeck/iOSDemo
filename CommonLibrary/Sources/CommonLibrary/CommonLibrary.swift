@@ -1,16 +1,16 @@
 import UIKit
 
-let ScreenWidth = UIScreen.main.bounds.width
-let ScreenHeight = UIScreen.main.bounds.height
-let TabBarHeight:CGFloat = 49.0
-let SystemVersion:Double = Double(UIDevice.current.systemVersion)!
-let APPVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
-let Scale = ScreenWidth / 320.0
-let lineHeight:CGFloat = ScreenWidth == 414 ? 0.38334 : 0.5
-let NotchHeight:CGFloat = 25
-let NavigationBarHeight:CGFloat = 64.0 + (Device.isNotchScreen ? NotchHeight : 0)
+public let ScreenWidth = UIScreen.main.bounds.width
+public let ScreenHeight = UIScreen.main.bounds.height
+public let TabBarHeight:CGFloat = 49.0
+public let SystemVersion:Double = Double(UIDevice.current.systemVersion)!
+public let APPVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+public let Scale = ScreenWidth / 320.0
+public let lineHeight:CGFloat = ScreenWidth == 414 ? 0.38334 : 0.5
+public let NotchHeight:CGFloat = 25
+public let NavigationBarHeight:CGFloat = 64.0 + (Device.isNotchScreen ? NotchHeight : 0)
 
-func createInstanseFromString(className:String)->NSObject!{
+public func createInstanseFromString(className:String)->NSObject!{
     let classType: AnyClass! = NSClassFromString(className)
     let objType = classType as? NSObject.Type
     assert(objType != nil, "class not found,please check className")
@@ -18,8 +18,8 @@ func createInstanseFromString(className:String)->NSObject!{
 }
 
 
-typealias Task = (_ cancel:Bool)->()
-func delay(time:TimeInterval,task:@escaping ()->())->Task?{
+public typealias Task = (_ cancel:Bool)->()
+public func delay(time:TimeInterval,task:@escaping ()->())->Task?{
     func dispatch_later( block: @escaping ()->Void){
         let delayTime = DispatchTime.now() + time
         DispatchQueue.main.asyncAfter(deadline: delayTime, execute: block)
@@ -44,12 +44,12 @@ func delay(time:TimeInterval,task:@escaping ()->())->Task?{
     }
     return result
 }
-func cancel(task:Task?){
+public func cancel(task:Task?){
     task?(true)
 }
 
 
-func Log<T>(message:T,file:String = #file, method:String = #function,line:Int = #line){
+public func Log<T>(message:T,file:String = #file, method:String = #function,line:Int = #line){
     #if DEBUG
         if   let path = NSURL(string: file)
         {
@@ -86,201 +86,201 @@ public struct regexTool {
 
 
 infix operator =~
-func =~(lhs:String,rhs:String) -> Bool{ //正则判断
+public func =~(lhs:String,rhs:String) -> Bool{ //正则判断
     return regexTool(rhs).match(input: lhs)
 }
 
-let REGEX_FlOAT = "^([0-9]*.)?[0-9]+$"
-let REGEX_MAIL = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$"
-let REGEX_CELLPHONE = "^(0|86|17951)?1[0-9]{10}$"
-let REGEX_IDENTITY_NUM = "^(\\d{6})(\\d{4})(\\d{2})(\\d{2})(\\d{3})([0-9]|X)$"
-let REGEX_EMOJI = "[\\ud83c\\udc00-\\ud83c\\udfff]|[\\ud83d\\udc00-\\ud83d\\udfff]|[\\u2600-\\u27ff]"
-let REGEX_URL = "^http://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?$"
+public let REGEX_FlOAT = "^([0-9]*.)?[0-9]+$"
+public let REGEX_MAIL = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$"
+public let REGEX_CELLPHONE = "^(0|86|17951)?1[0-9]{10}$"
+public let REGEX_IDENTITY_NUM = "^(\\d{6})(\\d{4})(\\d{2})(\\d{2})(\\d{3})([0-9]|X)$"
+public let REGEX_EMOJI = "[\\ud83c\\udc00-\\ud83c\\udfff]|[\\ud83d\\udc00-\\ud83d\\udfff]|[\\u2600-\\u27ff]"
+public let REGEX_URL = "^http://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?$"
 //#define CELLPHONE_REGEX        @"^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|17[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$"
-let REGEX_QQ = "^[1-9][0-9]{4,10}"
+public let REGEX_QQ = "^[1-9][0-9]{4,10}"
 //#define EMAIL_REGEX            @"^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$"
-let REGEX_TEL_PHONE = "^(([0\\+]\\d{2,3}-)?(0\\d{2,3})-)?(\\d{7,8})(-(\\d{3,}))?$"
+public let REGEX_TEL_PHONE = "^(([0\\+]\\d{2,3}-)?(0\\d{2,3})-)?(\\d{7,8})(-(\\d{3,}))?$"
 //#define USERNAME_REGEX         @"^[A-Za-z]\\w{5,19}$"
 //#define USERPWD_REGEX          @"^([a-zA-Z0-9]|[`~!@#$%^&*()+=|{}':;',\\[\\].<>]){5,21}$"
 
-func +(lhs: Int,rhs:Double)->Double{
+public func +(lhs: Int,rhs:Double)->Double{
     return Double(lhs) + rhs
 }
 
-func +(lhs: Double,rhs:Int)->Double{
+public func +(lhs: Double,rhs:Int)->Double{
     return lhs + Double(rhs)
 }
 
-func +(lhs: Int,rhs:Float)->Float{
+public func +(lhs: Int,rhs:Float)->Float{
     return Float(lhs) + rhs
 }
 
-func +(lhs: Float,rhs:Int)->Float{
+public func +(lhs: Float,rhs:Int)->Float{
     return lhs + Float(rhs)
 }
 
-func +(lhs: Float,rhs:Double)->Double{
+public func +(lhs: Float,rhs:Double)->Double{
     return Double(lhs) + rhs
 }
 
-func +(lhs: Double,rhs:Float)->Double{
+public func +(lhs: Double,rhs:Float)->Double{
     return lhs + Double(rhs)
 }
 
 
-func +(lhs: UInt,rhs:Double)->Double{
+public func +(lhs: UInt,rhs:Double)->Double{
     return Double(lhs) + rhs
 }
 
-func +(lhs: Double,rhs:UInt)->Double{
+public func +(lhs: Double,rhs:UInt)->Double{
     return lhs + Double(rhs)
 }
 
-func +(lhs: UInt,rhs:Float)->Float{
+public func +(lhs: UInt,rhs:Float)->Float{
     return Float(lhs) + rhs
 }
 
-func +(lhs: Float,rhs:UInt)->Float{
+public func +(lhs: Float,rhs:UInt)->Float{
     return lhs + Float(rhs)
 }
 
 
 
 
-func -(lhs: Int,rhs:Double)->Double{
+public func -(lhs: Int,rhs:Double)->Double{
     return Double(lhs) - rhs
 }
 
-func -(lhs: Double,rhs:Int)->Double{
+public func -(lhs: Double,rhs:Int)->Double{
     return lhs - Double(rhs)
 }
 
-func -(lhs: Int,rhs:Float)->Float{
+public func -(lhs: Int,rhs:Float)->Float{
     return Float(lhs) - rhs
 }
 
-func -(lhs: Float,rhs:Int)->Float{
+public func -(lhs: Float,rhs:Int)->Float{
     return lhs - Float(rhs)
 }
 
-func -(lhs: Float,rhs:Double)->Double{
+public func -(lhs: Float,rhs:Double)->Double{
     return Double(lhs) - rhs
 }
 
-func -(lhs: Double,rhs:Float)->Double{
+public func -(lhs: Double,rhs:Float)->Double{
     return lhs - Double(rhs)
 }
 
 
-func -(lhs: UInt,rhs:Double)->Double{
+public func -(lhs: UInt,rhs:Double)->Double{
     return Double(lhs) - rhs
 }
 
-func -(lhs: Double,rhs:UInt)->Double{
+public func -(lhs: Double,rhs:UInt)->Double{
     return lhs - Double(rhs)
 }
 
-func -(lhs: UInt,rhs:Float)->Float{
+public func -(lhs: UInt,rhs:Float)->Float{
     return Float(lhs) - rhs
 }
 
-func -(lhs: Float,rhs:UInt)->Float{
+public func -(lhs: Float,rhs:UInt)->Float{
     return lhs - Float(rhs)
 }
 
 
 
-func *(lhs: Int,rhs:Double)->Double{
+public func *(lhs: Int,rhs:Double)->Double{
     return Double(lhs) * rhs
 }
 
-func *(lhs: Double,rhs:Int)->Double{
+public func *(lhs: Double,rhs:Int)->Double{
     return lhs * Double(rhs)
 }
 
-func *(lhs: Int,rhs:Float)->Float{
+public func *(lhs: Int,rhs:Float)->Float{
     return Float(lhs) * rhs
 }
 
-func *(lhs: Float,rhs:Int)->Float{
+public func *(lhs: Float,rhs:Int)->Float{
     return lhs * Float(rhs)
 }
 
-func *(lhs: Int,rhs:CGFloat)->CGFloat{
+public func *(lhs: Int,rhs:CGFloat)->CGFloat{
     return CGFloat(lhs) * rhs
 }
 
-func *(lhs: CGFloat,rhs:Int)->CGFloat{
+public func *(lhs: CGFloat,rhs:Int)->CGFloat{
     return lhs * CGFloat(rhs)
 }
 
-func *(lhs: Float,rhs:Double)->Double{
+public func *(lhs: Float,rhs:Double)->Double{
     return Double(lhs) * rhs
 }
 
-func *(lhs: Double,rhs:Float)->Double{
+public func *(lhs: Double,rhs:Float)->Double{
     return lhs * Double(rhs)
 }
 
 
-func *(lhs: UInt,rhs:Double)->Double{
+public func *(lhs: UInt,rhs:Double)->Double{
     return Double(lhs) * rhs
 }
 
-func *(lhs: Double,rhs:UInt)->Double{
+public func *(lhs: Double,rhs:UInt)->Double{
     return lhs * Double(rhs)
 }
 
-func *(lhs: UInt,rhs:Float)->Float{
+public func *(lhs: UInt,rhs:Float)->Float{
     return Float(lhs) * rhs
 }
 
-func *(lhs: Float,rhs:UInt)->Float{
+public func *(lhs: Float,rhs:UInt)->Float{
     return lhs * Float(rhs)
 }
 
 
-func /(lhs: Int,rhs:Double)->Double{
+public func /(lhs: Int,rhs:Double)->Double{
     return Double(lhs) / rhs
 }
 
-func /(lhs: Double,rhs:Int)->Double{
+public func /(lhs: Double,rhs:Int)->Double{
     return lhs / Double(rhs)
 }
 
-func /(lhs: Int,rhs:Float)->Float{
+public func /(lhs: Int,rhs:Float)->Float{
     return Float(lhs) / rhs
 }
 
-func /(lhs: Float,rhs:Int)->Float{
+public func /(lhs: Float,rhs:Int)->Float{
     return lhs / Float(rhs)
 }
 
-func /(lhs: Float,rhs:Double)->Double{
+public func /(lhs: Float,rhs:Double)->Double{
     return Double(lhs) / rhs
 }
 
-func /(lhs: Double,rhs:Float)->Double{
+public func /(lhs: Double,rhs:Float)->Double{
     return lhs / Double(rhs)
 }
 
 
-func /(lhs: UInt,rhs:Double)->Double{
+public func /(lhs: UInt,rhs:Double)->Double{
     return Double(lhs) / rhs
 }
 
-func /(lhs: Double,rhs:UInt)->Double{
+public func /(lhs: Double,rhs:UInt)->Double{
     return lhs / Double(rhs)
 }
 
-func /(lhs: UInt,rhs:Float)->Float{
+public func /(lhs: UInt,rhs:Float)->Float{
     return Float(lhs) / rhs
 }
 
-func /(lhs: Float,rhs:UInt)->Float{
+public func /(lhs: Float,rhs:UInt)->Float{
     return lhs / Float(rhs)
 }
-func hookMethod(cls:AnyClass,originalSelector:Selector,swizzleSelector:Selector){  //交换方法
+public func hookMethod(cls:AnyClass,originalSelector:Selector,swizzleSelector:Selector){  //交换方法
     let originalMethod = class_getInstanceMethod(cls, originalSelector)
     let swizzledMethod = class_getInstanceMethod(cls, swizzleSelector)
     let didAddMethod = class_addMethod(cls, originalSelector, method_getImplementation(swizzledMethod!), method_getTypeEncoding(swizzledMethod!))
@@ -294,7 +294,7 @@ func hookMethod(cls:AnyClass,originalSelector:Selector,swizzleSelector:Selector)
 
 
 
- func invoke(viewController:String,selector:String) {
+public func invoke(viewController:String,selector:String) {
     if let nav = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
         for v in nav.viewControllers {
             if let cla = NSClassFromString(viewController) {
@@ -306,7 +306,7 @@ func hookMethod(cls:AnyClass,originalSelector:Selector,swizzleSelector:Selector)
     }
 }
 
- func invoke(viewController:String,selector:String,paras:AnyObject) {
+public func invoke(viewController:String,selector:String,paras:AnyObject) {
     if let nav = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
         for v in nav.viewControllers {
             if let cla = NSClassFromString(viewController) {

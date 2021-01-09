@@ -210,7 +210,7 @@ public extension UIView{
 
 
 
-extension UILabel{
+public extension UILabel{
     func text(text:String) -> Self {
         self.text = text
         return self
@@ -298,7 +298,7 @@ extension UILabel{
     
 }
 
-extension UITextField{
+public extension UITextField{
     func addOffsetView(value:Float){
         let vOffset = UIView(frame: CGRect(x: 0, y: 0, width: CGFloat(value), height: self.frame.size.height))
         self.leftViewMode = .always

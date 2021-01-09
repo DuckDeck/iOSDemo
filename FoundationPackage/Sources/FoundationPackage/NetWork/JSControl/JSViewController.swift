@@ -30,16 +30,16 @@ class JSViewController: UIViewController {
         view.addSubview(webView!)
         
         //在swift package manager 里加资源有问题，我按照里抽的方法死活不能把资源copy进bundle里面，不知道为什么
-        print(Bundle.main.bundlePath)
-        let path = Bundle.main.bundlePath
-        let dict = FileManager.default.subpaths(atPath: path)
-        print(dict)
-        
-//        let path = Bundle.module!.path(forResource: "question", ofType: "html")
-//        let url = URL(fileURLWithPath: path!)
-//        let request = URLRequest(url: url)
-//
-//        _ =  webView?.load(request)
+//        print(Bundle.main.bundlePath)
+//        let path = Bundle.main.bundlePath
+//        let dict = FileManager.default.subpaths(atPath: path)
+//        print(dict)
+        //获取不到的
+        let path = Bundle.main.path(forResource: "question", ofType: "html")
+        let url = URL(fileURLWithPath: path!)
+        let request = URLRequest(url: url)
+
+        _ =  webView?.load(request)
     }
 
 
