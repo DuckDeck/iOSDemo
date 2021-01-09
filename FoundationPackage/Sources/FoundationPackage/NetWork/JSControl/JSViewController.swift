@@ -35,6 +35,7 @@ class JSViewController: UIViewController {
 //        let dict = FileManager.default.subpaths(atPath: path)
 //        print(dict)
         //获取不到的
+        //目前把这个放在外面，专门用一个地方来放资源
         let path = Bundle.main.path(forResource: "question", ofType: "html")
         let url = URL(fileURLWithPath: path!)
         let request = URLRequest(url: url)

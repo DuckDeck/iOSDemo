@@ -22,8 +22,6 @@ class GifViewController: UIViewController {
     }
     
     func initView()  {
-       
-        navigationItem.title = "GIF"
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumLineSpacing = 10

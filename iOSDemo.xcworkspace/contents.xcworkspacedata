@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:Resource"
+      name = "Resource">
+      <FileRef
+         location = "group:question.html">
+      </FileRef>
+      <FileRef
+         location = "group:gif0.gif">
+      </FileRef>
+      <FileRef
+         location = "group:test.mp4">
+      </FileRef>
+      <FileRef
+         location = "group:novel1.gif">
+      </FileRef>
+      <FileRef
+         location = "group:novel2.gif">
+      </FileRef>
+      <FileRef
+         location = "group:cxk.mp4">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:ProjectPackage">
    </FileRef>
