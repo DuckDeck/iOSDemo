@@ -29,9 +29,12 @@ public extension FileManager{
         guard let urlStrs = try? FileManager.default.contentsOfDirectory(atPath: NSTemporaryDirectory()) else{
             return arrVidelUrl
         }
-        _ = urlStrs.map { (str) -> URL in
-            return URL(fileURLWithPath: NSTemporaryDirectory() + str)
+        if urlStrs.count > 0{
+            return  urlStrs.map { (str) -> URL in
+                return URL(fileURLWithPath: NSTemporaryDirectory() + str)
+            }
         }
+       
        
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         do {

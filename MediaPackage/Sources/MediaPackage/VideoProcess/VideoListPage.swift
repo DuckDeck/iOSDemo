@@ -41,7 +41,7 @@ class VideoListViewController: UIViewController {
         vc.register(VideoImageCell.self, forCellWithReuseIdentifier: "cell")
         vc.delegate = self
         vc.dataSource = self
-        vc.setEmptyView(view: UICollectionView.createEmptyView(size: CGSize(width: 300, height: 100), img: "file_not_exist", text: NSAttributedString(string: "没有视频😌")), offset: 300)
+        vc.setEmptyView(view: UICollectionView.createEmptyView(size: CGSize(width: 300, height: 150), img: "file_not_exist", text: NSAttributedString(string: "没有视频😌")), offset: 300)
         view.addSubview(vc)
         vc.snp.makeConstraints { (m) in
             m.edges.equalTo(0)

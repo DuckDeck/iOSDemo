@@ -8,6 +8,7 @@ import UIKit
 import GrandTime
 import CoreMotion
 import CommonLibrary
+import SwiftUI
 enum VideoRecordStatus {
     case Prepared,Recording,Finish
 }
@@ -36,6 +37,7 @@ class VideoRecordViewController: UIViewController {
     var oldConstriants:[NSLayoutConstraint]!
     var motion:CMMotionManager!
     var viewFocus:FocusFrameView!
+    var backBlock:(()->Void)?
     var orientation : UIDeviceOrientation{
         set{
             if _orientation != newValue{
@@ -187,8 +189,8 @@ class VideoRecordViewController: UIViewController {
         }
         
         btnFlash.addTarget(self, action: #selector(switchFlash), for: .touchUpInside)
-        btnFlash.setImage(UIImage(named: "btn_flash_on"), for: .selected)
-        btnFlash.setImage(#imageLiteral(resourceName: "btn_flash_off"), for: .normal)
+        btnFlash.setImage(UIImage(named: "btn_flash_on"), for: .normal)
+        btnFlash.setImage(UIImage(named: "btn_flash_off"), for: .selected)
         btnFlash.addTo(view: vRecordStatus).snp.makeConstraints { (m) in
             m.right.equalTo(-20)
             m.centerY.equalTo(btnBack)
@@ -293,7 +295,8 @@ class VideoRecordViewController: UIViewController {
     
     
     @objc func switchFlash()  {
-        captureSessionCoordinator.setFlash(turn: !isFlashOn)
+        isFlashOn = !isFlashOn
+        captureSessionCoordinator.setFlash(turn: isFlashOn)
         btnFlash.isSelected = isFlashOn
     }
     
@@ -323,6 +326,9 @@ class VideoRecordViewController: UIViewController {
         else{
             stopPipelineAndDismiss()
         }
+        //这个无法返回
+        //navigationController?.popViewController(animated: true)
+        backBlock?()
     }
     
     @objc func startRecord() {
@@ -380,7 +386,7 @@ class VideoRecordViewController: UIViewController {
     
     @objc func uploadRecord() {
         uploadVideoBlock?(tmpVideoFile)
-        dismiss(animated: true, completion: nil)
+        backBlock?()
     }
     
 }
@@ -424,4 +430,40 @@ class TouchView: UIView {
         return false
     }
 }
+
+
+struct VideoRecordDemo:UIViewControllerRepresentable {
+    @Environment(\.presentationMode) var presentationMode
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
+    }
+    typealias UIViewControllerType = VideoRecordViewController
+    
+    func makeUIViewController(context: Context) -> VideoRecordViewController {
+        let vc = VideoRecordViewController()
+        vc.backBlock = {() in
+            context.coordinator.pop()
+        }
+        return vc
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(self)
+    }
+    
+    class Coordinator:NSObject {
+        var parent:VideoRecordDemo
+        init(_ parent: VideoRecordDemo) {
+            self.parent = parent
+        }
+        
+        func pop() {
+            parent.presentationMode.wrappedValue.dismiss()
+        }
+        
+    }
+   
+    
+}
+
 

@@ -40,7 +40,7 @@ public class CaptureSessionCoordinator:NSObject {
    public func setFlash(turn:Bool)  {
         isFlashingOn = !isFlashingOn
         do{
-           
+
             try self.deviceInput.device.lockForConfiguration()
             if isFlashingOn{
                 if self.deviceInput.device.isFlashModeSupported(.on){
@@ -272,7 +272,11 @@ public class CaptureSessionCoordinator:NSObject {
         if device.hasFlash{
          
             if device.isFlashModeSupported(cameraModel.flashMode){
-                device.flashMode = cameraModel.flashMode
+                if ((try? device.lockForConfiguration()) == nil){
+                    device.flashMode = cameraModel.flashMode
+                    device.unlockForConfiguration()
+                }
+                
             }
             else{
                 print("The device not support current flash mode \(cameraModel.flashMode)")

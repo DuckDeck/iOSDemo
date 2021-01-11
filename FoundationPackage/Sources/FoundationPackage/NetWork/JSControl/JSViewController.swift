@@ -24,7 +24,7 @@ class JSViewController: UIViewController {
         let wkuser = WKUserContentController()
         config.userContentController = wkuser
         wkuser.add(self, name: "showMobile")
-        webView = WKWebView(frame:CGRect(x: 0, y: 64, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 64), configuration: config)
+        webView = WKWebView(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 64), configuration: config)
         webView?.uiDelegate = self;
         webView?.navigationDelegate = self;
         view.addSubview(webView!)
