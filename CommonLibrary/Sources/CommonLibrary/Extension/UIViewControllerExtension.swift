@@ -8,7 +8,7 @@
 import UIKit
 
 private var UIViewController_Tag = 110
-extension UIViewController{
+public extension UIViewController{
     @objc  var tag:Int{
         get{
             return objc_getAssociatedObject(self, &UIViewController_Tag) as? Int ?? 0

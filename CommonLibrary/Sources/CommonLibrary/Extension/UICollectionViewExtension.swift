@@ -5,7 +5,7 @@
 //  Created by shadowedge on 2021/1/6.
 //
 import UIKit
-extension UICollectionView{
+public extension UICollectionView{
     func setEmptyView(view:UIView,offset:CGFloat)  {
         view.isHidden = true
         view.tag = -10000
@@ -20,10 +20,14 @@ extension UICollectionView{
     func emptyReload()  {
         var section = 1
         var count = 0
-    
+       
         
-        let numSection = dataSource!.numberOfSections!(in: self)
-         section = numSection
+        
+        
+        if let numSection = dataSource!.numberOfSections?(in: self){
+            section = numSection
+        }
+         
         
         for i in 0..<section{
             count += dataSource!.collectionView(self, numberOfItemsInSection: i)

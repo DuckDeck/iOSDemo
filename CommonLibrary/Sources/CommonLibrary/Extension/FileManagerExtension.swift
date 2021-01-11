@@ -24,14 +24,15 @@ public extension FileManager{
            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: fileUrl)
         }
     }
-    static func getAllVideos()->[URL]?{
+    static func getAllVideos()->[URL]{
+        var arrVidelUrl = [URL]()
         guard let urlStrs = try? FileManager.default.contentsOfDirectory(atPath: NSTemporaryDirectory()) else{
-            return nil
+            return arrVidelUrl
         }
-        var urls = urlStrs.map { (str) -> URL in
+        _ = urlStrs.map { (str) -> URL in
             return URL(fileURLWithPath: NSTemporaryDirectory() + str)
         }
-        
+       
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         do {
             let files = try FileManager.default.contentsOfDirectory(at: documentsDirectory,
@@ -40,7 +41,7 @@ public extension FileManager{
             for f in files{
                 let ass = AVURLAsset(url: f)
                 if ass.tracks(withMediaType: .video).count > 0{
-                    urls.append(f)
+                    arrVidelUrl.append(f)
                 }
             }
             
@@ -49,7 +50,7 @@ public extension FileManager{
             print(error.localizedDescription)
         }
         
-        return urls
+        return arrVidelUrl
     }
     static func tempFileURL(extensionName:String)->URL
     {
