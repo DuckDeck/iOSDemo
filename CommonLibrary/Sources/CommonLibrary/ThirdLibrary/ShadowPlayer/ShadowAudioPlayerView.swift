@@ -8,23 +8,23 @@
 
 import UIKit
 import CoreMedia
-enum AudioPlayStatus {
+public enum AudioPlayStatus {
     case Buffing,ReadyToPlay,LoadFail,Playing,PlayCompleted
 }
 
-class ShadowAudioPlayerView: UIView {
+public class ShadowAudioPlayerView: UIView {
     let btnPlay = UIButton()
     let lblPlayTime = UILabel()
     let lblTotalTime = UILabel()
-    var url:URL!
+    public var url:URL!
     let slider = UISlider()
     let sliderBuffer = UISlider()
     var player:ShadowPlayer!
     var audioDuration:Double = 0
     var tapGesture:UITapGestureRecognizer?
     let vLoading = UIActivityIndicatorView()
-    var autoPlay = false
-    convenience init(frame: CGRect,url:URL,autoPlay:Bool = false) {
+    public  var autoPlay = false
+    public convenience init(frame: CGRect,url:URL,autoPlay:Bool = false) {
         self.init(frame: frame)
         self.url = url
         self.autoPlay = autoPlay
@@ -102,6 +102,10 @@ class ShadowAudioPlayerView: UIView {
         }
         
     
+    }
+    
+    public func stop(){
+        player.stop()
     }
     
     fileprivate override init(frame: CGRect) {

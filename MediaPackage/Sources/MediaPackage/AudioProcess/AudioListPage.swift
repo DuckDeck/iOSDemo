@@ -33,7 +33,7 @@ class RecordListViewController: UIViewController {
         view.addSubview(tb)
         tb.snp.makeConstraints { (m) in
             m.left.right.equalTo(0)
-            m.top.equalTo(NavigationBarHeight)
+            m.top.equalTo(0)
             m.bottom.equalTo(-80)
         }
         let v = UITableView.createEmptyView(size: CGSize(width: ScreenWidth, height: 50), text: "目前没有音频文件", font: UIFont.systemFont(ofSize: 20), color: UIColor.brown)
@@ -252,7 +252,7 @@ extension RecordListViewController:UITableViewDataSource,UITableViewDelegate{
             }
             else{
                //let _ =  TransformMP3.transformCAF(toMP3: url.path)
-
+                GrandCue.toast("Swift Package 目前不能用C库")
             }
             
         }
