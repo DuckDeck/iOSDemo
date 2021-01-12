@@ -8,20 +8,20 @@
 
 import UIKit
 
-class BarSlider: UISlider {
+public class BarSlider: UISlider {
 
-    override func trackRect(forBounds bounds: CGRect) -> CGRect {
+    public override func trackRect(forBounds bounds: CGRect) -> CGRect {
         return CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height)
     }
 
     
-    override var value: Float{
+    public override var value: Float{
         didSet{
             setNeedsDisplay()
         }
     }
     
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         let ctx = UIGraphicsGetCurrentContext()
         ctx?.setFillColor(maximumTrackTintColor?.cgColor ?? UIColor.clear.cgColor)
         ctx?.fill(rect)

@@ -7,7 +7,7 @@
 
 import UIKit
 import GrandTime
-extension Int{
+public extension Int{
     func toTime(format:String = "yyyy-MM-dd HH:mm:ss") -> String {
         var t = self
         if String(t).count > 11{

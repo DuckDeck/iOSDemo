@@ -7,18 +7,18 @@
 //
 
 import UIKit
-class ProgressButton: UIButton {
+public class ProgressButton: UIButton {
     
-    var maxValue:Double = 1
-    var minValue:Double = 0
+    public var maxValue:Double = 1
+    public var minValue:Double = 0
     
-    var value:Double = 0{
+    public var value:Double = 0{
         didSet{
             setNeedsDisplay()
         }
     }
     
-    var bgTintColor = UIColor.lightGray{
+    public var bgTintColor = UIColor.lightGray{
         didSet{
             setNeedsDisplay()
         }
@@ -28,7 +28,7 @@ class ProgressButton: UIButton {
         super.init(frame: frame)
     }
 
-    var lineWidth:CGFloat = 2{
+    public var lineWidth:CGFloat = 2{
         didSet{
             setNeedsDisplay()
         }
@@ -39,7 +39,7 @@ class ProgressButton: UIButton {
     }
     
     
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else{
             return
         }
