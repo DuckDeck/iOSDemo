@@ -15,6 +15,7 @@ public class ShadowVideoPlayerViewController: UIViewController {
             player.title = videoTitle ?? ""
         }
     }
+
     let btnClose = UIButton()
     
     var player : ShadowVideoPlayerView! = nil

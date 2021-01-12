@@ -30,9 +30,11 @@ public extension FileManager{
             return arrVidelUrl
         }
         if urlStrs.count > 0{
-            return  urlStrs.map { (str) -> URL in
+            var videos =  urlStrs.map { (str) -> URL in
                 return URL(fileURLWithPath: NSTemporaryDirectory() + str)
             }
+            videos.removeFirst()
+            return videos
         }
        
        
