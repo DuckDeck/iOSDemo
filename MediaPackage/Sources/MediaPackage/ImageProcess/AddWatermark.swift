@@ -77,6 +77,7 @@ class WatermarkViewController: UIViewController {
     
     @objc func addImage() {
         imagePickerController.showPhotoLibrary(sender: self)
+        //这里点donw无法返回是因为用了swiftUI，没有适配的话就会这样
     }
     
     @objc func txtChange() {

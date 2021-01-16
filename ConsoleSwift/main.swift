@@ -9,7 +9,8 @@
 import Foundation
 import ObjectiveC
 
-
+let res = "123123 ".contains(" ")
+print(res)
 let sss = [1,2,3,4,5,1,2,1,2]
 for a in sss{
     print(a)
