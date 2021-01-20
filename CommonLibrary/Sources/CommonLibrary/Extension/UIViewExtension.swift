@@ -6,6 +6,11 @@
 //
 
 import UIKit
+
+public enum Direction:Int{
+    case Left = 0, Top,Right,Bottom
+}
+
 public extension UIView{
     
     var x: CGFloat {
@@ -205,6 +210,34 @@ public extension UIView{
             vc = window.rootViewController
         }
         return vc
+    }
+    
+    func AddBorder(width:Float,color:UIColor, widthRatio:Float, direction:Direction) -> Self {
+        
+        var newWidthRatio = widthRatio
+        
+        if newWidthRatio < 0{
+            newWidthRatio = 0
+        }
+        if newWidthRatio > 1{
+            newWidthRatio = 1
+        }
+        var line:UIBezierPath!
+        switch direction {
+        case .Left:
+            line = UIBezierPath(rect: CGRect(x: 0, y: frame.size.height * CGFloat(1 - newWidthRatio) / 2, width: CGFloat(width), height: frame.size.height * CGFloat(newWidthRatio)))
+        case .Top:
+            line = UIBezierPath(rect: CGRect(x: frame.size.width * CGFloat(1 - newWidthRatio) / 2, y: 0, width: frame.size.width * CGFloat(newWidthRatio), height: CGFloat(width)))
+        case .Right:
+            line = UIBezierPath(rect: CGRect(x: frame.size.width -  CGFloat(width), y: frame.size.height * CGFloat(1 - newWidthRatio) / 2, width: CGFloat(width), height: frame.size.height * CGFloat(newWidthRatio)))
+        case .Bottom:
+            line = UIBezierPath(rect: CGRect(x: frame.size.width * CGFloat(1 - newWidthRatio) / 2, y: frame.size.height -  CGFloat(width), width: frame.size.width * CGFloat(newWidthRatio), height: CGFloat(width)))
+        }
+        let lineShape = CAShapeLayer()//设置路径的画布
+        lineShape.path = line.cgPath //设置画布的路径为贝塞尔曲线的路径
+        lineShape.fillColor = color.cgColor//设置颜色
+        self.layer.addSublayer(lineShape)//添加画布的 l
+        return self
     }
 }
 

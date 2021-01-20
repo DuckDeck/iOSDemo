@@ -7,7 +7,7 @@ import UIKit
 //
 
 
-
+/*
 let leaveWord = NSMutableAttributedString(string:  "留言: 民地地 asdlfk 地 进kasjdfk  al;sjf；lasd要工划顶起黑苹果机加工工要 工地工)")
 let paraStyle = NSMutableParagraphStyle()
 paraStyle.lineSpacing = 3
@@ -317,3 +317,7 @@ print("大小端", 5.bigEndian, 5.littleEndian)
 print("位宽", 5.bitWidth, Int64.bitWidth, Int8.bitWidth)
 
 
+*/
+let scanner = Scanner(string: "newman")
+let nameString = scanner.scanUpToCharacters(from: .newlines)
+print(scanner)

@@ -16,6 +16,7 @@ class SnapkitViewController: UIViewController,UITextViewDelegate {
     let lbl2 = UILabel()
     let lbl3 = UILabel()
     let sc = UIScrollView()
+    let btn = UIButton().title(title: "Add").color(color: UIColor.red).setTarget(self, action: #selector(addText))
     var isHidden = false
     var updateConstraint:Constraint?
     let txt = UITextView()
@@ -88,7 +89,8 @@ class SnapkitViewController: UIViewController,UITextViewDelegate {
         
         
         
-        let btn = UIButton().title(title: "Add").color(color: UIColor.red).setTarget(self, action: #selector(addText)).addTo(view: view)
+        
+        view.addSubview(btn)
         btn.snp.makeConstraints { (m) in
             m.left.equalTo(lbl.snp.right).offset(5)
             m.top.equalTo(lbl)
@@ -114,6 +116,7 @@ class SnapkitViewController: UIViewController,UITextViewDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         sc.addTopTranslucency(height: 30)
+        btn.AddBorder(width: 2, color: UIColor.purple, widthRatio: 1, direction: .Bottom)
     }
     
     @objc func addText()  {
