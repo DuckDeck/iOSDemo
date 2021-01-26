@@ -318,6 +318,11 @@ print("位宽", 5.bitWidth, Int64.bitWidth, Int8.bitWidth)
 
 
 */
-let scanner = Scanner(string: "newman")
-let nameString = scanner.scanUpToCharacters(from: .newlines)
-print(scanner)
+
+struct a : Codable{
+    var type : Int?
+    public var name : String?
+
+}
+
+

@@ -15,12 +15,19 @@ class FlowView: UIView {
     var itemPadding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     var maxWidth = UIScreen.main.bounds.size.width
     var itemBackground = UIColor.white
-    var itemClickBlock:((_ index:Int,_ name:String)->Void)?
+    var itemClickBlock:((_ index:Int,_ item:UILabel)->Void)?
+    var itemDeleteBlock:((_ index:Int,_ item:UILabel)->Void)?
     var itemCornerRadius:CGFloat = 0
     var itemFont = UIFont.systemFont(ofSize: 14)
     var dataSourceBlock:((_ index:Int)->String)!
     
     var itemCount = 0
+    var defaultTextColor : UIColor?
+    var selectedTextColor : UIColor?
+    var defaultBorderColor : UIColor?
+    var selectedBorderColor : UIColor?
+    var isDefaultSelect = false
+    var showDeleteButton = false
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -28,14 +35,19 @@ class FlowView: UIView {
     }
     public var flowHeight:CGFloat = 0
     func reloadData() {
+        for item in self.subviews{
+            tmpView = nil
+            item.removeFromSuperview()
+        }
         if dataSourceBlock == nil{
             return
         }
         if itemCount == 0{
+            self.snp.updateConstraints({ (m) in
+                m.height.greaterThanOrEqualTo(0)
+            })
+
             return
-        }
-        for item in self.subviews{
-            item.removeFromSuperview()
         }
         var x = padding.left
         var y = padding.top
@@ -46,10 +58,28 @@ class FlowView: UIView {
             lbl.backgroundColor = itemBackground
             lbl.textAlignment = .center
             lbl.sizeToFit()
+            lbl.isHighlighted = isDefaultSelect
             lbl.font = itemFont
             lbl.layer.cornerRadius = itemCornerRadius
-            lbl.clipsToBounds = true
+            lbl.clipsToBounds = false
             lbl.isUserInteractionEnabled = true
+            if defaultTextColor != nil{
+                lbl.textColor = defaultTextColor!
+            }
+
+            if defaultBorderColor != nil{
+                lbl.layer.borderWidth = 1
+                lbl.layer.cornerRadius = 0
+                lbl.layer.borderColor = defaultBorderColor!.cgColor
+                
+            }
+            
+            if isDefaultSelect{
+                lbl.textColor = selectedTextColor!
+                lbl.layer.borderColor = selectedBorderColor!.cgColor
+            }
+
+            
             let tap = UITapGestureRecognizer(target: self, action: #selector(itemTap(ges:)))
             lbl.addGestureRecognizer(tap)
             addSubview(lbl)
@@ -72,7 +102,22 @@ class FlowView: UIView {
                 m.top.equalTo(y)
                 m.width.equalTo(lbl.frame.size.width + itemPadding.left + itemPadding.right)
                 m.height.equalTo(lbl.frame.size.height + itemPadding.top + itemPadding.bottom)
-
+            }
+            if showDeleteButton{
+                let btnDelete = UIButton()
+                btnDelete.backgroundColor = UIColor.colorFromRGB(rgb: 0xfe9402)
+                btnDelete.layer.cornerRadius = 10
+                btnDelete.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+                btnDelete.setTitle("X", for: .normal)
+                btnDelete.tag = index
+                addSubview(btnDelete)
+                btnDelete.snp.makeConstraints { (m) in
+                    m.centerX.equalTo(lbl.snp.right)
+                    m.centerY.equalTo(lbl.snp.top)
+                    m.width.height.equalTo(20)
+                }
+                btnDelete.addTarget(self, action: #selector(itemDeleteTap(sender:)), for: .touchUpInside)
+                
             }
             tmpView = lbl
             layoutIfNeeded()
@@ -88,9 +133,25 @@ class FlowView: UIView {
         flowHeight = bottom
     }
     
+    @objc func itemDeleteTap(sender:UIButton){
+        for v in subviews{
+            if v is UILabel && v.tag == sender.tag{
+                itemDeleteBlock?(v.tag,v as! UILabel)
+            }
+        }
+    }
+    
     @objc func itemTap(ges:UITapGestureRecognizer)  {
+        
         if let lbl = ges.view as? UILabel{
-            itemClickBlock?(lbl.tag,lbl.text!)
+            if !showDeleteButton{
+                lbl.isHighlighted = !lbl.isHighlighted
+                if selectedTextColor != nil && selectedBorderColor != nil && defaultTextColor != nil && selectedBorderColor != nil{
+                    lbl.textColor = lbl.isHighlighted ? selectedTextColor! :  defaultTextColor!
+                    lbl.layer.borderColor = lbl.isHighlighted ? selectedBorderColor!.cgColor : defaultBorderColor!.cgColor
+                }
+            }
+            itemClickBlock?(lbl.tag,lbl)
         }
         
     }
@@ -98,4 +159,3 @@ class FlowView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
