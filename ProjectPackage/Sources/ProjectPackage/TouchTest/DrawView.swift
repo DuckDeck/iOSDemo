@@ -324,7 +324,7 @@ class DrawView: UIView {
             {
                 _btnPrevious = UIButton()
                 _btnPrevious?.setImage(UIImage(named: "public_btn_back_white_solid"), for: UIControl.State.normal)
-                _btnPrevious!.frame = CGRect(x:UIScreen.main.bounds.size.width/5-15,y: UIScreen.main.bounds.height-30,width: 30, height:30)
+                _btnPrevious!.frame = CGRect(x:UIScreen.main.bounds.size.width/5-15,y: UIScreen.main.bounds.height-100,width: 30, height:30)
                 _btnPrevious?.layer.borderWidth = 2
                 _btnPrevious?.layer.borderColor = UIColor.white.cgColor
                 _btnPrevious?.layer.cornerRadius = 15
@@ -341,7 +341,7 @@ class DrawView: UIView {
             {
                 _btnNext = UIButton()
                 _btnNext?.setImage(UIImage(named: "public_btn_next_white_solid"), for: UIControl.State.normal)
-                _btnNext!.frame = CGRect(x:UIScreen.main.bounds.size.width*0.4-15,y: UIScreen.main.bounds.height-30,width: 30,height: 30)
+                _btnNext!.frame = CGRect(x:UIScreen.main.bounds.size.width*0.4-15,y: UIScreen.main.bounds.height-100,width: 30,height: 30)
                 _btnNext?.layer.borderWidth = 2
                 _btnNext?.layer.borderColor = UIColor.white.cgColor
                 _btnNext?.layer.cornerRadius = 15
@@ -358,7 +358,7 @@ class DrawView: UIView {
             {
                 _btnSetting = UIButton()
                 _btnSetting?.setImage(UIImage(named: "public_btn_setting_white_solid"), for: UIControl.State.normal)
-                _btnSetting!.frame = CGRect(x:UIScreen.main.bounds.size.width*0.6-15,y: UIScreen.main.bounds.height-30,width: 30, height:30)
+                _btnSetting!.frame = CGRect(x:UIScreen.main.bounds.size.width*0.6-15,y: UIScreen.main.bounds.height-100,width: 30, height:30)
                 _btnSetting?.layer.borderWidth = 2
                 _btnSetting?.layer.borderColor = UIColor.white.cgColor
                 _btnSetting?.layer.cornerRadius = 15
@@ -375,7 +375,7 @@ class DrawView: UIView {
             {
                 _btnClear = UIButton()
                 _btnClear?.setImage(UIImage(named: "public_btn_delete_white_solid"), for: UIControl.State.normal)
-                _btnClear!.frame = CGRect(x:UIScreen.main.bounds.size.width*0.8-15,y: UIScreen.main.bounds.height-30, width:30,height: 30)
+                _btnClear!.frame = CGRect(x:UIScreen.main.bounds.size.width*0.8-15,y: UIScreen.main.bounds.height-100, width:30,height: 30)
                 _btnClear?.layer.borderWidth = 2
                 _btnClear?.layer.borderColor = UIColor.white.cgColor
                 _btnClear?.layer.cornerRadius = 15

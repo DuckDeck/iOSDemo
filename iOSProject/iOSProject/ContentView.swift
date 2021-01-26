@@ -34,7 +34,7 @@ struct ContentView: View {
                 ProjectPage().tabItem { Image(systemName: "command")
                     Text("项目示例")
                 }
-                .tag(Tab.media)
+                .tag(Tab.project)
             }.navigationBarTitle(self.selectTitle,displayMode: .inline)
             .onChange(of: selection, perform: { value in
                 switch(value){

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftUI
 class TouchTestViewController: UIViewController,drawViewDelegate {
     var _drawView:DrawView?
     override func viewDidLoad() {
@@ -23,13 +23,9 @@ class TouchTestViewController: UIViewController,drawViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        navigationController?.setToolbarHidden(true, animated: false)
+        
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setToolbarHidden(false, animated: true)
-    }
+
     
     var drawView:DrawView
     {
@@ -65,3 +61,14 @@ class TouchTestViewController: UIViewController,drawViewDelegate {
     */
 
 }
+struct TouchTestDemo:UIViewControllerRepresentable {
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
+    }
+    typealias UIViewControllerType = TouchTestViewController
+    
+    func makeUIViewController(context: Context) -> TouchTestViewController {
+        return TouchTestViewController()
+    }
+}
+
