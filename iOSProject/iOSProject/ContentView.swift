@@ -9,6 +9,7 @@ import SwiftUI
 import UIPackage
 import MediaPackage
 import FoundationPackage
+import ProjectPackage
 enum Tab{
     case ui,media,project,foundation
 }
@@ -28,7 +29,12 @@ struct ContentView: View {
                 }.tag(Tab.ui)
                 MediaPage().tabItem { Image(systemName: "play.rectangle.fill")
                     Text("多媒体")
-                }.tag(Tab.media)
+                }
+                .tag(Tab.media)
+                ProjectPage().tabItem { Image(systemName: "command")
+                    Text("项目示例")
+                }
+                .tag(Tab.media)
             }.navigationBarTitle(self.selectTitle,displayMode: .inline)
             .onChange(of: selection, perform: { value in
                 switch(value){

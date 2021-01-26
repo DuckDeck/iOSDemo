@@ -105,7 +105,7 @@ class FlowView: UIView {
             }
             if showDeleteButton{
                 let btnDelete = UIButton()
-                btnDelete.backgroundColor = UIColor.colorFromRGB(rgb: 0xfe9402)
+                btnDelete.backgroundColor = UIColor.red
                 btnDelete.layer.cornerRadius = 10
                 btnDelete.titleLabel?.font = UIFont.systemFont(ofSize: 12)
                 btnDelete.setTitle("X", for: .normal)
