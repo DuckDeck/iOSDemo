@@ -7,7 +7,7 @@
 
 import UIKit
 import Alamofire
-class HttpClient{
+public class HttpClient{
     
     fileprivate var url:String!
     fileprivate var method:HTTPMethod!

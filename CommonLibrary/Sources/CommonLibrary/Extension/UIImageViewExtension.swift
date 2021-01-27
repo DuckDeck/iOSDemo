@@ -7,7 +7,7 @@
 
 import UIKit
 import Kingfisher
-extension UIImageView{
+public extension UIImageView{
     
     func setImg(url:String?){
         setImg(url: url, completed: nil, placeHolder: nil)
@@ -56,7 +56,7 @@ extension UIImageView{
     
 }
 
-extension UIImageView{
+public extension UIImageView{
     func addMask(img:UIImage?)  {
         for sub in self.subviews{
             if sub.tag == -100{

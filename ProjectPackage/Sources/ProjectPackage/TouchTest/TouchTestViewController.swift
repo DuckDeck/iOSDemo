@@ -26,6 +26,9 @@ class TouchTestViewController: UIViewController,drawViewDelegate {
         
     }
 
+    override var prefersStatusBarHidden: Bool{
+        return true  //好像没有起到作用
+    }
     
     var drawView:DrawView
     {

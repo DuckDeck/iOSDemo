@@ -9,17 +9,17 @@
 import UIKit
 import SwiftyJSON
 typealias completed = (_ result:ResultInfo)->Void
-struct ResultInfo {
-    var code = 0
-    var message = ""
-    var data:Any?
-    var count = 0
-    var content:[String:Any]?
+public struct ResultInfo {
+    public var code = 0
+    public var message = ""
+    public var data:Any?
+    public var count = 0
+    public var content:[String:Any]?
     init() {
         
     }
     
-    init(rawData:Data?) {
+    public init(rawData:Data?) {
         if let d = rawData{
             let js = JSON(d)
             if let code = js["code"].int{
@@ -43,11 +43,11 @@ struct ResultInfo {
 
 
 
-func handleResult(result:ResultInfo) -> Bool {
+public func handleResult(result:ResultInfo) -> Bool {
     return handleResult(result: result, needHideWait: true)
 }
 
-func handleResult(result:ResultInfo,needHideWait:Bool) -> Bool {
+public func handleResult(result:ResultInfo,needHideWait:Bool) -> Bool {
     if needHideWait {
         GrandCue.dismissLoading()
     }
