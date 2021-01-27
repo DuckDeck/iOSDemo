@@ -5,6 +5,7 @@ public struct FoundationPage:View {
         List{
             NavigationLink("Algo",destination:AlgoMenuPage())
             NavigationLink("NetWork",destination:NetWorkMenuPage())
+            NavigationLink("Sensor",destination:SensorMenuPage())
         }.navigationBarTitle(Text("UI"))
     
     }

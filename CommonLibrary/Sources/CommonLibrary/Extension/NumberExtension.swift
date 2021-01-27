@@ -126,11 +126,28 @@ public extension Int{
     }
 }
 
-extension Float{
+public extension Float{
     func inRange(target:Float,range:Float) -> Bool {
         if self <= target + range && self > target - range{
             return true
         }
         return false
+    }
+    func roundTo(places:UInt) -> Float {
+        let divisor = pow(10.0, Float(places))
+        return Float((self * divisor).rounded() / pow(10.0, Double(places)))
+    }
+}
+
+public extension Double{
+    func roundTo(places:UInt) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / pow(10.0, Double(places))
+    }
+    
+    func roundToStr(places:UInt) -> String {
+        let divisor = pow(10.0, Double(places))
+        let res = (self * divisor).rounded() / pow(10.0, Double(places))
+        return String(format:"%.\(places)f",res)
     }
 }

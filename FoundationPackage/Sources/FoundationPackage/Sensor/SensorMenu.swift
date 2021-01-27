@@ -2,15 +2,14 @@
 //  File.swift
 //  
 //
-//  Created by shadowedge on 2021/1/8.
+//  Created by shadowedge on 2021/1/26.
 //
 
 import SwiftUI
 
-public struct NetWorkMenuPage:View {
+public struct SensorMenuPage:View {
   public  var body: some View{
         List{
-            NavigationLink("问卷(JS control)",destination:JSControlDemo())
             NavigationLink("动态传感器",destination:MotionSensorDemo())
         }.navigationBarTitle(Text("UI"))
     }
