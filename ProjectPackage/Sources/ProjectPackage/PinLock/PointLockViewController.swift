@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import SwiftUI
+import CommonLibrary
 class PointLockViewController: UIViewController {
 
     let imgUp = UIImageView()
@@ -57,3 +58,14 @@ extension PointLockViewController:LockViewDelegate{
         return false
     }
 }
+struct PinLockDemo:UIViewControllerRepresentable {
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
+    }
+    typealias UIViewControllerType = PointLockViewController
+    
+    func makeUIViewController(context: Context) -> PointLockViewController {
+        return PointLockViewController()
+    }
+}
+

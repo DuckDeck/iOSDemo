@@ -55,7 +55,7 @@ extension LayoutViewController:UITableViewDelegate,UITableViewDataSource{
         case 3:
             navigationController?.pushViewController(StackViewController(), animated: true)
         case 4:
-            break
+            navigationController?.pushViewController(LoadMoreTable(), animated: true)
         case 5:
             break
         case 6:
@@ -70,4 +70,69 @@ extension LayoutViewController:UITableViewDelegate,UITableViewDataSource{
             break
         }
     }
+}
+
+class LoadMoreTable: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrColor.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ColorCell", for: indexPath)
+        cell.contentView.backgroundColor = arrColor[indexPath.row]
+        cell.textLabel?.text = indexPath.row.toString
+        return cell
+    }
+    
+    var tb = UITableView()
+    var arrColor = [UIColor]()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        for _ in 0..<20{
+            arrColor.append(UIColor.random)
+        }
+        view.addSubview(tb)
+        tb.snp.makeConstraints { (m) in
+            m.edges.equalTo(view)
+        }
+        tb.register(UITableViewCell.self, forCellReuseIdentifier: "ColorCell")
+        tb.delegate = self
+        tb.dataSource = self
+
+        
+        tb.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(footerRefresh))
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print("will display cell \(indexPath.row)")
+        if indexPath.row >= arrColor.count - 5 && !tb.mj_footer!.isRefreshing{
+                tb.mj_footer?.beginRefreshing()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    @objc func footerRefresh()  {
+        _ = delay(time: 0.5) {
+            for _ in 0..<20{
+                self.arrColor.append(UIColor.random)
+            }
+            self.tb.reloadData()
+            self.tb.mj_footer?.endRefreshing()
+        }
+
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        print("contextOffset \(scrollView.contentOffset.y)")
+//        print("contextSize\(scrollView.contentSize)")
+//        if scrollView.contentOffset.y >= scrollView.contentSize.height - ScreenHeight && !isLoadingMore{
+//            tb.mj_footer?.beginRefreshing()
+//            isLoadingMore = true
+//        }
+    }
+    
+    
 }
