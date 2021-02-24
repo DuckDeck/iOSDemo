@@ -17,7 +17,7 @@ public struct BinarySearchPage:View {
             Button("查看最基本的二分查找写法") {
                 print("查看最基本的二分查找写法")
             }
-        }.navigationBarTitle(Text("UI"))
+        }.navigationBarTitle(Text("二分查找"))
    
     }
     

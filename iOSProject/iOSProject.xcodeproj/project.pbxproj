@@ -33,6 +33,7 @@
 		207EE26225A965FB0030ECDD /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE26125A965FB0030ECDD /* Gifu */; };
 		207EE27E25A985EC0030ECDD /* gif0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 207EE27825A985920030ECDD /* gif0.gif */; };
 		207EE28925A9879B0030ECDD /* question.html in Resources */ = {isa = PBXBuildFile; fileRef = 207EE28825A9879A0030ECDD /* question.html */; };
+		AE61F16625E4FCB300905B9F /* SwiftyMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = AE61F16525E4FCB300905B9F /* SwiftyMarkdown */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 				207EE1C225A458600030ECDD /* Kingfisher in Frameworks */,
 				207EE26225A965FB0030ECDD /* Gifu in Frameworks */,
 				207EE1AE25A455850030ECDD /* GrandMenu in Frameworks */,
+				AE61F16625E4FCB300905B9F /* SwiftyMarkdown in Frameworks */,
 				207EE1B225A455E30030ECDD /* ViewChaos in Frameworks */,
 				207EE25525A841C10030ECDD /* GrandRefresh in Frameworks */,
 				207EE1CE25A459720030ECDD /* SwiftyJSON in Frameworks */,
@@ -177,6 +179,7 @@
 				207EE1D125A459BA0030ECDD /* Alamofire */,
 				207EE25425A841C10030ECDD /* GrandRefresh */,
 				207EE26125A965FB0030ECDD /* Gifu */,
+				AE61F16525E4FCB300905B9F /* SwiftyMarkdown */,
 			);
 			productName = iOSProject;
 			productReference = 207EE15B25A3006D0030ECDD /* iOSProject.app */;
@@ -221,6 +224,7 @@
 				207EE1D025A459BA0030ECDD /* XCRemoteSwiftPackageReference "Alamofire" */,
 				207EE25325A841C10030ECDD /* XCRemoteSwiftPackageReference "GrandRefresh" */,
 				207EE26025A965FB0030ECDD /* XCRemoteSwiftPackageReference "Gifu" */,
+				AE61F16425E4FCB300905B9F /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */,
 			);
 			productRefGroup = 207EE15C25A3006D0030ECDD /* Products */;
 			projectDirPath = "";
@@ -562,6 +566,14 @@
 				minimumVersion = 3.3.0;
 			};
 		};
+		AE61F16425E4FCB300905B9F /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimonFairbairn/SwiftyMarkdown";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -659,6 +671,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 207EE26025A965FB0030ECDD /* XCRemoteSwiftPackageReference "Gifu" */;
 			productName = Gifu;
+		};
+		AE61F16525E4FCB300905B9F /* SwiftyMarkdown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE61F16425E4FCB300905B9F /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */;
+			productName = SwiftyMarkdown;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

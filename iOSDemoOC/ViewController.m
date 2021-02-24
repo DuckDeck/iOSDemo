@@ -51,9 +51,15 @@
 
 @implementation ViewController
 
+
+- (void)loadView{
+    [super loadView];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view = nil;
+    //设置为nil生如果再 访问会在loadView重新生成，不访问应该不会死循环
     Person *pe;
     
     NSLog(@"Pe 是不是nil: %@",pe);
