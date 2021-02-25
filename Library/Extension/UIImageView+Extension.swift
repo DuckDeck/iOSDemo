@@ -35,6 +35,7 @@ extension UIImageView{
             if let p = placeHolder{
                 place = UIImage(named: p)
             }
+            
             kf.setImage(with: res, placeholder:place, options: [.transition(.fade(1))], progressBlock: nil) { (res) in
                 act.stopAnimating()
                 act.removeFromSuperview()
