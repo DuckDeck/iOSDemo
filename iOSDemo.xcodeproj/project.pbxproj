@@ -14,10 +14,7 @@
 		2051B88B2522DA940090B8C1 /* CatoMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2051B88A2522DA940090B8C1 /* CatoMonitor.swift */; };
 		209FACA6257F5ED40009E51E /* URLNavigator in Frameworks */ = {isa = PBXBuildFile; productRef = 209FACA5257F5ED40009E51E /* URLNavigator */; };
 		209FACA8257F5ED40009E51E /* URLMatcher in Frameworks */ = {isa = PBXBuildFile; productRef = 209FACA7257F5ED40009E51E /* URLMatcher */; };
-		20A5D6BE251DD7DE00D80F54 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A5D6BA251DD7DD00D80F54 /* AMapLocationKit.framework */; };
-		20A5D6BF251DD7DE00D80F54 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A5D6BB251DD7DD00D80F54 /* AMapFoundationKit.framework */; };
 		20A5D6C0251DD7DE00D80F54 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20A5D6BC251DD7DD00D80F54 /* AMap.bundle */; };
-		20A5D6C1251DD7DE00D80F54 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A5D6BD251DD7DD00D80F54 /* MAMapKit.framework */; };
 		20A5D6C9251DD87700D80F54 /* TableLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5D6C8251DD87700D80F54 /* TableLayoutViewController.swift */; };
 		20A5D6E6251E048200D80F54 /* LimitTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5D6E5251E048200D80F54 /* LimitTextView.swift */; };
 		20ABA57D2521D0B8009B2659 /* GrandTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ABA57C2521D0B8009B2659 /* GrandTextView.swift */; };
@@ -125,7 +122,6 @@
 		AE4D497C24A1F8F8003D1565 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D497B24A1F8F8003D1565 /* CoreTelephony.framework */; };
 		AE4D497E24A1F900003D1565 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D497D24A1F900003D1565 /* Security.framework */; };
 		AE4D498224A1F9C9003D1565 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D498124A1F9C9003D1565 /* ExternalAccessory.framework */; };
-		AE4D498924A1FE83003D1565 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AE4D498824A1FE82003D1565 /* AMap.bundle */; };
 		AE4D4A2724A9DD09003D1565 /* ViewChaos in Frameworks */ = {isa = PBXBuildFile; productRef = AE4D4A2624A9DD09003D1565 /* ViewChaos */; };
 		AE4DA61B213E68B300FCC7FD /* ShadowDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61A213E68B300FCC7FD /* ShadowDataManager.swift */; };
 		AE4DA61D213E762500FCC7FD /* ShadowDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61C213E762500FCC7FD /* ShadowDownloader.swift */; };
@@ -937,17 +933,14 @@
 				AEF5E8F92282B7DE0071B38A /* MediaPlayer.framework in Frameworks */,
 				AECA9D27248B7075008CC21B /* Kanna in Frameworks */,
 				AECA9D30248B7827008CC21B /* GrandStore in Frameworks */,
-				20A5D6BE251DD7DE00D80F54 /* AMapLocationKit.framework in Frameworks */,
 				AECA9D24248B5F06008CC21B /* IQKeyboardManagerSwift in Frameworks */,
 				AECA9D1E248B59BF008CC21B /* SnapKit in Frameworks */,
 				20EF8A4C255949A3008CBD99 /* SkeletonView in Frameworks */,
 				AECA9D2A248B7143008CC21B /* Kingfisher in Frameworks */,
-				20A5D6BF251DD7DE00D80F54 /* AMapFoundationKit.framework in Frameworks */,
 				AECA9D36248B7A04008CC21B /* GrandTime in Frameworks */,
 				AEF5E8F52282B7CA0071B38A /* VideoToolbox.framework in Frameworks */,
 				AEF5E8F32282AF540071B38A /* OpenGLES.framework in Frameworks */,
 				AEF5E8F12282AF4D0071B38A /* QuartzCore.framework in Frameworks */,
-				20A5D6C1251DD7DE00D80F54 /* MAMapKit.framework in Frameworks */,
 				AE4EA75321806C3F0061FA84 /* CoreVideo.framework in Frameworks */,
 				AE4EA75121806C390061FA84 /* CoreMedia.framework in Frameworks */,
 				209FACA6257F5ED40009E51E /* URLNavigator in Frameworks */,
@@ -2649,7 +2642,7 @@
 			attributes = {
 				DefaultBuildSystemTypeForWorkspace = Original;
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Stan Hu";
 				TargetAttributes = {
 					AE9776A02303E24400C2FA6A = {
@@ -2669,6 +2662,7 @@
 					};
 					AEF362A32058CB1F001A490D = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1240;
 					};
 					F6F30905246A7C4E0025EF5D = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -2722,7 +2716,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				20A5D6C0251DD7DE00D80F54 /* AMap.bundle in Resources */,
-				AE4D498924A1FE83003D1565 /* AMap.bundle in Resources */,
 				AE6897FE234C7C39001D0DF4 /* cxk.mp4 in Resources */,
 				AEB9572C22D48BF600C71372 /* test.mp4 in Resources */,
 				AE1DE0902099BE0A007910A5 /* p_2.png in Resources */,
@@ -3317,6 +3310,7 @@
 				);
 				INFOPLIST_FILE = iOSDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3362,6 +3356,7 @@
 				);
 				INFOPLIST_FILE = iOSDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3418,7 +3413,7 @@
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -3437,7 +3432,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

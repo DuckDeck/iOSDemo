@@ -44,7 +44,6 @@ struct ContentView: View {
                     self.selectTitle = "多媒体"
                 case .project:
                     self.selectTitle = "项目"
-                
                 case .foundation:
                     self.selectTitle = "基础"
                 }

@@ -69,7 +69,15 @@ class ImageRotationViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "拉", style: .plain, target: self, action: #selector(getData))
         weak var weakself = self
+        #if arch(x86_64) || arch(i386)
+            let vc = UIAlertController(title: "你正在使用模拟器", message: "模拟器无法使用传感器", preferredStyle: .alert)
+            vc.action(title: "确定") { (alert) in
+                
+            }.show()
+            return
+        #endif
         timer = GrandTimer.every(TimeSpan.fromTicks(80), block: {
+            
             print("x=\(String(describing: weakself?.cmManager.accelerometerData?.acceleration.x.roundTo(places: 2)))")
             print("y=\(String(describing: weakself?.cmManager.accelerometerData?.acceleration.y.roundTo(places: 2)))")
             print("z=\(String(describing: weakself?.cmManager.accelerometerData?.acceleration.z.roundTo(places: 2)))")

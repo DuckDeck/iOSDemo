@@ -397,3 +397,23 @@ for thing in things {
         print("其他结果，未匹配到")
     }
 }
+
+
+
+
+protocol abc {
+    func a()
+    func b()
+}
+extension abc{
+    func b() {
+        print("bbb")
+    }
+}
+class aaa: abc {
+    func a() {
+        
+    }
+    
+    
+}

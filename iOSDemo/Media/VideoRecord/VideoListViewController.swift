@@ -60,7 +60,7 @@ class VideoListViewController: UIViewController {
     @objc func showNetworkVideo() {
         //http://dev.qiniu-app.yihuivip.cn/15351672430
         //http://download.3g.joy.cn/video/236/60236937/1451280942752_hd.mp4
-        let url = URL(string: "https://lovelive.ink:19996/file/1594266552cxh.mp4")
+        let url = URL(string: "http://lovelive.ink:7113/video/forza.mp4")
         let vc = ShadowVideoPlayerViewController()
         vc.modalPresentationStyle = .fullScreen
         vc.url = url
