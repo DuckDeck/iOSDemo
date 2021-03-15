@@ -480,13 +480,13 @@ open class BlockTap: UITapGestureRecognizer {
 }
 public extension UIView{
 
-//    func topMostController() -> UIViewController {
-//        var topViewController = UIApplication.shared.keyWindow!.rootViewController!
-//        while topViewController.presentedViewController != nil {
-//            topViewController = topViewController.presentedViewController!
-//        }
-//        return topViewController
-//    }
+    func topMostController() -> UIViewController {
+        var topViewController = UIApplication.shared.keyWindow!.rootViewController!
+        while topViewController.presentedViewController != nil {
+            topViewController = topViewController.presentedViewController!
+        }
+        return topViewController
+    }
    func currentViewController() -> UIViewController? {
     var currentViewController = self.topMostController()
         while currentViewController is UINavigationController && (currentViewController as! UINavigationController).topViewController != nil  {

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import IQKeyboardManagerSwift
+
 import Photos
 public class Tool{
     static public func hiddenKeyboard(){
