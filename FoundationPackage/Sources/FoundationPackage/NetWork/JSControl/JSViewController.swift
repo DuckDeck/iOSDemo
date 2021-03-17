@@ -41,6 +41,16 @@ class JSViewController: UIViewController {
         let request = URLRequest(url: url)
 
         _ =  webView?.load(request)
+        
+        
+//        print("view.safeAreaLayoutGuide = \(view.safeAreaLayoutGuide)")
+//        print("\n")
+//        print("view.safeAreaInsets = \(view.safeAreaInsets)")
+//        let area = UIView(frame: view.safeAreaLayoutGuide.layoutFrame)
+//        area.backgroundColor = UIColor.red
+//              view.addSubview(area)
+
+
     }
 
 
