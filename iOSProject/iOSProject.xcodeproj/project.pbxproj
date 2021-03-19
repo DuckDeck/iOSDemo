@@ -40,6 +40,7 @@
 		BA727DF02601AF590015DAA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA727DEF2601AF590015DAA7 /* Assets.xcassets */; };
 		BA727DF32601AF590015DAA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA727DF12601AF590015DAA7 /* LaunchScreen.storyboard */; };
 		BA727DF62601AF590015DAA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA727DF52601AF590015DAA7 /* main.m */; };
+		BAD9DADE260450B100C0530C /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD9DADD260450B100C0530C /* AdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,8 @@
 		BA727DF22601AF590015DAA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA727DF42601AF590015DAA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA727DF52601AF590015DAA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BAD9DADC260450B000C0530C /* iOSProjectOC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSProjectOC-Bridging-Header.h"; sourceTree = "<group>"; };
+		BAD9DADD260450B100C0530C /* AdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +184,8 @@
 				BA727DF12601AF590015DAA7 /* LaunchScreen.storyboard */,
 				BA727DF42601AF590015DAA7 /* Info.plist */,
 				BA727DF52601AF590015DAA7 /* main.m */,
+				BAD9DADD260450B100C0530C /* AdViewController.swift */,
+				BAD9DADC260450B000C0530C /* iOSProjectOC-Bridging-Header.h */,
 			);
 			path = iOSProjectOC;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 					};
 					BA727DE02601AF570015DAA7 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -337,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA727DEB2601AF570015DAA7 /* ViewController.m in Sources */,
+				BAD9DADE260450B100C0530C /* AdViewController.swift in Sources */,
 				BA727DE52601AF570015DAA7 /* AppDelegate.m in Sources */,
 				BA727DF62601AF590015DAA7 /* main.m in Sources */,
 				BA727DE82601AF570015DAA7 /* SceneDelegate.m in Sources */,
@@ -522,6 +529,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
 				INFOPLIST_FILE = iOSProjectOC/Info.plist;
@@ -532,6 +540,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ShadowEdge.iOSProjectOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSProjectOC/iOSProjectOC-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -541,6 +552,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
 				INFOPLIST_FILE = iOSProjectOC/Info.plist;
@@ -551,6 +563,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ShadowEdge.iOSProjectOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSProjectOC/iOSProjectOC-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

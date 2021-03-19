@@ -7,6 +7,7 @@
 
 #import "SceneDelegate.h"
 #import "ViewController.h"
+#import "iOSProjectOC-Swift.h"
 @interface SceneDelegate ()
 
 @end
@@ -22,7 +23,7 @@
     UIWindowScene *windowScene = (UIWindowScene *)scene;
     self.window = [[UIWindow alloc] initWithWindowScene:windowScene];
     self.window.frame = windowScene.coordinateSpace.bounds;
-    ViewController *vc = [[ViewController alloc]init];
+    AdViewController *vc = [[AdViewController alloc]init];
     UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
