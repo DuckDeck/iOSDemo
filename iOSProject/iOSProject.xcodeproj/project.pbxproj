@@ -40,8 +40,34 @@
 		BA727DF02601AF590015DAA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA727DEF2601AF590015DAA7 /* Assets.xcassets */; };
 		BA727DF32601AF590015DAA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA727DF12601AF590015DAA7 /* LaunchScreen.storyboard */; };
 		BA727DF62601AF590015DAA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA727DF52601AF590015DAA7 /* main.m */; };
+		BAABD4CA260C7BCB0026A251 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAABD4C9260C7BCB0026A251 /* KeyboardViewController.swift */; };
+		BAABD4CE260C7BCB0026A251 /* GrandKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BAD9DADE260450B100C0530C /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD9DADD260450B100C0530C /* AdViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BAABD4CC260C7BCB0026A251 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 207EE15325A3006D0030ECDD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BAABD4C6260C7BCB0026A251;
+			remoteInfo = GrandKeyboard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BAABD4CF260C7BCB0026A251 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BAABD4CE260C7BCB0026A251 /* GrandKeyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		207EE15B25A3006D0030ECDD /* iOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +93,9 @@
 		BA727DF22601AF590015DAA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA727DF42601AF590015DAA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA727DF52601AF590015DAA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GrandKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAABD4C9260C7BCB0026A251 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		BAABD4CB260C7BCB0026A251 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAD9DADC260450B000C0530C /* iOSProjectOC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSProjectOC-Bridging-Header.h"; sourceTree = "<group>"; };
 		BAD9DADD260450B100C0530C /* AdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +136,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BAABD4C4260C7BCB0026A251 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -117,6 +153,7 @@
 				207EE27725A985920030ECDD /* Resource */,
 				207EE15D25A3006D0030ECDD /* iOSProject */,
 				BA727DE22601AF570015DAA7 /* iOSProjectOC */,
+				BAABD4C8260C7BCB0026A251 /* GrandKeyboard */,
 				207EE15C25A3006D0030ECDD /* Products */,
 				207EE17125A303950030ECDD /* Frameworks */,
 			);
@@ -127,6 +164,7 @@
 			children = (
 				207EE15B25A3006D0030ECDD /* iOSProject.app */,
 				BA727DE12601AF570015DAA7 /* iOSProjectOC.app */,
+				BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,6 +228,15 @@
 			path = iOSProjectOC;
 			sourceTree = "<group>";
 		};
+		BAABD4C8260C7BCB0026A251 /* GrandKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				BAABD4C9260C7BCB0026A251 /* KeyboardViewController.swift */,
+				BAABD4CB260C7BCB0026A251 /* Info.plist */,
+			);
+			path = GrandKeyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,10 +247,12 @@
 				207EE15725A3006D0030ECDD /* Sources */,
 				207EE15825A3006D0030ECDD /* Frameworks */,
 				207EE15925A3006D0030ECDD /* Resources */,
+				BAABD4CF260C7BCB0026A251 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BAABD4CD260C7BCB0026A251 /* PBXTargetDependency */,
 			);
 			name = iOSProject;
 			packageProductDependencies = (
@@ -250,13 +299,30 @@
 			productReference = BA727DE12601AF570015DAA7 /* iOSProjectOC.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BAABD4C6260C7BCB0026A251 /* GrandKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAABD4D2260C7BCB0026A251 /* Build configuration list for PBXNativeTarget "GrandKeyboard" */;
+			buildPhases = (
+				BAABD4C3260C7BCB0026A251 /* Sources */,
+				BAABD4C4260C7BCB0026A251 /* Frameworks */,
+				BAABD4C5260C7BCB0026A251 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GrandKeyboard;
+			productName = GrandKeyboard;
+			productReference = BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		207EE15325A3006D0030ECDD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					207EE15A25A3006D0030ECDD = {
@@ -265,6 +331,9 @@
 					BA727DE02601AF570015DAA7 = {
 						CreatedOnToolsVersion = 12.4;
 						LastSwiftMigration = 1240;
+					};
+					BAABD4C6260C7BCB0026A251 = {
+						CreatedOnToolsVersion = 12.4;
 					};
 				};
 			};
@@ -301,6 +370,7 @@
 			targets = (
 				207EE15A25A3006D0030ECDD /* iOSProject */,
 				BA727DE02601AF570015DAA7 /* iOSProjectOC */,
+				BAABD4C6260C7BCB0026A251 /* GrandKeyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -323,6 +393,13 @@
 			files = (
 				BA727DF32601AF590015DAA7 /* LaunchScreen.storyboard in Resources */,
 				BA727DF02601AF590015DAA7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAABD4C5260C7BCB0026A251 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +427,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BAABD4C3260C7BCB0026A251 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAABD4CA260C7BCB0026A251 /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BAABD4CD260C7BCB0026A251 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BAABD4C6260C7BCB0026A251 /* GrandKeyboard */;
+			targetProxy = BAABD4CC260C7BCB0026A251 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BA727DF12601AF590015DAA7 /* LaunchScreen.storyboard */ = {
@@ -483,6 +576,7 @@
 		207EE16B25A3006F0030ECDD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -505,6 +599,7 @@
 		207EE16C25A3006F0030ECDD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -569,6 +664,46 @@
 			};
 			name = Release;
 		};
+		BAABD4D0260C7BCB0026A251 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3YCGH6CCXA;
+				INFOPLIST_FILE = GrandKeyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ShadowEdge.iOSProject.GrandKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BAABD4D1260C7BCB0026A251 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3YCGH6CCXA;
+				INFOPLIST_FILE = GrandKeyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ShadowEdge.iOSProject.GrandKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -595,6 +730,15 @@
 			buildConfigurations = (
 				BA727DF72601AF590015DAA7 /* Debug */,
 				BA727DF82601AF590015DAA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BAABD4D2260C7BCB0026A251 /* Build configuration list for PBXNativeTarget "GrandKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAABD4D0260C7BCB0026A251 /* Debug */,
+				BAABD4D1260C7BCB0026A251 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

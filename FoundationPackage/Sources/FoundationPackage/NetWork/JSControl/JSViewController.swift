@@ -50,7 +50,10 @@ class JSViewController: UIViewController {
 //        area.backgroundColor = UIColor.red
 //              view.addSubview(area)
 
-
+        let p = UIPasteboard.general
+        p.string = "fgfff"
+        let s = p.string
+        print(s)
     }
 
 
