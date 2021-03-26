@@ -50,6 +50,7 @@ class FiveStrokeViewController: UIViewController,UITextFieldDelegate {
         txtSearch.layer.borderColor = UIColor.blue.cgColor
         txtSearch.placeholder = "输入中文查询，多个文字不用分割"
         txtSearch.addOffsetView(value: 10)
+        txtSearch.textContentType = .oneTimeCode
         txtSearch.addTo(view: view).snp.makeConstraints { (m) in
             m.left.equalTo(5)
             m.top.equalTo(0)

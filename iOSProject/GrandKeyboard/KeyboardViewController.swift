@@ -19,7 +19,10 @@ class KeyboardViewController: UIInputViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let p = UIPasteboard.general
+        print("==========================")
+        print(p.string)
+
         // Perform custom UI setup here
         self.nextKeyboardButton = UIButton(type: .system)
         
@@ -33,13 +36,12 @@ class KeyboardViewController: UIInputViewController {
         
         self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        let p = UIPasteboard.general
-        print(p.string)
-        let p1 = UIPasteboard.withUniqueName()
-        print(p1.string)
 
+        
     }
     
+
+
     override func viewWillLayoutSubviews() {
         self.nextKeyboardButton.isHidden = !self.needsInputModeSwitchKey
         super.viewWillLayoutSubviews()
@@ -61,5 +63,20 @@ class KeyboardViewController: UIInputViewController {
         }
         self.nextKeyboardButton.setTitleColor(textColor, for: [])
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let p = UIPasteboard.general
+        print("==========================")
+        print(p.string)
+
+    }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        let p = UIPasteboard.general
+//        print("==========================")
+//        print(p.string)
+//    }
 
 }
