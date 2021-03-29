@@ -12,7 +12,21 @@ import GrandTime
 public enum FilterToInt{
     case ForwardFilter,BackwordFilter,AllFilter
 }
-
+public enum NumOperate:String{
+    case Add = "+",Minus = "-",Multiply = "x", Devided = "/"
+    public init?(rawValue: String) {
+        switch rawValue {
+        case "+": self = .Add
+        case "-":self = .Minus
+        case "x":self = .Multiply
+        case "*":self = .Multiply
+        case "/":self = .Devided
+        case "%":self = .Devided
+        default:
+            return nil
+        }
+    }
+}
 public extension NSObject{
     func addDispose()  {
         
@@ -174,6 +188,14 @@ public extension String{
         }
     }
     
+    func toDouble() -> Double? {
+        if let num = NumberFormatter().number(from: self) {
+            return num.doubleValue
+        } else {
+            return nil
+        }
+    }
+    
     var md5:String{
         let utf8 = cString(using: .utf8)
         var digest = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
@@ -188,7 +210,7 @@ public extension String{
         return digest.reduce(""){$0 + String(format:"%02X",$1)}
     }
     
-    public func hmac(key:String)->String{
+    func hmac(key:String)->String{
         let utf8 = cString(using: .utf8)
         let keyData = key.cString(using: .utf8)
         var digest = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
@@ -196,7 +218,7 @@ public extension String{
         return digest.reduce(""){$0 + String(format:"%02X",$1)}
     }
     
-    public func filteToInt(filter:FilterToInt)->Int?{
+    func filteToInt(filter:FilterToInt)->Int?{
         let enu = self.enumerated()
         var tmp = ""
        
@@ -262,6 +284,105 @@ public extension String{
             guard let range = Range(match.range, in: self) else { return nil }
             return String(self[range])
         }
+    }
+    
+
+    //g4-g+5/4
+    //判断这和串前面那部分是不是数字操作
+    func numOperatePart() -> ([Double],[NumOperate])? {
+        if !(self.last?.isNumber ?? false){ //最后一位不是数字
+            return nil
+        }
+        let chars = Array(self)
+        var nums = [Double]()
+        var opera = [NumOperate]()
+        var tmp = [String]()
+        var previous:Element?
+        for item in chars.enumerated().reversed() {
+            if item.element.isNumber || item.element == "." {
+                tmp.insert(String(item.element), at: 0)
+            }
+            else if let _ = NumOperate(rawValue: String(item.element)) {
+                if previous != nil && previous!.isNumber {
+                    tmp.insert(String(item.element), at: 0)
+                }
+                else if previous != nil && NumOperate(rawValue: String(previous!)) != nil {
+                    tmp.removeFirst()
+                    break
+                }
+            }
+            else{
+                if previous != nil && NumOperate(rawValue: String(previous!)) != nil {
+                    tmp.removeFirst()
+                    break
+                }
+                else{
+                    break
+                }
+                
+            }
+            previous = item.element
+        }
+        //判断特殊情况
+        if tmp.count < 3 {
+            return nil
+        }
+        if tmp.first! == "."{
+           tmp.removeFirst()
+        }
+        if tmp.last! == "."{
+            return nil
+        }
+        var numTmp =  ""
+        //下面要重构，这个特难处理，先不处理，比如这样的会出错 4.5.5+5.6.4+4.3.2,先不用管了
+        var arrNumTmp = [String]()
+        
+        
+        
+        for item in tmp.enumerated()  {
+            
+            if  item.element.toInt() != nil || item.element == "." {
+                numTmp.append(item.element)
+            }
+            else if let op = NumOperate(rawValue: String(item.element)){
+                arrNumTmp.append(numTmp)
+                numTmp = ""
+                opera.append(op)
+            }
+            if item.offset == tmp.count - 1 {
+                arrNumTmp.append(numTmp)
+            }
+        }
+        
+        //判断有多少有效的书 //如果第一个数无效，那么不用看了
+        for num in arrNumTmp.enumerated().reversed(){
+            //找到最后一个无效的书
+            if let n = num.element.toDouble(){
+                nums.append(n)
+            }
+            else{
+                //如果是第一个，就直接全部无效
+                if num.offset == arrNumTmp.count - 1 {
+                    return nil
+                }
+                else{
+                    //不是第一个，保留这个数，获取这个是正确的数值
+                    let ns = num.element.split(separator: ".")
+                    nums.append((String(ns[ns.count - 2]) + "." + String(ns[ns.count - 1])).toDouble()!)
+                    
+                }
+                break //后面不用看了
+            }
+        }
+        let validNumCount = arrNumTmp.count - nums.count
+        for _ in 0..<validNumCount {
+            opera.removeFirst()
+        }
+        nums = nums.reversed()
+        if opera.count > 0 {
+            return(nums,opera)
+        }
+       return nil
     }
 }
 
