@@ -368,8 +368,9 @@ public extension String{
                 else{
                     //不是第一个，保留这个数，获取这个是正确的数值
                     let ns = num.element.split(separator: ".")
-                    nums.append((String(ns[ns.count - 2]) + "." + String(ns[ns.count - 1])).toDouble()!)
-                    
+                    if ns.count > 2 {
+                        nums.append((String(ns[ns.count - 2]) + "." + String(ns[ns.count - 1])).toDouble()!)
+                    }
                 }
                 break //后面不用看了
             }
