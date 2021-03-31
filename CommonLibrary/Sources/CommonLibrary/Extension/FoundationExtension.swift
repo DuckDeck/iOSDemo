@@ -196,6 +196,13 @@ public extension String{
         }
     }
     
+    func toDecimal() -> Decimal?  {
+        if let dou = toDouble(){
+            return Decimal(dou)
+        }
+        return nil
+    }
+    
     var md5:String{
         let utf8 = cString(using: .utf8)
         var digest = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
@@ -385,6 +392,42 @@ public extension String{
         }
        return nil
     }
+    //太复杂了
+    /*
+    func findValidNum() -> String? {
+        //一个运算最少要3个字符
+        if self.count < 3 {
+            return nil
+        }
+        var validNums = [String]()
+        var previous:Element?
+        for c in self.enumerated() {
+            if c.element.isNumber {
+                validNums.insert(String(c.element), at: 0)
+            }
+            else if c.element == "."{
+                //判断前面的数是不是一个小数
+                if validNums.contains(".") && validNums.joined().toDouble() != nil {
+                    //如果是，就移除整数部分
+                    let index = validNums.firstIndex(of: ".")!
+                    validNums.removeSubrange(0...index)
+                }
+                if previous != nil {
+                    validNums.insert(String(c.element), at: 0)
+                }
+            }
+            //如果是运算符- 那么可能是负数或者运算符
+            else if NumOperate(rawValue: String(c.element)) != nil{
+                validNums.insert(String(c.element), at: 0)
+            }
+            else if
+        }
+        return ""
+    }
+
+    */
+    
+    
 }
 
 public extension NSMutableAttributedString{
@@ -619,8 +662,14 @@ public extension CGSize{
 }
 
 public extension CGRect {
-    public init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
+    init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
         self.init(x: x, y: y, width: w, height: h)
+    }
+    
+   var center:CGPoint{
+        get{
+            return CGPoint(x: self.origin.x + self.self.width / 2, y: self.origin.y + self.self.height / 2)
+        }
     }
 }
 
