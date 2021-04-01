@@ -42,10 +42,15 @@ struct iOSProjectApp: App {
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         IQKeyboardManager.shared.enable = true
-        
         if let item =  "434g+0.54.5*1.3.4+9.0.2-9.2+123.77".numOperatePart(){
            let _ = calculatorResult(numOperas: item)
         }
+        
+        let cal = StringCalculator()
+        //434g+0.54.5*1.3.4+9%-0.2-9.2+123.77
+        //434g+0.54.5*1.3.4+9%-0.2-9.2+123.77
+        let tmp = cal.parse(st: "(-5.9-7.2)*-550")
+        print(tmp)
         return true
     }
     //如果有些库还是用appDelegate来处理的话还是可以在这里处理生命周期, 下面方法不用调用
@@ -102,29 +107,26 @@ class StringCalculator {
      * @return 比较结果 true代表比栈顶元素优先级高，false代表比栈顶元素优先级低
      */
     private func compare(c:Character)->Bool{
-        if c.isWhitespace {
-            return true
-        }
         guard let last = chs.last else{
-            return false
+            return true
         }
         switch c {
         case "*","x","/":
             if last == "+" || last == "-" {
-                return true
+                return false
             }
             else{
-                return false
+                return true
             }
         case "+","-":
             return false
         default:
             return false
         }
-        
     }
     
-    func calculator(st:String) -> Decimal {
+    
+    func calculator(st:String) -> Decimal? {
         var sb = st
         var num = ""
         var tem:Character? = nil
@@ -132,22 +134,46 @@ class StringCalculator {
         while sb.count > 0 {
             tem = sb.first
             sb = sb.substring(from: 1)
-            if tem?.isNumber ?? false {
+            if (tem?.isNumber ?? false) || tem == "." {
                 num.append(tem!)
             }
             else{
                 if num.count > 0 && !num.isEmpty {
-                    let bd = num.toDecimal()!
-                    numbers.push(element: bd)
+                    let bd = num.toDecimal()
+                    if bd == nil {
+                        return nil
+                    }
+                    numbers.push(element: bd!)
                     num.removeAll()
                 }
                 if !chs.isEmpty {
-                   
+                    while !compare(c: tem!) {
+                        calculator()
+                    }
+                }
+                if numbers.isEmpty {
+                    num.append(tem!)
+                }
+                else{
+                    chs.push(element: tem!)
+                }
+                next = sb.first
+                if next! == "-" {
+                    num.append(next!)
+                    sb.removeFirst()
                 }
             }
             
         }
-        return 0
+        if let bd = num.toDecimal()
+        {
+            numbers.push(element: bd)
+            while !chs.isEmpty {
+                calculator()
+            }
+            return numbers.pop()
+        }
+        return nil
     }
     
     var result:Decimal?
@@ -178,6 +204,61 @@ class StringCalculator {
             break
         }
     }
+    
+    func parse(st:String) -> Decimal? {
+        var index = 0
+        var str = st.replacingOccurrences(of: " ", with: "")
+        for item in st.enumerated().reversed() {
+            if !isCharValid(char: item.element) {
+                index = item.offset + 1
+                break
+            }
+        }
+        str = str.substring(from: index)
+        source = str
+        str = changePercent(str: str)
+        let start = 0
+        var sts = str
+        var end = sts.index(str: ")")
+        while end > 0 {
+            let s = sts.substring(from: start, to: end)
+            let first = s.index(str: "(")
+            if first == -1 {
+                return nil
+            }
+            let value = calculator(st: sts.substring(from: first + 1, to: end - 1))
+            if value == nil {
+                return nil
+            }
+            sts =  sts.replaceRange(start: start, end: end, str: "\(String(describing: value!))")
+            end = sts.index(str: ")")
+        }
+        
+        return calculator(st: sts)
+    }
+    
+    func isCharValid(char:Character) -> Bool {
+        if char.isNumber {
+            return true
+        }
+        switch char {
+        case "+","-","*","x","/","(",")",".","%","÷":
+            return true
+        default:
+            return false
+        }
+    }
+    
+    func changePercent(str:String) -> String {
+        var ret = str
+        let results =  str.matches(for: "(-?[0-9]+(\\.[0-9]+)?)%")
+        for item in results {
+            let num = item.replacingOccurrences(of: "%", with: "").toDouble()! / 100.0
+            ret = ret.replacingOccurrences(of: item, with: "\(num)")
+        }
+        
+        return ret
+    }
 }
 
 class Stack<T> {
@@ -192,7 +273,7 @@ class Stack<T> {
         arr.append(element)
     }
     func pop() -> T {
-        return arr.removeFirst()
+        return arr.removeLast()
     }
     
     var last:T?{
@@ -201,5 +282,9 @@ class Stack<T> {
     
     var isEmpty:Bool{
         return arr.isEmpty
+    }
+    
+    func clear() {
+        arr.removeAll()
     }
 }

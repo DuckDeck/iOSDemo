@@ -48,6 +48,20 @@ public extension NSObject{
 }
 
 public extension String{
+    
+    func index(str:Character) -> Int {
+        let index = self.firstIndex(of: str)
+        if index == nil {
+            return -1
+        }
+        return self.distance(from: startIndex, to: index!)
+    }
+    
+    func replaceRange(start:Int,end:Int,str:String) -> String {
+        let s = substring(from: start, to: end)
+        return replacingOccurrences(of: s, with: str)
+    }
+    
     func substring(from: Int?, to: Int?) -> String {
         if let start = from {
             guard start < self.count else {
