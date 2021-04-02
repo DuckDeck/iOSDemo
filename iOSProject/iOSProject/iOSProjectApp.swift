@@ -100,6 +100,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 class StringCalculator {
     private var numbers = Stack<Decimal>()
     private var chs = Stack<Character>()
+    public var numString = ""
     /**
      * 比较当前操作符与栈顶元素操作符优先级，如果比栈顶元素优先级高，则返回true，否则返回false
      *
@@ -141,12 +142,13 @@ class StringCalculator {
                 if num.count > 0 && !num.isEmpty {
                     let bd = num.toDecimal()
                     if bd == nil {
+                        clear()
                         return nil
                     }
                     numbers.push(element: bd!)
                     num.removeAll()
                 }
-                if !chs.isEmpty {
+                if !chs.isEmpty && chs.count + 1 == numbers.count {
                     while !compare(c: tem!) {
                         calculator()
                     }
@@ -158,22 +160,37 @@ class StringCalculator {
                     chs.push(element: tem!)
                 }
                 next = sb.first
-                if next! == "-" {
+                if next != nil && next! == "-" {
                     num.append(next!)
                     sb.removeFirst()
                 }
             }
-            
+        }
+        //通常这里要计算最后一个数，但是如果本身不需要计算
+        if chs.count <= 0 {
+            clear()
+            return nil
         }
         if let bd = num.toDecimal()
         {
             numbers.push(element: bd)
-            while !chs.isEmpty {
+            if chs.count + 1 != numbers.count{
+                clear()
+                return nil
+            }
+            while !chs.isEmpty  {
                 calculator()
             }
             return numbers.pop()
         }
+        clear()
         return nil
+    }
+    
+    func clear() {
+        numbers.clear()
+        chs.clear()
+
     }
     
     var result:Decimal?
@@ -224,16 +241,18 @@ class StringCalculator {
             let s = sts.substring(from: start, to: end)
             let first = s.index(str: "(")
             if first == -1 {
+                clear()
                 return nil
             }
             let value = calculator(st: sts.substring(from: first + 1, to: end - 1))
             if value == nil {
+                clear()
                 return nil
             }
             sts =  sts.replaceRange(start: start, end: end, str: "\(String(describing: value!))")
             end = sts.index(str: ")")
         }
-        
+        numString = str
         return calculator(st: sts)
     }
     
