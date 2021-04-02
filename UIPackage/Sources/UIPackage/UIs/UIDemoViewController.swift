@@ -104,6 +104,48 @@ class NineKeyboard: UIView {
         layerText2.fontSize = 13
         layers.append(layerText2)
 
+        
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to: CGPoint(x: 16 * 1, y: 32 * 1))
+        bezierPath.addLine(to: CGPoint(x: 38 * 1, y: 32 * 1))
+        bezierPath.addCurve(to: CGPoint(x: 44 * 1, y: 26 * 1), controlPoint1: CGPoint(x: 38 * 1, y: 32 * 1), controlPoint2: CGPoint(x: 44 * 1, y: 32 * 1))
+        bezierPath.addCurve(to: CGPoint(x: 44 * 1, y: 6 * 1), controlPoint1: CGPoint(x: 44 * 1, y: 22 * 1), controlPoint2: CGPoint(x: 44 * 1, y: 6 * 1))
+        bezierPath.addCurve(to: CGPoint(x: 36 * 1, y: 0 * 1), controlPoint1: CGPoint(x: 44 * 1, y: 6 * 1), controlPoint2: CGPoint(x: 44 * 1, y: 0 * 1))
+        bezierPath.addCurve(to: CGPoint(x: 16 * 1, y: 0 * 1), controlPoint1: CGPoint(x: 32 * 1, y: 0 * 1), controlPoint2: CGPoint(x: 16 * 1, y: 0 * 1))
+        bezierPath.addLine(to: CGPoint(x: 0 * 1, y: 18 * 1))
+        bezierPath.addLine(to: CGPoint(x: 16 * 1, y: 32 * 1))
+        bezierPath.close()
+        color.setFill()
+        bezierPath.fill()
+        
+        
+        //// Bezier 2 Drawing
+        let bezier2Path = UIBezierPath()
+        bezier2Path.move(to: CGPoint(x: 20 * 1, y: 10 * 1))
+        bezier2Path.addLine(to: CGPoint(x: 34 * 1, y: 22 * 1))
+        bezier2Path.addLine(to: CGPoint(x: 20 * 1, y: 10 * 1))
+        bezier2Path.close()
+        UIColor.gray.setFill()
+        bezier2Path.fill()
+        color2.setStroke()
+        bezier2Path.lineWidth = 2.5 * lineWidthScalingFactor
+        bezier2Path.stroke()
+        
+        
+        //// Bezier 3 Drawing
+        let bezier3Path = UIBezierPath()
+        bezier3Path.move(to: CGPoint(x: 20 * 1, y: 22 * 1))
+        bezier3Path.addLine(to: CGPoint(x: 34 * 1, y: 10 * 1))
+        bezier3Path.addLine(to: CGPoint(x: 20 * 1, y: 22 * 1))
+        bezier3Path.close()
+        UIColor.red.setFill()
+        bezier3Path.fill()
+        color2.setStroke()
+        bezier3Path.lineWidth = 2.5 * lineWidthScalingFactor
+        bezier3Path.stroke()
+        
+        
+        
         return layers
     }
     
