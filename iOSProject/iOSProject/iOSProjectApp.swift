@@ -8,6 +8,7 @@
 import SwiftUI
 import IQKeyboardManagerSwift
 import CommonLibrary
+
 @main
 struct iOSProjectApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate //这里可以使用appDelegate

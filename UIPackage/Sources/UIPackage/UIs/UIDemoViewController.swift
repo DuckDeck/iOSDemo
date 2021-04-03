@@ -36,6 +36,70 @@ class UIDemoViewController: UIViewController {
         
         let keyboard = NineKeyboard(frame: CGRect(x: 10, y: 400, width: ScreenWidth - 20, height: 300))
         view.addSubview(keyboard)
+        
+        
+        let vBack = UIView()
+        view.addSubview(vBack)
+        vBack.backgroundColor = UIColor(gray: 0.3, alpha: 0.3)
+        vBack.snp.makeConstraints { (m) in
+            m.left.equalTo(150)
+            m.top.equalTo(50)
+            m.width.height.equalTo(100)
+        }
+        let layer = CAShapeLayer()
+        let bezierPath = UIBezierPath()
+        bezierPath.lineWidth = 10
+        
+        bezierPath.move(to: CGPoint(x: 16, y: 32))
+        bezierPath.addLine(to: CGPoint(x: 38, y: 77))
+        bezierPath.addLine(to: CGPoint(x: 55, y: 77))
+        bezierPath.lineCapStyle = .square
+ //       bezierPath.addCurve(to: CGPoint(x: 44 * 1, y: 26 * 1), controlPoint1: CGPoint(x: 38 * 1, y: 32 * 1), controlPoint2: CGPoint(x: 44 * 1, y: 32 * 1))
+//        bezierPath.addCurve(to: CGPoint(x: 44 * 1, y: 6 * 1), controlPoint1: CGPoint(x: 44 * 1, y: 22 * 1), controlPoint2: CGPoint(x: 44 * 1, y: 6 * 1))
+//        bezierPath.addCurve(to: CGPoint(x: 36 * 1, y: 0 * 1), controlPoint1: CGPoint(x: 44 * 1, y: 6 * 1), controlPoint2: CGPoint(x: 44 * 1, y: 0 * 1))
+//        bezierPath.addCurve(to: CGPoint(x: 16 * 1, y: 0 * 1), controlPoint1: CGPoint(x: 32 * 1, y: 0 * 1), controlPoint2: CGPoint(x: 16 * 1, y: 0 * 1))
+//        bezierPath.addLine(to: CGPoint(x: 0 * 1, y: 18 * 1))
+//        bezierPath.addLine(to: CGPoint(x: 16 * 1, y: 32 * 1))
+//        bezierPath.close()
+//        UIColor.green.setFill()
+//        bezierPath.fill()
+        
+        
+        //// Bezier 2 Drawing
+        let bezier2Path = UIBezierPath()
+        bezier2Path.move(to: CGPoint(x: 20 * 1, y: 10 * 1))
+        bezier2Path.addLine(to: CGPoint(x: 34 * 1, y: 22 * 1))
+        bezier2Path.addLine(to: CGPoint(x: 20 * 1, y: 10 * 1))
+        bezier2Path.close()
+        UIColor.gray.setFill()
+        bezier2Path.fill()
+        UIColor.red.setStroke()
+        bezier2Path.lineWidth = 2.5 * 1
+        bezier2Path.stroke()
+        
+        
+        //// Bezier 3 Drawing
+        let bezier3Path = UIBezierPath()
+        bezier3Path.move(to: CGPoint(x: 20 * 1, y: 22 * 1))
+        bezier3Path.addLine(to: CGPoint(x: 34 * 1, y: 10 * 1))
+        bezier3Path.addLine(to: CGPoint(x: 20 * 1, y: 22 * 1))
+        bezier3Path.close()
+        UIColor.red.setFill()
+        bezier3Path.fill()
+        UIColor.yellow.setStroke()
+        bezier3Path.lineWidth = 2.5 * 1
+        bezier3Path.stroke()
+        
+        let paths = CGMutablePath()
+        paths.addPath(bezierPath.cgPath)
+ //       paths.addPath(bezier2Path.cgPath)
+//        paths.addPath(bezier3Path.cgPath)
+        
+        let startPath = UIBezierPath()
+        startPath.move(to: CGPoint(x: 10, y: 10))
+        startPath.append(UIBezierPath(cgPath: paths))
+        layer.path = startPath.cgPath
+        vBack.layer.addSublayer(layer)
     }
     
 }
@@ -105,44 +169,6 @@ class NineKeyboard: UIView {
         layers.append(layerText2)
 
         
-        let bezierPath = UIBezierPath()
-        bezierPath.move(to: CGPoint(x: 16 * 1, y: 32 * 1))
-        bezierPath.addLine(to: CGPoint(x: 38 * 1, y: 32 * 1))
-        bezierPath.addCurve(to: CGPoint(x: 44 * 1, y: 26 * 1), controlPoint1: CGPoint(x: 38 * 1, y: 32 * 1), controlPoint2: CGPoint(x: 44 * 1, y: 32 * 1))
-        bezierPath.addCurve(to: CGPoint(x: 44 * 1, y: 6 * 1), controlPoint1: CGPoint(x: 44 * 1, y: 22 * 1), controlPoint2: CGPoint(x: 44 * 1, y: 6 * 1))
-        bezierPath.addCurve(to: CGPoint(x: 36 * 1, y: 0 * 1), controlPoint1: CGPoint(x: 44 * 1, y: 6 * 1), controlPoint2: CGPoint(x: 44 * 1, y: 0 * 1))
-        bezierPath.addCurve(to: CGPoint(x: 16 * 1, y: 0 * 1), controlPoint1: CGPoint(x: 32 * 1, y: 0 * 1), controlPoint2: CGPoint(x: 16 * 1, y: 0 * 1))
-        bezierPath.addLine(to: CGPoint(x: 0 * 1, y: 18 * 1))
-        bezierPath.addLine(to: CGPoint(x: 16 * 1, y: 32 * 1))
-        bezierPath.close()
-        color.setFill()
-        bezierPath.fill()
-        
-        
-        //// Bezier 2 Drawing
-        let bezier2Path = UIBezierPath()
-        bezier2Path.move(to: CGPoint(x: 20 * 1, y: 10 * 1))
-        bezier2Path.addLine(to: CGPoint(x: 34 * 1, y: 22 * 1))
-        bezier2Path.addLine(to: CGPoint(x: 20 * 1, y: 10 * 1))
-        bezier2Path.close()
-        UIColor.gray.setFill()
-        bezier2Path.fill()
-        color2.setStroke()
-        bezier2Path.lineWidth = 2.5 * lineWidthScalingFactor
-        bezier2Path.stroke()
-        
-        
-        //// Bezier 3 Drawing
-        let bezier3Path = UIBezierPath()
-        bezier3Path.move(to: CGPoint(x: 20 * 1, y: 22 * 1))
-        bezier3Path.addLine(to: CGPoint(x: 34 * 1, y: 10 * 1))
-        bezier3Path.addLine(to: CGPoint(x: 20 * 1, y: 22 * 1))
-        bezier3Path.close()
-        UIColor.red.setFill()
-        bezier3Path.fill()
-        color2.setStroke()
-        bezier3Path.lineWidth = 2.5 * lineWidthScalingFactor
-        bezier3Path.stroke()
         
         
         

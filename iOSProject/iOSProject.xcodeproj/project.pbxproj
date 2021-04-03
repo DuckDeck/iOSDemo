@@ -34,6 +34,14 @@
 		207EE27E25A985EC0030ECDD /* gif0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 207EE27825A985920030ECDD /* gif0.gif */; };
 		207EE28925A9879B0030ECDD /* question.html in Resources */ = {isa = PBXBuildFile; fileRef = 207EE28825A9879A0030ECDD /* question.html */; };
 		AE61F16625E4FCB300905B9F /* SwiftyMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = AE61F16525E4FCB300905B9F /* SwiftyMarkdown */; };
+		AE9148B9261838E00061EC9F /* NumberKeyoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9148B8261838E00061EC9F /* NumberKeyoardView.swift */; };
+		AE9148C6261838F90061EC9F /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9148C1261838F90061EC9F /* KeyboardViewController.swift */; };
+		AE9148C7261838F90061EC9F /* NumberKeyoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9148C4261838F90061EC9F /* NumberKeyoardView.swift */; };
+		AE9148C8261838F90061EC9F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE9148C5261838F90061EC9F /* Info.plist */; };
+		AE9148CD261839000061EC9F /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9148CC261839000061EC9F /* Key.swift */; };
+		AE9148D2261839B40061EC9F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9148D1261839B40061EC9F /* Config.swift */; };
+		AE9148DA26183C3E0061EC9F /* GrandStore in Frameworks */ = {isa = PBXBuildFile; productRef = AE9148D926183C3E0061EC9F /* GrandStore */; };
+		AE9148DC26183C650061EC9F /* CommonLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = AE9148DB26183C650061EC9F /* CommonLibrary */; };
 		BA727DE52601AF570015DAA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA727DE42601AF570015DAA7 /* AppDelegate.m */; };
 		BA727DE82601AF570015DAA7 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA727DE72601AF570015DAA7 /* SceneDelegate.m */; };
 		BA727DEB2601AF570015DAA7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA727DEA2601AF570015DAA7 /* ViewController.m */; };
@@ -82,6 +90,12 @@
 		207EE27B25A985920030ECDD /* novel2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = novel2.gif; sourceTree = "<group>"; };
 		207EE27C25A985920030ECDD /* cxk.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cxk.mp4; sourceTree = "<group>"; };
 		207EE28825A9879A0030ECDD /* question.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = question.html; path = ../Resource/question.html; sourceTree = "<group>"; };
+		AE9148B8261838E00061EC9F /* NumberKeyoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberKeyoardView.swift; sourceTree = "<group>"; };
+		AE9148C1261838F90061EC9F /* KeyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		AE9148C4261838F90061EC9F /* NumberKeyoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberKeyoardView.swift; sourceTree = "<group>"; };
+		AE9148C5261838F90061EC9F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE9148CC261839000061EC9F /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		AE9148D1261839B40061EC9F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		BA727DE12601AF570015DAA7 /* iOSProjectOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSProjectOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA727DE32601AF570015DAA7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BA727DE42601AF570015DAA7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -140,6 +154,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9148DA26183C3E0061EC9F /* GrandStore in Frameworks */,
+				AE9148DC26183C650061EC9F /* CommonLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +225,42 @@
 			path = ../Resource;
 			sourceTree = "<group>";
 		};
+		AE9148B7261838CB0061EC9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE9148B8261838E00061EC9F /* NumberKeyoardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AE9148C0261838F90061EC9F /* GrandKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				AE9148C2261838F90061EC9F /* Model */,
+				AE9148C3261838F90061EC9F /* View */,
+				AE9148C5261838F90061EC9F /* Info.plist */,
+				AE9148D1261839B40061EC9F /* Config.swift */,
+				AE9148C1261838F90061EC9F /* KeyboardViewController.swift */,
+			);
+			name = GrandKeyboard;
+			sourceTree = "<group>";
+		};
+		AE9148C2261838F90061EC9F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE9148CC261839000061EC9F /* Key.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AE9148C3261838F90061EC9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE9148C4261838F90061EC9F /* NumberKeyoardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BA727DE22601AF570015DAA7 /* iOSProjectOC */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +283,8 @@
 		BAABD4C8260C7BCB0026A251 /* GrandKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				AE9148C0261838F90061EC9F /* GrandKeyboard */,
+				AE9148B7261838CB0061EC9F /* View */,
 				BAABD4C9260C7BCB0026A251 /* KeyboardViewController.swift */,
 				BAABD4CB260C7BCB0026A251 /* Info.plist */,
 			);
@@ -312,6 +366,10 @@
 			dependencies = (
 			);
 			name = GrandKeyboard;
+			packageProductDependencies = (
+				AE9148D926183C3E0061EC9F /* GrandStore */,
+				AE9148DB26183C650061EC9F /* CommonLibrary */,
+			);
 			productName = GrandKeyboard;
 			productReference = BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -400,6 +458,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9148C8261838F90061EC9F /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +491,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAABD4CA260C7BCB0026A251 /* KeyboardViewController.swift in Sources */,
+				AE9148CD261839000061EC9F /* Key.swift in Sources */,
+				AE9148C7261838F90061EC9F /* NumberKeyoardView.swift in Sources */,
+				AE9148C6261838F90061EC9F /* KeyboardViewController.swift in Sources */,
+				AE9148B9261838E00061EC9F /* NumberKeyoardView.swift in Sources */,
+				AE9148D2261839B40061EC9F /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -976,6 +1040,15 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AE61F16425E4FCB300905B9F /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */;
 			productName = SwiftyMarkdown;
+		};
+		AE9148D926183C3E0061EC9F /* GrandStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207EE1B825A4562A0030ECDD /* XCRemoteSwiftPackageReference "GrandStore" */;
+			productName = GrandStore;
+		};
+		AE9148DB26183C650061EC9F /* CommonLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CommonLibrary;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

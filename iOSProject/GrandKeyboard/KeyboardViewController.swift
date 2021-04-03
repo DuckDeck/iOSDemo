@@ -19,9 +19,6 @@ class KeyboardViewController: UIInputViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let p = UIPasteboard.general
-        print("==========================")
-        print(p.string)
 
         // Perform custom UI setup here
         self.nextKeyboardButton = UIButton(type: .system)
@@ -63,20 +60,4 @@ class KeyboardViewController: UIInputViewController {
         }
         self.nextKeyboardButton.setTitleColor(textColor, for: [])
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let p = UIPasteboard.general
-        print("==========================")
-        print(p.string)
-
-    }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        let p = UIPasteboard.general
-//        print("==========================")
-//        print(p.string)
-//    }
-
 }
