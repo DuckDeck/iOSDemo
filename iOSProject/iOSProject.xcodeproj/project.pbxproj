@@ -37,11 +37,8 @@
 		AE9148B9261838E00061EC9F /* NumberKeyoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9148B8261838E00061EC9F /* NumberKeyoardView.swift */; };
 		AE9148C6261838F90061EC9F /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9148C1261838F90061EC9F /* KeyboardViewController.swift */; };
 		AE9148C7261838F90061EC9F /* NumberKeyoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9148C4261838F90061EC9F /* NumberKeyoardView.swift */; };
-		AE9148C8261838F90061EC9F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE9148C5261838F90061EC9F /* Info.plist */; };
 		AE9148CD261839000061EC9F /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9148CC261839000061EC9F /* Key.swift */; };
 		AE9148D2261839B40061EC9F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9148D1261839B40061EC9F /* Config.swift */; };
-		AE9148DA26183C3E0061EC9F /* GrandStore in Frameworks */ = {isa = PBXBuildFile; productRef = AE9148D926183C3E0061EC9F /* GrandStore */; };
-		AE9148DC26183C650061EC9F /* CommonLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = AE9148DB26183C650061EC9F /* CommonLibrary */; };
 		BA727DE52601AF570015DAA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA727DE42601AF570015DAA7 /* AppDelegate.m */; };
 		BA727DE82601AF570015DAA7 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA727DE72601AF570015DAA7 /* SceneDelegate.m */; };
 		BA727DEB2601AF570015DAA7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA727DEA2601AF570015DAA7 /* ViewController.m */; };
@@ -154,8 +151,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE9148DA26183C3E0061EC9F /* GrandStore in Frameworks */,
-				AE9148DC26183C650061EC9F /* CommonLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,8 +362,6 @@
 			);
 			name = GrandKeyboard;
 			packageProductDependencies = (
-				AE9148D926183C3E0061EC9F /* GrandStore */,
-				AE9148DB26183C650061EC9F /* CommonLibrary */,
 			);
 			productName = GrandKeyboard;
 			productReference = BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */;
@@ -458,7 +451,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE9148C8261838F90061EC9F /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,15 +1032,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AE61F16425E4FCB300905B9F /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */;
 			productName = SwiftyMarkdown;
-		};
-		AE9148D926183C3E0061EC9F /* GrandStore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 207EE1B825A4562A0030ECDD /* XCRemoteSwiftPackageReference "GrandStore" */;
-			productName = GrandStore;
-		};
-		AE9148DB26183C650061EC9F /* CommonLibrary */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = CommonLibrary;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
