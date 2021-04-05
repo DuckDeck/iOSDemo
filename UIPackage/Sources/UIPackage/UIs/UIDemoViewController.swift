@@ -116,16 +116,12 @@ class NineKeyboard: UIView {
         layer1.path = rectPath.cgPath
         layer1.fillColor = UIColor.white.cgColor
         layer.addSublayer(layer1)
-        
-        
         let layer2 = CAShapeLayer()
         layer2.lineWidth = 1.5
         layer2.strokeColor = UIColor.gray.cgColor
         layer2.fillColor = UIColor.clear.cgColor
         layer2.lineJoin = .round
-        
         let bezierPath = UIBezierPath()
-        
         bezierPath.move(to: CGPoint(x: 50, y: backKeyPosition.center.y))
         bezierPath.addLine(to: CGPoint(x: 54, y: backKeyPosition.center.y - 9))
         bezierPath.addLine(to: CGPoint(x: 85, y: backKeyPosition.center.y - 9))
@@ -139,9 +135,6 @@ class NineKeyboard: UIView {
         bezierPath.addLine(to: CGPoint(x: backKeyPosition.center.x + 4, y: backKeyPosition.center.y - 4))
 
         layer2.path = bezierPath.cgPath
-        
-        
-        
         layer.addSublayer(layer2)
     }
 
