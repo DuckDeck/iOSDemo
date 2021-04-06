@@ -49,7 +49,8 @@ class AdViewController: UIViewController {
         UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
             let old = UIView.areAnimationsEnabled
             UIView.setAnimationsEnabled(false)
-            window.rootViewController = ViewController()
+            let newNav = UINavigationController(rootViewController: ViewController())
+            window.rootViewController = newNav
             UIView.setAnimationsEnabled(old)
         } completion: { (_) in
             

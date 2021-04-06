@@ -1,0 +1,14 @@
+//
+//  iOSProjectOC.pch
+//  iOSProject
+//
+//  Created by chen liang on 2021/4/6.
+//
+
+#ifndef iOSProjectOC_pch
+#define iOSProjectOC_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+int makeDiff(int argc,char *argv[]);
+#endif /* iOSProjectOC_pch */

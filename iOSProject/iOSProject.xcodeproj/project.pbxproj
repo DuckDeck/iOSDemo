@@ -45,6 +45,10 @@
 		BA727DF02601AF590015DAA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA727DEF2601AF590015DAA7 /* Assets.xcassets */; };
 		BA727DF32601AF590015DAA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA727DF12601AF590015DAA7 /* LaunchScreen.storyboard */; };
 		BA727DF62601AF590015DAA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA727DF52601AF590015DAA7 /* main.m */; };
+		BAA585EB261C7A8E004443B7 /* bsdiff.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA585E8261C7A8E004443B7 /* bsdiff.c */; };
+		BAA585EC261C7A8E004443B7 /* bspatch.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA585E9261C7A8E004443B7 /* bspatch.c */; };
+		BAA585F6261C7C8E004443B7 /* old.zip in Resources */ = {isa = PBXBuildFile; fileRef = BAA585F4261C7C8E004443B7 /* old.zip */; };
+		BAA585F7261C7C8E004443B7 /* new.zip in Resources */ = {isa = PBXBuildFile; fileRef = BAA585F5261C7C8E004443B7 /* new.zip */; };
 		BAABD4CA260C7BCB0026A251 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAABD4C9260C7BCB0026A251 /* KeyboardViewController.swift */; };
 		BAABD4CE260C7BCB0026A251 /* GrandKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BAD9DADE260450B100C0530C /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD9DADD260450B100C0530C /* AdViewController.swift */; };
@@ -104,6 +108,13 @@
 		BA727DF22601AF590015DAA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA727DF42601AF590015DAA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA727DF52601AF590015DAA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BAA585E7261C7A8E004443B7 /* bsdiff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bsdiff.h; sourceTree = "<group>"; };
+		BAA585E8261C7A8E004443B7 /* bsdiff.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bsdiff.c; sourceTree = "<group>"; };
+		BAA585E9261C7A8E004443B7 /* bspatch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bspatch.c; sourceTree = "<group>"; };
+		BAA585EA261C7A8E004443B7 /* bspatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bspatch.h; sourceTree = "<group>"; };
+		BAA585F0261C7ADD004443B7 /* iOSProjectOC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSProjectOC-Prefix.pch"; sourceTree = "<group>"; };
+		BAA585F4261C7C8E004443B7 /* old.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = old.zip; sourceTree = "<group>"; };
+		BAA585F5261C7C8E004443B7 /* new.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = new.zip; sourceTree = "<group>"; };
 		BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GrandKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAABD4C9260C7BCB0026A251 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		BAABD4CB260C7BCB0026A251 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -259,6 +270,7 @@
 		BA727DE22601AF570015DAA7 /* iOSProjectOC */ = {
 			isa = PBXGroup;
 			children = (
+				BAA585E6261C7A82004443B7 /* patch */,
 				BA727DE32601AF570015DAA7 /* AppDelegate.h */,
 				BA727DE42601AF570015DAA7 /* AppDelegate.m */,
 				BA727DE62601AF570015DAA7 /* SceneDelegate.h */,
@@ -271,8 +283,22 @@
 				BA727DF52601AF590015DAA7 /* main.m */,
 				BAD9DADD260450B100C0530C /* AdViewController.swift */,
 				BAD9DADC260450B000C0530C /* iOSProjectOC-Bridging-Header.h */,
+				BAA585F0261C7ADD004443B7 /* iOSProjectOC-Prefix.pch */,
 			);
 			path = iOSProjectOC;
+			sourceTree = "<group>";
+		};
+		BAA585E6261C7A82004443B7 /* patch */ = {
+			isa = PBXGroup;
+			children = (
+				BAA585F5261C7C8E004443B7 /* new.zip */,
+				BAA585F4261C7C8E004443B7 /* old.zip */,
+				BAA585E8261C7A8E004443B7 /* bsdiff.c */,
+				BAA585E7261C7A8E004443B7 /* bsdiff.h */,
+				BAA585E9261C7A8E004443B7 /* bspatch.c */,
+				BAA585EA261C7A8E004443B7 /* bspatch.h */,
+			);
+			path = patch;
 			sourceTree = "<group>";
 		};
 		BAABD4C8260C7BCB0026A251 /* GrandKeyboard */ = {
@@ -442,7 +468,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA585F6261C7C8E004443B7 /* old.zip in Resources */,
 				BA727DF32601AF590015DAA7 /* LaunchScreen.storyboard in Resources */,
+				BAA585F7261C7C8E004443B7 /* new.zip in Resources */,
 				BA727DF02601AF590015DAA7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +503,8 @@
 				BA727DE52601AF570015DAA7 /* AppDelegate.m in Sources */,
 				BA727DF62601AF590015DAA7 /* main.m in Sources */,
 				BA727DE82601AF570015DAA7 /* SceneDelegate.m in Sources */,
+				BAA585EB261C7A8E004443B7 /* bsdiff.c in Sources */,
+				BAA585EC261C7A8E004443B7 /* bspatch.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,6 +713,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOSProjectOC/iOSProjectOC-Prefix.pch";
 				INFOPLIST_FILE = iOSProjectOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -706,6 +738,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOSProjectOC/iOSProjectOC-Prefix.pch";
 				INFOPLIST_FILE = iOSProjectOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
