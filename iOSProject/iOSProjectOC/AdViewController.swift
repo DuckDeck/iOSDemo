@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import CommonLibrary
+
 class AdViewController: UIViewController {
     lazy var timer  = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.global())
     var seconds = 5
@@ -52,9 +54,27 @@ class AdViewController: UIViewController {
             let newNav = UINavigationController(rootViewController: ViewController())
             window.rootViewController = newNav
             UIView.setAnimationsEnabled(old)
-        } completion: { (_) in
             
+        } completion: { (_) in
+           // self.patch()
         }
 
+    }
+    
+    func patch() {
+        let path1 = Bundle.main.path(forResource: "old", ofType: "zip")
+        let strs = ["bspatch",path1,createPath(file: "test.zip"),"\(NSTemporaryDirectory())diff_Test"]
+        var args = strs.map{strdup($0)}
+        let result = BsdiffUntils_bspatch(4, &args)
+        print(result)
+    }
+    
+    func createPath(file:String) -> String {
+        let tmp = NSTemporaryDirectory()
+        let filePath = "\(tmp)\(file)"
+        if !FileManager.default.fileExists(atPath: filePath) {
+            FileManager.default.createFile(atPath: filePath, contents: nil, attributes: nil)
+        }
+        return filePath
     }
 }

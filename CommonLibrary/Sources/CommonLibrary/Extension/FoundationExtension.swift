@@ -406,41 +406,95 @@ public extension String{
         }
        return nil
     }
-    //太复杂了
-    /*
-    func findValidNum() -> String? {
-        //一个运算最少要3个字符
-        if self.count < 3 {
-            return nil
-        }
-        var validNums = [String]()
-        var previous:Element?
-        for c in self.enumerated() {
-            if c.element.isNumber {
-                validNums.insert(String(c.element), at: 0)
-            }
-            else if c.element == "."{
-                //判断前面的数是不是一个小数
-                if validNums.contains(".") && validNums.joined().toDouble() != nil {
-                    //如果是，就移除整数部分
-                    let index = validNums.firstIndex(of: ".")!
-                    validNums.removeSubrange(0...index)
-                }
-                if previous != nil {
-                    validNums.insert(String(c.element), at: 0)
-                }
-            }
-            //如果是运算符- 那么可能是负数或者运算符
-            else if NumOperate(rawValue: String(c.element)) != nil{
-                validNums.insert(String(c.element), at: 0)
-            }
-            else if
-        }
-        return ""
-    }
 
-    */
+        /**
+         * Returns the pointer to stack allocated memory containing this string of the type UnsafePointer<Int8>
+         */
+    func stackPointer() -> UnsafePointer<Int8>? {
+        return (self as NSString).utf8String
+    }
     
+    /**
+     * Returns the pointer to stack allocated memory containing this string of the type UnsafeMutablePointer<Int8>
+     */
+    func mutableStackPointer() -> UnsafeMutablePointer<Int8>? {
+        return UnsafeMutablePointer<Int8>(mutating: self.stackPointer())
+    }
+    
+    /**
+     * Calls handle with the pointer to stack allocated memory containing this string of the type UnsafePointer<UInt8>
+     */
+    func withUnsignedStackPointer(_ handle: (UnsafePointer<UInt8>?) -> Void) {
+        return Array(self.utf8).withUnsafeBytes { (p: UnsafeRawBufferPointer) -> Void in
+            handle(p.bindMemory(to: UInt8.self).baseAddress!)
+        }
+    }
+    
+    /**
+     * Calls handle with the pointer to stack allocated memory containing this string of the type UnsafeMutablePointer<UInt8>
+     */
+    func withUnsignedMutableStackPointer(_ handle: (UnsafeMutablePointer<UInt8>?) -> Void) {
+        self.withUnsignedStackPointer { (unsigned: UnsafePointer<UInt8>?) in
+            handle(UnsafeMutablePointer<UInt8>(mutating: unsigned))
+        }
+    }
+    
+    /**
+     * Allocates memory on the heap containing this string of the type UnsafePointer<Int8>
+     *
+     * You must call .deallocate() on the result of this function when you are done using it.
+     */
+    func heapPointer() -> UnsafePointer<Int8>? {
+        guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
+        let buffer = UnsafeMutablePointer<Int8>.allocate(capacity: data.count)
+        bzero(buffer, MemoryLayout<Int8>.size * data.count)
+        
+        data.withUnsafeBytes { (p: UnsafeRawBufferPointer) -> Void in
+            buffer.initialize(from: p.bindMemory(to: Int8.self).baseAddress!, count: data.count)
+        }
+        
+        return UnsafePointer<Int8>(buffer)
+    }
+    
+    /**
+     * Allocates memory on the heap containing this string of the type UnsafeMutablePointer<Int8>
+     *
+     * You must call .deallocate() on the result of this function when you are done using it.
+     */
+    func mutableHeapPointer() -> UnsafeMutablePointer<Int8>? {
+        return UnsafeMutablePointer<Int8>(mutating: self.heapPointer())
+    }
+    
+    /**
+     * Allocates memory on the heap containing this string of the type UnsafePointer<UInt8>
+     *
+     * You must call .deallocate() on the result of this function when you are done using it.
+     */
+    func unsignedHeapPointer() -> UnsafePointer<UInt8>? {
+        guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
+        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: data.count)
+        bzero(buffer, MemoryLayout<UInt8>.size * data.count)
+        
+        let stream = OutputStream(toBuffer: buffer, capacity: data.count)
+        stream.open()
+        data.withUnsafeBytes { (p: UnsafeRawBufferPointer) -> Void in
+            stream.write(p.bindMemory(to: UInt8.self).baseAddress!, maxLength: data.count)
+        }
+        stream.close()
+        return UnsafePointer<UInt8>(buffer)
+    }
+    
+    /**
+     * Allocates memory on the heap containing this string of the type UnsafeMutablePointer<UInt8>
+     *
+     * You must call .deallocate() on the result of this function when you are done using it.
+     */
+    func unsignedMutableHeapPointer() -> UnsafeMutablePointer<UInt8>? {
+        return UnsafeMutablePointer<UInt8>(mutating: self.unsignedHeapPointer())
+    }
+    
+
+  
     
 }
 

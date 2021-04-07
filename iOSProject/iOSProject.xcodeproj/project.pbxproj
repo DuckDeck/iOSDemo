@@ -62,6 +62,7 @@
 		BAA5863C261D440F004443B7 /* bzip2.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA5862C261D440F004443B7 /* bzip2.c */; };
 		BAA5863D261D440F004443B7 /* bspatch.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA5862E261D440F004443B7 /* bspatch.c */; };
 		BAA5863E261D440F004443B7 /* bsdiff.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA5862F261D440F004443B7 /* bsdiff.c */; };
+		BAA58690261DCAE8004443B7 /* CommonLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = BAA5868F261DCAE8004443B7 /* CommonLibrary */; };
 		BAABD4CA260C7BCB0026A251 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAABD4C9260C7BCB0026A251 /* KeyboardViewController.swift */; };
 		BAABD4CE260C7BCB0026A251 /* GrandKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BAD9DADE260450B100C0530C /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD9DADD260450B100C0530C /* AdViewController.swift */; };
@@ -181,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA58690261DCAE8004443B7 /* CommonLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +427,9 @@
 			dependencies = (
 			);
 			name = iOSProjectOC;
+			packageProductDependencies = (
+				BAA5868F261DCAE8004443B7 /* CommonLibrary */,
+			);
 			productName = iOSProjectOC;
 			productReference = BA727DE12601AF570015DAA7 /* iOSProjectOC.app */;
 			productType = "com.apple.product-type.application";
@@ -1136,6 +1141,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AE61F16425E4FCB300905B9F /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */;
 			productName = SwiftyMarkdown;
+		};
+		BAA5868F261DCAE8004443B7 /* CommonLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CommonLibrary;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
