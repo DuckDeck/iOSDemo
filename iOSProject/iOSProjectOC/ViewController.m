@@ -6,7 +6,7 @@
 //
 
 #import "ViewController.h"
-#include "bsdiff.h"
+#import "diff.h"
 @interface ViewController ()
 
 @end
@@ -17,7 +17,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"差分" style:UIBarButtonItemStylePlain target:self action:@selector(createDiffPackage)];
+    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithTitle:@"差分" style:UIBarButtonItemStylePlain target:self action:@selector(createDiffPackage)],[[UIBarButtonItem alloc] initWithTitle:@"合并" style:UIBarButtonItemStylePlain target:self action:@selector(joinPackage)]];
 }
 
 -(void)createDiffPackage{
@@ -30,7 +30,25 @@
     NSString *path2 = [NSString stringWithFormat:@"/%@/%@",[NSBundle mainBundle].bundlePath, @"new.zip"];
     argv[2] = [path2 UTF8String];
     argv[3] = [[self createFile:@"diff_Test"] UTF8String];
-    int result = makeDiff(4, argv);
+    int result = BsdiffUntils_bsdiff(4, argv);
+    if (result == 0) {
+        NSLog(@"成功生成差分文件,路径是%s",argv[3]);
+    }
+}
+
+-(void)joinPackage{
+    const char *argv[4];
+    argv[0] = "bspatch";
+    // oldPath
+    NSString *path1 = [NSString stringWithFormat:@"/%@/%@",[NSBundle mainBundle].bundlePath, @"old.zip"];
+    argv[1] = [path1 UTF8String];
+    // patch new path
+    argv[2] = [[self createFile:@"test.zip"] UTF8String];
+    argv[3] = [[NSTemporaryDirectory() stringByAppendingPathComponent:@"diff_Test"] UTF8String];
+    int result = BsdiffUntils_bspatch(4, argv);
+    if (result == 0) {
+        NSLog(@"成功合并差分文件,路径是%s",argv[2]);
+    }
 }
 
 -(NSString* )createFile:(NSString*)file{

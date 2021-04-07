@@ -45,10 +45,23 @@
 		BA727DF02601AF590015DAA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA727DEF2601AF590015DAA7 /* Assets.xcassets */; };
 		BA727DF32601AF590015DAA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA727DF12601AF590015DAA7 /* LaunchScreen.storyboard */; };
 		BA727DF62601AF590015DAA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA727DF52601AF590015DAA7 /* main.m */; };
-		BAA585EB261C7A8E004443B7 /* bsdiff.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA585E8261C7A8E004443B7 /* bsdiff.c */; };
-		BAA585EC261C7A8E004443B7 /* bspatch.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA585E9261C7A8E004443B7 /* bspatch.c */; };
 		BAA585F6261C7C8E004443B7 /* old.zip in Resources */ = {isa = PBXBuildFile; fileRef = BAA585F4261C7C8E004443B7 /* old.zip */; };
 		BAA585F7261C7C8E004443B7 /* new.zip in Resources */ = {isa = PBXBuildFile; fileRef = BAA585F5261C7C8E004443B7 /* new.zip */; };
+		BAA58630261D440F004443B7 /* randtable.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA5861E261D440E004443B7 /* randtable.c */; };
+		BAA58631261D440F004443B7 /* mk251.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA5861F261D440E004443B7 /* mk251.c */; };
+		BAA58632261D440F004443B7 /* compress.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA58620261D440E004443B7 /* compress.c */; };
+		BAA58633261D440F004443B7 /* decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA58621261D440E004443B7 /* decompress.c */; };
+		BAA58634261D440F004443B7 /* blocksort.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA58624261D440E004443B7 /* blocksort.c */; };
+		BAA58635261D440F004443B7 /* huffman.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA58625261D440E004443B7 /* huffman.c */; };
+		BAA58636261D440F004443B7 /* spewG.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA58626261D440E004443B7 /* spewG.c */; };
+		BAA58637261D440F004443B7 /* dlltest.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA58627261D440F004443B7 /* dlltest.c */; };
+		BAA58638261D440F004443B7 /* bzip2recover.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA58628261D440F004443B7 /* bzip2recover.c */; };
+		BAA58639261D440F004443B7 /* crctable.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA58629261D440F004443B7 /* crctable.c */; };
+		BAA5863A261D440F004443B7 /* unzcrash.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA5862A261D440F004443B7 /* unzcrash.c */; };
+		BAA5863B261D440F004443B7 /* bzlib.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA5862B261D440F004443B7 /* bzlib.c */; };
+		BAA5863C261D440F004443B7 /* bzip2.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA5862C261D440F004443B7 /* bzip2.c */; };
+		BAA5863D261D440F004443B7 /* bspatch.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA5862E261D440F004443B7 /* bspatch.c */; };
+		BAA5863E261D440F004443B7 /* bsdiff.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA5862F261D440F004443B7 /* bsdiff.c */; };
 		BAABD4CA260C7BCB0026A251 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAABD4C9260C7BCB0026A251 /* KeyboardViewController.swift */; };
 		BAABD4CE260C7BCB0026A251 /* GrandKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BAD9DADE260450B100C0530C /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD9DADD260450B100C0530C /* AdViewController.swift */; };
@@ -108,13 +121,26 @@
 		BA727DF22601AF590015DAA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA727DF42601AF590015DAA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA727DF52601AF590015DAA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BAA585E7261C7A8E004443B7 /* bsdiff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bsdiff.h; sourceTree = "<group>"; };
-		BAA585E8261C7A8E004443B7 /* bsdiff.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bsdiff.c; sourceTree = "<group>"; };
-		BAA585E9261C7A8E004443B7 /* bspatch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bspatch.c; sourceTree = "<group>"; };
-		BAA585EA261C7A8E004443B7 /* bspatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bspatch.h; sourceTree = "<group>"; };
-		BAA585F0261C7ADD004443B7 /* iOSProjectOC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSProjectOC-Prefix.pch"; sourceTree = "<group>"; };
 		BAA585F4261C7C8E004443B7 /* old.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = old.zip; sourceTree = "<group>"; };
 		BAA585F5261C7C8E004443B7 /* new.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = new.zip; sourceTree = "<group>"; };
+		BAA58610261D3DFA004443B7 /* diff.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = diff.h; sourceTree = "<group>"; };
+		BAA5861E261D440E004443B7 /* randtable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = randtable.c; sourceTree = "<group>"; };
+		BAA5861F261D440E004443B7 /* mk251.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mk251.c; sourceTree = "<group>"; };
+		BAA58620261D440E004443B7 /* compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = compress.c; sourceTree = "<group>"; };
+		BAA58621261D440E004443B7 /* decompress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decompress.c; sourceTree = "<group>"; };
+		BAA58622261D440E004443B7 /* bzlib_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bzlib_private.h; sourceTree = "<group>"; };
+		BAA58623261D440E004443B7 /* bzlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bzlib.h; sourceTree = "<group>"; };
+		BAA58624261D440E004443B7 /* blocksort.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = blocksort.c; sourceTree = "<group>"; };
+		BAA58625261D440E004443B7 /* huffman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = huffman.c; sourceTree = "<group>"; };
+		BAA58626261D440E004443B7 /* spewG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = spewG.c; sourceTree = "<group>"; };
+		BAA58627261D440F004443B7 /* dlltest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dlltest.c; sourceTree = "<group>"; };
+		BAA58628261D440F004443B7 /* bzip2recover.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bzip2recover.c; sourceTree = "<group>"; };
+		BAA58629261D440F004443B7 /* crctable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crctable.c; sourceTree = "<group>"; };
+		BAA5862A261D440F004443B7 /* unzcrash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzcrash.c; sourceTree = "<group>"; };
+		BAA5862B261D440F004443B7 /* bzlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bzlib.c; sourceTree = "<group>"; };
+		BAA5862C261D440F004443B7 /* bzip2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bzip2.c; sourceTree = "<group>"; };
+		BAA5862E261D440F004443B7 /* bspatch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bspatch.c; sourceTree = "<group>"; };
+		BAA5862F261D440F004443B7 /* bsdiff.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bsdiff.c; sourceTree = "<group>"; };
 		BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GrandKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAABD4C9260C7BCB0026A251 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		BAABD4CB260C7BCB0026A251 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -283,7 +309,7 @@
 				BA727DF52601AF590015DAA7 /* main.m */,
 				BAD9DADD260450B100C0530C /* AdViewController.swift */,
 				BAD9DADC260450B000C0530C /* iOSProjectOC-Bridging-Header.h */,
-				BAA585F0261C7ADD004443B7 /* iOSProjectOC-Prefix.pch */,
+				BAA58610261D3DFA004443B7 /* diff.h */,
 			);
 			path = iOSProjectOC;
 			sourceTree = "<group>";
@@ -291,14 +317,43 @@
 		BAA585E6261C7A82004443B7 /* patch */ = {
 			isa = PBXGroup;
 			children = (
+				BAA5862D261D440F004443B7 /* bsdiff-4.3 */,
+				BAA5861D261D440E004443B7 /* bzip2-1.0.6 */,
 				BAA585F5261C7C8E004443B7 /* new.zip */,
 				BAA585F4261C7C8E004443B7 /* old.zip */,
-				BAA585E8261C7A8E004443B7 /* bsdiff.c */,
-				BAA585E7261C7A8E004443B7 /* bsdiff.h */,
-				BAA585E9261C7A8E004443B7 /* bspatch.c */,
-				BAA585EA261C7A8E004443B7 /* bspatch.h */,
 			);
 			path = patch;
+			sourceTree = "<group>";
+		};
+		BAA5861D261D440E004443B7 /* bzip2-1.0.6 */ = {
+			isa = PBXGroup;
+			children = (
+				BAA5861E261D440E004443B7 /* randtable.c */,
+				BAA5861F261D440E004443B7 /* mk251.c */,
+				BAA58620261D440E004443B7 /* compress.c */,
+				BAA58621261D440E004443B7 /* decompress.c */,
+				BAA58622261D440E004443B7 /* bzlib_private.h */,
+				BAA58623261D440E004443B7 /* bzlib.h */,
+				BAA58624261D440E004443B7 /* blocksort.c */,
+				BAA58625261D440E004443B7 /* huffman.c */,
+				BAA58626261D440E004443B7 /* spewG.c */,
+				BAA58627261D440F004443B7 /* dlltest.c */,
+				BAA58628261D440F004443B7 /* bzip2recover.c */,
+				BAA58629261D440F004443B7 /* crctable.c */,
+				BAA5862A261D440F004443B7 /* unzcrash.c */,
+				BAA5862B261D440F004443B7 /* bzlib.c */,
+				BAA5862C261D440F004443B7 /* bzip2.c */,
+			);
+			path = "bzip2-1.0.6";
+			sourceTree = "<group>";
+		};
+		BAA5862D261D440F004443B7 /* bsdiff-4.3 */ = {
+			isa = PBXGroup;
+			children = (
+				BAA5862E261D440F004443B7 /* bspatch.c */,
+				BAA5862F261D440F004443B7 /* bsdiff.c */,
+			);
+			path = "bsdiff-4.3";
 			sourceTree = "<group>";
 		};
 		BAABD4C8260C7BCB0026A251 /* GrandKeyboard */ = {
@@ -498,13 +553,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA58637261D440F004443B7 /* dlltest.c in Sources */,
+				BAA58635261D440F004443B7 /* huffman.c in Sources */,
+				BAA58633261D440F004443B7 /* decompress.c in Sources */,
+				BAA5863E261D440F004443B7 /* bsdiff.c in Sources */,
 				BA727DEB2601AF570015DAA7 /* ViewController.m in Sources */,
 				BAD9DADE260450B100C0530C /* AdViewController.swift in Sources */,
 				BA727DE52601AF570015DAA7 /* AppDelegate.m in Sources */,
+				BAA58639261D440F004443B7 /* crctable.c in Sources */,
+				BAA58638261D440F004443B7 /* bzip2recover.c in Sources */,
+				BAA58631261D440F004443B7 /* mk251.c in Sources */,
+				BAA5863C261D440F004443B7 /* bzip2.c in Sources */,
+				BAA5863B261D440F004443B7 /* bzlib.c in Sources */,
+				BAA5863A261D440F004443B7 /* unzcrash.c in Sources */,
+				BAA58636261D440F004443B7 /* spewG.c in Sources */,
+				BAA5863D261D440F004443B7 /* bspatch.c in Sources */,
+				BAA58630261D440F004443B7 /* randtable.c in Sources */,
 				BA727DF62601AF590015DAA7 /* main.m in Sources */,
+				BAA58634261D440F004443B7 /* blocksort.c in Sources */,
 				BA727DE82601AF570015DAA7 /* SceneDelegate.m in Sources */,
-				BAA585EB261C7A8E004443B7 /* bsdiff.c in Sources */,
-				BAA585EC261C7A8E004443B7 /* bspatch.c in Sources */,
+				BAA58632261D440F004443B7 /* compress.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +737,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iOSProject/Preview Content\"";
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
 				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/iOSProjectOC";
 				INFOPLIST_FILE = iOSProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -692,6 +761,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iOSProject/Preview Content\"";
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
 				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/iOSProjectOC";
 				INFOPLIST_FILE = iOSProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -713,8 +783,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOSProjectOC/iOSProjectOC-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = iOSProjectOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -738,8 +808,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOSProjectOC/iOSProjectOC-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = iOSProjectOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
