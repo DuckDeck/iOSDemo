@@ -63,6 +63,10 @@
 		BAA5863D261D440F004443B7 /* bspatch.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA5862E261D440F004443B7 /* bspatch.c */; };
 		BAA5863E261D440F004443B7 /* bsdiff.c in Sources */ = {isa = PBXBuildFile; fileRef = BAA5862F261D440F004443B7 /* bsdiff.c */; };
 		BAA58690261DCAE8004443B7 /* CommonLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = BAA5868F261DCAE8004443B7 /* CommonLibrary */; };
+		BAA58695261EAC81004443B7 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA58694261EAC81004443B7 /* Calculator.swift */; };
+		BAA5869A261EACDF004443B7 /* CommonLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = BAA58699261EACDF004443B7 /* CommonLibrary */; };
+		BAA5869F261EAD7F004443B7 /* ViewChaos in Frameworks */ = {isa = PBXBuildFile; productRef = BAA5869E261EAD7F004443B7 /* ViewChaos */; };
+		BAA586AA261EAE89004443B7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA586A9261EAE89004443B7 /* main.swift */; };
 		BAABD4CA260C7BCB0026A251 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAABD4C9260C7BCB0026A251 /* KeyboardViewController.swift */; };
 		BAABD4CE260C7BCB0026A251 /* GrandKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BAD9DADE260450B100C0530C /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD9DADD260450B100C0530C /* AdViewController.swift */; };
@@ -79,6 +83,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		BAA586A5261EAE89004443B7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		BAABD4CF260C7BCB0026A251 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -142,6 +155,9 @@
 		BAA5862C261D440F004443B7 /* bzip2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bzip2.c; sourceTree = "<group>"; };
 		BAA5862E261D440F004443B7 /* bspatch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bspatch.c; sourceTree = "<group>"; };
 		BAA5862F261D440F004443B7 /* bsdiff.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bsdiff.c; sourceTree = "<group>"; };
+		BAA58694261EAC81004443B7 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		BAA586A7261EAE89004443B7 /* ConsoleSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ConsoleSwift; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAA586A9261EAE89004443B7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GrandKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAABD4C9260C7BCB0026A251 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		BAABD4CB260C7BCB0026A251 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -182,7 +198,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA5869F261EAD7F004443B7 /* ViewChaos in Frameworks */,
 				BAA58690261DCAE8004443B7 /* CommonLibrary in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAA586A4261EAE89004443B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA5869A261EACDF004443B7 /* CommonLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +229,7 @@
 				207EE15D25A3006D0030ECDD /* iOSProject */,
 				BA727DE22601AF570015DAA7 /* iOSProjectOC */,
 				BAABD4C8260C7BCB0026A251 /* GrandKeyboard */,
+				BAA586A8261EAE89004443B7 /* ConsoleSwift */,
 				207EE15C25A3006D0030ECDD /* Products */,
 				207EE17125A303950030ECDD /* Frameworks */,
 			);
@@ -215,6 +241,7 @@
 				207EE15B25A3006D0030ECDD /* iOSProject.app */,
 				BA727DE12601AF570015DAA7 /* iOSProjectOC.app */,
 				BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */,
+				BAA586A7261EAE89004443B7 /* ConsoleSwift */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -263,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				AE9148B8261838E00061EC9F /* NumberKeyoardView.swift */,
+				BAA58694261EAC81004443B7 /* Calculator.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -358,6 +386,14 @@
 			path = "bsdiff-4.3";
 			sourceTree = "<group>";
 		};
+		BAA586A8261EAE89004443B7 /* ConsoleSwift */ = {
+			isa = PBXGroup;
+			children = (
+				BAA586A9261EAE89004443B7 /* main.swift */,
+			);
+			path = ConsoleSwift;
+			sourceTree = "<group>";
+		};
 		BAABD4C8260C7BCB0026A251 /* GrandKeyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,10 +465,30 @@
 			name = iOSProjectOC;
 			packageProductDependencies = (
 				BAA5868F261DCAE8004443B7 /* CommonLibrary */,
+				BAA5869E261EAD7F004443B7 /* ViewChaos */,
 			);
 			productName = iOSProjectOC;
 			productReference = BA727DE12601AF570015DAA7 /* iOSProjectOC.app */;
 			productType = "com.apple.product-type.application";
+		};
+		BAA586A6261EAE89004443B7 /* ConsoleSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAA586AB261EAE89004443B7 /* Build configuration list for PBXNativeTarget "ConsoleSwift" */;
+			buildPhases = (
+				BAA586A3261EAE89004443B7 /* Sources */,
+				BAA586A4261EAE89004443B7 /* Frameworks */,
+				BAA586A5261EAE89004443B7 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ConsoleSwift;
+			packageProductDependencies = (
+			);
+			productName = ConsoleSwift;
+			productReference = BAA586A7261EAE89004443B7 /* ConsoleSwift */;
+			productType = "com.apple.product-type.tool";
 		};
 		BAABD4C6260C7BCB0026A251 /* GrandKeyboard */ = {
 			isa = PBXNativeTarget;
@@ -448,6 +504,7 @@
 			);
 			name = GrandKeyboard;
 			packageProductDependencies = (
+				BAA58699261EACDF004443B7 /* CommonLibrary */,
 			);
 			productName = GrandKeyboard;
 			productReference = BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */;
@@ -468,6 +525,9 @@
 					BA727DE02601AF570015DAA7 = {
 						CreatedOnToolsVersion = 12.4;
 						LastSwiftMigration = 1240;
+					};
+					BAA586A6261EAE89004443B7 = {
+						CreatedOnToolsVersion = 12.4;
 					};
 					BAABD4C6260C7BCB0026A251 = {
 						CreatedOnToolsVersion = 12.4;
@@ -508,6 +568,7 @@
 				207EE15A25A3006D0030ECDD /* iOSProject */,
 				BA727DE02601AF570015DAA7 /* iOSProjectOC */,
 				BAABD4C6260C7BCB0026A251 /* GrandKeyboard */,
+				BAA586A6261EAE89004443B7 /* ConsoleSwift */,
 			);
 		};
 /* End PBXProject section */
@@ -581,12 +642,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BAA586A3261EAE89004443B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAA586AA261EAE89004443B7 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BAABD4C3260C7BCB0026A251 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BAABD4CA260C7BCB0026A251 /* KeyboardViewController.swift in Sources */,
 				AE9148CD261839000061EC9F /* Key.swift in Sources */,
+				BAA58695261EAC81004443B7 /* Calculator.swift in Sources */,
 				AE9148C7261838F90061EC9F /* NumberKeyoardView.swift in Sources */,
 				AE9148C6261838F90061EC9F /* KeyboardViewController.swift in Sources */,
 				AE9148B9261838E00061EC9F /* NumberKeyoardView.swift in Sources */,
@@ -829,6 +899,32 @@
 			};
 			name = Release;
 		};
+		BAA586AC261EAE89004443B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3YCGH6CCXA;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BAA586AD261EAE89004443B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3YCGH6CCXA;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		BAABD4D0260C7BCB0026A251 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -895,6 +991,15 @@
 			buildConfigurations = (
 				BA727DF72601AF590015DAA7 /* Debug */,
 				BA727DF82601AF590015DAA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BAA586AB261EAE89004443B7 /* Build configuration list for PBXNativeTarget "ConsoleSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAA586AC261EAE89004443B7 /* Debug */,
+				BAA586AD261EAE89004443B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1145,6 +1250,15 @@
 		BAA5868F261DCAE8004443B7 /* CommonLibrary */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CommonLibrary;
+		};
+		BAA58699261EACDF004443B7 /* CommonLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CommonLibrary;
+		};
+		BAA5869E261EAD7F004443B7 /* ViewChaos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207EE1B025A455E30030ECDD /* XCRemoteSwiftPackageReference "ViewChaos" */;
+			productName = ViewChaos;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

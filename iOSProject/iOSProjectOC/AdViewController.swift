@@ -65,6 +65,9 @@ class AdViewController: UIViewController {
         let path1 = Bundle.main.path(forResource: "old", ofType: "zip")
         let strs = ["bspatch",path1,createPath(file: "test.zip"),"\(NSTemporaryDirectory())diff_Test"]
         var args = strs.map{strdup($0)}
+        defer {
+            args.forEach{$0?.deallocate()}
+        }
         let result = BsdiffUntils_bspatch(4, &args)
         print(result)
     }
