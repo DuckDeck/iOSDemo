@@ -56,10 +56,12 @@ class AdViewController: UIViewController {
             UIView.setAnimationsEnabled(old)
             
         } completion: { (_) in
-           // self.patch()
+        
         }
 
     }
+    
+
     
     func patch() {
         let path1 = Bundle.main.path(forResource: "old", ofType: "zip")

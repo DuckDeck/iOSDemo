@@ -11,7 +11,7 @@ public struct NetWorkMenuPage:View {
   public  var body: some View{
         List{
             NavigationLink("问卷(JS control)",destination:JSControlDemo())
-            NavigationLink("动态传感器",destination:MotionSensorDemo())
+           
         }.navigationBarTitle(Text("UI"))
     }
     
