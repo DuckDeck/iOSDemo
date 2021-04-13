@@ -56,12 +56,19 @@ class AdViewController: UIViewController {
             UIView.setAnimationsEnabled(old)
             
         } completion: { (_) in
-        
+            self.downloadImage()
         }
 
     }
     
+    func downloadImage() {
+//        download(url: URL(string: "https://xcimg.szwego.com/20210412/i1618225504_1963_0.jpg")!, toFile: URL(fileURLWithPath: NSTemporaryDirectory() + "1.jpg")) { (err) in
+//            
+//        }
+    }
 
+    
+    
     
     func patch() {
         let path1 = Bundle.main.path(forResource: "old", ofType: "zip")

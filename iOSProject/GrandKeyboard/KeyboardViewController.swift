@@ -7,10 +7,11 @@
 
 import UIKit
 import CommonLibrary
+import Kingfisher
 class KeyboardViewController: UIInputViewController {
 
-    @IBOutlet var nextKeyboardButton: UIButton!
-    
+     var nextKeyboardButton: UIButton!
+    var img = UIImageView()
     override func updateViewConstraints() {
         super.updateViewConstraints()
         
@@ -34,6 +35,11 @@ class KeyboardViewController: UIInputViewController {
         self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
 
+        
+        img.frame = CGRect(x: 0, y: 20, width: 200, height: 200)
+        view.addSubview(img)
+        img.kf.setImage(with: Source.network(ImageResource(downloadURL: URL(string: "https://img1.gamersky.com/upimg/users/2021/04/10/origin_202104101719515372.jpg")!)))
+        
         if let item =  "434g+0.54.5*1.3.4+9.0.2-9.2+123.77".numOperatePart(){
            let _ = calculatorResult(numOperas: item)
         }
@@ -48,10 +54,10 @@ class KeyboardViewController: UIInputViewController {
     
 
 
-    override func viewWillLayoutSubviews() {
-        self.nextKeyboardButton.isHidden = !self.needsInputModeSwitchKey
-        super.viewWillLayoutSubviews()
-    }
+//    override func viewWillLayoutSubviews() {
+//        self.nextKeyboardButton.isHidden = !self.needsInputModeSwitchKey
+//        super.viewWillLayoutSubviews()
+//    }
     
     override func textWillChange(_ textInput: UITextInput?) {
         // The app is about to change the document's contents. Perform any preparation here.
@@ -100,4 +106,19 @@ class KeyboardViewController: UIInputViewController {
         }
         return nil
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        HttpClient.download(url: URL(string: "https://img1.gamersky.com/upimg/users/2021/04/10/origin_202104101719515372.jpg")!, toFile: URL(fileURLWithPath: NSTemporaryDirectory() + "2.jpg")) { (err) in
+            print(err)
+        }
+        
+        HttpClient.get("http://lovelive.ink:7110/five/%E6%88%91").completion { (data, err) in
+            print(data)
+            print(err)
+        }
+       
+        
+    }
+    
+   
 }

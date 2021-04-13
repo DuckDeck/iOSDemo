@@ -43,6 +43,11 @@ struct iOSProjectApp: App {
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         IQKeyboardManager.shared.enable = true
+        
+        HttpClient.download(url: URL(string: "https://img1.gamersky.com/upimg/users/2021/04/10/origin_202104101719515372.jpg")!, toFile: URL(fileURLWithPath: NSTemporaryDirectory() + "1.jpg")) { (err) in
+            print(err)
+        }
+        
         return true
     }
     //如果有些库还是用appDelegate来处理的话还是可以在这里处理生命周期, 下面方法不用调用
