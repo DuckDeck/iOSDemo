@@ -44,7 +44,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         IQKeyboardManager.shared.enable = true
         
-       hookMethod()
+        hookMethod()
         
         return true
     }
