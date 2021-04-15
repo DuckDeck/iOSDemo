@@ -144,7 +144,7 @@ class PinyinStore {
             if amount > remainingLength {
                 continue
             }
-            tempId = typeId[index...(index+amount)]
+            tempId = typeId[index..<(index+amount)]
             if let tempStrings = idStringDict[tempId] {
                 for tempString in tempStrings {
                     firstStrings.append(tempString)
@@ -164,7 +164,7 @@ class PinyinStore {
                 if amount > remainingLength {
                     continue
                 }
-                tempId = typeId[index...(index+amount)]
+                tempId = typeId[index..<(index+amount)]
                 if let tempStrings = idStringDict[tempId] {
                     for tempString in tempStrings {
                         strings.append(tempString)
