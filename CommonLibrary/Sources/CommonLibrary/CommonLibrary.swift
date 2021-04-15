@@ -280,7 +280,7 @@ public func /(lhs: UInt,rhs:Float)->Float{
 public func /(lhs: Float,rhs:UInt)->Float{
     return lhs / Float(rhs)
 }
-public func hookMethod(cls:AnyClass,originalSelector:Selector,swizzleSelector:Selector){  //交换方法
+public func hookInstanceMethod(cls:AnyClass,originalSelector:Selector,swizzleSelector:Selector){  //交换方法
     let originalMethod = class_getInstanceMethod(cls, originalSelector)
     let swizzledMethod = class_getInstanceMethod(cls, swizzleSelector)
     let didAddMethod = class_addMethod(cls, originalSelector, method_getImplementation(swizzledMethod!), method_getTypeEncoding(swizzledMethod!))
@@ -292,7 +292,12 @@ public func hookMethod(cls:AnyClass,originalSelector:Selector,swizzleSelector:Se
     }
 }
 
-
+public func hookClassMethod(cls:AnyClass,originalSelector:Selector,swizzleSelector:Selector){  //交换方法
+    let originalMethod = class_getClassMethod(cls, originalSelector)
+    let swizzledMethod = class_getClassMethod(cls, swizzleSelector)
+    method_exchangeImplementations(originalMethod!, swizzledMethod!)
+    //交换 static 或者 class 方法不能使用class_addMethod，直接使用method_exchangeImplementations就行
+}
 
 public func invoke(viewController:String,selector:String) {
     if let nav = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {

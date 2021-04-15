@@ -14,6 +14,7 @@ class JSViewController: UIViewController {
     var webView :WKWebView?
     var context = JSContext()
     var jsContext: JSContext?
+    var wkuser : WKUserContentController!
     override func viewDidLoad() {
         super.viewDidLoad()
         let config = WKWebViewConfiguration()
@@ -21,7 +22,7 @@ class JSViewController: UIViewController {
         pre.minimumFontSize = 13
         pre.javaScriptEnabled = true
         config.preferences = pre
-        let wkuser = WKUserContentController()
+        wkuser = WKUserContentController()
         config.userContentController = wkuser
         wkuser.add(self, name: "showMobile")
         webView = WKWebView(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 64), configuration: config)
@@ -38,7 +39,7 @@ class JSViewController: UIViewController {
         //目前把这个放在外面，专门用一个地方来放资源
         let path = Bundle.main.path(forResource: "question", ofType: "html")
         let url = URL(fileURLWithPath: path!)
-        let request = URLRequest(url: url)
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 30)
 
         _ =  webView?.load(request)
         
@@ -49,13 +50,20 @@ class JSViewController: UIViewController {
 //        let area = UIView(frame: view.safeAreaLayoutGuide.layoutFrame)
 //        area.backgroundColor = UIColor.red
 //              view.addSubview(area)
-
-        let p = UIPasteboard.general
-        p.string = "fgfff"
-        let s = p.string
-        print(s)
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        wkuser.removeScriptMessageHandler(forName: "showMobile")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+    
+    deinit {
+        print("JSViewController回收")
+    }
 
 
 }

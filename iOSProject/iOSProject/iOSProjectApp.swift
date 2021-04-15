@@ -8,7 +8,7 @@
 import SwiftUI
 import IQKeyboardManagerSwift
 import CommonLibrary
-
+import WebKit
 @main
 struct iOSProjectApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate //这里可以使用appDelegate
@@ -44,9 +44,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         IQKeyboardManager.shared.enable = true
         
-        HttpClient.download(url: URL(string: "https://img1.gamersky.com/upimg/users/2021/04/10/origin_202104101719515372.jpg")!, toFile: URL(fileURLWithPath: NSTemporaryDirectory() + "1.jpg")) { (err) in
-            print(err)
-        }
+       hookMethod()
         
         return true
     }
@@ -60,6 +58,26 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         print("iOSProjectApp is applicationDidEnterBackground")
     }
+    
+    func hookMethod() {
+        CommonLibrary.hookClassMethod(cls: WKWebView.self, originalSelector: #selector(WKWebView.handlesURLScheme(_:)), swizzleSelector: #selector(WKWebView.gghandlesURLScheme(_:)))
+        CommonLibrary.hookInstanceMethod(cls: WKWebView.self, originalSelector: #selector(WKWebView.load(_:)), swizzleSelector: #selector(WKWebView.ggLoad(_:)))
+    }
 }
 
+extension WKWebView{
+    @objc static func gghandlesURLScheme(_ urlScheme: String) -> Bool{
+        if urlScheme == "http" || urlScheme == "https" {
+            return false
+        }
+        else{
+            return gghandlesURLScheme(urlScheme)
+        }
+    }
+    
+    @objc func ggLoad(_ request: URLRequest) -> WKNavigation?{
+        print("--------------hook Load 方法成功--------------")
+        return ggLoad(request)
+    }
+}
 
