@@ -923,3 +923,30 @@ public extension UIColor{
         }
     }
 }
+
+public extension URL{
+    func getScaleImage(to pointSize: CGSize, scale: CGFloat) -> UIImage? {
+        if !self.isFileURL{
+            return nil
+        }
+        let sourceOpt = [kCGImageSourceShouldCache : false] as CFDictionary
+        /**<
+         这里有两个注意事项
+         
+         设置kCGImageSourceShouldCache为false，避免缓存解码后的数据，64位设置上默认是开启缓存的，（很好理解，因为下次使用该图片的时候，可能场景不同，需要生成的缩略图大小是不同的，显然不能做缓存处理）
+         设置kCGImageSourceShouldCacheImmediately为true，避免在需要渲染的时候才做解码，默认选项是false
+         */
+        // 其他场景可以用createwithdata (data并未decode,所占内存没那么大),
+        if let source = CGImageSourceCreateWithURL(self as CFURL, sourceOpt){
+            let maxDimension = max(pointSize.width, pointSize.height) * scale
+            let downsampleOpt = [kCGImageSourceCreateThumbnailFromImageAlways : true,
+                                 kCGImageSourceShouldCacheImmediately : true ,
+                                 kCGImageSourceCreateThumbnailWithTransform : true,
+                                 kCGImageSourceThumbnailMaxPixelSize : maxDimension] as CFDictionary
+            let downsampleImage = CGImageSourceCreateThumbnailAtIndex(source, 0, downsampleOpt)!
+            return UIImage(cgImage: downsampleImage)
+
+        }
+        return nil
+    }
+}
