@@ -23,7 +23,7 @@ class AdViewController: UIViewController {
         view.addSubview(btnCount)
     }
     
-    func timeCOuntDown() {
+    func timeCountDown() {
         timer.schedule(deadline: .now(), repeating: .seconds(1))
         timer.setEventHandler {
             DispatchQueue.main.async { [weak self] in

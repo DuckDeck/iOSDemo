@@ -319,10 +319,9 @@ print("位宽", 5.bitWidth, Int64.bitWidth, Int8.bitWidth)
 
 */
 
-struct a : Codable{
-    var type : Int?
-    public var name : String?
 
-}
 
+
+
+["123"] is Codable
 
