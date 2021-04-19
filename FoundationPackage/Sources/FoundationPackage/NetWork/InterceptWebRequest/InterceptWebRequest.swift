@@ -15,9 +15,9 @@ class WebViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let config = WKWebViewConfiguration()
-//        let handler = URLSchemeHandler()
-//        config.setURLSchemeHandler(handler, forURLScheme: "http")
-//        config.setURLSchemeHandler(handler, forURLScheme: "https")
+        let handler = URLSchemeHandler()
+        config.setURLSchemeHandler(handler, forURLScheme: "http")
+        config.setURLSchemeHandler(handler, forURLScheme: "https")
         webView = TestWebView(frame: CGRect.zero, configuration: config)
         view.addSubview(webView)
         webView.snp.makeConstraints { (m) in
@@ -31,7 +31,6 @@ class WebViewController: BaseViewController {
         super.viewDidDisappear(animated)
         URLCache.shared.removeAllCachedResponses()
         HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
-
         WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
             records.forEach { record in
                 WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
@@ -40,35 +39,15 @@ class WebViewController: BaseViewController {
                 #endif
             }
         }
-        let type = WKWebsiteDataStore.allWebsiteDataTypes()
-        let date = Date(timeIntervalSince1970: 0)
-//        清除WKWebView的缓存
-//           在磁盘缓存上。
-//           WKWebsiteDataTypeDiskCache,
-//           
-//           html离线Web应用程序缓存。
-//           WKWebsiteDataTypeOfflineWebApplicationCache,
-//           
-//           内存缓存。
-//           WKWebsiteDataTypeMemoryCache,
-//           
-//           本地存储。
-//           WKWebsiteDataTypeLocalStorage,
-//           
-//           Cookies
-//           WKWebsiteDataTypeCookies,
-//           
-//           会话存储
-//           WKWebsiteDataTypeSessionStorage,
-//           
-//           IndexedDB数据库。
-//           WKWebsiteDataTypeIndexedDBDatabases,
-//           
-//           查询数据库。
-//           WKWebsiteDataTypeWebSQLDatabases
-        WKWebsiteDataStore.default().removeData(ofTypes: type, modifiedSince: date) {
-            print("移除所有cache")
-        }
+//       清除WKWebView的缓存
+//       WKWebsiteDataTypeDiskCache, 在磁盘缓存上。
+//       WKWebsiteDataTypeOfflineWebApplicationCache, html离线Web应用程序缓存。
+//       WKWebsiteDataTypeMemoryCache, 内存缓存。
+//       WKWebsiteDataTypeLocalStorage, 本地存储。
+//       WKWebsiteDataTypeCookies, Cookies
+//       WKWebsiteDataTypeSessionStorage,会话存储
+//       WKWebsiteDataTypeIndexedDBDatabases,IndexedDB数据库。
+//       WKWebsiteDataTypeWebSQLDatabases查询数据库。
     }
     
     

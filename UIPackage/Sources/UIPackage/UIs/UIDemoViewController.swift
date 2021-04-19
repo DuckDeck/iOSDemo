@@ -18,23 +18,7 @@ class UIDemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        let circle = CircleProgressView()
-        view.addSubview(circle)
-        circle.snp.makeConstraints { (m) in
-            m.left.equalTo(50)
-            m.top.equalTo(100)
-            m.width.height.equalTo(100)
-        }
-        
-        timer = GrandTimer.scheduleTimerWithTimeSpan(TimeSpan.fromSeconds(1), block: {
-            circle.progress = self.tick / 100.0
-            self.tick += 1.0
-        }, repeats: true, dispatchQueue: DispatchQueue.global())
-        timer.fire()
-        
-        let keyboard = NineKeyboard(frame: CGRect(x: 10, y: 400, width: ScreenWidth - 20, height: 300))
+        let keyboard = NineKeyboard(frame: CGRect(x: 10, y: 100, width: ScreenWidth - 20, height: 300))
         view.addSubview(keyboard)
         
         
@@ -72,8 +56,8 @@ class NineKeyboard: UIView {
         super.init(frame: frame)
         
         backgroundColor = UIColor.gray.withAlphaComponent(0.3)
-        for rect in positions{
-            let las = createTextLayer(text: ("1","分割"), position: rect)
+        for rect in positions.enumerated(){
+            let las = createTextLayer(text: (rect.offset.toString,"abc"), position: rect.element)
             for la in las {
                 layer.addSublayer(la)
             }
@@ -94,14 +78,16 @@ class NineKeyboard: UIView {
         layerFrame.path = path1.cgPath
         layers.append(layerFrame)
         let layerText1 =  CATextLayer()
-        layerText1.frame = CGRect(origin: CGPoint(x: position.center.x - 5, y:  position.center.y - 20), size: CGSize(width: 10, height: 20))
+        layerText1.frame = CGRect(origin: CGPoint(x: position.center.x - 5, y:  position.center.y - 15), size: CGSize(width: 10, height: 20))
         layerText1.foregroundColor = UIColor.gray.cgColor
         layerText1.contentsScale = UIScreen.main.scale
         layerText1.string = text.0
         layerText1.fontSize = 13
         layers.append(layerText1)
         let layerText2 =  CATextLayer()
-        layerText2.frame = CGRect(origin: CGPoint(x: position.center.x - 15, y:  position.center.y - 10), size: CGSize(width: 30, height: 20))
+        let size = text.1.boundingRect(with: CGSize(width: 100, height: 100), font: UIFont.systemFont(ofSize: 18))
+        
+        layerText2.frame = CGRect(origin: CGPoint(x: position.center.x - size.width / 2, y:  position.center.y), size: CGSize(width: 30, height: 20))
         layerText2.foregroundColor = UIColor.gray.cgColor
         layerText2.contentsScale = UIScreen.main.scale
         layerText2.string = text.1
@@ -146,7 +132,6 @@ class NineKeyboard: UIView {
                 if item.contains(point){
                     if pressedLayer == nil{
                         pressedLayer = CAShapeLayer()
-                        
                         pressedLayer!.fillColor = UIColor.gray.withAlphaComponent(0.4).cgColor
                     }
                     
@@ -161,12 +146,7 @@ class NineKeyboard: UIView {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let point = touches.first?.location(in: self){
-            print(point)
-           
-            pressedLayer?.removeFromSuperlayer()
-            
-        }
+       pressedLayer?.removeFromSuperlayer()
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
