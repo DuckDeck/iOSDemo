@@ -58,7 +58,7 @@ class PreloadCellViewModel {
                self.isFetchInProcess = false
                // 初始化 30个 图片
                let imagesData = (1...30).map {
-                ImageModel(url: self.baseURL+"\($0).png", order: $0)
+                ImageModel(url: baseURL+"\($0).png", order: $0)
                }
                self.images.append(contentsOf: imagesData)
 

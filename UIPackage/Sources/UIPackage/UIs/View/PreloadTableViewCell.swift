@@ -6,7 +6,7 @@
 //
 
 import UIKit
-class PreloadTableViewCell:UITableViewCell {
+class ProloadTableViewCell:UITableViewCell {
     private var loadingIndicator: UIActivityIndicatorView?
     private var thumbImageView: UIImageView?
     private var order: UILabel?
@@ -33,6 +33,10 @@ class PreloadTableViewCell:UITableViewCell {
         loadingIndicator = UIActivityIndicatorView(frame: self.frame)
         loadingIndicator?.color = .white
         self.addSubview(loadingIndicator!)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func updateUI(_ image: UIImage?, orderNo: String){

@@ -6,36 +6,46 @@
 //
 
 import UIKit
+import SwiftUI
 class InfiniteTableViewController: UIViewController {
     
-    var isFetchInProcess = false
-    var total = 0
-    var currentPage = 1
-    var baseURL = ""
-    var images = [ImageModel]()
-    let tb = UITableView()
-    let indicatorView = UIActivityIndicatorView()
+    fileprivate let tb = UITableView()
+    fileprivate let indicatorView = UIActivityIndicatorView(style: .medium)
+    var vm : PreloadCellViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        vm = PreloadCellViewModel()
+        vm.delegate = self
+        
         view.addSubview(tb)
         tb.tableFooterView = UIView()
         tb.prefetchDataSource = self
+        tb.register(ProloadTableViewCell.self, forCellReuseIdentifier: "cell")
+        tb.dataSource = self
+        tb.delegate = self
         tb.snp.makeConstraints { (m) in
             m.edges.equalTo(0)
         }
         view.addSubview(indicatorView)
+        indicatorView.startAnimating()
         indicatorView.snp.makeConstraints { (m) in
             m.center.equalTo(view)
             m.width.height.equalTo(25)
         }
+        vm.fetchImages()
     }
     
     
     func visibleIndexPathsToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
-            let indexPathsForVisibleRows = tb.indexPathsForVisibleRows ?? []
-            let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPaths)
-            return Array(indexPathsIntersection)
-        }
+        let indexPathsForVisibleRows = tb.indexPathsForVisibleRows ?? []
+        let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPaths)
+        return Array(indexPathsIntersection)
+    }
+    
+    func isLoadingCell(index:IndexPath) -> Bool {
+        return index.row >= vm.currentCount
+    }
 
 }
 
@@ -59,18 +69,97 @@ extension InfiniteTableViewController:PreloadCellViewModelDelegate{
     
 }
 
-extension InfiniteTableViewController:UITableViewDataSourcePrefetching{
+extension InfiniteTableViewController:UITableViewDataSourcePrefetching,UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        let needFetch = indexPaths.contains(where: <#T##(IndexPath) throws -> Bool#>)
+        let needFetch = indexPaths.contains { $0.row >= vm.currentCount}
+        if needFetch {
+            // 1.满足条件进行翻页请求
+            indicatorView.startAnimating()
+            vm.fetchImages()
+        }
+        for indexPath in indexPaths {
+            if let _ = vm.loadingOperations[indexPath] {
+                return
+            }
+            
+            if let dataloader = vm.loadImage(at: indexPath.row) {
+                print("在 \(indexPath.row) 行 对图片进行 prefetch ")
+                // 2 对需要下载的图片进行预热
+                vm.loadingQueue.addOperation(dataloader)
+                // 3 将该下载线程加入到记录数组中以便根据索引查找
+                vm.loadingOperations[indexPath] = dataloader
+            }
+        }
+
+    }
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach{
+            if let dataLoader = vm.loadingOperations[$0] {
+                print("在 \($0.row) 行 cancelPrefetchingForRowsAt ")
+                dataLoader.cancel()
+                vm.loadingOperations.removeValue(forKey: $0)
+            }
+
+        }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // preheat image ，处理将要显示的图像
+        guard let cell = cell as? ProloadTableViewCell else {
+            return
+        }
+
+        // 图片下载完毕后更新 cell
+        let updateCellClosure: (UIImage?) -> () = { [unowned self] (image) in
+            cell.updateUI(image, orderNo: "\(indexPath.row)")
+            vm.loadingOperations.removeValue(forKey: indexPath)
+        }
+        // 1. 首先判断是否已经存在创建好的下载线程
+        if let dataLoader = vm.loadingOperations[indexPath] {
+            if let image = dataLoader.image {
+                // 1.1 若图片已经下载好，直接更新
+                cell.updateUI(image, orderNo: "\(indexPath.row)")
+            } else {
+                // 1.2 若图片还未下载好，则等待图片下载完后更新 cell
+                dataLoader.loadingCompleteHandle = updateCellClosure
+            }
+        } else {
+            // 2. 没找到，则为指定的 url 创建一个新的下载线程
+            print("在 \(indexPath.row) 行创建一个新的图片下载线程")
+            if let dataloader = vm.loadImage(at: indexPath.row) {
+                // 2.1 添加图片下载完毕后的回调
+                dataloader.loadingCompleteHandle = updateCellClosure
+                // 2.2 启动下载
+                vm.loadingQueue.addOperation(dataloader)
+                // 2.3 将该下载线程加入到记录数组中以便根据索引查找
+                vm.loadingOperations[indexPath] = dataloader
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return vm.totalCount
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ProloadTableViewCell else {
+            fatalError("you can not load cell")
+        }
+        if isLoadingCell(index: indexPath) {
+            cell.updateUI(.none, orderNo: "\(indexPath.row)")
+        }
+        return cell
+    }
 }
 
 class ImageCache {
     private var cache = NSCache<AnyObject, UIImage>()
     public static let shared = ImageCache()
-    private override init() {}
+    
    
     func getCache() -> NSCache<AnyObject, UIImage> {
        return cache
@@ -136,8 +225,21 @@ class DataLoadOperation: Operation {
     }
 }
 
-
-struct ImageModel {
-    var url = ""
-    var order = 0
+struct InfiniteTableDemo:UIViewControllerRepresentable {
+    func updateUIViewController(_ uiViewController: InfiniteTableViewController, context: Context) {
+        
+    }
+    typealias UIViewControllerType = InfiniteTableViewController
+    
+    func makeUIViewController(context: Context) -> InfiniteTableViewController {
+        return InfiniteTableViewController()
+    }
 }
+struct ImageModel {
+    var url: URL?
+  var order: Int?
+  
+  init(url: String, order: Int) {
+      self.url = URL(string: url)
+      self.order = order
+  }}
