@@ -10,7 +10,8 @@ import UIKit
 import JavaScriptCore
 import WebKit
 import SwiftUI
-class JSViewController: UIViewController {
+import CommonLibrary
+class JSViewController: BaseViewController {
     var webView :WKWebView?
     var context = JSContext()
     var jsContext: JSContext?
