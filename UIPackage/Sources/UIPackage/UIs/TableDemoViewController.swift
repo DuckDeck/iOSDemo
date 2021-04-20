@@ -7,7 +7,8 @@
 
 import UIKit
 import SwiftUI
-class InfiniteTableViewController: UIViewController {
+import CommonLibrary
+class InfiniteTableViewController: BaseViewController {
     
     fileprivate let tb = UITableView()
     fileprivate let indicatorView = UIActivityIndicatorView(style: .medium)

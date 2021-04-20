@@ -20,7 +20,7 @@ class ProloadTableViewCell:UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.backgroundColor = .black
+        self.backgroundColor = .white
         thumbImageView = UIImageView(frame: CGRect(x: (self.frame.size.width - 100)/2, y: 0, width: 100, height: 100))
         self.addSubview(thumbImageView!)
         
