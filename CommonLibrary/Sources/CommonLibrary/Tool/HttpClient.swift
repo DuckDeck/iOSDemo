@@ -8,26 +8,34 @@
 import UIKit
 import Alamofire
 public class HttpClient{
-    
     fileprivate var url:String!
     fileprivate var method:HTTPMethod!
     fileprivate var params:Dictionary<String,Any>?
-    fileprivate  var requestOptions:Dictionary<String,AnyObject>?
-    fileprivate  var headers:Dictionary<String,String>?
-    //    fileprivate var progress:((_ progress:Float)->())?
+    fileprivate var requestOptions:Dictionary<String,AnyObject>?
+    fileprivate var headers:Dictionary<String,String>?
+    fileprivate var uploadProgress:((_ progress:Double)->())?
+    fileprivate var downloadProgress:((_ progress:Double)->())?
     fileprivate var completedBlock:((_ data:Data?,_ error:Error?)->Void)?
+    public var showLog = false
     public static func get(_ url:String)->HttpClient{
-        let m = HttpClient()
-        m.url = url
-        m.method = .get
-        return m
+        return HttpClient.init(url, method: .get)
     }
     
     public static func post(_ url:String)->HttpClient{
-        let m = HttpClient()
-        m.url = url
-        m.method = .post
-        return m
+        return HttpClient.init(url, method: .post)
+    }
+    
+    public static func put(_ url:String)->HttpClient{
+        return HttpClient.init(url, method: .put)
+    }
+    
+    public static func delete(_ url:String)->HttpClient{
+        return HttpClient.init(url, method: .delete)
+    }
+    
+    private init(_ url:String,method:HTTPMethod){
+        self.url = url
+        self.method = method
     }
     
     open func addParams(_ params:Dictionary<String,Any>?)->HttpClient{
@@ -40,90 +48,85 @@ public class HttpClient{
         return self
     }
     
+    open func addUploadProgress(_ progress:((_ progress:Double)->())?)->HttpClient{
+        self.uploadProgress = progress
+        return self
+    }
+    
+    open func addDownloadProgress(_ progress:((_ progress:Double)->())?)->HttpClient{
+        self.downloadProgress = progress
+        return self
+    }
+    
     open func completion(_ completion:((_ data:Data?,_ error:Error?)->Void)?){
         if let p = params{
-            Log(message: p)
+            if showLog{
+                Log(message: p)
+            }
         }
-        
         self.completedBlock = completion
-        
-        AF.request(url, method: method, parameters: params).responseData {  (data) in
+        if showLog{
+            Log(message: self.url)
+        }
+        AF.request(url, method: method, parameters: params).uploadProgress { (progress) in
+            self.uploadProgress?(progress.fractionCompleted)
+        }.downloadProgress { (progress) in
+            self.downloadProgress?(progress.fractionCompleted)
+        }.responseData { (data) in
             if let d = data.data{
                 if let s = String(data: d, encoding: String.Encoding.utf8){
-                    Log(message: s)
+                    if self.showLog{
+                        Log(message: s)
+                    }
                 }
             }
             self.completedBlock?(data.data,data.error)
         }
-        
     }
     
     public static func download(url: URL, toFile file: URL, completion: @escaping (Error?) -> Void) {
-        // Download the remote URL to a file
         let task = URLSession.shared.downloadTask(with: url) {
             (tempURL, response, error) in
-            // Early exit on error
             guard let tempURL = tempURL else {
                 completion(error)
                 return
             }
             do {
                 print(file.path)
-                // Remove any existing document at file
                 if FileManager.default.fileExists(atPath: file.path) {
                     try FileManager.default.removeItem(at: file)
                 }
-                // Copy the tempURL to file
                 try FileManager.default.copyItem(at: tempURL,to: file)
                 completion(nil)
             }
-
-            // Handle potential file system errors
             catch let fileError {
-                completion(error)
+                completion(fileError)
             }
         }
-
-        // Start the download
         task.resume()
     }
     
     public struct ArrayEncoding: ParameterEncoding {
-        
-        /// The options for writing the parameters as JSON data.
         public let options: JSONSerialization.WritingOptions
-        
-        
-        /// Creates a new instance of the encoding using the given options
-        ///
-        /// - parameter options: The options used to encode the json. Default is `[]`
-        ///
-        /// - returns: The new instance
         public init(options: JSONSerialization.WritingOptions = []) {
             self.options = options
         }
         
         public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
             var urlRequest = try urlRequest.asURLRequest()
-            
             guard let parameters = parameters,
-                let array = parameters[arrayParametersKey] else {
+            let array = parameters[arrayParametersKey] else {
                     return urlRequest
             }
-            
             do {
                 let data = try JSONSerialization.data(withJSONObject: array, options: options)
-                
                 if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
                     urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 }
-                
                 urlRequest.httpBody = data
-                
             } catch {
                 throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
             }
-            
             return urlRequest
         }
     }
@@ -131,7 +134,6 @@ public class HttpClient{
 }
 private let arrayParametersKey = "arrayParametersKey"
 extension Array {
-    /// Convert the receiver array to a `Parameters` object.
     func asParameters() -> Parameters {
         return [arrayParametersKey: self]
     }
