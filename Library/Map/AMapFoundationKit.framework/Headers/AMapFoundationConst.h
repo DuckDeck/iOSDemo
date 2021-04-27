@@ -33,8 +33,8 @@ extern NSErrorDomain const AMapFoundationNSErrorParametersInvalid;
 extern AMapFoundationNSErrorCode const AMapFoundationNSErrorParametersInvalidCode;
 
 
-extern NSErrorDomain const AMapFoundationNSErrorCloudConfigDisabel;
-extern AMapFoundationNSErrorCode const AMapFoundationNSErrorCloudConfigDisabelCode;
+extern NSErrorDomain const AMapFoundationNSErrorCloudConfigDisable;
+extern AMapFoundationNSErrorCode const AMapFoundationNSErrorCloudConfigDisableCode;
 
 extern NSErrorDomain const AMapFoundationNSErrorNetworkUnusable;
 extern AMapFoundationNSErrorCode const AMapFoundationNSErrorNetworkUnusableCode;

@@ -386,6 +386,8 @@
 		AEF5E8FF2282B80E0071B38A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8FE2282B80E0071B38A /* AudioToolbox.framework */; };
 		AEF5E9012282B8190071B38A /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E9002282B8190071B38A /* libbz2.tbd */; };
 		AEF5E9032282B8210071B38A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E9022282B8210071B38A /* libz.tbd */; };
+		BA84E0F9263513970074FDC6 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA84E0F8263513970074FDC6 /* MAMapKit.framework */; };
+		BA84E100263513BA0074FDC6 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA84E0FF263513BA0074FDC6 /* AMapFoundationKit.framework */; };
 		F6C59D4C219AF68100825BBA /* SelDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4B219AF68100825BBA /* SelDemo.m */; };
 		F6C59D4F219B045200825BBA /* Runspector.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4E219B045200825BBA /* Runspector.m */; };
 		F6F3090A246A7C4E0025EF5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F30909246A7C4E0025EF5D /* AppDelegate.m */; };
@@ -433,9 +435,7 @@
 		2051B87E2522D3930090B8C1 /* FPSTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSTool.swift; sourceTree = "<group>"; };
 		2051B88A2522DA940090B8C1 /* CatoMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatoMonitor.swift; sourceTree = "<group>"; };
 		20A5D6BA251DD7DD00D80F54 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
-		20A5D6BB251DD7DD00D80F54 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
 		20A5D6BC251DD7DD00D80F54 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
-		20A5D6BD251DD7DD00D80F54 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		20A5D6C8251DD87700D80F54 /* TableLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLayoutViewController.swift; sourceTree = "<group>"; };
 		20A5D6E5251E048200D80F54 /* LimitTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitTextView.swift; sourceTree = "<group>"; };
 		20ABA57C2521D0B8009B2659 /* GrandTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandTextView.swift; sourceTree = "<group>"; };
@@ -882,6 +882,8 @@
 		AEF5E8FE2282B80E0071B38A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AEF5E9002282B8190071B38A /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
 		AEF5E9022282B8210071B38A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		BA84E0F8263513970074FDC6 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
+		BA84E0FF263513BA0074FDC6 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
 		F6C59D4A219AF68100825BBA /* SelDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelDemo.h; sourceTree = "<group>"; };
 		F6C59D4B219AF68100825BBA /* SelDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelDemo.m; sourceTree = "<group>"; };
 		F6C59D4D219B045200825BBA /* Runspector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Runspector.h; sourceTree = "<group>"; };
@@ -944,6 +946,7 @@
 				AE4EA75321806C3F0061FA84 /* CoreVideo.framework in Frameworks */,
 				AE4EA75121806C390061FA84 /* CoreMedia.framework in Frameworks */,
 				209FACA6257F5ED40009E51E /* URLNavigator in Frameworks */,
+				BA84E100263513BA0074FDC6 /* AMapFoundationKit.framework in Frameworks */,
 				AECA9D3C248B915D008CC21B /* Gifu in Frameworks */,
 				AECA9D21248B5AF5008CC21B /* SwiftyJSON in Frameworks */,
 				AE4EA74F21806C2A0061FA84 /* Accelerate.framework in Frameworks */,
@@ -953,6 +956,7 @@
 				AE52B6A1251B7E96008A96DA /* CoreServices.framework in Frameworks */,
 				AE52B6AC251B92E6008A96DA /* GLKit.framework in Frameworks */,
 				AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */,
+				BA84E0F9263513970074FDC6 /* MAMapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -992,10 +996,10 @@
 		20A5D6B9251DD7DD00D80F54 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				BA84E0FF263513BA0074FDC6 /* AMapFoundationKit.framework */,
+				BA84E0F8263513970074FDC6 /* MAMapKit.framework */,
 				20A5D6BA251DD7DD00D80F54 /* AMapLocationKit.framework */,
-				20A5D6BB251DD7DD00D80F54 /* AMapFoundationKit.framework */,
 				20A5D6BC251DD7DD00D80F54 /* AMap.bundle */,
-				20A5D6BD251DD7DD00D80F54 /* MAMapKit.framework */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -3382,6 +3386,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				DEVELOPMENT_TEAM = APF8Y4T67A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Map",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -3393,6 +3401,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				DEVELOPMENT_TEAM = APF8Y4T67A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Map",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;

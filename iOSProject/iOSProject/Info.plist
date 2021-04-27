@@ -28,7 +28,7 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>用一相相机</string>
+	<string>用一下相机</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>用一下麦克风</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
