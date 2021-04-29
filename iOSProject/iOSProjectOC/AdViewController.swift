@@ -15,12 +15,14 @@ class AdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
-        timeCOuntDown()
+        timeCountDown()
         
         btnCount.backgroundColor = UIColor(white: 0.8, alpha: 0.3)
         btnCount.frame = CGRect(x: UIScreen.main.bounds.size.width - 80, y: 120, width: 80, height: 30)
         btnCount.addTarget(self, action: #selector(skipToHome), for: .touchUpInside)
         view.addSubview(btnCount)
+        
+        
     }
     
     func timeCountDown() {

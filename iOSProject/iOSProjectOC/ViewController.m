@@ -8,7 +8,7 @@
 #import "ViewController.h"
 #import "diff.h"
 @interface ViewController ()
-
+@property (strong,nonatomic) UITextField* txt;
 @end
 
 @implementation ViewController
@@ -18,6 +18,22 @@
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
     self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithTitle:@"差分" style:UIBarButtonItemStylePlain target:self action:@selector(createDiffPackage)],[[UIBarButtonItem alloc] initWithTitle:@"合并" style:UIBarButtonItemStylePlain target:self action:@selector(joinPackage)]];
+    
+     _txt = [UITextField new];
+    _txt.frame = CGRectMake(10, 10, 200, 100);
+    [self.view addSubview:_txt];
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _txt.text = nil;
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
 }
 
 -(void)createDiffPackage{
