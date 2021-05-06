@@ -137,15 +137,6 @@
         }
       },
       {
-        "package": "ViewChaos",
-        "repositoryURL": "https://github.com/DuckDeck/ViewChaos",
-        "state": {
-          "branch": null,
-          "revision": "e52d72d42a2ff52fa911b47e4bd8281b5b3fd6c4",
-          "version": "2.1.1"
-        }
-      },
-      {
         "package": "ZLPhotoBrowser",
         "repositoryURL": "https://github.com/longitachi/ZLPhotoBrowser",
         "state": {

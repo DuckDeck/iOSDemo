@@ -12,6 +12,7 @@ public struct ImageProcessPage:View {
             NavigationLink("GIF图片",destination:GifImageDemo().navigationBarTitle(Text("Gif图片示例")))
             NavigationLink("照片拍摄",destination:TakePhotoDemo().navigationBarTitle(Text("照片拍摄示例")))
             NavigationLink("添加水印",destination:AddWatermarkDemo().navigationBarTitle(Text("添加水印示例")))
+            NavigationLink("摄像头扫码",destination:SweepCodeDemo().navigationBarTitle(Text("摄像头扫码")))
         }.navigationBarTitle(Text("图片处理"))
     }
     

@@ -17,6 +17,7 @@ let package = Package(
         .package(url: "https://github.com/SnapKit/SnapKit", from: "5.0.1"),
         .package(url: "https://github.com/longitachi/ZLPhotoBrowser", from: "4.1.2"),
         .package(url: "https://github.com/kaishin/Gifu", from: "3.0.0"),
+        .package(url: "https://github.com/DuckDeck/GrandTime", from: "2.0.0"),
         .package(path: "../CommonLibrary")
     ],
     targets: [
@@ -24,7 +25,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "MediaPackage",
-            dependencies: ["SnapKit","CommonLibrary","ZLPhotoBrowser","Gifu"]),
+            dependencies: ["SnapKit","CommonLibrary","ZLPhotoBrowser","Gifu","GrandTime"]),
         .testTarget(
             name: "MediaPackageTests",
             dependencies: ["MediaPackage"]),

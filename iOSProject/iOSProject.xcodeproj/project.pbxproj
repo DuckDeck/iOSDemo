@@ -20,7 +20,6 @@
 		207EE1A625A43BE90030ECDD /* ZLPhotoBrowser in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1A525A43BE90030ECDD /* ZLPhotoBrowser */; };
 		207EE1AA25A455650030ECDD /* GrandTime in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1A925A455650030ECDD /* GrandTime */; };
 		207EE1AE25A455850030ECDD /* GrandMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1AD25A455850030ECDD /* GrandMenu */; };
-		207EE1B225A455E30030ECDD /* ViewChaos in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1B125A455E30030ECDD /* ViewChaos */; };
 		207EE1B625A456090030ECDD /* GrandModel in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1B525A456090030ECDD /* GrandModel */; };
 		207EE1BA25A4562A0030ECDD /* GrandStore in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1B925A4562A0030ECDD /* GrandStore */; };
 		207EE1BE25A458150030ECDD /* KRProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 207EE1BD25A458150030ECDD /* KRProgressHUD */; };
@@ -60,7 +59,6 @@
 		BAA58690261DCAE8004443B7 /* CommonLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = BAA5868F261DCAE8004443B7 /* CommonLibrary */; };
 		BAA58695261EAC81004443B7 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA58694261EAC81004443B7 /* Calculator.swift */; };
 		BAA5869A261EACDF004443B7 /* CommonLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = BAA58699261EACDF004443B7 /* CommonLibrary */; };
-		BAA5869F261EAD7F004443B7 /* ViewChaos in Frameworks */ = {isa = PBXBuildFile; productRef = BAA5869E261EAD7F004443B7 /* ViewChaos */; };
 		BAA586AA261EAE89004443B7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA586A9261EAE89004443B7 /* main.swift */; };
 		BAABD4CA260C7BCB0026A251 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAABD4C9260C7BCB0026A251 /* KeyboardViewController.swift */; };
 		BAABD4CE260C7BCB0026A251 /* GrandKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BAABD4C7260C7BCB0026A251 /* GrandKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -183,7 +181,6 @@
 				207EE26225A965FB0030ECDD /* Gifu in Frameworks */,
 				207EE1AE25A455850030ECDD /* GrandMenu in Frameworks */,
 				AE61F16625E4FCB300905B9F /* SwiftyMarkdown in Frameworks */,
-				207EE1B225A455E30030ECDD /* ViewChaos in Frameworks */,
 				207EE25525A841C10030ECDD /* GrandRefresh in Frameworks */,
 				207EE1CE25A459720030ECDD /* SwiftyJSON in Frameworks */,
 				207EE17325A303950030ECDD /* CommonLibrary in Frameworks */,
@@ -205,7 +202,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAA5869F261EAD7F004443B7 /* ViewChaos in Frameworks */,
 				BAA58690261DCAE8004443B7 /* CommonLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,7 +424,6 @@
 				207EE1A525A43BE90030ECDD /* ZLPhotoBrowser */,
 				207EE1A925A455650030ECDD /* GrandTime */,
 				207EE1AD25A455850030ECDD /* GrandMenu */,
-				207EE1B125A455E30030ECDD /* ViewChaos */,
 				207EE1B525A456090030ECDD /* GrandModel */,
 				207EE1B925A4562A0030ECDD /* GrandStore */,
 				207EE1BD25A458150030ECDD /* KRProgressHUD */,
@@ -460,7 +455,6 @@
 			name = iOSProjectOC;
 			packageProductDependencies = (
 				BAA5868F261DCAE8004443B7 /* CommonLibrary */,
-				BAA5869E261EAD7F004443B7 /* ViewChaos */,
 			);
 			productName = iOSProjectOC;
 			productReference = BA727DE12601AF570015DAA7 /* iOSProjectOC.app */;
@@ -513,7 +507,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					207EE15A25A3006D0030ECDD = {
 						CreatedOnToolsVersion = 12.3;
@@ -544,7 +538,6 @@
 				207EE1A425A43BE90030ECDD /* XCRemoteSwiftPackageReference "ZLPhotoBrowser" */,
 				207EE1A825A455650030ECDD /* XCRemoteSwiftPackageReference "GrandTime" */,
 				207EE1AC25A455850030ECDD /* XCRemoteSwiftPackageReference "GrandMenu" */,
-				207EE1B025A455E30030ECDD /* XCRemoteSwiftPackageReference "ViewChaos" */,
 				207EE1B425A456090030ECDD /* XCRemoteSwiftPackageReference "GrandModel" */,
 				207EE1B825A4562A0030ECDD /* XCRemoteSwiftPackageReference "GrandStore" */,
 				207EE1BC25A458150030ECDD /* XCRemoteSwiftPackageReference "KRProgressHUD" */,
@@ -901,6 +894,7 @@
 		BAA586AC261EAE89004443B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -914,6 +908,7 @@
 		BAA586AD261EAE89004443B7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3YCGH6CCXA;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1049,14 +1044,6 @@
 				minimumVersion = 2.0.1;
 			};
 		};
-		207EE1B025A455E30030ECDD /* XCRemoteSwiftPackageReference "ViewChaos" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/DuckDeck/ViewChaos";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.1;
-			};
-		};
 		207EE1B425A456090030ECDD /* XCRemoteSwiftPackageReference "GrandModel" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/DuckDeck/GrandModel";
@@ -1188,11 +1175,6 @@
 			package = 207EE1AC25A455850030ECDD /* XCRemoteSwiftPackageReference "GrandMenu" */;
 			productName = GrandMenu;
 		};
-		207EE1B125A455E30030ECDD /* ViewChaos */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 207EE1B025A455E30030ECDD /* XCRemoteSwiftPackageReference "ViewChaos" */;
-			productName = ViewChaos;
-		};
 		207EE1B525A456090030ECDD /* GrandModel */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 207EE1B425A456090030ECDD /* XCRemoteSwiftPackageReference "GrandModel" */;
@@ -1255,11 +1237,6 @@
 		BAA58699261EACDF004443B7 /* CommonLibrary */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CommonLibrary;
-		};
-		BAA5869E261EAD7F004443B7 /* ViewChaos */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 207EE1B025A455E30030ECDD /* XCRemoteSwiftPackageReference "ViewChaos" */;
-			productName = ViewChaos;
 		};
 		BACA324E262527D400AE9999 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
