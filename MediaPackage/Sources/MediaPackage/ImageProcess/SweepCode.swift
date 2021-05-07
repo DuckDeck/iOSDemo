@@ -126,19 +126,33 @@ extension SweepCodeVC:AVCaptureMetadataOutputObjectsDelegate {
 }
 class ScanView: UIView {
     let vMobile = UIView()
-    
+    var timer : GrandTimer?
+    var  lineY:CGFloat = 3
+    let sweepLine = CAShapeLayer()
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.clear
-        
+        sweepLine.fillColor = UIColor.green.cgColor
+        layer.addSublayer(sweepLine)
     }
     
-    override func willMove(toSuperview newSuperview: UIView?) {
-        super.willMove(toSuperview: newSuperview)
-        
-        
-        
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        timer = GrandTimer.every(TimeSpan.fromTicks(10), block: { [weak self] in
+            guard let self = self else{return}
+            if self.lineY >= self.frame.size.height - 6{
+                self.lineY = 3
+            }
+            let r = CGRect(x: 3, y: self.lineY, width: self.frame.size.width - 6, height: 3)
+            let path1 = UIBezierPath(roundedRect: r, cornerRadius: 0)
+            self.sweepLine.path = path1.cgPath
+            self.lineY = self.lineY + 1
+            
+        })
+        timer?.fire()
     }
+    
+    
     
     override func draw(_ rect: CGRect) {
         let ctx = UIGraphicsGetCurrentContext()
@@ -163,10 +177,6 @@ class ScanView: UIView {
         ctx?.strokePath()
         ctx?.setStrokeColor(UIColor.red.cgColor)
         ctx?.setLineWidth(3)
-        ctx?.move(to: CGPoint(x: 20, y: rect.size.height / 2))
-        ctx?.addLine(to: CGPoint(x: rect.size.width - 20, y: rect.size.height / 2 ))
-
-        
         ctx?.strokePath()
         
     }
