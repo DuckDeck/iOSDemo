@@ -122,7 +122,6 @@
 		AE4D497C24A1F8F8003D1565 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D497B24A1F8F8003D1565 /* CoreTelephony.framework */; };
 		AE4D497E24A1F900003D1565 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D497D24A1F900003D1565 /* Security.framework */; };
 		AE4D498224A1F9C9003D1565 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D498124A1F9C9003D1565 /* ExternalAccessory.framework */; };
-		AE4D4A2724A9DD09003D1565 /* ViewChaos in Frameworks */ = {isa = PBXBuildFile; productRef = AE4D4A2624A9DD09003D1565 /* ViewChaos */; };
 		AE4DA61B213E68B300FCC7FD /* ShadowDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61A213E68B300FCC7FD /* ShadowDataManager.swift */; };
 		AE4DA61D213E762500FCC7FD /* ShadowDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61C213E762500FCC7FD /* ShadowDownloader.swift */; };
 		AE4DA61F213E833D00FCC7FD /* ShadowRangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4DA61E213E833D00FCC7FD /* ShadowRangeManager.swift */; };
@@ -386,8 +385,6 @@
 		AEF5E8FF2282B80E0071B38A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8FE2282B80E0071B38A /* AudioToolbox.framework */; };
 		AEF5E9012282B8190071B38A /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E9002282B8190071B38A /* libbz2.tbd */; };
 		AEF5E9032282B8210071B38A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E9022282B8210071B38A /* libz.tbd */; };
-		BA84E0F9263513970074FDC6 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA84E0F8263513970074FDC6 /* MAMapKit.framework */; };
-		BA84E100263513BA0074FDC6 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA84E0FF263513BA0074FDC6 /* AMapFoundationKit.framework */; };
 		F6C59D4C219AF68100825BBA /* SelDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4B219AF68100825BBA /* SelDemo.m */; };
 		F6C59D4F219B045200825BBA /* Runspector.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4E219B045200825BBA /* Runspector.m */; };
 		F6F3090A246A7C4E0025EF5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F30909246A7C4E0025EF5D /* AppDelegate.m */; };
@@ -917,7 +914,6 @@
 				AE4D497E24A1F900003D1565 /* Security.framework in Frameworks */,
 				AE4D497C24A1F8F8003D1565 /* CoreTelephony.framework in Frameworks */,
 				AE4D497A24A1F8EE003D1565 /* SystemConfiguration.framework in Frameworks */,
-				AE4D4A2724A9DD09003D1565 /* ViewChaos in Frameworks */,
 				AE4D497824A1F834003D1565 /* AMapLocationKit.framework in Frameworks */,
 				AE4D497624A1F1A0003D1565 /* AMapFoundationKit.framework in Frameworks */,
 				AE4D497424A1F176003D1565 /* MAMapKit.framework in Frameworks */,
@@ -946,7 +942,6 @@
 				AE4EA75321806C3F0061FA84 /* CoreVideo.framework in Frameworks */,
 				AE4EA75121806C390061FA84 /* CoreMedia.framework in Frameworks */,
 				209FACA6257F5ED40009E51E /* URLNavigator in Frameworks */,
-				BA84E100263513BA0074FDC6 /* AMapFoundationKit.framework in Frameworks */,
 				AECA9D3C248B915D008CC21B /* Gifu in Frameworks */,
 				AECA9D21248B5AF5008CC21B /* SwiftyJSON in Frameworks */,
 				AE4EA74F21806C2A0061FA84 /* Accelerate.framework in Frameworks */,
@@ -956,7 +951,6 @@
 				AE52B6A1251B7E96008A96DA /* CoreServices.framework in Frameworks */,
 				AE52B6AC251B92E6008A96DA /* GLKit.framework in Frameworks */,
 				AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */,
-				BA84E0F9263513970074FDC6 /* MAMapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2578,7 +2572,6 @@
 				AECA9D38248B7ADE008CC21B /* GrandModel */,
 				AECA9D3B248B915D008CC21B /* Gifu */,
 				AECA9D40248B97FA008CC21B /* KRProgressHUD */,
-				AE4D4A2624A9DD09003D1565 /* ViewChaos */,
 				20EF8A4B255949A3008CBD99 /* SkeletonView */,
 				209FACA5257F5ED40009E51E /* URLNavigator */,
 				209FACA7257F5ED40009E51E /* URLMatcher */,
@@ -2646,7 +2639,7 @@
 			attributes = {
 				DefaultBuildSystemTypeForWorkspace = Original;
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Stan Hu";
 				TargetAttributes = {
 					AE9776A02303E24400C2FA6A = {
@@ -2697,7 +2690,6 @@
 				AECA9D37248B7ADE008CC21B /* XCRemoteSwiftPackageReference "GrandModel" */,
 				AECA9D3A248B915D008CC21B /* XCRemoteSwiftPackageReference "Gifu" */,
 				AECA9D3F248B97FA008CC21B /* XCRemoteSwiftPackageReference "KRProgressHUD" */,
-				AE4D4A2524A9DD09003D1565 /* XCRemoteSwiftPackageReference "ViewChaos" */,
 				20EF8A4A255949A3008CBD99 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 				209FACA4257F5ED40009E51E /* XCRemoteSwiftPackageReference "URLNavigator" */,
 			);
@@ -3579,14 +3571,6 @@
 				minimumVersion = 1.11.0;
 			};
 		};
-		AE4D4A2524A9DD09003D1565 /* XCRemoteSwiftPackageReference "ViewChaos" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/DuckDeck/ViewChaos";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.2;
-			};
-		};
 		AECA9D19248B476C008CC21B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -3700,11 +3684,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 20EF8A4A255949A3008CBD99 /* XCRemoteSwiftPackageReference "SkeletonView" */;
 			productName = SkeletonView;
-		};
-		AE4D4A2624A9DD09003D1565 /* ViewChaos */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AE4D4A2524A9DD09003D1565 /* XCRemoteSwiftPackageReference "ViewChaos" */;
-			productName = ViewChaos;
 		};
 		AECA9D1A248B476C008CC21B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

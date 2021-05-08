@@ -270,14 +270,14 @@ class CaptureSessionCoordinator:NSObject {
         }
         
         if device.hasFlash{
-         
-            if device.isFlashModeSupported(cameraModel.flashMode){
-                device.flashMode = cameraModel.flashMode
-            }
-            else{
-                print("The device not support current flash mode \(cameraModel.flashMode)")
-            }
-            
+//            try? self.deviceInput.device.lockForConfiguration()
+//            if device.isFlashModeSupported(cameraModel.flashMode){
+//                device.flashMode = cameraModel.flashMode
+//            }
+//            else{
+//                print("The device not support current flash mode \(cameraModel.flashMode)")
+//            }
+//            self.deviceInput.device.unlockForConfiguration()
         }
         else{
             print("The device not support flash")

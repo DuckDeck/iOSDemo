@@ -2,25 +2,19 @@
 //  File.swift
 //  
 //
-//  Created by shadowedge on 2021/1/9.
+//  Created by chen liang on 2021/5/7.
 //
+
 import UIKit
-import GrandTime
-import CoreMotion
 import CommonLibrary
 import SwiftUI
-enum VideoRecordStatus {
-    case Prepared,Recording,Finish
-}
-
-class VideoRecordViewController: UIViewController {
-    
+import GrandTime
+class ShootVC: BaseViewController {
     var captureSessionCoordinator:CaptureSessionCoordinator!
     let vRecordStatus = TouchView()
     let btnRecord = UIButton()
     let btnFlash = UIButton()
     let btnSwitchCamera = UIButton()
-    let sliderProgress = UISlider()
     let lblTime = UILabel()
     let vBlink = UIView()
     let btnDelete = UIButton()
@@ -35,7 +29,6 @@ class VideoRecordViewController: UIViewController {
     var isFlashOn = false
     var uploadVideoBlock:((_ url:URL)->Void)?
     var oldConstriants:[NSLayoutConstraint]!
-    var motion:CMMotionManager!
     var viewFocus:FocusFrameView!
     var backBlock:(()->Void)?
     var orientation : UIDeviceOrientation{
@@ -55,7 +48,6 @@ class VideoRecordViewController: UIViewController {
         didSet{
             switch recordStatus {
             case .Prepared:
-                sliderProgress.isHidden = true
                 vBlink.isHidden = true
                 lblTime.isHidden = true
                 btnBack.isHidden = false
@@ -64,7 +56,6 @@ class VideoRecordViewController: UIViewController {
                 btnUpload.isHidden = true
                 btnRecord.isSelected = false
                 btnRecord.isHidden = false
-                sliderProgress.value = 0
                 recordTime = TimeSpan.fromSeconds(0)
                 lblTime.text = "00:00:00"
             case .Recording:
@@ -74,7 +65,6 @@ class VideoRecordViewController: UIViewController {
                 btnDelete.isHidden = true
                 btnDelete.isSelected = false
                 btnUpload.isHidden = true
-                sliderProgress.isHidden = false
                 vBlink.isHidden = false
                 lblTime.isHidden = false
             case .Finish:
@@ -108,16 +98,12 @@ class VideoRecordViewController: UIViewController {
         
         viewFocus = FocusFrameView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         
-         startMotion()
     }
     
-    override var shouldAutorotate: Bool{
-        return false //在没有用屏幕关闭旋转 获取手机方向，用一般的方法是不行的
-    }
+
     
   
     func initView() {
-       
         
         vRecordControl.bgColor(color: UIColor(gray: 0.5, alpha: 0.3)).addTo(view: view).snp.makeConstraints { (m) in
             m.bottom.left.right.equalTo(0)
@@ -159,26 +145,13 @@ class VideoRecordViewController: UIViewController {
         }
         vRecordStatus.isUserInteractionEnabled = true
         
-        sliderProgress.setThumbImage(UIImage(), for: .normal)
-        sliderProgress.minimumTrackTintColor = UIColor(hexString: "#48FDFF")
-        sliderProgress.maximumTrackTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4)
-        sliderProgress.maximumValue = 0
-        sliderProgress.maximumValue = 600
-        sliderProgress.isContinuous = true
-        sliderProgress.isUserInteractionEnabled = false
-        sliderProgress.isHidden = true
-        vRecordStatus.addSubview(sliderProgress)
-        sliderProgress.snp.makeConstraints { (m) in
-            m.left.right.equalTo(0)
-            m.top.equalTo(15)
-            m.height.equalTo(4)
-        }
+     
         
         btnBack.setImage(#imageLiteral(resourceName: "public_btn_back_white_solid"), for: .normal)
         btnBack.addTarget(self, action: #selector(back), for: .touchUpInside)
         btnBack.addTo(view: vRecordStatus).snp.makeConstraints { (m) in
             m.left.equalTo(20)
-            m.top.equalTo(25)
+            m.top.equalTo(35)
         }
         
         btnSwitchCamera.addTarget(self, action: #selector(switchCamera), for: .touchUpInside)
@@ -212,47 +185,9 @@ class VideoRecordViewController: UIViewController {
         }
     }
     
-
-    
-    func startMotion() {
-        if motion == nil{
-            motion = CMMotionManager()
-        }
-        motion.deviceMotionUpdateInterval = 1 / 15.0
-        if motion.isDeviceMotionAvailable{
-            motion.startDeviceMotionUpdates(to: OperationQueue.current!) {[weak self] (device, err) in
-                guard let d = device else{
-                    return
-                }
-                if fabs(d.gravity.z) > 0.5{
-                    return
-                }
-                let x = d.gravity.x
-                let y = d.gravity.y
-                print("the z is \(d.gravity.z)")
-                if fabs(y) >= fabs(x){
-                    if y > 0{
-                        self?.orientation = .portraitUpsideDown
-                    }
-                    else{
-                        self?.orientation = .portrait
-                    }
-                }
-                else{
-                    if x > 0{
-                         self?.orientation = .landscapeRight
-                    }
-                    else{
-                         self?.orientation = .landscapeLeft
-                    }
-                }
-            }
-        }
-    }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        motion.stopDeviceMotionUpdates()
     }
     
     override var prefersStatusBarHidden: Bool{
@@ -306,7 +241,6 @@ class VideoRecordViewController: UIViewController {
     
     @objc func tick()  {
         recordTime =  recordTime.add(TimeSpan.fromTicks(300))
-        sliderProgress.value = Float(recordTime.seconds)
         lblTime.text = recordTime.format(format: "HH:mm:ss")
         vBlink.isHidden = !vBlink.isHidden
         if recordTime.seconds > 600 {
@@ -388,9 +322,8 @@ class VideoRecordViewController: UIViewController {
         uploadVideoBlock?(tmpVideoFile)
         backBlock?()
     }
-    
 }
-extension VideoRecordViewController:CaptureSessionCoordinatorDelegate{
+extension ShootVC:CaptureSessionCoordinatorDelegate{
     func coordinatorDidBeginRecording(coordinator: CaptureSessionCoordinator) {
         btnRecord.isEnabled = true
     }
@@ -419,28 +352,15 @@ extension VideoRecordViewController:CaptureSessionCoordinatorDelegate{
     }
     
 }
-
-class TouchView: UIView {
-    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        for subview in subviews {
-            if !subview.isHidden && subview.isUserInteractionEnabled && subview.point(inside: convert(point, to: subview), with: event) {
-                return true
-            }
-        }
-        return false
-    }
-}
-
-
-struct VideoRecordDemo:UIViewControllerRepresentable {
+struct ShootDemo:UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
         
     }
-    typealias UIViewControllerType = VideoRecordViewController
+    typealias UIViewControllerType = ShootVC
     
-    func makeUIViewController(context: Context) -> VideoRecordViewController {
-        let vc = VideoRecordViewController()
+    func makeUIViewController(context: Context) -> ShootVC {
+        let vc = ShootVC()
         vc.backBlock = {() in
             context.coordinator.pop()
         }
@@ -452,8 +372,8 @@ struct VideoRecordDemo:UIViewControllerRepresentable {
     }
     
     class Coordinator:NSObject {
-        var parent:VideoRecordDemo
-        init(_ parent: VideoRecordDemo) {
+        var parent:ShootDemo
+        init(_ parent: ShootDemo) {
             self.parent = parent
         }
         func pop() {
@@ -461,5 +381,3 @@ struct VideoRecordDemo:UIViewControllerRepresentable {
         }
     }
 }
-
-

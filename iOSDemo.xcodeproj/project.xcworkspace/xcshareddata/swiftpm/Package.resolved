@@ -162,15 +162,6 @@
           "revision": "c493d24371cfd4ea00a7be47ad30d3b9614f0306",
           "version": "2.3.0"
         }
-      },
-      {
-        "package": "ViewChaos",
-        "repositoryURL": "https://github.com/DuckDeck/ViewChaos",
-        "state": {
-          "branch": null,
-          "revision": "3881fbecaf365c5d934d96672e4f86104b520985",
-          "version": "2.0.2"
-        }
       }
     ]
   },

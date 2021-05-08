@@ -147,12 +147,9 @@ class ScanView: UIView {
             let path1 = UIBezierPath(roundedRect: r, cornerRadius: 0)
             self.sweepLine.path = path1.cgPath
             self.lineY = self.lineY + 1
-            
         })
         timer?.fire()
     }
-    
-    
     
     override func draw(_ rect: CGRect) {
         let ctx = UIGraphicsGetCurrentContext()
@@ -178,10 +175,7 @@ class ScanView: UIView {
         ctx?.setStrokeColor(UIColor.red.cgColor)
         ctx?.setLineWidth(3)
         ctx?.strokePath()
-        
     }
-    
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
