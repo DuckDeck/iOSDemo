@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 class NetworkViewController: UIViewController {
 
-    var arrData = ["HttpRecord","JSControl"]
+    var arrData = ["HttpRecord","JSControl","视频号登录"]
     var tbMenu = UITableView()
     
     
@@ -51,7 +51,7 @@ extension NetworkViewController:UITableViewDelegate,UITableViewDataSource{
         case 1:
              navigationController?.pushViewController(JSViewController(), animated: true)
         case 2:
-            break
+            navigationController?.pushViewController(WechatVideoViewController(), animated: true)
             
         default:
             break

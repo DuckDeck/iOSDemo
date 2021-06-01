@@ -13,6 +13,7 @@ class HttpClient{
     fileprivate var url:String!
     fileprivate var method:HTTPMethod!
     fileprivate var params:Dictionary<String,Any>?
+    fileprivate var urlPara:Dictionary<String,Any>?
     fileprivate  var requestOptions:Dictionary<String,AnyObject>?
     fileprivate  var headers:Dictionary<String,String>?
     //    fileprivate var progress:((_ progress:Float)->())?
@@ -36,10 +37,17 @@ class HttpClient{
         return self
     }
     
+    open func addUrlParams(_ params:Dictionary<String,Any>?)->HttpClient{
+        self.urlPara = params
+        return self
+    }
+    
     open func addHeaders(_ params:Dictionary<String,String>?)->HttpClient{
         self.headers = params
         return self
     }
+    
+    
     
     open func completion(_ completion:((_ data:Data?,_ error:Error?)->Void)?){
         if !url.contain(subStr: "easylog"){
@@ -50,8 +58,24 @@ class HttpClient{
         }
         
         self.completedBlock = completion
+        var paras = ""
+        if urlPara != nil && (method == .post || method == .put) {
+            for item in urlPara! {
+                paras += "\(item.key)=\(item.value)&"
+            }
+            if paras.hasSuffix("&") {
+                paras.removeLast()
+            }
+            if url.contains("?") {
+                paras = "&" + paras
+            }
+            else{
+                paras = "?" + paras
+            }
+        }
         
-        AF.request(url, method: method, parameters: params).responseData {  (data) in
+        
+        AF.request(paras.isEmpty ? url : url + paras, method: method, parameters: params).responseData {  (data) in
             if let d = data.data{
                 if let s = String(data: d, encoding: String.Encoding.utf8){
                     Log(message: s)

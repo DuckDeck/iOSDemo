@@ -18,12 +18,14 @@ class UnLimitTableViewController: UIViewController {
         tb.register(tbCell.self, forCellReuseIdentifier: "Cell")
         tb.dataSource = self
         tb.delegate = self
+        tb.showsVerticalScrollIndicator = false
         tb.isPagingEnabled = true
         tb.estimatedRowHeight = ScreenHeight
         view.addSubview(tb)
         tb.snp.makeConstraints { (m) in
-            m.left.top.right.equalTo(0)
-            m.height.lessThanOrEqualTo(ScreenHeight - NavigationBarHeight)
+            m.left.right.equalTo(0)
+            m.top.equalTo(NavigationBarHeight)
+            m.height.equalTo(ScreenHeight - NavigationBarHeight)
         }
     }
     
@@ -48,7 +50,7 @@ extension UnLimitTableViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y <= 0 {
+        if scrollView.contentOffset.y < 0 {
             tb.setContentOffset(CGPoint(x: 0, y: arr.count * tb.frame.size.height), animated: false)
         }
         else if scrollView.contentOffset.y >= tb.frame.size.height * (arr.count * 2 - 1){

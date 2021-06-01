@@ -11,6 +11,7 @@ import AVFoundation
 import SwiftUI
 import CommonLibrary
 import GrandTime
+import ZLPhotoBrowser
 class SweepCodeVC: UIViewController {
     
     var code:String?
@@ -20,6 +21,7 @@ class SweepCodeVC: UIViewController {
     var outPut:AVCaptureMetadataOutput?
     var session:AVCaptureSession?
     var preview:AVCaptureVideoPreviewLayer?
+    var imagePickerController:ZLPhotoPreviewSheet!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +47,44 @@ class SweepCodeVC: UIViewController {
             m.width.equalTo(UIScreen.main.bounds.width / 1.3)
             m.height.equalTo(170)
         }
+        
+        let btnChooseImage = UIButton()
+        btnChooseImage.setImage(UIImage(named: "camra_beauty"), for: .normal)
+        btnChooseImage.backgroundColor = UIColor(gray: 0.5, alpha: 0.5)
+        btnChooseImage.addTarget(self, action: #selector(chooseImage), for: .touchUpInside)
+        view.addSubview(btnChooseImage)
+        btnChooseImage.snp.makeConstraints { m in
+            m.right.equalTo(-20)
+            m.bottom.equalTo(-20)
+            
+        }
+        imagePickerController = ZLPhotoPreviewSheet()
+        imagePickerController.selectImageBlock = {[weak self] (images, assets, isOriginal) in
+            if let one = images.first{
+                let detectImage = CIImage(data: one.pngData()!)
+                let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyLow])
+                if let feature = detector?.features(in: detectImage!, options: nil).first as? CIQRCodeFeature{
+                    if let msg = feature.messageString {
+                        Toast.showToast(msg: "扫出\(msg)")
+                        
+                    }
+                }
+                else{
+                    Toast.showToast(msg: "该图片不存在二维码")
+                }
+                self?.session?.startRunning()
+            }
+            else{
+                self?.session?.startRunning()
+            }
+        }
     }
 
+    @objc func chooseImage() {
+        session?.stopRunning()
+        imagePickerController.showPhotoLibrary(sender: self)
+    }
+    
     func setupCamera() {
         #if arch(x86_64) || arch(i386)
             let vc = UIAlertController(title: "你正在使用模拟器", message: "模拟器无法使用摄像头", preferredStyle: .alert)
