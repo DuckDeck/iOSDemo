@@ -30,6 +30,8 @@ class ShadowVideoPlayerView: UIView {
     var cachePath:String?
     var isFileExist = false
     var isFileCacheComplete = false
+    var asset:AVURLAsset?
+    var videoRes:CGSize?
     override class var layerClass: AnyClass {
         get{
             return AVPlayerLayer.self
@@ -84,16 +86,31 @@ class ShadowVideoPlayerView: UIView {
     }
     //与url初始化
     //需要一个config来设置外观,目前还没有想好怎么设计
+    
+    convenience init(frame: CGRect,asset:AVURLAsset,config:[ShadowUIConfig:Any] = [ShadowUIConfig:Any]())  {
+        self.init(frame: frame)
+        self.config = config
+        self.asset = asset
+        player = ShadowPlayer(asset: asset, playerLayer: playerLayer)
+       initView()
+
+    }
+    
     convenience init(frame: CGRect,url:URL,config:[ShadowUIConfig:Any] = [ShadowUIConfig:Any]())  {
         self.init(frame: frame)
         self.url = url
         self.config = config
         
+       player = ShadowPlayer(url: url, playerLayer: playerLayer)
+        
+       initView()
+
+    }
+    
+    func initView() {
         vControl = ShadowVideoControlView(frame: CGRect(), config: self.config)
         vPlay = ShadowVideoPlayControlView(frame: CGRect())
         
-        
-        player = ShadowPlayer(url: url, playerLayer: playerLayer)
         player.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange(notif:)), name: UIDevice.orientationDidChangeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive(notif:)), name: UIApplication.willResignActiveNotification, object: nil)
@@ -198,7 +215,6 @@ class ShadowVideoPlayerView: UIView {
             m.width.equalTo(ScreenWidth - 100)
             m.top.equalTo(imgError.snp.bottom).offset(4)
         }
-
 
     }
   
@@ -373,7 +389,7 @@ class ShadowVideoPlayerView: UIView {
     
     func getVideoInfo() -> [(String,String)]{
         var info = [(String,String)]()
-        if url.absoluteString.starts(with: "file"){
+        if url != nil && url.absoluteString.starts(with: "file"){
             if let attr = try? FileManager.default.attributesOfItem(atPath: url.path){
                 let size = attr[FileAttributeKey.size] as! Int
                 info.append(("文件大小","\(size / 1000000)M"))
@@ -382,37 +398,49 @@ class ShadowVideoPlayerView: UIView {
             }
         }
         
+        let assert :AVURLAsset!
+        if url != nil {
+            assert = AVURLAsset(url: url)
+        }
+        else{
+            assert = self.asset
+        }
         
-        let assert = AVURLAsset(url: url)
-        
-        guard let a = assert.tracks.first?.formatDescriptions.first else{
+        if assert.tracks.count <= 0 {
             return info
         }
         
-        let format = a as! CMFormatDescription
-        
-        let type = CMFormatDescriptionGetMediaType(format)
-        if type == kCMMediaType_Video{
-            info.append(("类型","视频"))
-            guard let track = assert.tracks(withMediaType: .video).first else{
-                return info
-            }
+        for item in assert.tracks {
+            let format = item.formatDescriptions.first! as! CMFormatDescription
+            let type = CMFormatDescriptionGetMediaType(format)
             
-            let res = track.naturalSize
-            info.append(("分辨率","\(res.width) * \(res.height)"))
-            info.append(("时长","\(track.timeRange.duration.seconds)秒"))
-            info.append(("帧率","\(track.nominalFrameRate)帧每秒"))
-            info.append(("码率","\(track.estimatedDataRate / 8000000) M每秒"))
-        }
-        else if type == kCMMediaType_Audio{
-            info.append(("类型","音频"))
-            guard let track = assert.tracks(withMediaType: .audio).first else{
-                return info
+            if type == kCMMediaType_Video{
+                info.append(("类型","视频"))
+                guard let track = assert.tracks(withMediaType: .video).first else{
+                    return info
+                }
+                
+                let res = track.naturalSize
+                self.videoRes = res
+                info.append(("分辨率","\(res.width) * \(res.height)"))
+                info.append(("时长","\(track.timeRange.duration.seconds)秒"))
+                info.append(("帧率","\(track.nominalFrameRate)帧每秒"))
+                info.append(("码率","\(track.estimatedDataRate / 8000000) M每秒"))
             }
-            info.append(("时长","\(track.timeRange.duration.seconds)秒"))
-            info.append(("帧率","\(track.nominalFrameRate)帧每秒"))
-            info.append(("码率","\(track.estimatedDataRate / 8000000) M每秒"))
+            else if type == kCMMediaType_Audio{
+                info.append(("类型","音频"))
+                guard let track = assert.tracks(withMediaType: .audio).first else{
+                    return info
+                }
+                info.append(("时长","\(track.timeRange.duration.seconds)秒"))
+                info.append(("帧率","\(track.nominalFrameRate)帧每秒"))
+                info.append(("码率","\(track.estimatedDataRate / 8000000) M每秒"))
+            }
         }
+        
+       
+        
+   
         return info
     }
     

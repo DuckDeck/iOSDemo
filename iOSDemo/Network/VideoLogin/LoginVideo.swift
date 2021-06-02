@@ -23,8 +23,11 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
     let uploadImgUrl = "https://finderpre.video.qq.com/snsuploadbig"
     let postVideoUrl = "https://channels.weixin.qq.com/cgi-bin/mmfinderassistant-bin/post/post_create"
     let notifUrl = "https://channels.weixin.qq.com/cgi-bin/mmfinderassistant-bin/notification/notification_list"
+    let postClipVideoUrl = "https://channels.weixin.qq.com/cgi-bin/mmfinderassistant-bin/post/post_clip_video"
+    let posrVideoResultUrl = "https://channels.weixin.qq.com/cgi-bin/mmfinderassistant-bin/post/post_clip_video_result"
     var token = ""
     let btnImg = UIButton()
+    let btnUploadVideo = UIButton()
     var loginSatus = 0
     var timer:GrandTimer!
     var finderId = ""
@@ -37,6 +40,10 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
     var currentUploadImg : ImgUploadInfo!
     var currentUploadImg2 : ImgUploadInfo!
     let btnSaveVideo = UIButton()
+    var player : ShadowVideoPlayerView?
+    var playUrl:AVURLAsset?
+    var uploadVideoUrl : ImgUploadInfo!
+    var uploadVideoInfo:UploadVideoInfo?
     override func viewDidLoad() {
         view.backgroundColor = UIColor.white
         //第一步 获取token，再生成登录二维码
@@ -65,6 +72,23 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
             }
         }
         
+        imagePickerController.didFinishPickingVideoHandle = {[weak self](coverImg,asset) in
+            let option = PHVideoRequestOptions()
+            option.isNetworkAccessAllowed = true
+            option.progressHandler = {(pro,err,stop,info) in
+                
+                
+            }
+            PHImageManager.default().requestPlayerItem(forVideo: asset!, options: option) { item, dict in
+                
+                if let ass = item?.asset as? AVURLAsset{
+                    self?.initPalyer(asset: ass)
+                    self?.playUrl = ass
+                }
+            }
+          
+        }
+        
         let btn1 = UIBarButtonItem(title: "上传", style: .plain, target: self, action: #selector(uploadImage))
         let btn2 = UIBarButtonItem(title: "登出", style: .plain, target: self, action: #selector(logout))
         navigationItem.rightBarButtonItems = [btn2,btn1]
@@ -85,7 +109,7 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
         }
         
         btnSaveVideo.setTitle("保存视频号", for: .normal)
-        btnSaveVideo.addTarget(self, action: #selector(saveVideo), for: .touchUpInside)
+        btnSaveVideo.addTarget(self, action: #selector(save), for: .touchUpInside)
         btnSaveVideo.setTitleColor(UIColor.darkGray, for: .normal)
         view.addSubview(btnSaveVideo)
         btnSaveVideo.snp.makeConstraints { m in
@@ -95,6 +119,27 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
             m.top.equalTo(lblImgurl.snp.bottom).offset(50)
         }
         
+        btnUploadVideo.setTitle("保存视频", for: .normal)
+        btnUploadVideo.addTarget(self, action: #selector(uploadVideo), for: .touchUpInside)
+        btnUploadVideo.setTitleColor(UIColor.darkGray, for: .normal)
+        view.addSubview(btnUploadVideo)
+        btnUploadVideo.snp.makeConstraints { m in
+            m.centerX.equalTo(view)
+            m.width.equalTo(120)
+            m.height.equalTo(22)
+            m.top.equalTo(lblImgurl.snp.bottom).offset(350)
+        }
+
+    }
+    
+    func initPalyer(asset:AVURLAsset) {
+        player = ShadowVideoPlayerView(frame: CGRect.zero, url: asset.url)
+        view.addSubview(player!)
+        player?.snp.makeConstraints({ m in
+            m.left.right.equalTo(0)
+            m.top.equalTo(lblImgurl.snp.bottom).offset(100)
+            m.height.equalTo(200)
+        })
     }
     
     func getToken() {
@@ -344,7 +389,230 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
     }
     
     
-    @objc func saveVideo() {
+    @objc func uploadVideo(){
+        if self.userVideoInfo == nil || self.userVideoInfo.rawKeyBuffer.isEmpty {
+            Toast.showToast(msg: "你没有登录")
+            return
+        }
+        guard let url = playUrl?.url else {
+            return
+        }
+        guard let data = try? Data(contentsOf: url) else{
+            return
+        }
+        
+        var datas = [Data]()
+        var ranges = [(Int,Int)]()
+        if data.count <= 524287 {
+            datas.append(data)
+        } else{
+            var first = 0
+            while (first + 524288) < data.count {
+                let d = data.subdata(in: first..<first + 524288)
+                ranges.append((first,first + 524287))
+                first = first + 524288
+                datas.append(d)
+            }
+            
+            if first + 524288 - data.count > 0 {
+                let d = data.subdata(in: first..<data.count)
+                datas.append(d)
+                ranges.append((first,data.count - 1))
+            }
+        }
+        
+        let finaName = "\(UUID.init().uuidString).mp4"
+        let uuid = UUID.init().uuidString
+        
+  
+        
+        
+        
+        for item in datas.enumerated() {
+            let dict1 = ["ver":1,
+                        "seq":"1622529463503.6147",
+                        "weixinnum":self.userVideoInfo.uin,
+                        "apptype":self.userVideoInfo.appType,
+                        "filetype":self.userVideoInfo.videoFileType,
+                        "authkey":self.userVideoInfo.authKey,
+                        "hasthumb":0,
+                        "filekey":finaName,
+                        "totalsize":data.count,
+                        "fileuuid":uuid,
+                        "rangestart":ranges[item.offset].0,
+                        "rangeend":ranges[item.offset].1,
+                        "blockmd5":item.element.md5,
+                        "filedata":item.element,
+                        "forcetranscode":0,
+            ] as [String : Any]
+            print(dict1)
+            
+            
+            
+            HttpClient.post(uploadImgUrl).addMultiParams(params: dict1).completion { [self] res, err in
+                if err != nil || res == nil{
+                    print(err?.localizedDescription ?? "request token error")
+                    return
+                }
+                //最后一个
+                if item.offset == datas.count - 1{
+                    let js = JSON(res!)
+                   // self.uploadVideoUrl =  js["fileurl"].stringValue
+                    self.uploadVideoUrl = ImgUploadInfo()
+                    self.uploadVideoUrl.url = js["fileurl"].stringValue
+                    self.uploadVideoUrl.size = self.player?.videoRes ?? CGSize.zero
+                    self.postClipVideo()
+                }
+            }
+        }
+        
+        //获取视频封面
+        guard let img = Tool.thumbnailImageForVideo(url: url) else{
+            return
+        }
+        
+        guard let data = img.compressWithMaxLength(maxLength: 210000) else{
+            return
+        }
+        guard let data2 = img.compressWithMaxLength(maxLength: 50000) else{
+            return
+        }
+        let dict1 = ["ver":1,
+                    "seq":"1622529463503.6147",
+                    "weixinnum":self.userVideoInfo.uin,
+                    "apptype":self.userVideoInfo.appType,
+                    "filetype":self.userVideoInfo.pictureFileType,
+                    "authkey":self.userVideoInfo.authKey,
+                    "hasthumb":0,
+                    "filekey":"finder_video_img.jpeg",
+                    "totalsize":data.count,
+                    "fileuuid":UUID.init().uuidString,
+                    "rangestart":0,
+                    "rangeend":data.count - 1,
+                    "blockmd5":data.md5,
+                    "filedata":data,
+                    "forcetranscode":0,
+        ] as [String : Any]
+        print(dict1)
+        HttpClient.post(uploadImgUrl).addMultiParams(params: dict1).completion { res, err in
+            if err != nil || res == nil{
+                print(err?.localizedDescription ?? "request token error")
+                return
+            }
+            let js = JSON(res!)
+            self.currentUploadImg = ImgUploadInfo()
+            self.currentUploadImg.dataSize = data.count
+            self.currentUploadImg.url = js["fileurl"].stringValue
+            self.currentUploadImg.md5 = data.md5
+            self.currentUploadImg.size = UIImage(data: data)!.size
+            Toast.showToast(msg: "视频图片1上传成功")
+        }
+        
+        let dict2 = ["ver":1,
+                    "seq":"1622529463513.23",
+                    "weixinnum":self.userVideoInfo.uin,
+                    "apptype":self.userVideoInfo.appType,
+                    "filetype":self.userVideoInfo.pictureFileType,
+                    "authkey":self.userVideoInfo.authKey,
+                    "hasthumb":0,
+                    "filekey":"finder_video_img.jpeg",
+                    "totalsize":data2.count,
+                    "fileuuid":UUID.init().uuidString,
+                    "rangestart":0,
+                    "rangeend":data2.count - 1,
+                    "blockmd5":data2.md5,
+                    "filedata":data2,
+                    "forcetranscode":0,
+        ] as [String : Any]
+        
+        HttpClient.post(uploadImgUrl).addMultiParams(params: dict2).completion { res, err in
+            if err != nil || res == nil{
+                print(err?.localizedDescription ?? "request token error")
+                return
+            }
+            let js = JSON(res!)
+            self.currentUploadImg2 = ImgUploadInfo()
+            self.currentUploadImg2.dataSize = data2.count
+            self.currentUploadImg2.url = js["fileurl"].stringValue
+            self.currentUploadImg2.md5 = data2.md5
+            self.currentUploadImg2.size = UIImage(data: data2)!.size
+            Toast.showToast(msg: "视频图片2上传成功")
+        }
+       
+    }
+    
+    func postClipVideo() {
+        let dict = [
+            "x":0,
+            "y":0,
+            "width":self.uploadVideoUrl.size.width,
+            "height":self.uploadVideoUrl.size.height,
+            "targetWidth":self.uploadVideoUrl.size.width,
+            "targetHeight":self.uploadVideoUrl.size.height,
+            "url":self.uploadVideoUrl.newUrl,
+            "timestamp":DateTime.now.timestamp.toString,
+            "_log_finder_id":self.userVideoInfo.finderId,
+            "rawKeyBuff":self.userVideoInfo.rawKeyBuffer,
+            "scene":1
+        ] as [String : Any]
+        HttpClient.post(postClipVideoUrl).addParams(dict).completion { res, err in
+            if err != nil || res == nil{
+                print(err?.localizedDescription ?? "request token error")
+                return
+            }
+            guard let js = try? JSON(data: res!) else{
+                print("request token error")
+                return
+            }
+            let data = js["data"].dictionaryValue
+            self.userVideoInfo.clipKey = data["clipKey"]?.stringValue ?? ""
+            self.userVideoInfo.draftId = data["draftId"]?.stringValue ?? ""
+            self.postVideoResult()
+            
+        }
+    }
+    
+    func postVideoResult() {
+        let dict = [
+            "clipKey":self.userVideoInfo.clipKey,
+            "draftId":self.userVideoInfo.draftId,
+            "timestamp":DateTime.now.timestamp.toString,
+            "_log_finder_id":self.userVideoInfo.finderId,
+            "rawKeyBuff":self.userVideoInfo.rawKeyBuffer,
+            "scene":1
+        ] as [String : Any]
+        HttpClient.post(posrVideoResultUrl).addParams(dict).completion { res, err in
+            if err != nil || res == nil{
+                print(err?.localizedDescription ?? "request token error")
+                return
+            }
+            guard let js = try? JSON(data: res!) else{
+                print("request token error")
+                return
+            }
+            let data = js["data"].dictionaryValue
+            if data["flag"]?.intValue == 1{
+                self.uploadVideoInfo = UploadVideoInfo()
+                self.uploadVideoInfo?.duration = data["duration"]?.intValue ?? 0
+                self.uploadVideoInfo?.vbitrate = data["vbitrate"]?.intValue ?? 0
+                self.uploadVideoInfo?.vfps = data["vfps"]?.intValue ?? 0
+                self.uploadVideoInfo?.height = data["height"]?.doubleValue ?? 0.0  
+                self.uploadVideoInfo?.weight = data["width"]?.doubleValue ?? 0.0
+                self.uploadVideoInfo?.md5 = data["md5"]?.stringValue ?? ""
+                self.uploadVideoInfo?.fileSize = data["fileSize"]?.intValue ?? 0
+                self.uploadVideoInfo?.url = data["url"]?.stringValue ?? ""
+                self.uploadVideoInfo?.flag = data["flag"]?.intValue ?? 0
+                
+            }
+            else{
+                delay(time: 2) {
+                    self.postVideoResult()
+                }
+            }
+        }
+    }
+    
+     func saveImage() {
         let title = "好风景"
         var media = [[String:Any]]()
         let mediaDict = ["url":currentUploadImg.newUrl,
@@ -389,6 +657,69 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
     }
     
     
+    @objc func save() {
+        if uploadVideoInfo == nil {
+            saveImage()
+        }
+        else{
+            saveVideo()
+        }
+    }
+    
+    func saveVideo() {
+        let title = "好风景"
+        let uuid = UUID().uuidString
+        var media = [[String:Any]]()
+        let mediaDict = ["url":uploadVideoUrl.newUrl,
+                         "fileSize":uploadVideoInfo!.fileSize,
+                         "thumbUrl":currentUploadImg2.newUrl,
+                         "mediaType":4,"videoPlayLen":uploadVideoInfo!.duration,
+                         "width":uploadVideoInfo!.weight,
+                         "height":uploadVideoInfo!.height,
+                         "md5sum":uuid,
+                         "coverUrl":currentUploadImg.newUrl,
+                         "fullThumbUrl":currentUploadImg2.newUrl,
+                         "fullUrl":uploadVideoUrl.newUrl,
+                         "fullWidth":uploadVideoInfo!.weight,
+                         "fullHeight":uploadVideoInfo!.height,
+                         "fullMd5sum":uuid,
+                         "fullFileSize":uploadVideoInfo!.fileSize,
+                         "fullBitrate":0
+        ] as [String : Any]
+        media.append(mediaDict)
+        let dict = ["objectType":0,
+                    "longitude":0,
+                    "latitude":0,
+                    "feedLongitude":0,
+                    "feedLatitude":0,
+                    "originalFlag":0,
+                    "topics":[],
+                    "isFullPost":1,
+                    "objectDesc":["description":title,"extReading":["link":"","title":""],"mediaType":2,"location":["latitude":22.5333194732666,"longitude":113.93041229248047,"city":"深圳市","poiClassifyId":""],"topic":"<finder><version>1</version><valuecount>1</valuecount><style><at></at></style><value0><![CDATA[\(title)]]></value0></finder>","mentionedUser":[],"media":media],
+                    "report":[
+                        "clipKey":userVideoInfo.clipKey,
+                        "draftId":userVideoInfo.draftId,
+                        "width":uploadVideoInfo!.weight,
+                        "height":uploadVideoInfo!.height,
+                        "duration":uploadVideoInfo!.duration,
+                        "fileSize":uploadVideoInfo!.fileSize,
+                        "uploadCost":2500
+                    ],
+                    "clientid":UUID.init().uuidString.lowercased(),
+                    "timestamp":DateTime.now.timestamp,
+                    "_log_finder_id":self.userVideoInfo.finderId,
+                    "rawKeyBuff":self.userVideoInfo.rawKeyBuffer,
+                    "scene":1,] as [String : Any]
+    
+        HttpClient.post(postVideoUrl).addParams(dict).completion { res, err in
+            if err != nil || res == nil{
+                print(err?.localizedDescription ?? "request token error")
+                return
+            }
+            Toast.showToast(msg: "发布成功")
+        }
+    }
+    
     
     
 }
@@ -398,6 +729,8 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
      var finderId = ""
      var rawKeyBuffer = ""
      var authKey = ""
+     var clipKey = ""
+     var draftId = ""
      var uin = 0
      var appType = 251
      var videoFileType = 20302
@@ -413,4 +746,16 @@ class ImgUploadInfo {
     var newUrl:String{
         return url.replacingOccurrences(of: "http://wxapp.tc.qq.com", with: "https://finder.video.qq.com")
     }
+}
+
+class UploadVideoInfo {
+    var duration = 0
+    var vbitrate = 0
+    var vfps = 0
+    var height = 0.0
+    var weight = 0.0
+    var md5 = ""
+    var fileSize = 0
+    var url = ""
+    var flag = 1
 }

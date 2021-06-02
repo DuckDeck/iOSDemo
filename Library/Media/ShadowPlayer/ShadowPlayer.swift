@@ -137,6 +137,24 @@ class ShadowPlayer:NSObject {
         self.assetWithURL(url: url)
     }
     
+    convenience init(asset:AVURLAsset,playerLayer:AVPlayerLayer,autoCache:Bool = true)  {
+        self.init()
+        self.playerLayer = playerLayer
+        self.anAsset = asset
+        self.loadAsset(asset: asset)
+    }
+    
+    convenience init(asset:AVURLAsset,autoCache:Bool = true)  {
+        self.init()
+       
+        self.isAutoCache = autoCache
+        self.anAsset = asset
+        let session = AVAudioSession.sharedInstance()
+        try? session.setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
+        self.loadAsset(asset: asset)
+    }
+    
+    
     //还要一个可以配置的初始化
     
     func replaceWithUrl(url:URL){
@@ -169,7 +187,11 @@ class ShadowPlayer:NSObject {
 //            anAsset = AVURLAsset(url: url, options: dict)
 //        }
         anAsset = AVURLAsset(url: url, options: dict)
+       loadAsset(asset: anAsset)
        
+    }
+    
+    func loadAsset(asset:AVURLAsset) {
         let keys = ["duration"]
         weak var weakself = self
         //如果使用第三方下载这个就不能用了
