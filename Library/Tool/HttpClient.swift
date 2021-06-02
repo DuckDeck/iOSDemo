@@ -15,7 +15,8 @@ class HttpClient{
     fileprivate var params:Dictionary<String,Any>?
     fileprivate var urlPara:Dictionary<String,Any>?
     fileprivate  var requestOptions:Dictionary<String,AnyObject>?
-    fileprivate  var headers:Dictionary<String,String>?
+    fileprivate  var headers:HTTPHeaders?
+    fileprivate var multipartFormData:MultipartFormData?
     //    fileprivate var progress:((_ progress:Float)->())?
     fileprivate var completedBlock:((_ data:Data?,_ error:Error?)->Void)?
     public static func get(_ url:String)->HttpClient{
@@ -43,11 +44,30 @@ class HttpClient{
     }
     
     open func addHeaders(_ params:Dictionary<String,String>?)->HttpClient{
-        self.headers = params
+        if params == nil {
+            return self
+        }
+        let header = HTTPHeaders(params!)
+        self.headers = header
         return self
     }
     
-    
+    open func addMultiParams(params:Dictionary<String,Any>?)->HttpClient{
+        let pa = MultipartFormData()
+        for item in params! {
+            if item.value is Int {
+                pa.append(String(item.value as! Int).data(using: .utf8)!, withName: item.key)
+            }
+            else if item.value is String {
+                pa.append((item.value as! String).data(using: .utf8)!, withName: item.key)
+            }
+            else if item.value is Data  {
+                pa.append(item.value as! Data, withName: "filedata", fileName: "blob", mimeType: "application/octet-stream")
+            }
+        }
+        self.multipartFormData = pa
+        return self
+    }
     
     open func completion(_ completion:((_ data:Data?,_ error:Error?)->Void)?){
         if !url.contain(subStr: "easylog"){
@@ -74,15 +94,27 @@ class HttpClient{
             }
         }
         
-        
-        AF.request(paras.isEmpty ? url : url + paras, method: method, parameters: params).responseData {  (data) in
-            if let d = data.data{
-                if let s = String(data: d, encoding: String.Encoding.utf8){
-                    Log(message: s)
+        if multipartFormData != nil {
+            AF.upload(multipartFormData: multipartFormData!, to: self.url,headers: headers).response { data in
+                if let d = data.data{
+                    if let s = String(data: d, encoding: String.Encoding.utf8){
+                        Log(message: s)
+                    }
                 }
+                self.completedBlock?(data.data,data.error)
             }
-            self.completedBlock?(data.data,data.error)
         }
+        else{
+            AF.request(paras.isEmpty ? url : url + paras, method: method, parameters: params,headers: headers).responseData {  (data) in
+                if let d = data.data{
+                    if let s = String(data: d, encoding: String.Encoding.utf8){
+                        Log(message: s)
+                    }
+                }
+                self.completedBlock?(data.data,data.error)
+            }
+        }
+        
         
     }
     
