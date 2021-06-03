@@ -602,10 +602,10 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
                 self.uploadVideoInfo?.fileSize = data["fileSize"]?.intValue ?? 0
                 self.uploadVideoInfo?.url = data["url"]?.stringValue ?? ""
                 self.uploadVideoInfo?.flag = data["flag"]?.intValue ?? 0
-                
+                Toast.showToast(msg: "视频上传成功")
             }
             else{
-                delay(time: 2) {
+                 _ = delay(time: 2) {
                     self.postVideoResult()
                 }
             }
@@ -637,7 +637,7 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
                     "feedLongitude":0,
                     "feedLatitude":0,
                     "originalFlag":0,
-                    "topics":[String](),
+                    "topics":[],
                     "isFullPost":1,
                     "objectDesc":["description":title,"extReading":["link":"","title":""],"mediaType":2,"location":["latitude":22.5333194732666,"longitude":113.93041229248047,"city":"深圳市","poiClassifyId":""],"topic":"<finder><version>1</version><valuecount>1</valuecount><style><at></at></style><value0><![CDATA[\(title)]]></value0></finder>","mentionedUser":[],"media":media],
                     "clientid":UUID.init().uuidString.lowercased(),
@@ -687,6 +687,23 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
                          "fullBitrate":0
         ] as [String : Any]
         media.append(mediaDict)
+//        let mediaTict2 = ["url":"https://finder.video.qq.com/251/20304/stodownload?adaptivelytrans=0&bizid=1023&dotrans=0&encfilekey=RBfjicXSHKCOONJnTbRmmlD8cOQPXE48ibHow1QwQic0DgeTFGog4lLrwht93qUDryGAzyQJXATNDN82Z40jEntic3CUZUibIXiacckjXl6rOX1ckrGMHRmlvQLrU7ibAL8BTJAkMlylK7wibkdIt9KGYlgK459JhDxchx0mqoVspfqr6jo&hy=SH&idx=1&m=5b456657ca480bafcb5bddd25bce8d20&token=cztXnd9GyrGIiczRicibxiaCvZUFMLFsUTMLyEvx00y5WYMPQraCwCO9Oemk0JdfFRSz0GD0k44OPgiaGicvibv0fTEbQ",
+//                          "fileSize":5240164,
+//                          "thumbUrl":"https://finder.video.qq.com/251/20350/stodownload?adaptivelytrans=0&bizid=1023&dotrans=0&encfilekey=jEXicia3muM3GjTlk1Z3kYCefzc4VU4EAS0oDVwNGCD7up1RZGwoTI3se540dguxgqicffdlnaQA6NWJbo7HHfdfUIhXDKJibXAdote5Q0hoU4hsictFKEfCiaP9cChgso6pD7Wib7th95wgKKKADuECkTDvWVVIvytxTfT8TGyecQIz3o&hy=SH&idx=1&m=fc123086470d0daab178a252ce1a798b&token=cztXnd9GyrGIiczRicibxiaCvZUFMLFsUTMLJLg5qib3MtpWCW9ttibd1RFNvMQHy3JspGag0ukTZic47EtibypuibBvcXQ",
+//                          "mediaType":2,"videoPlayLen":0,
+//                          "width":1080,
+//                          "height":719.928,
+//                          "md5sum":"133c402d-ab8e-4ec5-8b46-a68fdd534e80",
+//                        
+//                          "fullThumbUrl":"https://finder.video.qq.com/251/20350/stodownload?adaptivelytrans=0&bizid=1023&dotrans=0&encfilekey=jEXicia3muM3GjTlk1Z3kYCefzc4VU4EAS0oDVwNGCD7up1RZGwoTI3se540dguxgqicffdlnaQA6NWJbo7HHfdfUIhXDKJibXAdote5Q0hoU4hJIejMAKbtXa3htVaibYUT4p7cnMfxSeqGglQUYpcxZaAElEEJTf0P46icQMJ8b2yNg&hy=SH&idx=1&m=fc123086470d0daab178a252ce1a798b&token=6xykWLEnztIJSCRG2ic7Xu9QfLhn2guCvjb8KwnRicoNJgs4dq9nDAwZMz22yZSiciaHqTCY6zd8SB099vAKwRfYAA",
+//                          "fullUrl":"https://finder.video.qq.com/251/20304/stodownload?adaptivelytrans=0&bizid=1023&dotrans=0&encfilekey=RBfjicXSHKCOONJnTbRmmlD8cOQPXE48ibHow1QwQic0DgeTFGog4lLrwht93qUDryGAzyQJXATNDN82Z40jEntic3CUZUibIXiacckjXl6rOX1cmTfibRiaFMG4cGMzY7GFCz8GbzCo2LNPBslQVD2l2nD2Xr0g8ELA1OSon42hGN5M0Ls&hy=SH&idx=1&m=5b456657ca480bafcb5bddd25bce8d20&token=cztXnd9GyrGIiczRicibxiaCvZUFMLFsUTMLLjv9nQh6r7A0XmKVjpicbRZ9LDffGUC93asQVeppTaRhgWUsGSKLpbQ",
+//                          "fullWidth":1080,
+//                          "fullHeight":719.928,
+//                          "fullMd5sum":"133c402d-ab8e-4ec5-8b46-a68fdd534e80",
+//                          "fullFileSize":5240164,
+//                          "fullBitrate":0
+//         ] as [String : Any]
+//        media.append(mediaTict2)
         let dict = ["objectType":0,
                     "longitude":0,
                     "latitude":0,
@@ -695,7 +712,7 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
                     "originalFlag":0,
                     "topics":[],
                     "isFullPost":1,
-                    "objectDesc":["description":title,"extReading":["link":"","title":""],"mediaType":2,"location":["latitude":22.5333194732666,"longitude":113.93041229248047,"city":"深圳市","poiClassifyId":""],"topic":"<finder><version>1</version><valuecount>1</valuecount><style><at></at></style><value0><![CDATA[\(title)]]></value0></finder>","mentionedUser":[],"media":media],
+                    "objectDesc":["description":title,"extReading":["link":"","title":""],"mediaType":4,"location":["latitude":22.5333194732666,"longitude":113.93041229248047,"city":"深圳市","poiClassifyId":""],"topic":"<finder><version>1</version><valuecount>1</valuecount><style><at></at></style><value0><![CDATA[\(title)]]></value0></finder>","mentionedUser":[],"media":media],
                     "report":[
                         "clipKey":userVideoInfo.clipKey,
                         "draftId":userVideoInfo.draftId,
