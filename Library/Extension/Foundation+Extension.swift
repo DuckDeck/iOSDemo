@@ -11,6 +11,7 @@ import Foundation
 import GrandTime
 import AVKit
 import CommonCrypto
+import Kingfisher
 //ForwardFilter从最前面开始,出现数字后一直到没有数字为止
 //BackwordFilter从最后面开始,出现数字后一直到没有数字为止
 //AllFilter获取所的数字
@@ -268,6 +269,50 @@ extension String{
             return String(self[range])
         }
     }
+    
+    
+    func fileSizeAtPath() -> Double? {
+        let manager = FileManager.default
+        if manager.fileExists(atPath: self) {
+            guard let attr =  try? manager.attributesOfItem(atPath: self) else{
+                return nil
+            }
+            return attr[FileAttributeKey.size] as? Double
+        }
+        else{
+            return nil
+        }
+    }
+    
+    func folderSizeAtPath(completed:@escaping (_ size:Double?)->Void)  {
+        let manager = FileManager.default
+        var cachePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
+        cachePath = cachePath + "/" + self;
+        var fileSize = 0.0
+        DispatchQueue.global().async {
+            if manager.fileExists(atPath: cachePath) {
+                if let childFiles = manager.subpaths(atPath: cachePath){
+                    for fileName in childFiles {
+                        let aPath = cachePath + "/" + fileName
+                        let size = aPath.fileSizeAtPath() ?? 0
+                        fileSize += size
+                    }
+                }
+                 KingfisherManager.shared.cache.calculateDiskStorageSize(completion: { res in
+                   let imgSize =  try? res.get()
+                    print(imgSize ?? 0)
+                    completed(fileSize)
+                })
+                
+                
+            }
+            else{
+                completed(nil)
+            }
+        }
+       
+    }
+    
 }
 
 extension NSMutableAttributedString{

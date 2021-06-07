@@ -386,6 +386,7 @@
 		AEF5E9012282B8190071B38A /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E9002282B8190071B38A /* libbz2.tbd */; };
 		AEF5E9032282B8210071B38A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E9022282B8210071B38A /* libz.tbd */; };
 		BA876BAF2665CF4C002AADEE /* LoginVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA876BAE2665CF4C002AADEE /* LoginVideo.swift */; };
+		BA876BB126687D23002AADEE /* ClearCacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA876BB026687D22002AADEE /* ClearCacheViewController.swift */; };
 		F6C59D4C219AF68100825BBA /* SelDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4B219AF68100825BBA /* SelDemo.m */; };
 		F6C59D4F219B045200825BBA /* Runspector.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4E219B045200825BBA /* Runspector.m */; };
 		F6F3090A246A7C4E0025EF5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F30909246A7C4E0025EF5D /* AppDelegate.m */; };
@@ -883,6 +884,7 @@
 		BA84E0F8263513970074FDC6 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		BA84E0FF263513BA0074FDC6 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
 		BA876BAE2665CF4C002AADEE /* LoginVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVideo.swift; sourceTree = "<group>"; };
+		BA876BB026687D22002AADEE /* ClearCacheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearCacheViewController.swift; sourceTree = "<group>"; };
 		F6C59D4A219AF68100825BBA /* SelDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelDemo.h; sourceTree = "<group>"; };
 		F6C59D4B219AF68100825BBA /* SelDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelDemo.m; sourceTree = "<group>"; };
 		F6C59D4D219B045200825BBA /* Runspector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Runspector.h; sourceTree = "<group>"; };
@@ -1435,6 +1437,7 @@
 				AEADFD42211001BE00E6B58D /* MemeryLeak */,
 				AE5A886E1FF3767800748F6A /* Thread */,
 				AE5A886C1FF3746C00748F6A /* BasicViewController.swift */,
+				BA876BB026687D22002AADEE /* ClearCacheViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -3009,6 +3012,7 @@
 				AEA680B72420D6B7009748E4 /* NSBundle+TZImagePicker.m in Sources */,
 				AEA681322420D908009748E4 /* MJRefreshStateHeader.m in Sources */,
 				AE4DA61B213E68B300FCC7FD /* ShadowDataManager.swift in Sources */,
+				BA876BB126687D23002AADEE /* ClearCacheViewController.swift in Sources */,
 				AEA680D62420D6B7009748E4 /* TZImageRequestOperation.m in Sources */,
 				AEB7D0A62264666B008C899E /* ResolutionFilterView.swift in Sources */,
 				AE83BD7B1FE2134E001882D1 /* TwoSideViewController.swift in Sources */,
