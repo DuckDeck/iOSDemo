@@ -43,4 +43,23 @@ import GrandModel
             
         }
     }
+    
+    static func getFive(key:String,completed:@escaping ((_ result:Rest<[five]>)->Void)){
+        let url = "http://lovelive.ink:7110/five/\(key)"
+        HttpClient.get(url.urlEncoded()).completion { (res : Rest<[five]>)  in
+            if res.code != 0{
+                completed(res)
+                return
+            }
+            
+        }
+    }
+}
+
+
+struct five:Codable {
+    var Word = ""
+    var PinYin = ""
+    var FiveCode = ""
+    var ImgCode = ""
 }

@@ -3656,7 +3656,7 @@
 			repositoryURL = "https://github.com/DuckDeck/GrandTime";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 3.0.0;
 			};
 		};
 		AECA9D37248B7ADE008CC21B /* XCRemoteSwiftPackageReference "GrandModel" */ = {

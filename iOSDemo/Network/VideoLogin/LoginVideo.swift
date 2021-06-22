@@ -48,7 +48,7 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
         view.backgroundColor = UIColor.white
         //第一步 获取token，再生成登录二维码
         self.userVideoInfo = userVideoStore.Value
-       
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage.createRect(size: CGSize(width: ScreenWidth, height: NavigationBarHeight), color: UIColor.red), for: .default)
         //第二步，生成二维码
         //第三步，开始轮询
         view.addSubview(btnImg)
@@ -615,21 +615,23 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
      func saveImage() {
         let title = "好风景"
         var media = [[String:Any]]()
+        let u1 = UUID().uuidString.lowercased()
         let mediaDict = ["url":currentUploadImg.newUrl,
                          "fileSize":currentUploadImg.dataSize,
                          "thumbUrl":currentUploadImg2.newUrl,
                          "mediaType":2,"videoPlayLen":0,
                          "width":currentUploadImg.size.width,
                          "height":currentUploadImg.size.height,
-                         "md5sum":currentUploadImg.md5,
+                         "md5sum":u1,
                          "fullThumbUrl":currentUploadImg.newUrl,
                          "fullUrl":currentUploadImg.newUrl,
                          "fullWidth":currentUploadImg.size.width,
                          "fullHeight":currentUploadImg.size.height,
-                         "fullMd5sum":currentUploadImg.md5,
+                         "fullMd5sum":u1,
                          "fullFileSize":currentUploadImg.dataSize,
                          "fullBitrate":0
         ] as [String : Any]
+    
         media.append(mediaDict)
         let dict = ["objectType":0,
                     "longitude":0,
@@ -646,7 +648,7 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
                     "rawKeyBuff":self.userVideoInfo.rawKeyBuffer,
                     "scene":1,] as [String : Any]
     
-        HttpClient.post(postVideoUrl).addParams(dict).completion { res, err in
+        HttpClient.post(postVideoUrl).addParams(dict).addHeaders(["Content-Type":"application/json;charset=UTF-8"]).completion { res, err in
             if err != nil || res == nil{
                 print(err?.localizedDescription ?? "request token error")
                 return

@@ -10,6 +10,11 @@ import UIKit
 import Alamofire
 class HttpClient{
     
+    fileprivate static var urlHandler:((_ url:String)->String)?
+    fileprivate static var httpHeaderHandler:((_ header:HTTPHeaders)->HTTPHeaders)?
+    fileprivate static var paramsHandler:((_ params:[String:Any])->[String:Any])?
+
+    
     fileprivate var url:String!
     fileprivate var method:HTTPMethod!
     fileprivate var params:Dictionary<String,Any>?
@@ -17,8 +22,25 @@ class HttpClient{
     fileprivate  var requestOptions:Dictionary<String,AnyObject>?
     fileprivate  var headers:HTTPHeaders?
     fileprivate var multipartFormData:MultipartFormData?
-    //    fileprivate var progress:((_ progress:Float)->())?
+    fileprivate var progress:((_ progress:Float)->())?
     fileprivate var completedBlock:((_ data:Data?,_ error:Error?)->Void)?
+    
+    fileprivate var isUseHandle = false
+    var index = 0
+
+    @objc static func registerHandler(){
+        HttpClient.registerUrlHander { url in
+           return url
+        }
+        HttpClient.registerParamsHander { dict in
+            return dict
+        }
+        HttpClient.registerHttpHeaderHander { dict in
+            return dict
+        }
+        
+    }
+    
     public static func get(_ url:String)->HttpClient{
         let m = HttpClient()
         m.url = url
@@ -31,6 +53,23 @@ class HttpClient{
         m.url = url
         m.method = .post
         return m
+    }
+    
+    @objc static func registerUrlHander(handler:@escaping (_ url:String)->String){
+        self.urlHandler = handler
+    }
+    
+    @objc static func registerParamsHander(handler:@escaping (_ params:[String:Any])->[String:Any]){
+        self.paramsHandler = handler
+    }
+    
+    static func registerHttpHeaderHander(handler:@escaping (_ header:HTTPHeaders)->HTTPHeaders){
+        self.httpHeaderHandler = handler
+    }
+    
+    func useHandle(usehandle:Bool)->HttpClient{
+        self.isUseHandle = usehandle
+        return self
     }
     
     open func addParams(_ params:Dictionary<String,Any>?)->HttpClient{
@@ -94,6 +133,16 @@ class HttpClient{
             }
         }
         
+        if isUseHandle {
+            self.url =  HttpClient.urlHandler?(url)
+            if self.headers != nil {
+                self.headers = HttpClient.httpHeaderHandler?(self.headers!)
+            }
+            if self.params != nil  {
+                self.params = HttpClient.paramsHandler?(self.params!)
+            }
+        }
+        
         if multipartFormData != nil {
             AF.upload(multipartFormData: multipartFormData!, to: self.url,headers: headers).response { data in
                 if let d = data.data{
@@ -105,53 +154,66 @@ class HttpClient{
             }
         }
         else{
-            AF.request(paras.isEmpty ? url : url + paras, method: method, parameters: params,headers: headers).responseData {  (data) in
-                if let d = data.data{
-                    if let s = String(data: d, encoding: String.Encoding.utf8){
-                        Log(message: s)
+            if headers != nil && headers!.contains(HTTPHeader(name: "Content-Type", value: "application/json;charset=UTF-8")) && (method == .post || method == .put) {
+                AF.request(paras.isEmpty ? url : url + paras, method: method, parameters: params, encoding: JSONEncoding.default, headers: headers).responseData {  (data) in
+                    if let d = data.data{
+                        if let s = String(data: d, encoding: String.Encoding.utf8){
+                            Log(message: s)
+                        }
                     }
+                    self.completedBlock?(data.data,data.error)
                 }
-                self.completedBlock?(data.data,data.error)
+            }
+            else{
+                AF.request(paras.isEmpty ? url : url + paras, method: method, parameters: params,headers: headers).responseData {  (data) in
+                    if let d = data.data{
+                        if let s = String(data: d, encoding: String.Encoding.utf8){
+                            Log(message: s)
+                        }
+                    }
+                    self.completedBlock?(data.data,data.error)
+                }
             }
         }
-        
-        
     }
     
-    
+    func completion<T:Codable>(completed:@escaping(_ res:Rest<T>)->Void) {
+        AF.request(url, method: method, parameters: params,headers: headers).responseData {  (data) in
+            var result = Rest<T>()
+            if data.data == nil || data.error != nil{
+                result.code = -100
+                completed(result)
+                return
+            }
+            guard let model = try? JSONDecoder().decode(Rest<T>.self, from: data.data!) else{
+                result.code = -110
+                completed(result)
+                return
+            }
+            completed(model)
+        }
+    }
     
     public struct ArrayEncoding: ParameterEncoding {
         
-        /// The options for writing the parameters as JSON data.
         public let options: JSONSerialization.WritingOptions
         
-        
-        /// Creates a new instance of the encoding using the given options
-        ///
-        /// - parameter options: The options used to encode the json. Default is `[]`
-        ///
-        /// - returns: The new instance
         public init(options: JSONSerialization.WritingOptions = []) {
             self.options = options
         }
         
         public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
             var urlRequest = try urlRequest.asURLRequest()
-            
             guard let parameters = parameters,
                 let array = parameters[arrayParametersKey] else {
                     return urlRequest
             }
-            
             do {
                 let data = try JSONSerialization.data(withJSONObject: array, options: options)
-                
                 if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
                     urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 }
-                
                 urlRequest.httpBody = data
-                
             } catch {
                 throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
             }
@@ -169,6 +231,11 @@ extension Array {
     }
 }
 
+struct Rest<T>:Codable where T:Codable {
+    var code = 0
+    var msg = ""
+    var data:T?
+}
 
 //在Swift4下错误太多，根本改不过来。不需要改了，以后也不怎么用
 /*

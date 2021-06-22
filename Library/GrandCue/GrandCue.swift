@@ -37,23 +37,25 @@ class GrandCue: NSObject {
         KRProgressHUD.dismiss()
     }
     fileprivate func showToast(_ msg:String,verticalScale:Float = 0.8){
-        if lbl == nil{
-            lbl = ToastLable(text: msg)
-        }
-        else{
-            lbl?.text = msg
-            lbl?.sizeToFit()
-            lbl?.layer.removeAnimation(forKey: "animation")
-        }
-    
-        window = UIApplication.shared.keyWindow
+        DispatchQueue.main.async {
+            if self.lbl == nil{
+                self.lbl = ToastLable(text: msg)
+            }
+            else{
+                self.lbl?.text = msg
+                self.lbl?.sizeToFit()
+                self.lbl?.layer.removeAnimation(forKey: "animation")
+            }
         
-        if !(window!.subviews.contains(lbl!)){
-            window?.addSubview(lbl!)
-            lbl?.center = window!.center
-            lbl?.frame.origin.y = UIScreen.main.bounds.height * CGFloat(verticalScale)
+            self.window = UIApplication.shared.keyWindow
+            
+            if !(self.window!.subviews.contains(self.lbl!)){
+                self.window?.addSubview(self.lbl!)
+                self.lbl?.center = self.window!.center
+                self.lbl?.frame.origin.y = UIScreen.main.bounds.height * CGFloat(verticalScale)
+            }
+            self.lbl?.addAnimationGroup()
         }
-        lbl?.addAnimationGroup()
     }
     
 }
@@ -74,7 +76,7 @@ class ToastLable:UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        textInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        textInsets = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
         maxWidth = Float(UIScreen.main.bounds.width) - 20.0
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true

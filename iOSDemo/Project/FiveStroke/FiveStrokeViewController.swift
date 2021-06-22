@@ -109,9 +109,12 @@ class FiveStrokeViewController: UIViewController,UITextFieldDelegate {
             self.arrFiveStrokes.insertItems(array: res.data! as! [FiveStroke], index: 0)
             self.tb.reloadData()
         }
+     
         
+        FiveStroke.getFive(key: txtSearch.text!) { res in
+           
+        }
     }
-
  
 
 }
