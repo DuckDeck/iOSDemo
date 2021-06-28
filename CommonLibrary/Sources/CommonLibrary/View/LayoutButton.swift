@@ -58,10 +58,14 @@ public class LayoutButton: UIButton {
         }
         
         switch layoutStyle {
-        case .LeftImageRightTitle:
-            break
-        default:
-            break
+            case .LeftImageRightTitle:
+                self.layoutHorizontal(leftView: imageView!, rightView: titleLabel!)
+            case .LeftTitleRightImage:
+                self.layoutHorizontal(leftView: imageView!, rightView: titleLabel!)
+            case .TopImageBottomTitle:
+                self.layoutHorizontal(leftView: imageView!, rightView: titleLabel!)
+            case .TopTitleBottomImage:
+                self.layoutHorizontal(leftView: imageView!, rightView: titleLabel!)
         }
     }
     
