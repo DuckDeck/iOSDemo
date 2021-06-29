@@ -144,15 +144,17 @@ class SnapCell: UITableViewCell {
             if let s = m{
                 lbl.text = s.content
                 lbl2.text = s.content
-                img.kf.setImage(with: URL(string: s.img)!, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (imgData, err, type, url) in
-                    if let i = imgData{
-                       let scale = i.size.width / i.size.height
-                        self.img.snp.updateConstraints({ (m) in
-                            m.height.equalTo(ScreenWidth / scale) //在这里更新高度
-                            //但是这样还是太慢了，因为这种要等图片下过来才能设定
-                        })
+                img.kf.setImage(with: URL(string: s.img)!, placeholder: nil, options: nil) { res in
+                    if let img = try? res.get().image{
+                       let scale = img.size.width / img.size.height
+                       self.img.snp.updateConstraints({ (m) in
+                           m.height.equalTo(ScreenWidth / scale) //在这里更新高度
+                           //但是这样还是太慢了，因为这种要等图片下过来才能设定
+                       })
                     }
-                })
+                    
+                }
+
             }
         }
     }

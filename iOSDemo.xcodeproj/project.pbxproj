@@ -12,13 +12,10 @@
 		204BF8A925354C8100EAEE54 /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BF8A825354C8100EAEE54 /* ScanResultViewController.swift */; };
 		2051B8842522D4130090B8C1 /* FPSTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2051B87E2522D3930090B8C1 /* FPSTool.swift */; };
 		2051B88B2522DA940090B8C1 /* CatoMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2051B88A2522DA940090B8C1 /* CatoMonitor.swift */; };
-		209FACA6257F5ED40009E51E /* URLNavigator in Frameworks */ = {isa = PBXBuildFile; productRef = 209FACA5257F5ED40009E51E /* URLNavigator */; };
-		209FACA8257F5ED40009E51E /* URLMatcher in Frameworks */ = {isa = PBXBuildFile; productRef = 209FACA7257F5ED40009E51E /* URLMatcher */; };
 		20A5D6C0251DD7DE00D80F54 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20A5D6BC251DD7DD00D80F54 /* AMap.bundle */; };
 		20A5D6C9251DD87700D80F54 /* TableLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5D6C8251DD87700D80F54 /* TableLayoutViewController.swift */; };
 		20A5D6E6251E048200D80F54 /* LimitTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5D6E5251E048200D80F54 /* LimitTextView.swift */; };
 		20ABA57D2521D0B8009B2659 /* GrandTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ABA57C2521D0B8009B2659 /* GrandTextView.swift */; };
-		20EF8A4C255949A3008CBD99 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 20EF8A4B255949A3008CBD99 /* SkeletonView */; };
 		AE00644E23960A3000B7C9E4 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = AE00644C23960A3000B7C9E4 /* fishhook.c */; };
 		AE00644F23960A5100B7C9E4 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = AE00644C23960A3000B7C9E4 /* fishhook.c */; };
 		AE00722520906B770093B478 /* GCD.m in Sources */ = {isa = PBXBuildFile; fileRef = AE00722420906B770093B478 /* GCD.m */; };
@@ -342,19 +339,7 @@
 		AEBE405E1FC81FE80087D7ED /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE405D1FC81FE80087D7ED /* CityTableViewCell.swift */; };
 		AEBE709020A4449100B2E897 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE708F20A4449100B2E897 /* TakePhotoViewController.swift */; };
 		AEBE709920A5356500B2E897 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE709820A5356500B2E897 /* MapViewController.swift */; };
-		AECA9D1B248B476C008CC21B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D1A248B476C008CC21B /* Alamofire */; };
-		AECA9D1E248B59BF008CC21B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D1D248B59BF008CC21B /* SnapKit */; };
-		AECA9D21248B5AF5008CC21B /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D20248B5AF5008CC21B /* SwiftyJSON */; };
-		AECA9D24248B5F06008CC21B /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D23248B5F06008CC21B /* IQKeyboardManagerSwift */; };
-		AECA9D27248B7075008CC21B /* Kanna in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D26248B7075008CC21B /* Kanna */; };
-		AECA9D2A248B7143008CC21B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D29248B7143008CC21B /* Kingfisher */; };
-		AECA9D2D248B7779008CC21B /* GrandMenu in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D2C248B7779008CC21B /* GrandMenu */; };
-		AECA9D30248B7827008CC21B /* GrandStore in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D2F248B7827008CC21B /* GrandStore */; };
-		AECA9D36248B7A04008CC21B /* GrandTime in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D35248B7A04008CC21B /* GrandTime */; };
-		AECA9D39248B7ADE008CC21B /* GrandModel in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D38248B7ADE008CC21B /* GrandModel */; };
-		AECA9D3C248B915D008CC21B /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D3B248B915D008CC21B /* Gifu */; };
 		AECA9D3E248B91A2008CC21B /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AECA9D3D248B91A2008CC21B /* Resnet50.mlmodel */; };
-		AECA9D41248B97FA008CC21B /* KRProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = AECA9D40248B97FA008CC21B /* KRProgressHUD */; };
 		AED97B47215A1E2500B124E7 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED97B46215A1E2500B124E7 /* BaseModel.swift */; };
 		AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC540E2012EC0000BB4E34 /* GridViewController.swift */; };
 		AEDC54132012EC4100BB4E34 /* ConstraintArrayDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */; };
@@ -387,6 +372,19 @@
 		AEF5E9032282B8210071B38A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E9022282B8210071B38A /* libz.tbd */; };
 		BA876BAF2665CF4C002AADEE /* LoginVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA876BAE2665CF4C002AADEE /* LoginVideo.swift */; };
 		BA876BB126687D23002AADEE /* ClearCacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA876BB026687D22002AADEE /* ClearCacheViewController.swift */; };
+		BA90D393268AC83900C77B11 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D392268AC83900C77B11 /* Alamofire */; };
+		BA90D396268AC8AA00C77B11 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D395268AC8AA00C77B11 /* SnapKit */; };
+		BA90D399268AC8DB00C77B11 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D398268AC8DB00C77B11 /* SwiftyJSON */; };
+		BA90D39C268AC93400C77B11 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D39B268AC93400C77B11 /* IQKeyboardManagerSwift */; };
+		BA90D39F268AC96400C77B11 /* Kanna in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D39E268AC96400C77B11 /* Kanna */; };
+		BA90D3A2268AC99800C77B11 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D3A1268AC99800C77B11 /* Kingfisher */; };
+		BA90D3A5268AC9CB00C77B11 /* GrandMenu in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D3A4268AC9CB00C77B11 /* GrandMenu */; };
+		BA90D3A8268AC9FA00C77B11 /* GrandStore in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D3A7268AC9FA00C77B11 /* GrandStore */; };
+		BA90D3AB268ACA2600C77B11 /* GrandTime in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D3AA268ACA2600C77B11 /* GrandTime */; };
+		BA90D3AE268ACA8C00C77B11 /* Gifu in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D3AD268ACA8C00C77B11 /* Gifu */; };
+		BA90D3B1268ACAC900C77B11 /* KRProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D3B0268ACAC900C77B11 /* KRProgressHUD */; };
+		BA90D3B4268ACAE600C77B11 /* GrandModel in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D3B3268ACAE600C77B11 /* GrandModel */; };
+		BA90D3B7268ACEB400C77B11 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D3B6268ACEB400C77B11 /* SkeletonView */; };
 		F6C59D4C219AF68100825BBA /* SelDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4B219AF68100825BBA /* SelDemo.m */; };
 		F6C59D4F219B045200825BBA /* Runspector.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4E219B045200825BBA /* Runspector.m */; };
 		F6F3090A246A7C4E0025EF5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F30909246A7C4E0025EF5D /* AppDelegate.m */; };
@@ -915,43 +913,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE4D498224A1F9C9003D1565 /* ExternalAccessory.framework in Frameworks */,
+				BA90D3A8268AC9FA00C77B11 /* GrandStore in Frameworks */,
 				AE4D497E24A1F900003D1565 /* Security.framework in Frameworks */,
 				AE4D497C24A1F8F8003D1565 /* CoreTelephony.framework in Frameworks */,
 				AE4D497A24A1F8EE003D1565 /* SystemConfiguration.framework in Frameworks */,
 				AE4D497824A1F834003D1565 /* AMapLocationKit.framework in Frameworks */,
+				BA90D39C268AC93400C77B11 /* IQKeyboardManagerSwift in Frameworks */,
+				BA90D3B7268ACEB400C77B11 /* SkeletonView in Frameworks */,
 				AE4D497624A1F1A0003D1565 /* AMapFoundationKit.framework in Frameworks */,
 				AE4D497424A1F176003D1565 /* MAMapKit.framework in Frameworks */,
 				AEB957DD22E5589900C71372 /* libiconv.tbd in Frameworks */,
 				AEF5E9032282B8210071B38A /* libz.tbd in Frameworks */,
+				BA90D39F268AC96400C77B11 /* Kanna in Frameworks */,
+				BA90D393268AC83900C77B11 /* Alamofire in Frameworks */,
+				BA90D3B4268ACAE600C77B11 /* GrandModel in Frameworks */,
 				AEF5E9012282B8190071B38A /* libbz2.tbd in Frameworks */,
-				AECA9D2D248B7779008CC21B /* GrandMenu in Frameworks */,
-				AECA9D41248B97FA008CC21B /* KRProgressHUD in Frameworks */,
-				AECA9D1B248B476C008CC21B /* Alamofire in Frameworks */,
-				AECA9D39248B7ADE008CC21B /* GrandModel in Frameworks */,
-				209FACA8257F5ED40009E51E /* URLMatcher in Frameworks */,
 				AEF5E8FF2282B80E0071B38A /* AudioToolbox.framework in Frameworks */,
 				AEF5E8FD2282B8060071B38A /* AVFoundation.framework in Frameworks */,
 				AEF5E8FB2282B7EF0071B38A /* CoreGraphics.framework in Frameworks */,
+				BA90D3A5268AC9CB00C77B11 /* GrandMenu in Frameworks */,
 				AEF5E8F92282B7DE0071B38A /* MediaPlayer.framework in Frameworks */,
-				AECA9D27248B7075008CC21B /* Kanna in Frameworks */,
-				AECA9D30248B7827008CC21B /* GrandStore in Frameworks */,
-				AECA9D24248B5F06008CC21B /* IQKeyboardManagerSwift in Frameworks */,
-				AECA9D1E248B59BF008CC21B /* SnapKit in Frameworks */,
-				20EF8A4C255949A3008CBD99 /* SkeletonView in Frameworks */,
-				AECA9D2A248B7143008CC21B /* Kingfisher in Frameworks */,
-				AECA9D36248B7A04008CC21B /* GrandTime in Frameworks */,
+				BA90D3B1268ACAC900C77B11 /* KRProgressHUD in Frameworks */,
 				AEF5E8F52282B7CA0071B38A /* VideoToolbox.framework in Frameworks */,
 				AEF5E8F32282AF540071B38A /* OpenGLES.framework in Frameworks */,
+				BA90D396268AC8AA00C77B11 /* SnapKit in Frameworks */,
+				BA90D3A2268AC99800C77B11 /* Kingfisher in Frameworks */,
+				BA90D3AE268ACA8C00C77B11 /* Gifu in Frameworks */,
 				AEF5E8F12282AF4D0071B38A /* QuartzCore.framework in Frameworks */,
 				AE4EA75321806C3F0061FA84 /* CoreVideo.framework in Frameworks */,
 				AE4EA75121806C390061FA84 /* CoreMedia.framework in Frameworks */,
-				209FACA6257F5ED40009E51E /* URLNavigator in Frameworks */,
-				AECA9D3C248B915D008CC21B /* Gifu in Frameworks */,
-				AECA9D21248B5AF5008CC21B /* SwiftyJSON in Frameworks */,
 				AE4EA74F21806C2A0061FA84 /* Accelerate.framework in Frameworks */,
 				AE4EA74D21806C1E0061FA84 /* CoreImage.framework in Frameworks */,
 				AE4EA74B21806C160061FA84 /* libc++.tbd in Frameworks */,
 				AEBA80D920BD50B300F6A323 /* libmp3lame.a in Frameworks */,
+				BA90D3AB268ACA2600C77B11 /* GrandTime in Frameworks */,
+				BA90D399268AC8DB00C77B11 /* SwiftyJSON in Frameworks */,
 				AE52B6A1251B7E96008A96DA /* CoreServices.framework in Frameworks */,
 				AE52B6AC251B92E6008A96DA /* GLKit.framework in Frameworks */,
 				AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */,
@@ -2574,21 +2570,19 @@
 			);
 			name = iOSDemo;
 			packageProductDependencies = (
-				AECA9D1A248B476C008CC21B /* Alamofire */,
-				AECA9D1D248B59BF008CC21B /* SnapKit */,
-				AECA9D20248B5AF5008CC21B /* SwiftyJSON */,
-				AECA9D23248B5F06008CC21B /* IQKeyboardManagerSwift */,
-				AECA9D26248B7075008CC21B /* Kanna */,
-				AECA9D29248B7143008CC21B /* Kingfisher */,
-				AECA9D2C248B7779008CC21B /* GrandMenu */,
-				AECA9D2F248B7827008CC21B /* GrandStore */,
-				AECA9D35248B7A04008CC21B /* GrandTime */,
-				AECA9D38248B7ADE008CC21B /* GrandModel */,
-				AECA9D3B248B915D008CC21B /* Gifu */,
-				AECA9D40248B97FA008CC21B /* KRProgressHUD */,
-				20EF8A4B255949A3008CBD99 /* SkeletonView */,
-				209FACA5257F5ED40009E51E /* URLNavigator */,
-				209FACA7257F5ED40009E51E /* URLMatcher */,
+				BA90D392268AC83900C77B11 /* Alamofire */,
+				BA90D395268AC8AA00C77B11 /* SnapKit */,
+				BA90D398268AC8DB00C77B11 /* SwiftyJSON */,
+				BA90D39B268AC93400C77B11 /* IQKeyboardManagerSwift */,
+				BA90D39E268AC96400C77B11 /* Kanna */,
+				BA90D3A1268AC99800C77B11 /* Kingfisher */,
+				BA90D3A4268AC9CB00C77B11 /* GrandMenu */,
+				BA90D3A7268AC9FA00C77B11 /* GrandStore */,
+				BA90D3AA268ACA2600C77B11 /* GrandTime */,
+				BA90D3AD268ACA8C00C77B11 /* Gifu */,
+				BA90D3B0268ACAC900C77B11 /* KRProgressHUD */,
+				BA90D3B3268ACAE600C77B11 /* GrandModel */,
+				BA90D3B6268ACEB400C77B11 /* SkeletonView */,
 			);
 			productName = iOSDemo;
 			productReference = AE9F31D21F69070E00339BB8 /* iOSDemo.app */;
@@ -2692,20 +2686,19 @@
 			);
 			mainGroup = AE9F31C91F69070E00339BB8;
 			packageReferences = (
-				AECA9D19248B476C008CC21B /* XCRemoteSwiftPackageReference "Alamofire" */,
-				AECA9D1C248B59BF008CC21B /* XCRemoteSwiftPackageReference "SnapKit" */,
-				AECA9D1F248B5AF5008CC21B /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				AECA9D22248B5F06008CC21B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				AECA9D25248B7075008CC21B /* XCRemoteSwiftPackageReference "Kanna" */,
-				AECA9D28248B7143008CC21B /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				AECA9D2B248B7779008CC21B /* XCRemoteSwiftPackageReference "GrandMenu" */,
-				AECA9D2E248B7827008CC21B /* XCRemoteSwiftPackageReference "GrandStore" */,
-				AECA9D34248B7A04008CC21B /* XCRemoteSwiftPackageReference "GrandTime" */,
-				AECA9D37248B7ADE008CC21B /* XCRemoteSwiftPackageReference "GrandModel" */,
-				AECA9D3A248B915D008CC21B /* XCRemoteSwiftPackageReference "Gifu" */,
-				AECA9D3F248B97FA008CC21B /* XCRemoteSwiftPackageReference "KRProgressHUD" */,
-				20EF8A4A255949A3008CBD99 /* XCRemoteSwiftPackageReference "SkeletonView" */,
-				209FACA4257F5ED40009E51E /* XCRemoteSwiftPackageReference "URLNavigator" */,
+				BA90D391268AC83900C77B11 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				BA90D394268AC8AA00C77B11 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				BA90D397268AC8DB00C77B11 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				BA90D39A268AC93400C77B11 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				BA90D39D268AC96400C77B11 /* XCRemoteSwiftPackageReference "Kanna" */,
+				BA90D3A0268AC99800C77B11 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				BA90D3A3268AC9CB00C77B11 /* XCRemoteSwiftPackageReference "GrandMenu" */,
+				BA90D3A6268AC9FA00C77B11 /* XCRemoteSwiftPackageReference "GrandStore" */,
+				BA90D3A9268ACA2600C77B11 /* XCRemoteSwiftPackageReference "GrandTime" */,
+				BA90D3AC268ACA8C00C77B11 /* XCRemoteSwiftPackageReference "Gifu" */,
+				BA90D3AF268ACAC900C77B11 /* XCRemoteSwiftPackageReference "KRProgressHUD" */,
+				BA90D3B2268ACAE600C77B11 /* XCRemoteSwiftPackageReference "GrandModel" */,
+				BA90D3B5268ACEB400C77B11 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = AE9F31D31F69070E00339BB8 /* Products */;
 			projectDirPath = "";
@@ -3571,195 +3564,177 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		209FACA4257F5ED40009E51E /* XCRemoteSwiftPackageReference "URLNavigator" */ = {
+		BA90D391268AC83900C77B11 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/URLNavigator";
+			repositoryURL = "https://gitee.com/Stanhu/Alamofire";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.3.0;
+				minimumVersion = 5.4.3;
 			};
 		};
-		20EF8A4A255949A3008CBD99 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+		BA90D394268AC8AA00C77B11 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Juanpe/SkeletonView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.11.0;
-			};
-		};
-		AECA9D19248B476C008CC21B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.1;
-			};
-		};
-		AECA9D1C248B59BF008CC21B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			repositoryURL = "https://gitee.com/Stanhu/SnapKit";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.1;
 			};
 		};
-		AECA9D1F248B5AF5008CC21B /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+		BA90D397268AC8DB00C77B11 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			repositoryURL = "https://gitee.com/Stanhu/SwiftyJSON";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 5.0.1;
 			};
 		};
-		AECA9D22248B5F06008CC21B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+		BA90D39A268AC93400C77B11 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			repositoryURL = "https://gitee.com/Stanhu/IQKeyboardManager";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.5.5;
+				minimumVersion = 6.5.6;
 			};
 		};
-		AECA9D25248B7075008CC21B /* XCRemoteSwiftPackageReference "Kanna" */ = {
+		BA90D39D268AC96400C77B11 /* XCRemoteSwiftPackageReference "Kanna" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tid-kijyun/Kanna";
+			repositoryURL = "https://gitee.com/Stanhu/Kanna";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.2;
+				minimumVersion = 5.2.4;
 			};
 		};
-		AECA9D28248B7143008CC21B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		BA90D3A0268AC99800C77B11 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			repositoryURL = "https://gitee.com/Stanhu/Kingfisher";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.14.0;
+				minimumVersion = 6.3.0;
 			};
 		};
-		AECA9D2B248B7779008CC21B /* XCRemoteSwiftPackageReference "GrandMenu" */ = {
+		BA90D3A3268AC9CB00C77B11 /* XCRemoteSwiftPackageReference "GrandMenu" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/DuckDeck/GrandMenu";
+			repositoryURL = "https://gitee.com/Stanhu/GrandMenu";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.1;
 			};
 		};
-		AECA9D2E248B7827008CC21B /* XCRemoteSwiftPackageReference "GrandStore" */ = {
+		BA90D3A6268AC9FA00C77B11 /* XCRemoteSwiftPackageReference "GrandStore" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/DuckDeck/GrandStore";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-		AECA9D34248B7A04008CC21B /* XCRemoteSwiftPackageReference "GrandTime" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/DuckDeck/GrandTime";
+			repositoryURL = "https://gitee.com/Stanhu/GrandStore";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 3.0.0;
 			};
 		};
-		AECA9D37248B7ADE008CC21B /* XCRemoteSwiftPackageReference "GrandModel" */ = {
+		BA90D3A9268ACA2600C77B11 /* XCRemoteSwiftPackageReference "GrandTime" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/DuckDeck/GrandModel";
+			repositoryURL = "https://gitee.com/Stanhu/GrandTime";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		BA90D3AC268ACA8C00C77B11 /* XCRemoteSwiftPackageReference "Gifu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://gitee.com/Stanhu/Gifu";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.1;
+			};
+		};
+		BA90D3AF268ACAC900C77B11 /* XCRemoteSwiftPackageReference "KRProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://gitee.com/Stanhu/KRProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.4.7;
+			};
+		};
+		BA90D3B2268ACAE600C77B11 /* XCRemoteSwiftPackageReference "GrandModel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://gitee.com/Stanhu/GrandModel";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.2;
 			};
 		};
-		AECA9D3A248B915D008CC21B /* XCRemoteSwiftPackageReference "Gifu" */ = {
+		BA90D3B5268ACEB400C77B11 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kaishin/Gifu";
+			repositoryURL = "https://gitee.com/Stanhu/SkeletonView";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.2.2;
-			};
-		};
-		AECA9D3F248B97FA008CC21B /* XCRemoteSwiftPackageReference "KRProgressHUD" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/krimpedance/KRProgressHUD";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.4.5;
+				minimumVersion = 1.20.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		209FACA5257F5ED40009E51E /* URLNavigator */ = {
+		BA90D392268AC83900C77B11 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 209FACA4257F5ED40009E51E /* XCRemoteSwiftPackageReference "URLNavigator" */;
-			productName = URLNavigator;
-		};
-		209FACA7257F5ED40009E51E /* URLMatcher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 209FACA4257F5ED40009E51E /* XCRemoteSwiftPackageReference "URLNavigator" */;
-			productName = URLMatcher;
-		};
-		20EF8A4B255949A3008CBD99 /* SkeletonView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 20EF8A4A255949A3008CBD99 /* XCRemoteSwiftPackageReference "SkeletonView" */;
-			productName = SkeletonView;
-		};
-		AECA9D1A248B476C008CC21B /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AECA9D19248B476C008CC21B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = BA90D391268AC83900C77B11 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		AECA9D1D248B59BF008CC21B /* SnapKit */ = {
+		BA90D395268AC8AA00C77B11 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AECA9D1C248B59BF008CC21B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = BA90D394268AC8AA00C77B11 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		AECA9D20248B5AF5008CC21B /* SwiftyJSON */ = {
+		BA90D398268AC8DB00C77B11 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AECA9D1F248B5AF5008CC21B /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			package = BA90D397268AC8DB00C77B11 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
-		AECA9D23248B5F06008CC21B /* IQKeyboardManagerSwift */ = {
+		BA90D39B268AC93400C77B11 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AECA9D22248B5F06008CC21B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			package = BA90D39A268AC93400C77B11 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
 		};
-		AECA9D26248B7075008CC21B /* Kanna */ = {
+		BA90D39E268AC96400C77B11 /* Kanna */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AECA9D25248B7075008CC21B /* XCRemoteSwiftPackageReference "Kanna" */;
+			package = BA90D39D268AC96400C77B11 /* XCRemoteSwiftPackageReference "Kanna" */;
 			productName = Kanna;
 		};
-		AECA9D29248B7143008CC21B /* Kingfisher */ = {
+		BA90D3A1268AC99800C77B11 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AECA9D28248B7143008CC21B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = BA90D3A0268AC99800C77B11 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		AECA9D2C248B7779008CC21B /* GrandMenu */ = {
+		BA90D3A4268AC9CB00C77B11 /* GrandMenu */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AECA9D2B248B7779008CC21B /* XCRemoteSwiftPackageReference "GrandMenu" */;
+			package = BA90D3A3268AC9CB00C77B11 /* XCRemoteSwiftPackageReference "GrandMenu" */;
 			productName = GrandMenu;
 		};
-		AECA9D2F248B7827008CC21B /* GrandStore */ = {
+		BA90D3A7268AC9FA00C77B11 /* GrandStore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AECA9D2E248B7827008CC21B /* XCRemoteSwiftPackageReference "GrandStore" */;
+			package = BA90D3A6268AC9FA00C77B11 /* XCRemoteSwiftPackageReference "GrandStore" */;
 			productName = GrandStore;
 		};
-		AECA9D35248B7A04008CC21B /* GrandTime */ = {
+		BA90D3AA268ACA2600C77B11 /* GrandTime */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AECA9D34248B7A04008CC21B /* XCRemoteSwiftPackageReference "GrandTime" */;
+			package = BA90D3A9268ACA2600C77B11 /* XCRemoteSwiftPackageReference "GrandTime" */;
 			productName = GrandTime;
 		};
-		AECA9D38248B7ADE008CC21B /* GrandModel */ = {
+		BA90D3AD268ACA8C00C77B11 /* Gifu */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AECA9D37248B7ADE008CC21B /* XCRemoteSwiftPackageReference "GrandModel" */;
-			productName = GrandModel;
-		};
-		AECA9D3B248B915D008CC21B /* Gifu */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AECA9D3A248B915D008CC21B /* XCRemoteSwiftPackageReference "Gifu" */;
+			package = BA90D3AC268ACA8C00C77B11 /* XCRemoteSwiftPackageReference "Gifu" */;
 			productName = Gifu;
 		};
-		AECA9D40248B97FA008CC21B /* KRProgressHUD */ = {
+		BA90D3B0268ACAC900C77B11 /* KRProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AECA9D3F248B97FA008CC21B /* XCRemoteSwiftPackageReference "KRProgressHUD" */;
+			package = BA90D3AF268ACAC900C77B11 /* XCRemoteSwiftPackageReference "KRProgressHUD" */;
 			productName = KRProgressHUD;
+		};
+		BA90D3B3268ACAE600C77B11 /* GrandModel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA90D3B2268ACAE600C77B11 /* XCRemoteSwiftPackageReference "GrandModel" */;
+			productName = GrandModel;
+		};
+		BA90D3B6268ACEB400C77B11 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA90D3B5268ACEB400C77B11 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

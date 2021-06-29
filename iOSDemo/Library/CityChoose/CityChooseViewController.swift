@@ -131,7 +131,7 @@ class CityChooseViewController: UIViewController {
             setLocateCity(city: nil, status: 3)
         }
         else{
-            if let address = APPAreaInfo.Value{
+            if var address = APPAreaInfo.Value{
                 geoCode = CLGeocoder()
                 let lo = CLLocation(latitude: address.latitude, longitude: address.longitude)
                 geoCode?.reverseGeocodeLocation(lo, completionHandler: { [weak self](places, err) in
@@ -142,7 +142,7 @@ class CityChooseViewController: UIViewController {
                     if let one = places!.first?.locality{
                         address.city = one
                         APPAreaInfo.Value = address
-                        let city = AddressInfo()
+                        var city = AddressInfo()
                         city.city = address.city
                         self?.setLocateCity(city: city, status: 1)
                     }
@@ -177,7 +177,7 @@ class CityChooseViewController: UIViewController {
     }
     
     func chooseCity(city:AddressInfo) {
-        let dbCity = CityDB.sharedInstance.cityFromId(id: city.areaId)
+        var dbCity = CityDB.sharedInstance.cityFromId(id: city.areaId)
         if dbCity.latitude <= 0{
             AddressInfo.getCoorFromCity(city: dbCity.city, complete: { (result) in
                 if !handleResult(result: result){

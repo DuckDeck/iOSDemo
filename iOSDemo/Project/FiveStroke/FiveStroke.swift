@@ -10,7 +10,7 @@ import UIKit
 import GrandStore
 import SwiftyJSON
 import GrandModel
-@objcMembers class FiveStroke: GrandModel { //好像GrandModel的自动保存已经失效？一定要加上@objcMembers才行
+struct FiveStroke: Codable { //好像GrandModel的自动保存已经失效？一定要加上@objcMembers才行
     var text = ""
     var spell = ""
     var code = ""
@@ -31,7 +31,7 @@ import GrandModel
             
             var arrFiveStrokes = [FiveStroke]()
             for item in fives{
-                let five = FiveStroke()
+                var five = FiveStroke()
                 five.code = item["FiveCode"].stringValue
                 five.text = item["Word"].stringValue
                 five.spell = item["PinYin"].stringValue

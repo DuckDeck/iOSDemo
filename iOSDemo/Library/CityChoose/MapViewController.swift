@@ -104,7 +104,7 @@ class MapViewController: UIViewController {
             }
             if let add = places!.first?.locality{
                 
-                if let city = CityDB.sharedInstance.searchCity(city: add).first{
+                if var city = CityDB.sharedInstance.searchCity(city: add).first{
                     if APPAreaInfo.Value!.areaId == 0{
                         city.longitude = location.coordinate.longitude
                         city.latitude = location.coordinate.latitude

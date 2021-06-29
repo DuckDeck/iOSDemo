@@ -22,7 +22,7 @@ extension UIImageView{
 
         let act = UIActivityIndicatorView()
         addSubview(act)
-        act.color = Color.gray
+        act.color = UIColor.gray
         act.startAnimating()
         act.snp.makeConstraints { (m) in
             m.center.equalTo(self)

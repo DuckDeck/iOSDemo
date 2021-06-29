@@ -56,7 +56,7 @@ class CityTableViewCell: UITableViewCell {
     }
     
     @objc func btnClick(sender:UIButton)  {
-        let c = AddressInfo()
+        var c = AddressInfo()
         if let blk = cityChooseBlock {
             c.city = sender.title(for: .normal)!
             c.areaId = sender.tag

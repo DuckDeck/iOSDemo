@@ -11,32 +11,11 @@ import UIKit
 import SwiftyJSON
 import CoreLocation
 
-enum AreaLevel:Int {
+enum AreaLevel:Int,Codable {
     case Country=0,Provice,City,District,Street
 }
-class AddressInfo:NSObject, NSCoding {
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(areaId, forKey: "areaId")
-        aCoder.encode(province, forKey: "province")
-        aCoder.encode(city, forKey: "city")
-        aCoder.encode(street, forKey: "street")
-        aCoder.encode(latitude, forKey: "latitude")
-        aCoder.encode(longitude, forKey: "longitude")
-        aCoder.encode(district, forKey: "district")
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        areaId =  aDecoder.decodeInteger(forKey: "areaId")
-        province = aDecoder.decodeObject(forKey: "province") as! String
-        city =  aDecoder.decodeObject(forKey: "city") as! String
-        if let dis =  aDecoder.decodeObject(forKey: "district") as? String{
-            district = dis
-        }
-        street = aDecoder.decodeObject(forKey: "street") as! String
-        latitude = aDecoder.decodeDouble(forKey: "latitude")
-        longitude =  aDecoder.decodeDouble(forKey: "longitude")
-    }
-    
+struct AddressInfo:Codable {
+     
     var areaId = 0
     var province = ""
     var city = ""
@@ -92,7 +71,7 @@ class AddressInfo:NSObject, NSCoding {
         var cities = [AddressInfo]()
         var i = 0
         for j in js{
-            let city = AddressInfo()
+            var city = AddressInfo()
             city.areaId = j["id"].intValue
             city.city = j["city"].stringValue
             if city.city == "市辖区" || city.city == "县"{
@@ -131,7 +110,7 @@ class AddressInfo:NSObject, NSCoding {
                 complete(result)
                 return
             }
-            let address = AddressInfo()
+            var address = AddressInfo()
             address.city = city
             address.latitude = js["result"]["location"]["lat"].doubleValue
             address.longitude = js["result"]["location"]["lng"].doubleValue
@@ -142,9 +121,6 @@ class AddressInfo:NSObject, NSCoding {
         
     }
     
-    override init() {
-        
-    }
     
 }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Resolution:Equatable {
+struct Resolution:Equatable,Codable {
     var pixelX = 0
     var pixelY = 0
     var device = ""

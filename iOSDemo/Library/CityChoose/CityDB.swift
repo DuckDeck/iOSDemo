@@ -49,7 +49,7 @@ class CityDB: DBTool {
     }
     
     func dbToCity(reSet:FMResultSet) -> AddressInfo {
-        let city = AddressInfo()
+        var city = AddressInfo()
         city.areaId = Int(reSet.int(forColumn: "cityId"))
         city.city = reSet.string(forColumn: "cityName")!
         city.cityPinYIn = reSet.string(forColumn: "cityPinyin")!

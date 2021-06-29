@@ -12,7 +12,7 @@ let PCImage = "http://www.tuyiam.com/forum"
 
 
 
-class ImageSet:NSObject, NSCoding {
+struct ImageSet:Codable {
     var url = ""
     var category = ""
     var title = ""
@@ -34,40 +34,9 @@ class ImageSet:NSObject, NSCoding {
     var duration = 0   //时长
     var durationStr = ""   //时长
     var videoLink = ""
-    override init() {
-        super.init()
-    }
+
     
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(url, forKey: "url")
-        aCoder.encode(resolutionStr, forKey: "resolutionStr")
-        aCoder.encode(title, forKey: "title")
-        aCoder.encode(theme, forKey: "theme")
-        aCoder.encode(mainImage, forKey: "mainImage")
-        aCoder.encode(cellHeight, forKey: "cellHeight")
-        aCoder.encode(imageType, forKey: "imageType")
-        aCoder.encode(size, forKey: "size")
-        aCoder.encode(sizeStr, forKey: "sizeStr")
-        aCoder.encode(duration, forKey: "duration")
-        aCoder.encode(videoLink, forKey: "videoLink")
-        aCoder.encode(durationStr, forKey: "durationStr")
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init()
-        url = aDecoder.decodeObject(forKey: "url") as! String
-        resolutionStr = aDecoder.decodeObject(forKey: "resolutionStr") as! String
-        title = aDecoder.decodeObject(forKey: "title") as! String
-        theme = aDecoder.decodeObject(forKey: "theme") as! String
-        mainImage = aDecoder.decodeObject(forKey: "mainImage") as! String
-        cellHeight = aDecoder.decodeFloat(forKey: "cellHeight")
-        imageType = Int(aDecoder.decodeInt64(forKey: "imageType"))
-        size = aDecoder.decodeDouble(forKey: "size")
-        sizeStr = aDecoder.decodeObject(forKey: "sizeStr") as! String
-        duration = Int(aDecoder.decodeInt64(forKey: "duration"))
-        videoLink = aDecoder.decodeObject(forKey: "videoLink") as! String
-        durationStr =  aDecoder.decodeObject(forKey: "durationStr") as! String
-    }
+
     
     static func getImageSet(type:Int,cat:String,resolution:Resolution, theme:String, index:Int,completed:@escaping ((_ result:ResultInfo)->Void)){
        
@@ -108,7 +77,7 @@ class ImageSet:NSObject, NSCoding {
             var arrImageSets = [ImageSet]()
        
             for ul in uls{
-                let img = ImageSet()
+                var img = ImageSet()
                 if let imgHtml = ul.css("img").first{
                     img.mainImage = imgHtml["src"] ?? ""
                     img.title = ul["title"] ?? ""
@@ -211,7 +180,7 @@ class ImageSet:NSObject, NSCoding {
             var arrImageSets = [ImageSet]()
             let lis = uls.first!.css("li")
             for ul in lis{
-                let img = ImageSet()
+                var img = ImageSet()
                 img.category = ul.css("div > em > a")[0].text ?? ""
                 img.mainImage = ul.css("div > a > img")[0]["src"] ?? ""
                 if img.mainImage.hasPrefix("//"){

@@ -743,7 +743,7 @@ class WechatVideoViewController: BaseViewController, TZImagePickerControllerDele
     
 }
 
-@objcMembers class UserVideoInfo: GrandModel {
+struct UserVideoInfo: Codable {
      var token = ""
      var finderId = ""
      var rawKeyBuffer = ""
