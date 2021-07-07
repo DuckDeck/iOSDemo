@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import os
+import ViewChaos
 //import netfox
 //import KTVHTTPCache
 @UIApplicationMain
@@ -35,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let monitor = CatonMonitor.init()
         monitor.start()
         
+        ViewChaosStart.awake()
         
         
         if #available(iOS 14.0, *) {

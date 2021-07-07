@@ -323,5 +323,54 @@ print("位宽", 5.bitWidth, Int64.bitWidth, Int8.bitWidth)
 
 
 
-["123"] is Codable
+protocol DefaultValue{
+    associatedtype Value:Decodable
+    static var defaultValue:Value{get}
+}
 
+@propertyWrapper
+struct Default<T:DefaultValue>{
+    var wrappedValue:T.Value
+}
+extension Default:Decodable{
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        wrappedValue = (try? container.decode(T.Value.self)) ?? T.defaultValue
+    }
+}
+extension KeyedDecodingContainer{
+    func decode<T>(type:Default<T>.Type,forKey Key:Key) throws -> Default<T> where T : DefaultValue{
+        (try decodeIfPresent(type, forKey: Key)) ?? Default(wrappedValue:T.defaultValue)
+    }
+}
+
+
+extension Int:DefaultValue{
+    static var defaultValue = 0
+}
+extension String:DefaultValue{
+    static var defaultValue = "super"
+}
+
+struct Person:Decodable{
+    @Default<String> var name:String
+    @Default<Int> var age:Int
+  //  @Default<String.Unknow> var hname:String
+}
+
+
+extension String{
+    struct Unknow :DefaultValue{
+        static var defaultValue = "Unknow"
+    }
+    struct UnNamed :DefaultValue{
+        static var defaultValue = "UnNamed"
+    }
+}
+
+let str = #"{"name":null,"age":null}"#
+let p = try JSONDecoder().decode(Person.self, from: str.data(using: .utf8)!)
+
+print(p.age)
+print(p.name)
+//print(p.hname)

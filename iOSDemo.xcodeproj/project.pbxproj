@@ -385,6 +385,7 @@
 		BA90D3B1268ACAC900C77B11 /* KRProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D3B0268ACAC900C77B11 /* KRProgressHUD */; };
 		BA90D3B4268ACAE600C77B11 /* GrandModel in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D3B3268ACAE600C77B11 /* GrandModel */; };
 		BA90D3B7268ACEB400C77B11 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D3B6268ACEB400C77B11 /* SkeletonView */; };
+		BA90D4AC268C768900C77B11 /* ViewChaos in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D4AB268C768900C77B11 /* ViewChaos */; };
 		F6C59D4C219AF68100825BBA /* SelDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4B219AF68100825BBA /* SelDemo.m */; };
 		F6C59D4F219B045200825BBA /* Runspector.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C59D4E219B045200825BBA /* Runspector.m */; };
 		F6F3090A246A7C4E0025EF5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F30909246A7C4E0025EF5D /* AppDelegate.m */; };
@@ -914,6 +915,7 @@
 			files = (
 				AE4D498224A1F9C9003D1565 /* ExternalAccessory.framework in Frameworks */,
 				BA90D3A8268AC9FA00C77B11 /* GrandStore in Frameworks */,
+				BA90D4AC268C768900C77B11 /* ViewChaos in Frameworks */,
 				AE4D497E24A1F900003D1565 /* Security.framework in Frameworks */,
 				AE4D497C24A1F8F8003D1565 /* CoreTelephony.framework in Frameworks */,
 				AE4D497A24A1F8EE003D1565 /* SystemConfiguration.framework in Frameworks */,
@@ -1408,13 +1410,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		AE5A88651FF3705600748F6A /* HttpRecord */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HttpRecord;
-			sourceTree = "<group>";
-		};
 		AE5A88661FF3707500748F6A /* JSControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -1630,7 +1625,6 @@
 			children = (
 				BA876BAD2665CF42002AADEE /* VideoLogin */,
 				AE5A88661FF3707500748F6A /* JSControl */,
-				AE5A88651FF3705600748F6A /* HttpRecord */,
 				AE0F70361FBA9ACF00C8135C /* NetworkViewController.swift */,
 			);
 			path = Network;
@@ -2583,6 +2577,7 @@
 				BA90D3B0268ACAC900C77B11 /* KRProgressHUD */,
 				BA90D3B3268ACAE600C77B11 /* GrandModel */,
 				BA90D3B6268ACEB400C77B11 /* SkeletonView */,
+				BA90D4AB268C768900C77B11 /* ViewChaos */,
 			);
 			productName = iOSDemo;
 			productReference = AE9F31D21F69070E00339BB8 /* iOSDemo.app */;
@@ -2699,6 +2694,7 @@
 				BA90D3AF268ACAC900C77B11 /* XCRemoteSwiftPackageReference "KRProgressHUD" */,
 				BA90D3B2268ACAE600C77B11 /* XCRemoteSwiftPackageReference "GrandModel" */,
 				BA90D3B5268ACEB400C77B11 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				BA90D4AA268C768900C77B11 /* XCRemoteSwiftPackageReference "ViewChaos" */,
 			);
 			productRefGroup = AE9F31D31F69070E00339BB8 /* Products */;
 			projectDirPath = "";
@@ -3331,7 +3327,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/iOSDemo/bridge.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7s x86_64";
 			};
@@ -3376,7 +3372,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/iOSDemo/bridge.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7s";
 			};
@@ -3668,6 +3664,14 @@
 				minimumVersion = 1.20.0;
 			};
 		};
+		BA90D4AA268C768900C77B11 /* XCRemoteSwiftPackageReference "ViewChaos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://gitee.com/Stanhu/ViewChaos";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -3735,6 +3739,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BA90D3B5268ACEB400C77B11 /* XCRemoteSwiftPackageReference "SkeletonView" */;
 			productName = SkeletonView;
+		};
+		BA90D4AB268C768900C77B11 /* ViewChaos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA90D4AA268C768900C77B11 /* XCRemoteSwiftPackageReference "ViewChaos" */;
+			productName = ViewChaos;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

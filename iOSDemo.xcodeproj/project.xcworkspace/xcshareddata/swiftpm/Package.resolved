@@ -126,6 +126,15 @@
           "revision": "b3dcd7dbd0d488e1a7077cb33b00f2083e382f07",
           "version": "5.0.1"
         }
+      },
+      {
+        "package": "ViewChaos",
+        "repositoryURL": "https://gitee.com/Stanhu/ViewChaos",
+        "state": {
+          "branch": null,
+          "revision": "a5aaa77336d4a832bf5292d840a9db37da277a69",
+          "version": "2.1.2"
+        }
       }
     ]
   },

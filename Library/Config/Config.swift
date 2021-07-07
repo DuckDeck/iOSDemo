@@ -60,6 +60,29 @@ let APPAreaInfo = GrandStore(name: "APPAreaInfo", defaultValue: AddressInfo())
 
 /* \ */
 
+protocol SelfAware:class {
+    static func awake()
+}
+
+@objc class NothingToSeeHere: NSObject {
+
+    private static let doOnce: Any? = {
+        _harmlessFunction()
+    }()
+
+    static func harmlessFunction() {
+        _ = NothingToSeeHere.doOnce
+    }
+
+    private static func _harmlessFunction() {
+        let typeCount = Int(objc_getClassList(nil, 0))
+        let types = UnsafeMutablePointer<AnyClass>.allocate(capacity: typeCount)
+        let autoreleasingTypes = AutoreleasingUnsafeMutablePointer<AnyClass>(types)
+        objc_getClassList(autoreleasingTypes, Int32(typeCount))
+        for index in 0 ..< typeCount { (types[index] as? SelfAware.Type)?.awake() }
+        free(types)
+    }
+}
 
 
 func createInstanseFromString(className:String)->NSObject!{
