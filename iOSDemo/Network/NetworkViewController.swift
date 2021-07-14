@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 class NetworkViewController: UIViewController {
 
-    var arrData = ["HttpRecord","JSControl","视频号登录"]
+    var arrData = ["WKWebview请求拦截","JSControl","视频号登录"]
     var tbMenu = UITableView()
     
     
@@ -46,7 +46,7 @@ extension NetworkViewController:UITableViewDelegate,UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
-            //navigationController?.pushViewController(HttpRecordViewController(), animated: true)
+            navigationController?.pushViewController(InterceptViewController(), animated: true)
             break
         case 1:
              navigationController?.pushViewController(JSViewController(), animated: true)

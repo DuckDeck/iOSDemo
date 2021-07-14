@@ -31,6 +31,10 @@
 		AE0F709A1FBEB9CA00C8135C /* CrossLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F70941FBEB9CA00C8135C /* CrossLine.swift */; };
 		AE0F709C1FBEB9CE00C8135C /* Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F709B1FBEB9CE00C8135C /* Trace.swift */; };
 		AE0F709D1FBEBA5C00C8135C /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */; };
+		AE101AEF269E725B00C2531C /* LoginVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE101AEE269E725B00C2531C /* LoginVideo.swift */; };
+		AE101AF7269E739B00C2531C /* HttpIntercept.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE101AF6269E739B00C2531C /* HttpIntercept.swift */; };
+		AE101AF8269E739B00C2531C /* URLSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE101AF5269E739B00C2531C /* URLSchemeHandler.swift */; };
+		AE101AFB269E74CF00C2531C /* WKWebView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE101AFA269E74CF00C2531C /* WKWebView+Extension.swift */; };
 		AE111ED7235EAB4300AB869F /* MessageSend.m in Sources */ = {isa = PBXBuildFile; fileRef = AE111ED6235EAB4300AB869F /* MessageSend.m */; };
 		AE1344DA209068C7009A210D /* block相关.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344D9209068C7009A210D /* block相关.m */; };
 		AE1344DD20906937009A210D /* object_setClass.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344DC20906937009A210D /* object_setClass.m */; };
@@ -370,7 +374,6 @@
 		AEF5E8FF2282B80E0071B38A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E8FE2282B80E0071B38A /* AudioToolbox.framework */; };
 		AEF5E9012282B8190071B38A /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E9002282B8190071B38A /* libbz2.tbd */; };
 		AEF5E9032282B8210071B38A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF5E9022282B8210071B38A /* libz.tbd */; };
-		BA876BAF2665CF4C002AADEE /* LoginVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA876BAE2665CF4C002AADEE /* LoginVideo.swift */; };
 		BA876BB126687D23002AADEE /* ClearCacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA876BB026687D22002AADEE /* ClearCacheViewController.swift */; };
 		BA90D393268AC83900C77B11 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D392268AC83900C77B11 /* Alamofire */; };
 		BA90D396268AC8AA00C77B11 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BA90D395268AC8AA00C77B11 /* SnapKit */; };
@@ -453,6 +456,10 @@
 		AE0F70931FBEB9CA00C8135C /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AE0F70941FBEB9CA00C8135C /* CrossLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossLine.swift; sourceTree = "<group>"; };
 		AE0F709B1FBEB9CE00C8135C /* Trace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trace.swift; sourceTree = "<group>"; };
+		AE101AEE269E725B00C2531C /* LoginVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVideo.swift; sourceTree = "<group>"; };
+		AE101AF5269E739B00C2531C /* URLSchemeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeHandler.swift; sourceTree = "<group>"; };
+		AE101AF6269E739B00C2531C /* HttpIntercept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpIntercept.swift; sourceTree = "<group>"; };
+		AE101AFA269E74CF00C2531C /* WKWebView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Extension.swift"; sourceTree = "<group>"; };
 		AE111ED5235EAB4300AB869F /* MessageSend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageSend.h; sourceTree = "<group>"; };
 		AE111ED6235EAB4300AB869F /* MessageSend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageSend.m; sourceTree = "<group>"; };
 		AE1344D9209068C7009A210D /* block相关.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "block相关.m"; sourceTree = "<group>"; };
@@ -882,7 +889,6 @@
 		AEF5E9022282B8210071B38A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		BA84E0F8263513970074FDC6 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		BA84E0FF263513BA0074FDC6 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
-		BA876BAE2665CF4C002AADEE /* LoginVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVideo.swift; sourceTree = "<group>"; };
 		BA876BB026687D22002AADEE /* ClearCacheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearCacheViewController.swift; sourceTree = "<group>"; };
 		F6C59D4A219AF68100825BBA /* SelDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelDemo.h; sourceTree = "<group>"; };
 		F6C59D4B219AF68100825BBA /* SelDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelDemo.m; sourceTree = "<group>"; };
@@ -1061,6 +1067,15 @@
 				AE0F70931FBEB9CA00C8135C /* SettingViewController.swift */,
 			);
 			path = TouchTest;
+			sourceTree = "<group>";
+		};
+		AE101AF9269E73CF00C2531C /* HttpIntercept */ = {
+			isa = PBXGroup;
+			children = (
+				AE101AF6269E739B00C2531C /* HttpIntercept.swift */,
+				AE101AF5269E739B00C2531C /* URLSchemeHandler.swift */,
+			);
+			path = HttpIntercept;
 			sourceTree = "<group>";
 		};
 		AE1344D720906858009A210D /* iOS开发技巧 */ = {
@@ -1623,6 +1638,7 @@
 		AE8D61BC1F74A88100FDFC1C /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				AE101AF9269E73CF00C2531C /* HttpIntercept */,
 				BA876BAD2665CF42002AADEE /* VideoLogin */,
 				AE5A88661FF3707500748F6A /* JSControl */,
 				AE0F70361FBA9ACF00C8135C /* NetworkViewController.swift */,
@@ -1850,6 +1866,7 @@
 				AE1AC74F20CF6FB40002F779 /* UICollectView+Extension.swift */,
 				AEADFD4821115BBE00E6B58D /* UIButton+Extension.swift */,
 				AE4DA62C214B9BB900FCC7FD /* UIViewController+Extension.swift */,
+				AE101AFA269E74CF00C2531C /* WKWebView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2507,7 +2524,7 @@
 		BA876BAD2665CF42002AADEE /* VideoLogin */ = {
 			isa = PBXGroup;
 			children = (
-				BA876BAE2665CF4C002AADEE /* LoginVideo.swift */,
+				AE101AEE269E725B00C2531C /* LoginVideo.swift */,
 			);
 			path = VideoLogin;
 			sourceTree = "<group>";
@@ -2820,6 +2837,7 @@
 				AE6691D620F49B3A00D019D4 /* UIImage+Palette.m in Sources */,
 				AE9F32821F690F5200339BB8 /* GrandCue.swift in Sources */,
 				AE95A0D420BBD2AE00C5AED6 /* VolumeView.swift in Sources */,
+				AE101AFB269E74CF00C2531C /* WKWebView+Extension.swift in Sources */,
 				AEA680C72420D6B7009748E4 /* TZPhotoPickerController.m in Sources */,
 				AE3AF04D1F773DEB00AF182A /* GradientLayerViewController.swift in Sources */,
 				AE3AF04F1F77404900AF182A /* ReplicatorViewController.swift in Sources */,
@@ -2891,10 +2909,12 @@
 				AE6691D320F49B3A00D019D4 /* PaletteColorUtils.m in Sources */,
 				AE3AF0551F77448A00AF182A /* LayoutViewController.swift in Sources */,
 				AE901195223B42450020D400 /* ImageSet.swift in Sources */,
+				AE101AEF269E725B00C2531C /* LoginVideo.swift in Sources */,
 				AEA681262420D908009748E4 /* MJRefreshAutoStateFooter.m in Sources */,
 				AEB1F4BD2511B1530069A9FB /* MarkdownParser.swift in Sources */,
 				AE5351222011A1A000FC48A1 /* SnapkitTableViewController.swift in Sources */,
 				AE6691D520F49B3A00D019D4 /* PaletteSwatch.m in Sources */,
+				AE101AF8269E739B00C2531C /* URLSchemeHandler.swift in Sources */,
 				AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */,
 				AE1DE0982099BE0A007910A5 /* LinkLine.swift in Sources */,
 				AEB7D09E225DEB04008C899E /* MitoPlayViewController.swift in Sources */,
@@ -2974,6 +2994,7 @@
 				AEA680D32420D6B7009748E4 /* TZGifPhotoPreviewController.m in Sources */,
 				AE1DE09D2099BE0A007910A5 /* LinkGameViewController.swift in Sources */,
 				AE3795252238E886009292DE /* MitoViewController.swift in Sources */,
+				AE101AF7269E739B00C2531C /* HttpIntercept.swift in Sources */,
 				AEA681172420D908009748E4 /* NSBundle+MJRefresh.m in Sources */,
 				AE1AC81120D25F5A0002F779 /* ShadowPlayer.swift in Sources */,
 				AE4DA61F213E833D00FCC7FD /* ShadowRangeManager.swift in Sources */,
@@ -3005,7 +3026,6 @@
 				AEA680D62420D6B7009748E4 /* TZImageRequestOperation.m in Sources */,
 				AEB7D0A62264666B008C899E /* ResolutionFilterView.swift in Sources */,
 				AE83BD7B1FE2134E001882D1 /* TwoSideViewController.swift in Sources */,
-				BA876BAF2665CF4C002AADEE /* LoginVideo.swift in Sources */,
 				AEA681382420D908009748E4 /* MJRefreshFooter.m in Sources */,
 				AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */,
 				AE5AD8C12254A1A200BD7EE9 /* CollectedViewController.swift in Sources */,

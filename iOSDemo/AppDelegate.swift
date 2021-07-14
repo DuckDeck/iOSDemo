@@ -10,6 +10,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import os
 import ViewChaos
+import WebKit
 //import netfox
 //import KTVHTTPCache
 @UIApplicationMain
@@ -37,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         monitor.start()
         
         ViewChaosStart.awake()
+        hookMethod()
         
         
         if #available(iOS 14.0, *) {
@@ -71,5 +73,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func hookMethod() {
+        hookClassMethod(cls: WKWebView.self, originalSelector: #selector(WKWebView.handlesURLScheme(_:)), swizzleSelector: #selector(WKWebView.gghandlesURLScheme(_:)))
+        hookInstanceMethod(cls: WKWebView.self, originalSelector: #selector(WKWebView.load(_:)), swizzleSelector: #selector(WKWebView.ggLoad(_:)))
+    }
 
 }
