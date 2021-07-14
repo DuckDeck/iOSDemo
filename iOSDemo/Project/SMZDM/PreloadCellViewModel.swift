@@ -7,14 +7,14 @@
 //
 
 import Foundation
-protocol PreloadCellViewModelDelegate : NSObjectProtocol{
+protocol PreloadCellViewModelDelegate: NSObjectProtocol {
     func onFetchCompleted(with newIndexPathsToReload: [IndexPath]?)
     func onFetchFailed(with reason: String)
 }
 
 class PreloadCellViewModel {
     var loadingQueue = OperationQueue()
-    var loadingOperations = [IndexPath : DataLoadOperation]()
+    var loadingOperations = [IndexPath: DataLoadOperation]()
     
     weak var delegate: PreloadCellViewModelDelegate?
     
@@ -22,6 +22,7 @@ class PreloadCellViewModel {
     private var isFetchInProcess = false
     private var total = 0
     private var currentPage = 0
+    
     var totalCount: Int {
         return total
     }
@@ -35,51 +36,49 @@ class PreloadCellViewModel {
     }
     
     public func loadImage(at index: Int) -> DataLoadOperation? {
-        if (0..<images.count).contains(index) {
+        if (0 ..< images.count).contains(index) {
             return DataLoadOperation(images[index])
         }
         return .none
     }
     
     func fetchImages() {
-       guard !isFetchInProcess else {
-           return
-       }
+        guard !isFetchInProcess else {
+            return
+        }
        
-       isFetchInProcess = true
-       // 延时 2s 模拟网络环境
-       print("+++++++++++ 模拟网络数据请求 +++++++++++")
-       DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 2) {
-           print("+++++++++++ 模拟网络数据请求返回成功 +++++++++++")
-           DispatchQueue.main.async {
-               self.total = 1000
-               self.currentPage += 1
-               self.isFetchInProcess = false
-               // 初始化 30个 图片
-               let imagesData = (1...30).map {
-                ImageModel(url: "https://robohash.org/\($0).png", order: $0)
-               }
+        isFetchInProcess = true
+        // 延时 2s 模拟网络环境
+        print("+++++++++++ 模拟网络数据请求 +++++++++++")
+        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 2) {
+            print("+++++++++++ 模拟网络数据请求返回成功 +++++++++++")
+            DispatchQueue.main.async {
+                self.total = 1000
+                self.currentPage += 1
+                self.isFetchInProcess = false
+                // 初始化 30个 图片
+                let imagesData = (1...30).map {
+                    ImageModel(url: "https://robohash.org/\($0).png", order: $0)
+                }
                 self.images.append(contentsOf: imagesData)
 
-               if self.currentPage > 1 {
-                      let newIndexPaths = self.calculateIndexPathsToReload(from: imagesData)
-                       self.delegate?.onFetchCompleted(with: newIndexPaths)
-               } else {
-                   self.delegate?.onFetchCompleted(with: .none)
-               }
-           }
-       }
-   }
+                if self.currentPage > 1 {
+                    let newIndexPaths = self.calculateIndexPathsToReload(from: imagesData)
+                    self.delegate?.onFetchCompleted(with: newIndexPaths)
+                } else {
+                    self.delegate?.onFetchCompleted(with: .none)
+                }
+            }
+        }
+    }
+
     // 计算可视 indexPath 数组
-   private func calculateIndexPathsToReload(from newImages: [ImageModel]) -> [IndexPath] {
-       let startIndex = images.count - newImages.count
-       let endIndex = startIndex + newImages.count - 1
+    private func calculateIndexPathsToReload(from newImages: [ImageModel]) -> [IndexPath] {
+        let startIndex = images.count - newImages.count
+        let endIndex = startIndex + newImages.count - 1
        
-       return (startIndex...endIndex).map { i in
-           return IndexPath(row: i, section: 0)
-       }
-   }
+        return (startIndex...endIndex).map { i in
+            IndexPath(row: i, section: 0)
+        }
+    }
 }
-
-
-
