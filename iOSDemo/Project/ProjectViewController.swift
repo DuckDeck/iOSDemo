@@ -9,7 +9,7 @@
 import UIKit
 class ProjectViewController: UIViewController {
 
-    var arrData = ["LinkGame","PointLock","Mito","Five Stroke Search"]
+    var arrData = ["LinkGame","PointLock","Mito","Five Stroke Search","SMZDM"]
     var tbMenu = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +49,8 @@ extension ProjectViewController:UITableViewDelegate,UITableViewDataSource{
             navigationController?.pushViewController(MitoViewController(), animated: true)
         case 3:
             navigationController?.pushViewController(FiveStrokeViewController(), animated: true)
+        case 4:
+            navigationController?.pushViewController(SMZDMViewController(), animated: true)
         default:
             break
         }

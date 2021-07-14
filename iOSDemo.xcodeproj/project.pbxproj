@@ -35,6 +35,8 @@
 		AE101AF7269E739B00C2531C /* HttpIntercept.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE101AF6269E739B00C2531C /* HttpIntercept.swift */; };
 		AE101AF8269E739B00C2531C /* URLSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE101AF5269E739B00C2531C /* URLSchemeHandler.swift */; };
 		AE101AFB269E74CF00C2531C /* WKWebView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE101AFA269E74CF00C2531C /* WKWebView+Extension.swift */; };
+		AE101AFF269E989E00C2531C /* SMZDMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE101AFE269E989E00C2531C /* SMZDMViewController.swift */; };
+		AE101B01269EB0F500C2531C /* PreloadCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE101B00269EB0F500C2531C /* PreloadCellViewModel.swift */; };
 		AE111ED7235EAB4300AB869F /* MessageSend.m in Sources */ = {isa = PBXBuildFile; fileRef = AE111ED6235EAB4300AB869F /* MessageSend.m */; };
 		AE1344DA209068C7009A210D /* block相关.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344D9209068C7009A210D /* block相关.m */; };
 		AE1344DD20906937009A210D /* object_setClass.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344DC20906937009A210D /* object_setClass.m */; };
@@ -460,6 +462,8 @@
 		AE101AF5269E739B00C2531C /* URLSchemeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeHandler.swift; sourceTree = "<group>"; };
 		AE101AF6269E739B00C2531C /* HttpIntercept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpIntercept.swift; sourceTree = "<group>"; };
 		AE101AFA269E74CF00C2531C /* WKWebView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Extension.swift"; sourceTree = "<group>"; };
+		AE101AFE269E989E00C2531C /* SMZDMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMZDMViewController.swift; sourceTree = "<group>"; };
+		AE101B00269EB0F500C2531C /* PreloadCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadCellViewModel.swift; sourceTree = "<group>"; };
 		AE111ED5235EAB4300AB869F /* MessageSend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageSend.h; sourceTree = "<group>"; };
 		AE111ED6235EAB4300AB869F /* MessageSend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageSend.m; sourceTree = "<group>"; };
 		AE1344D9209068C7009A210D /* block相关.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "block相关.m"; sourceTree = "<group>"; };
@@ -1078,6 +1082,22 @@
 			path = HttpIntercept;
 			sourceTree = "<group>";
 		};
+		AE101AFC269E93E700C2531C /* HeiSi */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HeiSi;
+			sourceTree = "<group>";
+		};
+		AE101AFD269E988A00C2531C /* SMZDM */ = {
+			isa = PBXGroup;
+			children = (
+				AE101AFE269E989E00C2531C /* SMZDMViewController.swift */,
+				AE101B00269EB0F500C2531C /* PreloadCellViewModel.swift */,
+			);
+			path = SMZDM;
+			sourceTree = "<group>";
+		};
 		AE1344D720906858009A210D /* iOS开发技巧 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1158,6 +1178,8 @@
 		AE1DE01A2099ACA9007910A5 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				AE101AFD269E988A00C2531C /* SMZDM */,
+				AE101AFC269E93E700C2531C /* HeiSi */,
 				AEB7D090225B2606008C899E /* FiveStroke */,
 				AE3795232238E86B009292DE /* Mito */,
 				AEEE485C215CC601003C9943 /* PointLock */,
@@ -2828,6 +2850,7 @@
 				AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */,
 				AE1DE01C2099ACBE007910A5 /* ProjectViewController.swift in Sources */,
 				AEB1F4C12511B1530069A9FB /* MarkdownUnescaping.swift in Sources */,
+				AE101B01269EB0F500C2531C /* PreloadCellViewModel.swift in Sources */,
 				AE7BBCE4207B498B005DBE0C /* WatermarkViewController.swift in Sources */,
 				AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */,
 				AEBE40521FC80A5C0087D7ED /* CityChooseViewController+Delegate.swift in Sources */,
@@ -2918,6 +2941,7 @@
 				AEBA80D820BD50B300F6A323 /* TransformMP3.m in Sources */,
 				AE1DE0982099BE0A007910A5 /* LinkLine.swift in Sources */,
 				AEB7D09E225DEB04008C899E /* MitoPlayViewController.swift in Sources */,
+				AE101AFF269E989E00C2531C /* SMZDMViewController.swift in Sources */,
 				AE394B522065F72100CE3BD9 /* SQLiteViewController.swift in Sources */,
 				20ABA57D2521D0B8009B2659 /* GrandTextView.swift in Sources */,
 				AE3F46F620AC0BF9007BA637 /* UINavigationController+Extension.swift in Sources */,
@@ -3330,7 +3354,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = iOSDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3376,7 +3400,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = iOSDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

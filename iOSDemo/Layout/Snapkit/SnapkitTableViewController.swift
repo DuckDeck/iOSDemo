@@ -27,16 +27,24 @@ class SnapkitTableViewController: UIViewController {
         vHead.backgroundColor = UIColor.yellow
         vHead.frame = CGRect(x: 0, y: 0, w: ScreenWidth, h: 300)
         
+        let img = UIImageView()
+        img.kf.setImage(with: URL(string: "https://img1.gamersky.com/upimg/users/2021/05/17/origin_202105171753366303.jpg"))
+        vHead.addSubview(img)
+        img.snp.makeConstraints { m in
+            m.leading.top.equalTo(20)
+            m.bottom.trailing.equalTo(-20)
+        }
+        
         tb.dataSource = self
         tb.delegate = self
         tb.register(SnapCell.self, forCellReuseIdentifier: "cell")
-        tb.estimatedRowHeight = 300
         tb.tableFooterView = UIView()
         tb.separatorInset = UIEdgeInsets()
         tb.layoutMargins = UIEdgeInsets()
         tb.tableHeaderView = vHead
+        tb.estimatedRowHeight = 250
         //        tb.separatorStyle = .none
-        //tb.rowHeight = UITableViewAutomaticDimension
+        tb.rowHeight = UITableView.automaticDimension
         
 //        let barBtn = UIBarButtonItem(title: "add", style: .plain, target: self, action: #selector(addContent))
     }
@@ -65,17 +73,17 @@ class SnapkitTableViewController: UIViewController {
         
         m = Model1()
         m.content = "小哥我在办公室有台式机2台"
-        m.img = "https://pic.netbian.com/uploads/allimg/210604/202545-16228095457583.jpg"
+        m.img = "https://pic.netbian.com/uploads/allimg/210609/230600-1623251160aff5.jpg"
         arr.append(m)
         
         m = Model1()
         m.content = "很多人质疑我家为什么拿这么高的利息去买这个车，我可以给你们解释下。温州的民间借贷一直是中国领先的，往往很多借贷的事情，就是一句话。那么在资金闲置的情况下，大多人都是为守着旧业和放着较高利息的款(比如：一百万一年15万）。但是平时又不想每个月还很多导致自己资金紧张。所以就选择了奔驰的这种租"
-        m.img = "https://pic.netbian.com/uploads/allimg/210602/233526-1622648126cd7a.jpg"
+        m.img = "https://pic.netbian.com/uploads/allimg/210707/232725-1625671645a777.jpg"
         arr.append(m)
         
         m = Model1()
         m.content = "借模式的贷款方式。（平时假如需要用钱的话，十几万基本上就是跟附近朋友亲戚一句话的事情）我的第一辆车奔驰GLC260之购物中的套路和按揭 篇二：提车上牌加使用情况 但是这种温州特有的风气导致了温州人爱面子的不良风气。（在家省吃俭用，出门大方买单）因为没有检查的习惯，所以出现了一些很简单的错误，但是无伤大雅大家看的懂就可以了。一笔带过供大家言欢了。还是那句话，四儿子为什么加价。那是大家一个愿打一个愿挨，没什么酸不酸的。大家的价值观，世界观不同。你可以有你自己的意见，我也可以有。你可以说你自己意见，但是没必要让别人跟您一样。"
-        m.img = "https://pic.netbian.com/uploads/allimg/210602/235452-16226492929d03.jpg"
+        m.img = "https://pic.netbian.com/uploads/allimg/210712/185843-1626087523564e.jpg"
         arr.append(m)
         
         m = Model1()
