@@ -49,8 +49,7 @@ extension ProjectViewController:UITableViewDelegate,UITableViewDataSource{
             navigationController?.pushViewController(MitoViewController(), animated: true)
         case 3:
             navigationController?.pushViewController(FiveStrokeViewController(), animated: true)
-        case 4:
-            navigationController?.pushViewController(SMZDMViewController(), animated: true)
+      
         default:
             break
         }

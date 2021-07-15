@@ -158,6 +158,7 @@ class HttpClient {
                     if header.element.name.contain(subStr: "Content-Type") {
                         if header.element.value.contains("application/json") {
                             encodeType = JSONEncoding.default
+                            break
                         }
                     }
                 }

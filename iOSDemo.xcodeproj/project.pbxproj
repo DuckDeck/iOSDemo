@@ -36,10 +36,10 @@
 		AE101AF8269E739B00C2531C /* URLSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE101AF5269E739B00C2531C /* URLSchemeHandler.swift */; };
 		AE101AFB269E74CF00C2531C /* WKWebView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE101AFA269E74CF00C2531C /* WKWebView+Extension.swift */; };
 		AE101AFF269E989E00C2531C /* SMZDMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE101AFE269E989E00C2531C /* SMZDMViewController.swift */; };
-		AE101B01269EB0F500C2531C /* PreloadCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE101B00269EB0F500C2531C /* PreloadCellViewModel.swift */; };
 		AE111ED7235EAB4300AB869F /* MessageSend.m in Sources */ = {isa = PBXBuildFile; fileRef = AE111ED6235EAB4300AB869F /* MessageSend.m */; };
 		AE1344DA209068C7009A210D /* block相关.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344D9209068C7009A210D /* block相关.m */; };
 		AE1344DD20906937009A210D /* object_setClass.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344DC20906937009A210D /* object_setClass.m */; };
+		AE13B05E26A0217E0098AC3A /* GrantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B05D26A0217E0098AC3A /* GrantTableViewController.swift */; };
 		AE1AC75020CF6FB40002F779 /* UICollectView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC74F20CF6FB40002F779 /* UICollectView+Extension.swift */; };
 		AE1AC80D20D25F5A0002F779 /* ShadowVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC80720D25F5A0002F779 /* ShadowVideoPlayerViewController.swift */; };
 		AE1AC80E20D25F5A0002F779 /* ShadowVideoPlayControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC80820D25F5A0002F779 /* ShadowVideoPlayControlView.swift */; };
@@ -463,11 +463,11 @@
 		AE101AF6269E739B00C2531C /* HttpIntercept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpIntercept.swift; sourceTree = "<group>"; };
 		AE101AFA269E74CF00C2531C /* WKWebView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Extension.swift"; sourceTree = "<group>"; };
 		AE101AFE269E989E00C2531C /* SMZDMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMZDMViewController.swift; sourceTree = "<group>"; };
-		AE101B00269EB0F500C2531C /* PreloadCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadCellViewModel.swift; sourceTree = "<group>"; };
 		AE111ED5235EAB4300AB869F /* MessageSend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageSend.h; sourceTree = "<group>"; };
 		AE111ED6235EAB4300AB869F /* MessageSend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageSend.m; sourceTree = "<group>"; };
 		AE1344D9209068C7009A210D /* block相关.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "block相关.m"; sourceTree = "<group>"; };
 		AE1344DC20906937009A210D /* object_setClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = object_setClass.m; sourceTree = "<group>"; };
+		AE13B05D26A0217E0098AC3A /* GrantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrantTableViewController.swift; sourceTree = "<group>"; };
 		AE1AC74F20CF6FB40002F779 /* UICollectView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectView+Extension.swift"; sourceTree = "<group>"; };
 		AE1AC80720D25F5A0002F779 /* ShadowVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowVideoPlayerViewController.swift; sourceTree = "<group>"; };
 		AE1AC80820D25F5A0002F779 /* ShadowVideoPlayControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowVideoPlayControlView.swift; sourceTree = "<group>"; };
@@ -1015,6 +1015,7 @@
 			children = (
 				20A5D6C8251DD87700D80F54 /* TableLayoutViewController.swift */,
 				2045E7F62542BCBD003D79B3 /* UnLimitTableViewController.swift */,
+				AE13B05D26A0217E0098AC3A /* GrantTableViewController.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -1093,7 +1094,6 @@
 			isa = PBXGroup;
 			children = (
 				AE101AFE269E989E00C2531C /* SMZDMViewController.swift */,
-				AE101B00269EB0F500C2531C /* PreloadCellViewModel.swift */,
 			);
 			path = SMZDM;
 			sourceTree = "<group>";
@@ -2850,7 +2850,6 @@
 				AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */,
 				AE1DE01C2099ACBE007910A5 /* ProjectViewController.swift in Sources */,
 				AEB1F4C12511B1530069A9FB /* MarkdownUnescaping.swift in Sources */,
-				AE101B01269EB0F500C2531C /* PreloadCellViewModel.swift in Sources */,
 				AE7BBCE4207B498B005DBE0C /* WatermarkViewController.swift in Sources */,
 				AE9F31D81F69070E00339BB8 /* ViewController.swift in Sources */,
 				AEBE40521FC80A5C0087D7ED /* CityChooseViewController+Delegate.swift in Sources */,
@@ -2963,6 +2962,7 @@
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
 				AE5A88721FF37AA800748F6A /* Semaphore.swift in Sources */,
 				AE3AF04B1F773D6200AF182A /* AnimationVIew.swift in Sources */,
+				AE13B05E26A0217E0098AC3A /* GrantTableViewController.swift in Sources */,
 				AEA681292420D908009748E4 /* MJRefreshAutoGifFooter.m in Sources */,
 				AE0F70981FBEB9CA00C8135C /* Settings.swift in Sources */,
 				AEF589CB1F7793D300D9A09F /* AIViewController.swift in Sources */,
