@@ -40,6 +40,7 @@
 		AE1344DA209068C7009A210D /* block相关.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344D9209068C7009A210D /* block相关.m */; };
 		AE1344DD20906937009A210D /* object_setClass.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1344DC20906937009A210D /* object_setClass.m */; };
 		AE13B05E26A0217E0098AC3A /* GrantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B05D26A0217E0098AC3A /* GrantTableViewController.swift */; };
+		AE13B06126A04F140098AC3A /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = AE13B06026A04F140098AC3A /* SwiftSoup */; };
 		AE1AC75020CF6FB40002F779 /* UICollectView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC74F20CF6FB40002F779 /* UICollectView+Extension.swift */; };
 		AE1AC80D20D25F5A0002F779 /* ShadowVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC80720D25F5A0002F779 /* ShadowVideoPlayerViewController.swift */; };
 		AE1AC80E20D25F5A0002F779 /* ShadowVideoPlayControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AC80820D25F5A0002F779 /* ShadowVideoPlayControlView.swift */; };
@@ -947,6 +948,7 @@
 				AEF5E8F92282B7DE0071B38A /* MediaPlayer.framework in Frameworks */,
 				BA90D3B1268ACAC900C77B11 /* KRProgressHUD in Frameworks */,
 				AEF5E8F52282B7CA0071B38A /* VideoToolbox.framework in Frameworks */,
+				AE13B06126A04F140098AC3A /* SwiftSoup in Frameworks */,
 				AEF5E8F32282AF540071B38A /* OpenGLES.framework in Frameworks */,
 				BA90D396268AC8AA00C77B11 /* SnapKit in Frameworks */,
 				BA90D3A2268AC99800C77B11 /* Kingfisher in Frameworks */,
@@ -2617,6 +2619,7 @@
 				BA90D3B3268ACAE600C77B11 /* GrandModel */,
 				BA90D3B6268ACEB400C77B11 /* SkeletonView */,
 				BA90D4AB268C768900C77B11 /* ViewChaos */,
+				AE13B06026A04F140098AC3A /* SwiftSoup */,
 			);
 			productName = iOSDemo;
 			productReference = AE9F31D21F69070E00339BB8 /* iOSDemo.app */;
@@ -2734,6 +2737,7 @@
 				BA90D3B2268ACAE600C77B11 /* XCRemoteSwiftPackageReference "GrandModel" */,
 				BA90D3B5268ACEB400C77B11 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 				BA90D4AA268C768900C77B11 /* XCRemoteSwiftPackageReference "ViewChaos" */,
+				AE13B05F26A04F140098AC3A /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = AE9F31D31F69070E00339BB8 /* Products */;
 			projectDirPath = "";
@@ -3604,6 +3608,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AE13B05F26A04F140098AC3A /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://gitee.com/Stanhu/SwiftSoup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.2;
+			};
+		};
 		BA90D391268AC83900C77B11 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://gitee.com/Stanhu/Alamofire";
@@ -3719,6 +3731,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AE13B06026A04F140098AC3A /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE13B05F26A04F140098AC3A /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
 		BA90D392268AC83900C77B11 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BA90D391268AC83900C77B11 /* XCRemoteSwiftPackageReference "Alamofire" */;

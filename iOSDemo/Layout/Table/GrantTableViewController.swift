@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftyJSON
-
+import SwiftSoup
 class GrandTableViewController: BaseViewController {
     fileprivate let tb = UITableView()
     fileprivate let indicatorView = UIActivityIndicatorView(style: .medium)
@@ -29,7 +29,7 @@ class GrandTableViewController: BaseViewController {
             m.edges.equalTo(0)
         }
         tb.separatorStyle = .none
-        tb.estimatedRowHeight = 150
+        tb.estimatedRowHeight = 250
         tb.rowHeight = UITableView.automaticDimension
         view.addSubview(indicatorView)
         indicatorView.startAnimating()
@@ -253,7 +253,8 @@ class ProloadTableViewCell: UITableViewCell {
         thumbImageView?.snp.makeConstraints({ m in
             m.left.equalTo(20)
             m.centerY.equalTo(contentView)
-            m.width.height.equalTo(130)
+            m.width.equalTo(320)
+            m.height.equalTo(220)
             m.top.equalTo(20)
             m.bottom.equalTo(-20)
         })
@@ -344,37 +345,44 @@ class PreloadCellViewModel {
         isFetchInProcess = true
         // 延时 2s 模拟网络环境
         print("+++++++++++ 模拟网络数据请求 +++++++++++")
-        HttpClient.get("https://www.smzdm.com/homepage/json_more").addParams(["timesort":"1626234155","p":"\(self.currentPage)","past_num":"20"]).completion { data, err in
+        var url = currentPage == 0 ? "https://pic.netbian.com/4kmeinv/" : "https://pic.netbian.com/4kmeinv/index_\(currentPage + 1).html"
+        HttpClient.get(url).completion { data, err in
                 self.currentPage += 1
-                self.total = 100
+                self.total = 200
                 self.isFetchInProcess = false
                 if data == nil || err != nil{
                     self.delegate?.onFetchFailed(with: err?.localizedDescription ?? "加载失败")
                 }
                 else{
-                    let js = JSON(data!)
-                    let code = js["error_code"].intValue
-                    if code != 0 {
-                        self.delegate?.onFetchFailed(with: js["error_msg"].stringValue)
+                    
+                    var doc:Document?
+                    do {
+                        let codeing = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
+                        let str = NSString(data: data!, encoding: codeing)
+                        doc = try SwiftSoup.parse(str! as String)
                     }
-                    else{
-                        let d = js["data"].arrayValue
-                        var tmp = [ImageModel]()
-                        for item in d.enumerated() {
-                            var product = ImageModel(url: item.element["article_pic"].stringValue, order: item.offset)
-                            product.title = item.element["article_title"].stringValue
-                            product.price = item.element["article_price"].stringValue
-                            product.content = item.element["article_content"].stringValue
+                    catch{
+                        self.delegate?.onFetchFailed(with: err?.localizedDescription ?? "加载失败")
+                        return
+                    }
+
+                    var tmp = [ImageModel]()
+                    let uls = try! doc!.select("div.slist")
+                    if let imgs = uls.first()?.children().first()?.children(){
+                        for img in imgs.enumerated() {
+                           let src = try?  img.element.children().first()?.children().attr("src") ?? ""
+                            var product = ImageModel(url:"https://pic.netbian.com/\(src ?? "")", order: img.offset)
                             tmp.append(product)
                         }
-                        self.images.append(contentsOf: tmp)
-                        if self.currentPage > 1 {
-                            let newIndexPaths = self.calculateIndexPathsToReload(from: tmp)
-                            self.delegate?.onFetchCompleted(with: newIndexPaths)
-                        } else {
-                            self.delegate?.onFetchCompleted(with: .none)
-                        }
                     }
+                    self.images.append(contentsOf: tmp)
+                    if self.currentPage > 1 {
+                        let newIndexPaths = self.calculateIndexPathsToReload(from: tmp)
+                        self.delegate?.onFetchCompleted(with: newIndexPaths)
+                    } else {
+                        self.delegate?.onFetchCompleted(with: .none)
+                    }
+                    
                 }
             }
     }
