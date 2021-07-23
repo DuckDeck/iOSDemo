@@ -250,6 +250,7 @@ class ProloadTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         thumbImageView = UIImageView()
         contentView.addSubview(thumbImageView!)
+        thumbImageView?.contentMode = .scaleAspectFill
         thumbImageView?.snp.makeConstraints({ m in
             m.left.equalTo(20)
             m.centerY.equalTo(contentView)
@@ -345,7 +346,7 @@ class PreloadCellViewModel {
         isFetchInProcess = true
         // 延时 2s 模拟网络环境
         print("+++++++++++ 模拟网络数据请求 +++++++++++")
-        var url = currentPage == 0 ? "https://pic.netbian.com/4kmeinv/" : "https://pic.netbian.com/4kmeinv/index_\(currentPage + 1).html"
+        let url = currentPage == 0 ? "https://pic.netbian.com/4kfengjing/" : "https://pic.netbian.com/4kfengjing/index_\(currentPage + 1).html"
         HttpClient.get(url).completion { data, err in
                 self.currentPage += 1
                 self.total = 200
@@ -371,7 +372,7 @@ class PreloadCellViewModel {
                     if let imgs = uls.first()?.children().first()?.children(){
                         for img in imgs.enumerated() {
                            let src = try?  img.element.children().first()?.children().attr("src") ?? ""
-                            var product = ImageModel(url:"https://pic.netbian.com/\(src ?? "")", order: img.offset)
+                            let product = ImageModel(url:"https://pic.netbian.com/\(src ?? "")", order: img.offset)
                             tmp.append(product)
                         }
                     }

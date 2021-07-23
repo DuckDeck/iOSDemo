@@ -134,4 +134,35 @@ extension Float{
         }
         return false
     }
+    func format(bitCount:Int,isRounding:Bool = true) -> String {
+        return NSNumber(value: self).format(bitCount: bitCount, isRounding: isRounding)
+    }
+    
+}
+
+extension Double{
+    func format(bitCount:Int,isRounding:Bool = true) -> String {
+        return NSNumber(value: self).format(bitCount: bitCount, isRounding: isRounding)
+    }
+}
+
+extension NSNumber{
+    func format(bitCount:Int,isRounding:Bool = true) -> String {
+        guard bitCount > 0 else {
+            return ""
+        }
+        if isRounding {
+            let fm = "%.\(bitCount)f"
+            return String(format: fm, self);
+        }
+        else{
+            let format = NumberFormatter()
+            format.numberStyle = .decimal
+            format.minimumFractionDigits = 0
+            format.maximumFractionDigits = bitCount
+            format.formatterBehavior = .default
+            format.roundingMode = .down
+            return format.string(from: self) ?? ""
+        }
+    }
 }
