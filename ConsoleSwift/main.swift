@@ -9,6 +9,43 @@
 import Foundation
 import ObjectiveC
 
+
+enum NavAction :Equatable {
+    case back(Double)                                    //double表示其在导航条的位置
+    case toTop(Double)
+    case share(Double)
+    case send(Double)
+    case save(Double)
+    case action(Double,String)
+
+    var rawValue:String{
+        switch self {
+        case .back(_):
+            return "back"
+        case .toTop(_):
+            return "toTop"
+        case .share(_):
+            return "share"
+        case .send(_):
+            return "send"
+        case .save(_):
+            return "save"
+        case .action(_, let str):
+            return "action_\(str)"
+
+        }
+    }
+
+    static func == (lhs:NavAction,rhs:NavAction)->Bool{
+        return lhs.rawValue == rhs.rawValue
+    }
+}
+
+let bb = NavAction.action(1, "123")
+let ss = NavAction.action(0, "123")
+
+print(ss == bb)
+
 let res = "123123 ".contains(" ")
 print(res)
 let sss = [1,2,3,4,5,1,2,1,2]

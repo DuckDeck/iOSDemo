@@ -10,7 +10,7 @@ import UIKit
 
 class WebViewController: UIViewController {
 
-    var arrData = ["HandleJS"]
+    var arrData = ["HandleJS","抓图"]
     var tbMenu = UITableView()
     
     override func viewDidLoad() {
@@ -46,6 +46,8 @@ extension WebViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.row {
         case 0:
             navigationController?.pushViewController(HandleJSViewController(), animated: true)
+        case 1:
+            navigationController?.pushViewController(CaptureImgViewComtroller(), animated: true)
         default:
             break
         }

@@ -119,6 +119,7 @@
 		AE3F46F820AC0D1B007BA637 /* TimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F46F720AC0D1B007BA637 /* TimerButton.swift */; };
 		AE44D5CB21B511E900D3560E /* Lock.m in Sources */ = {isa = PBXBuildFile; fileRef = AE44D5CA21B511E900D3560E /* Lock.m */; };
 		AE49B7BD22A4F46A00478FF3 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE49B7BC22A4F46A00478FF3 /* CameraModel.swift */; };
+		AE4B7C0326C6506500BBC855 /* TransverseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B7C0226C6506500BBC855 /* TransverseTableViewController.swift */; };
 		AE4D497424A1F176003D1565 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D497324A1F176003D1565 /* MAMapKit.framework */; };
 		AE4D497624A1F1A0003D1565 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D497524A1F1A0003D1565 /* AMapFoundationKit.framework */; };
 		AE4D497824A1F834003D1565 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D497724A1F833003D1565 /* AMapLocationKit.framework */; };
@@ -347,6 +348,7 @@
 		AEBE709020A4449100B2E897 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE708F20A4449100B2E897 /* TakePhotoViewController.swift */; };
 		AEBE709920A5356500B2E897 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE709820A5356500B2E897 /* MapViewController.swift */; };
 		AECA9D3E248B91A2008CC21B /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AECA9D3D248B91A2008CC21B /* Resnet50.mlmodel */; };
+		AED437A026C4FBB10009A583 /* CaptureImgViewComtroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4379F26C4FBB10009A583 /* CaptureImgViewComtroller.swift */; };
 		AED97B47215A1E2500B124E7 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED97B46215A1E2500B124E7 /* BaseModel.swift */; };
 		AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC540E2012EC0000BB4E34 /* GridViewController.swift */; };
 		AEDC54132012EC4100BB4E34 /* ConstraintArrayDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */; };
@@ -550,6 +552,7 @@
 		AE44D5C921B511E900D3560E /* Lock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lock.h; sourceTree = "<group>"; };
 		AE44D5CA21B511E900D3560E /* Lock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Lock.m; sourceTree = "<group>"; };
 		AE49B7BC22A4F46A00478FF3 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		AE4B7C0226C6506500BBC855 /* TransverseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransverseTableViewController.swift; sourceTree = "<group>"; };
 		AE4D497324A1F176003D1565 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = Library/Map/MAMapKit.framework; sourceTree = "<group>"; };
 		AE4D497524A1F1A0003D1565 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapFoundationKit.framework; path = Library/Map/AMapFoundationKit.framework; sourceTree = "<group>"; };
 		AE4D497724A1F833003D1565 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapLocationKit.framework; path = Library/Map/AMapLocationKit.framework; sourceTree = "<group>"; };
@@ -856,6 +859,7 @@
 		AEBE708F20A4449100B2E897 /* TakePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
 		AEBE709820A5356500B2E897 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AECA9D3D248B91A2008CC21B /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
+		AED4379F26C4FBB10009A583 /* CaptureImgViewComtroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImgViewComtroller.swift; sourceTree = "<group>"; };
 		AED97B46215A1E2500B124E7 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		AEDC540E2012EC0000BB4E34 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		AEDC54112012EC4100BB4E34 /* ConstraintArrayDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintArrayDSL.swift; sourceTree = "<group>"; };
@@ -1018,6 +1022,7 @@
 				20A5D6C8251DD87700D80F54 /* TableLayoutViewController.swift */,
 				2045E7F62542BCBD003D79B3 /* UnLimitTableViewController.swift */,
 				AE13B05D26A0217E0098AC3A /* GrantTableViewController.swift */,
+				AE4B7C0226C6506500BBC855 /* TransverseTableViewController.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -1520,6 +1525,7 @@
 		AE6691B120EDF37D00D019D4 /* Webview */ = {
 			isa = PBXGroup;
 			children = (
+				AED4379E26C4FBA10009A583 /* CaptureImg */,
 				AE6691B720EDF4AA00D019D4 /* Html */,
 				AE6691B420EDF3B500D019D4 /* HandleJS */,
 				AE6691B220EDF39F00D019D4 /* WebViewController.swift */,
@@ -2434,6 +2440,14 @@
 			path = TakePhoto;
 			sourceTree = "<group>";
 		};
+		AED4379E26C4FBA10009A583 /* CaptureImg */ = {
+			isa = PBXGroup;
+			children = (
+				AED4379F26C4FBB10009A583 /* CaptureImgViewComtroller.swift */,
+			);
+			path = CaptureImg;
+			sourceTree = "<group>";
+		};
 		AEDC540D2012EBF900BB4E34 /* Grid */ = {
 			isa = PBXGroup;
 			children = (
@@ -2893,6 +2907,7 @@
 				AEB1F4BE2511B1530069A9FB /* String+UTF16.swift in Sources */,
 				AEF097812065EE650021E4ED /* LogInfo.swift in Sources */,
 				AE0F709C1FBEB9CE00C8135C /* Trace.swift in Sources */,
+				AE4B7C0326C6506500BBC855 /* TransverseTableViewController.swift in Sources */,
 				AEB1F4CB2511B1530069A9FB /* MarkdownCommonElement.swift in Sources */,
 				AEB1F46E25065A9A0069A9FB /* AlgoViewController.swift in Sources */,
 				AE1DE0792099BE0A007910A5 /* BaseBoard.swift in Sources */,
@@ -2983,6 +2998,7 @@
 				AEB7D08F225B216D008C899E /* AboutMitoViewController.swift in Sources */,
 				2051B8842522D4130090B8C1 /* FPSTool.swift in Sources */,
 				AEA680B42420D6B7009748E4 /* TZAssetModel.m in Sources */,
+				AED437A026C4FBB10009A583 /* CaptureImgViewComtroller.swift in Sources */,
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
 				AEDC540F2012EC0000BB4E34 /* GridViewController.swift in Sources */,
 				AEA6812F2420D908009748E4 /* MJRefreshNormalHeader.m in Sources */,
