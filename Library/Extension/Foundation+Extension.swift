@@ -313,6 +313,46 @@ extension String{
        
     }
     
+    func replaceRange(start:Int,end:Int,str:String) -> String {
+        let s = substring(from: start, to: end)
+        return replacingOccurrences(of: s, with: str)
+    }
+    
+    func index(str:Character) -> Int {
+        let index = self.firstIndex(of: str)
+        if index == nil {
+            return -1
+        }
+        return self.distance(from: startIndex, to: index!)
+    }
+    
+    func toDouble() -> Double? {
+        if let num = NumberFormatter().number(from: self) {
+            return num.doubleValue
+        } else {
+            return nil
+        }
+    }
+    
+    func toDecimal() -> Decimal?  {
+        if let dou = toDouble(){
+            return Decimal(dou)
+        }
+        return nil
+    }
+    
+    subscript (bounds: CountableClosedRange<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return String(self[start...end])
+    }
+
+    subscript (bounds: CountableRange<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return String(self[start..<end])
+    }
+    
 }
 
 extension NSMutableAttributedString{

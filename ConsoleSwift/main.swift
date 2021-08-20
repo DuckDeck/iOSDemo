@@ -70,6 +70,8 @@ t.name()
 let tt = t as One
 tt.name()
 
+let s = "123123"
+
 
 /*
 protocol DictionaryValue{

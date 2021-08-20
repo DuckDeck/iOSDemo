@@ -61,11 +61,11 @@ public class LayoutButton: UIButton {
             case .LeftImageRightTitle:
                 self.layoutHorizontal(leftView: imageView!, rightView: titleLabel!)
             case .LeftTitleRightImage:
-                self.layoutHorizontal(leftView: imageView!, rightView: titleLabel!)
+                self.layoutHorizontal(leftView: titleLabel!, rightView: imageView!)
             case .TopImageBottomTitle:
-                self.layoutHorizontal(leftView: imageView!, rightView: titleLabel!)
+                self.layoutVertical(upView: imageView!, downView: titleLabel!)
             case .TopTitleBottomImage:
-                self.layoutHorizontal(leftView: imageView!, rightView: titleLabel!)
+                self.layoutVertical(upView: titleLabel!, downView: imageView!)
         }
     }
     

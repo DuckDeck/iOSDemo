@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 class BasicViewController: UIViewController {
 
-    var arrData = ["Demo","Thread","MemeryLeak","离屏渲染","通知","测试通知","清理缓存"]
+    var arrData = ["Demo","Thread","MemeryLeak","离屏渲染","通知","测试通知","清理缓存","CoreText"]
     var tbMenu = UITableView()
       
     override func viewDidLoad() {
@@ -56,7 +56,8 @@ extension BasicViewController:UITableViewDelegate,UITableViewDataSource{
             Toast.showToast(msg: "上个页面没有remove obserer不会引发crash")
         case 6:
             navigationController?.pushViewController(ClearCacheViewController(), animated: true)
-          
+        case 7:
+            navigationController?.pushViewController(CoreTextViewController(), animated: true)
         default:
             break
         }
