@@ -12,8 +12,8 @@ class DemoViewController: BaseViewController {
     let btnLargeTouch = UIButton()
     let btnLargeTouch2 = TouchIncreaseButton()
     
-    
-    
+    let btn3 = UIButton()
+    let vCover = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,21 @@ class DemoViewController: BaseViewController {
         let height = NSLayoutConstraint(item: btnLargeTouch2, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
         NSLayoutConstraint.activate([cenX,cenY,width,height])
         
+        
+        btn3.frame = CGRect(x: 100, y: 100, width: 100, height: 50)
+        btn3.backgroundColor = UIColor.green
+        btn3.addTarget(self, action: #selector(throuTouch), for: .touchUpInside)
+        view.addSubview(btn3)
       
+//        vCover.backgroundColor = UIColor.purple.withAlphaComponent(0.3)
+//        vCover.frame = CGRect(x: 80, y: 80, width: 130, height: 80)
+//        view.addSubview(vCover)
+        
+        
+    }
+    
+    @objc func throuTouch()  {
+        print("throuTouch")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

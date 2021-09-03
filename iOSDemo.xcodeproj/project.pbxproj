@@ -3945,8 +3945,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://gitee.com/Stanhu/GrandStore";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				kind = exactVersion;
+				version = 3.0.0;
 			};
 		};
 		BA90D3A9268ACA2600C77B11 /* XCRemoteSwiftPackageReference "GrandTime" */ = {
