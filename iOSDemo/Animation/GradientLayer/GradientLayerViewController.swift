@@ -16,7 +16,30 @@ class GradientLayerViewController: UIViewController {
         let lbl = GradientLabel(frame: CGRect(x: 0, y: 100, width: 300, height: 44))
         lbl.text = ">---滑动来解锁"
         view.addSubview(lbl)
+        
+        
+        let img = UIImageView(frame: CGRect(x: 80, y: 250, width: ScreenWidth - 160, height: 240))
+        img.clipsToBounds = true
+        img.contentMode = .scaleAspectFill
+        img.image = UIImage(named: "10")
+        view.addSubview(img)
+        let viewGradient = UIView(frame: img.frame)
+        view.addSubview(viewGradient)
+        let gradientColor = CAGradientLayer()
+        gradientColor.frame = img.bounds
+        let color1 = UIColor.white.withAlphaComponent(0.1)
+        let color2 = UIColor.white
+        gradientColor.colors = [color1.cgColor,color2.cgColor]
+        //设置渲染的起始结束位置（纵向渐变）
+        gradientColor.startPoint = CGPoint(x: 0, y: 0)
+        gradientColor.endPoint = CGPoint(x: 0, y: 1)
+        gradientColor.cornerRadius = 21
+        //定义每种颜色所在的位置
+        let gradientLocations:[NSNumber] = [0.0, 1.0]
+        gradientColor.locations = gradientLocations
+        viewGradient.layer.addSublayer(gradientColor)
 
+        
     }
 
     override func didReceiveMemoryWarning() {
