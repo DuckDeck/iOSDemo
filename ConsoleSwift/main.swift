@@ -10,47 +10,17 @@ import Foundation
 import ObjectiveC
 
 
-enum NavAction :Equatable {
-    case back(Double)                                    //double表示其在导航条的位置
-    case toTop(Double)
-    case share(Double)
-    case send(Double)
-    case save(Double)
-    case action(Double,String)
 
-    var rawValue:String{
-        switch self {
-        case .back(_):
-            return "back"
-        case .toTop(_):
-            return "toTop"
-        case .share(_):
-            return "share"
-        case .send(_):
-            return "send"
-        case .save(_):
-            return "save"
-        case .action(_, let str):
-            return "action_\(str)"
-
-        }
-    }
-
-    static func == (lhs:NavAction,rhs:NavAction)->Bool{
-        return lhs.rawValue == rhs.rawValue
-    }
-}
-
-let bb = NavAction.action(1, "123")
-let ss = NavAction.action(0, "123")
-
-print(ss == bb)
-
-let res = "123123 ".contains(" ")
-print(res)
-let sss = [1,2,3,4,5,1,2,1,2]
-for a in sss{
-    print(a)
+let ex = try! NSRegularExpression(pattern: "isFav", options: [.dotMatchesLineSeparators,.caseInsensitive])
+let str =
+"""
+["https://cbu01.alicdn.com/img/ibank/O1CN01l3DIRS1CCeVDixUHm_!!2207960720045-0-cib.jpg","https://cbu01.alicdn.com/img/ibank/2020/898/674/15714476898_1413702914.jpg","https://cbu01.alicdn.com/img/ibank/2020/157/561/15652165751_1413702914.jpg","https://cbu01.alicdn.com/img/ibank/2020/112/981/15652189211_1413702914.jpg","https://cbu01.alicdn.com/img/ibank/2020/448/956/15604659844_1413702914.jpg","https://cbu01.alicdn.com/img/ibank/2020/692/515/15714515296_1413702914.jpg","https://cbu01.alicdn.com/img/ibank/2020/014/005/15714500410_1413702914.jpg","https://cbu01.alicdn.com/img/ibank/2020/729/494/15714494927_1413702914.jpg","https://cbu01.alicdn.com/img/ibank/2020/748/596/15604695847_1413702914.jpg"],"videoUrl":"https://cloud.video.taobao.com/play/u/2207960720045/p/2/e/6/t/1/308161764721.mp4","videoId":308161764721,"offerInfoModel":{"offerId":618625170557,"price":"85.00-70.00","title":"纹身笔FK1金刚夏安纹身笔空心杯纹身割线打雾一体纹身马达机器","isFav":false},"liveInfoModel":{},
+"""
+let res =  ex.matches(in: str, options: .reportCompletion, range: NSRange(location: 0, length: str.count))
+for item in res.enumerated(){
+    let rag = item.element.range
+    print(rag)
+    print(s)
 }
 
 

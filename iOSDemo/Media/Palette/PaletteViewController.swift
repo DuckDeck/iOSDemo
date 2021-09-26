@@ -38,6 +38,7 @@ class PaletteViewController: UIViewController,TZImagePickerControllerDelegate {
                     self?.recommandColor = mode!.imageColorString
                     self?.colorsHint = dict as? [String:Any]
                     let c = UIColor(hexString: mode!.imageColorString)
+
                     self?.img.layer.borderColor = c!.cgColor
                     self?.tb.reloadData()
                 }
