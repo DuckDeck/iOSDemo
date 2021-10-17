@@ -4,45 +4,46 @@ import WebKit
 import SwiftUI
 import SnapKit
 class InterceptViewController: UIViewController {
-    var webView:WKWebView!
+    var arrData = [("网易","https://www.163.com"),("sohu","https://www.sohu.com/"),("the verge","https://www.theverge.com/")]
+    var tbMenu = UITableView()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let config = WKWebViewConfiguration()
-        let handler = URLSchemeHandler()
-        config.setURLSchemeHandler(handler, forURLScheme: "http")
-        config.setURLSchemeHandler(handler, forURLScheme: "https")
-        webView = WKWebView(frame: CGRect.zero, configuration: config)
-        view.addSubview(webView)
-        webView.snp.makeConstraints { (m) in
+        view.backgroundColor = UIColor.white
+        tbMenu.dataSource = self
+        tbMenu.delegate = self
+        tbMenu.dataSource = self
+        tbMenu.delegate = self
+        tbMenu.tableFooterView = UIView()
+        view.addSubview(tbMenu)
+        tbMenu.snp.makeConstraints { (m) in
             m.edges.equalTo(0)
         }
-       
-        webView.load(URLRequest(url: URL(string: "https://www.163.com")!))
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        URLCache.shared.removeAllCachedResponses()
-        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
-        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
-            records.forEach { record in
-                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-                #if DEBUG
-                    print("WKWebsiteDataStore record deleted:", record)
-                #endif
-            }
-        }
-//       清除WKWebView的缓存
-//       WKWebsiteDataTypeDiskCache, 在磁盘缓存上。
-//       WKWebsiteDataTypeOfflineWebApplicationCache, html离线Web应用程序缓存。
-//       WKWebsiteDataTypeMemoryCache, 内存缓存。
-//       WKWebsiteDataTypeLocalStorage, 本地存储。
-//       WKWebsiteDataTypeCookies, Cookies
-//       WKWebsiteDataTypeSessionStorage,会话存储
-//       WKWebsiteDataTypeIndexedDBDatabases,IndexedDB数据库。
-//       WKWebsiteDataTypeWebSQLDatabases查询数据库。
-    }
-    
     
 }
 
+
+extension InterceptViewController:UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        if cell == nil{
+            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        }
+        cell?.textLabel?.text = arrData[indexPath.row].0
+        cell?.detailTextLabel?.text = arrData[indexPath.row].1
+        return cell!
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let vc = CacheWebViewController(urlString: arrData[indexPath.row].1)
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+}
