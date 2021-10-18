@@ -105,6 +105,9 @@
 		207EE27B25A985920030ECDD /* novel2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = novel2.gif; sourceTree = "<group>"; };
 		207EE27C25A985920030ECDD /* cxk.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cxk.mp4; sourceTree = "<group>"; };
 		207EE28825A9879A0030ECDD /* question.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = question.html; path = ../Resource/question.html; sourceTree = "<group>"; };
+		AE7D610D271670BF00301A38 /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Alamofire; path = "../../../Swift Package/Alamofire"; sourceTree = "<group>"; };
+		AEE1AC34271673B7009D97A3 /* Kingfisher */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Kingfisher; path = "../../../Swift Package/Kingfisher"; sourceTree = "<group>"; };
+		AEE1AC352716760A009D97A3 /* SnapKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SnapKit; path = "../../../Swift Package/SnapKit"; sourceTree = "<group>"; };
 		BA727DE12601AF570015DAA7 /* iOSProjectOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSProjectOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA727DE32601AF570015DAA7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BA727DE42601AF570015DAA7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -198,6 +201,7 @@
 		207EE15225A3006D0030ECDD = {
 			isa = PBXGroup;
 			children = (
+				AE7D610C271670BF00301A38 /* Packages */,
 				207EE28825A9879A0030ECDD /* question.html */,
 				207EE27725A985920030ECDD /* Resource */,
 				207EE15D25A3006D0030ECDD /* iOSProject */,
@@ -258,6 +262,16 @@
 			);
 			name = Resource;
 			path = ../Resource;
+			sourceTree = "<group>";
+		};
+		AE7D610C271670BF00301A38 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				AE7D610D271670BF00301A38 /* Alamofire */,
+				AEE1AC34271673B7009D97A3 /* Kingfisher */,
+				AEE1AC352716760A009D97A3 /* SnapKit */,
+			);
+			name = Packages;
 			sourceTree = "<group>";
 		};
 		AE9148B7261838CB0061EC9F /* View */ = {

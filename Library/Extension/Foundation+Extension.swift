@@ -690,3 +690,33 @@ extension Data{
     
  
 }
+
+extension String{
+     func bitEllipsis(bitCount:Int) -> String {
+        if bitCount <= 0{
+            return self
+        }
+         var num = 0
+         var res = ""
+        for item in self{
+            num += item.isChinese ? 2 : 1
+            res.append(item)
+            if num >= bitCount{
+                return res
+            }
+        }
+        return self
+    }
+    
+    var isChinese:Bool{
+        let match: String = "(^[\\u4e00-\\u9fa5]+$)"
+        let predicate = NSPredicate(format: "SELF matches %@", match)
+        return predicate.evaluate(with: self)
+    }
+}
+
+extension Character{
+    var isChinese:Bool{
+        return "\u{4E00}" <= self  && self <= "\u{9FA5}"
+    }
+}
