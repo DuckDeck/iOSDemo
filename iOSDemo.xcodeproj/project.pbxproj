@@ -182,6 +182,16 @@
 		AE69C5A3222526AD004DC8AE /* lbpcascade_frontalface.xml in Resources */ = {isa = PBXBuildFile; fileRef = AE69C5A1222526AD004DC8AE /* lbpcascade_frontalface.xml */; };
 		AE69C5A4222526AD004DC8AE /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = AE69C5A2222526AD004DC8AE /* haarcascade_eye_tree_eyeglasses.xml */; };
 		AE6A83AB22E832EE004D3F43 /* CategoryDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6A83AA22E832EE004D3F43 /* CategoryDemo.m */; };
+		AE6CB7D7271B2008004E680F /* ReuseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6CB7D3271B2008004E680F /* ReuseWebView.swift */; };
+		AE6CB7D8271B2008004E680F /* OCLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6CB7D5271B2008004E680F /* OCLoader.m */; };
+		AE6CB7D9271B2008004E680F /* WebViewReusePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6CB7D6271B2008004E680F /* WebViewReusePool.swift */; };
+		AE6CB7DF271B2023004E680F /* DiskFileCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6CB7DB271B2023004E680F /* DiskFileCache.swift */; };
+		AE6CB7E0271B2023004E680F /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6CB7DC271B2023004E680F /* CacheProtocol.swift */; };
+		AE6CB7E1271B2023004E680F /* H5ResourceCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6CB7DD271B2023004E680F /* H5ResourceCache.swift */; };
+		AE6CB7E2271B2023004E680F /* MemeryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6CB7DE271B2023004E680F /* MemeryCache.swift */; };
+		AE6CB7E5271B2047004E680F /* H5SecondOpenUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6CB7E3271B2047004E680F /* H5SecondOpenUtil.swift */; };
+		AE6CB7E6271B2047004E680F /* CustomURLSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6CB7E4271B2047004E680F /* CustomURLSchemeHandler.swift */; };
+		AE6CB7E8271B20A1004E680F /* CacheWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6CB7E7271B20A1004E680F /* CacheWebViewController.swift */; };
 		AE7278A9207F5A28005D9D6D /* SoundRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7278A8207F5A28005D9D6D /* SoundRecordViewController.swift */; };
 		AE73A6BE26CBB6640081E9B0 /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73A6BD26CBB6640081E9B0 /* CoreTextViewController.swift */; };
 		AE73A6EE26CF4BC50081E9B0 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73A6ED26CF4BC50081E9B0 /* KeyboardViewController.swift */; };
@@ -672,6 +682,17 @@
 		AE69C5A2222526AD004DC8AE /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
 		AE6A83A922E832EE004D3F43 /* CategoryDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryDemo.h; sourceTree = "<group>"; };
 		AE6A83AA22E832EE004D3F43 /* CategoryDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryDemo.m; sourceTree = "<group>"; };
+		AE6CB7D3271B2008004E680F /* ReuseWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReuseWebView.swift; sourceTree = "<group>"; };
+		AE6CB7D4271B2008004E680F /* OCLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLoader.h; sourceTree = "<group>"; };
+		AE6CB7D5271B2008004E680F /* OCLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLoader.m; sourceTree = "<group>"; };
+		AE6CB7D6271B2008004E680F /* WebViewReusePool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewReusePool.swift; sourceTree = "<group>"; };
+		AE6CB7DB271B2023004E680F /* DiskFileCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiskFileCache.swift; sourceTree = "<group>"; };
+		AE6CB7DC271B2023004E680F /* CacheProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
+		AE6CB7DD271B2023004E680F /* H5ResourceCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H5ResourceCache.swift; sourceTree = "<group>"; };
+		AE6CB7DE271B2023004E680F /* MemeryCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeryCache.swift; sourceTree = "<group>"; };
+		AE6CB7E3271B2047004E680F /* H5SecondOpenUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = H5SecondOpenUtil.swift; sourceTree = "<group>"; };
+		AE6CB7E4271B2047004E680F /* CustomURLSchemeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomURLSchemeHandler.swift; sourceTree = "<group>"; };
+		AE6CB7E7271B20A1004E680F /* CacheWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheWebViewController.swift; sourceTree = "<group>"; };
 		AE7278A8207F5A28005D9D6D /* SoundRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRecordViewController.swift; sourceTree = "<group>"; };
 		AE73A6BD26CBB6640081E9B0 /* CoreTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTextViewController.swift; sourceTree = "<group>"; };
 		AE73A6EB26CF4BC40081E9B0 /* ShadowBoard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShadowBoard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1154,8 +1175,13 @@
 		AE101AF9269E73CF00C2531C /* HttpIntercept */ = {
 			isa = PBXGroup;
 			children = (
+				AE6CB7E4271B2047004E680F /* CustomURLSchemeHandler.swift */,
+				AE6CB7E3271B2047004E680F /* H5SecondOpenUtil.swift */,
+				AE6CB7DA271B200D004E680F /* Cache */,
+				AE6CB7D2271B1FF0004E680F /* ReusePool */,
 				AE101AF6269E739B00C2531C /* HttpIntercept.swift */,
 				AE101AF5269E739B00C2531C /* URLSchemeHandler.swift */,
+				AE6CB7E7271B20A1004E680F /* CacheWebViewController.swift */,
 			);
 			path = HttpIntercept;
 			sourceTree = "<group>";
@@ -1691,6 +1717,28 @@
 				AE69C5A1222526AD004DC8AE /* lbpcascade_frontalface.xml */,
 			);
 			path = Xml;
+			sourceTree = "<group>";
+		};
+		AE6CB7D2271B1FF0004E680F /* ReusePool */ = {
+			isa = PBXGroup;
+			children = (
+				AE6CB7D4271B2008004E680F /* OCLoader.h */,
+				AE6CB7D5271B2008004E680F /* OCLoader.m */,
+				AE6CB7D3271B2008004E680F /* ReuseWebView.swift */,
+				AE6CB7D6271B2008004E680F /* WebViewReusePool.swift */,
+			);
+			path = ReusePool;
+			sourceTree = "<group>";
+		};
+		AE6CB7DA271B200D004E680F /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				AE6CB7DC271B2023004E680F /* CacheProtocol.swift */,
+				AE6CB7DB271B2023004E680F /* DiskFileCache.swift */,
+				AE6CB7DD271B2023004E680F /* H5ResourceCache.swift */,
+				AE6CB7DE271B2023004E680F /* MemeryCache.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		AE7278A7207F5A08005D9D6D /* SoundRecord */ = {
@@ -3015,6 +3063,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE6CB7E8271B20A1004E680F /* CacheWebViewController.swift in Sources */,
 				AE1DE09B2099BE0A007910A5 /* ImageTool.swift in Sources */,
 				AEEE485E215CC61B003C9943 /* PointLockViewController.swift in Sources */,
 				204BF89D253546B100EAEE54 /* ScanCodeViewController.swift in Sources */,
@@ -3032,6 +3081,8 @@
 				AEB7D0A222602760008C899E /* MitoSearchViewController.swift in Sources */,
 				AEA6815D2421B39D009748E4 /* FMDatabasePool.m in Sources */,
 				AEF5779724B6F75B00E68BDC /* OffSreenRenderViewController.swift in Sources */,
+				AE6CB7E1271B2023004E680F /* H5ResourceCache.swift in Sources */,
+				AE6CB7DF271B2023004E680F /* DiskFileCache.swift in Sources */,
 				AEADFD41210EBCE100E6B58D /* CompressImageViewController.swift in Sources */,
 				AEBE40561FC80A930087D7ED /* CitySearchResultView.swift in Sources */,
 				AE5A88831FF4913D00748F6A /* BaseViewController.swift in Sources */,
@@ -3070,6 +3121,7 @@
 				AE5A88701FF3768100748F6A /* ThreadViewController.swift in Sources */,
 				AEB1F473250660DE0069A9FB /* BinarySearchViewController.swift in Sources */,
 				AEA680BA2420D6B7009748E4 /* UIView+Layout.m in Sources */,
+				AE6CB7E2271B2023004E680F /* MemeryCache.swift in Sources */,
 				AEB1F4BF2511B1530069A9FB /* MarkdownCodeEscaping.swift in Sources */,
 				AEBA80E720BFCAF800F6A323 /* GifViewController.swift in Sources */,
 				AEB7D09C225DD45B008C899E /* DynamicMitoViewController.swift in Sources */,
@@ -3093,10 +3145,12 @@
 				AEBE709020A4449100B2E897 /* TakePhotoViewController.swift in Sources */,
 				AEDCE5BE20DBA15900A50536 /* BarSlider.swift in Sources */,
 				AEB1F4CC2511B1530069A9FB /* MarkdownLinkElement.swift in Sources */,
+				AE6CB7E5271B2047004E680F /* H5SecondOpenUtil.swift in Sources */,
 				AE3AF05A1F7744F000AF182A /* ScrollMenuView.swift in Sources */,
 				AE6691D420F49B3A00D019D4 /* Palette.m in Sources */,
 				20A5D6C9251DD87700D80F54 /* TableLayoutViewController.swift in Sources */,
 				AEB1F4C02511B1530069A9FB /* MarkdownEscaping.swift in Sources */,
+				AE6CB7D7271B2008004E680F /* ReuseWebView.swift in Sources */,
 				AEBE709920A5356500B2E897 /* MapViewController.swift in Sources */,
 				AEEE4860215CC631003C9943 /* LockView.swift in Sources */,
 				AE5AD7EC206111AC00289798 /* RippleViewController.swift in Sources */,
@@ -3180,6 +3234,7 @@
 				AE1DE0782099BE0A007910A5 /* FullBoard.swift in Sources */,
 				AE1AC81020D25F5A0002F779 /* ShadowVideoControlView.swift in Sources */,
 				AEA6812C2420D908009748E4 /* MJRefreshAutoNormalFooter.m in Sources */,
+				AE6CB7D9271B2008004E680F /* WebViewReusePool.swift in Sources */,
 				AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */,
 				AE1AC80F20D25F5A0002F779 /* ShadowAudioPlayerView.swift in Sources */,
 				AEADFD4C2111601100E6B58D /* DemoViewController.swift in Sources */,
@@ -3221,8 +3276,10 @@
 				AEA680B12420D6B7009748E4 /* TZVideoPlayerController.m in Sources */,
 				AE9F32A31F69144C00339BB8 /* ResultInfo.swift in Sources */,
 				AE1AC81820D25FBC0002F779 /* AssetWriterCoordinator.swift in Sources */,
+				AE6CB7D8271B2008004E680F /* OCLoader.m in Sources */,
 				AE5A88851FF49CD300748F6A /* 3DViewController.swift in Sources */,
 				AE5A88811FF39C5800748F6A /* LayerViewController.swift in Sources */,
+				AE6CB7E0271B2023004E680F /* CacheProtocol.swift in Sources */,
 				AE6691B620EDF3C100D019D4 /* HandleJSViewController.swift in Sources */,
 				AE9F328E1F690FD200339BB8 /* UIView+Base.swift in Sources */,
 				AEBE40541FC80A810087D7ED /* CitySearchView.swift in Sources */,
@@ -3239,6 +3296,7 @@
 				AEA681322420D908009748E4 /* MJRefreshStateHeader.m in Sources */,
 				AE4DA61B213E68B300FCC7FD /* ShadowDataManager.swift in Sources */,
 				BA876BB126687D23002AADEE /* ClearCacheViewController.swift in Sources */,
+				AE6CB7E6271B2047004E680F /* CustomURLSchemeHandler.swift in Sources */,
 				AEA680D62420D6B7009748E4 /* TZImageRequestOperation.m in Sources */,
 				AEB7D0A62264666B008C899E /* ResolutionFilterView.swift in Sources */,
 				AE83BD7B1FE2134E001882D1 /* TwoSideViewController.swift in Sources */,

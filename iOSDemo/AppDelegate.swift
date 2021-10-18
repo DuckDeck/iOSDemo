@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         monitor.start()
         
         ViewChaosStart.awake()
-        hookMethod()
+        //hookMethod()
         
         
         if #available(iOS 14.0, *) {
