@@ -6,7 +6,7 @@ import SnapKit
 class InterceptViewController: UIViewController {
     var arrData = [("网易","https://www.163.com"),("sohu","https://www.sohu.com/"),("the verge","https://www.theverge.com/")]
     var tbMenu = UITableView()
-    
+    var isHooked = false
     
     
     override func viewDidLoad() {
@@ -21,8 +21,19 @@ class InterceptViewController: UIViewController {
         tbMenu.snp.makeConstraints { (m) in
             m.edges.equalTo(0)
         }
+        
+        let btn = UIBarButtonItem(title: "Swizzle", style: .plain, target: self, action: #selector(swizzleSchame))
+        navigationItem.rightBarButtonItem = btn
     }
     
+    @objc func swizzleSchame(){
+        if !isHooked{
+            (UIApplication.shared.delegate as? AppDelegate)?.hookMethod()
+            isHooked = true
+        }
+        let vc = HttpInterceptWebViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 

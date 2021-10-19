@@ -14,4 +14,5 @@ class BaseViewController: UIViewController {
          Log(message: "\(type(of:self))已经被回收了")
     }
 
+    
 }

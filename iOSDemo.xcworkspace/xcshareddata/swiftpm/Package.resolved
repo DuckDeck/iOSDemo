@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "Alamofire",
-        "repositoryURL": "https://github.com/Alamofire/Alamofire",
-        "state": {
-          "branch": null,
-          "revision": "eaf6e622dd41b07b251d8f01752eab31bc811493",
-          "version": "5.4.1"
-        }
-      },
-      {
         "package": "Gifu",
         "repositoryURL": "https://github.com/kaishin/Gifu",
         "state": {
@@ -20,75 +11,12 @@
         }
       },
       {
-        "package": "GrandMenu",
-        "repositoryURL": "https://github.com/DuckDeck/GrandMenu",
-        "state": {
-          "branch": null,
-          "revision": "2e948e2b8e78d61c0f3fec0c2623d32cd7e93b0a",
-          "version": "2.0.1"
-        }
-      },
-      {
-        "package": "GrandModel",
-        "repositoryURL": "https://github.com/DuckDeck/GrandModel",
-        "state": {
-          "branch": null,
-          "revision": "0e3344f84df10cdec4459b6c8bcfec8c302784d5",
-          "version": "2.0.2"
-        }
-      },
-      {
-        "package": "GrandRefresh",
-        "repositoryURL": "https://github.com/DuckDeck/GrandRefresh",
-        "state": {
-          "branch": null,
-          "revision": "84ff79b7526b25992c2567cc77c04d676a282013",
-          "version": "1.0.0"
-        }
-      },
-      {
-        "package": "GrandStore",
-        "repositoryURL": "https://github.com/DuckDeck/GrandStore",
-        "state": {
-          "branch": null,
-          "revision": "41c79ba8e6cf63953fd46c78a8b892a8c86382e9",
-          "version": "2.0.0"
-        }
-      },
-      {
         "package": "GrandTime",
         "repositoryURL": "https://github.com/DuckDeck/GrandTime",
         "state": {
           "branch": null,
           "revision": "17d09d446773036e24bc6a9227a8c2d111cffa8a",
           "version": "2.0.0"
-        }
-      },
-      {
-        "package": "IQKeyboardManagerSwift",
-        "repositoryURL": "https://github.com/hackiftekhar/IQKeyboardManager",
-        "state": {
-          "branch": null,
-          "revision": "4dc6bc7d1c9747bd0c261c8c055903f9fdef91f7",
-          "version": "6.5.6"
-        }
-      },
-      {
-        "package": "Kanna",
-        "repositoryURL": "https://github.com/tid-kijyun/Kanna",
-        "state": {
-          "branch": null,
-          "revision": "c657fb9f5827ef138068215c76ad0bb62bbc92da",
-          "version": "5.2.4"
-        }
-      },
-      {
-        "package": "Kingfisher",
-        "repositoryURL": "https://github.com/onevcat/Kingfisher",
-        "state": {
-          "branch": null,
-          "revision": "5840cfe0d4a942be41c1cb8a325cc27dd50be1e4",
-          "version": "6.0.0"
         }
       },
       {
@@ -107,15 +35,6 @@
           "branch": null,
           "revision": "265142816d8f8ea93840accaf4ac7c49998e77c2",
           "version": "3.4.7"
-        }
-      },
-      {
-        "package": "SnapKit",
-        "repositoryURL": "https://github.com/SnapKit/SnapKit",
-        "state": {
-          "branch": null,
-          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
-          "version": "5.0.1"
         }
       },
       {

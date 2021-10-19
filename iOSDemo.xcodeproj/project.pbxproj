@@ -166,6 +166,7 @@
 		AE5AD8C32254A22A00BD7EE9 /* MitoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5AD8C22254A22A00BD7EE9 /* MitoConfig.swift */; };
 		AE5CE7DB208B133C001DB437 /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CE7DA208B133C001DB437 /* RecordListViewController.swift */; };
 		AE5CE7DD208B2DBD001DB437 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CE7DC208B2DBD001DB437 /* UITableView+Extension.swift */; };
+		AE627D00271EDFD60025B443 /* upload.html in Resources */ = {isa = PBXBuildFile; fileRef = AE627CFF271EDFD60025B443 /* upload.html */; };
 		AE6691B320EDF39F00D019D4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6691B220EDF39F00D019D4 /* WebViewController.swift */; };
 		AE6691B620EDF3C100D019D4 /* HandleJSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6691B520EDF3C100D019D4 /* HandleJSViewController.swift */; };
 		AE6691B920EDF4C100D019D4 /* demo.html in Resources */ = {isa = PBXBuildFile; fileRef = AE6691B820EDF4C100D019D4 /* demo.html */; };
@@ -213,6 +214,7 @@
 		AE73A71626CF4FE10081E9B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9F31DC1F69070E00339BB8 /* Assets.xcassets */; };
 		AE7BBCE4207B498B005DBE0C /* WatermarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BBCE3207B498B005DBE0C /* WatermarkViewController.swift */; };
 		AE7BBCE6207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BBCE5207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift */; };
+		AE82935E271D5A2C00A5066B /* HttpInterceptWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE82935D271D5A2C00A5066B /* HttpInterceptWebViewController.swift */; };
 		AE82B1CD200F3A55004D0ECE /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = AE82B1CC200F3A55004D0ECE /* Test.m */; };
 		AE8391D91F99CD5700F1FA56 /* CaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */; };
 		AE83BD6E1FDE6DA8001882D1 /* SensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE83BD6D1FDE6DA8001882D1 /* SensorViewController.swift */; };
@@ -657,6 +659,7 @@
 		AE5AD8C22254A22A00BD7EE9 /* MitoConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MitoConfig.swift; sourceTree = "<group>"; };
 		AE5CE7DA208B133C001DB437 /* RecordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewController.swift; sourceTree = "<group>"; };
 		AE5CE7DC208B2DBD001DB437 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		AE627CFF271EDFD60025B443 /* upload.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = upload.html; sourceTree = "<group>"; };
 		AE6691B220EDF39F00D019D4 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		AE6691B520EDF3C100D019D4 /* HandleJSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleJSViewController.swift; sourceTree = "<group>"; };
 		AE6691B820EDF4C100D019D4 /* demo.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = demo.html; sourceTree = "<group>"; };
@@ -709,6 +712,7 @@
 		AE73A70926CF4C280081E9B0 /* PinyinDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinyinDictionary.swift; sourceTree = "<group>"; };
 		AE7BBCE3207B498B005DBE0C /* WatermarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkViewController.swift; sourceTree = "<group>"; };
 		AE7BBCE5207B72C7005DBE0C /* iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOS开发技巧系列---打造强大的BaseModel(篇四：使用Swift反射).swift"; sourceTree = "<group>"; };
+		AE82935D271D5A2C00A5066B /* HttpInterceptWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpInterceptWebViewController.swift; sourceTree = "<group>"; };
 		AE82B1CB200F3A55004D0ECE /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 		AE82B1CC200F3A55004D0ECE /* Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
 		AE8391D81F99CD5700F1FA56 /* CaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSession.swift; sourceTree = "<group>"; };
@@ -1182,6 +1186,8 @@
 				AE101AF6269E739B00C2531C /* HttpIntercept.swift */,
 				AE101AF5269E739B00C2531C /* URLSchemeHandler.swift */,
 				AE6CB7E7271B20A1004E680F /* CacheWebViewController.swift */,
+				AE82935D271D5A2C00A5066B /* HttpInterceptWebViewController.swift */,
+				AE627CFF271EDFD60025B443 /* upload.html */,
 			);
 			path = HttpIntercept;
 			sourceTree = "<group>";
@@ -2978,6 +2984,7 @@
 				AE1DE0902099BE0A007910A5 /* p_2.png in Resources */,
 				AEBE40501FC8075C0087D7ED /* city.json in Resources */,
 				AE1DE0872099BE0A007910A5 /* p_12.png in Resources */,
+				AE627D00271EDFD60025B443 /* upload.html in Resources */,
 				AE1DE08D2099BE0A007910A5 /* p_5.png in Resources */,
 				AE1DE07B2099BE0A007910A5 /* p_8.png in Resources */,
 				AE1DE0852099BE0A007910A5 /* p_13.png in Resources */,
@@ -3113,6 +3120,7 @@
 				AEA681202420D908009748E4 /* MJRefreshBackStateFooter.m in Sources */,
 				AEA681102420D908009748E4 /* MJRefreshConfig.m in Sources */,
 				2051B88B2522DA940090B8C1 /* CatoMonitor.swift in Sources */,
+				AE82935E271D5A2C00A5066B /* HttpInterceptWebViewController.swift in Sources */,
 				AE1DE0962099BE0A007910A5 /* PieceImage.swift in Sources */,
 				AE0F708B1FBEB94100C8135C /* TouchViewController.swift in Sources */,
 				AEADFD4921115BBE00E6B58D /* UIButton+Extension.swift in Sources */,

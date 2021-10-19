@@ -57,7 +57,7 @@ extension CustomURLSchemeHandler {
     /// 加载本地资源
     private func loadLocalFile(fileName: String?, urlSchemeTask: WKURLSchemeTask) {
         if fileName == nil && fileName?.count == 0 { return }
-        
+        print(fileName)
         // 先从本地中文件中加载
         if resourceCache.contain(forKey: fileName!)  {
             // 缓存命中
