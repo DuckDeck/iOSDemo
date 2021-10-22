@@ -99,7 +99,7 @@ class HttpClient {
                 pa.append((item.value as! String).data(using: .utf8)!, withName: item.key)
             }
             else if item.value is Data {
-                pa.append(item.value as! Data, withName: "filedata", fileName: "blob", mimeType: "application/octet-stream")
+                pa.append(item.value as! Data, withName: item.key, fileName: "blob", mimeType: "application/octet-stream")
             }
         }
         multipartFormData = pa

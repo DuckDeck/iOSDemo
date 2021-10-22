@@ -61,8 +61,16 @@ extension HttpInterceptWebViewController:WKScriptMessageHandler,WKUIDelegate,WKN
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         let js = JSON(message.body)
         let str = js["data"].stringValue
-        let data = Data(base64Encoded: str)
-//        HttpClient.post("http://lovelive.ink:9000/upload/header")
+        let d = Data(base64Encoded: str)!
+        
+        HttpClient.post("http://lovelive.ink:9000/upload/header").addMultiParams(params: ["upload-key":d]).completion { data, error in
+            if error != nil{
+                print(error.debugDescription)
+                return
+            }
+            let str = String(data: data!, encoding: .utf8)
+            print(str)
+        }
     }
     
     
