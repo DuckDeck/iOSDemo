@@ -107,9 +107,7 @@ class HttpClient {
     }
     
     open func completion(_ completion: ((_ data: Data?, _ error: Error?)->Void)?) {
-        if !url.contain(subStr: "easylog") {
-            GLog(message: url)
-        }
+       
         if let p = params {
             Log(message: p)
         }
@@ -155,7 +153,7 @@ class HttpClient {
             var encodeType : ParameterEncoding = URLEncoding.default
             if headers != nil  && (method == .post || method == .put) {
                 for header in headers!.enumerated() {
-                    if header.element.name.contain(subStr: "Content-Type") {
+                    if header.element.name.contains( "Content-Type") {
                         if header.element.value.contains("application/json") {
                             encodeType = JSONEncoding.default
                             break

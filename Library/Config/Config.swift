@@ -9,7 +9,6 @@
 
 
 import UIKit
-import GrandStore
 
 enum ServerState:Int{
     case TestInNet = 0 //内部测试环境
@@ -55,34 +54,10 @@ let APPVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! S
 let Scale = ScreenWidth / 320.0
 let lineHeight:CGFloat = ScreenWidth == 414 ? 0.38334 : 0.5
 
-let APPAreaInfo = GrandStore(name: "APPAreaInfo", defaultValue: AddressInfo())
 
 
 /* \ */
 
-protocol SelfAware:class {
-    static func awake()
-}
-
-@objc class NothingToSeeHere: NSObject {
-
-    private static let doOnce: Any? = {
-        _harmlessFunction()
-    }()
-
-    static func harmlessFunction() {
-        _ = NothingToSeeHere.doOnce
-    }
-
-    private static func _harmlessFunction() {
-        let typeCount = Int(objc_getClassList(nil, 0))
-        let types = UnsafeMutablePointer<AnyClass>.allocate(capacity: typeCount)
-        let autoreleasingTypes = AutoreleasingUnsafeMutablePointer<AnyClass>(types)
-        objc_getClassList(autoreleasingTypes, Int32(typeCount))
-        for index in 0 ..< typeCount { (types[index] as? SelfAware.Type)?.awake() }
-        free(types)
-    }
-}
 
 
 func createInstanseFromString(className:String)->NSObject!{
@@ -137,15 +112,7 @@ func Log<T>(message:T,file:String = #file, method:String = #function,line:Int = 
     #endif
 }
 
-func GLog<T>(message:T,file:String = #file, method:String = #function,line:Int = #line){
-    if   let path = NSURL(string: file)
-    {
-        let log = "\(path.lastPathComponent!)[\(line)],\(method) \(message)"
-        let s = LogTool.sharedInstance.addLog(log: log)
-        print(s)
-        print(log)
-    }
-}
+
 
 
 infix operator =~
