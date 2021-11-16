@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import CallKit
 class ViewController: UIViewController {
-    var arrData = ["Basic","Media","Animation&Graphic","Layout","AI","Network","Touch","Library","Sensor","Data","Webview","Project","Algo"]
+    var arrData = ["Basic"]
     var tbMenu = UITableView()
     let ca = CXCallObserver.init()
     
@@ -83,30 +83,7 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.row {
         case 0:
             navigationController?.pushViewController(BasicViewController(), animated: true)
-        case 1:
-            navigationController?.pushViewController(MediaViewController(), animated: true)
-        case 2:
-              navigationController?.pushViewController(AnimationViewController(), animated: true)
-        case 3:
-            navigationController?.pushViewController(LayoutViewController(), animated: true)
-        case 4:
-            navigationController?.pushViewController(AIViewController(), animated: true)
-        case 5:
-            navigationController?.pushViewController(NetworkViewController(), animated: true)
-        case 6:
-            navigationController?.pushViewController(TouchViewController(), animated: true)
-        case 7:
-            navigationController?.pushViewController(LibraryViewController(), animated: true)
-        case 8:
-            navigationController?.pushViewController(SensorViewController(), animated: true)
-        case 9:
-            navigationController?.pushViewController(DataViewController(), animated: true)
-        case 10:
-            navigationController?.pushViewController(WebViewController(), animated: true)
-        case 11:
-            navigationController?.pushViewController(ProjectViewController(), animated: true)
-        case 12:
-            navigationController?.pushViewController(AlgoViewController(), animated: true)
+       
         default:
             break
         }

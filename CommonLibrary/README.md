@@ -1,3 +1,0 @@
-# CommonLibrary
-
-A description of this package.
