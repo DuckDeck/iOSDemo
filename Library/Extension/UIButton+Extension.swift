@@ -8,6 +8,8 @@
 
 import UIKit
 private var touchAreaEdgeInsets: UIEdgeInsets = .zero
+typealias buttonAction = (UIButton)->()
+
 extension UIButton{
     public var touchInsets:UIEdgeInsets{
         get{
@@ -37,4 +39,33 @@ extension UIButton{
         let hitFrame = relativeFramt.inset(by: self.touchInsets)
         return hitFrame.contains(point)
     }
+    
+    
+    private struct butKeys{
+       static var action = "click"
+   }
+   
+   @objc dynamic var click: buttonAction? {
+       set{
+           objc_setAssociatedObject(self,&butKeys.action, newValue, .OBJC_ASSOCIATION_COPY)
+       }
+       get{
+           if let action = objc_getAssociatedObject(self, &butKeys.action) as? buttonAction{
+               return action
+           }
+           return nil
+       }
+   }
+   
+   func addClickEvent(click:@escaping  buttonAction) {
+       self.click = click
+       self.addTarget(self, action: #selector(touchUpInSideFun), for: UIButton.Event.touchUpInside)
+       
+   }
+   
+   @objc func touchUpInSideFun(but: UIButton) {
+       if let click = self.click {
+           click(but)
+       }
+   }
 }

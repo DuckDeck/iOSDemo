@@ -10,7 +10,6 @@ import UIKit
 import IQKeyboardManagerSwift
 import os
 import WebKit
-import Logan
 //import netfox
 //import KTVHTTPCache
 @UIApplicationMain
@@ -42,13 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         monitor.start()
         
         //hookMethod()
+
         
-        
-        loganInit("123123".data(using: .utf8)!, "123456".data(using: .utf8)!, 10 * 1024 * 1024)
-        
-        #if DEBUG
-        loganUseASL(true)
-        #endif
         
         if #available(iOS 14.0, *) {
             let logger = Logger(subsystem: "com.shadow.edge", category: "loggggg")
