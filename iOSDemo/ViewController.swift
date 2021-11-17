@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import CallKit
+import Logan
 class ViewController: UIViewController {
     var arrData = ["Basic"]
     var tbMenu = UITableView()
@@ -40,6 +41,9 @@ class ViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        logan(1, "viewWillDisappear")
+        
         print("Old ViewController viewWillDisappear")
     }
     override func viewDidDisappear(_ animated: Bool) {
