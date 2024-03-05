@@ -147,6 +147,7 @@
 		AEB957DD22E5589900C71372 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB957DC22E5589900C71372 /* libiconv.tbd */; };
 		AEBA80E220BEA61B00F6A323 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA80E120BEA61B00F6A323 /* ProgressButton.swift */; };
 		AECDC13F2744ACAA0038BE68 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECDC13E2744ACAA0038BE68 /* LogViewController.swift */; };
+		AECDC1412744D8F90038BE68 /* LogTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECDC1402744D8F90038BE68 /* LogTool.swift */; };
 		AED97B47215A1E2500B124E7 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED97B46215A1E2500B124E7 /* BaseModel.swift */; };
 		AEDCE5BE20DBA15900A50536 /* BarSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDCE5BD20DBA15900A50536 /* BarSlider.swift */; };
 		AEF097812065EE650021E4ED /* LogInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF097802065EE650021E4ED /* LogInfo.swift */; };
@@ -383,6 +384,7 @@
 		AEBE40431FC806020087D7ED /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		AEBE40761FCEC25C0087D7ED /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		AECDC13E2744ACAA0038BE68 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
+		AECDC1402744D8F90038BE68 /* LogTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTool.swift; sourceTree = "<group>"; };
 		AED97B46215A1E2500B124E7 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		AEDCE5BD20DBA15900A50536 /* BarSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarSlider.swift; sourceTree = "<group>"; };
 		AEF097802065EE650021E4ED /* LogInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInfo.swift; sourceTree = "<group>"; };
@@ -924,6 +926,7 @@
 			isa = PBXGroup;
 			children = (
 				AECDC13E2744ACAA0038BE68 /* LogViewController.swift */,
+				AECDC1402744D8F90038BE68 /* LogTool.swift */,
 			);
 			path = Log;
 			sourceTree = "<group>";
@@ -1041,7 +1044,7 @@
 				"${BUILT_PRODUCTS_DIR}/SQLiteRepairKit/sqliterk.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/WCDB/WCDB.framework",
+				"${BUILT_PRODUCTS_DIR}/WCDB.swift/WCDBSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1055,7 +1058,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqliterk.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDBSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqlcipher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1152,6 +1155,7 @@
 				AEAA3A2927438C0000807347 /* GrandTime.swift in Sources */,
 				2051B8842522D4130090B8C1 /* FPSTool.swift in Sources */,
 				AEA680B42420D6B7009748E4 /* TZAssetModel.m in Sources */,
+				AECDC1412744D8F90038BE68 /* LogTool.swift in Sources */,
 				AE9F31D61F69070E00339BB8 /* AppDelegate.swift in Sources */,
 				AEA6812F2420D908009748E4 /* MJRefreshNormalHeader.m in Sources */,
 				AE3F46F820AC0D1B007BA637 /* TimerButton.swift in Sources */,

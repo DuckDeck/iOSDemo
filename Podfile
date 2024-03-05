@@ -10,7 +10,7 @@ target 'iOSDemo' do
   pod 'IQKeyboardManagerSwift'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Kingfisher', '~> 7.0'
-  pod 'WCDB'
+  pod 'WCDB.swift'
   pod 'LookinServer', :configurations => ['Debug']
   # Pods for iOSDemo
 
