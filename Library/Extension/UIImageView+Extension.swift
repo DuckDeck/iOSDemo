@@ -30,13 +30,12 @@ extension UIImageView{
         }
         
         if url!.hasPrefix("http"){
-            let res = ImageResource(downloadURL: URL(string: url!)!)
             var place:UIImage? = nil
             if let p = placeHolder{
                 place = UIImage(named: p)
             }
             
-            kf.setImage(with: res, placeholder:place, options: [.transition(.fade(1))], progressBlock: nil) { (res) in
+            kf.setImage(with: KF.ImageResource(downloadURL: URL.init(string: url!)!,cacheKey: nil), placeholder:place, options: [.transition(.fade(1))], progressBlock: nil) { (res) in
                 act.stopAnimating()
                 act.removeFromSuperview()
                 switch res{

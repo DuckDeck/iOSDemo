@@ -9,8 +9,7 @@ target 'iOSDemo' do
   pod 'Alamofire', '~> 5.4'
   pod 'IQKeyboardManagerSwift'
   pod 'SwiftyJSON', '~> 4.0'
-  pod 'Kingfisher', '~> 7.0'
-  pod 'WCDB.swift'
+  pod 'Kingfisher', '~> 7.10'
   pod 'LookinServer', :configurations => ['Debug']
   # Pods for iOSDemo
 

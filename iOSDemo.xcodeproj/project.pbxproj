@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -111,7 +111,6 @@
 		AEA681442420D908009748E4 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA681072420D908009748E4 /* MJRefreshComponent.m */; };
 		AEA9F835206A2A62000E7748 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA9F834206A2A62000E7748 /* HttpClient.swift */; };
 		AEAA3A1027438BFF00807347 /* StarReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAA39E427438BFF00807347 /* StarReview.swift */; };
-		AEAA3A1B27438C0000807347 /* MMKV.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAA39F127438BFF00807347 /* MMKV.xcframework */; };
 		AEAA3A1C27438C0000807347 /* GrandStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAA39F227438BFF00807347 /* GrandStore.swift */; };
 		AEAA3A1D27438C0000807347 /* LoadMoreFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAA39F427438BFF00807347 /* LoadMoreFooter.swift */; };
 		AEAA3A1E27438C0000807347 /* RefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAA39F527438BFF00807347 /* RefreshHeader.swift */; };
@@ -138,6 +137,13 @@
 		AEADFD2A2105B40E00E6B58D /* JXLayoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD292105B40E00E6B58D /* JXLayoutButton.m */; };
 		AEADFD44211001BE00E6B58D /* MemeryLeakTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD43211001BE00E6B58D /* MemeryLeakTestViewController.swift */; };
 		AEADFD4921115BBE00E6B58D /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEADFD4821115BBE00E6B58D /* UIButton+Extension.swift */; };
+		AEB188C42C41094400BFA61D /* appender-swift-bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = AEB188BA2C41094400BFA61D /* appender-swift-bridge.mm */; };
+		AEB188C52C41094400BFA61D /* mars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB188BC2C41094400BFA61D /* mars.framework */; };
+		AEB188C62C41094400BFA61D /* log_crypt.cc in Sources */ = {isa = PBXBuildFile; fileRef = AEB188BE2C41094400BFA61D /* log_crypt.cc */; };
+		AEB188C72C41094400BFA61D /* LogUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB188BF2C41094400BFA61D /* LogUtil.m */; };
+		AEB188C82C41094400BFA61D /* LogHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = AEB188C12C41094400BFA61D /* LogHelper.mm */; };
+		AEB188C92C410F0400BFA61D /* MMKV.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAA39F127438BFF00807347 /* MMKV.xcframework */; };
+		AEB188CA2C410F0400BFA61D /* MMKV.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AEAA39F127438BFF00807347 /* MMKV.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AEB771FE1F6A8089008C4365 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FD1F6A8089008C4365 /* Tool.swift */; };
 		AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */; };
 		AEB7D0A422603766008C899E /* FlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D0A322603766008C899E /* FlowView.swift */; };
@@ -172,6 +178,17 @@
 			files = (
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEB188CB2C410F0500BFA61D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AEB188CA2C410F0400BFA61D /* MMKV.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -369,6 +386,15 @@
 		AEADFD292105B40E00E6B58D /* JXLayoutButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXLayoutButton.m; sourceTree = "<group>"; };
 		AEADFD43211001BE00E6B58D /* MemeryLeakTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeryLeakTestViewController.swift; sourceTree = "<group>"; };
 		AEADFD4821115BBE00E6B58D /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		AEB188BA2C41094400BFA61D /* appender-swift-bridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "appender-swift-bridge.mm"; sourceTree = "<group>"; };
+		AEB188BB2C41094400BFA61D /* appender-swift-bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "appender-swift-bridge.h"; sourceTree = "<group>"; };
+		AEB188BC2C41094400BFA61D /* mars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = mars.framework; sourceTree = "<group>"; };
+		AEB188BE2C41094400BFA61D /* log_crypt.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = log_crypt.cc; sourceTree = "<group>"; };
+		AEB188BF2C41094400BFA61D /* LogUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogUtil.m; sourceTree = "<group>"; };
+		AEB188C02C41094400BFA61D /* log_crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log_crypt.h; sourceTree = "<group>"; };
+		AEB188C12C41094400BFA61D /* LogHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LogHelper.mm; sourceTree = "<group>"; };
+		AEB188C22C41094400BFA61D /* LogUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogUtil.h; sourceTree = "<group>"; };
+		AEB188C32C41094400BFA61D /* LogHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogHelper.h; sourceTree = "<group>"; };
 		AEB771FD1F6A8089008C4365 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		AEB771FF1F6A80F3008C4365 /* UIWindow+Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Base.swift"; sourceTree = "<group>"; };
 		AEB772111F6BB1DD008C4365 /* Foundation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
@@ -418,17 +444,18 @@
 				AEF5E9032282B8210071B38A /* libz.tbd in Frameworks */,
 				AEF5E9012282B8190071B38A /* libbz2.tbd in Frameworks */,
 				AEF5E8FF2282B80E0071B38A /* AudioToolbox.framework in Frameworks */,
+				AEB188C52C41094400BFA61D /* mars.framework in Frameworks */,
 				AEF5E8FD2282B8060071B38A /* AVFoundation.framework in Frameworks */,
 				AEF5E8FB2282B7EF0071B38A /* CoreGraphics.framework in Frameworks */,
 				AEF5E8F92282B7DE0071B38A /* MediaPlayer.framework in Frameworks */,
 				AEF5E8F12282AF4D0071B38A /* QuartzCore.framework in Frameworks */,
 				AE4EA75321806C3F0061FA84 /* CoreVideo.framework in Frameworks */,
+				AEB188C92C410F0400BFA61D /* MMKV.xcframework in Frameworks */,
 				AE4EA75121806C390061FA84 /* CoreMedia.framework in Frameworks */,
 				AE4EA74F21806C2A0061FA84 /* Accelerate.framework in Frameworks */,
 				AE4EA74D21806C1E0061FA84 /* CoreImage.framework in Frameworks */,
 				AE4EA74B21806C160061FA84 /* libc++.tbd in Frameworks */,
 				AE52B6A1251B7E96008A96DA /* CoreServices.framework in Frameworks */,
-				AEAA3A1B27438C0000807347 /* MMKV.xcframework in Frameworks */,
 				AE52B6AC251B92E6008A96DA /* GLKit.framework in Frameworks */,
 				AEF589D91F77ABB800D9A09F /* CoreML.framework in Frameworks */,
 				F04DFB3243ADD15AFBD2FA22 /* Pods_iOSDemo.framework in Frameworks */,
@@ -611,6 +638,7 @@
 		AE9F32311F690F1B00339BB8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				AEB188B82C41094400BFA61D /* mars */,
 				AEAA39E227438BFF00807347 /* GrandKit */,
 				AEA680D92420D908009748E4 /* MJRefresh */,
 				AEA6808B2420D6B7009748E4 /* TZImagePickerController */,
@@ -898,6 +926,38 @@
 			path = MemeryLeak;
 			sourceTree = "<group>";
 		};
+		AEB188B82C41094400BFA61D /* mars */ = {
+			isa = PBXGroup;
+			children = (
+				AEB188B92C41094400BFA61D /* bridge */,
+				AEB188BC2C41094400BFA61D /* mars.framework */,
+				AEB188BD2C41094400BFA61D /* Component */,
+			);
+			path = mars;
+			sourceTree = "<group>";
+		};
+		AEB188B92C41094400BFA61D /* bridge */ = {
+			isa = PBXGroup;
+			children = (
+				AEB188BB2C41094400BFA61D /* appender-swift-bridge.h */,
+				AEB188BA2C41094400BFA61D /* appender-swift-bridge.mm */,
+			);
+			path = bridge;
+			sourceTree = "<group>";
+		};
+		AEB188BD2C41094400BFA61D /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				AEB188BE2C41094400BFA61D /* log_crypt.cc */,
+				AEB188BF2C41094400BFA61D /* LogUtil.m */,
+				AEB188C02C41094400BFA61D /* log_crypt.h */,
+				AEB188C12C41094400BFA61D /* LogHelper.mm */,
+				AEB188C22C41094400BFA61D /* LogUtil.h */,
+				AEB188C32C41094400BFA61D /* LogHelper.h */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		AEB771FC1F6A807D008C4365 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -961,6 +1021,7 @@
 				AE9F31D01F69070E00339BB8 /* Resources */,
 				AE73A6F326CF4BC50081E9B0 /* Embed App Extensions */,
 				1104F2BD251A51B216AA457B /* [CP] Embed Pods Frameworks */,
+				AEB188CB2C410F0500BFA61D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1041,11 +1102,8 @@
 				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LookinServer/LookinServer.framework",
-				"${BUILT_PRODUCTS_DIR}/SQLiteRepairKit/sqliterk.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/WCDB.swift/WCDBSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1055,11 +1113,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LookinServer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqliterk.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDBSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqlcipher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1099,6 +1154,7 @@
 				AE4DA62D214B9BB900FCC7FD /* UIViewController+Extension.swift in Sources */,
 				AE4DA625214667A200FCC7FD /* ShadowAudioPlayerBack.swift in Sources */,
 				AE1AC81720D25FBC0002F779 /* CaptureSessionCoordinator.swift in Sources */,
+				AEB188C72C41094400BFA61D /* LogUtil.m in Sources */,
 				AEAA3A1027438BFF00807347 /* StarReview.swift in Sources */,
 				AE5A88831FF4913D00748F6A /* BaseViewController.swift in Sources */,
 				AE2C8C751FA30BB300000A1D /* Auth.swift in Sources */,
@@ -1112,9 +1168,11 @@
 				AEA6811A2420D908009748E4 /* UIView+MJExtension.m in Sources */,
 				AE3795272238EB10009292DE /* SlideMenuView.swift in Sources */,
 				AEAA3A2A27438C0000807347 /* GrandTimer.swift in Sources */,
+				AEB188C62C41094400BFA61D /* log_crypt.cc in Sources */,
 				AEA680C42420D6B7009748E4 /* TZImageManager.m in Sources */,
 				AEA681202420D908009748E4 /* MJRefreshBackStateFooter.m in Sources */,
 				AEA681102420D908009748E4 /* MJRefreshConfig.m in Sources */,
+				AEB188C82C41094400BFA61D /* LogHelper.mm in Sources */,
 				2051B88B2522DA940090B8C1 /* CatoMonitor.swift in Sources */,
 				AEADFD4921115BBE00E6B58D /* UIButton+Extension.swift in Sources */,
 				AEA9F835206A2A62000E7748 /* HttpClient.swift in Sources */,
@@ -1141,6 +1199,7 @@
 				AE3F46EE20AC0300007BA637 /* UIColor+Extension.swift in Sources */,
 				AEA6811D2420D908009748E4 /* MJRefreshBackGifFooter.m in Sources */,
 				AECDC13F2744ACAA0038BE68 /* LogViewController.swift in Sources */,
+				AEB188C42C41094400BFA61D /* appender-swift-bridge.mm in Sources */,
 				AE5AD8BF225355D100BD7EE9 /* ImageBrowserViewController.swift in Sources */,
 				AEA680BD2420D6B7009748E4 /* TZPhotoPreviewController.m in Sources */,
 				AEB772001F6A80F3008C4365 /* UIWindow+Base.swift in Sources */,
@@ -1376,6 +1435,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/framework",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Map",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/mars",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -1396,7 +1456,7 @@
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Lame",
 				);
 				OTHER_SWIFT_FLAGS = "-DDEBUG -Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = StanHu.iOSDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = StanHu.iOSDemoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1423,6 +1483,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Map",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/mars",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -1443,7 +1504,7 @@
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Lame",
 				);
 				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = StanHu.iOSDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = StanHu.iOSDemoa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/iOSDemo/bridge.h";

@@ -43,6 +43,7 @@ class ThreadViewController: UIViewController {
             m.edges.equalTo(0)
         }
      
+       
     }
 
 //    @objc func clickDown(sender:UIButton)  {
@@ -69,7 +70,7 @@ class ThreadViewController: UIViewController {
     }
     
     deinit {
-        pthread_mutex_destroy(&pRecursiveLock)
+        // pthread_mutex_destroy(&pRecursiveLock)
     }
 }
 extension ThreadViewController:UITableViewDelegate,UITableViewDataSource{
@@ -316,22 +317,27 @@ extension ThreadViewController{
 //test NSConditionLock
 extension ThreadViewController{
     func useNSConditionLock(){
-        let condLock = NSConditionLock(condition: 1)
-        condLock.lock(whenCondition: 1)
-        processCode(flag: 1) {
-            condLock.unlock(withCondition: 2)
-        }
-        condLock.lock(whenCondition: 2)
-        processCode(flag: 2) {
-            condLock.unlock(withCondition: 3)
-        }
-        condLock.lock(whenCondition: 3)
-        processCode(flag: 3) {
-            condLock.unlock(withCondition: 3)
-        }
-        condLock.lock(whenCondition: 4)
-        processCode(flag: 4) {
-            condLock.unlock()
-        }
+//        let condLock = NSConditionLock(condition: 1)
+//        condLock.lock(whenCondition: 1)
+//        processCode(flag: 1) {
+//            condLock.unlock(withCondition: 2)
+//        }
+//        condLock.lock(whenCondition: 2)
+//        processCode(flag: 2) {
+//            condLock.unlock(withCondition: 3)
+//        }
+//        condLock.lock(whenCondition: 3)
+//        processCode(flag: 3) {
+//            condLock.unlock(withCondition: 3)
+//        }
+//        condLock.lock(whenCondition: 4)
+//        processCode(flag: 4) {
+//            condLock.unlock()
+//        }
+        
+        for i in 0..<19999{
+           Logs.log(type: .info, tag: "1 号模块", content: "\(i)Test.mmap2 是缓存文件，不用关心，我们需要的是 Test_20170103.xlog 文件，我们把这个文件使用Mars提供的 Python 脚本进行解密。脚本在mars-master/mars/log/crypt/decode_mars_log_file.py把 decode_mars_log_file.py 和 Test_20170103.xlog 拉到桌面，从 MacOS 的终端使用 cd 命令进入桌面，再输入命令")
+            
+       }
     }
 }

@@ -44,6 +44,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         
+        
+        var jmb = JinkeyMarsBridge()
+        jmb.initXlogger(.debug, releaseLevel: .info, path: "/jinkeylog", prefix: "Test")
+        
+        
         if #available(iOS 14.0, *) {
             let logger = Logger(subsystem: "com.shadow.edge", category: "loggggg")
             logger.log("testesetet")
@@ -73,6 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
+        JinkeyMarsBridge().deinitXlogger()
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 

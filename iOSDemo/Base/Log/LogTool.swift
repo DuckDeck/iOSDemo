@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import WCDBSwift
 class LogTool{
-    static let db = Database(withPath: "\(NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, .userDomainMask, true).first!)/log.db")
+//    static let db = Database(withPath: "\(NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, .userDomainMask, true).first!)/log.db")
     
     init() {
 
@@ -35,3 +34,11 @@ struct log{
 }
 
 
+var logs = Logs()
+
+struct Logs{
+    static let mar = JinkeyMarsBridge()
+    static func log(type:XloggerType, tag:String,content:String){
+        mar.log(type, tag: tag, content: content)
+    }
+}

@@ -13,3 +13,4 @@
 #import "MJRefresh.h"
 #import "TZImagePickerController.h"
 #endif /* bridge_h */
+#import "appender-swift-bridge.h"
